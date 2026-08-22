@@ -51,6 +51,13 @@
 - Tür: Resmi İKV rehberi
 - Sınır: Sayfa sınıf yeteneklerinin adlarını ve puan bazlı sayısal etkilerini yayımlamıyor; bu alanlar doğrulanana kadar hesap motoruna eklenmeyecek.
 
+## 2026-08-23 — Üç sınıfın Büyük Hol tılsımları
+
+- Kaynaklar: Resmi Savaşçı, Büyücü ve Şifacı Büyük Hol tılsım tabloları.
+- Hesaplanan ilk kapsam: Savaşçı Ofansif Dövüşme; Büyücü Ateş/Buz/Elektrik/Fiziksel Bilgi; Şifacı Asit/Şifa Bilgisi, Zehirleme 1 ve Gazap serileri.
+- Kural: Doğrudan ve sayısal özellik çarpanları hesaplanır. Süre, bekleme, koşullu kontrol ve kaynak tüketimi etkileri ayrı durum modeli kurulana kadar yalnız araştırma kapsamındadır.
+- Kaynaklar: https://istanbuloyun.com/BuyukHolWarrior.aspx, https://istanbuloyun.com/BuyukHolMage.aspx, https://istanbuloyun.com/BuyukHolHealer.aspx
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı

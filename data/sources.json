@@ -4,5 +4,7 @@
   {"id":"ikv-hidra-update","url":"https://www.istanbuloyun.com/News.aspx?NewsId=19","title":"Hidra Eklentisi Yayında!","type":"official","accessedAt":"2026-08-22","independenceGroup":"official-ikv-news"},
   {"id":"ikv-ability-system","url":"https://istanbuloyun.com/AbilitySystem.aspx","title":"İKV Yetenek Sistemi","type":"official","accessedAt":"2026-08-22","independenceGroup":"official-ikv-guide"},
   {"id":"ikv-cemberlitas-faq","url":"https://www.istanbuloyun.com/cemberlitasSoruCevap.aspx","title":"Çemberlitaş Soru-Cevap","type":"official","accessedAt":"2026-08-22","independenceGroup":"official-ikv-cemberlitas"},
-  {"id":"ikv-healer-talismans","url":"https://istanbuloyun.com/BuyukHolHealer.aspx","title":"Büyük Hol Şifacı Tılsımları","type":"official","accessedAt":"2026-08-22","independenceGroup":"official-ikv-talismans"}
+  {"id":"ikv-healer-talismans","url":"https://istanbuloyun.com/BuyukHolHealer.aspx","title":"Büyük Hol Şifacı Tılsımları","type":"official","accessedAt":"2026-08-23","independenceGroup":"official-ikv-talismans"},
+  {"id":"ikv-mage-talismans","url":"https://istanbuloyun.com/BuyukHolMage.aspx","title":"Büyük Hol Büyücü Tılsımları","type":"official","accessedAt":"2026-08-23","independenceGroup":"official-ikv-talismans"},
+  {"id":"ikv-warrior-talismans","url":"https://istanbuloyun.com/BuyukHolWarrior.aspx","title":"Büyük Hol Savaşçı Tılsımları","type":"official","accessedAt":"2026-08-23","independenceGroup":"official-ikv-talismans"}
 ]

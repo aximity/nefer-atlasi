@@ -1,6 +1,6 @@
 import {classSlots,items,publishableStats,type CharacterClass,type Item,type Slot} from "./catalog";
 import {sumPublishedStats} from "./planner-core.mjs";
-export {applyWrath} from "./planner-core.mjs";
+export {applyTalisman,applyWrath} from "./planner-core.mjs";
 
 export type Goal="Fiziksel"|"Kritik"|"Buz"|"Elektrik"|"Ateş"|"Şifa"|"Asit"|"Zehir"|"Direnç"|"Enerji";
 export type BuildSelection=Partial<Record<Slot,string>>;

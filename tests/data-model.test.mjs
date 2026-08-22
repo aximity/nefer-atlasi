@@ -12,6 +12,7 @@ const stats = read("stats.json");
 const recipes = read("recipes.json");
 const sources = read("sources.json");
 const evidence = read("evidence.json");
+const talismans = read("talismans.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
@@ -30,6 +31,11 @@ test("üç sınıfın tüm set aileleri katalogda yer alır", () => {
   assert.equal(items.filter((item) => item.class === "Şifacı").length, 24);
   const families = new Set(items.map((item) => item.appearanceFamily));
   for (const family of ["bicak-sirti","tas-kanat","hidra-nefesi","kiyamet","sifir-kelvin","transformator","cehennem","ruh-doven","mevlana","hidroflorik","siyanur"]) assert.ok(families.has(family), `${family} eksik`);
+});
+
+test("üç sınıfın da hesaplanabilir tılsım serisi vardır", () => {
+  for (const klass of ["Savaşçı", "Büyücü", "Şifacı"])
+    assert.ok(talismans.some((talisman) => talisman.class === klass), `${klass} tılsımları eksik`);
 });
 
 test("yayımlanan temel eşya alanlarının tarihli ve kaynaklı kanıtı vardır", () => {

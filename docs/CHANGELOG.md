@@ -6,6 +6,7 @@
 - URL ve cihaz kayıtları sınıf, eşya, hedef, bağlam, tılsım ve puan sınırlarına göre doğrulanıyor.
 - Gazap 2 yalnız Gazap yeteneğinden gelen taban kritik ihtimalini çarpıyor; ekipman kritiğini değiştirmiyor.
 - Lint, TypeScript ve üretim derleme komutları Windows ve Unix ortamlarında çalışacak hale getirildi.
+- M3 tılsım seçimi Savaşçı, Büyücü ve Şifacı için sınıfa özel hale getirildi; ilk doğrudan hesaplanabilir seriler resmî tablolardan eklendi.
 
 ## 2026-08-22
 
