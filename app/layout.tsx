@@ -1,3 +1,3 @@
-import type { Metadata } from "next";import "./globals.css";
+import type { Metadata } from "next";import "./globals.css";import "./rarity.css";
 export const metadata:Metadata={metadataBase:new URL("https://ikv-esya-rehberi.gdyon.chatgpt.site"),title:"İKV Eşya Rehberi",description:"İKV eşyalarını, görünüş ailelerini, efsun varyantlarını ve düşme kaynaklarını keşfet.",openGraph:{title:"İKV Eşya Rehberi",description:"Görünüş, efsun ve düşme kaynağı.",images:["/og.png"]},twitter:{card:"summary_large_image",title:"İKV Eşya Rehberi",description:"Görünüş, efsun ve düşme kaynağı.",images:["/og.png"]},icons:{icon:"/favicon.svg"}};
 export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="tr"><body>{children}</body></html>}
