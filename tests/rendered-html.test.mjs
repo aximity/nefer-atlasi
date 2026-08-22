@@ -48,6 +48,6 @@ test("renders the verified class-specific build experience", async () => {
   assert.match(html, /M4 · HAZIRLIK DENETİMİ/);
   assert.match(html, /SAHA RAPORU/);
   assert.match(html, /Grup Bölgesi bu bölgeyle uyumlu/);
-  assert.match(html, /99<\/strong><span>kaynaklı eşya kaydı/);
+  assert.match(html, /129<\/strong><span>kaynaklı eşya kaydı/);
   assert.match(html, /Amplifikatör/);
 });

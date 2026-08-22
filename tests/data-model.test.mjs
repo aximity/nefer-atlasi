@@ -33,13 +33,21 @@ test("67 parçalık Çemberlitaş çekirdeği korunur; doğrulanmış aksesuarla
 });
 
 test("üç sınıf için yüzük, kolye ve hesaplanabilir gözlük verisi vardır", () => {
-  assert.equal(groupLootItems.length, 20);
+  assert.equal(groupLootItems.length, 50);
   assert.equal(glassesItems.length, 11);
   for (const klass of ["Savaşçı", "Büyücü", "Şifacı"]) {
     assert.ok(groupLootItems.some((item) => item.class === klass && item.slot === "Yüzük"));
     assert.ok(groupLootItems.some((item) => item.class === klass && item.slot === "Kolye"));
   }
   assert.ok(glassesStats.every((row) => row.stats.length > 0 && row.stats.every(([, value]) => value > 0)));
+});
+
+test("Sığınak, Migrat ve Çemberlitaş ekipmanları üç sınıfta da kapsanır", () => {
+  for (const klass of ["Savaşçı", "Büyücü", "Şifacı"]) {
+    assert.ok(groupLootItems.filter((item) => item.class === klass && item.region === "Sığınaklar").length >= 7, `${klass} Sığınak eksik`);
+    assert.ok(groupLootItems.filter((item) => item.class === klass && item.region === "Migrat").length >= 9, `${klass} Migrat eksik`);
+    assert.ok(items.filter((item) => item.class === klass).length >= 19, `${klass} Çemberlitaş eksik`);
+  }
 });
 
 test("üç sınıfın tüm set aileleri katalogda yer alır", () => {
