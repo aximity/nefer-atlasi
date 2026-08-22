@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-test("renders the verified eight-slot build experience", async () => {
+test("renders the verified class-specific build experience", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -33,11 +33,13 @@ test("renders the verified eight-slot build experience", async () => {
     assert.match(html, new RegExp(slot));
   }
   assert.match(html, /KANITLI BUILD PLANLAMA MOTORU/);
-  assert.match(html, /Sekiz yuvayı sen kur/);
+  assert.match(html, /Dokuz yuvayı sen kur/);
   assert.match(html, /Çelişkili özellikler hesap dışı/);
   assert.match(html, /DOĞRULANMIŞ GÖRSEL YOK/);
   assert.match(html, /M3 · TILSIM VE YETENEK MOTORU/);
   assert.match(html, /Yetenek başına en fazla 15 puan/);
   assert.match(html, /M4 · BAĞLAMSAL ÖNERİLER/);
   assert.match(html, /Çemberlitaş<!-- --> · <!-- -->Grup Bölgesi/);
+  assert.match(html, /67<\/strong><span>kaynaklı şaheser kaydı/);
+  assert.match(html, /Amplifikatör/);
 });

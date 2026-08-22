@@ -19,4 +19,5 @@
 - Bazı Çemberlitaş arşiv satırlarında aynı özellik iki kez yazılmış görünüyor.
 - Cehennem parçalarında alan adı/değer eşleşmeleri tutarsız olabilir.
 - Gözlük, yüzük ve kolye kayıtları henüz doğrulanmadı.
+- 67 Çemberlitaş şaheser kaydı modele alındı; yinelenen kaynak satırları alan bazında çelişkili tutuluyor.
 - Mevcut kayıtların tamamı ikinci bağımsız kaynak bekliyor.

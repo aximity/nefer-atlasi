@@ -1,1 +1,1928 @@
-[{"id":"blade-ridge-jacket-aksimm-asar","itemId":"blade-ridge-jacket","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-jacket-ald-r","itemId":"blade-ridge-jacket","attribute":"Saldırı","value":13760,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-jacket-ritik-rs-htimali","itemId":"blade-ridge-jacket","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-gloves-aksimm-asar","itemId":"blade-ridge-gloves","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-gloves-ald-r","itemId":"blade-ridge-gloves","attribute":"Saldırı","value":13760,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-gloves-ritik-rs-htimali","itemId":"blade-ridge-gloves","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-trousers-aksimm-asar","itemId":"blade-ridge-trousers","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-trousers-ald-r","itemId":"blade-ridge-trousers","attribute":"Saldırı","value":13760,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-trousers-ritik-rs-htimali","itemId":"blade-ridge-trousers","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-shoes-aksimm-asar","itemId":"blade-ridge-shoes","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-shoes-ald-r","itemId":"blade-ridge-shoes","attribute":"Saldırı","value":13760,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-shoes-ritik-rs-htimali","itemId":"blade-ridge-shoes","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-sword-aksimm-asar","itemId":"blade-ridge-sword","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-sword-ald-r","itemId":"blade-ridge-sword","attribute":"Saldırı","value":27520,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"blade-ridge-sword-ritik-rs-htimali","itemId":"blade-ridge-sword","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-jacket-y-asar-z","itemId":"zero-kelvin-jacket","attribute":"Büyü Hasarı (Buz)","value":150000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"zero-kelvin-jacket-aksimm-dret","itemId":"zero-kelvin-jacket","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"zero-kelvin-jacket-y-ritik-ans","itemId":"zero-kelvin-jacket","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"zero-kelvin-gloves-y-asar-z","itemId":"zero-kelvin-gloves","attribute":"Büyü Hasarı (Buz)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-gloves-aksimm-dret","itemId":"zero-kelvin-gloves","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-gloves-y-ritik-ans","itemId":"zero-kelvin-gloves","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-trousers-y-asar-z","itemId":"zero-kelvin-trousers","attribute":"Büyü Hasarı (Buz)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-trousers-aksimm-dret","itemId":"zero-kelvin-trousers","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-trousers-y-ritik-ans","itemId":"zero-kelvin-trousers","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-shoes-y-asar-z","itemId":"zero-kelvin-shoes","attribute":"Büyü Hasarı (Buz)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-shoes-aksimm-dret","itemId":"zero-kelvin-shoes","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-shoes-y-ritik-ans","itemId":"zero-kelvin-shoes","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-staff-y-asar-epsi","itemId":"zero-kelvin-staff","attribute":"Büyü Hasarı (Hepsi)","value":300000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-staff-y-asar-z","itemId":"zero-kelvin-staff","attribute":"Büyü Hasarı (Buz)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-staff-y-ritik-ans","itemId":"zero-kelvin-staff","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"zero-kelvin-staff-dret-ejenerasyon","itemId":"zero-kelvin-staff","attribute":"Kudret Rejenerasyonu","value":75000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-jacket-y-asar-lektrik","itemId":"transformer-jacket","attribute":"Büyü Hasarı (Elektrik)","value":150000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"transformer-jacket-aksimm-dret","itemId":"transformer-jacket","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"transformer-jacket-y-ritik-ans","itemId":"transformer-jacket","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"transformer-gloves-y-asar-lektrik","itemId":"transformer-gloves","attribute":"Büyü Hasarı (Elektrik)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-gloves-aksimm-dret","itemId":"transformer-gloves","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-gloves-y-ritik-ans","itemId":"transformer-gloves","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-trousers-y-asar-lektrik","itemId":"transformer-trousers","attribute":"Büyü Hasarı (Elektrik)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-trousers-aksimm-dret","itemId":"transformer-trousers","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-trousers-y-ritik-ans","itemId":"transformer-trousers","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-shoes-y-asar-lektrik","itemId":"transformer-shoes","attribute":"Büyü Hasarı (Elektrik)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-shoes-aksimm-dret","itemId":"transformer-shoes","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-shoes-y-ritik-ans","itemId":"transformer-shoes","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-staff-y-asar-epsi","itemId":"transformer-staff","attribute":"Büyü Hasarı (Hepsi)","value":300000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-staff-y-asar-lektrik","itemId":"transformer-staff","attribute":"Büyü Hasarı (Elektrik)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-staff-y-ritik-ans","itemId":"transformer-staff","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"transformer-staff-dret-ejenerasyon","itemId":"transformer-staff","attribute":"Kudret Rejenerasyonu","value":75000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"inferno-jacket-y-asar-tes","itemId":"inferno-jacket","attribute":"Büyü Hasarı (Ateş)","value":150000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-jacket-aksimm-dret","itemId":"inferno-jacket","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-jacket-y-ritik-ans","itemId":"inferno-jacket","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-gloves-y-asar-tes","itemId":"inferno-gloves","attribute":"Büyü Hasarı (Ateş)","value":150000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-gloves-aksimm-dret","itemId":"inferno-gloves","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-gloves-y-ritik-ans","itemId":"inferno-gloves","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-trousers-y-asar-tes","itemId":"inferno-trousers","attribute":"Büyü Hasarı (Ateş)","value":150000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-trousers-aksimm-dret","itemId":"inferno-trousers","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-trousers-y-ritik-ans","itemId":"inferno-trousers","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-shoes-y-asar-tes","itemId":"inferno-shoes","attribute":"Büyü Hasarı (Ateş)","value":150000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-shoes-aksimm-dret","itemId":"inferno-shoes","attribute":"Maksimum Kudret","value":220000,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-shoes-y-ritik-ans","itemId":"inferno-shoes","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"conflicted","lastChecked":"2026-08-22"},{"id":"inferno-staff-y-asar-epsi","itemId":"inferno-staff","attribute":"Büyü Hasarı (Hepsi)","value":300000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"inferno-staff-y-asar-tes","itemId":"inferno-staff","attribute":"Büyü Hasarı (Ateş)","value":150000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"inferno-staff-y-ritik-ans","itemId":"inferno-staff","attribute":"Büyü Kritik Şansı","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"inferno-staff-dret-ejenerasyon","itemId":"inferno-staff","attribute":"Kudret Rejenerasyonu","value":75000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-jacket-aksimm-asar","itemId":"soul-forger-jacket","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-jacket-ald-r","itemId":"soul-forger-jacket","attribute":"Saldırı","value":13760,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-jacket-ritik-rs-htimali","itemId":"soul-forger-jacket","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-gloves-aksimm-asar","itemId":"soul-forger-gloves","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-gloves-ald-r","itemId":"soul-forger-gloves","attribute":"Saldırı","value":13760,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-gloves-ritik-rs-htimali","itemId":"soul-forger-gloves","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-trousers-aksimm-asar","itemId":"soul-forger-trousers","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-trousers-ald-r","itemId":"soul-forger-trousers","attribute":"Saldırı","value":13760,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-trousers-ritik-rs-htimali","itemId":"soul-forger-trousers","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-shoes-aksimm-asar","itemId":"soul-forger-shoes","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-shoes-ald-r","itemId":"soul-forger-shoes","attribute":"Saldırı","value":13760,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-shoes-ritik-rs-htimali","itemId":"soul-forger-shoes","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-staff-aksimm-asar","itemId":"soul-forger-staff","attribute":"Maksimum Hasar","value":600000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-staff-ald-r","itemId":"soul-forger-staff","attribute":"Saldırı","value":27520,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-staff-ritik-rs-htimali","itemId":"soul-forger-staff","attribute":"Kritik Vuruş İhtimali","value":4354,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"soul-forger-staff-dret-ejenerasyon","itemId":"soul-forger-staff","attribute":"Kudret Rejenerasyonu","value":75000,"unit":"game_point","verificationStatus":"single_source","lastChecked":"2026-08-22"}]
+[
+  {
+    "id": "stat-bicak-sirti-ceket-maksimum-hasar",
+    "itemId": "bicak-sirti-ceket",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-ceket-saldiri",
+    "itemId": "bicak-sirti-ceket",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-ceket-kritik-vurus-ihtimali",
+    "itemId": "bicak-sirti-ceket",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-pantolon-maksimum-hasar",
+    "itemId": "bicak-sirti-pantolon",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-pantolon-saldiri",
+    "itemId": "bicak-sirti-pantolon",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-pantolon-kritik-vurus-ihtimali",
+    "itemId": "bicak-sirti-pantolon",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-eldiven-maksimum-hasar",
+    "itemId": "bicak-sirti-eldiven",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-eldiven-saldiri",
+    "itemId": "bicak-sirti-eldiven",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-eldiven-kritik-vurus-ihtimali",
+    "itemId": "bicak-sirti-eldiven",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-ayakkabi-maksimum-hasar",
+    "itemId": "bicak-sirti-ayakkabi",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-ayakkabi-saldiri",
+    "itemId": "bicak-sirti-ayakkabi",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-ayakkabi-kritik-vurus-ihtimali",
+    "itemId": "bicak-sirti-ayakkabi",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-zirh-maksimum-hasar",
+    "itemId": "bicak-sirti-zirh",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-zirh-saldiri",
+    "itemId": "bicak-sirti-zirh",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-zirh-kritik-vurus-ihtimali",
+    "itemId": "bicak-sirti-zirh",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-kilic-maksimum-hasar",
+    "itemId": "bicak-sirti-kilic",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-kilic-saldiri",
+    "itemId": "bicak-sirti-kilic",
+    "attribute": "Saldırı",
+    "value": 27520,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-bicak-sirti-kilic-kritik-vurus-ihtimali",
+    "itemId": "bicak-sirti-kilic",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-ceket-maksimum-enerji",
+    "itemId": "tas-kanat-ceket",
+    "attribute": "Maksimum Enerji",
+    "value": 477000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-ceket-savunma",
+    "itemId": "tas-kanat-ceket",
+    "attribute": "Savunma",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-ceket-kritik-zirhi",
+    "itemId": "tas-kanat-ceket",
+    "attribute": "Kritik Zırhı",
+    "value": 8000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-ceket-direnc-hepsi",
+    "itemId": "tas-kanat-ceket",
+    "attribute": "Direnç (HEPSİ)",
+    "value": 32000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-pantolon-maksimum-enerji",
+    "itemId": "tas-kanat-pantolon",
+    "attribute": "Maksimum Enerji",
+    "value": 477000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-pantolon-savunma",
+    "itemId": "tas-kanat-pantolon",
+    "attribute": "Savunma",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-pantolon-kritik-zirhi",
+    "itemId": "tas-kanat-pantolon",
+    "attribute": "Kritik Zırhı",
+    "value": 8000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-pantolon-direnc-hepsi",
+    "itemId": "tas-kanat-pantolon",
+    "attribute": "Direnç (HEPSİ)",
+    "value": 32000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-eldiven-maksimum-enerji",
+    "itemId": "tas-kanat-eldiven",
+    "attribute": "Maksimum Enerji",
+    "value": 477000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-eldiven-savunma",
+    "itemId": "tas-kanat-eldiven",
+    "attribute": "Savunma",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-eldiven-kritik-zirhi",
+    "itemId": "tas-kanat-eldiven",
+    "attribute": "Kritik Zırhı",
+    "value": 8000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-eldiven-direnc-hepsi",
+    "itemId": "tas-kanat-eldiven",
+    "attribute": "Direnç (HEPSİ)",
+    "value": 32000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-ayakkabi-maksimum-enerji",
+    "itemId": "tas-kanat-ayakkabi",
+    "attribute": "Maksimum Enerji",
+    "value": 477000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-ayakkabi-savunma",
+    "itemId": "tas-kanat-ayakkabi",
+    "attribute": "Savunma",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-ayakkabi-kritik-zirhi",
+    "itemId": "tas-kanat-ayakkabi",
+    "attribute": "Kritik Zırhı",
+    "value": 8000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-ayakkabi-direnc-hepsi",
+    "itemId": "tas-kanat-ayakkabi",
+    "attribute": "Direnç (HEPSİ)",
+    "value": 32000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-zirh-maksimum-enerji",
+    "itemId": "tas-kanat-zirh",
+    "attribute": "Maksimum Enerji",
+    "value": 477000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-zirh-savunma",
+    "itemId": "tas-kanat-zirh",
+    "attribute": "Savunma",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-zirh-kritik-zirhi",
+    "itemId": "tas-kanat-zirh",
+    "attribute": "Kritik Zırhı",
+    "value": 8000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-zirh-direnc-hepsi",
+    "itemId": "tas-kanat-zirh",
+    "attribute": "Direnç (HEPSİ)",
+    "value": 32000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-balta-maksimum-enerji",
+    "itemId": "tas-kanat-balta",
+    "attribute": "Maksimum Enerji",
+    "value": 477000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-balta-savunma",
+    "itemId": "tas-kanat-balta",
+    "attribute": "Savunma",
+    "value": 27520,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-balta-kritik-zirhi",
+    "itemId": "tas-kanat-balta",
+    "attribute": "Kritik Zırhı",
+    "value": 8000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-balta-direnc-hepsi",
+    "itemId": "tas-kanat-balta",
+    "attribute": "Direnç (HEPSİ)",
+    "value": 32000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-tabanca-maksimum-enerji",
+    "itemId": "tas-kanat-tabanca",
+    "attribute": "Maksimum Enerji",
+    "value": 477000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-tabanca-savunma",
+    "itemId": "tas-kanat-tabanca",
+    "attribute": "Savunma",
+    "value": 27520,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-tabanca-kritik-zirhi",
+    "itemId": "tas-kanat-tabanca",
+    "attribute": "Kritik Zırhı",
+    "value": 8000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-tas-kanat-tabanca-direnc-hepsi",
+    "itemId": "tas-kanat-tabanca",
+    "attribute": "Direnç (HEPSİ)",
+    "value": 32000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-ceket-hasar-ates",
+    "itemId": "hidra-nefesi-ceket",
+    "attribute": "Hasar (Ateş)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-ceket-saldiri",
+    "itemId": "hidra-nefesi-ceket",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-ceket-kritik-vurus-ihtimali",
+    "itemId": "hidra-nefesi-ceket",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-pantolon-hasar-ates",
+    "itemId": "hidra-nefesi-pantolon",
+    "attribute": "Hasar (Ateş)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-pantolon-saldiri",
+    "itemId": "hidra-nefesi-pantolon",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-pantolon-kritik-vurus-ihtimali",
+    "itemId": "hidra-nefesi-pantolon",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-eldiven-hasar-ates",
+    "itemId": "hidra-nefesi-eldiven",
+    "attribute": "Hasar (Ateş)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-eldiven-saldiri",
+    "itemId": "hidra-nefesi-eldiven",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-eldiven-kritik-vurus-ihtimali",
+    "itemId": "hidra-nefesi-eldiven",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-ayakkabi-hasar-ates",
+    "itemId": "hidra-nefesi-ayakkabi",
+    "attribute": "Hasar (Ateş)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-ayakkabi-saldiri",
+    "itemId": "hidra-nefesi-ayakkabi",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-ayakkabi-kritik-vurus-ihtimali",
+    "itemId": "hidra-nefesi-ayakkabi",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-zirh-hasar-ates",
+    "itemId": "hidra-nefesi-zirh",
+    "attribute": "Hasar (Ateş)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-zirh-saldiri",
+    "itemId": "hidra-nefesi-zirh",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-zirh-kritik-vurus-ihtimali",
+    "itemId": "hidra-nefesi-zirh",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-cift-bicak-hasar-ates",
+    "itemId": "hidra-nefesi-cift-bicak",
+    "attribute": "Hasar (Ateş)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-cift-bicak-saldiri",
+    "itemId": "hidra-nefesi-cift-bicak",
+    "attribute": "Saldırı",
+    "value": 27520,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidra-nefesi-cift-bicak-kritik-vurus-ihtimali",
+    "itemId": "hidra-nefesi-cift-bicak",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-ceket-buyu-hasari-fiziksel",
+    "itemId": "kiyamet-ceket",
+    "attribute": "Büyü Hasarı (Fiziksel)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-ceket-maksimum-kudret",
+    "itemId": "kiyamet-ceket",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-ceket-buyu-kritik-sansi",
+    "itemId": "kiyamet-ceket",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-pantolon-buyu-hasari-fiziksel",
+    "itemId": "kiyamet-pantolon",
+    "attribute": "Büyü Hasarı (Fiziksel)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-pantolon-maksimum-kudret",
+    "itemId": "kiyamet-pantolon",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-pantolon-buyu-kritik-sansi",
+    "itemId": "kiyamet-pantolon",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-eldiven-buyu-hasari-fiziksel",
+    "itemId": "kiyamet-eldiven",
+    "attribute": "Büyü Hasarı (Fiziksel)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-eldiven-maksimum-kudret",
+    "itemId": "kiyamet-eldiven",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-eldiven-buyu-kritik-sansi",
+    "itemId": "kiyamet-eldiven",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-ayakkabi-buyu-hasari-fiziksel",
+    "itemId": "kiyamet-ayakkabi",
+    "attribute": "Büyü Hasarı (Fiziksel)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-ayakkabi-maksimum-kudret",
+    "itemId": "kiyamet-ayakkabi",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-ayakkabi-buyu-kritik-sansi",
+    "itemId": "kiyamet-ayakkabi",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel",
+    "itemId": "kiyamet-amplifikatoru",
+    "attribute": "Büyü Hasarı (Fiziksel)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-amplifikatoru-maksimum-kudret",
+    "itemId": "kiyamet-amplifikatoru",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-amplifikatoru-buyu-kritik-sansi",
+    "itemId": "kiyamet-amplifikatoru",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-asa-buyu-hasari-hepsi",
+    "itemId": "kiyamet-asa",
+    "attribute": "Büyü Hasarı (Hepsi)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-asa-buyu-hasari-fiziksel",
+    "itemId": "kiyamet-asa",
+    "attribute": "Büyü Hasarı (Fiziksel)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-asa-buyu-kritik-sansi",
+    "itemId": "kiyamet-asa",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-kiyamet-asa-kudret-rejenerasyonu",
+    "itemId": "kiyamet-asa",
+    "attribute": "Kudret Rejenerasyonu",
+    "value": 75000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-ceket-buyu-hasari-buz",
+    "itemId": "sifir-kelvin-ceket",
+    "attribute": "Büyü Hasarı (Buz)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-ceket-maksimum-kudret",
+    "itemId": "sifir-kelvin-ceket",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-ceket-buyu-kritik-sansi",
+    "itemId": "sifir-kelvin-ceket",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-pantolon-buyu-hasari-buz",
+    "itemId": "sifir-kelvin-pantolon",
+    "attribute": "Büyü Hasarı (Buz)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-pantolon-maksimum-kudret",
+    "itemId": "sifir-kelvin-pantolon",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-pantolon-buyu-kritik-sansi",
+    "itemId": "sifir-kelvin-pantolon",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-eldiven-buyu-hasari-buz",
+    "itemId": "sifir-kelvin-eldiven",
+    "attribute": "Büyü Hasarı (Buz)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-eldiven-maksimum-kudret",
+    "itemId": "sifir-kelvin-eldiven",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-eldiven-buyu-kritik-sansi",
+    "itemId": "sifir-kelvin-eldiven",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-ayakkabi-buyu-hasari-buz",
+    "itemId": "sifir-kelvin-ayakkabi",
+    "attribute": "Büyü Hasarı (Buz)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-ayakkabi-maksimum-kudret",
+    "itemId": "sifir-kelvin-ayakkabi",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-ayakkabi-buyu-kritik-sansi",
+    "itemId": "sifir-kelvin-ayakkabi",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-amplifikator-buyu-hasari-buz",
+    "itemId": "sifir-kelvin-amplifikator",
+    "attribute": "Büyü Hasarı (Buz)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-amplifikator-maksimum-kudret",
+    "itemId": "sifir-kelvin-amplifikator",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-amplifikator-buyu-kritik-sansi",
+    "itemId": "sifir-kelvin-amplifikator",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-asa-buyu-hasari-hepsi",
+    "itemId": "sifir-kelvin-asa",
+    "attribute": "Büyü Hasarı (Hepsi)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-asa-buyu-hasari-buz",
+    "itemId": "sifir-kelvin-asa",
+    "attribute": "Büyü Hasarı (Buz)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-asa-buyu-kritik-sansi",
+    "itemId": "sifir-kelvin-asa",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-sifir-kelvin-asa-kudret-rejenerasyonu",
+    "itemId": "sifir-kelvin-asa",
+    "attribute": "Kudret Rejenerasyonu",
+    "value": 75000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-ceket-buyu-hasari-elektrik",
+    "itemId": "transformator-ceket",
+    "attribute": "Büyü Hasarı (Elektrik)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-ceket-maksimum-kudret",
+    "itemId": "transformator-ceket",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-ceket-buyu-kritik-sansi",
+    "itemId": "transformator-ceket",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-pantolon-buyu-hasari-elektrik",
+    "itemId": "transformator-pantolon",
+    "attribute": "Büyü Hasarı (Elektrik)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-pantolon-maksimum-kudret",
+    "itemId": "transformator-pantolon",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-pantolon-buyu-kritik-sansi",
+    "itemId": "transformator-pantolon",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-eldiven-buyu-hasari-elektrik",
+    "itemId": "transformator-eldiven",
+    "attribute": "Büyü Hasarı (Elektrik)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-eldiven-maksimum-kudret",
+    "itemId": "transformator-eldiven",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-eldiven-buyu-kritik-sansi",
+    "itemId": "transformator-eldiven",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-ayakkabi-buyu-hasari-elektrik",
+    "itemId": "transformator-ayakkabi",
+    "attribute": "Büyü Hasarı (Elektrik)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-ayakkabi-maksimum-kudret",
+    "itemId": "transformator-ayakkabi",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-ayakkabi-buyu-kritik-sansi",
+    "itemId": "transformator-ayakkabi",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-amplifikator-buyu-hasari-elektrik",
+    "itemId": "transformator-amplifikator",
+    "attribute": "Büyü Hasarı (Elektrik)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-amplifikator-maksimum-kudret",
+    "itemId": "transformator-amplifikator",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-amplifikator-buyu-kritik-sansi",
+    "itemId": "transformator-amplifikator",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-asa-buyu-hasari-hepsi",
+    "itemId": "transformator-asa",
+    "attribute": "Büyü Hasarı (Hepsi)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-asa-buyu-hasari-elektrik",
+    "itemId": "transformator-asa",
+    "attribute": "Büyü Hasarı (Elektrik)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-asa-buyu-kritik-sansi",
+    "itemId": "transformator-asa",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-transformator-asa-kudret-rejenerasyonu",
+    "itemId": "transformator-asa",
+    "attribute": "Kudret Rejenerasyonu",
+    "value": 75000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-ceket-buyu-hasari-ates",
+    "itemId": "cehennem-ceket",
+    "attribute": "Büyü Hasarı (Ateş)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-ceket-maksimum-kudret",
+    "itemId": "cehennem-ceket",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-ceket-buyu-kritik-sansi",
+    "itemId": "cehennem-ceket",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-pantolon-buyu-hasari-ates",
+    "itemId": "cehennem-pantolon",
+    "attribute": "Büyü Hasarı (Ateş)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-pantolon-maksimum-kudret",
+    "itemId": "cehennem-pantolon",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-pantolon-buyu-kritik-sansi",
+    "itemId": "cehennem-pantolon",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-eldiven-buyu-hasari-ates",
+    "itemId": "cehennem-eldiven",
+    "attribute": "Büyü Hasarı (Ateş)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-eldiven-maksimum-kudret",
+    "itemId": "cehennem-eldiven",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-eldiven-buyu-kritik-sansi",
+    "itemId": "cehennem-eldiven",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-ayakkabi-buyu-hasari-ates",
+    "itemId": "cehennem-ayakkabi",
+    "attribute": "Büyü Hasarı (Ateş)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-ayakkabi-maksimum-kudret",
+    "itemId": "cehennem-ayakkabi",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-ayakkabi-buyu-kritik-sansi",
+    "itemId": "cehennem-ayakkabi",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-amplifikator-buyu-hasari-ates",
+    "itemId": "cehennem-amplifikator",
+    "attribute": "Büyü Hasarı (Ateş)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-amplifikator-maksimum-kudret",
+    "itemId": "cehennem-amplifikator",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-amplifikator-buyu-kritik-sansi",
+    "itemId": "cehennem-amplifikator",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-asa-buyu-hasari-hepsi",
+    "itemId": "cehennem-asa",
+    "attribute": "Büyü Hasarı (Hepsi)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-asa-buyu-hasari-ates",
+    "itemId": "cehennem-asa",
+    "attribute": "Büyü Hasarı (Ateş)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-asa-buyu-kritik-sansi",
+    "itemId": "cehennem-asa",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-cehennem-asa-kudret-rejenerasyonu",
+    "itemId": "cehennem-asa",
+    "attribute": "Kudret Rejenerasyonu",
+    "value": 75000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-ceket-maksimum-hasar",
+    "itemId": "ruh-doven-ceket",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-ceket-saldiri",
+    "itemId": "ruh-doven-ceket",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-ceket-kritik-vurus-ihtimali",
+    "itemId": "ruh-doven-ceket",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-pantolon-maksimum-hasar",
+    "itemId": "ruh-doven-pantolon",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-pantolon-saldiri",
+    "itemId": "ruh-doven-pantolon",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-pantolon-kritik-vurus-ihtimali",
+    "itemId": "ruh-doven-pantolon",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-eldiven-maksimum-hasar",
+    "itemId": "ruh-doven-eldiven",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-eldiven-saldiri",
+    "itemId": "ruh-doven-eldiven",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-eldiven-kritik-vurus-ihtimali",
+    "itemId": "ruh-doven-eldiven",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-ayakkabi-maksimum-hasar",
+    "itemId": "ruh-doven-ayakkabi",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-ayakkabi-saldiri",
+    "itemId": "ruh-doven-ayakkabi",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-ayakkabi-kritik-vurus-ihtimali",
+    "itemId": "ruh-doven-ayakkabi",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-zirh-maksimum-hasar",
+    "itemId": "ruh-doven-zirh",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-zirh-saldiri",
+    "itemId": "ruh-doven-zirh",
+    "attribute": "Saldırı",
+    "value": 13760,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-zirh-kritik-vurus-ihtimali",
+    "itemId": "ruh-doven-zirh",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-asa-maksimum-hasar",
+    "itemId": "ruh-doven-asa",
+    "attribute": "Maksimum Hasar",
+    "value": 600000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-asa-saldiri",
+    "itemId": "ruh-doven-asa",
+    "attribute": "Saldırı",
+    "value": 27520,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-ruh-doven-asa-kritik-vurus-ihtimali",
+    "itemId": "ruh-doven-asa",
+    "attribute": "Kritik Vuruş İhtimali",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-ceket-iyilestirme-buyuleri",
+    "itemId": "mevlana-ceket",
+    "attribute": "İyileştirme Büyüleri",
+    "value": 224000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-ceket-maksimum-kudret",
+    "itemId": "mevlana-ceket",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-ceket-buyu-kritik-sansi",
+    "itemId": "mevlana-ceket",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-pantolon-iyilestirme-buyuleri",
+    "itemId": "mevlana-pantolon",
+    "attribute": "İyileştirme Büyüleri",
+    "value": 224000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-pantolon-maksimum-kudret",
+    "itemId": "mevlana-pantolon",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-pantolon-buyu-kritik-sansi",
+    "itemId": "mevlana-pantolon",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-eldiven-iyilestirme-buyuleri",
+    "itemId": "mevlana-eldiven",
+    "attribute": "İyileştirme Büyüleri",
+    "value": 224000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-eldiven-maksimum-kudret",
+    "itemId": "mevlana-eldiven",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-eldiven-buyu-kritik-sansi",
+    "itemId": "mevlana-eldiven",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-ayakkabi-iyilestirme-buyuleri",
+    "itemId": "mevlana-ayakkabi",
+    "attribute": "İyileştirme Büyüleri",
+    "value": 224000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-ayakkabi-maksimum-kudret",
+    "itemId": "mevlana-ayakkabi",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-ayakkabi-buyu-kritik-sansi",
+    "itemId": "mevlana-ayakkabi",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-zirh-iyilestirme-buyuleri",
+    "itemId": "mevlana-zirh",
+    "attribute": "İyileştirme Büyüleri",
+    "value": 224000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-zirh-maksimum-kudret",
+    "itemId": "mevlana-zirh",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-zirh-buyu-kritik-sansi",
+    "itemId": "mevlana-zirh",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-asa-iyilestirme-buyuleri",
+    "itemId": "mevlana-asa",
+    "attribute": "İyileştirme Büyüleri",
+    "value": 383000,
+    "unit": "raw_game_value",
+    "verificationStatus": "conflicted",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-asa-buyu-kritik-sansi",
+    "itemId": "mevlana-asa",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-mevlana-asa-kudret-rejenerasyonu",
+    "itemId": "mevlana-asa",
+    "attribute": "Kudret Rejenerasyonu",
+    "value": 75000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-ceket-buyu-hasari-asit",
+    "itemId": "hidroflorik-ceket",
+    "attribute": "Büyü Hasarı (Asit)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-ceket-maksimum-kudret",
+    "itemId": "hidroflorik-ceket",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-ceket-buyu-kritik-sansi",
+    "itemId": "hidroflorik-ceket",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-pantolon-buyu-hasari-asit",
+    "itemId": "hidroflorik-pantolon",
+    "attribute": "Büyü Hasarı (Asit)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-pantolon-maksimum-kudret",
+    "itemId": "hidroflorik-pantolon",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-pantolon-buyu-kritik-sansi",
+    "itemId": "hidroflorik-pantolon",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-eldiven-buyu-hasari-asit",
+    "itemId": "hidroflorik-eldiven",
+    "attribute": "Büyü Hasarı (Asit)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-eldiven-maksimum-kudret",
+    "itemId": "hidroflorik-eldiven",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-eldiven-buyu-kritik-sansi",
+    "itemId": "hidroflorik-eldiven",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-ayakkabi-buyu-hasari-asit",
+    "itemId": "hidroflorik-ayakkabi",
+    "attribute": "Büyü Hasarı (Asit)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-ayakkabi-maksimum-kudret",
+    "itemId": "hidroflorik-ayakkabi",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-ayakkabi-buyu-kritik-sansi",
+    "itemId": "hidroflorik-ayakkabi",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-zirh-buyu-hasari-asit",
+    "itemId": "hidroflorik-zirh",
+    "attribute": "Büyü Hasarı (Asit)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-zirh-maksimum-kudret",
+    "itemId": "hidroflorik-zirh",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-zirh-buyu-kritik-sansi",
+    "itemId": "hidroflorik-zirh",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-asa-buyu-hasari-hepsi",
+    "itemId": "hidroflorik-asa",
+    "attribute": "Büyü Hasarı (Hepsi)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-asa-buyu-hasari-asit",
+    "itemId": "hidroflorik-asa",
+    "attribute": "Büyü Hasarı (Asit)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-asa-buyu-kritik-sansi",
+    "itemId": "hidroflorik-asa",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-hidroflorik-asa-kudret-rejenerasyonu",
+    "itemId": "hidroflorik-asa",
+    "attribute": "Kudret Rejenerasyonu",
+    "value": 75000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-ceket-buyu-hasari-zehir",
+    "itemId": "siyanur-ceket",
+    "attribute": "Büyü Hasarı (Zehir)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-ceket-maksimum-kudret",
+    "itemId": "siyanur-ceket",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-ceket-buyu-kritik-sansi",
+    "itemId": "siyanur-ceket",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-pantolon-buyu-hasari-zehir",
+    "itemId": "siyanur-pantolon",
+    "attribute": "Büyü Hasarı (Zehir)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-pantolon-maksimum-kudret",
+    "itemId": "siyanur-pantolon",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-pantolon-buyu-kritik-sansi",
+    "itemId": "siyanur-pantolon",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-eldiven-buyu-hasari-zehir",
+    "itemId": "siyanur-eldiven",
+    "attribute": "Büyü Hasarı (Zehir)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-eldiven-maksimum-kudret",
+    "itemId": "siyanur-eldiven",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-eldiven-buyu-kritik-sansi",
+    "itemId": "siyanur-eldiven",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-ayakkabi-buyu-hasari-zehir",
+    "itemId": "siyanur-ayakkabi",
+    "attribute": "Büyü Hasarı (Zehir)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-ayakkabi-maksimum-kudret",
+    "itemId": "siyanur-ayakkabi",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-ayakkabi-buyu-kritik-sansi",
+    "itemId": "siyanur-ayakkabi",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-zirh-buyu-hasari-zehir",
+    "itemId": "siyanur-zirh",
+    "attribute": "Büyü Hasarı (Zehir)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-zirh-maksimum-kudret",
+    "itemId": "siyanur-zirh",
+    "attribute": "Maksimum Kudret",
+    "value": 220000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-zirh-buyu-kritik-sansi",
+    "itemId": "siyanur-zirh",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-asa-buyu-hasari-hepsi",
+    "itemId": "siyanur-asa",
+    "attribute": "Büyü Hasarı (Hepsi)",
+    "value": 300000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-asa-buyu-hasari-zehir",
+    "itemId": "siyanur-asa",
+    "attribute": "Büyü Hasarı (Zehir)",
+    "value": 150000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-asa-buyu-kritik-sansi",
+    "itemId": "siyanur-asa",
+    "attribute": "Büyü Kritik Şansı",
+    "value": 4354,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "stat-siyanur-asa-kudret-rejenerasyonu",
+    "itemId": "siyanur-asa",
+    "attribute": "Kudret Rejenerasyonu",
+    "value": 75000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  }
+]

@@ -17,3 +17,6 @@
 - URL paylaşımı ile cihazda build kaydetme/yükleme eklendi.
 - Gazap tabanı, tılsım çarpanı ve 15 puanlık yetenek dağılımı ayrıştırıldı.
 - Çemberlitaş bölge/boss bağlamı, rakip direnç çıkarımı ve teorik kombinasyon sayacı eklendi.
+- Üç sınıfın 11 Çemberlitaş set ailesi 67 eşya kaydıyla tamamlandı.
+- Savaşçı ve Şifacı için Zırh, Büyücü için Amplifikatör yuvası eklendi.
+- Büyücü fiziksel, Savaşçı ateş, Şifacı iyileştirme/asit/zehir hedefleri gerçek setlerle dolduruldu.

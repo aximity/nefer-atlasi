@@ -15,13 +15,21 @@ const evidence = read("evidence.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
-test("M1 başlangıç kataloğu 25 eşya ve her eşya için bir reçete içerir", () => {
-  assert.equal(items.length, 25);
+test("tam Çemberlitaş kataloğu 67 eşya ve her eşya için bir reçete içerir", () => {
+  assert.equal(items.length, 67);
   assert.equal(recipes.length, items.length);
   assert.deepEqual(
     new Set(recipes.map((recipe) => recipe.itemId)),
     new Set(items.map((item) => item.id)),
   );
+});
+
+test("üç sınıfın tüm set aileleri katalogda yer alır", () => {
+  assert.equal(items.filter((item) => item.class === "Savaşçı").length, 19);
+  assert.equal(items.filter((item) => item.class === "Büyücü").length, 24);
+  assert.equal(items.filter((item) => item.class === "Şifacı").length, 24);
+  const families = new Set(items.map((item) => item.appearanceFamily));
+  for (const family of ["bicak-sirti","tas-kanat","hidra-nefesi","kiyamet","sifir-kelvin","transformator","cehennem","ruh-doven","mevlana","hidroflorik","siyanur"]) assert.ok(families.has(family), `${family} eksik`);
 });
 
 test("yayımlanan temel eşya alanlarının tarihli ve kaynaklı kanıtı vardır", () => {

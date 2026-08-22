@@ -1,1 +1,3320 @@
-[{"id":"recipe-blade-ridge-jacket","itemId":"blade-ridge-jacket","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Altın","quantity":12},{"name":"Mavi Topaz","quantity":12},{"name":"Zamk","quantity":12},{"name":"Sibiryalı","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"Latex","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-blade-ridge-gloves","itemId":"blade-ridge-gloves","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Altın","quantity":12},{"name":"Mavi Topaz","quantity":12},{"name":"Zamk","quantity":12},{"name":"Sibiryalı","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Galata Sembolü","quantity":10},{"name":"Motorin","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Geyik Derisi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-blade-ridge-trousers","itemId":"blade-ridge-trousers","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Altın","quantity":12},{"name":"Mavi Topaz","quantity":12},{"name":"Zamk","quantity":12},{"name":"Sibiryalı","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Ateş Boyası","quantity":10},{"name":"Hydrargyrum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"İpek","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-blade-ridge-shoes","itemId":"blade-ridge-shoes","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Altın","quantity":12},{"name":"Mavi Topaz","quantity":12},{"name":"Zamk","quantity":12},{"name":"Sibiryalı","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Erg Yongası","quantity":10},{"name":"Antimon","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Kenevir Lifi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-blade-ridge-sword","itemId":"blade-ridge-sword","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Altın","quantity":12},{"name":"Mavi Topaz","quantity":12},{"name":"Zamk","quantity":12},{"name":"Sibiryalı","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Klorotoksin","quantity":10},{"name":"Kadim Hidra Pençesi","quantity":2},{"name":"Liderlik Sembolü","quantity":2},{"name":"Meran Mücevheri","quantity":2},{"name":"Dev Komodo Dişi","quantity":2},{"name":"Örümcek Gözü","quantity":2}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-zero-kelvin-jacket","itemId":"zero-kelvin-jacket","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Mavi Topaz","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Çıban Çiçeği","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"İridyum","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"Latex","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-zero-kelvin-gloves","itemId":"zero-kelvin-gloves","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Mavi Topaz","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Çıban Çiçeği","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"İridyum","quantity":8},{"name":"Galata Sembolü","quantity":10},{"name":"Motorin","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Geyik Derisi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-zero-kelvin-trousers","itemId":"zero-kelvin-trousers","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Mavi Topaz","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Çıban Çiçeği","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"İridyum","quantity":8},{"name":"Ateş Boyası","quantity":10},{"name":"Hydrargyrum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"İpek","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-zero-kelvin-shoes","itemId":"zero-kelvin-shoes","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Mavi Topaz","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Çıban Çiçeği","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"İridyum","quantity":8},{"name":"Erg Yongası","quantity":10},{"name":"Antimon","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Kenevir Lifi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-zero-kelvin-staff","itemId":"zero-kelvin-staff","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Mavi Topaz","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Çıban Çiçeği","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"İridyum","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Klorotoksin","quantity":10},{"name":"Kadim Hidra Pençesi","quantity":2},{"name":"Liderlik Sembolü","quantity":2},{"name":"Meran Mücevheri","quantity":2},{"name":"Dev Komodo Dişi","quantity":2},{"name":"Örümcek Gözü","quantity":2}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-transformer-jacket","itemId":"transformer-jacket","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Gümüş","quantity":12},{"name":"Sinek Mantarı","quantity":12},{"name":"Saf Kalay","quantity":60},{"name":"Menekşe Elmas","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"Latex","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-transformer-gloves","itemId":"transformer-gloves","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Gümüş","quantity":12},{"name":"Sinek Mantarı","quantity":12},{"name":"Saf Kalay","quantity":60},{"name":"Menekşe Elmas","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Galata Sembolü","quantity":10},{"name":"Motorin","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Geyik Derisi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-transformer-trousers","itemId":"transformer-trousers","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Gümüş","quantity":12},{"name":"Sinek Mantarı","quantity":12},{"name":"Saf Kalay","quantity":60},{"name":"Menekşe Elmas","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Ateş Boyası","quantity":10},{"name":"Hydrargyrum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"İpek","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-transformer-shoes","itemId":"transformer-shoes","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Gümüş","quantity":12},{"name":"Sinek Mantarı","quantity":12},{"name":"Saf Kalay","quantity":60},{"name":"Menekşe Elmas","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Erg Yongası","quantity":10},{"name":"Antimon","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Kenevir Lifi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-transformer-staff","itemId":"transformer-staff","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Saf Gümüş","quantity":12},{"name":"Sinek Mantarı","quantity":12},{"name":"Saf Kalay","quantity":60},{"name":"Menekşe Elmas","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Klorotoksin","quantity":10},{"name":"Kadim Hidra Pençesi","quantity":2},{"name":"Liderlik Sembolü","quantity":2},{"name":"Meran Mücevheri","quantity":2},{"name":"Dev Komodo Dişi","quantity":2},{"name":"Örümcek Gözü","quantity":2}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-inferno-jacket","itemId":"inferno-jacket","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Osmiyum","quantity":12},{"name":"Kripraz","quantity":12},{"name":"Budaksız Abanoz","quantity":12},{"name":"Ganoderma","quantity":8},{"name":"Akik","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"Latex","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-inferno-gloves","itemId":"inferno-gloves","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Osmiyum","quantity":12},{"name":"Kripraz","quantity":12},{"name":"Budaksız Abanoz","quantity":12},{"name":"Ganoderma","quantity":8},{"name":"Akik","quantity":8},{"name":"Galata Sembolü","quantity":10},{"name":"Motorin","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Geyik Derisi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-inferno-trousers","itemId":"inferno-trousers","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Osmiyum","quantity":12},{"name":"Kripraz","quantity":12},{"name":"Budaksız Abanoz","quantity":12},{"name":"Ganoderma","quantity":8},{"name":"Akik","quantity":8},{"name":"Ateş Boyası","quantity":10},{"name":"Hydrargyrum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"İpek","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-inferno-shoes","itemId":"inferno-shoes","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Osmiyum","quantity":12},{"name":"Kripraz","quantity":12},{"name":"Budaksız Abanoz","quantity":12},{"name":"Ganoderma","quantity":8},{"name":"Akik","quantity":8},{"name":"Erg Yongası","quantity":10},{"name":"Antimon","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Kenevir Lifi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-inferno-staff","itemId":"inferno-staff","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Osmiyum","quantity":12},{"name":"Kripraz","quantity":12},{"name":"Budaksız Abanoz","quantity":12},{"name":"Ganoderma","quantity":8},{"name":"Akik","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Klorotoksin","quantity":10},{"name":"Kadim Hidra Pençesi","quantity":2},{"name":"Liderlik Sembolü","quantity":2},{"name":"Meran Mücevheri","quantity":2},{"name":"Dev Komodo Dişi","quantity":2},{"name":"Örümcek Gözü","quantity":2}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-soul-forger-jacket","itemId":"soul-forger-jacket","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Turuncu Safir","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Zamk","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"Latex","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-soul-forger-gloves","itemId":"soul-forger-gloves","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Turuncu Safir","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Zamk","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Galata Sembolü","quantity":10},{"name":"Motorin","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Geyik Derisi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-soul-forger-trousers","itemId":"soul-forger-trousers","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Turuncu Safir","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Zamk","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Ateş Boyası","quantity":10},{"name":"Hydrargyrum","quantity":10},{"name":"Likit Kristal","quantity":10},{"name":"İpek","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-soul-forger-shoes","itemId":"soul-forger-shoes","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Turuncu Safir","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Zamk","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Erg Yongası","quantity":10},{"name":"Antimon","quantity":10},{"name":"Sürüngen Pulu","quantity":10},{"name":"Kenevir Lifi","quantity":30}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"},{"id":"recipe-soul-forger-staff","itemId":"soul-forger-staff","method":"Boss düşümü veya reçeteyle üretim","materials":[{"name":"Turuncu Safir","quantity":12},{"name":"Saf Platin","quantity":12},{"name":"Zamk","quantity":12},{"name":"Alexandrite","quantity":8},{"name":"Ganoderma","quantity":8},{"name":"Hidrojen","quantity":10},{"name":"Niobyum","quantity":10},{"name":"Klorotoksin","quantity":10},{"name":"Kadim Hidra Pençesi","quantity":2},{"name":"Liderlik Sembolü","quantity":2},{"name":"Meran Mücevheri","quantity":2},{"name":"Dev Komodo Dişi","quantity":2},{"name":"Örümcek Gözü","quantity":2}],"sourceId":"maxigame-cemberlitas-2015","verificationStatus":"single_source","lastChecked":"2026-08-22"}]
+[
+  {
+    "id": "recipe-bicak-sirti-ceket",
+    "itemId": "bicak-sirti-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-bicak-sirti-pantolon",
+    "itemId": "bicak-sirti-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-bicak-sirti-eldiven",
+    "itemId": "bicak-sirti-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-bicak-sirti-ayakkabi",
+    "itemId": "bicak-sirti-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-bicak-sirti-zirh",
+    "itemId": "bicak-sirti-zirh",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-bicak-sirti-kilic",
+    "itemId": "bicak-sirti-kilic",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-tas-kanat-ceket",
+    "itemId": "tas-kanat-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Krom",
+        "quantity": 24
+      },
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Şelit",
+        "quantity": 8
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-tas-kanat-pantolon",
+    "itemId": "tas-kanat-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Krom",
+        "quantity": 24
+      },
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Şelit",
+        "quantity": 8
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-tas-kanat-eldiven",
+    "itemId": "tas-kanat-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Krom",
+        "quantity": 24
+      },
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Şelit",
+        "quantity": 8
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-tas-kanat-ayakkabi",
+    "itemId": "tas-kanat-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Krom",
+        "quantity": 24
+      },
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Şelit",
+        "quantity": 8
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-tas-kanat-zirh",
+    "itemId": "tas-kanat-zirh",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Krom",
+        "quantity": 24
+      },
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Şelit",
+        "quantity": 8
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-tas-kanat-balta",
+    "itemId": "tas-kanat-balta",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Krom",
+        "quantity": 24
+      },
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Şelit",
+        "quantity": 8
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-tas-kanat-tabanca",
+    "itemId": "tas-kanat-tabanca",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Krom",
+        "quantity": 24
+      },
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Şelit",
+        "quantity": 8
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidra-nefesi-ceket",
+    "itemId": "hidra-nefesi-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Tungsten",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidra-nefesi-pantolon",
+    "itemId": "hidra-nefesi-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Tungsten",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidra-nefesi-eldiven",
+    "itemId": "hidra-nefesi-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Tungsten",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidra-nefesi-ayakkabi",
+    "itemId": "hidra-nefesi-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Tungsten",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidra-nefesi-zirh",
+    "itemId": "hidra-nefesi-zirh",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Tungsten",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidra-nefesi-cift-bicak",
+    "itemId": "hidra-nefesi-cift-bicak",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Tungsten",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Kızıl Zümrüt",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-kiyamet-ceket",
+    "itemId": "kiyamet-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Dört Yapraklı Yonca",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-kiyamet-pantolon",
+    "itemId": "kiyamet-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Dört Yapraklı Yonca",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-kiyamet-eldiven",
+    "itemId": "kiyamet-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Dört Yapraklı Yonca",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-kiyamet-ayakkabi",
+    "itemId": "kiyamet-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Dört Yapraklı Yonca",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-kiyamet-amplifikatoru",
+    "itemId": "kiyamet-amplifikatoru",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Dört Yapraklı Yonca",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-kiyamet-asa",
+    "itemId": "kiyamet-asa",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Altın",
+        "quantity": 12
+      },
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Dört Yapraklı Yonca",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-sifir-kelvin-ceket",
+    "itemId": "sifir-kelvin-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Çıban Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-sifir-kelvin-pantolon",
+    "itemId": "sifir-kelvin-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Çıban Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-sifir-kelvin-eldiven",
+    "itemId": "sifir-kelvin-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Çıban Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-sifir-kelvin-ayakkabi",
+    "itemId": "sifir-kelvin-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Çıban Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-sifir-kelvin-amplifikator",
+    "itemId": "sifir-kelvin-amplifikator",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Çıban Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-sifir-kelvin-asa",
+    "itemId": "sifir-kelvin-asa",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Mavi Topaz",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Çıban Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-transformator-ceket",
+    "itemId": "transformator-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Gümüş",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kalay",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-transformator-pantolon",
+    "itemId": "transformator-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Gümüş",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kalay",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-transformator-eldiven",
+    "itemId": "transformator-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Gümüş",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kalay",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-transformator-ayakkabi",
+    "itemId": "transformator-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Gümüş",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kalay",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-transformator-amplifikator",
+    "itemId": "transformator-amplifikator",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Gümüş",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kalay",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-transformator-asa",
+    "itemId": "transformator-asa",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Saf Gümüş",
+        "quantity": 12
+      },
+      {
+        "name": "Sinek Mantarı",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kalay",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-cehennem-ceket",
+    "itemId": "cehennem-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Budaksız Abanoz",
+        "quantity": 12
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Akik",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-cehennem-pantolon",
+    "itemId": "cehennem-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Budaksız Abanoz",
+        "quantity": 12
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Akik",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-cehennem-eldiven",
+    "itemId": "cehennem-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Budaksız Abanoz",
+        "quantity": 12
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Akik",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-cehennem-ayakkabi",
+    "itemId": "cehennem-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Budaksız Abanoz",
+        "quantity": 12
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Akik",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-cehennem-amplifikator",
+    "itemId": "cehennem-amplifikator",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Budaksız Abanoz",
+        "quantity": 12
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Akik",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-cehennem-asa",
+    "itemId": "cehennem-asa",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Kripraz",
+        "quantity": 12
+      },
+      {
+        "name": "Budaksız Abanoz",
+        "quantity": 12
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Akik",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-ruh-doven-ceket",
+    "itemId": "ruh-doven-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-ruh-doven-pantolon",
+    "itemId": "ruh-doven-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-ruh-doven-eldiven",
+    "itemId": "ruh-doven-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-ruh-doven-ayakkabi",
+    "itemId": "ruh-doven-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-ruh-doven-zirh",
+    "itemId": "ruh-doven-zirh",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-ruh-doven-asa",
+    "itemId": "ruh-doven-asa",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Zamk",
+        "quantity": 12
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-mevlana-ceket",
+    "itemId": "mevlana-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Isırgan Tohumu",
+        "quantity": 36
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-mevlana-pantolon",
+    "itemId": "mevlana-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Isırgan Tohumu",
+        "quantity": 36
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-mevlana-eldiven",
+    "itemId": "mevlana-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Isırgan Tohumu",
+        "quantity": 36
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-mevlana-ayakkabi",
+    "itemId": "mevlana-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Isırgan Tohumu",
+        "quantity": 36
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-mevlana-zirh",
+    "itemId": "mevlana-zirh",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Isırgan Tohumu",
+        "quantity": 36
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-mevlana-asa",
+    "itemId": "mevlana-asa",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Turuncu Safir",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Platin",
+        "quantity": 12
+      },
+      {
+        "name": "Isırgan Tohumu",
+        "quantity": 36
+      },
+      {
+        "name": "Alexandrite",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidroflorik-ceket",
+    "itemId": "hidroflorik-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Koni Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kurşun",
+        "quantity": 36
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidroflorik-pantolon",
+    "itemId": "hidroflorik-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Koni Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kurşun",
+        "quantity": 36
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidroflorik-eldiven",
+    "itemId": "hidroflorik-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Koni Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kurşun",
+        "quantity": 36
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidroflorik-ayakkabi",
+    "itemId": "hidroflorik-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Koni Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kurşun",
+        "quantity": 36
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidroflorik-zirh",
+    "itemId": "hidroflorik-zirh",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Koni Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kurşun",
+        "quantity": 36
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-hidroflorik-asa",
+    "itemId": "hidroflorik-asa",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Elmas",
+        "quantity": 12
+      },
+      {
+        "name": "Koni Çiçeği",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Kurşun",
+        "quantity": 36
+      },
+      {
+        "name": "Sibiryalı",
+        "quantity": 8
+      },
+      {
+        "name": "İridyum",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-siyanur-ceket",
+    "itemId": "siyanur-ceket",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Zümrüt",
+        "quantity": 12
+      },
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Bakır",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "Latex",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-siyanur-pantolon",
+    "itemId": "siyanur-pantolon",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Zümrüt",
+        "quantity": 12
+      },
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Bakır",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Ateş Boyası",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Likit Kristal",
+        "quantity": 10
+      },
+      {
+        "name": "İpek",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-siyanur-eldiven",
+    "itemId": "siyanur-eldiven",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Zümrüt",
+        "quantity": 12
+      },
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Bakır",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Galata Sembolü",
+        "quantity": 10
+      },
+      {
+        "name": "Motorin",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Geyik Derisi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-siyanur-ayakkabi",
+    "itemId": "siyanur-ayakkabi",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Zümrüt",
+        "quantity": 12
+      },
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Bakır",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Erg Yongası",
+        "quantity": 10
+      },
+      {
+        "name": "Antimon",
+        "quantity": 10
+      },
+      {
+        "name": "Sürüngen Pulu",
+        "quantity": 10
+      },
+      {
+        "name": "Kenevir Lifi",
+        "quantity": 30
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-siyanur-zirh",
+    "itemId": "siyanur-zirh",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Zümrüt",
+        "quantity": 12
+      },
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Bakır",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Köşk Madalyonu",
+        "quantity": 10
+      },
+      {
+        "name": "Hydrargyrum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Hidra Pençesi",
+        "quantity": 4
+      },
+      {
+        "name": "Taşkanat Derisi",
+        "quantity": 16
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "recipe-siyanur-asa",
+    "itemId": "siyanur-asa",
+    "method": "Boss düşümü veya reçeteyle üretim",
+    "materials": [
+      {
+        "name": "Yeşil Zümrüt",
+        "quantity": 12
+      },
+      {
+        "name": "Osmiyum",
+        "quantity": 12
+      },
+      {
+        "name": "Saf Bakır",
+        "quantity": 60
+      },
+      {
+        "name": "Menekşe Elmas",
+        "quantity": 8
+      },
+      {
+        "name": "Ganoderma",
+        "quantity": 8
+      },
+      {
+        "name": "Hidrojen",
+        "quantity": 10
+      },
+      {
+        "name": "Niobyum",
+        "quantity": 10
+      },
+      {
+        "name": "Klorotoksin",
+        "quantity": 10
+      },
+      {
+        "name": "Kadim Hidra Pençesi",
+        "quantity": 2
+      },
+      {
+        "name": "Liderlik Sembolü",
+        "quantity": 2
+      },
+      {
+        "name": "Meran Mücevheri",
+        "quantity": 2
+      },
+      {
+        "name": "Dev Komodo Dişi",
+        "quantity": 2
+      },
+      {
+        "name": "Örümcek Gözü",
+        "quantity": 2
+      }
+    ],
+    "sourceId": "maxigame-cemberlitas-2015",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-22"
+  }
+]
