@@ -1924,5 +1924,8 @@
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
     "lastChecked": "2026-08-22"
-  }
+  },
+  {"id":"stat-alternator-kolye-buz","itemId":"alternator-kolye","attribute":"Büyü Hasarı (Buz)","value":130000,"unit":"raw_game_value","verificationStatus":"single_source","lastChecked":"2026-08-23"},
+  {"id":"stat-alternator-kolye-elektrik","itemId":"alternator-kolye","attribute":"Büyü Hasarı (Elektrik)","value":130000,"unit":"raw_game_value","verificationStatus":"single_source","lastChecked":"2026-08-23"},
+  {"id":"stat-alternator-kolye-kritik","itemId":"alternator-kolye","attribute":"Büyü Kritik Şansı","value":3800,"unit":"raw_game_value","verificationStatus":"single_source","lastChecked":"2026-08-23"}
 ]

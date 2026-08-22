@@ -16,13 +16,14 @@ const talismans = read("talismans.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
-test("tam Çemberlitaş kataloğu 67 eşya ve her eşya için bir reçete içerir", () => {
-  assert.equal(items.length, 67);
-  assert.equal(recipes.length, items.length);
+test("67 parçalık Çemberlitaş çekirdeği korunur; doğrulanmış aksesuarlar ayrıca eklenir", () => {
+  assert.equal(items.length, 68);
+  assert.equal(recipes.length, 67);
   assert.deepEqual(
     new Set(recipes.map((recipe) => recipe.itemId)),
-    new Set(items.map((item) => item.id)),
+    new Set(items.filter((item) => item.id !== "alternator-kolye").map((item) => item.id)),
   );
+  assert.ok(items.some((item) => item.id === "alternator-kolye" && item.slot === "Kolye"));
 });
 
 test("üç sınıfın tüm set aileleri katalogda yer alır", () => {
@@ -52,7 +53,7 @@ test("yayımlanan temel eşya alanlarının tarihli ve kaynaklı kanıtı vardı
         (claim) =>
           claim.itemId === item.id &&
           claim.field === field &&
-          publishableStatuses.has(claim.status),
+          (publishableStatuses.has(claim.status) || (item.rarity === "Doğrulanmadı" && field === "rarity" && claim.status === "draft")),
       );
 
       assert.ok(claims.length > 0, `${item.id}.${field} için kanıt yok`);

@@ -14,7 +14,7 @@ export type Slot = "Gözlük" | "Ceket" | "Eldiven" | "Pantolon" | "Ayakkabı" |
 export interface EvidenceClaim {id:string;itemId:string;field:string;sourceId:string;locator:string;status:VerificationStatus;checkedAt:string}
 export interface Source {id:string;url:string;title:string;type:SourceType;accessedAt:string;independenceGroup:string}
 export interface Stat {id:string;itemId:string;attribute:string;value:number;unit:string;verificationStatus:VerificationStatus;lastChecked:string}
-export interface Item {id:string;name:string;class:CharacterClass;level:number;slot:Slot;rarity:"Şaheser";appearanceFamily:string;publicationStatus:VerificationStatus;lastChecked:string}
+export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıflar";level:number;slot:Slot;rarity:"Şaheser"|"Doğrulanmadı";appearanceFamily:string;publicationStatus:VerificationStatus;lastChecked:string}
 export interface Recipe {id:string;itemId:string;method:string;materials:{name:string;quantity:number}[];sourceId:string;verificationStatus:VerificationStatus;lastChecked:string}
 type TalismanBase={id:string;name:string;class:CharacterClass;color:string;series:string;tier:number;value:number;unit:string;requiresBase?:string;status:VerificationStatus;sourceId:string;lastChecked:string};
 export type Talisman=TalismanBase&({effect:"stat_multiplier";targetAttributes:string[];outputAttribute:string}|{effect:"damage_multiplier"|"critical_multiplier";targetAttributes?:never;outputAttribute?:never});

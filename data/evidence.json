@@ -6145,5 +6145,14 @@
     "locator": "ŞİFACI ŞAHESER REÇETELERİ başlığı",
     "status": "cross_verified",
     "checkedAt": "2026-08-22"
-  }
+  },
+  {"id":"ev-alternator-kolye-name","itemId":"alternator-kolye","field":"name","sourceId":"player-alternator-kolye-20260823","locator":"Eşya bilgi kutusu başlığı","status":"single_source","checkedAt":"2026-08-23"},
+  {"id":"ev-alternator-kolye-class","itemId":"alternator-kolye","field":"class","sourceId":"player-alternator-kolye-20260823","locator":"Gereksinimler: Sınıf [Tüm Sınıflar]","status":"single_source","checkedAt":"2026-08-23"},
+  {"id":"ev-alternator-kolye-level","itemId":"alternator-kolye","field":"level","sourceId":"player-alternator-kolye-20260823","locator":"Gereksinimler: Seviye [45]","status":"single_source","checkedAt":"2026-08-23"},
+  {"id":"ev-alternator-kolye-slot","itemId":"alternator-kolye","field":"slot","sourceId":"player-alternator-kolye-20260823","locator":"Tip: [Kolye]","status":"single_source","checkedAt":"2026-08-23"},
+  {"id":"ev-alternator-kolye-rarity","itemId":"alternator-kolye","field":"rarity","sourceId":"player-alternator-kolye-20260823","locator":"Nadirlik metni görüntüde yer almıyor","status":"draft","checkedAt":"2026-08-23"},
+  {"id":"ev-alternator-kolye-appearance","itemId":"alternator-kolye","field":"appearanceFamily","sourceId":"player-alternator-kolye-20260823","locator":"Ad ve kolye ikonu aynı açık bilgi kutusunda","status":"single_source","checkedAt":"2026-08-23"},
+  {"id":"ev-alternator-kolye-stat-buz","itemId":"alternator-kolye","field":"stats.Büyü Hasarı (Buz)","sourceId":"player-alternator-kolye-20260823","locator":"Eşya özellik satırı: 130.000","status":"single_source","checkedAt":"2026-08-23"},
+  {"id":"ev-alternator-kolye-stat-elektrik","itemId":"alternator-kolye","field":"stats.Büyü Hasarı (Elektrik)","sourceId":"player-alternator-kolye-20260823","locator":"Eşya özellik satırı: 130.000","status":"single_source","checkedAt":"2026-08-23"},
+  {"id":"ev-alternator-kolye-stat-kritik","itemId":"alternator-kolye","field":"stats.Büyü Kritik Şansı","sourceId":"player-alternator-kolye-20260823","locator":"Eşya özellik satırı: 3.800","status":"single_source","checkedAt":"2026-08-23"}
 ]

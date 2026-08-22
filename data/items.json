@@ -735,5 +735,16 @@
     "appearanceFamily": "siyanur",
     "publicationStatus": "single_source",
     "lastChecked": "2026-08-22"
+  },
+  {
+    "id": "alternator-kolye",
+    "name": "Alternatör Kolye",
+    "class": "Tüm Sınıflar",
+    "level": 45,
+    "slot": "Kolye",
+    "rarity": "Doğrulanmadı",
+    "appearanceFamily": "alternator",
+    "publicationStatus": "single_source",
+    "lastChecked": "2026-08-23"
   }
 ]

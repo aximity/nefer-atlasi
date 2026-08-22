@@ -12,7 +12,7 @@ export const goalsByClass:Record<CharacterClass,Goal[]>={
 const goalTerms:Record<Goal,string[]>={Fiziksel:["Maksimum Hasar","Saldırı","Fiziksel"],Kritik:["Kritik"],Buz:["Buz"],Elektrik:["Elektrik"],Ateş:["Ateş"],Şifa:["İyileştirme","Şifa"],Asit:["Asit"],Zehir:["Zehir"],Direnç:["Direnç","Savunma","Zırh"],Enerji:["Enerji"]};
 const weaponSuffix:Record<CharacterClass,RegExp>={"Savaşçı":/(Kılıç|Balta|Tabanca|Bıçak)$/,"Büyücü":/(Asa|Çifte)$/,"Şifacı":/(Asa|Çifte)$/};
 
-export function compatibleItems(klass:CharacterClass,slot:Slot){return items.filter(item=>item.class===klass&&item.slot===slot&&(slot!=="Silah"||weaponSuffix[klass].test(item.name)))}
+export function compatibleItems(klass:CharacterClass,slot:Slot){return items.filter(item=>(item.class===klass||item.class==="Tüm Sınıflar")&&item.slot===slot&&(slot!=="Silah"||weaponSuffix[klass].test(item.name)))}
 export function selectedItems(selection:BuildSelection){return Object.values(selection).map(id=>items.find(item=>item.id===id)).filter((item):item is Item=>Boolean(item))}
 export function scoreItem(item:Item,primary:Goal,secondary:Goal|null){return publishableStats(item.id).reduce((score,stat)=>score+(goalTerms[primary].some(term=>stat.attribute.includes(term))?2:0)+(secondary&&goalTerms[secondary].some(term=>stat.attribute.includes(term))?1:0),0)}
 export function scoreBuild(selection:BuildSelection,primary:Goal,secondary:Goal|null){return selectedItems(selection).reduce((sum,item)=>sum+scoreItem(item,primary,secondary),0)}
