@@ -5,6 +5,7 @@ import sourceRows from "../data/sources.json";
 import evidenceRows from "../data/evidence.json";
 import imageRows from "../data/images.json";
 import talismanRows from "../data/talismans.json";
+import contextRows from "../data/contexts.json";
 
 export type VerificationStatus = "draft" | "single_source" | "cross_verified" | "conflicted";
 export type SourceType = "official" | "forum" | "fandom" | "video" | "player_screenshot";
@@ -23,6 +24,7 @@ export const sources = sourceRows as Source[];
 export const evidence = evidenceRows as EvidenceClaim[];
 export const images = imageRows;
 export const talismans = talismanRows;
+export const contexts = contextRows;
 export const slots:Slot[]=["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Yüzük","Kolye","Silah"];
 export const isPublishable=(status:VerificationStatus)=>status==="single_source"||status==="cross_verified";
 export const itemEvidence=(itemId:string,field?:string)=>evidence.filter(e=>e.itemId===itemId&&(!field||e.field===field));

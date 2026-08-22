@@ -28,10 +28,16 @@ test("renders the verified eight-slot build experience", async () => {
   );
   const html = await response.text();
   assert.match(html, /İKV Eşya Rehberi ve Build Oluşturucu/);
-  assert.match(html, /SEKİZ YUVALI BUILD OLUŞTURUCU/);
+  assert.match(html, /M2 · GERÇEK BUILD EDİTÖRÜ/);
   for (const slot of ["Gözlük", "Ceket", "Eldiven", "Pantolon", "Ayakkabı", "Yüzük", "Kolye", "Silah"]) {
     assert.match(html, new RegExp(slot));
   }
-  assert.match(html, /Gazap 1 \(III\)/);
-  assert.match(html, /GÖRSEL DOĞRULANIYOR/);
+  assert.match(html, /KANITLI BUILD PLANLAMA MOTORU/);
+  assert.match(html, /Sekiz yuvayı sen kur/);
+  assert.match(html, /Çelişkili özellikler hesap dışı/);
+  assert.match(html, /DOĞRULANMIŞ GÖRSEL YOK/);
+  assert.match(html, /M3 · TILSIM VE YETENEK MOTORU/);
+  assert.match(html, /Yetenek başına en fazla 15 puan/);
+  assert.match(html, /M4 · BAĞLAMSAL ÖNERİLER/);
+  assert.match(html, /Çemberlitaş<!-- --> · <!-- -->Grup Bölgesi/);
 });

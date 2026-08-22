@@ -1,1 +1,2288 @@
-[{"id":"ev-blade-ridge-jacket-aksimm-asar","itemId":"blade-ridge-jacket","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ceket özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-jacket-ald-r","itemId":"blade-ridge-jacket","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ceket özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-jacket-ritik-rs-htimali","itemId":"blade-ridge-jacket","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ceket özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-jacket-name","itemId":"blade-ridge-jacket","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-jacket-class","itemId":"blade-ridge-jacket","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-jacket-slot","itemId":"blade-ridge-jacket","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-gloves-aksimm-asar","itemId":"blade-ridge-gloves","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-gloves-ald-r","itemId":"blade-ridge-gloves","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-gloves-ritik-rs-htimali","itemId":"blade-ridge-gloves","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-gloves-name","itemId":"blade-ridge-gloves","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-gloves-class","itemId":"blade-ridge-gloves","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-gloves-slot","itemId":"blade-ridge-gloves","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-trousers-aksimm-asar","itemId":"blade-ridge-trousers","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-trousers-ald-r","itemId":"blade-ridge-trousers","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-trousers-ritik-rs-htimali","itemId":"blade-ridge-trousers","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-trousers-name","itemId":"blade-ridge-trousers","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-trousers-class","itemId":"blade-ridge-trousers","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-trousers-slot","itemId":"blade-ridge-trousers","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-shoes-aksimm-asar","itemId":"blade-ridge-shoes","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-shoes-ald-r","itemId":"blade-ridge-shoes","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-shoes-ritik-rs-htimali","itemId":"blade-ridge-shoes","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-shoes-name","itemId":"blade-ridge-shoes","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-shoes-class","itemId":"blade-ridge-shoes","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-shoes-slot","itemId":"blade-ridge-shoes","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-sword-aksimm-asar","itemId":"blade-ridge-sword","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Kılıç özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-sword-ald-r","itemId":"blade-ridge-sword","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Kılıç özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-sword-ritik-rs-htimali","itemId":"blade-ridge-sword","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Kılıç özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-sword-name","itemId":"blade-ridge-sword","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Kılıç satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-sword-class","itemId":"blade-ridge-sword","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Kılıç satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-blade-ridge-sword-slot","itemId":"blade-ridge-sword","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Bıçak Sırtı Kılıç satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-jacket-y-asar-z","itemId":"zero-kelvin-jacket","field":"stats.Büyü Hasarı (Buz)","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-jacket-aksimm-dret","itemId":"zero-kelvin-jacket","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-jacket-y-ritik-ans","itemId":"zero-kelvin-jacket","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-jacket-name","itemId":"zero-kelvin-jacket","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-jacket-class","itemId":"zero-kelvin-jacket","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-jacket-slot","itemId":"zero-kelvin-jacket","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-gloves-y-asar-z","itemId":"zero-kelvin-gloves","field":"stats.Büyü Hasarı (Buz)","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-gloves-aksimm-dret","itemId":"zero-kelvin-gloves","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-gloves-y-ritik-ans","itemId":"zero-kelvin-gloves","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-gloves-name","itemId":"zero-kelvin-gloves","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-gloves-class","itemId":"zero-kelvin-gloves","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-gloves-slot","itemId":"zero-kelvin-gloves","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-trousers-y-asar-z","itemId":"zero-kelvin-trousers","field":"stats.Büyü Hasarı (Buz)","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-trousers-aksimm-dret","itemId":"zero-kelvin-trousers","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-trousers-y-ritik-ans","itemId":"zero-kelvin-trousers","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-trousers-name","itemId":"zero-kelvin-trousers","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-trousers-class","itemId":"zero-kelvin-trousers","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-trousers-slot","itemId":"zero-kelvin-trousers","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-shoes-y-asar-z","itemId":"zero-kelvin-shoes","field":"stats.Büyü Hasarı (Buz)","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-shoes-aksimm-dret","itemId":"zero-kelvin-shoes","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-shoes-y-ritik-ans","itemId":"zero-kelvin-shoes","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-shoes-name","itemId":"zero-kelvin-shoes","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-shoes-class","itemId":"zero-kelvin-shoes","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-shoes-slot","itemId":"zero-kelvin-shoes","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-staff-y-asar-epsi","itemId":"zero-kelvin-staff","field":"stats.Büyü Hasarı (Hepsi)","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-staff-y-asar-z","itemId":"zero-kelvin-staff","field":"stats.Büyü Hasarı (Buz)","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-staff-y-ritik-ans","itemId":"zero-kelvin-staff","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-staff-dret-ejenerasyon","itemId":"zero-kelvin-staff","field":"stats.Kudret Rejenerasyonu","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-staff-name","itemId":"zero-kelvin-staff","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-staff-class","itemId":"zero-kelvin-staff","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-zero-kelvin-staff-slot","itemId":"zero-kelvin-staff","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-jacket-y-asar-lektrik","itemId":"transformer-jacket","field":"stats.Büyü Hasarı (Elektrik)","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-transformer-jacket-aksimm-dret","itemId":"transformer-jacket","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-transformer-jacket-y-ritik-ans","itemId":"transformer-jacket","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-transformer-jacket-name","itemId":"transformer-jacket","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-jacket-class","itemId":"transformer-jacket","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-jacket-slot","itemId":"transformer-jacket","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-gloves-y-asar-lektrik","itemId":"transformer-gloves","field":"stats.Büyü Hasarı (Elektrik)","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-gloves-aksimm-dret","itemId":"transformer-gloves","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-gloves-y-ritik-ans","itemId":"transformer-gloves","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-gloves-name","itemId":"transformer-gloves","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-gloves-class","itemId":"transformer-gloves","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-gloves-slot","itemId":"transformer-gloves","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-trousers-y-asar-lektrik","itemId":"transformer-trousers","field":"stats.Büyü Hasarı (Elektrik)","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-trousers-aksimm-dret","itemId":"transformer-trousers","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-trousers-y-ritik-ans","itemId":"transformer-trousers","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-trousers-name","itemId":"transformer-trousers","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-trousers-class","itemId":"transformer-trousers","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-trousers-slot","itemId":"transformer-trousers","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-shoes-y-asar-lektrik","itemId":"transformer-shoes","field":"stats.Büyü Hasarı (Elektrik)","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-shoes-aksimm-dret","itemId":"transformer-shoes","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-shoes-y-ritik-ans","itemId":"transformer-shoes","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-shoes-name","itemId":"transformer-shoes","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-shoes-class","itemId":"transformer-shoes","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-shoes-slot","itemId":"transformer-shoes","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-staff-y-asar-epsi","itemId":"transformer-staff","field":"stats.Büyü Hasarı (Hepsi)","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-staff-y-asar-lektrik","itemId":"transformer-staff","field":"stats.Büyü Hasarı (Elektrik)","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-staff-y-ritik-ans","itemId":"transformer-staff","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-staff-dret-ejenerasyon","itemId":"transformer-staff","field":"stats.Kudret Rejenerasyonu","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-staff-name","itemId":"transformer-staff","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-staff-class","itemId":"transformer-staff","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-transformer-staff-slot","itemId":"transformer-staff","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-jacket-y-asar-tes","itemId":"inferno-jacket","field":"stats.Büyü Hasarı (Ateş)","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-jacket-aksimm-dret","itemId":"inferno-jacket","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-jacket-y-ritik-ans","itemId":"inferno-jacket","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ceket özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-jacket-name","itemId":"inferno-jacket","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-jacket-class","itemId":"inferno-jacket","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-jacket-slot","itemId":"inferno-jacket","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-gloves-y-asar-tes","itemId":"inferno-gloves","field":"stats.Büyü Hasarı (Ateş)","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Eldiven özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-gloves-aksimm-dret","itemId":"inferno-gloves","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Eldiven özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-gloves-y-ritik-ans","itemId":"inferno-gloves","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Eldiven özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-gloves-name","itemId":"inferno-gloves","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-gloves-class","itemId":"inferno-gloves","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-gloves-slot","itemId":"inferno-gloves","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-trousers-y-asar-tes","itemId":"inferno-trousers","field":"stats.Büyü Hasarı (Ateş)","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Pantolon özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-trousers-aksimm-dret","itemId":"inferno-trousers","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Pantolon özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-trousers-y-ritik-ans","itemId":"inferno-trousers","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Pantolon özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-trousers-name","itemId":"inferno-trousers","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-trousers-class","itemId":"inferno-trousers","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-trousers-slot","itemId":"inferno-trousers","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-shoes-y-asar-tes","itemId":"inferno-shoes","field":"stats.Büyü Hasarı (Ateş)","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ayakkabı özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-shoes-aksimm-dret","itemId":"inferno-shoes","field":"stats.Maksimum Kudret","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ayakkabı özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-shoes-y-ritik-ans","itemId":"inferno-shoes","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ayakkabı özellik satırları","status":"conflicted","checkedAt":"2026-08-22"},{"id":"ev-inferno-shoes-name","itemId":"inferno-shoes","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-shoes-class","itemId":"inferno-shoes","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-shoes-slot","itemId":"inferno-shoes","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-staff-y-asar-epsi","itemId":"inferno-staff","field":"stats.Büyü Hasarı (Hepsi)","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-staff-y-asar-tes","itemId":"inferno-staff","field":"stats.Büyü Hasarı (Ateş)","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-staff-y-ritik-ans","itemId":"inferno-staff","field":"stats.Büyü Kritik Şansı","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-staff-dret-ejenerasyon","itemId":"inferno-staff","field":"stats.Kudret Rejenerasyonu","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-staff-name","itemId":"inferno-staff","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-staff-class","itemId":"inferno-staff","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-inferno-staff-slot","itemId":"inferno-staff","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-jacket-aksimm-asar","itemId":"soul-forger-jacket","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ceket özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-jacket-ald-r","itemId":"soul-forger-jacket","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ceket özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-jacket-ritik-rs-htimali","itemId":"soul-forger-jacket","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ceket özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-jacket-name","itemId":"soul-forger-jacket","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-jacket-class","itemId":"soul-forger-jacket","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-jacket-slot","itemId":"soul-forger-jacket","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ceket satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-gloves-aksimm-asar","itemId":"soul-forger-gloves","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-gloves-ald-r","itemId":"soul-forger-gloves","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-gloves-ritik-rs-htimali","itemId":"soul-forger-gloves","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Eldiven özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-gloves-name","itemId":"soul-forger-gloves","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-gloves-class","itemId":"soul-forger-gloves","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-gloves-slot","itemId":"soul-forger-gloves","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Eldiven satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-trousers-aksimm-asar","itemId":"soul-forger-trousers","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-trousers-ald-r","itemId":"soul-forger-trousers","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-trousers-ritik-rs-htimali","itemId":"soul-forger-trousers","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Pantolon özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-trousers-name","itemId":"soul-forger-trousers","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-trousers-class","itemId":"soul-forger-trousers","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-trousers-slot","itemId":"soul-forger-trousers","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Pantolon satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-shoes-aksimm-asar","itemId":"soul-forger-shoes","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-shoes-ald-r","itemId":"soul-forger-shoes","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-shoes-ritik-rs-htimali","itemId":"soul-forger-shoes","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ayakkabı özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-shoes-name","itemId":"soul-forger-shoes","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-shoes-class","itemId":"soul-forger-shoes","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-shoes-slot","itemId":"soul-forger-shoes","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Ayakkabı satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-staff-aksimm-asar","itemId":"soul-forger-staff","field":"stats.Maksimum Hasar","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-staff-ald-r","itemId":"soul-forger-staff","field":"stats.Saldırı","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-staff-ritik-rs-htimali","itemId":"soul-forger-staff","field":"stats.Kritik Vuruş İhtimali","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-staff-dret-ejenerasyon","itemId":"soul-forger-staff","field":"stats.Kudret Rejenerasyonu","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Asa özellik satırları","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-staff-name","itemId":"soul-forger-staff","field":"name","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-staff-class","itemId":"soul-forger-staff","field":"class","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Asa satırı","status":"single_source","checkedAt":"2026-08-22"},{"id":"ev-soul-forger-staff-slot","itemId":"soul-forger-staff","field":"slot","sourceId":"maxigame-cemberlitas-2015","locator":"Ruh Döven Asa satırı","status":"single_source","checkedAt":"2026-08-22"}]
+[
+  {
+    "id": "ev-blade-ridge-jacket-aksimm-asar",
+    "itemId": "blade-ridge-jacket",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ceket özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-ald-r",
+    "itemId": "blade-ridge-jacket",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ceket özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-ritik-rs-htimali",
+    "itemId": "blade-ridge-jacket",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ceket özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-name",
+    "itemId": "blade-ridge-jacket",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-class",
+    "itemId": "blade-ridge-jacket",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-slot",
+    "itemId": "blade-ridge-jacket",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-aksimm-asar",
+    "itemId": "blade-ridge-gloves",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-ald-r",
+    "itemId": "blade-ridge-gloves",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-ritik-rs-htimali",
+    "itemId": "blade-ridge-gloves",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-name",
+    "itemId": "blade-ridge-gloves",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-class",
+    "itemId": "blade-ridge-gloves",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-slot",
+    "itemId": "blade-ridge-gloves",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-aksimm-asar",
+    "itemId": "blade-ridge-trousers",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-ald-r",
+    "itemId": "blade-ridge-trousers",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-ritik-rs-htimali",
+    "itemId": "blade-ridge-trousers",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-name",
+    "itemId": "blade-ridge-trousers",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-class",
+    "itemId": "blade-ridge-trousers",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-slot",
+    "itemId": "blade-ridge-trousers",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-aksimm-asar",
+    "itemId": "blade-ridge-shoes",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-ald-r",
+    "itemId": "blade-ridge-shoes",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-ritik-rs-htimali",
+    "itemId": "blade-ridge-shoes",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-name",
+    "itemId": "blade-ridge-shoes",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-class",
+    "itemId": "blade-ridge-shoes",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-slot",
+    "itemId": "blade-ridge-shoes",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-aksimm-asar",
+    "itemId": "blade-ridge-sword",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Kılıç özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-ald-r",
+    "itemId": "blade-ridge-sword",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Kılıç özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-ritik-rs-htimali",
+    "itemId": "blade-ridge-sword",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Kılıç özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-name",
+    "itemId": "blade-ridge-sword",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Kılıç satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-class",
+    "itemId": "blade-ridge-sword",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Kılıç satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-slot",
+    "itemId": "blade-ridge-sword",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı Kılıç satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-y-asar-z",
+    "itemId": "zero-kelvin-jacket",
+    "field": "stats.Büyü Hasarı (Buz)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-aksimm-dret",
+    "itemId": "zero-kelvin-jacket",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-y-ritik-ans",
+    "itemId": "zero-kelvin-jacket",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-name",
+    "itemId": "zero-kelvin-jacket",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-class",
+    "itemId": "zero-kelvin-jacket",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-slot",
+    "itemId": "zero-kelvin-jacket",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-y-asar-z",
+    "itemId": "zero-kelvin-gloves",
+    "field": "stats.Büyü Hasarı (Buz)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-aksimm-dret",
+    "itemId": "zero-kelvin-gloves",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-y-ritik-ans",
+    "itemId": "zero-kelvin-gloves",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-name",
+    "itemId": "zero-kelvin-gloves",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-class",
+    "itemId": "zero-kelvin-gloves",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-slot",
+    "itemId": "zero-kelvin-gloves",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-y-asar-z",
+    "itemId": "zero-kelvin-trousers",
+    "field": "stats.Büyü Hasarı (Buz)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-aksimm-dret",
+    "itemId": "zero-kelvin-trousers",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-y-ritik-ans",
+    "itemId": "zero-kelvin-trousers",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-name",
+    "itemId": "zero-kelvin-trousers",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-class",
+    "itemId": "zero-kelvin-trousers",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-slot",
+    "itemId": "zero-kelvin-trousers",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-y-asar-z",
+    "itemId": "zero-kelvin-shoes",
+    "field": "stats.Büyü Hasarı (Buz)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-aksimm-dret",
+    "itemId": "zero-kelvin-shoes",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-y-ritik-ans",
+    "itemId": "zero-kelvin-shoes",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-name",
+    "itemId": "zero-kelvin-shoes",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-class",
+    "itemId": "zero-kelvin-shoes",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-slot",
+    "itemId": "zero-kelvin-shoes",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-y-asar-epsi",
+    "itemId": "zero-kelvin-staff",
+    "field": "stats.Büyü Hasarı (Hepsi)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-y-asar-z",
+    "itemId": "zero-kelvin-staff",
+    "field": "stats.Büyü Hasarı (Buz)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-y-ritik-ans",
+    "itemId": "zero-kelvin-staff",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-dret-ejenerasyon",
+    "itemId": "zero-kelvin-staff",
+    "field": "stats.Kudret Rejenerasyonu",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-name",
+    "itemId": "zero-kelvin-staff",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-class",
+    "itemId": "zero-kelvin-staff",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-slot",
+    "itemId": "zero-kelvin-staff",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-y-asar-lektrik",
+    "itemId": "transformer-jacket",
+    "field": "stats.Büyü Hasarı (Elektrik)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-aksimm-dret",
+    "itemId": "transformer-jacket",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-y-ritik-ans",
+    "itemId": "transformer-jacket",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-name",
+    "itemId": "transformer-jacket",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-class",
+    "itemId": "transformer-jacket",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-slot",
+    "itemId": "transformer-jacket",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-y-asar-lektrik",
+    "itemId": "transformer-gloves",
+    "field": "stats.Büyü Hasarı (Elektrik)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-aksimm-dret",
+    "itemId": "transformer-gloves",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-y-ritik-ans",
+    "itemId": "transformer-gloves",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-name",
+    "itemId": "transformer-gloves",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-class",
+    "itemId": "transformer-gloves",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-slot",
+    "itemId": "transformer-gloves",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-y-asar-lektrik",
+    "itemId": "transformer-trousers",
+    "field": "stats.Büyü Hasarı (Elektrik)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-aksimm-dret",
+    "itemId": "transformer-trousers",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-y-ritik-ans",
+    "itemId": "transformer-trousers",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-name",
+    "itemId": "transformer-trousers",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-class",
+    "itemId": "transformer-trousers",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-slot",
+    "itemId": "transformer-trousers",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-y-asar-lektrik",
+    "itemId": "transformer-shoes",
+    "field": "stats.Büyü Hasarı (Elektrik)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-aksimm-dret",
+    "itemId": "transformer-shoes",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-y-ritik-ans",
+    "itemId": "transformer-shoes",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-name",
+    "itemId": "transformer-shoes",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-class",
+    "itemId": "transformer-shoes",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-slot",
+    "itemId": "transformer-shoes",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-y-asar-epsi",
+    "itemId": "transformer-staff",
+    "field": "stats.Büyü Hasarı (Hepsi)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-y-asar-lektrik",
+    "itemId": "transformer-staff",
+    "field": "stats.Büyü Hasarı (Elektrik)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-y-ritik-ans",
+    "itemId": "transformer-staff",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-dret-ejenerasyon",
+    "itemId": "transformer-staff",
+    "field": "stats.Kudret Rejenerasyonu",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-name",
+    "itemId": "transformer-staff",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-class",
+    "itemId": "transformer-staff",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-slot",
+    "itemId": "transformer-staff",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-y-asar-tes",
+    "itemId": "inferno-jacket",
+    "field": "stats.Büyü Hasarı (Ateş)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-aksimm-dret",
+    "itemId": "inferno-jacket",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-y-ritik-ans",
+    "itemId": "inferno-jacket",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ceket özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-name",
+    "itemId": "inferno-jacket",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-class",
+    "itemId": "inferno-jacket",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-slot",
+    "itemId": "inferno-jacket",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-y-asar-tes",
+    "itemId": "inferno-gloves",
+    "field": "stats.Büyü Hasarı (Ateş)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Eldiven özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-aksimm-dret",
+    "itemId": "inferno-gloves",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Eldiven özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-y-ritik-ans",
+    "itemId": "inferno-gloves",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Eldiven özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-name",
+    "itemId": "inferno-gloves",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-class",
+    "itemId": "inferno-gloves",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-slot",
+    "itemId": "inferno-gloves",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-y-asar-tes",
+    "itemId": "inferno-trousers",
+    "field": "stats.Büyü Hasarı (Ateş)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Pantolon özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-aksimm-dret",
+    "itemId": "inferno-trousers",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Pantolon özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-y-ritik-ans",
+    "itemId": "inferno-trousers",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Pantolon özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-name",
+    "itemId": "inferno-trousers",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-class",
+    "itemId": "inferno-trousers",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-slot",
+    "itemId": "inferno-trousers",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-y-asar-tes",
+    "itemId": "inferno-shoes",
+    "field": "stats.Büyü Hasarı (Ateş)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ayakkabı özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-aksimm-dret",
+    "itemId": "inferno-shoes",
+    "field": "stats.Maksimum Kudret",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ayakkabı özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-y-ritik-ans",
+    "itemId": "inferno-shoes",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ayakkabı özellik satırları",
+    "status": "conflicted",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-name",
+    "itemId": "inferno-shoes",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-class",
+    "itemId": "inferno-shoes",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-slot",
+    "itemId": "inferno-shoes",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-y-asar-epsi",
+    "itemId": "inferno-staff",
+    "field": "stats.Büyü Hasarı (Hepsi)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-y-asar-tes",
+    "itemId": "inferno-staff",
+    "field": "stats.Büyü Hasarı (Ateş)",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-y-ritik-ans",
+    "itemId": "inferno-staff",
+    "field": "stats.Büyü Kritik Şansı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-dret-ejenerasyon",
+    "itemId": "inferno-staff",
+    "field": "stats.Kudret Rejenerasyonu",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-name",
+    "itemId": "inferno-staff",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-class",
+    "itemId": "inferno-staff",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-slot",
+    "itemId": "inferno-staff",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-aksimm-asar",
+    "itemId": "soul-forger-jacket",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ceket özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-ald-r",
+    "itemId": "soul-forger-jacket",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ceket özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-ritik-rs-htimali",
+    "itemId": "soul-forger-jacket",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ceket özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-name",
+    "itemId": "soul-forger-jacket",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-class",
+    "itemId": "soul-forger-jacket",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-slot",
+    "itemId": "soul-forger-jacket",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ceket satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-aksimm-asar",
+    "itemId": "soul-forger-gloves",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-ald-r",
+    "itemId": "soul-forger-gloves",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-ritik-rs-htimali",
+    "itemId": "soul-forger-gloves",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Eldiven özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-name",
+    "itemId": "soul-forger-gloves",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-class",
+    "itemId": "soul-forger-gloves",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-slot",
+    "itemId": "soul-forger-gloves",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Eldiven satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-aksimm-asar",
+    "itemId": "soul-forger-trousers",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-ald-r",
+    "itemId": "soul-forger-trousers",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-ritik-rs-htimali",
+    "itemId": "soul-forger-trousers",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Pantolon özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-name",
+    "itemId": "soul-forger-trousers",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-class",
+    "itemId": "soul-forger-trousers",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-slot",
+    "itemId": "soul-forger-trousers",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Pantolon satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-aksimm-asar",
+    "itemId": "soul-forger-shoes",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-ald-r",
+    "itemId": "soul-forger-shoes",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-ritik-rs-htimali",
+    "itemId": "soul-forger-shoes",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ayakkabı özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-name",
+    "itemId": "soul-forger-shoes",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-class",
+    "itemId": "soul-forger-shoes",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-slot",
+    "itemId": "soul-forger-shoes",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Ayakkabı satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-aksimm-asar",
+    "itemId": "soul-forger-staff",
+    "field": "stats.Maksimum Hasar",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-ald-r",
+    "itemId": "soul-forger-staff",
+    "field": "stats.Saldırı",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-ritik-rs-htimali",
+    "itemId": "soul-forger-staff",
+    "field": "stats.Kritik Vuruş İhtimali",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-dret-ejenerasyon",
+    "itemId": "soul-forger-staff",
+    "field": "stats.Kudret Rejenerasyonu",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Asa özellik satırları",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-name",
+    "itemId": "soul-forger-staff",
+    "field": "name",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-class",
+    "itemId": "soul-forger-staff",
+    "field": "class",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-slot",
+    "itemId": "soul-forger-staff",
+    "field": "slot",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven Asa satırı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-level",
+    "itemId": "blade-ridge-jacket",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-rarity-official",
+    "itemId": "blade-ridge-jacket",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-rarity-archive",
+    "itemId": "blade-ridge-jacket",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "SAVAŞÇI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-jacket-appearance-family",
+    "itemId": "blade-ridge-jacket",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-level",
+    "itemId": "blade-ridge-gloves",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-rarity-official",
+    "itemId": "blade-ridge-gloves",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-rarity-archive",
+    "itemId": "blade-ridge-gloves",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "SAVAŞÇI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-gloves-appearance-family",
+    "itemId": "blade-ridge-gloves",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-level",
+    "itemId": "blade-ridge-trousers",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-rarity-official",
+    "itemId": "blade-ridge-trousers",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-rarity-archive",
+    "itemId": "blade-ridge-trousers",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "SAVAŞÇI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-trousers-appearance-family",
+    "itemId": "blade-ridge-trousers",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-level",
+    "itemId": "blade-ridge-shoes",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-rarity-official",
+    "itemId": "blade-ridge-shoes",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-rarity-archive",
+    "itemId": "blade-ridge-shoes",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "SAVAŞÇI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-shoes-appearance-family",
+    "itemId": "blade-ridge-shoes",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-level",
+    "itemId": "blade-ridge-sword",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-rarity-official",
+    "itemId": "blade-ridge-sword",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-rarity-archive",
+    "itemId": "blade-ridge-sword",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "SAVAŞÇI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-blade-ridge-sword-appearance-family",
+    "itemId": "blade-ridge-sword",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Bıçak Sırtı set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-level",
+    "itemId": "zero-kelvin-jacket",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-rarity-official",
+    "itemId": "zero-kelvin-jacket",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-rarity-archive",
+    "itemId": "zero-kelvin-jacket",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-jacket-appearance-family",
+    "itemId": "zero-kelvin-jacket",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-level",
+    "itemId": "zero-kelvin-gloves",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-rarity-official",
+    "itemId": "zero-kelvin-gloves",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-rarity-archive",
+    "itemId": "zero-kelvin-gloves",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-gloves-appearance-family",
+    "itemId": "zero-kelvin-gloves",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-level",
+    "itemId": "zero-kelvin-trousers",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-rarity-official",
+    "itemId": "zero-kelvin-trousers",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-rarity-archive",
+    "itemId": "zero-kelvin-trousers",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-trousers-appearance-family",
+    "itemId": "zero-kelvin-trousers",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-level",
+    "itemId": "zero-kelvin-shoes",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-rarity-official",
+    "itemId": "zero-kelvin-shoes",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-rarity-archive",
+    "itemId": "zero-kelvin-shoes",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-shoes-appearance-family",
+    "itemId": "zero-kelvin-shoes",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-level",
+    "itemId": "zero-kelvin-staff",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-rarity-official",
+    "itemId": "zero-kelvin-staff",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-rarity-archive",
+    "itemId": "zero-kelvin-staff",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-zero-kelvin-staff-appearance-family",
+    "itemId": "zero-kelvin-staff",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Sıfır Kelvin set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-level",
+    "itemId": "transformer-jacket",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-rarity-official",
+    "itemId": "transformer-jacket",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-rarity-archive",
+    "itemId": "transformer-jacket",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-jacket-appearance-family",
+    "itemId": "transformer-jacket",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-level",
+    "itemId": "transformer-gloves",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-rarity-official",
+    "itemId": "transformer-gloves",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-rarity-archive",
+    "itemId": "transformer-gloves",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-gloves-appearance-family",
+    "itemId": "transformer-gloves",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-level",
+    "itemId": "transformer-trousers",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-rarity-official",
+    "itemId": "transformer-trousers",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-rarity-archive",
+    "itemId": "transformer-trousers",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-trousers-appearance-family",
+    "itemId": "transformer-trousers",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-level",
+    "itemId": "transformer-shoes",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-rarity-official",
+    "itemId": "transformer-shoes",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-rarity-archive",
+    "itemId": "transformer-shoes",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-shoes-appearance-family",
+    "itemId": "transformer-shoes",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-level",
+    "itemId": "transformer-staff",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-rarity-official",
+    "itemId": "transformer-staff",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-rarity-archive",
+    "itemId": "transformer-staff",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-transformer-staff-appearance-family",
+    "itemId": "transformer-staff",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Transformatör set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-level",
+    "itemId": "inferno-jacket",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-rarity-official",
+    "itemId": "inferno-jacket",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-rarity-archive",
+    "itemId": "inferno-jacket",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-jacket-appearance-family",
+    "itemId": "inferno-jacket",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-level",
+    "itemId": "inferno-gloves",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-rarity-official",
+    "itemId": "inferno-gloves",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-rarity-archive",
+    "itemId": "inferno-gloves",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-gloves-appearance-family",
+    "itemId": "inferno-gloves",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-level",
+    "itemId": "inferno-trousers",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-rarity-official",
+    "itemId": "inferno-trousers",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-rarity-archive",
+    "itemId": "inferno-trousers",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-trousers-appearance-family",
+    "itemId": "inferno-trousers",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-level",
+    "itemId": "inferno-shoes",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-rarity-official",
+    "itemId": "inferno-shoes",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-rarity-archive",
+    "itemId": "inferno-shoes",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-shoes-appearance-family",
+    "itemId": "inferno-shoes",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-level",
+    "itemId": "inferno-staff",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-rarity-official",
+    "itemId": "inferno-staff",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-rarity-archive",
+    "itemId": "inferno-staff",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "BÜYÜCÜ ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-inferno-staff-appearance-family",
+    "itemId": "inferno-staff",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Cehennem set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-level",
+    "itemId": "soul-forger-jacket",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-rarity-official",
+    "itemId": "soul-forger-jacket",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-rarity-archive",
+    "itemId": "soul-forger-jacket",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "ŞİFACI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-jacket-appearance-family",
+    "itemId": "soul-forger-jacket",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-level",
+    "itemId": "soul-forger-gloves",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-rarity-official",
+    "itemId": "soul-forger-gloves",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-rarity-archive",
+    "itemId": "soul-forger-gloves",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "ŞİFACI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-gloves-appearance-family",
+    "itemId": "soul-forger-gloves",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-level",
+    "itemId": "soul-forger-trousers",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-rarity-official",
+    "itemId": "soul-forger-trousers",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-rarity-archive",
+    "itemId": "soul-forger-trousers",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "ŞİFACI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-trousers-appearance-family",
+    "itemId": "soul-forger-trousers",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-level",
+    "itemId": "soul-forger-shoes",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-rarity-official",
+    "itemId": "soul-forger-shoes",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-rarity-archive",
+    "itemId": "soul-forger-shoes",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "ŞİFACI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-shoes-appearance-family",
+    "itemId": "soul-forger-shoes",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-level",
+    "itemId": "soul-forger-staff",
+    "field": "level",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-rarity-official",
+    "itemId": "soul-forger-staff",
+    "field": "rarity",
+    "sourceId": "ikv-hidra-update",
+    "locator": "49 seviye Şaheser Eşyaların reçeteleri duyurusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-rarity-archive",
+    "itemId": "soul-forger-staff",
+    "field": "rarity",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "ŞİFACI ŞAHESER REÇETELERİ başlığı",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-22"
+  },
+  {
+    "id": "ev-soul-forger-staff-appearance-family",
+    "itemId": "soul-forger-staff",
+    "field": "appearanceFamily",
+    "sourceId": "maxigame-cemberlitas-2015",
+    "locator": "Ruh Döven set başlığı",
+    "status": "single_source",
+    "checkedAt": "2026-08-22"
+  }
+]

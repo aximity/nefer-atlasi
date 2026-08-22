@@ -1,4 +1,8 @@
 [
   {"id":"maxigame-cemberlitas-2015","url":"https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-cemberlitas-saheserlerinin-recete-detaylari.240307/","title":"İKV Çemberlitaş Şaheserlerinin Reçete Detayları","type":"forum","accessedAt":"2026-08-22","independenceGroup":"maxigame-cemberlitas-archive"},
-  {"id":"maxigame-talismans-2015","url":"https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-buyuk-hol-tilsimlari-rehberi.240285/","title":"İKV Büyük Hol Tılsımları Rehberi","type":"forum","accessedAt":"2026-08-22","independenceGroup":"maxigame-talismans-archive"}
+  {"id":"maxigame-talismans-2015","url":"https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-buyuk-hol-tilsimlari-rehberi.240285/","title":"İKV Büyük Hol Tılsımları Rehberi","type":"forum","accessedAt":"2026-08-22","independenceGroup":"maxigame-talismans-archive"},
+  {"id":"ikv-hidra-update","url":"https://www.istanbuloyun.com/News.aspx?NewsId=19","title":"Hidra Eklentisi Yayında!","type":"official","accessedAt":"2026-08-22","independenceGroup":"official-ikv-news"},
+  {"id":"ikv-ability-system","url":"https://istanbuloyun.com/AbilitySystem.aspx","title":"İKV Yetenek Sistemi","type":"official","accessedAt":"2026-08-22","independenceGroup":"official-ikv-guide"},
+  {"id":"ikv-cemberlitas-faq","url":"https://www.istanbuloyun.com/cemberlitasSoruCevap.aspx","title":"Çemberlitaş Soru-Cevap","type":"official","accessedAt":"2026-08-22","independenceGroup":"official-ikv-cemberlitas"},
+  {"id":"ikv-healer-talismans","url":"https://istanbuloyun.com/BuyukHolHealer.aspx","title":"Büyük Hol Şifacı Tılsımları","type":"official","accessedAt":"2026-08-22","independenceGroup":"official-ikv-talismans"}
 ]

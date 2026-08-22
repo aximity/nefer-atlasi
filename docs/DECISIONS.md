@@ -15,3 +15,11 @@ Kaynak ve doğrulama, eşya alanlarına gömülmez; ayrı kimliklerle bağlanır
 ## ADR-004 — Hazır build ve teorik kombinasyon ayrıdır
 
 Hazır doğrulanmış buildler ile teorik kombinasyonlar ayrı hesaplanır.
+
+## ADR-005 — Öneri puanı meta değildir
+
+Ana hedef eşleşmesi iki, hibrit hedef eşleşmesi bir puandır. Bu sayı yalnız kanıtlı özellik uyumunu sıralar; kullanım, başarı veya meta iddiası değildir.
+
+## ADR-006 — Gazap tabanı ve tılsım çarpanı ayrıdır
+
+Gazap tılsımı seçimi tek başına toplamları değiştirmez. Hesap ancak Şifacı sınıfında gerekli Gazap tabanı ayrıca etkinleştirildiğinde uygulanır.

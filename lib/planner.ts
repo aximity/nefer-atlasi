@@ -1,0 +1,22 @@
+import {items,publishableStats,slots,type CharacterClass,type Item,type Slot} from "./catalog";
+import {applyWrath,sumPublishedStats} from "./planner-core.mjs";
+export {applyWrath} from "./planner-core.mjs";
+
+export type Goal="Fiziksel"|"Kritik"|"Buz"|"Elektrik"|"Ateş"|"Şifa"|"Asit"|"Zehir"|"Direnç"|"Enerji";
+export type BuildSelection=Partial<Record<Slot,string>>;
+export const goalsByClass:Record<CharacterClass,Goal[]>={
+  "Savaşçı":["Fiziksel","Kritik","Direnç","Enerji"],
+  "Büyücü":["Buz","Elektrik","Ateş","Kritik"],
+  "Şifacı":["Fiziksel","Şifa","Asit","Zehir","Kritik"],
+};
+const goalTerms:Record<Goal,string[]>={Fiziksel:["Maksimum Hasar","Saldırı","Fiziksel"],Kritik:["Kritik"],Buz:["Buz"],Elektrik:["Elektrik"],Ateş:["Ateş"],Şifa:["İyileştirme","Şifa"],Asit:["Asit"],Zehir:["Zehir"],Direnç:["Direnç","Savunma","Zırh"],Enerji:["Enerji"]};
+const weaponSuffix:Record<CharacterClass,RegExp>={"Savaşçı":/(Kılıç|Balta|Tabanca|Bıçak)$/,"Büyücü":/(Asa|Çifte)$/,"Şifacı":/(Asa|Çifte)$/};
+
+export function compatibleItems(klass:CharacterClass,slot:Slot){return items.filter(item=>item.class===klass&&item.slot===slot&&(slot!=="Silah"||weaponSuffix[klass].test(item.name)))}
+export function selectedItems(selection:BuildSelection){return slots.map(slot=>items.find(item=>item.id===selection[slot])).filter((item):item is Item=>Boolean(item))}
+export function scoreItem(item:Item,primary:Goal,secondary:Goal|null){return publishableStats(item.id).reduce((score,stat)=>score+(goalTerms[primary].some(term=>stat.attribute.includes(term))?2:0)+(secondary&&goalTerms[secondary].some(term=>stat.attribute.includes(term))?1:0),0)}
+export function scoreBuild(selection:BuildSelection,primary:Goal,secondary:Goal|null){return selectedItems(selection).reduce((sum,item)=>sum+scoreItem(item,primary,secondary),0)}
+export function buildTotals(selection:BuildSelection){return sumPublishedStats(selectedItems(selection).map(item=>item.id),items.flatMap(item=>publishableStats(item.id)))}
+export function suggestedSelection(klass:CharacterClass,primary:Goal,secondary:Goal|null){return Object.fromEntries(slots.map(slot=>{const ranked=compatibleItems(klass,slot).toSorted((a,b)=>scoreItem(b,primary,secondary)-scoreItem(a,primary,secondary));return [slot,ranked[0]?.id]})) as BuildSelection}
+export function theoreticalCombinationCount(klass:CharacterClass){return slots.reduce((count,slot)=>count*Math.max(compatibleItems(klass,slot).length,1),1)}
+export const resistanceNeed=(rival:CharacterClass|"Rakip yok")=>rival==="Büyücü"?"Element dirençlerini gözden geçir":rival==="Savaşçı"?"Fiziksel savunma ve kritik zırhını gözden geçir":rival==="Şifacı"?"Asit/zehir baskısına karşı dirençlerini gözden geçir":"Rakip seçilmedi; direnç önerisi üretilmedi";

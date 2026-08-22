@@ -1,5 +1,31 @@
 # Araştırma Günlüğü
 
+## 2026-08-22 — Şaheser seviyesi ve sınıflandırması
+
+- İddia: Resmi İKV duyurusu üretici ve toplayıcılar için eklenen Şaheser eşya reçetelerini 49 seviye olarak tanımlar.
+- Kaynak: https://www.istanbuloyun.com/News.aspx?NewsId=19
+- Tür: Resmi İKV duyurusu
+- Güven: Tek kaynak
+- İddia: Çemberlitaş arşivi kayıtları sınıf bazlı “Şaheser Reçeteleri” ve set ailesi başlıkları altında listeler.
+- Kaynak: https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-cemberlitas-saheserlerinin-recete-detaylari.240307/
+- Tür: Topluluk forum arşivi
+- Güven: Nadirlik için resmi duyuruyla çapraz doğrulandı; görünüş ailesi için tek kaynak
+
+## 2026-08-22 — Yetenek, tılsım ve Çemberlitaş kuralları
+
+- İddia: Bir yeteneğe en fazla 15 puan yatırılabilir.
+- Kaynak: https://istanbuloyun.com/AbilitySystem.aspx
+- Tür: Resmi İKV rehberi
+- Güven: Tek kaynak
+- İddia: Gazap tılsımları Şifacı sınıfına ait, kırmızı renkli ve Gazap taban etkisine bağlı kademeli çarpanlardır.
+- Kaynak: https://istanbuloyun.com/BuyukHolHealer.aspx
+- Tür: Resmi İKV tılsım tablosu
+- Güven: MaxiGame arşiviyle çapraz doğrulandı
+- İddia: Çemberlitaş bir Grup Bölgesi'dir; Savaşçılar burada Depar kullanamaz.
+- Kaynak: https://www.istanbuloyun.com/cemberlitasSoruCevap.aspx
+- Tür: Resmi İKV Soru-Cevap
+- Güven: Tek kaynak
+
 ## 2026-08-22 — Çemberlitaş şaheserleri
 
 - İddia: Şaheserler bosslardan düşebilir veya bosslardan düşen reçetelerle üretilebilir.
