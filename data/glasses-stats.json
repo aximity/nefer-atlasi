@@ -1,0 +1,13 @@
+[
+  {"itemId":"m25-element-koruyucu-mor","stats":[["Direnç (Ateş)",78000],["Direnç (Buz)",78000],["Direnç (Elektrik)",78000]]},
+  {"itemId":"m25-fiziksel-koruyucu-mor","stats":[["Direnç (Zehir)",78000],["Direnç (Asit)",78000]]},
+  {"itemId":"m25-hedef-netlestiren-mor","stats":[["Saldırı",22300]]},
+  {"itemId":"m25-maraton-adam-mor","stats":[["Hareket Hızı",2820]]},
+  {"itemId":"m25-ates-sarjli-mor","stats":[["Büyü Hasarı (Ateş)",121000]]},
+  {"itemId":"m25-buz-sarjli-mor","stats":[["Büyü Hasarı (Buz)",121000]]},
+  {"itemId":"m25-elektrik-sarjli-mor","stats":[["Büyü Hasarı (Elektrik)",121000]]},
+  {"itemId":"m25-fiziksel-sarjli-mor","stats":[["Büyü Hasarı (Fiziksel)",121000]]},
+  {"itemId":"m25-zehir-yogunlastiran-mor","stats":[["Büyü Hasarı (Zehir)",121000]]},
+  {"itemId":"m25-asit-yogunlastiran-mor","stats":[["Büyü Hasarı (Asit)",121000]]},
+  {"itemId":"m25-sifa-yogunlastiran-mor","stats":[["İyileştirme Büyüleri",182000]]}
+]

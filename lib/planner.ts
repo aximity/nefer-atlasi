@@ -14,7 +14,8 @@ const weaponSuffix:Record<CharacterClass,RegExp>={"Savaşçı":/(Kılıç|Balta|
 
 export function compatibleItems(klass:CharacterClass,slot:Slot){return items.filter(item=>(item.class===klass||item.class==="Tüm Sınıflar")&&item.slot===slot&&(slot!=="Silah"||weaponSuffix[klass].test(item.name)))}
 export function selectedItems(selection:BuildSelection){return Object.values(selection).map(id=>items.find(item=>item.id===id)).filter((item):item is Item=>Boolean(item))}
-export function scoreItem(item:Item,primary:Goal,secondary:Goal|null){return publishableStats(item.id).reduce((score,stat)=>score+(goalTerms[primary].some(term=>stat.attribute.includes(term))?2:0)+(secondary&&goalTerms[secondary].some(term=>stat.attribute.includes(term))?1:0),0)}
+function matchesGoal(attribute:string,goal:Goal){if(["Buz","Elektrik","Ateş","Asit","Zehir"].includes(goal))return attribute.includes(`Hasarı (${goal})`);return goalTerms[goal].some(term=>attribute.includes(term))}
+export function scoreItem(item:Item,primary:Goal,secondary:Goal|null){return publishableStats(item.id).reduce((score,stat)=>score+(matchesGoal(stat.attribute,primary)?2:0)+(secondary&&matchesGoal(stat.attribute,secondary)?1:0),0)}
 export function scoreBuild(selection:BuildSelection,primary:Goal,secondary:Goal|null){return selectedItems(selection).reduce((sum,item)=>sum+scoreItem(item,primary,secondary),0)}
 export function buildTotals(selection:BuildSelection){return sumPublishedStats(selectedItems(selection).map(item=>item.id),items.flatMap(item=>publishableStats(item.id)))}
 export function suggestedSelection(klass:CharacterClass,primary:Goal,secondary:Goal|null){return Object.fromEntries(classSlots[klass].map(slot=>{const ranked=compatibleItems(klass,slot).toSorted((a,b)=>scoreItem(b,primary,secondary)-scoreItem(a,primary,secondary));return [slot,ranked[0]?.id]})) as BuildSelection}

@@ -16,6 +16,9 @@ const talismans = read("talismans.json");
 const enchants = read("enchants.json");
 const enchantSeries = read("enchant-series.json");
 const abilities = read("abilities.json");
+const groupLootItems = read("group-loot-items.json");
+const glassesItems = read("glasses-items.json");
+const glassesStats = read("glasses-stats.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
@@ -27,6 +30,16 @@ test("67 parçalık Çemberlitaş çekirdeği korunur; doğrulanmış aksesuarla
     new Set(items.filter((item) => item.id !== "alternator-kolye").map((item) => item.id)),
   );
   assert.ok(items.some((item) => item.id === "alternator-kolye" && item.slot === "Kolye"));
+});
+
+test("üç sınıf için yüzük, kolye ve hesaplanabilir gözlük verisi vardır", () => {
+  assert.equal(groupLootItems.length, 20);
+  assert.equal(glassesItems.length, 11);
+  for (const klass of ["Savaşçı", "Büyücü", "Şifacı"]) {
+    assert.ok(groupLootItems.some((item) => item.class === klass && item.slot === "Yüzük"));
+    assert.ok(groupLootItems.some((item) => item.class === klass && item.slot === "Kolye"));
+  }
+  assert.ok(glassesStats.every((row) => row.stats.length > 0 && row.stats.every(([, value]) => value > 0)));
 });
 
 test("üç sınıfın tüm set aileleri katalogda yer alır", () => {

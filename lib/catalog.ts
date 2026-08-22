@@ -6,6 +6,10 @@ import evidenceRows from "../data/evidence.json";
 import imageRows from "../data/images.json";
 import talismanRows from "../data/talismans.json";
 import contextRows from "../data/contexts.json";
+import groupLootRows from "../data/group-loot-items.json";
+import groupLootEvidenceRows from "../data/group-loot-evidence.json";
+import glassesRows from "../data/glasses-items.json";
+import glassesStatRows from "../data/glasses-stats.json";
 
 export type VerificationStatus = "draft" | "single_source" | "cross_verified" | "conflicted";
 export type SourceType = "official" | "forum" | "fandom" | "video" | "player_screenshot";
@@ -14,16 +18,19 @@ export type Slot = "Gözlük" | "Ceket" | "Eldiven" | "Pantolon" | "Ayakkabı" |
 export interface EvidenceClaim {id:string;itemId:string;field:string;sourceId:string;locator:string;status:VerificationStatus;checkedAt:string}
 export interface Source {id:string;url:string;title:string;type:SourceType;accessedAt:string;independenceGroup:string}
 export interface Stat {id:string;itemId:string;attribute:string;value:number;unit:string;verificationStatus:VerificationStatus;lastChecked:string}
-export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıflar";level:number;slot:Slot;rarity:"Şaheser"|"Doğrulanmadı";appearanceFamily:string;publicationStatus:VerificationStatus;lastChecked:string}
+export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıflar";level:number|null;slot:Slot;rarity:"Şaheser"|"Doğrulanmadı";appearanceFamily?:string;publicationStatus:VerificationStatus;lastChecked:string;region?:string;boss?:string;acquisition?:string}
 export interface Recipe {id:string;itemId:string;method:string;materials:{name:string;quantity:number}[];sourceId:string;verificationStatus:VerificationStatus;lastChecked:string}
 type TalismanBase={id:string;name:string;class:CharacterClass;color:string;series:string;tier:number;value:number;unit:string;requiresBase?:string;status:VerificationStatus;sourceId:string;lastChecked:string};
 export type Talisman=TalismanBase&({effect:"stat_multiplier";targetAttributes:string[];outputAttribute:string}|{effect:"damage_multiplier"|"critical_multiplier";targetAttributes?:never;outputAttribute?:never});
 
-export const items = itemRows as Item[];
-export const stats = statRows as Stat[];
+export const items = [...itemRows,...groupLootRows,...glassesRows] as Item[];
+const glassesStats:Stat[]=glassesStatRows.flatMap(row=>row.stats.map(([attribute,value],index)=>({id:`stat-${row.itemId}-${index}`,itemId:row.itemId,attribute:String(attribute),value:Number(value),unit:"puan",verificationStatus:"single_source" as const,lastChecked:"2026-08-23"})));
+export const stats = [...statRows,...glassesStats] as Stat[];
 export const recipes = recipeRows as Recipe[];
 export const sources = sourceRows as Source[];
-export const evidence = evidenceRows as EvidenceClaim[];
+const groupLootEvidence:EvidenceClaim[]=groupLootEvidenceRows.flatMap(group=>group.itemIds.flatMap(itemId=>["name","class","slot"].map(field=>({id:`ev-${itemId}-${field}`,itemId,field,sourceId:group.sourceId,locator:group.locator,status:"single_source" as const,checkedAt:"2026-08-23"}))));
+const glassesEvidence:EvidenceClaim[]=glassesRows.flatMap(item=>["name","class","level","slot"].map(field=>({id:`ev-${item.id}-${field}`,itemId:item.id,field,sourceId:"fandom-glasses",locator:"Gözlükler tablosu",status:"single_source" as const,checkedAt:"2026-08-23"})));
+export const evidence = [...evidenceRows,...groupLootEvidence,...glassesEvidence] as EvidenceClaim[];
 export const images = imageRows;
 export const talismans = talismanRows as Talisman[];
 export const contexts = contextRows;
