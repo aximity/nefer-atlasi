@@ -7,5 +7,6 @@
   {"id":"ikv-healer-talismans","url":"https://istanbuloyun.com/BuyukHolHealer.aspx","title":"Büyük Hol Şifacı Tılsımları","type":"official","accessedAt":"2026-08-23","independenceGroup":"official-ikv-talismans"},
   {"id":"ikv-mage-talismans","url":"https://istanbuloyun.com/BuyukHolMage.aspx","title":"Büyük Hol Büyücü Tılsımları","type":"official","accessedAt":"2026-08-23","independenceGroup":"official-ikv-talismans"},
   {"id":"ikv-warrior-talismans","url":"https://istanbuloyun.com/BuyukHolWarrior.aspx","title":"Büyük Hol Savaşçı Tılsımları","type":"official","accessedAt":"2026-08-23","independenceGroup":"official-ikv-talismans"},
-  {"id":"player-alternator-kolye-20260823","url":"/items/alternator-kolye.jpeg","title":"Oyuncu ekran görüntüsü · Alternatör Kolye","type":"player_screenshot","accessedAt":"2026-08-23","independenceGroup":"player-gdyon-20260823"}
+  {"id":"player-alternator-kolye-20260823","url":"/items/alternator-kolye.jpeg","title":"Oyuncu ekran görüntüsü · Alternatör Kolye","type":"player_screenshot","accessedAt":"2026-08-23","independenceGroup":"player-gdyon-20260823"},
+  {"id":"fandom-all-enchants","url":"https://istanbulkiyametvakti.fandom.com/tr/wiki/T%C3%BCm_Efsunlar","title":"Tüm Efsunlar · İstanbul Kıyamet Vakti Wikia","type":"fandom","accessedAt":"2026-08-23","independenceGroup":"ikv-fandom-enchants"}
 ]

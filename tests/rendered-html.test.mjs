@@ -39,6 +39,8 @@ test("renders the verified class-specific build experience", async () => {
   assert.match(html, /M3 · TILSIM VE YETENEK MOTORU/);
   assert.match(html, /ETKİ RAPORU/);
   assert.match(html, /YETENEK SİMÜLASYONU/);
+  assert.match(html, /M5 · EFSUN ÇÖZÜMLEYİCİ/);
+  assert.match(html, /Alaska Modeli Bolat Modeli Kolye/);
   assert.match(html, /Alternatör Kolye/);
   assert.doesNotMatch(html, /Bu üç odak için/);
   assert.match(html, /M4 · HAZIRLIK DENETİMİ/);
