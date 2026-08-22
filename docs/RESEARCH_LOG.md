@@ -61,6 +61,8 @@
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı
+- [ ] NotebookLM strateji çıktısındaki kaynaksız “%40 verim”, “%30 grup hızı” ve “%15 hata payı” iddialarını birincil kaynakla doğrula
+- [ ] Çemberlitaş eşya adı ile gerçek görünüşü aynı karede gösteren görsel kanıtları topla; mevcut NotebookLM çıktısı ana eşyalar için görseli “Yok” olarak işaretliyor
 - [ ] Resmi İKV kaynaklarında ekipman yuvaları
 - [ ] Klan tüccarı gözlükleri ve klan parası
 - [ ] TurkMMO Çemberlitaş arşiviyle satır karşılaştırması
