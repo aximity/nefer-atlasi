@@ -2,20 +2,10 @@
 
 import {useMemo,useState} from "react";
 import type {CharacterClass} from "../lib/catalog";
+import abilityRows from "../data/abilities.json";
 
-type Ability={name:string;note:string};
 const budget=80;
-const abilities:Record<CharacterClass,Ability[]>={
-  "Büyücü":[
-    {name:"Meteorit",note:"Fiziksel büyü hasarı"},{name:"Buz Oku",note:"Buz hasarı ve yavaşlatma"},{name:"Yıldırım",note:"Elektrik hasarı"},{name:"Ateş Çemberi",note:"Alan ateş hasarı"},{name:"Kutup Rüzgarı",note:"Kontrol"},{name:"Direnç Kırma",note:"Grup desteği"},{name:"Zihin Saldırısı",note:"Bazı güçlü hedefleri kilitleme"},{name:"Meditasyon",note:"Kudret yönetimi"},{name:"Tesla Küresi",note:"Sığınak için 1 puan rehber alternatifi"},{name:"Büyü Bozma",note:"Güçlendirme temizleme"}
-  ],
-  "Şifacı":[
-    {name:"İyileştirme",note:"Tek hedef iyileştirme"},{name:"İyileştirme Çemberi",note:"Kriz anı grup iyileştirmesi"},{name:"Element Direnç Alanı",note:"İki şifacılı grupta görev paylaşımı"},{name:"Fiziksel Direnç Alanı",note:"İki şifacılı grupta görev paylaşımı"},{name:"Ruh Kalkanı",note:"Zırh desteği"},{name:"Büyü Bozma",note:"Kanama ve güçlendirme temizleme"},{name:"Meditasyon",note:"Kudret yönetimi"},{name:"Çağrı",note:"Kudret maliyetli alternatif"}
-  ],
-  "Savaşçı":[
-    {name:"Sarsılmaz",note:"Tank acil durum ve hiddet kontrolü"},{name:"Kışkırtma",note:"Hedef hiddeti"},{name:"Savaş Narası",note:"Grup hiddeti"},{name:"Boz Ayı",note:"Kesim için gerekli değil"},{name:"Zihin Toplama",note:"Korteks/Ayartma karşısında önemli"},{name:"Durdurma",note:"Kontrol alternatifi"},{name:"Süpürme Saldırısı",note:"Hiddet aktarımı"},{name:"Depar",note:"Grup bölgelerinde kullanılamaz"}
-  ]
-};
+const abilities=Object.fromEntries((["Savaşçı","Büyücü","Şifacı"] as CharacterClass[]).map(klass=>[klass,abilityRows.filter(row=>row.class===klass).map(row=>({name:row.name,note:`Seviye ${row.unlockLevel} · ${row.roles.join(" · ")}`}))])) as Record<CharacterClass,{name:string;note:string}[]>;
 const presets:Record<CharacterClass,{name:string;points:Record<string,number>;note:string}[]>={
   "Büyücü":[{name:"Sığınak başlangıcı",points:{"Tesla Küresi":1},note:"Rehber Tesla Küresi için 1 puanı yeterli başlangıç olarak veriyor; kalan puanlar grup rolüne göre dağıtılır."}],
   "Şifacı":[{name:"Tek şifacı başlangıcı",points:{"Büyü Bozma":1,"İyileştirme Çemberi":1},note:"Rehber Büyü Bozma için 1 puanı genel kullanımda yeterli, İyileştirme Çemberi 1'i kriz alternatifi olarak gösteriyor."},{name:"İki şifacı · element",points:{"Element Direnç Alanı":15,"Büyü Bozma":1},note:"Diğer şifacı Fiziksel Direnç Alanını üstlenmelidir."}],

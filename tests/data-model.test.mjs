@@ -14,6 +14,8 @@ const sources = read("sources.json");
 const evidence = read("evidence.json");
 const talismans = read("talismans.json");
 const enchants = read("enchants.json");
+const enchantSeries = read("enchant-series.json");
+const abilities = read("abilities.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
@@ -41,6 +43,8 @@ test("üç sınıfın da hesaplanabilir tılsım serisi vardır", () => {
 });
 
 test("efsun sözlüğü kaynaklı, pozitif ve birimli kayıtlardan oluşur",()=>{assert.ok(enchants.length>=35);for(const enchant of enchants){assert.ok(enchant.name&&enchant.attribute);assert.ok(enchant.value>0);assert.ok(enchant.unit);assert.ok(sources.some(source=>source.id===enchant.sourceId))}});
+test("efsun serileri büyü ve direnç kademelerini kapsar",()=>{assert.equal(enchantSeries.length,11);assert.ok(enchantSeries.flatMap(series=>series.entries).length>=128);for(const series of enchantSeries)assert.ok(series.entries.every(([name,value])=>name&&value>0))});
+test("üç sınıfın 45 yeteneği açılma seviyeleriyle kayıtlıdır",()=>{assert.equal(abilities.length,45);for(const klass of ["Savaşçı","Büyücü","Şifacı"]){const classAbilities=abilities.filter(ability=>ability.class===klass);assert.equal(classAbilities.length,15);assert.deepEqual([...new Set(classAbilities.map(ability=>ability.unlockLevel))],[1,10,20,30,40])}});
 
 test("yayımlanan temel eşya alanlarının tarihli ve kaynaklı kanıtı vardır", () => {
   for (const item of items) {
