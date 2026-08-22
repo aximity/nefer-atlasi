@@ -36,10 +36,12 @@ test("renders the verified class-specific build experience", async () => {
   assert.match(html, /Dokuz yuvayı sen kur/);
   assert.match(html, /Çelişkili özellikler hesap dışı/);
   assert.match(html, /DOĞRULANMIŞ GÖRSEL YOK/);
-  assert.match(html, /M3 · TILSIM VE YETENEK MOTORU/);
-  assert.match(html, /Yetenek başına en fazla 15 puan/);
-  assert.match(html, /M4 · BAĞLAMSAL ÖNERİLER/);
-  assert.match(html, /Çemberlitaş<!-- --> · <!-- -->Grup Bölgesi/);
+  assert.match(html, /M3 · SINIF TILSIMI DENETİMİ/);
+  assert.match(html, /ETKİ RAPORU/);
+  assert.doesNotMatch(html, /Bu üç odak için/);
+  assert.match(html, /M4 · HAZIRLIK DENETİMİ/);
+  assert.match(html, /SAHA RAPORU/);
+  assert.match(html, /Grup Bölgesi bu bölgeyle uyumlu/);
   assert.match(html, /67<\/strong><span>kaynaklı şaheser kaydı/);
   assert.match(html, /Amplifikatör/);
 });

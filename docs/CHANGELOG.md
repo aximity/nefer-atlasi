@@ -8,6 +8,7 @@
 - Lint, TypeScript ve üretim derleme komutları Windows ve Unix ortamlarında çalışacak hale getirildi.
 - M3 tılsım seçimi Savaşçı, Büyücü ve Şifacı için sınıfa özel hale getirildi; ilk doğrudan hesaplanabilir seriler resmî tablolardan eklendi.
 - Katalogda sınıf/yuva filtreleri, aynı sınıf ve yuvadaki iki eşyayı özellik bazında karşılaştırma ve buildin yalnız eksik yuvalarını tamamlama araçları eklendi.
+- İşlev üretmeyen genel yetenek kaydırıcıları kaldırıldı; M3 önce/sonra tılsım etki raporuna, M4 ise hazır/dikkat/eksik saha kontrol listesine dönüştürüldü.
 
 ## 2026-08-22
 
