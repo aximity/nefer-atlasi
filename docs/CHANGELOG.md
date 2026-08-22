@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-23 — M4.1 doğruluk ve güvenlik
+
+- Türkçe karakterleri kayıpsız taşıyan sürümlü Base64URL build bağlantıları eklendi.
+- URL ve cihaz kayıtları sınıf, eşya, hedef, bağlam, tılsım ve puan sınırlarına göre doğrulanıyor.
+- Gazap 2 yalnız Gazap yeteneğinden gelen taban kritik ihtimalini çarpıyor; ekipman kritiğini değiştirmiyor.
+- Lint, TypeScript ve üretim derleme komutları Windows ve Unix ortamlarında çalışacak hale getirildi.
+
 ## 2026-08-22
 
 - Sekiz ekipman yuvalı build şeması kuruldu.

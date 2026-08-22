@@ -43,8 +43,17 @@
 - Güven: Tek kaynak
 - Sonraki işlem: Oyun içi tooltip veya ikinci arşivle çapraz doğrula.
 
+## 2026-08-23 — Yetenek sistemi kapsam denetimi
+
+- İddia: Oyuncu 3 yetenekle başlar, her 10 seviyede 3 yeni yetenek açılır, her yeni seviyede 2 yetenek puanı kazanılır ve tek bir yeteneğe en fazla 15 puan yatırılabilir.
+- İddia: Yetenekler birbirleriyle etkileşebilir.
+- Kaynak: https://istanbuloyun.com/AbilitySystem.aspx
+- Tür: Resmi İKV rehberi
+- Sınır: Sayfa sınıf yeteneklerinin adlarını ve puan bazlı sayısal etkilerini yayımlamıyor; bu alanlar doğrulanana kadar hesap motoruna eklenmeyecek.
+
 ## Araştırma kuyruğu
 
+- [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı
 - [ ] Resmi İKV kaynaklarında ekipman yuvaları
 - [ ] Klan tüccarı gözlükleri ve klan parası
 - [ ] TurkMMO Çemberlitaş arşiviyle satır karşılaştırması

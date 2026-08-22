@@ -1,5 +1,5 @@
 import {classSlots,items,publishableStats,type CharacterClass,type Item,type Slot} from "./catalog";
-import {applyWrath,sumPublishedStats} from "./planner-core.mjs";
+import {sumPublishedStats} from "./planner-core.mjs";
 export {applyWrath} from "./planner-core.mjs";
 
 export type Goal="Fiziksel"|"Kritik"|"Buz"|"Elektrik"|"Ateş"|"Şifa"|"Asit"|"Zehir"|"Direnç"|"Enerji";
