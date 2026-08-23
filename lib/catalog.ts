@@ -10,6 +10,7 @@ import groupLootRows from "../data/group-loot-items.json";
 import groupLootEvidenceRows from "../data/group-loot-evidence.json";
 import glassesRows from "../data/glasses-items.json";
 import glassesStatRows from "../data/glasses-stats.json";
+import groupDerivedStatRows from "../data/group-derived-stats.json";
 
 export type VerificationStatus = "draft" | "single_source" | "cross_verified" | "conflicted";
 export type SourceType = "official" | "forum" | "fandom" | "video" | "player_screenshot";
@@ -25,7 +26,7 @@ export type Talisman=TalismanBase&({effect:"stat_multiplier";targetAttributes:st
 
 export const items = [...itemRows,...groupLootRows,...glassesRows] as Item[];
 const glassesStats:Stat[]=glassesStatRows.flatMap(row=>row.stats.map(([attribute,value],index)=>({id:`stat-${row.itemId}-${index}`,itemId:row.itemId,attribute:String(attribute),value:Number(value),unit:"puan",verificationStatus:"single_source" as const,lastChecked:"2026-08-23"})));
-export const stats = [...statRows,...glassesStats] as Stat[];
+export const stats = [...statRows,...glassesStats,...groupDerivedStatRows] as Stat[];
 export const recipes = recipeRows as Recipe[];
 export const sources = sourceRows as Source[];
 const groupLootEvidence:EvidenceClaim[]=groupLootEvidenceRows.flatMap(group=>group.itemIds.flatMap(itemId=>["name","class","slot"].map(field=>({id:`ev-${itemId}-${field}`,itemId,field,sourceId:group.sourceId,locator:group.locator,status:"single_source" as const,checkedAt:"2026-08-23"}))));

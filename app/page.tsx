@@ -851,6 +851,11 @@ function ItemCard({
               {item.acquisition && (
                 <div className="acquisition">{item.acquisition}</div>
               )}
+              {item.region && (
+                <div className="acquisition">
+                  Düşme yeri: {item.region} · {item.boss}
+                </div>
+              )}
             </>
           ) : (
             <div className="lootFact">

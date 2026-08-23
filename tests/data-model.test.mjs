@@ -19,6 +19,7 @@ const abilities = read("abilities.json");
 const groupLootItems = read("group-loot-items.json");
 const glassesItems = read("glasses-items.json");
 const glassesStats = read("glasses-stats.json");
+const groupDerivedStats = read("group-derived-stats.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
@@ -40,6 +41,13 @@ test("üç sınıf için yüzük, kolye ve hesaplanabilir gözlük verisi vardı
     assert.ok(groupLootItems.some((item) => item.class === klass && item.slot === "Kolye"));
   }
   assert.ok(glassesStats.every((row) => row.stats.length > 0 && row.stats.every(([, value]) => value > 0)));
+});
+
+test("çift efsunlu grup yüzükleri kaynak değerinin iki katıyla hesaplanır", () => {
+  assert.equal(groupDerivedStats.find((row) => row.itemId === "kutadgu-bilig-yuzuk-buyucu")?.value, 274000);
+  assert.equal(groupDerivedStats.find((row) => row.itemId === "farabi-modeli-yuzuk-savasci")?.value, 478000);
+  assert.equal(groupDerivedStats.find((row) => row.itemId === "ardenneler-misali-yuzuk")?.value, 17200);
+  assert.ok(groupDerivedStats.every((row) => sources.some((source) => source.id === row.sourceId)));
 });
 
 test("Sığınak, Migrat ve Çemberlitaş ekipmanları üç sınıfta da kapsanır", () => {
