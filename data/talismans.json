@@ -1,32 +1,3344 @@
 [
-  {"id":"wrath-1-i","name":"Gazap 1 (I)","class":"Şifacı","color":"Kırmızı","series":"Gazap 1","tier":1,"effect":"damage_multiplier","value":50,"unit":"percent","requiresBase":"Gazap","status":"cross_verified","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-22"},
-  {"id":"wrath-1-ii","name":"Gazap 1 (II)","class":"Şifacı","color":"Kırmızı","series":"Gazap 1","tier":2,"effect":"damage_multiplier","value":100,"unit":"percent","requiresBase":"Gazap","status":"cross_verified","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-22"},
-  {"id":"wrath-1-iii","name":"Gazap 1 (III)","class":"Şifacı","color":"Kırmızı","series":"Gazap 1","tier":3,"effect":"damage_multiplier","value":150,"unit":"percent","requiresBase":"Gazap","status":"cross_verified","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-22"},
-  {"id":"wrath-2-i","name":"Gazap 2 (I)","class":"Şifacı","color":"Kırmızı","series":"Gazap 2","tier":1,"effect":"critical_multiplier","value":50,"unit":"percent","requiresBase":"Gazap","status":"cross_verified","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-22"},
-  {"id":"wrath-2-ii","name":"Gazap 2 (II)","class":"Şifacı","color":"Kırmızı","series":"Gazap 2","tier":2,"effect":"critical_multiplier","value":100,"unit":"percent","requiresBase":"Gazap","status":"cross_verified","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-22"},
-  {"id":"wrath-2-iii","name":"Gazap 2 (III)","class":"Şifacı","color":"Kırmızı","series":"Gazap 2","tier":3,"effect":"critical_multiplier","value":150,"unit":"percent","requiresBase":"Gazap","status":"cross_verified","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-22"},
-  {"id":"warrior-offense-i","name":"Ofansif Dövüşme (I)","class":"Savaşçı","color":"Mavi","series":"Ofansif Dövüşme","tier":1,"effect":"stat_multiplier","value":10,"unit":"percent","targetAttributes":["Saldırı"],"outputAttribute":"Tılsımlı Saldırı","status":"single_source","sourceId":"ikv-warrior-talismans","lastChecked":"2026-08-23"},
-  {"id":"warrior-offense-ii","name":"Ofansif Dövüşme (II)","class":"Savaşçı","color":"Mavi","series":"Ofansif Dövüşme","tier":2,"effect":"stat_multiplier","value":20,"unit":"percent","targetAttributes":["Saldırı"],"outputAttribute":"Tılsımlı Saldırı","status":"single_source","sourceId":"ikv-warrior-talismans","lastChecked":"2026-08-23"},
-  {"id":"warrior-offense-iii","name":"Ofansif Dövüşme (III)","class":"Savaşçı","color":"Mavi","series":"Ofansif Dövüşme","tier":3,"effect":"stat_multiplier","value":30,"unit":"percent","targetAttributes":["Saldırı"],"outputAttribute":"Tılsımlı Saldırı","status":"single_source","sourceId":"ikv-warrior-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-fire-i","name":"Ateş Bilgisi (I)","class":"Büyücü","color":"Kırmızı","series":"Ateş Bilgisi","tier":1,"effect":"stat_multiplier","value":10,"unit":"percent","targetAttributes":["Büyü Hasarı (Ateş)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Ateş Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-fire-ii","name":"Ateş Bilgisi (II)","class":"Büyücü","color":"Kırmızı","series":"Ateş Bilgisi","tier":2,"effect":"stat_multiplier","value":15,"unit":"percent","targetAttributes":["Büyü Hasarı (Ateş)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Ateş Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-fire-iii","name":"Ateş Bilgisi (III)","class":"Büyücü","color":"Kırmızı","series":"Ateş Bilgisi","tier":3,"effect":"stat_multiplier","value":20,"unit":"percent","targetAttributes":["Büyü Hasarı (Ateş)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Ateş Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-ice-i","name":"Buz Bilgisi (I)","class":"Büyücü","color":"Kırmızı","series":"Buz Bilgisi","tier":1,"effect":"stat_multiplier","value":10,"unit":"percent","targetAttributes":["Büyü Hasarı (Buz)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Buz Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-ice-ii","name":"Buz Bilgisi (II)","class":"Büyücü","color":"Kırmızı","series":"Buz Bilgisi","tier":2,"effect":"stat_multiplier","value":15,"unit":"percent","targetAttributes":["Büyü Hasarı (Buz)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Buz Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-ice-iii","name":"Buz Bilgisi (III)","class":"Büyücü","color":"Kırmızı","series":"Buz Bilgisi","tier":3,"effect":"stat_multiplier","value":20,"unit":"percent","targetAttributes":["Büyü Hasarı (Buz)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Buz Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-electric-i","name":"Elektrik Bilgisi (I)","class":"Büyücü","color":"Kırmızı","series":"Elektrik Bilgisi","tier":1,"effect":"stat_multiplier","value":10,"unit":"percent","targetAttributes":["Büyü Hasarı (Elektrik)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Elektrik Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-electric-ii","name":"Elektrik Bilgisi (II)","class":"Büyücü","color":"Kırmızı","series":"Elektrik Bilgisi","tier":2,"effect":"stat_multiplier","value":15,"unit":"percent","targetAttributes":["Büyü Hasarı (Elektrik)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Elektrik Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-electric-iii","name":"Elektrik Bilgisi (III)","class":"Büyücü","color":"Kırmızı","series":"Elektrik Bilgisi","tier":3,"effect":"stat_multiplier","value":20,"unit":"percent","targetAttributes":["Büyü Hasarı (Elektrik)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Elektrik Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-physical-i","name":"Fiziksel Bilgi (I)","class":"Büyücü","color":"Kırmızı","series":"Fiziksel Bilgi","tier":1,"effect":"stat_multiplier","value":10,"unit":"percent","targetAttributes":["Büyü Hasarı (Fiziksel)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Fiziksel Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-physical-ii","name":"Fiziksel Bilgi (II)","class":"Büyücü","color":"Kırmızı","series":"Fiziksel Bilgi","tier":2,"effect":"stat_multiplier","value":15,"unit":"percent","targetAttributes":["Büyü Hasarı (Fiziksel)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Fiziksel Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"mage-physical-iii","name":"Fiziksel Bilgi (III)","class":"Büyücü","color":"Kırmızı","series":"Fiziksel Bilgi","tier":3,"effect":"stat_multiplier","value":20,"unit":"percent","targetAttributes":["Büyü Hasarı (Fiziksel)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Fiziksel Büyü Hasarı","status":"single_source","sourceId":"ikv-mage-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-acid-i","name":"Asit Bilgisi (I)","class":"Şifacı","color":"Kırmızı","series":"Asit Bilgisi","tier":1,"effect":"stat_multiplier","value":10,"unit":"percent","targetAttributes":["Büyü Hasarı (Asit)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Asit Büyü Hasarı","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-acid-ii","name":"Asit Bilgisi (II)","class":"Şifacı","color":"Kırmızı","series":"Asit Bilgisi","tier":2,"effect":"stat_multiplier","value":15,"unit":"percent","targetAttributes":["Büyü Hasarı (Asit)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Asit Büyü Hasarı","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-acid-iii","name":"Asit Bilgisi (III)","class":"Şifacı","color":"Kırmızı","series":"Asit Bilgisi","tier":3,"effect":"stat_multiplier","value":20,"unit":"percent","targetAttributes":["Büyü Hasarı (Asit)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Asit Büyü Hasarı","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-heal-i","name":"Şifa Bilgisi (I)","class":"Şifacı","color":"Kırmızı","series":"Şifa Bilgisi","tier":1,"effect":"stat_multiplier","value":10,"unit":"percent","targetAttributes":["İyileştirme Büyüleri"],"outputAttribute":"Tılsımlı İyileştirme","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-heal-ii","name":"Şifa Bilgisi (II)","class":"Şifacı","color":"Kırmızı","series":"Şifa Bilgisi","tier":2,"effect":"stat_multiplier","value":15,"unit":"percent","targetAttributes":["İyileştirme Büyüleri"],"outputAttribute":"Tılsımlı İyileştirme","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-heal-iii","name":"Şifa Bilgisi (III)","class":"Şifacı","color":"Kırmızı","series":"Şifa Bilgisi","tier":3,"effect":"stat_multiplier","value":20,"unit":"percent","targetAttributes":["İyileştirme Büyüleri"],"outputAttribute":"Tılsımlı İyileştirme","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-poison-i","name":"Zehirleme 1 (I)","class":"Şifacı","color":"Kırmızı","series":"Zehirleme 1","tier":1,"effect":"stat_multiplier","value":30,"unit":"percent","targetAttributes":["Büyü Hasarı (Zehir)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Zehir Büyü Hasarı","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-poison-ii","name":"Zehirleme 1 (II)","class":"Şifacı","color":"Kırmızı","series":"Zehirleme 1","tier":2,"effect":"stat_multiplier","value":60,"unit":"percent","targetAttributes":["Büyü Hasarı (Zehir)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Zehir Büyü Hasarı","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"},
-  {"id":"healer-poison-iii","name":"Zehirleme 1 (III)","class":"Şifacı","color":"Kırmızı","series":"Zehirleme 1","tier":3,"effect":"stat_multiplier","value":100,"unit":"percent","targetAttributes":["Büyü Hasarı (Zehir)","Büyü Hasarı (Hepsi)"],"outputAttribute":"Tılsımlı Zehir Büyü Hasarı","status":"single_source","sourceId":"ikv-healer-talismans","lastChecked":"2026-08-23"}
+  {
+    "id": "mage-ates-bilgisi-red-1",
+    "name": "Ateş Bilgisi (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Ateş Bilgisi",
+    "tier": 1,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Ateş)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Ateş Büyü Hasarı",
+    "effectText": "Ateş büyü hasarını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-ates-bilgisi-red-2",
+    "name": "Ateş Bilgisi (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Ateş Bilgisi",
+    "tier": 2,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Ateş)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Ateş Büyü Hasarı",
+    "effectText": "Ateş büyü hasarını %15 arttırır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-ates-bilgisi-red-3",
+    "name": "Ateş Bilgisi (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Ateş Bilgisi",
+    "tier": 3,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Ateş)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Ateş Büyü Hasarı",
+    "effectText": "Ateş büyü hasarını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-ates-cemberi-1-red-1",
+    "name": "Ateş Çemberi 1 (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Ateş Çemberi 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Direnç sıfırın altında ise 3 katı vurma ihtimalini %30 arttırır.",
+    "value": 3,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-ates-cemberi-1-red-2",
+    "name": "Ateş Çemberi 1 (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Ateş Çemberi 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Direnç sıfırın altında ise 3 katı vurma ihtimalini %60 arttırır.",
+    "value": 3,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-ates-cemberi-1-red-3",
+    "name": "Ateş Çemberi 1 (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Ateş Çemberi 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Direnç sıfırın altında ise 3 katı vurma ihtimalini %100 arttırır.",
+    "value": 3,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-ates-cemberi-2-red-special",
+    "name": "Ateş Çemberi 2",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Ateş Çemberi 2",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Ateş çemberinin yenilenme süresini 1 saniye azaltır.",
+    "value": 1,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-bilgisi-red-1",
+    "name": "Buz Bilgisi (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Buz Bilgisi",
+    "tier": 1,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Buz)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Buz Büyü Hasarı",
+    "effectText": "Buz büyü hasarını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-bilgisi-red-2",
+    "name": "Buz Bilgisi (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Buz Bilgisi",
+    "tier": 2,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Buz)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Buz Büyü Hasarı",
+    "effectText": "Buz büyü hasarını %15 arttırır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-bilgisi-red-3",
+    "name": "Buz Bilgisi (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Buz Bilgisi",
+    "tier": 3,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Buz)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Buz Büyü Hasarı",
+    "effectText": "Buz büyü hasarını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buyu-bozma-red-1",
+    "name": "Büyü Bozma (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Büyü Bozma",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Savaşçı ve şifacı tarafından verilen olumsuz etkileri bozma ihtimalini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buyu-bozma-red-2",
+    "name": "Büyü Bozma (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Büyü Bozma",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Savaşçı ve şifacı tarafından verilen olumsuz etkileri bozma ihtimalini %200 arttırır.",
+    "value": 200,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buyu-bozma-red-3",
+    "name": "Büyü Bozma (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Büyü Bozma",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Savaşçı ve şifacı tarafından verilen olumsuz etkileri bozma ihtimalini %300 arttırır.",
+    "value": 300,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-direnc-kirma-alani-red-1",
+    "name": "Direnç Kırma Alanı (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Direnç Kırma Alanı",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Rakibin dirençlerini %20 daha fazla düşürür.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-direnc-kirma-alani-red-2",
+    "name": "Direnç Kırma Alanı (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Direnç Kırma Alanı",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Rakibin dirençlerini %40 daha fazla düşürür.",
+    "value": 40,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-direnc-kirma-alani-red-3",
+    "name": "Direnç Kırma Alanı (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Direnç Kırma Alanı",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Rakibin dirençlerini %60 daha fazla düşürür.",
+    "value": 60,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-elektrik-bilgisi-red-1",
+    "name": "Elektrik Bilgisi (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Elektrik Bilgisi",
+    "tier": 1,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Elektrik)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Elektrik Büyü Hasarı",
+    "effectText": "Elektrik büyü hasarını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-elektrik-bilgisi-red-2",
+    "name": "Elektrik Bilgisi (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Elektrik Bilgisi",
+    "tier": 2,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Elektrik)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Elektrik Büyü Hasarı",
+    "effectText": "Elektrik büyü hasarını %15 arttrır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-elektrik-bilgisi-red-3",
+    "name": "Elektrik Bilgisi (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Elektrik Bilgisi",
+    "tier": 3,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Elektrik)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Elektrik Büyü Hasarı",
+    "effectText": "Elektrik büyü hasarını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-fiziksel-bilgi-red-1",
+    "name": "Fiziksel Bilgi (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Fiziksel Bilgi",
+    "tier": 1,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Fiziksel)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Fiziksel Büyü Hasarı",
+    "effectText": "Fiziksel büyü hasarını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-fiziksel-bilgi-red-2",
+    "name": "Fiziksel Bilgi (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Fiziksel Bilgi",
+    "tier": 2,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Fiziksel)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Fiziksel Büyü Hasarı",
+    "effectText": "Fiziksel büyü hasarını %15 arttırır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-fiziksel-bilgi-red-3",
+    "name": "Fiziksel Bilgi (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Fiziksel Bilgi",
+    "tier": 3,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Fiziksel)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Fiziksel Büyü Hasarı",
+    "effectText": "Fiziksel büyü hasarını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-konsantrasyon-red-1",
+    "name": "Konsantrasyon (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Konsantrasyon",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Büyücünün konsantrasyondan gelen kritik şansını %15 arttırır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-konsantrasyon-red-2",
+    "name": "Konsantrasyon (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Konsantrasyon",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Büyücünün konsantrasyondan gelen kritik şansını %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-konsantrasyon-red-3",
+    "name": "Konsantrasyon (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Konsantrasyon",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Büyücünün konsantrasyondan gelen kritik şansını %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meteorit-1-red-special",
+    "name": "Meteorit 1",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Meteorit 1",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Meteorit'in yenilenme süresini 1 saniye azaltır.",
+    "value": 1,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meteorit-2-red-1",
+    "name": "Meteorit 2 (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Meteorit 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Meteorit büyüsü kritik vurursa rakibin zırhını azaltma miktarını %25 yapar.",
+    "value": 25,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meteorit-2-red-2",
+    "name": "Meteorit 2 (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Meteorit 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Meteorit büyüsü kritik vurursa rakibin zırhını azaltma miktarını %30 yapar.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meteorit-2-red-3",
+    "name": "Meteorit 2 (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Meteorit 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Meteorit büyüsü kritik vurursa rakibin zırhını azaltma miktarını %35 yapar.",
+    "value": 35,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-tesla-kuresi-red-1",
+    "name": "Tesla Küresi (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Tesla Küresi",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Tesla küresinin hasarını ve enerjisini %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-tesla-kuresi-red-2",
+    "name": "Tesla Küresi (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Tesla Küresi",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Tesla küresinin hasarını ve enerjisini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-tesla-kuresi-red-3",
+    "name": "Tesla Küresi (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Tesla Küresi",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Tesla küresinin hasarını ve enerjisini %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-yildirim-1-red-1",
+    "name": "Yıldırım 1 (I)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Yıldırım 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "3 adet elektrik etkisi varken %15 daha fazla hasar verir.",
+    "value": 3,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-yildirim-1-red-2",
+    "name": "Yıldırım 1 (II)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Yıldırım 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "3 adet elektrik etkisi varken %30 daha fazla hasar verir.",
+    "value": 3,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-yildirim-1-red-3",
+    "name": "Yıldırım 1 (III)",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Yıldırım 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "3 adet elektrik etkisi varken %50 daha fazla hasar verir.",
+    "value": 3,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-yildirim-2-red-special",
+    "name": "Yıldırım 2",
+    "class": "Büyücü",
+    "color": "Kırmızı",
+    "series": "Yıldırım 2",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Yıldırım büyüsü çevredeki düşmanlara aynı hasarı verir.",
+    "value": null,
+    "unit": null,
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-1-blue-1",
+    "name": "Buz Oku 1 (I)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Buz oku kritik vuruş yaptığında, rakibi dondurma süresini %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-1-blue-2",
+    "name": "Buz Oku 1 (II)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Buz oku kritik vuruş yaptığında, rakibi dondurma süresini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-1-blue-3",
+    "name": "Buz Oku 1 (III)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Buz oku kritik vuruş yaptığında, rakibi dondurma süresini %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-2-blue-1",
+    "name": "Buz Oku 2 (I)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Buz oku yavaşlatma süresini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-2-blue-2",
+    "name": "Buz Oku 2 (II)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Buz oku yavaşlatma süresini %60 arttırır.",
+    "value": 60,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-2-blue-3",
+    "name": "Buz Oku 2 (III)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Buz oku yavaşlatma süresini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-3-blue-1",
+    "name": "Buz Oku 3 (I)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 3",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Buz oku %15 daha fazla yavaşlatır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-3-blue-2",
+    "name": "Buz Oku 3 (II)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 3",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Buz oku %30 daha fazla yavaşlatır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-buz-oku-3-blue-3",
+    "name": "Buz Oku 3 (III)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Buz Oku 3",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Buz oku %50 daha fazla yavaşlatır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-direnc-kirma-alani-blue-1",
+    "name": "Direnç Kırma Alanı (I)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Direnç Kırma Alanı",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Direnç kırma süresini %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-direnc-kirma-alani-blue-2",
+    "name": "Direnç Kırma Alanı (II)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Direnç Kırma Alanı",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Direnç kırma süresini %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-direnc-kirma-alani-blue-3",
+    "name": "Direnç Kırma Alanı (III)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Direnç Kırma Alanı",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Direnç kırma süresini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-konsantrasyon-1-blue-1",
+    "name": "Konsantrasyon 1 (I)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Konsantrasyon 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Konsantrasyon yeteneğini uygulayan kişi %25 hareket edebilir.",
+    "value": 25,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-konsantrasyon-1-blue-2",
+    "name": "Konsantrasyon 1 (II)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Konsantrasyon 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Konsantrasyon yeteneğini uygulayan kişi %50 hareket edebilir.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-konsantrasyon-1-blue-3",
+    "name": "Konsantrasyon 1 (III)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Konsantrasyon 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Konsantrasyon yeteneğini uygulayan kişi %100 hareket edebilir.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-kutup-ruzgari-blue-special",
+    "name": "Kutup Rüzgarı",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Kutup Rüzgarı",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Kutup rüzgarını atan büyücü kendisi için yarı yarıya daha çabuk çıkar.",
+    "value": null,
+    "unit": null,
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meditasyon-1-blue-1",
+    "name": "Meditasyon 1 (I)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meditasyon 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Meditasyondan gelen genel büyü kritik şansını %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meditasyon-1-blue-2",
+    "name": "Meditasyon 1 (II)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meditasyon 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Meditasyondan gelen genel büyü kritik şansını %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meditasyon-1-blue-3",
+    "name": "Meditasyon 1 (III)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meditasyon 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Meditasyondan gelen genel büyü kritik şansını %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meditasyon-2-blue-1",
+    "name": "Meditasyon 2 (I)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meditasyon 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Meditasyon süresini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meditasyon-2-blue-2",
+    "name": "Meditasyon 2 (II)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meditasyon 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Meditasyon süresini %60 arttırır.",
+    "value": 60,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meditasyon-2-blue-3",
+    "name": "Meditasyon 2 (III)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meditasyon 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Meditasyon süresini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meteorit-blue-1",
+    "name": "Meteorit (I)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meteorit",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Meteorit büyüsü kritik vurursa rakibin zırhını azaltma süresini 6 saniye yapar.",
+    "value": 6,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meteorit-blue-2",
+    "name": "Meteorit (II)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meteorit",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Meteorit büyüsü kritik vurursa rakibin zırhını azaltma süresini 8 saniye yapar.",
+    "value": 8,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "mage-meteorit-blue-3",
+    "name": "Meteorit (III)",
+    "class": "Büyücü",
+    "color": "Mavi",
+    "series": "Meteorit",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Meteorit büyüsü kritik vurursa rakibin zırhını azaltma süresini 10 saniye yapar.",
+    "value": 10,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-mage-talismans",
+    "verificationSourceIds": [
+      "fandom-mage-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-agir-vurus-red-special",
+    "name": "Ağır Vuruş",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Ağır Vuruş",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Ağır vuruşun yaratıklara karşı yenilenme süresini 1 saniye azaltır.",
+    "value": 1,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-defansif-dovusme-1-red-1",
+    "name": "Defansif Dövüşme 1 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Defansif Dövüşme 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Kıyafetlerdeki bonus enerji miktarının 4.50 katı kadar enerji verir.",
+    "value": 4.5,
+    "unit": null,
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-defansif-dovusme-1-red-2",
+    "name": "Defansif Dövüşme 1 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Defansif Dövüşme 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Kıyafetlerdeki bonus enerji miktarının 5.00 katı kadar enerji verir.",
+    "value": 5,
+    "unit": null,
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-defansif-dovusme-1-red-3",
+    "name": "Defansif Dövüşme 1 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Defansif Dövüşme 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Kıyafetlerdeki bonus enerji miktarının 5.50 katı kadar enerji verir.",
+    "value": 5.5,
+    "unit": null,
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-defansif-dovusme-2-red-1",
+    "name": "Defansif Dövüşme 2 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Defansif Dövüşme 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Defansif dövüşmede savaçının hasarını hiç düşürmez.",
+    "value": null,
+    "unit": null,
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-defansif-dovusme-2-red-2",
+    "name": "Defansif Dövüşme 2 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Defansif Dövüşme 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Defansif dövüşmede savaşçının hasarını %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-defansif-dovusme-2-red-3",
+    "name": "Defansif Dövüşme 2 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Defansif Dövüşme 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Defansif dövüşmede savaşçının hasarını %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-depar-red-1",
+    "name": "Depar (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Depar",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Deparın yenilenme süresini 6 saniye düşürür.",
+    "value": 6,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-depar-red-2",
+    "name": "Depar (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Depar",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Deparın yenilenme süresini 8 saniye düşürür.",
+    "value": 8,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-depar-red-3",
+    "name": "Depar (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Depar",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Deparın yenilenme süresini 10 saniye düşürür.",
+    "value": 10,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-durdurma-1-red-1",
+    "name": "Durdurma 1 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Durdurma 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Durdurulan rakibin el ve zihin tutulması geçirme ihtimalini %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-durdurma-1-red-2",
+    "name": "Durdurma 1 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Durdurma 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Durdurulan rakibin el ve zihin tutulması geçirme ihtimalini %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-durdurma-1-red-3",
+    "name": "Durdurma 1 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Durdurma 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Durdurulan rakibin el ve zihin tutulması geçirme ihtimalini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-durdurma-2-red-1",
+    "name": "Durdurma 2 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Durdurma 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Durdurmanın süresini %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-durdurma-2-red-2",
+    "name": "Durdurma 2 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Durdurma 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Durdurmanın süresini %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-durdurma-2-red-3",
+    "name": "Durdurma 2 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Durdurma 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Durdurmanın süresini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-hedef-saptirma-red-1",
+    "name": "Hedef Saptırma (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Hedef Saptırma",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Hedef saptırmanın hiddet aktarımını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-hedef-saptirma-red-2",
+    "name": "Hedef Saptırma (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Hedef Saptırma",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Hedef saptırmanın hiddet aktarımını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-hedef-saptirma-red-3",
+    "name": "Hedef Saptırma (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Hedef Saptırma",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Hedef saptırmanın hiddet aktarımını %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kanatma-red-1",
+    "name": "Kanatma (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Kanatma",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Ayının yaptığı hasarı ve enerjisini %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kanatma-red-2",
+    "name": "Kanatma (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Kanatma",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Ayının yaptığı hasarı ve enerjisini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kanatma-red-3",
+    "name": "Kanatma (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Kanatma",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Ayının yaptığı hasarı ve enerjisini %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-1-red-1",
+    "name": "Ofansif Dövüşme 1 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Ofansif Dövüşme 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Ağır vuruş kritik geldiğinde %25 daha az kudret yer.",
+    "value": 25,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-1-red-2",
+    "name": "Ofansif Dövüşme 1 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Ofansif Dövüşme 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Ağır vuruş kritik geldiğinde %50 daha az kudret yer.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-1-red-3",
+    "name": "Ofansif Dövüşme 1 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Ofansif Dövüşme 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Ağır vuruş kritik geldiğinde %75 daha az kudret yer.",
+    "value": 75,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-2-red-1",
+    "name": "Ofansif Dövüşme 2 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Ofansif Dövüşme 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Sert ve ağır vuruş yeteneklerinin hasarlarını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-2-red-2",
+    "name": "Ofansif Dövüşme 2 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Ofansif Dövüşme 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Sert ve ağır vuruş yeteneklerinin hasarlarını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-2-red-3",
+    "name": "Ofansif Dövüşme 2 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Ofansif Dövüşme 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Sert ve ağır vuruş yeteneklerinin hasarlarını %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sert-vurus-1-red-1",
+    "name": "Sert Vuruş 1 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Sert Vuruş 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Bedelsiz yetenek şansını %15 oranında arttırır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sert-vurus-1-red-2",
+    "name": "Sert Vuruş 1 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Sert Vuruş 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Bedelsiz yetenek şansını %30 oranında arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sert-vurus-1-red-3",
+    "name": "Sert Vuruş 1 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Sert Vuruş 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Bedelsiz yetenek şansını %45 oranında arttırır.",
+    "value": 45,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sert-vurus-2-red-1",
+    "name": "Sert Vuruş 2 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Sert Vuruş 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Zihni tutulmuş düşmanlara %100 daha fazla hasar verir.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sert-vurus-2-red-2",
+    "name": "Sert Vuruş 2 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Sert Vuruş 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Zihni tutulmuş düşmanlara %150 daha fazla hasar verir.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sert-vurus-2-red-3",
+    "name": "Sert Vuruş 2 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Sert Vuruş 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Zihni tutulmuş düşmanlara %200 daha fazla hasar verir.",
+    "value": 200,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-supurme-saldirisi-1-red-1",
+    "name": "Süpürme Saldırısı 1 (I)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Süpürme Saldırısı 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Süpürme saldırısının hasarını %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-supurme-saldirisi-1-red-2",
+    "name": "Süpürme Saldırısı 1 (II)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Süpürme Saldırısı 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Süpürme saldırısının hasarını %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-supurme-saldirisi-1-red-3",
+    "name": "Süpürme Saldırısı 1 (III)",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Süpürme Saldırısı 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Süpürme saldırısının hasarını %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-supurme-saldirisi-2-red-special",
+    "name": "Süpürme Saldırısı 2",
+    "class": "Savaşçı",
+    "color": "Kırmızı",
+    "series": "Süpürme Saldırısı 2",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Süpürme saldırısının yenilenme süresini 1 saniye azaltır.",
+    "value": 1,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-defansif-dovusme-1-blue-special",
+    "name": "Defansif Dövüşme 1",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Defansif Dövüşme 1",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Kıyafetteki zırh bonusunun üçte biri kadar fiziksel saldırıdan hasar almama ihtimali yaratır.",
+    "value": null,
+    "unit": null,
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-defansif-dovusme-2-blue-special",
+    "name": "Defansif Dövüşme 2",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Defansif Dövüşme 2",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Süpürme vuruşu yapıldığında hiç kudret harcamaz.",
+    "value": null,
+    "unit": null,
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-dikkat-dagitma-blue-1",
+    "name": "Dikkat Dağıtma (I)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Dikkat Dağıtma",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Rakibin hareket hızını %20 düşürür.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-dikkat-dagitma-blue-2",
+    "name": "Dikkat Dağıtma (II)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Dikkat Dağıtma",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Rakibin hareket hızını %40 düşürür.",
+    "value": 40,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-dikkat-dagitma-blue-3",
+    "name": "Dikkat Dağıtma (III)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Dikkat Dağıtma",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Rakibin hareket hızını %60 düşürür.",
+    "value": 60,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kiskirtma-1-blue-1",
+    "name": "Kışkırtma 1 (I)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Kışkırtma 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Rakibin savunmasını %50 daha çok düşürür.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kiskirtma-1-blue-2",
+    "name": "Kışkırtma 1 (II)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Kışkırtma 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Rakibin savunmasını %100 daha çok düşürür.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kiskirtma-1-blue-3",
+    "name": "Kışkırtma 1 (III)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Kışkırtma 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Rakibin savunmasını %150 daha çok düşürür.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kiskirtma-2-blue-1",
+    "name": "Kışkırtma 2 (I)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Kışkırtma 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Kışkırtmanın kudret gereksinimini %10 azaltır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kiskirtma-2-blue-2",
+    "name": "Kışkırtma 2 (II)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Kışkırtma 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Kışkırtmanın kudret gereksinimini %20 azaltır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-kiskirtma-2-blue-3",
+    "name": "Kışkırtma 2 (III)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Kışkırtma 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Kışkırtmanın kudret gereksinimini %30 azaltır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-blue-1",
+    "name": "Ofansif Dövüşme (I)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Ofansif Dövüşme",
+    "tier": 1,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Saldırı"
+    ],
+    "outputAttribute": "Tılsımlı Saldırı",
+    "effectText": "Savaşçının saldırısını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-blue-2",
+    "name": "Ofansif Dövüşme (II)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Ofansif Dövüşme",
+    "tier": 2,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Saldırı"
+    ],
+    "outputAttribute": "Tılsımlı Saldırı",
+    "effectText": "Savaşçının saldırısını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-ofansif-dovusme-blue-3",
+    "name": "Ofansif Dövüşme (III)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Ofansif Dövüşme",
+    "tier": 3,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Saldırı"
+    ],
+    "outputAttribute": "Tılsımlı Saldırı",
+    "effectText": "Savaşçının saldırısını %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sakinma-blue-1",
+    "name": "Sakınma (I)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Sakınma",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Savaşçının kritik zırhını üzerindeki zırh efsunun %50'si kadar arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sakinma-blue-2",
+    "name": "Sakınma (II)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Sakınma",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Savaşçının kritik zırhını üzerindeki zırh efsunun %75'i kadar arttırır.",
+    "value": 75,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-sakinma-blue-3",
+    "name": "Sakınma (III)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Sakınma",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Savaşçının kritik zırhını üzerindeki zırh efsunun %100'ü kadar arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-savas-narasi-blue-1",
+    "name": "Savaş Narası (I)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Savaş Narası",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Savaş narası yeteneğinin kudret gereksinimini %10 azaltır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-savas-narasi-blue-2",
+    "name": "Savaş Narası (II)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Savaş Narası",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Savaş narası yeteneğinin kudret gereksinimini %15 azaltır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-savas-narasi-blue-3",
+    "name": "Savaş Narası (III)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Savaş Narası",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Savaş narası yeteneğinin kudret gereksinimini %20 azaltır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-zihin-toplama-blue-1",
+    "name": "Zihin Toplama (I)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Zihin Toplama",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Büyücü ve şifacı olumsuz etkilerini kaldırma ihtimalini %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-zihin-toplama-blue-2",
+    "name": "Zihin Toplama (II)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Zihin Toplama",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Büyücü ve şifacı olumsuz etkilerini kaldırma ihtimalini %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "warrior-zihin-toplama-blue-3",
+    "name": "Zihin Toplama (III)",
+    "class": "Savaşçı",
+    "color": "Mavi",
+    "series": "Zihin Toplama",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Büyücü ve şifacı olumsuz etkilerini kaldırma ihtimalini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-warrior-talismans",
+    "verificationSourceIds": [
+      "fandom-warrior-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-bilgisi-red-1",
+    "name": "Asit Bilgisi (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Bilgisi",
+    "tier": 1,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Asit)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Asit Büyü Hasarı",
+    "effectText": "Asit büyü hasarını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-bilgisi-red-2",
+    "name": "Asit Bilgisi (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Bilgisi",
+    "tier": 2,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Asit)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Asit Büyü Hasarı",
+    "effectText": "Asit büyü hasarını %15 arttırır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-bilgisi-red-3",
+    "name": "Asit Bilgisi (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Bilgisi",
+    "tier": 3,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Asit)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Asit Büyü Hasarı",
+    "effectText": "Asit büyü hasarını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-saldirisi-1-red-1",
+    "name": "Asit Saldırısı 1 (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Saldırısı 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Rakibin iyileştirme yeteneğini %10 azaltır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-saldirisi-1-red-2",
+    "name": "Asit Saldırısı 1 (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Saldırısı 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Rakibin iyileştirme yeteneğini %20 azaltır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-saldirisi-1-red-3",
+    "name": "Asit Saldırısı 1 (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Saldırısı 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Rakibin iyileştirme yeteneğini %30 azaltır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-saldirisi-2-red-1",
+    "name": "Asit Saldırısı 2 (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Saldırısı 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Asit saldırısının kudret gereksinimini %15 azaltır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-saldirisi-2-red-2",
+    "name": "Asit Saldırısı 2 (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Saldırısı 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Asit saldırısının kudret gereksinimini %30 azaltır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-saldirisi-2-red-3",
+    "name": "Asit Saldırısı 2 (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Asit Saldırısı 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Asit saldırısının kudret gereksinimini %50 azaltır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-can-kurtaran-red-special",
+    "name": "Can Kurtaran",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Can Kurtaran",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Can kurtaranın yenilenme süresini 1 saniye azaltır.",
+    "value": 1,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-cagri-red-1",
+    "name": "Çağrı (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Çağrı",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Yardımcının hasarını ve enerjisini %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-cagri-red-2",
+    "name": "Çağrı (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Çağrı",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Yardımcının hasarını ve enerjisini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-cagri-red-3",
+    "name": "Çağrı (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Çağrı",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Yardımcının hasarını ve enerjisini %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-gazap-1-red-1",
+    "name": "Gazap 1 (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Gazap 1",
+    "tier": 1,
+    "effect": "damage_multiplier",
+    "requiresBase": "Gazap",
+    "effectText": "Büyü asit, büyü zehir ve max hasar etkilerini %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-gazap-1-red-2",
+    "name": "Gazap 1 (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Gazap 1",
+    "tier": 2,
+    "effect": "damage_multiplier",
+    "requiresBase": "Gazap",
+    "effectText": "Büyü asit, büyü zehir ve max hasar etkilerini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-gazap-1-red-3",
+    "name": "Gazap 1 (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Gazap 1",
+    "tier": 3,
+    "effect": "damage_multiplier",
+    "requiresBase": "Gazap",
+    "effectText": "Büyü asit, büyü zehir ve max hasar etkilerini %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-gazap-2-red-1",
+    "name": "Gazap 2 (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Gazap 2",
+    "tier": 1,
+    "effect": "critical_multiplier",
+    "requiresBase": "Gazap",
+    "effectText": "Gazaptan gelen kritik ihtimalini %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-gazap-2-red-2",
+    "name": "Gazap 2 (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Gazap 2",
+    "tier": 2,
+    "effect": "critical_multiplier",
+    "requiresBase": "Gazap",
+    "effectText": "Gazaptan gelen kritik ihtimalini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-gazap-2-red-3",
+    "name": "Gazap 2 (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Gazap 2",
+    "tier": 3,
+    "effect": "critical_multiplier",
+    "requiresBase": "Gazap",
+    "effectText": "Gazaptan gelen kritik ihtimalini %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-iyilestirme-red-special",
+    "name": "İyileştirme",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "İyileştirme",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "İyileştirmenin yenilenme süresini 1 saniye azaltır.",
+    "value": 1,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-iyilestirme-cemberi-1-red-1",
+    "name": "İyileştirme Çemberi 1 (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "İyileştirme Çemberi 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Üzerinde iyileştirme çemberi etkisi varsa, iyileştirme büyüsünün miktarını %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-iyilestirme-cemberi-1-red-2",
+    "name": "İyileştirme Çemberi 1 (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "İyileştirme Çemberi 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Üzerinde iyileştirme çemberi etkisi varsa, iyileştirme büyüsünün miktarını %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-iyilestirme-cemberi-1-red-3",
+    "name": "İyileştirme Çemberi 1 (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "İyileştirme Çemberi 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Üzerinde iyileştirme çemberi etkisi varsa, iyileştirme büyüsünün miktarını %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-iyilestirme-cemberi-2-red-1",
+    "name": "İyileştirme Çemberi 2 (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "İyileştirme Çemberi 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "İyileştirme çemberi etki süresini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-iyilestirme-cemberi-2-red-2",
+    "name": "İyileştirme Çemberi 2 (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "İyileştirme Çemberi 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "İyileştirme çemberi etki süresini %60 arttırır.",
+    "value": 60,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-iyilestirme-cemberi-2-red-3",
+    "name": "İyileştirme Çemberi 2 (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "İyileştirme Çemberi 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "İyileştirme çemberi etki süresini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-ruh-kalkani-red-1",
+    "name": "Ruh Kalkanı (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Ruh Kalkanı",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Saldırı değerinin artışını %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-ruh-kalkani-red-2",
+    "name": "Ruh Kalkanı (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Ruh Kalkanı",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Saldırı değerinin artışını %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-ruh-kalkani-red-3",
+    "name": "Ruh Kalkanı (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Ruh Kalkanı",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Saldırı değerinin artışını %200 arttırır.",
+    "value": 200,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-sifa-bilgisi-red-1",
+    "name": "Şifa Bilgisi (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Şifa Bilgisi",
+    "tier": 1,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "İyileştirme Büyüleri"
+    ],
+    "outputAttribute": "Tılsımlı İyileştirme",
+    "effectText": "İyileştirmeyi %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-sifa-bilgisi-red-2",
+    "name": "Şifa Bilgisi (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Şifa Bilgisi",
+    "tier": 2,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "İyileştirme Büyüleri"
+    ],
+    "outputAttribute": "Tılsımlı İyileştirme",
+    "effectText": "İyileştirmeyi %15 arttırır.",
+    "value": 15,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-sifa-bilgisi-red-3",
+    "name": "Şifa Bilgisi (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Şifa Bilgisi",
+    "tier": 3,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "İyileştirme Büyüleri"
+    ],
+    "outputAttribute": "Tılsımlı İyileştirme",
+    "effectText": "İyileştirmeyi %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-1-red-1",
+    "name": "Zehirleme 1 (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Zehirleme 1",
+    "tier": 1,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Zehir)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Zehir Büyü Hasarı",
+    "effectText": "Zehir büyü hasarını %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-1-red-2",
+    "name": "Zehirleme 1 (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Zehirleme 1",
+    "tier": 2,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Zehir)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Zehir Büyü Hasarı",
+    "effectText": "Zehir büyü hasarını %60 arttırır.",
+    "value": 60,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-1-red-3",
+    "name": "Zehirleme 1 (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Zehirleme 1",
+    "tier": 3,
+    "effect": "stat_multiplier",
+    "targetAttributes": [
+      "Büyü Hasarı (Zehir)",
+      "Büyü Hasarı (Hepsi)"
+    ],
+    "outputAttribute": "Tılsımlı Zehir Büyü Hasarı",
+    "effectText": "Zehir büyü hasarını %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-2-red-1",
+    "name": "Zehirleme 2 (I)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Zehirleme 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Zehir büyü kudret gereksinimini %25 azaltır.",
+    "value": 25,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-2-red-2",
+    "name": "Zehirleme 2 (II)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Zehirleme 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Zehir büyü kudret gereksinimini %50 azaltır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-2-red-3",
+    "name": "Zehirleme 2 (III)",
+    "class": "Şifacı",
+    "color": "Kırmızı",
+    "series": "Zehirleme 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Zehir büyü kudret gereksinimini %75 azaltır.",
+    "value": 75,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-bilgisi-blue-1",
+    "name": "Asit Bilgisi (I)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Asit Bilgisi",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Asit hasarını verme ihtimalini %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-bilgisi-blue-2",
+    "name": "Asit Bilgisi (II)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Asit Bilgisi",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Asit hasarını verme ihtimalini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-asit-bilgisi-blue-3",
+    "name": "Asit Bilgisi (III)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Asit Bilgisi",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Asit hasarını verme ihtimalini %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-buyu-bozma-blue-1",
+    "name": "Büyü Bozma (I)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Büyü Bozma",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Büyücü ve savaşçının yeteneklerinin olumsuz etkilerini kaldırma ihtimalini %10 arttırır.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-buyu-bozma-blue-2",
+    "name": "Büyü Bozma (II)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Büyü Bozma",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Büyücü ve savaşçının yeteneklerinin olumsuz etkilerini kaldırma ihtimalini %20 arttırır.",
+    "value": 20,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-buyu-bozma-blue-3",
+    "name": "Büyü Bozma (III)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Büyü Bozma",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Büyücü ve savaşçının yeteneklerinin olumsuz etkilerini kaldırma ihtimalini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-element-direnc-alani-blue-special",
+    "name": "Element Direnç Alanı",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Element Direnç Alanı",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Element direnç alanı etki süresini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-fiziksel-direnc-alani-blue-special",
+    "name": "Fiziksel Direnç Alanı",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Fiziksel Direnç Alanı",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Fiziksel direnç alanı etki süresini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-gazap-blue-special",
+    "name": "Gazap",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Gazap",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "İyileştirme yeteneğinin %50 oranında kullanılabilmesini sağlar.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-meditasyon-1-blue-1",
+    "name": "Meditasyon 1 (I)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Meditasyon 1",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Meditasyondan gelen genel büyü kritik şansını %50 arttırır.",
+    "value": 50,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-meditasyon-1-blue-2",
+    "name": "Meditasyon 1 (II)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Meditasyon 1",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Meditasyondan gelen genel büyü kritik şansını %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-meditasyon-1-blue-3",
+    "name": "Meditasyon 1 (III)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Meditasyon 1",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Meditasyondan gelen genel büyü kritik şansını %150 arttırır.",
+    "value": 150,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-meditasyon-2-blue-1",
+    "name": "Meditasyon 2 (I)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Meditasyon 2",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Meditasyon süresini %30 arttırır.",
+    "value": 30,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-meditasyon-2-blue-2",
+    "name": "Meditasyon 2 (II)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Meditasyon 2",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Meditasyon süresini %60 arttırır.",
+    "value": 60,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-meditasyon-2-blue-3",
+    "name": "Meditasyon 2 (III)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Meditasyon 2",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Meditasyon süresini %100 arttırır.",
+    "value": 100,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-ruh-kalkani-blue-special",
+    "name": "Ruh Kalkanı",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Ruh Kalkanı",
+    "tier": null,
+    "effect": "informational",
+    "effectText": "Ruh kalkanı etki süresini 10 katına çıkarır ve Ağır Vuruş'tan %50 daha az hasar sağlar.",
+    "value": 10,
+    "unit": "percent",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-blue-1",
+    "name": "Zehirleme (I)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Zehirleme",
+    "tier": 1,
+    "effect": "informational",
+    "effectText": "Zehirlemenin yavaşlatma süresini 10 saniye yapar.",
+    "value": 10,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-blue-2",
+    "name": "Zehirleme (II)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Zehirleme",
+    "tier": 2,
+    "effect": "informational",
+    "effectText": "Zehirlemenin yavaşlatma süresini 12 saniye yapar.",
+    "value": 12,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  },
+  {
+    "id": "healer-zehirleme-blue-3",
+    "name": "Zehirleme (III)",
+    "class": "Şifacı",
+    "color": "Mavi",
+    "series": "Zehirleme",
+    "tier": 3,
+    "effect": "informational",
+    "effectText": "Zehirlemenin yavaşlatma süresini 15 saniye yapar.",
+    "value": 15,
+    "unit": "second",
+    "status": "single_source",
+    "sourceId": "ikv-healer-talismans",
+    "verificationSourceIds": [
+      "fandom-healer-talismans"
+    ],
+    "lastChecked": "2026-08-23"
+  }
 ]

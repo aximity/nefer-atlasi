@@ -71,6 +71,21 @@ test("üç sınıfın da hesaplanabilir tılsım serisi vardır", () => {
     assert.ok(talismans.some((talisman) => talisman.class === klass), `${klass} tılsımları eksik`);
 });
 
+test("tılsım kataloğu her sınıfta iki rengi ve tam kademeli serileri korur", () => {
+  assert.equal(talismans.length, 179);
+  for (const klass of ["Savaşçı", "Büyücü", "Şifacı"]) {
+    const classRows = talismans.filter((talisman) => talisman.class === klass);
+    assert.deepEqual([...new Set(classRows.map((talisman) => talisman.color))].sort(), ["Kırmızı", "Mavi"]);
+    const series = new Map();
+    for (const talisman of classRows.filter((row) => row.tier !== null)) {
+      const key = `${talisman.series}|${talisman.color}`;
+      series.set(key, [...(series.get(key) ?? []), talisman.tier]);
+    }
+    for (const tiers of series.values()) assert.deepEqual([...new Set(tiers)].sort(), [1, 2, 3]);
+    assert.ok(classRows.some((talisman) => talisman.tier === null), `${klass} özel tılsımları eksik`);
+  }
+});
+
 test("efsun sözlüğü kaynaklı, pozitif ve birimli kayıtlardan oluşur",()=>{assert.ok(enchants.length>=35);for(const enchant of enchants){assert.ok(enchant.name&&enchant.attribute);assert.ok(enchant.value>0);assert.ok(enchant.unit);assert.ok(sources.some(source=>source.id===enchant.sourceId))}});
 test("efsun serileri büyü ve direnç kademelerini kapsar",()=>{assert.equal(enchantSeries.length,11);assert.ok(enchantSeries.flatMap(series=>series.entries).length>=128);for(const series of enchantSeries)assert.ok(series.entries.every(([name,value])=>name&&value>0))});
 test("üç sınıfın 45 yeteneği açılma seviyeleriyle kayıtlıdır",()=>{assert.equal(abilities.length,45);for(const klass of ["Savaşçı","Büyücü","Şifacı"]){const classAbilities=abilities.filter(ability=>ability.class===klass);assert.equal(classAbilities.length,15);assert.deepEqual([...new Set(classAbilities.map(ability=>ability.unlockLevel))],[1,10,20,30,40])}});

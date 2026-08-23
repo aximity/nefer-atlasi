@@ -413,10 +413,14 @@ export default function Home() {
               }}
             >
               <option value="">Tılsım seçilmedi</option>
-              {classTalismans.map((t) => (
-                <option value={t.id} key={t.id}>
-                  {t.name} · {t.color}
-                </option>
+              {(["Kırmızı", "Mavi"] as const).map((color) => (
+                <optgroup label={`${color} tılsımlar`} key={color}>
+                  {classTalismans.filter((t) => t.color === color).map((t) => (
+                    <option value={t.id} key={t.id}>
+                      {t.name}{t.tier === null ? " · Özel" : ""}
+                    </option>
+                  ))}
+                </optgroup>
               ))}
             </select>
             {tal?.requiresBase === "Gazap" && (
@@ -446,8 +450,8 @@ export default function Home() {
               </label>
             )}
             <p className="data-note">
-              Liste yalnız {klass} sınıfına ait, resmî tabloda bulunan
-              tılsımları gösterir.
+              {classTalismans.length} resmî kayıt · {new Set(classTalismans.map((t) => `${t.series}|${t.color}`)).size} seri · kırmızı ve mavi birlikte.
+              Kademesiz olanlar “Özel” etiketiyle ayrılır.
             </p>
           </article>
           <TalismanResult
@@ -660,8 +664,9 @@ function TalismanResult({
         after: totals["Gazap Kritik İhtimali"] ?? criticalBase,
       },
     ];
-  const blocked = Boolean(tal.requiresBase && !baseActive),
-    noBase = rows.length === 0 || rows.every((row) => row.before === 0);
+  const informational = tal.effect === "informational",
+    blocked = Boolean(tal.requiresBase && !baseActive),
+    noBase = !informational && (rows.length === 0 || rows.every((row) => row.before === 0));
   return (
     <article
       className={`effectReport ${blocked || noBase ? "blocked" : "active"}`}
@@ -669,11 +674,17 @@ function TalismanResult({
       <small>ETKİ RAPORU · {tal.color.toUpperCase()}</small>
       <h3>{tal.name}</h3>
       <p>
-        <b>Bağlı yetenek:</b> {tal.series} · <b>Çarpan:</b> +%{tal.value}
+        <b>Bağlı yetenek:</b> {tal.series} · <b>Kademe:</b> {tal.tier ?? "Özel"}
       </p>
+      <p><b>Resmî etki:</b> {tal.effectText}</p>
       {blocked ? (
         <div className="effectWarning">
           Çalışmıyor: önce {tal.requiresBase} yeteneğini etkinleştir.
+        </div>
+      ) : informational ? (
+        <div className="effectRows">
+          <div><span>Etki türü</span><b>Mekanik / koşullu</b></div>
+          <p>Bu tılsım sahte bir puan toplamına çevrilmez; resmî mekanik açıklaması esas alınır.</p>
         </div>
       ) : noBase ? (
         <div className="effectWarning">

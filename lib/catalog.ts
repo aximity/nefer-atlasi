@@ -21,8 +21,8 @@ export interface Source {id:string;url:string;title:string;type:SourceType;acces
 export interface Stat {id:string;itemId:string;attribute:string;value:number;unit:string;verificationStatus:VerificationStatus;lastChecked:string}
 export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıflar";level:number|null;slot:Slot;rarity:"Şaheser"|"Doğrulanmadı";appearanceFamily?:string;publicationStatus:VerificationStatus;lastChecked:string;region?:string;boss?:string;acquisition?:string}
 export interface Recipe {id:string;itemId:string;method:string;materials:{name:string;quantity:number}[];sourceId:string;verificationStatus:VerificationStatus;lastChecked:string}
-type TalismanBase={id:string;name:string;class:CharacterClass;color:string;series:string;tier:number;value:number;unit:string;requiresBase?:string;status:VerificationStatus;sourceId:string;lastChecked:string};
-export type Talisman=TalismanBase&({effect:"stat_multiplier";targetAttributes:string[];outputAttribute:string}|{effect:"damage_multiplier"|"critical_multiplier";targetAttributes?:never;outputAttribute?:never});
+type TalismanBase={id:string;name:string;class:CharacterClass;color:"Kırmızı"|"Mavi";series:string;tier:1|2|3|null;value:number|null;unit:"percent"|"second"|null;effectText:string;requiresBase?:string;status:VerificationStatus;sourceId:string;verificationSourceIds?:string[];lastChecked:string};
+export type Talisman=TalismanBase&({effect:"stat_multiplier";targetAttributes:string[];outputAttribute:string}|{effect:"damage_multiplier"|"critical_multiplier"|"informational";targetAttributes?:never;outputAttribute?:never});
 
 export const items = [...itemRows,...groupLootRows,...glassesRows] as Item[];
 const glassesStats:Stat[]=glassesStatRows.flatMap(row=>row.stats.map(([attribute,value],index)=>({id:`stat-${row.itemId}-${index}`,itemId:row.itemId,attribute:String(attribute),value:Number(value),unit:"puan",verificationStatus:"single_source" as const,lastChecked:"2026-08-23"})));
