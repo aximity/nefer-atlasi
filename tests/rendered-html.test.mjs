@@ -47,9 +47,12 @@ test("Türkçeleştirilmiş sınıfa özgü donanım deneyimini oluşturur", asy
   assert.match(html, /Hangi boss ne atıyor\?/);
   assert.match(html, /Sığınaklar/);
   assert.match(html, /Migrat/);
-  assert.match(html, /Kenan/);
-  assert.match(html, /Motorin/);
-  assert.match(html, /Düşünen Adam/);
+  assert.match(html, /Çemberlitaş/);
+  assert.match(html, /Gaffar Bey/);
+  assert.match(html, /Boss düşümü veya reçeteyle üretim/);
+  assert.match(html, /Bıçak Sırtı Ceket/);
+  assert.match(html, /Kıyamet Ceket/);
+  assert.match(html, /Ruh Döven Ceket/);
   assert.doesNotMatch(html, /EFSUN ÇÖZÜMLEYİCİ/);
   assert.doesNotMatch(html, /HAZIRLIK DENETİMİ/);
   assert.doesNotMatch(html, />[^<]*(?:Build|tank|Hibrit hedef|PvE|PvP|Farm)[^<]*</i);

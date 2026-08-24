@@ -652,7 +652,21 @@ function TalismanResult({
   );
 }
 function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
-  const loot = publishableItems.filter((item) => item.region && item.boss),
+  const cemberlitasLoot = publishableItems
+      .filter(
+        (item) =>
+          itemRecipe(item.id)?.sourceId === "maxigame-cemberlitas-2015",
+      )
+      .map((item) => ({
+        ...item,
+        region: "Çemberlitaş",
+        boss: "Gaffar Bey",
+        acquisition: itemRecipe(item.id)?.method,
+      })),
+    loot = [
+      ...cemberlitasLoot,
+      ...publishableItems.filter((item) => item.region && item.boss),
+    ],
     regions = [...new Set(loot.map((item) => item.region as string))],
     [activeRegion, setActiveRegion] = useState(regions[0] ?? ""),
     [activeClass, setActiveClass] = useState("Tümü"),
@@ -669,7 +683,7 @@ function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
         eyebrow="M4 · GRUP BÖLGELERİ GANİMET ARŞİVİ"
         title="Hangi boss ne atıyor?"
       >
-        <span className="count">{loot.length} kaynaklı ganimet</span>
+        <span className="count">{loot.length} kaynaklı ganimet ve üretim kaydı</span>
       </Title>
       <div className="regionTabs" role="tablist" aria-label="Grup bölgesi seç">
         {regions.map((regionName) => (
@@ -718,6 +732,7 @@ function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
                     <span>
                       <small>{item.class}</small>
                       <strong>{item.name}</strong>
+                      {item.acquisition && <i>{item.acquisition}</i>}
                     </span>
                     <em>{item.slot}</em>
                   </button>
