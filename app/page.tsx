@@ -22,10 +22,8 @@ import {
   buildTotals,
   compatibleItems,
   goalsByClass,
-  resistanceNeed,
   scoreBuild,
   suggestedSelection,
-  theoreticalCombinationCount,
   type BuildSelection,
   type Goal,
 } from "../lib/planner";
@@ -35,7 +33,6 @@ import {
   sanitizeBuild,
 } from "../lib/build-codec.mjs";
 import AbilitySimulator from "./ability-simulator";
-import EnchantAnalyzer from "./enchant-analyzer";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n),
   familyNames: Record<string, string> = {
@@ -72,12 +69,6 @@ const emptyAbilities: Record<AbilityKey, number> = {
     defense: 0,
   },
   modes = ["Grup Bölgesi", "PvE", "PvP", "Farm"],
-  modeNames: Record<string, string> = {
-    "Grup Bölgesi": "Grup bölgesi",
-    PvE: "Yaratıklara karşı",
-    PvP: "Oyunculara karşı",
-    Farm: "Kaynak toplama",
-  },
   buildRules = {
     classes,
     goalsByClass,
@@ -151,7 +142,6 @@ export default function Home() {
       wrathCriticalBase,
     ),
     score = scoreBuild(selection, primary, secondary),
-    region = contexts.find((x) => x.id === regionId) ?? contexts[0],
     payload = {
       klass,
       primary,
@@ -237,10 +227,9 @@ export default function Home() {
         <nav>
           <a href="#builder">Donanım planlayıcı</a>
           <a href="#engine">Tılsım ve yetenek</a>
-          <a href="#enchants">Efsun çöz</a>
-          <a href="#context">Hazırlık</a>
+          <a href="#group-regions">Grup bölgeleri</a>
           <a href="#items">Eşyalar</a>
-          <i>M5</i>
+          <i>M4</i>
         </nav>
       </header>
       <section className="hero" id="top">
@@ -253,7 +242,7 @@ export default function Home() {
           </h1>
           <p>
             Her yuvayı bağımsız seç; hedef puanını, tılsım etkisini ve
-            karşılaşma koşullarını aynı doğrulama zincirinde gör.
+            grup bölgelerindeki ganimetleri aynı doğrulama zincirinde gör.
           </p>
         </div>
         <aside>
@@ -464,60 +453,7 @@ export default function Home() {
         </div>
         <AbilitySimulator key={klass} klass={klass} />
       </section>
-      <EnchantAnalyzer />
-      <section className="context" id="context">
-        <Title
-          eyebrow="M4 · HAZIRLIK DENETİMİ"
-          title="Girmeden önce sorunları gör"
-        >
-          <span className="count">Hazır · dikkat · eksik</span>
-        </Title>
-        <div className="contextGrid">
-          <article>
-            <Field name="Bölge">
-              <select
-                value={regionId}
-                onChange={(e) => setRegionId(e.target.value)}
-              >
-                {contexts.map((x) => (
-                  <option value={x.id} key={x.id}>
-                    {x.name} ·{" "}
-                    {statusLabel[x.status as keyof typeof statusLabel]}
-                  </option>
-                ))}
-              </select>
-            </Field>
-            <Field name="Oynayış biçimi">
-              <select value={mode} onChange={(e) => setMode(e.target.value)}>
-                {modes.map((x) => (
-                  <option value={x} key={x}>{modeNames[x] ?? x}</option>
-                ))}
-              </select>
-            </Field>
-            <Field name="Rakip">
-              <select
-                value={rival}
-                onChange={(e) =>
-                  setRival(e.target.value as CharacterClass | "Rakip yok")
-                }
-              >
-                {["Rakip yok", ...classes].map((x) => (
-                  <option key={x}>{x}</option>
-                ))}
-              </select>
-            </Field>
-          </article>
-          <ContextReport
-            klass={klass}
-            region={region}
-            mode={mode}
-            rival={rival}
-            missingSlots={missingSlots}
-            talisman={tal ?? null}
-            baseTotals={baseTotals}
-          />
-        </div>
-      </section>
+      <GroupRegions onOpen={setDetail} />
       <section className="catalog" id="items">
         <Title eyebrow="KANITLI EŞYA KATALOĞU" title="Eşya rehberi">
           <div className="catalogTools">
@@ -715,99 +651,86 @@ function TalismanResult({
     </article>
   );
 }
-function ContextReport({
-  klass,
-  region,
-  mode,
-  rival,
-  missingSlots,
-  talisman,
-  baseTotals,
-}: {
-  klass: CharacterClass;
-  region: (typeof contexts)[number];
-  mode: string;
-  rival: CharacterClass | "Rakip yok";
-  missingSlots: string[];
-  talisman: (typeof talismans)[number] | null;
-  baseTotals: Record<string, number>;
-}) {
-  const modeReady = region.modes.includes(mode),
-    talBase =
-      talisman?.effect === "stat_multiplier" && "targetAttributes" in talisman
-        ? talisman.targetAttributes.some((key) => (baseTotals[key] ?? 0) > 0)
-        : Boolean(talisman);
-  const checks = [
-    {
-      state: missingSlots.length ? "bad" : "good",
-      title: missingSlots.length
-        ? `${missingSlots.length} eşya yuvası boş`
-        : "Eşya yuvaları dolu",
-      detail: missingSlots.length
-        ? missingSlots.join(", ")
-        : "Donanım planı ekipman açısından tamam.",
-    },
-    {
-      state: modeReady ? "good" : "bad",
-      title: modeReady
-        ? `${modeNames[mode] ?? mode} bu bölgeyle uyumlu`
-        : `${modeNames[mode] ?? mode} için kaynak kanıtı yok`,
-      detail: modeReady
-        ? "Bölge kaynağında bu oyun modu bulunuyor."
-        : "Bu seçimi öneri olarak değerlendirme.",
-    },
-    {
-      state: talisman && talBase ? "good" : "warn",
-      title: talisman
-        ? talBase
-          ? `${talisman.name} donanımda karşılık buluyor`
-          : `${talisman.name} için taban özellik yok`
-        : "Tılsım seçilmedi",
-      detail: talisman
-        ? `Sınıf: ${klass} · Seri: ${talisman.series}`
-        : "M3 bölümünden sınıf tılsımı seç.",
-    },
-    {
-      state: "warn",
-      title: rival === "Rakip yok" ? "Rakip seçilmedi" : "Direnç kontrolü",
-      detail: resistanceNeed(rival),
-    },
-    {
-      state:
-        klass === "Savaşçı" && region.id === "cemberlitas" ? "bad" : "good",
-      title:
-        klass === "Savaşçı" && region.id === "cemberlitas"
-          ? "Depar kullanılamaz"
-          : "Sınıf kısıtlaması yok",
-      detail: region.restriction,
-    },
-  ];
+function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
+  const loot = publishableItems.filter((item) => item.region && item.boss),
+    regions = [...new Set(loot.map((item) => item.region as string))],
+    [activeRegion, setActiveRegion] = useState(regions[0] ?? ""),
+    [activeClass, setActiveClass] = useState("Tümü"),
+    visible = loot.filter(
+      (item) =>
+        item.region === activeRegion &&
+        (activeClass === "Tümü" || item.class === activeClass),
+    ),
+    bosses = [...new Set(visible.map((item) => item.boss as string))];
+
   return (
-    <article className="readiness">
-      <small>SAHA RAPORU</small>
-      <h3>
-        {region.name} · {klass}
-      </h3>
-      <div className="checkList">
-        {checks.map((check, i) => (
-          <div className={check.state} key={`${check.title}-${i}`}>
-            <i>
-              {check.state === "good" ? "✓" : check.state === "bad" ? "!" : "·"}
-            </i>
-            <span>
-              <b>{check.title}</b>
-              <small>{check.detail}</small>
-            </span>
-          </div>
+    <section className="groupRegions" id="group-regions">
+      <Title
+        eyebrow="M4 · GRUP BÖLGELERİ GANİMET ARŞİVİ"
+        title="Hangi boss ne atıyor?"
+      >
+        <span className="count">{loot.length} kaynaklı ganimet</span>
+      </Title>
+      <div className="regionTabs" role="tablist" aria-label="Grup bölgesi seç">
+        {regions.map((regionName) => (
+          <button
+            role="tab"
+            aria-selected={activeRegion === regionName}
+            className={activeRegion === regionName ? "on" : ""}
+            onClick={() => setActiveRegion(regionName)}
+            key={regionName}
+          >
+            <span>{regionName}</span>
+            <small>
+              {loot.filter((item) => item.region === regionName).length} eşya ·{" "}
+              {new Set(loot.filter((item) => item.region === regionName).map((item) => item.boss)).size} boss
+            </small>
+          </button>
         ))}
       </div>
-      <p>
-        {region.bosses.length
-          ? `Doğrulanmış bölüm sonu düşmanı: ${region.bosses.join(", ")}`
-          : "Bu bölge için doğrulanmış bölüm sonu düşmanı kaydı yok."}{" "}
-        · {fmt(theoreticalCombinationCount(klass))} olası donanım seçeneği.
-      </p>
-    </article>
+      <div className="lootClassFilter" aria-label="Sınıfa göre filtrele">
+        {["Tümü", ...classes].map((className) => (
+          <button
+            className={activeClass === className ? "on" : ""}
+            onClick={() => setActiveClass(className)}
+            key={className}
+          >
+            {className}
+          </button>
+        ))}
+      </div>
+      <div className="bossLootGrid">
+        {bosses.map((boss, bossIndex) => {
+          const drops = visible.filter((item) => item.boss === boss);
+          return (
+            <article className="bossLoot" key={boss}>
+              <header>
+                <div className="bossMark">{String(bossIndex + 1).padStart(2, "0")}</div>
+                <div>
+                  <small>BÖLÜM SONU DÜŞMANI</small>
+                  <h3>{boss}</h3>
+                </div>
+                <b>{drops.length} parça</b>
+              </header>
+              <div className="dropList">
+                {drops.map((item) => (
+                  <button onClick={() => onOpen(item)} key={item.id}>
+                    <span>
+                      <small>{item.class}</small>
+                      <strong>{item.name}</strong>
+                    </span>
+                    <em>{item.slot}</em>
+                  </button>
+                ))}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+      {!bosses.length && (
+        <p className="emptyResult">Bu sınıf için kayıtlı ganimet yok.</p>
+      )}
+    </section>
   );
 }
 function ItemCard({
