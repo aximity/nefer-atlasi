@@ -10,9 +10,9 @@ import { items, recipes } from "../lib/catalog";
 import {
   gatheringRegionFor,
   gatheringRows,
-  specialMaterialSources,
   type GatheringProfession,
 } from "../lib/gathering-catalog";
+import { creatureDropSources } from "../lib/material-sources";
 
 type View = "Sayaçlar" | "Pazar" | "Kaynaklar" | "Gözlemler" | "Artırıcılar";
 type Profession = GatheringProfession;
@@ -23,7 +23,7 @@ const STORAGE_KEY = "nefer-atlasi:mining-timers:v1";
 const regionSuggestions = ["Eminönü", "Antrepo", "Labirent", "Meteor Bölgesi", "Sivri Ada", "Yeraltı", "Büyük Hol", "Topkapı Sarayı"];
 
 const materials = [
-  { name: "Xenotim", kind: "Reçete malzemesi", demand: "Birden çok sınıfın tılsım reçetesinde geçiyor", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Büyük Hol · Lojman dâhil", tone: "violet" },
+  { name: "Xenotim", kind: "Yaratık ganimeti", demand: "Birden çok sınıfın tılsım reçetesinde geçiyor", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Büyük Hol · Saklı Tür", tone: "violet" },
   { name: "Kondrit", kind: "Reçete malzemesi", demand: "II–III kademe tılsım reçetelerinde geçiyor", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Toplayıcı türü ve bölgesi teyit bekliyor", tone: "amber" },
   { name: "Gadolinyum", kind: "Madenci çıktısı", demand: "Monazit kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "45 toplama puanı · kaynaklı", tone: "cyan" },
   { name: "Jadeit", kind: "Sarraf çıktısı", demand: "Yeşim Taşı kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Büyük Hol · Lojman dâhil", tone: "green" },
@@ -162,10 +162,10 @@ export default function MiningGuide() {
 
   return <section className="mining" id="mining">
     <div className="mining-hero">
-      <div className="mining-kicker"><span>YENİ MODÜL</span> MADEN &amp; PAZAR TAKİBİ</div>
+      <div className="mining-kicker"><span>YENİ MODÜL</span> KAYNAK &amp; PAZAR TAKİBİ</div>
       <div className="mining-title">
         <div><h2>Çıkış rastgele.<br/><em>Süren ölçülebilir.</em></h2><p>Sabit nokta vaadi vermeden kontrol zamanını takip et, boş ve başarılı kontrolleri kaydet, yeniden çıkış aralığını gerçek gözlemlerle öğren.</p><a className="farm-ops-link" href="/farm-operasyonu">Saha Operasyonunu aç <span>↗</span></a></div>
-        <div className="ore-orbit" aria-hidden="true"><span/><i>Xe</i><small>XENOTİM</small></div>
+        <div className="ore-orbit" aria-hidden="true"><span/><i>Jd</i><small>JADEİT</small></div>
       </div>
       <div className="market-pulse">
         <div><small>TAKİPTEKİ MALZEME</small><strong>Xenotim</strong></div>
@@ -221,7 +221,7 @@ export default function MiningGuide() {
           <label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Kaynak veya çıktı ara"/></label>
         </div>
         <p className="schematic-note">Madenci, Sarraf ve Lokman ile 1./2./3. çıktı zincirleri kaynak tablosundan alındı. Bölge dağılımı normal İKV ile aynıdır; Monazit, Yeşim Taşı ve Çiğdem Büyük Hol altında birlikte gösterilir.</p>
-        <div className="hol-specials"><span>BÜYÜK HOL ÖZEL MALZEMELERİ</span>{specialMaterialSources.map((item)=><article key={item.name}><b>{item.name}</b><small>{item.region} · tılsım reçete malzemesi · standart meslek çıktı zincirinden ayrı</small></article>)}</div>
+        <div className="hol-specials creature-loot"><span>YARATIK GANİMETLERİ · MADEN DEĞİL</span>{creatureDropSources.map((item)=><article key={item.name}><b>{item.name}</b><small>{item.region} · {item.enemy} · {item.usage}</small><em>{item.verification}</em>{item.source&&<a href={item.source} target="_blank" rel="noreferrer">Kaynak ↗</a>}</article>)}</div>
         <div className="catalog-sources"><a href={sources.officialJobs} target="_blank" rel="noreferrer">Resmî meslek tanımları ↗</a><a href={sources.historicalRegions} target="_blank" rel="noreferrer">Bölge ve çıktı rehberi ↗</a><a href={sources.potionRecipes} target="_blank" rel="noreferrer">İksir reçeteleri ↗</a></div>
         <div className="collection-list">{collectionShown.map(item=>{
           const usage = recipeUsage(item);

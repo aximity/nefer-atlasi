@@ -24,7 +24,7 @@ import {
   type CharacterClass,
   type TalismanAcquisition,
 } from "../lib/catalog";
-import { gatheringSourceFor } from "../lib/gathering-catalog";
+import { materialSourceFor } from "../lib/material-sources";
 import {
   applyTalisman,
   buildTotals,
@@ -1043,12 +1043,14 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
                 <dt>Malzemeler</dt>
                 <dd className="recipeMaterialList">
                   {recipe.materials.map((material) => {
-                    const gathering = gatheringSourceFor(material.name);
+                    const materialSource = materialSourceFor(material.name);
                     return <span key={material.name}>
                       <b>{material.name} ×{material.quantity}</b>
-                      {gathering
-                        ? <small>{gathering.profession} · {gathering.base} kaynağının {gathering.output}. çıktısı · {gathering.region} · <a href={`/?module=mining&material=${encodeURIComponent(material.name)}#mining`}>madende aç ↗</a></small>
-                        : <small>Toplayıcılık kaynağı değil veya kaynak eşleşmesi henüz yok</small>}
+                      {materialSource?.kind === "gathering"
+                        ? <small>{materialSource.profession} · {materialSource.base} kaynağının {materialSource.output}. çıktısı · {materialSource.region} · <a href={`/?module=mining&material=${encodeURIComponent(material.name)}#mining`}>kaynaklarda aç ↗</a></small>
+                        : materialSource?.kind === "creature_drop"
+                          ? <small>{materialSource.region} · {materialSource.enemy} ganimeti · {materialSource.verification} · <a href={`/?module=mining&material=${encodeURIComponent(material.name)}#mining`}>kaynaklarda aç ↗</a></small>
+                          : <small>Kaynak eşleşmesi henüz yok</small>}
                     </span>;
                   })}
                 </dd>

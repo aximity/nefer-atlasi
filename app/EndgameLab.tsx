@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import EventCalendar from "./EventCalendar";
 
-type Panel = "Durum" | "Sorunlar" | "Pazar" | "Roller" | "Veri" | "Premium" | "Yol haritası";
+type Panel = "Durum" | "Sorunlar" | "Takvim" | "Pazar" | "Roller" | "Veri" | "Premium" | "Yol haritası";
 type IssueId = "repeat" | "group" | "economy" | "anka" | "client";
 
 const sourceLinks = {
@@ -123,6 +124,11 @@ const problems: Array<{
         name: "Grup kurma veri pilotu",
         basis: "Bölge, eksik rol, bekleme süresi ve sonucun gönüllü kaydı gerçek darboğazı gösterir.",
         pilot: "Discord yönlendirmesi + tek standart site formu.",
+      },
+      {
+        name: "Topluluk etkinlik takvimi",
+        basis: "Bölge, amaç, saat ve eksik rolleri tek davette birleştirerek dağınık kanallardaki oyuncuları aynı zaman aralığında toplar.",
+        pilot: "Önce site üzerinde paylaşılabilir davet ve takvime ekleme; oyun sunucusuna yük yok.",
       },
     ],
   },
@@ -313,6 +319,13 @@ const ideaDepth: Record<string, IdeaDepth> = {
     risk: "Gönüllü veri yanlı olabilir; sonuçlar kesin meta diye sunulmamalı.",
     metric: "Haftalık nitelikli kayıt ve tekrar eden katkıcı sayısı.",
     sourceLabel: "Topluluk veri pilotu",
+  },
+  "Topluluk etkinlik takvimi": {
+    foundation: "Sohbette tekrarlanan ilanı yapılandırılmış bölge, amaç, saat ve eksik rol kaydına çevirir.",
+    load: "Oyun sunucusunda sıfır · ilk pilot yalnız site bağlantısı ve standart .ics dosyası üretir.",
+    risk: "Eski, yinelenen veya yanıltıcı ilanlar; süre sonu, raporlama ve resmî/topluluk etiketi zorunlu olmalı.",
+    metric: "Davet açılışı, takvime ekleme, planlanan başlangıçta kurulan grup ve dolma süresi.",
+    sourceLabel: "Nefer Atlası topluluk koordinasyon pilotu",
   },
   "Gerçekleşen fiyat geçmişi": {
     foundation: "İlan fiyatını değil tamamlanmış işlemin medyanı, adedi ve tarihini gösterir.",
@@ -544,6 +557,14 @@ export default function EndgameLab() {
   const [issue, setIssue] = useState<IssueId>("repeat");
   const activeProblem = problems.find((item) => item.id === issue) ?? problems[0];
 
+  useEffect(() => {
+    const initialize = window.setTimeout(() => {
+      const requested = new URLSearchParams(window.location.search).get("panel");
+      if (requested === "Takvim") setPanel("Takvim");
+    }, 0);
+    return () => window.clearTimeout(initialize);
+  }, []);
+
   return (
     <section className="endgame" id="endgame">
       <div className="endgame-shell">
@@ -593,7 +614,7 @@ export default function EndgameLab() {
         </div>
 
         <nav className="eg-tabs" role="tablist" aria-label="Endgame raporu bölümleri">
-          {(["Durum", "Sorunlar", "Pazar", "Roller", "Veri", "Premium", "Yol haritası"] as Panel[]).map(
+          {(["Durum", "Sorunlar", "Takvim", "Pazar", "Roller", "Veri", "Premium", "Yol haritası"] as Panel[]).map(
             (item) => (
               <button
                 key={item}
@@ -647,7 +668,7 @@ export default function EndgameLab() {
           <div className="eg-panel problems-panel">
             <div className="panel-intro">
               <div>
-                <small>5 SORUN · HER BİRİNE 5 ALTERNATİF</small>
+                <small>5 SORUN · HER BİRİNE EN AZ 5 ALTERNATİF</small>
                 <h3>Tek fikre bağımlı kalma.</h3>
               </div>
               <p>
@@ -710,6 +731,8 @@ export default function EndgameLab() {
             </div>
           </div>
         )}
+
+        {panel === "Takvim" && <EventCalendar />}
 
         {panel === "Pazar" && (
           <div className="eg-panel market-design-panel">
@@ -912,6 +935,7 @@ export default function EndgameLab() {
                 <ul>
                   <li>Anka filtresi ve dolu çanta uyarısı</li>
                   <li>Rol bazlı grup ilanı</li>
+                  <li>Topluluk etkinlik takvimi pilotu</li>
                   <li>20 malzemelik salt okunur fiyat panosu</li>
                   <li>Anonim temel telemetri + eşya karşılaştırma</li>
                 </ul>

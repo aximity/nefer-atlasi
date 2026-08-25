@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.13.2",
+  version: "0.13.3",
   channel: "BETA",
-  milestone: "M13.2",
+  milestone: "M13.3",
   releasedAt: "25 Ağustos 2026",
-  title: "Bağlantılı bilgi zinciri",
+  title: "Topluluk takvimi ve doğru ganimet kaynakları",
   summary:
-    "Büyük Hol madenleri, tılsım edinme yolları ve Gaffar eşya reçeteleri birbirine bağlandı.",
+    "Oyuncuları aynı saatte buluşturan topluluk takvimi eklendi; yaratık ganimetleri madenlerden ayrıldı.",
   changes: [
-    "Monazit, Yeşim Taşı ve Çiğdem Büyük Hol bölgesine eklendi; KÖ saha teyidi uyarısı kaldırıldı.",
-    "Tılsımlar Büyük Hol düşümü, reçeteyle üretim ve yalnız reçeteyle üretim olarak filtrelenebilir oldu.",
-    "Çemberlitaş eşyaları Gaffar Bey kaynağı, reçete yöntemi ve tam malzeme listesiyle bağlandı.",
-    "Reçete malzemeleri toplayıcı mesleğine, kaynak zincirine ve bölgesine geri bağlandı.",
+    "Topluluk etkinlikleri için şablon, paylaşılabilir davet ve İstanbul saatli .ics takvim dosyası eklendi.",
+    "Xenotim, Örümcek Salgısı ve Peptit Kolorotoksin Büyük Hol yaratık ganimeti olarak düzeltildi.",
+    "Erg Tozu ve Erg Kalıntısı Zihin Tapınağı yaratık ganimeti olarak, oyuncu bilgisi etiketiyle eklendi.",
+    "Maden, sarraf ve lokman çıktıları yaratık ganimetlerinden veri modelinde kesin olarak ayrıldı.",
   ],
 } as const;

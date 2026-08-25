@@ -67,10 +67,6 @@ export const gatheringRegions: Record<GatheringProfession, Record<string, string
 
 const normalize = (value: string) => value.trim().toLocaleLowerCase("tr-TR");
 
-export const specialMaterialSources = [
-  { name: "Xenotim", profession: "Özel Hol malzemesi", base: "Xenotim", points: null, output: 1, region: "Büyük Hol" },
-] as const;
-
 export function gatheringRegionFor(row: GatheringRow) {
   return gatheringRegions[row.profession][row.base] ?? "Bölge kaydı eksik";
 }
@@ -80,7 +76,7 @@ export function gatheringSourceFor(materialName: string) {
   const row = gatheringRows.find((entry) =>
     [entry.base, entry.second, entry.third].filter(Boolean).some((name) => normalize(name as string) === wanted),
   );
-  if (!row) return specialMaterialSources.find((entry) => normalize(entry.name) === wanted) ?? null;
+  if (!row) return null;
   const output = normalize(row.base) === wanted ? 1 : normalize(row.second ?? "") === wanted ? 2 : 3;
   return { ...row, output, region: gatheringRegionFor(row) };
 }

@@ -4,6 +4,7 @@ import {
   gatheringRows,
   gatheringSourceFor,
 } from "../lib/gathering-catalog.ts";
+import { materialSourceFor } from "../lib/material-sources.ts";
 
 test("Büyük Hol üç toplayıcı mesleğinin 45 puanlık kaynaklarını kapsar", () => {
   for (const [material, profession] of [["Monazit", "Madenci"], ["Yeşim Taşı", "Sarraf"], ["Çiğdem", "Lokman"]]) {
@@ -28,8 +29,18 @@ test("toplayıcılık dışı üretim malzemesine sahte bölge atanmaz", () => {
   assert.equal(gatheringSourceFor("Peptit Kolorotoksin"), null);
 });
 
-test("Xenotim yanlış bir mesleğe bağlanmadan Büyük Hol özel malzemesi kalır", () => {
-  const source = gatheringSourceFor("Xenotim");
-  assert.equal(source?.profession, "Özel Hol malzemesi");
-  assert.equal(source?.region, "Büyük Hol");
+test("yaratık ganimetleri toplayıcılık çıktısı gibi gösterilmez", () => {
+  assert.equal(gatheringSourceFor("Xenotim"), null);
+  for (const [name, region, enemy] of [
+    ["Xenotim", "Büyük Hol", "Saklı Tür"],
+    ["Örümcek Salgısı", "Büyük Hol", "Örümcekler"],
+    ["Peptit Kolorotoksin", "Büyük Hol", "Akrepler"],
+    ["Erg Tozu", "Zihin Tapınağı", "Bölge yaratıkları"],
+    ["Erg Kalıntısı", "Zihin Tapınağı", "Bölge yaratıkları"],
+  ]) {
+    const source = materialSourceFor(name);
+    assert.equal(source?.kind, "creature_drop");
+    assert.equal(source?.region, region);
+    assert.equal(source?.enemy, enemy);
+  }
 });
