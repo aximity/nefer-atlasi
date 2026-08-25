@@ -16,5 +16,6 @@ test("paylaşım bağlantısı Endgame Takvim sekmesine gerekli alanları taşı
   const url = new URL(buildEventInviteUrl("https://example.com/", { title: "Erg turu", region: "Zihin Tapınağı", date: "2026-08-30", time: "20:30", roles: "Şifacı" }));
   assert.equal(url.searchParams.get("module"), "endgame");
   assert.equal(url.searchParams.get("panel"), "Takvim");
+  assert.equal(url.searchParams.get("community"), "Planlayıcı");
   assert.equal(url.searchParams.get("region"), "Zihin Tapınağı");
 });

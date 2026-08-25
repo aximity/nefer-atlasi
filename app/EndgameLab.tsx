@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import EventCalendar from "./EventCalendar";
+import CommunityEvents from "./CommunityEvents";
 
 type Panel = "Durum" | "Sorunlar" | "Takvim" | "Pazar" | "Roller" | "Veri" | "Premium" | "Yol haritası";
 type IssueId = "repeat" | "group" | "economy" | "anka" | "client";
@@ -732,7 +732,7 @@ export default function EndgameLab() {
           </div>
         )}
 
-        {panel === "Takvim" && <EventCalendar />}
+        {panel === "Takvim" && <CommunityEvents />}
 
         {panel === "Pazar" && (
           <div className="eg-panel market-design-panel">

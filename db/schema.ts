@@ -250,3 +250,29 @@ export const farmYields = sqliteTable(
     index("farm_yields_material_idx").on(table.material),
   ],
 );
+
+export const groupAnnouncements = sqliteTable(
+  "group_announcements",
+  {
+    id: text("id").primaryKey(),
+    receiptTokenHash: text("receipt_token_hash").notNull(),
+    clientTokenHash: text("client_token_hash").notNull(),
+    server: text("server").notNull(),
+    category: text("category").notNull(),
+    region: text("region").notNull(),
+    title: text("title").notNull(),
+    rolesJson: text("roles_json").notNull(),
+    leaderAlias: text("leader_alias").notNull(),
+    channel: text("channel").notNull(),
+    startAt: text("start_at").notNull(),
+    expiresAt: text("expires_at").notNull(),
+    status: text("status").notNull().default("active"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("group_announcements_receipt_unique").on(table.receiptTokenHash),
+    index("group_announcements_active_start_idx").on(table.status, table.startAt),
+    index("group_announcements_client_created_idx").on(table.clientTokenHash, table.createdAt),
+  ],
+);
