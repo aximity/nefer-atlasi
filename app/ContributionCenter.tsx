@@ -204,6 +204,7 @@ export default function ContributionCenter() {
 
   useEffect(() => {
     const hydrate = () => {
+      const requestedKind = new URLSearchParams(window.location.search).get("kind");
       let token = localStorage.getItem(CLIENT_KEY) ?? "";
       if (!/^[A-Za-z0-9_-]{20,128}$/.test(token)) {
         token = crypto.randomUUID().replaceAll("-", "") + crypto.randomUUID().replaceAll("-", "");
@@ -217,15 +218,20 @@ export default function ContributionCenter() {
             kind?: ContributionKind;
             fields?: Partial<Fields>;
           };
-          if (kinds.some((item) => item.id === draft.kind)) setKind(draft.kind!);
-          if (draft.fields) {
+          const hasRequestedKind = kinds.some((item) => item.id === requestedKind);
+          if (hasRequestedKind) setKind(requestedKind as ContributionKind);
+          else if (kinds.some((item) => item.id === draft.kind)) setKind(draft.kind!);
+          if (draft.fields && (!hasRequestedKind || requestedKind === draft.kind)) {
             setFields({ ...freshFields(), ...draft.fields, observedAt: draft.fields.observedAt || localDate() });
             setDraftNotice("Bu cihazdaki gönderilmemiş taslak açıldı.");
+          } else {
+            setFields((current) => ({ ...current, observedAt: localDate() }));
           }
         } catch {
           localStorage.removeItem(DRAFT_KEY);
         }
       } else {
+        if (kinds.some((item) => item.id === requestedKind)) setKind(requestedKind as ContributionKind);
         setFields((current) => ({ ...current, observedAt: localDate() }));
       }
       setHydrated(true);

@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.13.3",
+  version: "0.14.0",
   channel: "BETA",
-  milestone: "M13.3",
+  milestone: "M14",
   releasedAt: "25 Ağustos 2026",
-  title: "Topluluk takvimi ve doğru ganimet kaynakları",
+  title: "Adil oyuncu pazarı",
   summary:
-    "Oyuncuları aynı saatte buluşturan topluluk takvimi eklendi; yaratık ganimetleri madenlerden ayrıldı.",
+    "İlanı gerçekleşen satıştan ayıran, az veriyi kesin fiyat gibi göstermeyen çapraz doğrulanmış pazar nabzı açıldı.",
   changes: [
-    "Topluluk etkinlikleri için şablon, paylaşılabilir davet ve İstanbul saatli .ics takvim dosyası eklendi.",
-    "Xenotim, Örümcek Salgısı ve Peptit Kolorotoksin Büyük Hol yaratık ganimeti olarak düzeltildi.",
-    "Erg Tozu ve Erg Kalıntısı Zihin Tapınağı yaratık ganimeti olarak, oyuncu bilgisi etiketiyle eklendi.",
-    "Maden, sarraf ve lokman çıktıları yaratık ganimetlerinden veri modelinde kesin olarak ayrıldı.",
+    "Gerçekleşen satış, ilan ve para birimi ayrı filtrelenebilir oldu.",
+    "7/30 günlük birim fiyat medyanı, gözlem adedi ve güven seviyesi eklendi.",
+    "Yalnız moderasyondan geçmiş çapraz doğrulanmış kayıtlar pazar özetine giriyor.",
+    "Veri yoksa tahmini fiyat yerine açık boş durum ve öncelikli takip listesi gösteriliyor.",
   ],
 } as const;

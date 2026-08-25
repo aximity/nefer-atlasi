@@ -4,7 +4,7 @@ export const runtime = "edge";
 
 export async function GET() {
   try {
-    const rows = await listPublishedContributions();
+    const rows = await listPublishedContributions(200);
     return Response.json(
       { rows },
       {

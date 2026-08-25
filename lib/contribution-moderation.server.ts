@@ -264,7 +264,7 @@ export async function moderateContribution({
   return getAdminContribution(id);
 }
 
-export async function listPublishedContributions(limit = 12) {
+export async function listPublishedContributions(limit = 24) {
   const db = await getDb();
   const rows = await db
     .select({
@@ -285,7 +285,7 @@ export async function listPublishedContributions(limit = 12) {
       ),
     )
     .orderBy(desc(contributions.publishedAt))
-    .limit(Math.min(Math.max(limit, 1), 24));
+    .limit(Math.min(Math.max(limit, 1), 200));
   return rows.map((row) => {
     let details: Record<string, unknown> = {};
     try {

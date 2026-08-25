@@ -13,6 +13,7 @@ import {
   type GatheringProfession,
 } from "../lib/gathering-catalog";
 import { creatureDropSources } from "../lib/material-sources";
+import MarketBoard from "./MarketBoard";
 
 type View = "Sayaçlar" | "Pazar" | "Kaynaklar" | "Gözlemler" | "Artırıcılar";
 type Profession = GatheringProfession;
@@ -21,14 +22,6 @@ type Observation = { id: string; region: string; material: string; result: "foun
 
 const STORAGE_KEY = "nefer-atlasi:mining-timers:v1";
 const regionSuggestions = ["Eminönü", "Antrepo", "Labirent", "Meteor Bölgesi", "Sivri Ada", "Yeraltı", "Büyük Hol", "Topkapı Sarayı"];
-
-const materials = [
-  { name: "Xenotim", kind: "Yaratık ganimeti", demand: "Birden çok sınıfın tılsım reçetesinde geçiyor", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Büyük Hol · Saklı Tür", tone: "violet" },
-  { name: "Kondrit", kind: "Reçete malzemesi", demand: "II–III kademe tılsım reçetelerinde geçiyor", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Toplayıcı türü ve bölgesi teyit bekliyor", tone: "amber" },
-  { name: "Gadolinyum", kind: "Madenci çıktısı", demand: "Monazit kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "45 toplama puanı · kaynaklı", tone: "cyan" },
-  { name: "Jadeit", kind: "Sarraf çıktısı", demand: "Yeşim Taşı kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Büyük Hol · Lojman dâhil", tone: "green" },
-  { name: "Saf Altın", kind: "Madenci çıktısı", demand: "Altın kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "23 toplama puanı · kaynaklı", tone: "gold" },
-];
 
 const aboveCapRows = [
   { profession: "Madenci", chain: "Euksenit → Skandiyum → Yttrium", points: 50 },
@@ -77,7 +70,6 @@ export default function MiningGuide() {
   const [hydrated, setHydrated] = useState(false);
   const [timerDraft, setTimerDraft] = useState({ region: "", material: "", reminderMinutes: "10" });
   const [timerError, setTimerError] = useState("");
-  const shown = useMemo(() => materials.filter((item) => item.name.toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"))), [query]);
   const collectionShown = useMemo(() => gatheringRows.filter((item) => {
     const region = gatheringRegionFor(item);
     return item.profession === profession
@@ -100,7 +92,9 @@ export default function MiningGuide() {
     const initialize = window.setTimeout(() => {
       setNow(Date.now());
       const requestedMaterial = new URLSearchParams(window.location.search).get("material");
+      const requestedView = new URLSearchParams(window.location.search).get("view");
       if (requestedMaterial) setQuery(requestedMaterial);
+      if (requestedView === "Pazar") setView("Pazar");
       try {
         const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null") as { timers?: Timer[]; observations?: Observation[] } | null;
         if (stored) {
@@ -202,16 +196,7 @@ export default function MiningGuide() {
         <div className="timer-principles"><article><b>01</b><span><strong>Kesin süre yok</strong><small>Tek ölçümden kural üretilmez.</small></span></article><article><b>02</b><span><strong>Nokta paylaşılmaz</strong><small>Tekel oluşturacak canlı konum tutulmaz.</small></span></article><article><b>03</b><span><strong>Cihazda saklanır</strong><small>Kişisel sayaçların tarayıcında kalır.</small></span></article></div>
       </div>}
 
-      {view === "Pazar" && <div className="mining-panel">
-        <div className="mining-panel-head"><div><span>CANLI VERİ İSKELETİ</span><h3>Maden değer defteri</h3></div><label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Malzeme ara"/></label></div>
-        <div className="mineral-grid">{shown.map(item=><article className={`mineral-card ${item.tone}`} key={item.name}>
-          <div className="mineral-top"><span className="mineral-gem">◆</span><span className="price-trend">{item.trend}</span></div>
-          <small>{item.kind}</small><h4>{item.name}</h4><p>{item.demand}</p>
-          <dl><div><dt>Oyun parası</dt><dd>{item.game}</dd></div><div><dt>Reel gözlem</dt><dd>{item.real}</dd></div></dl>
-          <footer><i/> {item.status}</footer>
-        </article>)}</div>
-        <div className="value-logic"><div><span>01</span><h4>Reçete talebi</h4><p>Bir malzeme farklı sınıfların çok sayıda tılsım veya şaheser reçetesinde geçiyorsa sürekli talep görür.</p></div><div><span>02</span><h4>Erişim ve çekim</h4><p>Bölge erişimi, kaynak yoğunluğu, toplama puanı ve saf/nadir çekim olasılığı arzı belirler.</p></div><div><span>03</span><h4>Pazar baskısı</h4><p>Yoğun farm, rota tekeli ve stokların pazara aynı anda girmesi fiyatı aşağı çekebilir.</p></div></div>
-      </div>}
+      {view === "Pazar" && <MarketBoard query={query} setQuery={setQuery}/>}
 
       {view === "Kaynaklar" && <div className="mining-panel">
         <div className="mining-panel-head"><div><span>49 SEVİYE KAPSAM DENETİMİ</span><h3>Toplayıcılık kataloğu</h3></div><a href={sources.professions} target="_blank" rel="noreferrer">Ad tablosu ↗</a></div>
