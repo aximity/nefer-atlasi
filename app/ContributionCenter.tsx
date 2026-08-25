@@ -63,6 +63,15 @@ type PublishedContribution = {
   details: Record<string, unknown>;
 };
 
+type CanonicalRecord = {
+  id: string;
+  entityType: string;
+  displayName: string;
+  version: number;
+  updatedAt: string;
+  data: Record<string, unknown>;
+};
+
 const DRAFT_KEY = "nefer-atlasi-contribution-draft-v1";
 const CLIENT_KEY = "nefer-atlasi-anonymous-client-v1";
 const kinds: {
@@ -431,7 +440,7 @@ export default function ContributionCenter() {
     <section className="contributionCenter" id="contribute">
       <div className="contributionIntro">
         <div>
-          <p className="eyebrow">M6 · SAHA KATKI VE DOĞRULAMA MERKEZİ</p>
+          <p className="eyebrow">M8 · SAHA KATKI VE ANA VERİ MERKEZİ</p>
           <h2>Gözlemi kanıta dönüştür</h2>
           <p>
             Hesap açmadan katkı gönder. Kayıt önce özel inceleme kuyruğuna
@@ -450,7 +459,7 @@ export default function ContributionCenter() {
           ["01", "Taslak", "İnceleme bekler"],
           ["02", "Tek kaynak", "İlk kanıt eşleşir"],
           ["03", "Çapraz doğrulandı", "Bağımsız ikinci kanıt"],
-          ["04", "Yayında", "Editör kararı"],
+          ["04", "Ana veride", "Sürümlü ve geri alınabilir"],
         ].map(([number, label, description]) => (
           <div key={number}>
             <i>{number}</i>
@@ -1018,16 +1027,24 @@ export default function ContributionCenter() {
 
 function PublishedEvidence() {
   const [rows, setRows] = useState<PublishedContribution[]>([]);
+  const [canonical, setCanonical] = useState<CanonicalRecord[]>([]);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     let active = true;
     const run = async () => {
       try {
-        const response = await fetch("/api/contributions/published");
-        const result = (await response.json()) as {
+        const [publishedResponse, canonicalResponse] = await Promise.all([
+          fetch("/api/contributions/published"),
+          fetch("/api/catalog/verified"),
+        ]);
+        const publishedResult = (await publishedResponse.json()) as {
           rows?: PublishedContribution[];
         };
-        if (active && response.ok) setRows(result.rows ?? []);
+        const canonicalResult = (await canonicalResponse.json()) as {
+          records?: CanonicalRecord[];
+        };
+        if (active && publishedResponse.ok) setRows(publishedResult.rows ?? []);
+        if (active && canonicalResponse.ok) setCanonical(canonicalResult.records ?? []);
       } finally {
         if (active) setLoaded(true);
       }
@@ -1086,7 +1103,54 @@ function PublishedEvidence() {
           ))}
         </div>
       )}
+      <div className="canonicalPublic">
+        <div>
+          <span>ANA VERİ KATMANI · M8</span>
+          <h4>Siteye işlenen doğrulanmış kayıtlar</h4>
+          <p>
+            Yalnız editörün fark önizlemesinden geçirip ana veriye uyguladığı
+            sürümler burada görünür. Her değişiklik geri alınabilir.
+          </p>
+        </div>
+        <b>{canonical.length} etkin kayıt</b>
+      </div>
+      {canonical.length > 0 && (
+        <div className="canonicalGrid">
+          {canonical.slice(0, 9).map((record) => (
+            <article key={record.id}>
+              <header>
+                <span>{canonicalTypeLabel(record.entityType)}</span>
+                <b>v{record.version}</b>
+              </header>
+              <h4>{record.displayName}</h4>
+              <dl>
+                {Object.entries(record.data)
+                  .filter(([key]) => !["name", "verificationStatus", "provenance"].includes(key))
+                  .slice(0, 4)
+                  .map(([key, value]) => (
+                    <div key={key}>
+                      <dt>{publicDetailLabel(key)}</dt>
+                      <dd>{formatPublicValue(value)}</dd>
+                    </div>
+                  ))}
+              </dl>
+              <footer>Çapraz doğrulandı · ana veriye işlendi</footer>
+            </article>
+          ))}
+        </div>
+      )}
     </div>
+  );
+}
+
+function canonicalTypeLabel(value: string) {
+  return (
+    {
+      item: "EŞYA",
+      mining_route: "MADEN ROTASI",
+      market_observation: "PAZAR GÖZLEMİ",
+      ability_media: "YETENEK",
+    }[value] ?? value
   );
 }
 
@@ -1113,6 +1177,9 @@ function publicDetailLabel(key: string) {
     settledPrice: "Son fiyat",
     captureContext: "Ortam",
     abilityPoints: "Puan",
+    server: "Sunucu",
+    observedAt: "Gözlem",
+    name: "Ad",
   };
   return labels[key] ?? key;
 }

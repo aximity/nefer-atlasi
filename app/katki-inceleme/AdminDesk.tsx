@@ -57,6 +57,42 @@ type Counts = {
   publication: Record<string, number>;
 };
 
+type MergePreview = {
+  contribution: {
+    id: string;
+    verificationStatus: string;
+    publicationStatus: string;
+  };
+  target: {
+    entityType: string;
+    entityKey: string;
+    displayName: string;
+  };
+  current: {
+    id: string;
+    version: number;
+    active: boolean;
+    data: Record<string, unknown>;
+    updatedAt: string;
+  } | null;
+  baseline: {
+    source: "static_catalog";
+    data: Record<string, unknown>;
+  } | null;
+  proposed: Record<string, unknown>;
+  changes: { field: string; before: unknown; after: unknown }[];
+  history: {
+    id: string;
+    action: string;
+    version: number;
+    actorLabel: string;
+    note: string | null;
+    createdAt: string;
+  }[];
+  canMerge: boolean;
+  canRollback: boolean;
+};
+
 const kindLabels: Record<string, string> = {
   item_evidence: "Eşya",
   mining_run: "Maden",
@@ -85,6 +121,14 @@ const actionLabels: Record<string, string> = {
   unpublish: "Yayından kaldırıldı",
   return_draft: "Taslağa döndürüldü",
   save_note: "Editör notu güncellendi",
+  merge_apply: "Ana veri katmanına işlendi",
+  merge_rollback: "Ana veri sürümü geri alındı",
+};
+const entityLabels: Record<string, string> = {
+  item: "Eşya kaydı",
+  mining_route: "Maden rotası",
+  market_observation: "Pazar gözlemi",
+  ability_media: "Yetenek medyası",
 };
 const detailLabels: Record<string, string> = {
   className: "Sınıf",
@@ -136,6 +180,11 @@ export default function AdminDesk({
   const [publishConfirmed, setPublishConfirmed] = useState(false);
   const [acting, setActing] = useState("");
   const [refreshToken, setRefreshToken] = useState(0);
+  const [merge, setMerge] = useState<MergePreview | null>(null);
+  const [mergeLoading, setMergeLoading] = useState(false);
+  const [mergeNote, setMergeNote] = useState("");
+  const [mergeConfirmed, setMergeConfirmed] = useState(false);
+  const [mergeActing, setMergeActing] = useState("");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -218,6 +267,40 @@ export default function AdminDesk({
     return () => controller.abort();
   }, [selectedId]);
 
+  useEffect(() => {
+    if (!selectedId) {
+      queueMicrotask(() => setMerge(null));
+      return;
+    }
+    const controller = new AbortController();
+    const run = async () => {
+      setMergeLoading(true);
+      try {
+        const response = await fetch(
+          "/api/admin/contributions/merge?id=" + encodeURIComponent(selectedId),
+          { signal: controller.signal },
+        );
+        const result = (await response.json()) as MergePreview & { error?: string };
+        if (!response.ok) throw new Error(result.error || "Fark önizlemesi yüklenemedi.");
+        setMerge(result);
+        setMergeConfirmed(false);
+      } catch (requestError) {
+        if (!controller.signal.aborted) {
+          setMerge(null);
+          setError(
+            requestError instanceof Error
+              ? requestError.message
+              : "Fark önizlemesi yüklenemedi.",
+          );
+        }
+      } finally {
+        if (!controller.signal.aborted) setMergeLoading(false);
+      }
+    };
+    void run();
+    return () => controller.abort();
+  }, [refreshToken, selectedId]);
+
   const total =
     Object.values(counts.publication).reduce((sum, value) => sum + value, 0) ||
     rows.length;
@@ -262,6 +345,41 @@ export default function AdminDesk({
     }
   };
 
+  const actMerge = async (action: "apply" | "rollback") => {
+    if (!selectedId || !merge || mergeActing) return;
+    setMergeActing(action);
+    setError("");
+    try {
+      const response = await fetch(
+        "/api/admin/contributions/merge?id=" + encodeURIComponent(selectedId),
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            action,
+            expectedVersion: merge.current?.version ?? 0,
+            confirmed: mergeConfirmed,
+            note: mergeNote,
+          }),
+        },
+      );
+      const result = (await response.json()) as MergePreview & { error?: string };
+      if (!response.ok) throw new Error(result.error || "Ana veri işlemi tamamlanamadı.");
+      setMerge(result);
+      setMergeConfirmed(false);
+      setMergeNote("");
+      setRefreshToken((current) => current + 1);
+    } catch (requestError) {
+      setError(
+        requestError instanceof Error
+          ? requestError.message
+          : "Ana veri işlemi tamamlanamadı.",
+      );
+    } finally {
+      setMergeActing("");
+    }
+  };
+
   return (
     <main className="adminShell">
       <header className="adminTopbar">
@@ -284,8 +402,8 @@ export default function AdminDesk({
 
       <section className="adminOverview">
         <div>
-          <p>SAHA KATKILARI · M7</p>
-          <h1>Kanıtı incele.<br /><em>Kararı kaydet.</em></h1>
+          <p>SAHA KATKILARI · M8</p>
+          <h1>Kanıtı incele.<br /><em>Ana veriye bağla.</em></h1>
         </div>
         <div className="adminStats">
           <Stat label="Toplam" value={total} tone="gold" />
@@ -582,6 +700,114 @@ export default function AdminDesk({
                         onClick={act}
                       />
                     </div>
+                  </Section>
+
+                  <Section title="Ana veri birleştirme">
+                    {mergeLoading ? (
+                      <p className="sectionEmpty">Fark önizlemesi hazırlanıyor…</p>
+                    ) : merge ? (
+                      <div className="mergeCenter">
+                        <div className="mergeTarget">
+                          <span>
+                            <small>HEDEF KAYIT</small>
+                            <b>{entityLabels[merge.target.entityType] ?? merge.target.entityType}</b>
+                          </span>
+                          <span>
+                            <small>SÜRÜM</small>
+                            <b>v{merge.current?.version ?? 0} → v{(merge.current?.version ?? 0) + 1}</b>
+                          </span>
+                          <i data-ready={merge.canMerge}>
+                            {merge.current
+                              ? merge.current.active
+                                ? "Güncelleme"
+                                : "Yeniden etkinleştirme"
+                              : merge.baseline
+                                ? "Katalog üst katmanı"
+                              : "Yeni kayıt"}
+                          </i>
+                        </div>
+                        <div className="mergeDiff" role="table" aria-label="Ana veri farkı">
+                          <header role="row">
+                            <span>Alan</span><span>Mevcut</span><span>Önerilen</span>
+                          </header>
+                          {merge.changes.map((change) => (
+                            <div role="row" key={change.field}>
+                              <b>{detailLabels[change.field] ?? change.field}</b>
+                              <del>{formatValue(change.before)}</del>
+                              <ins>{formatValue(change.after)}</ins>
+                            </div>
+                          ))}
+                          {!merge.changes.length && (
+                            <p>Alan farkı yok; kayıt zaten bu veriyi taşıyor.</p>
+                          )}
+                        </div>
+                        <label className="adminNote mergeNote">
+                          <span>Birleştirme / geri alma gerekçesi</span>
+                          <textarea
+                            value={mergeNote}
+                            onChange={(event) => setMergeNote(event.target.value)}
+                            placeholder="Hangi kanıtın hangi alanı doğruladığını kısaca yaz…"
+                            maxLength={2000}
+                          />
+                        </label>
+                        <label className="adminConfirm mergeConfirm">
+                          <input
+                            type="checkbox"
+                            checked={mergeConfirmed}
+                            onChange={(event) => setMergeConfirmed(event.target.checked)}
+                          />
+                          <span>
+                            Mevcut ve önerilen alanları karşılaştırdım; bu sürümün ana veri
+                            katmanında görünmesini onaylıyorum.
+                          </span>
+                        </label>
+                        {!merge.canMerge && (
+                          <p className="mergeGate">
+                            Önce katkıyı çapraz doğrula ve public karta yayımla. Ana veri kapısı
+                            bundan sonra açılır.
+                          </p>
+                        )}
+                        <div className="mergeActions">
+                          <button
+                            data-tone="gold"
+                            disabled={
+                              !merge.canMerge ||
+                              !mergeConfirmed ||
+                              mergeNote.trim().length < 3 ||
+                              Boolean(mergeActing) ||
+                              (!merge.changes.length && Boolean(merge.current?.active))
+                            }
+                            onClick={() => void actMerge("apply")}
+                          >
+                            {mergeActing === "apply" ? "İşleniyor…" : "Ana veriye uygula"}
+                          </button>
+                          <button
+                            data-tone="red"
+                            disabled={
+                              !merge.canRollback ||
+                              !mergeConfirmed ||
+                              mergeNote.trim().length < 3 ||
+                              Boolean(mergeActing)
+                            }
+                            onClick={() => void actMerge("rollback")}
+                          >
+                            {mergeActing === "rollback" ? "Geri alınıyor…" : "Son sürümü geri al"}
+                          </button>
+                        </div>
+                        {merge.history.length > 0 && (
+                          <ol className="mergeHistory">
+                            {merge.history.slice(0, 4).map((entry) => (
+                              <li key={entry.id}>
+                                <b>v{entry.version} · {entry.action === "apply" ? "uygulandı" : "geri alındı"}</b>
+                                <span>{entry.actorLabel} · {formatDate(entry.createdAt)}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        )}
+                      </div>
+                    ) : (
+                      <p className="sectionEmpty">Bu kayıt için önizleme oluşturulamadı.</p>
+                    )}
                   </Section>
                 </div>
 

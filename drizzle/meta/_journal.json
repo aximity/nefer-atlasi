@@ -15,6 +15,13 @@
       "when": 1787669298837,
       "tag": "0001_lying_black_bird",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1787670002916,
+      "tag": "0002_violet_screwball",
+      "breakpoints": true
     }
   ]
 }

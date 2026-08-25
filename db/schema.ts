@@ -79,3 +79,60 @@ export const contributionFiles = sqliteTable(
     index("contribution_files_sha256_idx").on(table.sha256),
   ],
 );
+
+export const canonicalRecords = sqliteTable(
+  "canonical_records",
+  {
+    id: text("id").primaryKey(),
+    entityType: text("entity_type").notNull(),
+    entityKey: text("entity_key").notNull(),
+    displayName: text("display_name").notNull(),
+    dataJson: text("data_json").notNull(),
+    version: integer("version").notNull().default(1),
+    active: integer("active", { mode: "boolean" }).notNull().default(true),
+    sourceContributionId: text("source_contribution_id").references(
+      () => contributions.id,
+      { onDelete: "set null" },
+    ),
+    updatedByHash: text("updated_by_hash").notNull(),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("canonical_records_type_key_unique").on(
+      table.entityType,
+      table.entityKey,
+    ),
+    index("canonical_records_public_idx").on(table.active, table.entityType),
+  ],
+);
+
+export const canonicalRevisions = sqliteTable(
+  "canonical_revisions",
+  {
+    id: text("id").primaryKey(),
+    recordId: text("record_id")
+      .notNull()
+      .references(() => canonicalRecords.id, { onDelete: "cascade" }),
+    contributionId: text("contribution_id").references(() => contributions.id, {
+      onDelete: "set null",
+    }),
+    action: text("action").notNull(),
+    version: integer("version").notNull(),
+    previousDataJson: text("previous_data_json"),
+    nextDataJson: text("next_data_json"),
+    previousActive: integer("previous_active", { mode: "boolean" }).notNull(),
+    nextActive: integer("next_active", { mode: "boolean" }).notNull(),
+    actorLabel: text("actor_label").notNull(),
+    actorEmailHash: text("actor_email_hash").notNull(),
+    note: text("note"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("canonical_revisions_record_idx").on(table.recordId, table.createdAt),
+    index("canonical_revisions_contribution_idx").on(
+      table.contributionId,
+      table.createdAt,
+    ),
+  ],
+);
