@@ -18,9 +18,9 @@ const regions = [
 
 const materials = [
   { name: "Xenotim", kind: "Tılsım malzemesi", demand: "Çok sayıda sınıf tılsımı", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Kullanıcı gözlemi · Ağu 2026", tone: "violet" },
-  { name: "Kondrit", kind: "Tılsım malzemesi", demand: "II–III kademe tılsım reçeteleri", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Reçete kullanımı doğrulandı", tone: "amber" },
+  { name: "Kondrit", kind: "Tılsım malzemesi", demand: "II–III kademe tılsım reçeteleri", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Tek reçete kaynağında listeleniyor", tone: "amber" },
   { name: "Gadolinyum", kind: "Nadir madenci çıktısı", demand: "Çeşitli sınıf tılsımları", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Monazit'in 2. seviye çıktısı", tone: "cyan" },
-  { name: "Jadeit", kind: "Değerli taş / reçete girdisi", demand: "Çeşitli sınıf tılsımları", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Reçete kullanımı doğrulandı", tone: "green" },
+  { name: "Jadeit", kind: "Değerli taş / reçete girdisi", demand: "Çeşitli sınıf tılsımları", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Tek reçete kaynağında listeleniyor", tone: "green" },
   { name: "Saf Altın", kind: "Saf madenci çıktısı", demand: "Şaheser eşya üretimi", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Altın'ın 2. seviye çıktısı", tone: "gold" },
   { name: "Euksenit", kind: "Madenci kaynağı", demand: "Skandiyum / Yttrium çekimi", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "50 toplama puanı", tone: "blue" },
 ];
@@ -30,7 +30,8 @@ const sources = {
   officialRegions: "https://www.istanbuloyun.com/Regions.aspx",
   professions: "https://istanbulkiyametvakti.fandom.com/tr/wiki/Toplay%C4%B1c%C4%B1l%C4%B1k",
   recipes: "https://istanbulkiyametvakti.fandom.com/tr/wiki/B%C3%BCy%C3%BCc%C3%BC_-_T%C4%B1ls%C4%B1m_Re%C3%A7eteleri",
-  boosters: "https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-dukkan-lonca-urunleri.240321/",
+  personalBooster: "https://www.istanbuloyun.com/News.aspx?NewsId=525",
+  guildBooster: "https://istanbuloyun.com/News.aspx?NewsId=567",
 };
 
 export default function MiningGuide() {
@@ -76,13 +77,13 @@ export default function MiningGuide() {
       </div>}
 
       {view === "Artırıcılar" && <div className="mining-panel">
-        <div className="mining-panel-head"><div><span>VERİM ÇARPANLARI</span><h3>Artırıcı rehberi</h3></div><a href={sources.boosters} target="_blank" rel="noreferrer">Kaynak ↗</a></div>
+        <div className="mining-panel-head"><div><span>VERİM ÇARPANLARI</span><h3>Artırıcı rehberi</h3></div><a href={sources.personalBooster} target="_blank" rel="noreferrer">Resmî kaynak ↗</a></div>
         <div className="booster-stack">
-          <article><div className="booster-icon">60</div><div><small>KİŞİSEL · MADENCİ</small><h4>Madenci Şans Artırıcı %60</h4><p>Madenci kaynaklarında %60 ihtimalle iki torba; saf ve nadir maden çekme olasılığında artış sağlar.</p></div><span className="stack-badge">KİŞİSEL</span></article>
-          <article><div className="booster-icon guild">60</div><div><small>LONCA · TÜM ÜYELER</small><h4>Lonca Madenci Şans Artırıcı %60</h4><p>Lonca üyelerine aynı kaynak avantajını sağlar ve kişisel Madenci Şans Artırıcı ile toplandığı belirtilir.</p></div><span className="stack-badge">TOPLANIR</span></article>
+          <article><div className="booster-icon">60</div><div><small>KİŞİSEL · RESMÎ İKV DUYURUSU</small><h4>Maden Şans Artırıcı %60</h4><p>Resmî İKV duyurusunda ürün %60 olarak listeleniyor. İki torba, saf/nadir çekim ve KÖ sunucusundaki tam formül henüz kaynakla doğrulanmadı.</p></div><span className="stack-badge">KÖ TESTİ BEKLİYOR</span></article>
+          <article><div className="booster-icon guild">60</div><div><small>LONCA · RESMÎ İKV DUYURUSU</small><h4>Lonca Madenci Şans Artırıcı %60</h4><p>Resmî İKV duyurusunda ürün %60 olarak listeleniyor. Kişisel artırıcıyla KÖ sunucusunda nasıl birleştiği saha testi yapılmadan kesin kabul edilmeyecek.</p></div><span className="stack-badge">KÖ TESTİ BEKLİYOR</span></article>
           <article className="booster-result"><div className="booster-icon result">+</div><div><small>FARM PLANI</small><h4>Önce test turu, sonra uzun farm</h4><p>Artırıcısız ve artırıcılı eşit sayıda tur kaydet. Torba, saf ve nadir sonuçlarını ayrı say; kârlılığı yalnız satış fiyatıyla değil saat başına çıktıyla ölç.</p></div></article>
         </div>
-        <div className="source-strip"><span>Kaynak durumu</span><a href={sources.officialRegions} target="_blank" rel="noreferrer">Resmî bölgeler</a><a href={sources.professions} target="_blank" rel="noreferrer">Toplayıcılık tablosu</a><a href={sources.recipes} target="_blank" rel="noreferrer">Tılsım reçeteleri</a></div>
+        <div className="source-strip"><span>Kaynak durumu</span><a href={sources.personalBooster} target="_blank" rel="noreferrer">Kişisel %60 duyurusu</a><a href={sources.guildBooster} target="_blank" rel="noreferrer">Lonca %60 duyurusu</a><a href={sources.officialRegions} target="_blank" rel="noreferrer">Resmî bölgeler</a><a href={sources.professions} target="_blank" rel="noreferrer">Toplayıcılık tablosu</a><a href={sources.recipes} target="_blank" rel="noreferrer">Tılsım reçeteleri</a></div>
       </div>}
     </div>
   </section>;

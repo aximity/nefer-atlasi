@@ -339,8 +339,9 @@ export default function Home() {
               </select>
             </Field>
             <p className="data-note">
-              Puanlama yalnız kanıtlı özellik adlarının hedeflerle eşleşmesini
-              ölçer; en iyi seçim veya başarı garantisi değildir.
+              Puanlama yalnız yayımdaki özellik adlarının hedeflerle eşleşmesini
+              ölçer. Tek kaynaklı kayıtlar teyit bekler; sonuç en iyi seçim veya
+              başarı garantisi değildir.
             </p>
             {notice && <p className="notice">{notice}</p>}
           </div>
@@ -412,7 +413,7 @@ export default function Home() {
           eyebrow="M3 · TILSIM VE YETENEK HESAPLAYICI"
           title="Tılsımı denetle, puan planını kur"
         >
-          <span className="count">Sınıfa özgü · 15 puan sınırı</span>
+          <span className="count">49 seviye · 96 standart puan · yetenek başına en fazla 15</span>
         </Title>
         <div className="engineGrid">
           <article>
@@ -464,8 +465,8 @@ export default function Home() {
               </label>
             )}
             <p className="data-note">
-              {classTalismans.length} resmî kayıt · {new Set(classTalismans.map((t) => `${t.series}|${t.color}`)).size} seri · kırmızı ve mavi birlikte.
-              Kademesiz olanlar “Özel” etiketiyle ayrılır.
+              {classTalismans.length} resmî İKV kaydı · {new Set(classTalismans.map((t) => `${t.series}|${t.color}`)).size} seri · kırmızı ve mavi birlikte.
+              KÖ sunucusundaki birebir davranış ayrıca oyun içi testle teyit edilmelidir.
             </p>
           </article>
           <TalismanResult
@@ -483,7 +484,7 @@ export default function Home() {
       {activeModule === "mining" && <MiningGuide />}
       {activeModule === "skills" && <SkillGuides />}
       {activeModule === "items" && <section className="catalog" id="items">
-        <Title eyebrow="KANITLI EŞYA KATALOĞU" title="Eşya rehberi">
+        <Title eyebrow="KAYNAK DURUMLU EŞYA KATALOĞU" title="Eşya rehberi">
           <div className="catalogTools">
             <input
               aria-label="Eşya ara"
@@ -519,6 +520,11 @@ export default function Home() {
             </select>
           </div>
         </Title>
+        <p className="catalogAudit">
+          <b>Doğrulama notu:</b> “Tek kaynak” etiketi kesin bilgi anlamına gelmez.
+          Bu kayıtlar ikinci bağımsız kaynak veya aynı eşya adını gösteren oyun içi
+          ekran görüntüsü gelene kadar teyit bekler; çelişkili değerler hesaplara alınmaz.
+        </p>
         <p className="resultCount">
           {filtered.length} eşya gösteriliyor · Aynı sınıf ve yuvadan iki eşyayı
           karşılaştırabilirsin.
@@ -539,7 +545,7 @@ export default function Home() {
         </div>
         {filtered.length === 0 && (
           <p className="emptyResult">
-            Bu filtrelerle eşleşen kanıtlı eşya yok.
+            Bu filtrelerle eşleşen kaynaklı eşya yok.
           </p>
         )}
       </section>}
@@ -840,7 +846,7 @@ function ItemCard({
                 {item.region} · {item.boss}
               </b>
               <span>
-                Ganimet kaydı doğrulandı; efsun değerleri henüz kaynaklanmadı.
+                Tek kaynakta ganimet olarak listeleniyor; efsun değerleri henüz kaynaklanmadı.
               </span>
             </div>
           )}

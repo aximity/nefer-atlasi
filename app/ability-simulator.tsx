@@ -4,19 +4,7 @@ import { useMemo, useState } from "react";
 import type { CharacterClass } from "../lib/catalog";
 import abilityRows from "../data/abilities.json";
 
-const budget = 80;
-const roleNames: Record<string, string> = {
-  SVH: "Tek hedef hasarı",
-  PvP: "Oyuncuya karşı",
-  Tank: "Savunma",
-  Mobilite: "Hareket",
-  Alan: "Alan etkisi",
-  Temizleme: "Olumsuz etki kaldırma",
-  "Grup Desteği": "Grup desteği",
-  "Acil Durum": "Acil durum",
-  "Yardımcı Hasar": "Yardımcı hasar",
-  "Grup İyileştirme": "Grup iyileştirme",
-};
+const baseBudget = 96;
 const abilities = Object.fromEntries(
   (["Savaşçı", "Büyücü", "Şifacı"] as CharacterClass[]).map((klass) => [
     klass,
@@ -24,7 +12,7 @@ const abilities = Object.fromEntries(
       .filter((row) => row.class === klass)
       .map((row) => ({
         name: row.name,
-        note: `Seviye ${row.unlockLevel} · ${row.roles.map((role) => roleNames[role] ?? role).join(" · ")}`,
+        note: `Seviye ${row.unlockLevel} · KÖ sunucu rehberi`,
       })),
   ]),
 ) as Record<CharacterClass, { name: string; note: string }[]>;
@@ -68,10 +56,12 @@ const presets: Record<
 export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
   const [points, setPoints] = useState<Record<string, number>>({});
   const [presetName, setPresetName] = useState("");
+  const [extraFive, setExtraFive] = useState(false);
   const spent = useMemo(
       () => Object.values(points).reduce((a, b) => a + b, 0),
       [points],
     ),
+    budget = baseBudget + (extraFive ? 5 : 0),
     remaining = budget - spent;
   const set = (name: string, value: number) => {
     const current = points[name] ?? 0,
@@ -98,8 +88,32 @@ export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
           <span> · kalan {remaining}</span>
         </strong>
       </div>
+      <div className="budgetProof">
+        <p>
+          <b>49. seviye standart hesabı:</b> 48 seviye artışı × 2 puan = 96.
+          Önceki 80 puan değeri kaldırıldı.
+        </p>
+        <label>
+          <input
+            type="checkbox"
+            checked={extraFive}
+            disabled={extraFive && spent > baseBudget}
+            onChange={(event) => setExtraFive(event.target.checked)}
+          />
+          Resmî İKV +5 yetenek hakkını ekle
+        </label>
+        <small>
+          Bu hak açıkken toplam 101 olur. Kıyametin Öncüleri sunucusunda hesabına
+          uygulanıp uygulanmadığını oyun içinden teyit et.
+        </small>
+        <div>
+          <a href="https://istanbuloyun.com/AbilitySystem.aspx" target="_blank" rel="noreferrer">2 puan / seviye kaynağı ↗</a>
+          <a href="https://istanbuloyun.com/cemberlitasikvbox.aspx" target="_blank" rel="noreferrer">+5 puan kaynağı ↗</a>
+          <a href="https://www.kiyametoyun.com/rehber" target="_blank" rel="noreferrer">KÖ yetenek listesi ↗</a>
+        </div>
+      </div>
       <label className="presetSelect">
-        <span>Rehber başlangıcı</span>
+        <span>Topluluk rehberi başlangıcı</span>
         <select
           value={presetName}
           onChange={(e) => applyPreset(e.target.value)}
@@ -137,8 +151,8 @@ export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
             : `${remaining} puan henüz dağıtılmadı`}
         </b>
         <span>
-          Her yetenek en fazla 15 puan. Şablonlar yalnız ekran görüntüsündeki
-          metinde açıkça yazılan değerleri otomatik doldurur.
+          Her yetenek en fazla 15 puan. Şablonlar topluluk rehberindeki açık
+          önerileri başlangıç noktası olarak doldurur; zorunlu veya resmî meta değildir.
         </span>
         <button
           onClick={() => {

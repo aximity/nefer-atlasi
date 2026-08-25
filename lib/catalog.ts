@@ -13,7 +13,7 @@ import glassesStatRows from "../data/glasses-stats.json";
 import groupDerivedStatRows from "../data/group-derived-stats.json";
 
 export type VerificationStatus = "draft" | "single_source" | "cross_verified" | "conflicted";
-export type SourceType = "official" | "forum" | "fandom" | "video" | "player_screenshot";
+export type SourceType = "official" | "server_guide" | "forum" | "fandom" | "video" | "player_screenshot";
 export type CharacterClass = "Savaşçı" | "Büyücü" | "Şifacı";
 export type Slot = "Gözlük" | "Ceket" | "Eldiven" | "Pantolon" | "Ayakkabı" | "Zırh" | "Amplifikatör" | "Yüzük" | "Kolye" | "Silah";
 export interface EvidenceClaim {id:string;itemId:string;field:string;sourceId:string;locator:string;status:VerificationStatus;checkedAt:string}
@@ -44,5 +44,5 @@ export const publishableStats=(itemId:string)=>itemStats(itemId).filter(s=>isPub
 export const itemRecipe=(itemId:string)=>recipes.find(r=>r.itemId===itemId);
 export const sourceFor=(sourceId:string)=>sources.find(s=>s.id===sourceId);
 export const publishableItems=items.filter(item=>["name","class","slot"].every(field=>itemEvidence(item.id,field).some(e=>isPublishable(e.status))));
-export const statusLabel:Record<VerificationStatus,string>={draft:"Taslak",single_source:"Tek kaynak",cross_verified:"Çapraz doğrulandı",conflicted:"Çelişkili"};
+export const statusLabel:Record<VerificationStatus,string>={draft:"Taslak",single_source:"Tek kaynak · teyit bekliyor",cross_verified:"Çapraz doğrulandı",conflicted:"Çelişkili"};
 export function sumStats(selected:(Item|undefined)[]){const total:Record<string,number>={};for(const item of selected)if(item)for(const stat of publishableStats(item.id))total[stat.attribute]=(total[stat.attribute]??0)+stat.value;return total}
