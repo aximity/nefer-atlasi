@@ -1,0 +1,10 @@
+export type RoutePoint = { orderIndex?: number; pointType: string; label: string; materialHint?: string; xPermille: number; yPermille: number; notes?: string };
+export type RouteTemplateInput = { server: string; region: string; routeName: string; profession: string; defaultBooster: string; expectedMinutes: number; notes?: string; points: RoutePoint[] };
+export type FarmReviewSession = { id: string; server: string; region: string; routeName: string; observedAt: string; durationMinutes: number; nodeCount: number; boosterProfile: string; notes?: string | null; yields: Array<{ material: string; grade: string; quantity: number }> };
+export type MiningContributionPayload = { kind: "mining_run"; common: { server: string; observedAt: string; alias: string; notes: string; sourceUrl: string; secondarySourceUrl: string }; details: { subject: string; region: string; routeMinutes: number; nodeCount: number; runCount: number; yields: string; boosters: string }; farmSessionId: string };
+export const ROUTE_POINT_TYPES: string[];
+export const ROUTE_PROFESSIONS: string[];
+export const ROUTE_BOOSTERS: string[];
+export function validateRouteTemplate(raw: unknown): RouteTemplateInput;
+export function routeSessionDefaults(route: RouteTemplateInput & { id: string }): Record<string, string>;
+export function buildMiningContributionPayload(session: FarmReviewSession, actorLabel: string): MiningContributionPayload;

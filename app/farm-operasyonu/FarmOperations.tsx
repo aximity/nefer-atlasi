@@ -7,6 +7,7 @@ import {
   compareBoosterProfiles,
   summarizeFarmSessions,
 } from "../../lib/farm-core.mjs";
+import { routeSessionDefaults } from "../../lib/route-core.mjs";
 
 type YieldRow = {
   id: string;
@@ -30,6 +31,8 @@ type FarmSession = {
   gameCost: number;
   tlCostKurus: number;
   notes: string | null;
+  routeTemplateId: string | null;
+  submittedContributionId: string | null;
   status: string;
   createdAt: string;
   updatedAt: string;
@@ -43,7 +46,10 @@ type DraftYield = {
   unitGamePrice: string;
   unitTlPrice: string;
 };
-type Tab = "Özet" | "Yeni Tur" | "Kayıtlar";
+type RoutePoint = { id?: string; pointType: string; label: string; materialHint: string | null; xPermille: number; yPermille: number; notes: string | null };
+type FarmRoute = { id: string; server: string; region: string; routeName: string; profession: string; defaultBooster: string; expectedMinutes: number; notes: string | null; status: string; hasMap: boolean; points: RoutePoint[] };
+type DraftPoint = { pointType: string; label: string; materialHint: string; xPermille: number; yPermille: number; notes: string };
+type Tab = "Özet" | "Yeni Tur" | "Rotalar" | "Kayıtlar";
 
 const regions = ["Büyük Hol", "Eminönü", "Antrepo", "Labirent", "Meteor Bölgesi", "Sivri Ada", "Yeraltı", "Topkapı Sarayı"];
 const materials = ["Xenotim", "Jadeit", "Yeşim Taşı", "Monazit", "Gadolinyum", "Osmiridyum", "Osmiyum", "İridyum", "Altın", "Saf Altın", "Krizoberil", "Alexandrite"];
@@ -53,6 +59,7 @@ const today = () => {
 };
 const emptyYield = (): DraftYield => ({ material: "", grade: "Normal", quantity: "1", unitGamePrice: "", unitTlPrice: "" });
 const freshForm = () => ({
+  routeTemplateId: "",
   server: "Kıyamet Öncüleri",
   region: "Büyük Hol",
   routeName: "Lojman rotası",
@@ -66,10 +73,12 @@ const freshForm = () => ({
   notes: "",
   yields: [emptyYield()],
 });
+const freshRoute = () => ({ server: "Kıyamet Öncüleri", region: "Büyük Hol", routeName: "Lojman rotası", profession: "Sarraf", defaultBooster: "Yok", expectedMinutes: "30", notes: "", points: [] as DraftPoint[] });
 
 export default function FarmOperations({ adminName, signOutHref }: { adminName: string; signOutHref: string }) {
   const [tab, setTab] = useState<Tab>("Özet");
   const [sessions, setSessions] = useState<FarmSession[]>([]);
+  const [routes, setRoutes] = useState<FarmRoute[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -78,6 +87,11 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
   const [route, setRoute] = useState("Tümü");
   const [material, setMaterial] = useState("Tümü");
   const [form, setForm] = useState(freshForm);
+  const [routeForm, setRouteForm] = useState(freshRoute);
+  const [routeFile, setRouteFile] = useState<File | null>(null);
+  const [routePreview, setRoutePreview] = useState("");
+  const [pointTool, setPointTool] = useState("Damar");
+  const [routeSaving, setRouteSaving] = useState(false);
   const [saving, setSaving] = useState(false);
   const [acting, setActing] = useState("");
   const [filterAnchor] = useState(today);
@@ -86,10 +100,15 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
     let activeRequest = true;
     const run = async () => {
       try {
-        const response = await fetch("/api/admin/farm-sessions");
-        const result = (await response.json()) as { sessions?: FarmSession[]; error?: string };
-        if (!response.ok) throw new Error(result.error || "Kayıtlar yüklenemedi.");
-        if (activeRequest) setSessions(result.sessions ?? []);
+        const [sessionResponse, routeResponse] = await Promise.all([
+          fetch("/api/admin/farm-sessions"),
+          fetch("/api/admin/farm-routes"),
+        ]);
+        const result = (await sessionResponse.json()) as { sessions?: FarmSession[]; error?: string };
+        const routeResult = (await routeResponse.json()) as { routes?: FarmRoute[]; error?: string };
+        if (!sessionResponse.ok) throw new Error(result.error || "Kayıtlar yüklenemedi.");
+        if (!routeResponse.ok) throw new Error(routeResult.error || "Rotalar yüklenemedi.");
+        if (activeRequest) { setSessions(result.sessions ?? []); setRoutes(routeResult.routes ?? []); }
       } catch (requestError) {
         if (activeRequest) setError(requestError instanceof Error ? requestError.message : "Kayıtlar yüklenemedi.");
       } finally {
@@ -99,6 +118,8 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
     void run();
     return () => { activeRequest = false; };
   }, []);
+
+  useEffect(() => () => { if (routePreview) URL.revokeObjectURL(routePreview); }, [routePreview]);
 
   const active = useMemo(() => sessions.filter((session) => session.status === "active"), [sessions]);
   const regionOptions = useMemo(() => [...new Set(active.map((session) => session.region))], [active]);
@@ -163,6 +184,67 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
     } catch (requestError) { setError(requestError instanceof Error ? requestError.message : "Kayıt güncellenemedi."); }
     finally { setActing(""); }
   };
+  const chooseRouteFile = (file: File | null) => {
+    if (routePreview) URL.revokeObjectURL(routePreview);
+    setRouteFile(file);
+    setRoutePreview(file ? URL.createObjectURL(file) : "");
+    setRouteForm((current) => ({ ...current, points: [] }));
+  };
+  const placePoint = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (!routePreview) return;
+    const rect = event.currentTarget.getBoundingClientRect();
+    const xPermille = Math.max(0, Math.min(1000, Math.round(((event.clientX - rect.left) / rect.width) * 1000)));
+    const yPermille = Math.max(0, Math.min(1000, Math.round(((event.clientY - rect.top) / rect.height) * 1000)));
+    const count = routeForm.points.filter((point) => point.pointType === pointTool).length + 1;
+    setRouteForm((current) => ({ ...current, points: [...current.points, { pointType: pointTool, label: `${pointTool} ${count}`, materialHint: "", xPermille, yPermille, notes: "" }] }));
+  };
+  const updatePoint = (index: number, key: keyof DraftPoint, value: string) => {
+    setRouteForm((current) => ({ ...current, points: current.points.map((point, pointIndex) => pointIndex === index ? { ...point, [key]: value } : point) }));
+  };
+  const saveRoute = async () => {
+    if (routeSaving) return;
+    setRouteSaving(true); setError(""); setSuccess("");
+    try {
+      if (!routeFile) throw new Error("Rota için bir ekran görüntüsü ekle.");
+      const body = new FormData();
+      body.set("map", routeFile);
+      body.set("payload", JSON.stringify({ ...routeForm, expectedMinutes: Number(routeForm.expectedMinutes) }));
+      const response = await fetch("/api/admin/farm-routes", { method: "POST", body });
+      const result = (await response.json()) as { route?: FarmRoute; error?: string };
+      if (!response.ok || !result.route) throw new Error(result.error || "Rota kaydedilemedi.");
+      setRoutes((current) => [result.route!, ...current]);
+      setRouteForm(freshRoute()); chooseRouteFile(null);
+      setSuccess("Rota şablonu ve özel haritası kaydedildi.");
+    } catch (requestError) { setError(requestError instanceof Error ? requestError.message : "Rota kaydedilemedi."); }
+    finally { setRouteSaving(false); }
+  };
+  const setRouteStatus = async (routeRow: FarmRoute) => {
+    const next = routeRow.status === "active" ? "archived" : "active";
+    setActing(routeRow.id); setError("");
+    try {
+      const response = await fetch("/api/admin/farm-routes", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: routeRow.id, status: next }) });
+      const result = (await response.json()) as { error?: string };
+      if (!response.ok) throw new Error(result.error || "Rota güncellenemedi.");
+      setRoutes((current) => current.map((row) => row.id === routeRow.id ? { ...row, status: next } : row));
+    } catch (requestError) { setError(requestError instanceof Error ? requestError.message : "Rota güncellenemedi."); }
+    finally { setActing(""); }
+  };
+  const startRoute = (routeRow: FarmRoute) => {
+    const defaults = routeSessionDefaults(routeRow) as Record<string, string>;
+    setForm((current) => ({ ...current, ...defaults, observedAt: today(), yields: [emptyYield()] }));
+    setTab("Yeni Tur"); setError(""); setSuccess(`${routeRow.routeName} şablonu yeni tura aktarıldı.`);
+  };
+  const submitReview = async (session: FarmSession) => {
+    setActing(session.id); setError(""); setSuccess("");
+    try {
+      const response = await fetch("/api/admin/farm-sessions", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: session.id, action: "submit_review" }) });
+      const result = (await response.json()) as { submittedContributionId?: string; error?: string };
+      if (!response.ok || !result.submittedContributionId) throw new Error(result.error || "Kayıt kuyruğa gönderilemedi.");
+      setSessions((current) => current.map((row) => row.id === session.id ? { ...row, submittedContributionId: result.submittedContributionId! } : row));
+      setSuccess("Farm gözlemi taslak olarak doğrulama kuyruğuna gönderildi; yayın için bağımsız ikinci kaynak gerekiyor.");
+    } catch (requestError) { setError(requestError instanceof Error ? requestError.message : "Kayıt kuyruğa gönderilemedi."); }
+    finally { setActing(""); }
+  };
 
   return <main className="farmOps">
     <header className="farmTopbar">
@@ -170,17 +252,17 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
       <div><span><small>SAHA EDİTÖRÜ</small><b>{adminName}</b></span><Link href="/katki-inceleme">Editör Masası</Link><a href={signOutHref}>Çıkış</a></div>
     </header>
     <section className="farmHero">
-      <div><p>M9 · MADEN FARM DEFTERİ</p><h1>Turu kaydet.<br/><em>Verimi kanıtla.</em></h1><span>Oyun parası ile TL birbirine çevrilmez; sonuçlar ayrı hesaplanır.</span></div>
+      <div><p>M10 · ROTA VE SAHA KANITI</p><h1>Rotanı işaretle.<br/><em>Turu doğrula.</em></h1><span>Harita noktaları yalnız yüklediğin ekran görüntüsüne bağlıdır; oyun koordinatı iddiası değildir.</span></div>
       <div className="farmHeroStats"><Metric label="Etkin tur" value={String(summary.sessionCount ?? 0)}/><Metric label="Toplam süre" value={durationLabel(Number(summary.durationMinutes ?? 0))}/><Metric label="Toplanan" value={fmt(Number(summary.totalQuantity ?? 0))}/><Metric label="Güven" value={String(summary.confidence ?? "Tek tur")}/></div>
     </section>
-    <nav className="farmTabs">{(["Özet","Yeni Tur","Kayıtlar"] as Tab[]).map((item) => <button className={tab === item ? "on" : ""} onClick={() => { setTab(item); setError(""); setSuccess(""); }} key={item}>{item}</button>)}</nav>
+    <nav className="farmTabs">{(["Özet","Yeni Tur","Rotalar","Kayıtlar"] as Tab[]).map((item) => <button className={tab === item ? "on" : ""} onClick={() => { setTab(item); setError(""); setSuccess(""); }} key={item}>{item}</button>)}</nav>
     {error && <p className="farmMessage error">{error}</p>}{success && <p className="farmMessage success">{success}</p>}
     {tab === "Özet" && <section className="farmDashboard">
       <div className="farmFilters"><select aria-label="Dönem" value={period} onChange={(event) => setPeriod(event.target.value)}><option value="7">Son 7 gün</option><option value="30">Son 30 gün</option><option value="all">Tüm dönem</option></select><select aria-label="Bölge" value={region} onChange={(event) => setRegion(event.target.value)}><option>Tümü</option>{regionOptions.map((item) => <option key={item}>{item}</option>)}</select><select aria-label="Rota" value={route} onChange={(event) => setRoute(event.target.value)}><option>Tümü</option>{routeOptions.map((item) => <option key={item}>{item}</option>)}</select><select aria-label="Maden" value={material} onChange={(event) => setMaterial(event.target.value)}><option>Tümü</option>{materialOptions.map((item) => <option key={item}>{item}</option>)}</select></div>
       {loading ? <div className="farmEmpty">Farm kayıtları yükleniyor…</div> : filtered.length === 0 ? <div className="farmEmpty"><i>◇</i><b>İlk ölçümlü turunu kaydet</b><span>Süre, damar ve çıkan maden olmadan verim tahmini yapılmaz.</span><button onClick={() => setTab("Yeni Tur")}>Tur ekle</button></div> : <>
         <div className="farmKpis"><Metric label="Adet / saat" value={decimal(Number(summary.itemsPerHour ?? 0))}/><Metric label="Net oyun parası / saat" value={fmt(Number(summary.gamePerHour ?? 0))}/><Metric label="Net TL / saat" value={money(Number(summary.tlKurusPerHour ?? 0) / 100)}/><Metric label="Toplam damar" value={fmt(Number(summary.nodeCount ?? 0))}/></div>
         <div className="farmPanels"><article><PanelHead eyebrow="ARTIRICI TESTİ" title="Eşit şartta karşılaştır"/><div className="boosterCompare">{boosters.map((row) => <div key={String(row.boosterProfile)}><span><b>{row.boosterProfile}</b><small>{row.sessionCount} tur · {row.confidence}</small></span><strong>{decimal(Number(row.itemsPerHour))}<small>adet/saat</small></strong><em>{fmt(Number(row.gamePerHour))}<small>oyun parası/saat</small></em></div>)}</div><p className="farmCaution">Artırıcı sonucu ancak aynı rota, benzer süre ve yeterli tur sayısıyla anlamlıdır. Bu tablo nedensellik iddiası değildir.</p></article><article><PanelHead eyebrow="FİYAT DEFTERİ" title="Son birim gözlemleri"/><div className="priceLedger">{prices.length ? prices.map((row, index) => <div key={`${row.material}-${row.currency}-${row.date}-${index}`}><span><b>{row.material}</b><small>{row.date}</small></span><em>{row.currency}</em><strong>{row.currency === "TL" ? money(row.value) : fmt(row.value)}</strong></div>) : <p>Fiyat girilen maden satırı yok.</p>}</div></article></div>
-        <SessionCards sessions={filtered.slice(0, 6)} onStatus={setStatus} acting={acting}/>
+        <SessionCards sessions={filtered.slice(0, 6)} onStatus={setStatus} onReview={submitReview} acting={acting}/>
       </>}
     </section>}
     {tab === "Yeni Tur" && <section className="farmForm"><header><p>ÖLÇÜMLÜ SAHA KAYDI</p><h2>Yeni farm turu</h2><span>Bir turu bir rota ve tek artırıcı profiliyle kaydet. Fiyat bilmiyorsan boş bırak.</span></header><div className="farmFormGrid">
@@ -188,14 +270,24 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
       <div className="yieldEditor"><div><span><small>ÇIKTI SATIRLARI</small><b>Maden, kalite, adet ve gözlenen fiyat</b></span><button onClick={() => setForm((current) => ({...current,yields:[...current.yields,emptyYield()]}))}>+ Satır ekle</button></div>{form.yields.map((row,index)=><article key={index}><FormField label="Maden"><input list="farm-materials" value={row.material} onChange={(e)=>updateYield(index,"material",e.target.value)}/></FormField><FormField label="Kalite"><select value={row.grade} onChange={(e)=>updateYield(index,"grade",e.target.value)}><option>Normal</option><option>Saf</option><option>Nadir</option></select></FormField><FormField label="Adet"><input type="number" min="1" value={row.quantity} onChange={(e)=>updateYield(index,"quantity",e.target.value)}/></FormField><FormField label="Birim oyun parası"><input type="number" min="0" placeholder="Bilinmiyorsa boş" value={row.unitGamePrice} onChange={(e)=>updateYield(index,"unitGamePrice",e.target.value)}/></FormField><FormField label="Birim TL"><input type="number" min="0" step="0.01" placeholder="Bilinmiyorsa boş" value={row.unitTlPrice} onChange={(e)=>updateYield(index,"unitTlPrice",e.target.value)}/></FormField><button aria-label="Satırı kaldır" disabled={form.yields.length === 1} onClick={() => setForm((current)=>({...current,yields:current.yields.filter((_,i)=>i!==index)}))}>×</button></article>)}<datalist id="farm-materials">{materials.map((item)=><option key={item} value={item}/>)}</datalist></div>
       <FormField label="Saha notu"><textarea maxLength={1500} value={form.notes} onChange={(e)=>setForm({...form,notes:e.target.value})} placeholder="Yoğunluk, bekleme, rekabet, rota sapması veya gözlem…"/></FormField><div className="farmFormNotice"><b>Hesap ilkesi</b><span>Fiyatı olmayan çıktı adet/saat hesabına girer; parasal değere girmez. TL ile oyun parası asla birbirine dönüştürülmez.</span></div><div className="farmFormActions"><button onClick={() => setTab("Özet")}>Vazgeç</button><button disabled={saving} onClick={() => void submit()}>{saving ? "Kaydediliyor…" : "Turu kaydet"}</button></div>
     </section>}
-    {tab === "Kayıtlar" && <section className="farmRecords"><header><div><p>SAHA ARŞİVİ</p><h2>Tüm turlar</h2></div><span>{active.length} etkin · {sessions.length-active.length} arşiv</span></header>{sessions.length ? <SessionCards sessions={sessions} onStatus={setStatus} acting={acting}/> : <div className="farmEmpty">Henüz kayıt yok.</div>}</section>}
+    {tab === "Rotalar" && <section className="routeWorkspace">
+      <div className="routeBuilder"><header><p>ÖZEL ROTA ŞABLONU</p><h2>Ekran görüntüsünü işaretle</h2><span>Başlangıç, damar, bekleme ve tehlike noktalarını görsel üzerinde sırala.</span></header>
+        <div className="routeMeta"><FormField label="Sunucu"><input value={routeForm.server} onChange={(e)=>setRouteForm({...routeForm,server:e.target.value})}/></FormField><FormField label="Bölge"><input list="farm-regions" value={routeForm.region} onChange={(e)=>setRouteForm({...routeForm,region:e.target.value})}/></FormField><FormField label="Rota adı"><input value={routeForm.routeName} onChange={(e)=>setRouteForm({...routeForm,routeName:e.target.value})}/></FormField><FormField label="Meslek"><select value={routeForm.profession} onChange={(e)=>setRouteForm({...routeForm,profession:e.target.value})}><option>Madenci</option><option>Sarraf</option></select></FormField><FormField label="Varsayılan artırıcı"><select value={routeForm.defaultBooster} onChange={(e)=>setRouteForm({...routeForm,defaultBooster:e.target.value})}><option>Yok</option><option>Kişisel</option><option>Lonca</option><option>Kişisel + Lonca</option></select></FormField><FormField label="Beklenen süre"><input type="number" min="1" max="720" value={routeForm.expectedMinutes} onChange={(e)=>setRouteForm({...routeForm,expectedMinutes:e.target.value})}/></FormField></div>
+        <div className="routeUpload"><label><b>Rota ekran görüntüsü</b><span>JPEG, PNG veya WebP · en fazla 5 MB · herkese açık yayınlanmaz</span><input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e)=>chooseRouteFile(e.target.files?.[0] ?? null)}/></label><div className="pointTools">{["Başlangıç","Damar","Bekleme","Tehlike"].map((tool)=><button key={tool} className={pointTool===tool?"on":""} onClick={()=>setPointTool(tool)}>{tool}</button>)}</div></div>
+        {routePreview ? <div className="routeCanvas" onClick={placePoint} role="button" tabIndex={0} aria-label="Haritaya işaret ekle"><img src={routePreview} alt="Yüklenecek rota önizlemesi"/>{routeForm.points.map((point,index)=><i className={`point point-${point.pointType.toLocaleLowerCase("tr-TR")}`} style={{left:`${point.xPermille/10}%`,top:`${point.yPermille/10}%`}} key={`${point.xPermille}-${point.yPermille}-${index}`}>{index+1}</i>)}</div> : <div className="routeCanvas empty"><b>Bir ekran görüntüsü seç</b><span>Görsel tam sığdırılır; sonra dokunarak işaret eklersin.</span></div>}
+        <div className="pointList">{routeForm.points.map((point,index)=><article key={index}><b>{index+1}</b><select value={point.pointType} onChange={(e)=>updatePoint(index,"pointType",e.target.value)}><option>Başlangıç</option><option>Damar</option><option>Bekleme</option><option>Tehlike</option></select><input aria-label="İşaret etiketi" value={point.label} onChange={(e)=>updatePoint(index,"label",e.target.value)} placeholder="Etiket"/><input aria-label="Maden ipucu" value={point.materialHint} onChange={(e)=>updatePoint(index,"materialHint",e.target.value)} placeholder="Maden ipucu"/><button aria-label="İşareti kaldır" onClick={()=>setRouteForm((current)=>({...current,points:current.points.filter((_,i)=>i!==index)}))}>×</button></article>)}</div>
+        <FormField label="Rota notu"><textarea maxLength={1500} value={routeForm.notes} onChange={(e)=>setRouteForm({...routeForm,notes:e.target.value})} placeholder="Yoğun saat, güvenli bekleme, rakip rota veya saha uyarısı…"/></FormField><div className="farmFormActions"><button onClick={()=>{setRouteForm(freshRoute());chooseRouteFile(null)}}>Temizle</button><button disabled={routeSaving} onClick={()=>void saveRoute()}>{routeSaving?"Kaydediliyor…":`Rotayı kaydet · ${routeForm.points.length} işaret`}</button></div>
+      </div>
+      <div className="savedRoutes"><header><p>KAYITLI ROTALAR</p><h2>Tek dokunuşla yeni tur</h2></header>{routes.length ? routes.map((routeRow)=><article className={routeRow.status==="archived"?"archived":""} key={routeRow.id}><div className="savedRouteMap"><img src={`/api/admin/farm-routes/map?id=${routeRow.id}`} alt={`${routeRow.routeName} saha haritası`}/>{routeRow.points.map((point,index)=><i className={`point point-${point.pointType.toLocaleLowerCase("tr-TR")}`} style={{left:`${point.xPermille/10}%`,top:`${point.yPermille/10}%`}} title={`${point.label}${point.materialHint?` · ${point.materialHint}`:""}`} key={point.id??index}>{index+1}</i>)}</div><div className="savedRouteBody"><span><small>{routeRow.region} · {routeRow.profession}</small><h3>{routeRow.routeName}</h3></span><div><b>{routeRow.expectedMinutes} dk</b><b>{routeRow.points.filter((point)=>point.pointType==="Damar").length} damar</b><b>{routeRow.defaultBooster}</b></div>{routeRow.notes&&<p>{routeRow.notes}</p>}<footer><button disabled={routeRow.status!=="active"} onClick={()=>startRoute(routeRow)}>Rotayı başlat</button><button disabled={acting===routeRow.id} onClick={()=>void setRouteStatus(routeRow)}>{routeRow.status==="archived"?"Geri yükle":"Arşivle"}</button></footer></div></article>) : <div className="farmEmpty">Henüz rota şablonu yok.</div>}</div>
+    </section>}
+    {tab === "Kayıtlar" && <section className="farmRecords"><header><div><p>SAHA ARŞİVİ</p><h2>Tüm turlar</h2></div><span>{active.length} etkin · {sessions.length-active.length} arşiv</span></header>{sessions.length ? <SessionCards sessions={sessions} onStatus={setStatus} onReview={submitReview} acting={acting}/> : <div className="farmEmpty">Henüz kayıt yok.</div>}</section>}
   </main>;
 }
 
 function Metric({label,value}:{label:string;value:string}){return <article><small>{label}</small><strong>{value}</strong></article>}
 function PanelHead({eyebrow,title}:{eyebrow:string;title:string}){return <header className="farmPanelHead"><span>{eyebrow}</span><h3>{title}</h3></header>}
 function FormField({label,children}:{label:string;children:React.ReactNode}){return <label className="farmField"><span>{label}</span>{children}</label>}
-function SessionCards({sessions,onStatus,acting}:{sessions:FarmSession[];onStatus:(session:FarmSession)=>Promise<void>;acting:string}){return <div className="sessionCards">{sessions.map((session)=>{const metrics = calculateFarmSession(session) as Record<string,number>;return <article className={session.status === "archived" ? "archived" : ""} key={session.id}><header><span><small>{session.observedAt} · {session.profession}</small><h4>{session.routeName}</h4><p>{session.region} · {session.server}</p></span><b>{session.boosterProfile}</b></header><div className="sessionNumbers"><span><small>Süre</small><b>{session.durationMinutes} dk</b></span><span><small>Damar</small><b>{session.nodeCount}</b></span><span><small>Adet/saat</small><b>{decimal(metrics.itemsPerHour)}</b></span><span><small>Oyun/saat</small><b>{fmt(metrics.gamePerHour)}</b></span></div><div className="sessionYields">{session.yields.map((row)=><span key={row.id}><b>{row.material}</b><small>{row.grade} · {row.quantity} adet</small></span>)}</div>{session.notes && <p>{session.notes}</p>}<footer><small>Fiyat kapsamı: oyun %{Math.round(metrics.gameCoverage*100)} · TL %{Math.round(metrics.tlCoverage*100)}</small><button disabled={acting===session.id} onClick={()=>void onStatus(session)}>{session.status === "archived" ? "Geri yükle" : "Arşivle"}</button></footer></article>})}</div>}
+function SessionCards({sessions,onStatus,onReview,acting}:{sessions:FarmSession[];onStatus:(session:FarmSession)=>Promise<void>;onReview:(session:FarmSession)=>Promise<void>;acting:string}){return <div className="sessionCards">{sessions.map((session)=>{const metrics = calculateFarmSession(session) as Record<string,number>;return <article className={session.status === "archived" ? "archived" : ""} key={session.id}><header><span><small>{session.observedAt} · {session.profession}</small><h4>{session.routeName}</h4><p>{session.region} · {session.server}</p></span><b>{session.boosterProfile}</b></header><div className="sessionNumbers"><span><small>Süre</small><b>{session.durationMinutes} dk</b></span><span><small>Damar</small><b>{session.nodeCount}</b></span><span><small>Adet/saat</small><b>{decimal(metrics.itemsPerHour)}</b></span><span><small>Oyun/saat</small><b>{fmt(metrics.gamePerHour)}</b></span></div><div className="sessionYields">{session.yields.map((row)=><span key={row.id}><b>{row.material}</b><small>{row.grade} · {row.quantity} adet</small></span>)}</div>{session.notes && <p>{session.notes}</p>}<footer><small>{session.submittedContributionId?"Doğrulama kuyruğunda":`Fiyat kapsamı: oyun %${Math.round(metrics.gameCoverage*100)} · TL %${Math.round(metrics.tlCoverage*100)}`}</small><span>{session.status==="active"&&!session.submittedContributionId&&<button disabled={acting===session.id} onClick={()=>void onReview(session)}>Doğrulamaya gönder</button>}<button disabled={acting===session.id} onClick={()=>void onStatus(session)}>{session.status === "archived" ? "Geri yükle" : "Arşivle"}</button></span></footer></article>})}</div>}
 const fmt=(value:number)=>new Intl.NumberFormat("tr-TR",{maximumFractionDigits:0}).format(Number.isFinite(value)?value:0);
 const decimal=(value:number)=>new Intl.NumberFormat("tr-TR",{maximumFractionDigits:1}).format(Number.isFinite(value)?value:0);
 const money=(value:number)=>new Intl.NumberFormat("tr-TR",{style:"currency",currency:"TRY",maximumFractionDigits:2}).format(Number.isFinite(value)?value:0);

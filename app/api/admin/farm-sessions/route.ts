@@ -3,6 +3,7 @@ import {
   createFarmSession,
   listFarmSessions,
   setFarmSessionStatus,
+  submitFarmSessionForReview,
 } from "../../../../lib/farm-repository.server";
 
 export const runtime = "edge";
@@ -73,9 +74,17 @@ export async function PATCH(request: Request) {
     return Response.json({ error: "Farm masası için yetki gerekiyor." }, { status: 403, headers: responseHeaders });
   }
   try {
-    const body = (await request.json()) as { id?: string; status?: string };
+    const body = (await request.json()) as { id?: string; status?: string; action?: string };
     const id = validId(body.id);
-    if (!id || !["active", "archived"].includes(body.status ?? "")) {
+    if (!id) {
+      return Response.json({ error: "Geçersiz farm işlemi." }, { status: 400, headers: responseHeaders });
+    }
+    if (body.action === "submit_review") {
+      const result = await submitFarmSessionForReview(admin.email, admin.displayName, id);
+      if (!result) return Response.json({ error: "Farm kaydı bulunamadı." }, { status: 404, headers: responseHeaders });
+      return Response.json(result, { headers: responseHeaders });
+    }
+    if (!["active", "archived"].includes(body.status ?? "")) {
       return Response.json({ error: "Geçersiz farm işlemi." }, { status: 400, headers: responseHeaders });
     }
     const result = await setFarmSessionStatus(
@@ -85,7 +94,9 @@ export async function PATCH(request: Request) {
     );
     if (!result) return Response.json({ error: "Farm kaydı bulunamadı." }, { status: 404, headers: responseHeaders });
     return Response.json(result, { headers: responseHeaders });
-  } catch {
-    return Response.json({ error: "Farm kaydı güncellenemedi." }, { status: 500, headers: responseHeaders });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Farm kaydı güncellenemedi.";
+    const expected = /zaten|arşivlenmiş|bulunamadı|çıktısı/.test(message);
+    return Response.json({ error: expected ? message : "Farm kaydı güncellenemedi." }, { status: expected ? 400 : 500, headers: responseHeaders });
   }
 }

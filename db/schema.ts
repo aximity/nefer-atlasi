@@ -137,6 +137,60 @@ export const canonicalRevisions = sqliteTable(
   ],
 );
 
+export const farmRouteTemplates = sqliteTable(
+  "farm_route_templates",
+  {
+    id: text("id").primaryKey(),
+    ownerEmailHash: text("owner_email_hash").notNull(),
+    server: text("server").notNull(),
+    region: text("region").notNull(),
+    routeName: text("route_name").notNull(),
+    profession: text("profession").notNull(),
+    defaultBooster: text("default_booster").notNull(),
+    expectedMinutes: integer("expected_minutes").notNull(),
+    notes: text("notes"),
+    mapR2Key: text("map_r2_key"),
+    mapMimeType: text("map_mime_type"),
+    status: text("status").notNull().default("active"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("farm_route_templates_owner_region_idx").on(
+      table.ownerEmailHash,
+      table.region,
+    ),
+    index("farm_route_templates_owner_status_idx").on(
+      table.ownerEmailHash,
+      table.status,
+    ),
+  ],
+);
+
+export const farmRoutePoints = sqliteTable(
+  "farm_route_points",
+  {
+    id: text("id").primaryKey(),
+    templateId: text("template_id")
+      .notNull()
+      .references(() => farmRouteTemplates.id, { onDelete: "cascade" }),
+    orderIndex: integer("order_index").notNull(),
+    pointType: text("point_type").notNull(),
+    label: text("label").notNull(),
+    materialHint: text("material_hint"),
+    xPermille: integer("x_permille").notNull(),
+    yPermille: integer("y_permille").notNull(),
+    notes: text("notes"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("farm_route_points_template_order_idx").on(
+      table.templateId,
+      table.orderIndex,
+    ),
+  ],
+);
+
 export const farmSessions = sqliteTable(
   "farm_sessions",
   {
@@ -153,6 +207,14 @@ export const farmSessions = sqliteTable(
     gameCost: integer("game_cost").notNull().default(0),
     tlCostKurus: integer("tl_cost_kurus").notNull().default(0),
     notes: text("notes"),
+    routeTemplateId: text("route_template_id").references(
+      () => farmRouteTemplates.id,
+      { onDelete: "set null" },
+    ),
+    submittedContributionId: text("submitted_contribution_id").references(
+      () => contributions.id,
+      { onDelete: "set null" },
+    ),
     status: text("status").notNull().default("active"),
     createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
     updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
