@@ -6,9 +6,10 @@ import {
   formatTimerDuration,
   timerState,
 } from "../lib/mining-timer.mjs";
+import { items, recipes } from "../lib/catalog";
 
 type View = "Sayaçlar" | "Pazar" | "Kaynaklar" | "Gözlemler" | "Artırıcılar";
-type Profession = "Madenci" | "Sarraf";
+type Profession = "Madenci" | "Sarraf" | "Lokman";
 type Timer = { id: string; region: string; material: string; startedAt: number; nextCheckAt: number; reminderMinutes: number };
 type Observation = { id: string; region: string; material: string; result: "found" | "empty"; elapsedMinutes: number; observedAt: number };
 
@@ -50,6 +51,19 @@ const collectionRows: { profession: Profession; base: string; second?: string; t
   { profession: "Sarraf", base: "Topaz", second: "Mavi Topaz", points: 40 },
   { profession: "Sarraf", base: "Krizoberil", second: "Alexandrite", points: 45 },
   { profession: "Sarraf", base: "Yeşim Taşı", second: "Jadeit", points: 45 },
+  { profession: "Lokman", base: "Meşe Odunu", second: "Budaksız Meşe", points: 1 },
+  { profession: "Lokman", base: "Ceviz Yaprağı", second: "Ceviz", points: 3 },
+  { profession: "Lokman", base: "Isırgan Otu", second: "Isırgan Tohumu", points: 5 },
+  { profession: "Lokman", base: "Ökse Otu", second: "Ökse Meyvesi", points: 7 },
+  { profession: "Lokman", base: "Adaçayı Yaprağı", second: "Ada Sürgünü", points: 12 },
+  { profession: "Lokman", base: "Akçaağaç Odunu", second: "Zamk", points: 17 },
+  { profession: "Lokman", base: "Koni Yaprağı", second: "Koni Çiçeği", points: 20 },
+  { profession: "Lokman", base: "Civan Perçemi", second: "Civan Çiçeği", points: 23 },
+  { profession: "Lokman", base: "Mantar", second: "Sinek Mantarı", third: "Ganoderma", points: 30 },
+  { profession: "Lokman", base: "Şerbetçi Otu", points: 36 },
+  { profession: "Lokman", base: "Abanoz Odunu", second: "Budaksız Abanoz", points: 40 },
+  { profession: "Lokman", base: "Çıban Otu", second: "Çıban Çiçeği", third: "Dört Yapraklı Yonca", points: 45 },
+  { profession: "Lokman", base: "Çiğdem", second: "Safran", points: 45 },
 ];
 
 const aboveCapRows = [
@@ -57,12 +71,47 @@ const aboveCapRows = [
   { profession: "Madenci", chain: "Lantan → Turyum → Erbium", points: 55 },
   { profession: "Sarraf", chain: "Fluorit → Mavi John → Taaffeite", points: 50 },
   { profession: "Sarraf", chain: "Bor → Ludwigite → Painite", points: 55 },
+  { profession: "Lokman", chain: "Papatya → Anthemis → Sevgi Çiçeği", points: 50 },
+  { profession: "Lokman", chain: "Kardelen → Narin Kardelen → İstanbul Kardeleni", points: 55 },
 ];
 
+const historicalRegions: Record<Profession, Record<string, string>> = {
+  Madenci: {
+    Bakır: "Eminönü", Kalay: "Eminönü", Kurşun: "Eminönü", Demir: "Eminönü", Nikel: "Eminönü", Krom: "Eminönü", Gümüş: "Eminönü", Altın: "Eminönü",
+    Tungsten: "Meteor Bölgesi", Platin: "Meteor Bölgesi", Titanyum: "Yeraltı", Osmiridyum: "Yeraltı",
+  },
+  Sarraf: {
+    Kuvars: "Eminönü", Obsidyen: "Eminönü", "Kan Taşı": "Eminönü", "Açık Mavi Lapis": "Eminönü", Turkuaz: "Eminönü", Ametist: "Eminönü", Kalsedon: "Eminönü", Elmas: "Eminönü",
+    "Mavi Safir": "Meteor Bölgesi", Beril: "Meteor Bölgesi", Topaz: "Yeraltı", Krizoberil: "Yeraltı", "Yeşim Taşı": "Büyük Hol · Lojman",
+  },
+  Lokman: {
+    "Meşe Odunu": "Eminönü", "Ceviz Yaprağı": "Eminönü", "Isırgan Otu": "Eminönü", "Ökse Otu": "Eminönü", "Adaçayı Yaprağı": "Eminönü", "Akçaağaç Odunu": "Eminönü", "Koni Yaprağı": "Eminönü", "Civan Perçemi": "Eminönü",
+    Mantar: "Meteor Bölgesi", "Şerbetçi Otu": "Meteor Bölgesi", "Abanoz Odunu": "Yeraltı", "Çıban Otu": "Yeraltı",
+  },
+};
+
+const potionExamples: Record<string, string[]> = {
+  "Meşe Odunu": ["Kedi İyileştiren", "Zırh Artırıcı", "Buz Hasarı Veren", "Zehir Hasarı Artırıcı"],
+  "Ceviz Yaprağı": ["Kedi İyileştiren", "Kritik Artırıcı", "Elektrik Hasarı Artırıcı", "Asit Direnci Artırıcı"],
+  "Isırgan Otu": ["Koç İyileştiren", "İğne Deliği Misali", "Kutup Esintili", "Plastik Emsali"],
+  "Ökse Otu": ["Koç İyileştiren", "Fareadam Menşeili", "Çekiç Başlı", "Erciyes Modeli"],
+  "Adaçayı Yaprağı": ["Eski Köprü Usulü", "Horoz Gagası Misali", "Çamlıca Menşeili", "Bakırköy Usulü"],
+  "Koni Yaprağı": ["Aygır İyileştiren", "Epe Ucu Misali", "Faraday Modeli", "Oğuz Bey İcadı"],
+  "Civan Perçemi": ["Aygır İyileştiren", "Yılan Isırığı Emsali", "Vatoz Emsali", "Şimal Usulü"],
+  Mantar: ["Timsah Derisi Emsali", "Karayel Etkili", "Toprak Modeli", "Aktar Şevket İcadı"],
+  "Şerbetçi Otu": ["Demirci Dilek Modeli", "Buz Kristali Modeli", "Derviş Hasan Usulü", "Beygir Emsali"],
+  "Abanoz Odunu": ["Fil İyileştiren", "Karacin Modeli", "Karakürk Emsali"],
+  "Çıban Otu": ["Solucan Modeli", "Halit Girmenç İcadı", "Ruh Çalan Emsali", "Nötron Yıldızı Emsali"],
+};
+
+const itemNameById = new Map(items.map((item) => [item.id, item.name]));
+
 const sources = {
-  regions: "https://istanbulkiyametvakti.fandom.com/tr/wiki/Maden_Haritalar%C4%B1",
   officialRegions: "https://www.istanbuloyun.com/Regions.aspx",
+  officialJobs: "https://www.istanbuloyun.com/Jobs.aspx",
   professions: "https://istanbulkiyametvakti.fandom.com/tr/wiki/Toplay%C4%B1c%C4%B1l%C4%B1k",
+  historicalRegions: "https://ikvblog.wordpress.com/2010/09/20/ikvnin-tum-madenleri-ve-saflari/",
+  potionRecipes: "https://istanbulkiyametvakti.fandom.com/tr/wiki/%C4%B0ksir_Re%C3%A7eteleri",
   recipes: "https://istanbulkiyametvakti.fandom.com/tr/wiki/B%C3%BCy%C3%BCc%C3%BC_-_T%C4%B1ls%C4%B1m_Re%C3%A7eteleri",
   personalBooster: "https://www.istanbuloyun.com/News.aspx?NewsId=525",
   guildBooster: "https://istanbuloyun.com/News.aspx?NewsId=567",
@@ -72,6 +121,7 @@ export default function MiningGuide() {
   const [view, setView] = useState<View>("Sayaçlar");
   const [query, setQuery] = useState("");
   const [profession, setProfession] = useState<Profession>("Madenci");
+  const [collectionRegion, setCollectionRegion] = useState("Tümü");
   const [timers, setTimers] = useState<Timer[]>([]);
   const [observations, setObservations] = useState<Observation[]>([]);
   const [now, setNow] = useState(0);
@@ -79,7 +129,12 @@ export default function MiningGuide() {
   const [timerDraft, setTimerDraft] = useState({ region: "", material: "", reminderMinutes: "10" });
   const [timerError, setTimerError] = useState("");
   const shown = useMemo(() => materials.filter((item) => item.name.toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"))), [query]);
-  const collectionShown = useMemo(() => collectionRows.filter((item) => item.profession === profession && [item.base, item.second, item.third].filter(Boolean).join(" ").toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"))), [profession, query]);
+  const collectionShown = useMemo(() => collectionRows.filter((item) => {
+    const region = historicalRegions[item.profession][item.base] ?? "Saha teyidi bekliyor";
+    return item.profession === profession
+      && (collectionRegion === "Tümü" || region === collectionRegion)
+      && [item.base, item.second, item.third].filter(Boolean).join(" ").toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"));
+  }), [collectionRegion, profession, query]);
   const estimates = useMemo(() => {
     const grouped = new Map<string, Observation[]>();
     observations.forEach((row) => {
@@ -143,6 +198,17 @@ export default function MiningGuide() {
       : row));
   }
 
+  function recipeUsage(row: (typeof collectionRows)[number]) {
+    const names = [row.base, row.second, row.third].filter(Boolean) as string[];
+    const equipment = recipes
+      .filter((recipe) => recipe.materials.some((material) => names.some((name) => name.toLocaleLowerCase("tr") === material.name.toLocaleLowerCase("tr"))))
+      .map((recipe) => itemNameById.get(recipe.itemId) ?? recipe.itemId);
+    return {
+      equipment: [...new Set(equipment)],
+      potions: potionExamples[row.base] ?? [],
+    };
+  }
+
   return <section className="mining" id="mining">
     <div className="mining-hero">
       <div className="mining-kicker"><span>YENİ MODÜL</span> MADEN &amp; PAZAR TAKİBİ</div>
@@ -199,16 +265,23 @@ export default function MiningGuide() {
       {view === "Kaynaklar" && <div className="mining-panel">
         <div className="mining-panel-head"><div><span>49 SEVİYE KAPSAM DENETİMİ</span><h3>Toplayıcılık kataloğu</h3></div><a href={sources.professions} target="_blank" rel="noreferrer">Ad tablosu ↗</a></div>
         <div className="collection-tools">
-          <div>{(["Madenci","Sarraf"] as Profession[]).map(x=><button key={x} className={profession===x?"active":""} onClick={()=>setProfession(x)}>{x}</button>)}</div>
+          <div>{(["Madenci","Sarraf","Lokman"] as Profession[]).map(x=><button key={x} className={profession===x?"active":""} onClick={()=>{setProfession(x);setCollectionRegion("Tümü");}}>{x}</button>)}</div>
+          <select aria-label="Bölge filtresi" value={collectionRegion} onChange={(event)=>setCollectionRegion(event.target.value)}><option>Tümü</option><option>Eminönü</option><option>Meteor Bölgesi</option><option>Yeraltı</option><option>Büyük Hol · Lojman</option><option>Saha teyidi bekliyor</option></select>
           <label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Kaynak veya çıktı ara"/></label>
         </div>
-        <p className="schematic-note">Adlar ve çıktı zincirleri Fandom Toplayıcılık tablosuyla karşılaştırıldı. Puan eşiği 45 ve altında olsa bile KÖ sunucusunda fiilî erişim ile kesin bölge noktası saha kaydı gelene kadar ayrı tutulur.</p>
-        <div className="collection-list">{collectionShown.map(item=><article key={`${item.profession}-${item.base}`}>
-          <div><small>{item.profession}</small><h4>{item.base}</h4></div>
-          <div className="output-chain"><span>{item.base}</span>{item.second&&<><i>→</i><span>{item.second}</span></>}{item.third&&<><i>→</i><span>{item.third}</span></>}</div>
-          <div className="point-pill"><b>{item.points}</b><small>puan</small></div>
-          <p>Kesin KÖ bölgesi: <strong>{item.base === "Yeşim Taşı" ? "Büyük Hol · Lojman (oyuncu bilgisi)" : "saha teyidi bekliyor"}</strong></p>
-        </article>)}</div>
+        <p className="schematic-note">Madenci, Sarraf ve Lokman ile 1./2./3. çıktı zincirleri kaynak tablosundan alındı. Bölge eşleşmeleri 2010 tarihli saha rehberidir; Kıyametin Öncüleri’nde oyuncu kaydı gelene kadar “tarihî kaynak” olarak gösterilir.</p>
+        <div className="catalog-sources"><a href={sources.officialJobs} target="_blank" rel="noreferrer">Resmî meslek tanımları ↗</a><a href={sources.historicalRegions} target="_blank" rel="noreferrer">Bölge ve çıktı rehberi ↗</a><a href={sources.potionRecipes} target="_blank" rel="noreferrer">İksir reçeteleri ↗</a></div>
+        <div className="collection-list">{collectionShown.map(item=>{
+          const usage = recipeUsage(item);
+          const region = historicalRegions[item.profession][item.base] ?? "Saha teyidi bekliyor";
+          return <article key={`${item.profession}-${item.base}`}>
+            <div><small>{item.profession}</small><h4>{item.base}</h4></div>
+            <div className="output-chain"><span><small>1. ÇIKTI</small>{item.base}</span>{item.second&&<><i>→</i><span><small>2. ÇIKTI</small>{item.second}</span></>}{item.third&&<><i>→</i><span><small>3. ÇIKTI</small>{item.third}</span></>}</div>
+            <div className="point-pill"><b>{item.points}</b><small>puan</small></div>
+            <div className="collection-region"><span>BÖLGE</span><b>{region}</b><small>{region === "Saha teyidi bekliyor" ? "Bölge kaydı bulunamadı" : item.base === "Yeşim Taşı" ? "Oyuncu saha bilgisi" : "Tarihî kaynak · KÖ teyidi bekliyor"}</small></div>
+            <div className="recipe-usage"><span>REÇETE KULLANIMI</span>{usage.equipment.length>0&&<p><b>Ekipman:</b> {usage.equipment.slice(0,4).join(" · ")}{usage.equipment.length>4?` · +${usage.equipment.length-4} kayıt`:""}</p>}{usage.potions.length>0&&<p><b>İksir örnekleri:</b> {usage.potions.join(" · ")}</p>}{usage.equipment.length===0&&usage.potions.length===0&&<p>Taranan reçete kataloğunda kullanım kaydı bulunamadı; katkı bekleniyor.</p>}</div>
+          </article>;
+        })}</div>
         <div className="cap-warning"><div><small>49 ÜSTÜ REFERANS</small><h4>Aktif KÖ farm listesine alınmadı</h4></div><ul>{aboveCapRows.filter(x=>x.profession===profession).map(x=><li key={x.chain}><span>{x.chain}</span><b>{x.points} puan</b></li>)}</ul></div>
         <p className="source-typo-note">Kaynak tablosundaki “Açık Pempe Ametist” yazımı aynen korunmuştur; oyun içi ekran görüntüsüyle doğru yazım teyit edilene kadar düzeltilmiş gibi gösterilmez.</p>
       </div>}
@@ -230,7 +303,7 @@ export default function MiningGuide() {
           <article><div className="booster-icon guild">60</div><div><small>LONCA · RESMÎ İKV DUYURUSU</small><h4>Lonca Madenci Şans Artırıcı %60</h4><p>Resmî İKV duyurusunda ürün %60 olarak listeleniyor. Kişisel artırıcıyla KÖ sunucusunda nasıl birleştiği saha testi yapılmadan kesin kabul edilmeyecek.</p></div><span className="stack-badge">KÖ TESTİ BEKLİYOR</span></article>
           <article className="booster-result"><div className="booster-icon result">+</div><div><small>FARM PLANI</small><h4>Önce test turu, sonra uzun farm</h4><p>Artırıcısız ve artırıcılı eşit sayıda tur kaydet. Torba, saf ve nadir sonuçlarını ayrı say; kârlılığı yalnız satış fiyatıyla değil saat başına çıktıyla ölç.</p></div></article>
         </div>
-        <div className="source-strip"><span>Kaynak durumu</span><a href={sources.personalBooster} target="_blank" rel="noreferrer">Kişisel %60 duyurusu</a><a href={sources.guildBooster} target="_blank" rel="noreferrer">Lonca %60 duyurusu</a><a href={sources.officialRegions} target="_blank" rel="noreferrer">Resmî bölgeler</a><a href={sources.professions} target="_blank" rel="noreferrer">Toplayıcılık tablosu</a><a href={sources.recipes} target="_blank" rel="noreferrer">Tılsım reçeteleri</a></div>
+        <div className="source-strip"><span>Kaynak durumu</span><a href={sources.personalBooster} target="_blank" rel="noreferrer">Kişisel %60 duyurusu</a><a href={sources.guildBooster} target="_blank" rel="noreferrer">Lonca %60 duyurusu</a><a href={sources.officialJobs} target="_blank" rel="noreferrer">Resmî meslekler</a><a href={sources.historicalRegions} target="_blank" rel="noreferrer">Tarihî bölge rehberi</a><a href={sources.professions} target="_blank" rel="noreferrer">Toplayıcılık tablosu</a><a href={sources.potionRecipes} target="_blank" rel="noreferrer">İksir reçeteleri</a><a href={sources.recipes} target="_blank" rel="noreferrer">Tılsım reçeteleri</a></div>
       </div>}
     </div>
   </section>;

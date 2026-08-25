@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.13.0",
+  version: "0.13.1",
   channel: "BETA",
-  milestone: "M13",
+  milestone: "M13.1",
   releasedAt: "25 Ağustos 2026",
-  title: "Maden zamanlayıcısı ve süre gözlemleri",
+  title: "Lokman ve kaynak kullanım kataloğu",
   summary:
-    "Maden modülü sabit konum yaklaşımından çıkarıldı; kişisel sayaçlar ve başarılı gözlemlerden oluşan tahmin aralıkları eklendi.",
+    "Toplayıcılık kataloğu Lokman ile tamamlandı; bölge, çıktı zinciri ve reçete kullanımı aynı kartta birleştirildi.",
   changes: [
-    "Aynı anda birden fazla maden için cihazda saklanan kontrol sayacı eklendi.",
-    "Boş ve başarılı kontrolleri ayıran yerel gözlem defteri oluşturuldu.",
-    "Tek ölçümün kesin süre gibi sunulması engellendi; tahmin aralığı için en az iki başarılı ölçüm şartı getirildi.",
-    "Canlı maden noktası paylaşmadan tekel riskini azaltan süre odaklı yaklaşım benimsendi.",
+    "Madenci ve Sarrafın yanına üçüncü toplayıcı meslek Lokman eklendi.",
+    "Kaynakların 1., 2. ve varsa 3. çıktıları ayrı etiketlerle gösterildi.",
+    "Eminönü, Meteor Bölgesi, Yeraltı ve Büyük Hol/Lojman için kaynak durumlu bölge filtresi eklendi.",
+    "Malzemelerin ekipman ve örnek iksir reçetelerindeki kullanımları katalog kartlarına bağlandı.",
   ],
 } as const;
