@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-type Panel = "Durum" | "Sorunlar" | "Roller" | "Veri" | "Premium" | "Yol haritası";
+type Panel = "Durum" | "Sorunlar" | "Pazar" | "Roller" | "Veri" | "Premium" | "Yol haritası";
 type IssueId = "repeat" | "group" | "economy" | "anka" | "client";
 
 const sourceLinks = {
@@ -16,6 +16,24 @@ const sourceLinks = {
   armory: "https://www.elderscrollsonline.com/en-us/updates",
   weeklyObjectives: "https://www.guildwars2.com/en-gb/secrets-of-the-obscure/",
   weeklyChoice: "https://worldofwarcraft.blizzard.com/en-us/news/23778646/",
+  ikvPlus: "https://istanbuloyun.com/PlusPackage.aspx",
+  ikvChatProduct: "https://www.istanbuloyun.com/News.aspx?NewsId=567",
+  bdoMarket: "https://www.world.blackdesertm.com/Ocean/Wiki?wikiNo=2",
+  gw2Market: "https://help.guildwars2.com/hc/en-us/articles/222384087-Missing-Gold",
+  wowAuction: "https://worldofwarcraft.blizzard.com/en-us/news/23236723/visions-of-nzoth-auction-house-update-preview",
+  wowCrafting: "https://worldofwarcraft.blizzard.com/en-us/news/23876529",
+  ffxivParty: "https://na.finalfantasyxiv.com/game_manual/pp/",
+  esoGroup: "https://help.elderscrollsonline.com/app/answers/detail/a_id/63691/~/how-do-i-use-the-new-group-finder-introduced-in-update-40",
+  gw2LfgPolicy: "https://help.guildwars2.com/hc/en-us/articles/360025563714-Policy-Looking-For-Group-LFG-Tool",
+};
+
+type IdeaDepth = {
+  foundation: string;
+  load: string;
+  risk: string;
+  metric: string;
+  sourceLabel: string;
+  source?: string;
 };
 
 const problems: Array<{
@@ -208,6 +226,222 @@ const problems: Array<{
   },
 ];
 
+const ideaDepth: Record<string, IdeaDepth> = {
+  "Haftalık bölge mutasyonu": {
+    foundation: "Can ve hasar şişirmek yerine tek bir okunabilir kuralı haftalık değiştirir.",
+    load: "Düşük–orta · örnek açılırken tek yapılandırma okunur.",
+    risk: "Aynı hafta tek zorunlu rota oluşabilir; ödül farkı küçük tutulmalı.",
+    metric: "Bölge tekrar oranı, başarısız deneme ve tamamlama süresi.",
+    sourceLabel: "GW2 haftalık hedef yaklaşımı",
+    source: sourceLinks.weeklyObjectives,
+  },
+  "Bölge sözleşmeleri": {
+    foundation: "Öldürme dışında koruma, süre ve kayıpsız bitiriş gibi açık hedefler verir.",
+    load: "Orta · oyuncu başına birkaç ilerleme sayacı yazılır.",
+    risk: "Günlük görev hissine dönüşmemesi için az ve seçilebilir olmalı.",
+    metric: "Seçilen sözleşme dağılımı ve haftalık bitirme oranı.",
+    sourceLabel: "WoW haftalık ödül seçimi",
+    source: sourceLinks.weeklyChoice,
+  },
+  "Kademeli zorluk": {
+    foundation: "Aynı bölgeyi farklı mekanik katmanlarıyla yeniden kullanır; yeni harita gerektirmez.",
+    load: "Orta · ayrı yaratık kopyası yerine örnek kural bayrakları kullanılır.",
+    risk: "Yalnız can artışı yaparsa savaş uzar, oynanış derinleşmez.",
+    metric: "Kademe seçimi, terk oranı ve ödül başına süre.",
+    sourceLabel: "İKV için mekanik pilot çıkarımı",
+  },
+  "Eski bölge rotasyonu": {
+    foundation: "Haftanın bölgesini görünür yapıp küçük ek ödülle nüfusu toplar.",
+    load: "Düşük · haftalık takvim ve ödül çarpanı.",
+    risk: "Tek bölgeyi mecbur kılmamalı; alternatif rotalar açık kalmalı.",
+    metric: "Bölgeler arası oyuncu dağılımı ve grup dolma süresi.",
+    sourceLabel: "GW2 rotasyon mantığı",
+    source: sourceLinks.weeklyObjectives,
+  },
+  "Takım rekorları": {
+    foundation: "Güç yerine süre, kayıpsız bitiriş ve farklı sınıf bileşimini arşivler.",
+    load: "Düşük · bitişte tek özet kayıt, liste önbellekten okunur.",
+    risk: "Hileli veya eksik koşullu kayıtlar moderasyon gerektirir.",
+    metric: "Katılan takım sayısı ve farklı kompozisyon adedi.",
+    sourceLabel: "İKV geri alınabilir pilotu",
+  },
+  "Rol bazlı grup ilanı": {
+    foundation: "Bölge, amaç, eksik sınıf/rol ve saat tek ilan kaydında tutulur.",
+    load: "Düşük · sohbet mesajı akışı yerine süreli tek ilan kaydı.",
+    risk: "Aşırı filtre küçük oyuncu kitlesini bölebilir; temel alanlarla başlanmalı.",
+    metric: "İlan açılışı–giriş süresi ve dolmadan kapanan ilan oranı.",
+    sourceLabel: "FFXIV Party Finder",
+    source: sourceLinks.ffxivParty,
+  },
+  "Hazır kontrolü": {
+    foundation: "Lider grup üyelerinden yalnız hazır/değil cevabı ister; ekipman denetlemez.",
+    load: "Çok düşük · kısa ömürlü grup durumu.",
+    risk: "Otomatik eşya şartı dışlayıcı olabilir; ilk sürümde bulunmamalı.",
+    metric: "Giriş öncesi bekleme ve hazır olmayan oyuncu nedeniyle iptal.",
+    sourceLabel: "FFXIV hazır kontrolü ve parti sistemi",
+    source: sourceLinks.ffxivParty,
+  },
+  "Grup şablonları": {
+    foundation: "Lider sık kullandığı rol dağılımını istemci tarafında kaydeder.",
+    load: "Yok denecek kadar az · ilk pilot yerel ayar dosyası olabilir.",
+    risk: "Şablon meta zorunluluğu gibi gösterilmemeli.",
+    metric: "Tekrar kullanılan şablon ve ilan açma süresi.",
+    sourceLabel: "ESO ilan ölçütleri",
+    source: sourceLinks.esoGroup,
+  },
+  "Yedek oyuncu kuyruğu": {
+    foundation: "Ayrılan rol için çevrim içi gönüllülere bildirim verir; otomatik ışınlama yapmaz.",
+    load: "Düşük–orta · ilan başına sınırlı bildirim ve kısa TTL.",
+    risk: "Bildirim spamı; oyuncu başına bekleme ve sessize alma gerekir.",
+    metric: "Yedek bulma süresi ve yarıda kalan koşu oranı.",
+    sourceLabel: "ESO Group Finder",
+    source: sourceLinks.esoGroup,
+  },
+  "Grup kurma veri pilotu": {
+    foundation: "Önce gerçek bekleme, eksik rol ve sonuç verisi toplanır; oyun koduna dokunulmaz.",
+    load: "Oyun sunucusunda sıfır · site formu ve moderasyon kuyruğu.",
+    risk: "Gönüllü veri yanlı olabilir; sonuçlar kesin meta diye sunulmamalı.",
+    metric: "Haftalık nitelikli kayıt ve tekrar eden katkıcı sayısı.",
+    sourceLabel: "Topluluk veri pilotu",
+  },
+  "Gerçekleşen fiyat geçmişi": {
+    foundation: "İlan fiyatını değil tamamlanmış işlemin medyanı, adedi ve tarihini gösterir.",
+    load: "Düşük · satışta olay kaydı, günlük toplu özet ve önbellek.",
+    risk: "Az işlemli üründe yanıltıcı değer; minimum hacim eşiği gerekir.",
+    metric: "İlan–satış farkı, işlem süresi ve fiyat oynaklığı.",
+    sourceLabel: "GW2 Trading Post emanet modeli",
+    source: sourceLinks.gw2Market,
+  },
+  "Dağıtılmış maden noktaları": {
+    foundation: "Aynı kaynağı kontrollü birkaç rota havuzuna dağıtarak fiziksel tekeli azaltır.",
+    load: "Orta · mevcut doğma yöneticisine sınırlı rota havuzu eklenir.",
+    risk: "Arzı aşırı artırıp fiyatı çökertmemeli; önce küçük örneklem.",
+    metric: "Rota yoğunluğu, saatlik çıktı ve fiyat değişimi.",
+    sourceLabel: "İKV saha verisi gerektiren pilot",
+  },
+  "Üretim siparişi panosu": {
+    foundation: "Alıcı reçete, malzeme ve teklif bırakır; üretici çevrim dışıyken de siparişi görebilir.",
+    load: "Orta · süreli sipariş, emanet ve atomik teslim işlemi.",
+    risk: "Eksik malzeme ve kalite anlaşmazlığı; şema katı olmalı.",
+    metric: "Sipariş dolma süresi, iptal ve başarıyla teslim oranı.",
+    sourceLabel: "WoW Crafting Orders",
+    source: sourceLinks.wowCrafting,
+  },
+  "Alternatif jeton yolu": {
+    foundation: "Darboğaz malzemesine düşük haftalık sınırla garanti ilerleme sağlar.",
+    load: "Düşük · hesap başına haftalık sayaç ve NPC alışverişi.",
+    risk: "Farmı anlamsızlaştırmamalı; tavan piyasa verisine göre ayarlanmalı.",
+    metric: "Jeton kullanımı, maden fiyatı ve farm katılımı.",
+    sourceLabel: "İKV ekonomi pilotu",
+  },
+  "Kalıcı malzeme tüketimi": {
+    foundation: "Lonca dekoru ve kozmetik hedefler stok fazlasını güç satmadan tüketir.",
+    load: "Düşük · mevcut envanter eksiltme ve proje sayacı.",
+    risk: "Zorunlu lonca vergisine dönüşmemeli; gönüllü ve görünür olmalı.",
+    metric: "Tüketilen stok, katılımcı sayısı ve fiyat dengesi.",
+    sourceLabel: "İKV kozmetik tüketim önerisi",
+  },
+  "Gelişmiş ganimet filtresi": {
+    foundation: "Anka yalnız sunucunun zaten düşürdüğü çantaları tür, nadirlik ve beyaz listeye göre toplar.",
+    load: "Çok düşük · tercih istemcide, sunucuya yalnız normal toplama isteği gider.",
+    risk: "Yanlış filtre değerli eşyayı bırakabilir; güvenli varsayılan ve uyarı gerekir.",
+    metric: "Tur başına gereksiz eşya, manuel tıklama ve filtre geri alma sayısı.",
+    sourceLabel: "WoW alan yağması yaklaşımı",
+    source: "https://worldofwarcraft.blizzard.com/ko-kr/news/9861870",
+  },
+  "Dolu çanta güvenliği": {
+    foundation: "Kritik eşya yerdeyken kapasite uyarısı verir; otomatik silme veya satma yapmaz.",
+    load: "Çok düşük · mevcut çanta kapasitesi ve eşya sınıfı kontrolü.",
+    risk: "Yanlış nadirlik sınıfı; kullanıcı beyaz listesi öncelikli olmalı.",
+    metric: "Dolu çanta nedeniyle kaçan yüksek değerli eşya bildirimi.",
+    sourceLabel: "İKV güvenli QoL pilotu",
+  },
+  "Otomatik istifleme": {
+    foundation: "Toplama tamamlanınca aynı kimlikteki malzemeleri mevcut yığın sınırında birleştirir.",
+    load: "Düşük · her eşya yerine tur sonunda toplu envanter işlemi.",
+    risk: "Bağlı/bağsız veya farklı özellikli eşyalar asla birleşmemeli.",
+    metric: "Boşalan yuva, envanter işlem sayısı ve hata kaydı.",
+    sourceLabel: "BDO pazar deposu istifleme örneği",
+    source: sourceLinks.bdoMarket,
+  },
+  "Hesap ortaklı malzeme çantası": {
+    foundation: "Yalnız üretim malzemelerini hesap düzeyinde tutar; üretim buradan okuyabilir.",
+    load: "Orta–yüksek · eşzamanlı karakter erişimi ve atomik kayıt gerekir.",
+    risk: "Çoğaltma açığı en kritik risk; ilk Anka geliştirmesi olmamalı.",
+    metric: "Karakterler arası aktarım, üretim süresi ve tutarsızlık hatası.",
+    sourceLabel: "ESO Craft Bag",
+    source: sourceLinks.craftBag,
+  },
+  "Tur özeti": {
+    foundation: "Süre ve toplanan adetleri yerel oturumda sayar; doğma koordinatı paylaşmaz.",
+    load: "Yok denecek kadar az · varsayılan olarak istemci tarafında.",
+    risk: "Kesin düşme oranı sanılmamalı; örneklem büyüklüğü gösterilmeli.",
+    metric: "Özeti açan oyuncu ve paylaşılan doğrulanabilir tur sayısı.",
+    sourceLabel: "İKV veri toplama pilotu",
+  },
+  "Arayüz ölçekleme": {
+    foundation: "Metin ve panel ölçüsünü sabit üç profil ile değiştirir; oyun mantığına dokunmaz.",
+    load: "Yok · yalnız istemci çizimi.",
+    risk: "Taşma ve tıklama alanı hataları; ekran oranı matrisiyle test edilmeli.",
+    metric: "Profil kullanımı ve arayüz taşma hatası.",
+    sourceLabel: "FFXIV UI özelleştirme rehberi",
+    source: "https://na.finalfantasyxiv.com/uiguide/",
+  },
+  "Tuş profilleri": {
+    foundation: "PvE, PvP ve farm için yerel tuş dizilerini kaydeder; sunucu verisi istemez.",
+    load: "Yok · yerel ayar dosyası.",
+    risk: "Bozuk profil oyuncuyu kilitlememeli; varsayılana dön düğmesi şart.",
+    metric: "Profil değişimi ve ayar sıfırlama ihtiyacı.",
+    sourceLabel: "İKV istemci QoL pilotu",
+  },
+  "Eşya karşılaştırma": {
+    foundation: "Takılı ve seçilen eşyadaki aynı özellikleri istemcide fark olarak renklendirir.",
+    load: "Yok · zaten gelen eşya verisinin yerel karşılaştırması.",
+    risk: "Efsun birimleri normalize edilmeden toplam puan üretmemeli.",
+    metric: "Karşılaştırma açılışı ve yanlış değer bildirimi.",
+    sourceLabel: "İKV kaynaklı alanlarla sınırlı pilot",
+  },
+  "Çökme sonrası ganimet koruması": {
+    foundation: "Yalnız kazanımı sunucuda kesinleşmiş son sandık ödülünü süreli emanete alır.",
+    load: "Orta–yüksek · idempotent ödül kaydı ve teslim kuyruğu.",
+    risk: "Çoğaltma ve sahte hak iddiası; işlem kimliği olmadan yapılmamalı.",
+    metric: "Kurtarılan ödül, mükerrer teslim ve destek talebi.",
+    sourceLabel: "İKV için ileri aşama güvenlik özelliği",
+  },
+  "Bağlantı sağlık göstergesi": {
+    foundation: "Gecikme ve paket kaybını üç basit durumda gösterir; savaş sonucunu değiştirmez.",
+    load: "Çok düşük · mevcut bağlantı ölçümünün istemci özeti.",
+    risk: "Sunucu hatası teşhisi gibi sunulmamalı; yalnız ağ belirtisi gösterir.",
+    metric: "Bağlantı kaynaklı çıkış ve yanlış hata bildirimi.",
+    sourceLabel: "İKV istemci tanı pilotu",
+  },
+};
+
+const marketBenchmarks = [
+  { name: "Black Desert", use: "Merkezî pazar deposu, anlık satın alma ve ön sipariş", avoid: "Dar fiyat bantlarını küçük İKV ekonomisine aynen kopyalama", url: sourceLinks.bdoMarket },
+  { name: "Guild Wars 2", use: "Satış emanet sistemi, alış emri ve ayrılmış para", avoid: "İKV hacmi ölçülmeden sabit yüksek kesinti oranı", url: sourceLinks.gw2Market },
+  { name: "World of Warcraft", use: "Malzemeleri tek emir defterinde adet ve birim fiyatla birleştirme", avoid: "Ekipman ile yığınlanabilir malzemeyi aynı arama akışına sıkıştırma", url: sourceLinks.wowAuction },
+  { name: "WoW Crafting Orders", use: "Alıcı malzeme koyar, üretici çevrim dışı siparişi tamamlar", avoid: "Kalite/efsun koşulu tanımlanmadan serbest metin anlaşması", url: sourceLinks.wowCrafting },
+];
+
+const marketCore = [
+  { title: "Merkezî emir defteri", text: "Satış emri ve alış emri fiyat–zaman önceliğiyle eşleşir; satıcı karakterin çevrim içi kalması gerekmez." },
+  { title: "Emanet kasa", text: "Listelenen eşya ve alış emrindeki para sunucu tarafında kilitlenir; çift harcama ve sahte satış engellenir." },
+  { title: "İki ayrı ürün akışı", text: "Maden/malzeme adet ve birim fiyatla; ekipman ise tam ad, yuva, sınıf, seviye, renk ve efsunla aranır." },
+  { title: "Gerçek fiyat geçmişi", text: "7/30 günlük medyan, işlem adedi ve son satış zamanı gösterilir; satılmamış ilan fiyatı piyasa değeri sayılmaz." },
+  { title: "Üretim siparişi", text: "Alıcı reçete ve malzemeyi seçer, Silahtar/Zırhçı/Kimyager işi kabul eder; sonuç emanet üzerinden teslim edilir." },
+  { title: "Ayrı grup panosu", text: "Pazar ilanı ile grup ilanı kesin biçimde ayrılır; sohbet yalnız iletişim için kalır." },
+];
+
+const marketLoadRules = [
+  "Dünyada tezgâh, pazar karakteri veya sürekli açık dükkân nesnesi oluşturma.",
+  "Arama sonuçlarını sayfala, 250–400 ms geciktir ve kısa süre önbellekten sun.",
+  "Fiyat geçmişini her sorguda hesaplama; satış olaylarından saatlik/günlük özet üret.",
+  "Eşleşmeyi dünya hareket döngüsünde değil ayrı işlem kuyruğunda yap.",
+  "Her listeleme ve teslim için tek işlem kimliği, denetim kaydı ve tekrar çalıştırma koruması kullan.",
+  "Hesap başına ilan sınırı, arama hız sınırı ve süre sonu temizliği uygula.",
+];
+
 const paidIdeas = [
   {
     name: "Malzeme çantası",
@@ -348,7 +582,7 @@ export default function EndgameLab() {
         </div>
 
         <nav className="eg-tabs" role="tablist" aria-label="Endgame raporu bölümleri">
-          {(["Durum", "Sorunlar", "Roller", "Veri", "Premium", "Yol haritası"] as Panel[]).map(
+          {(["Durum", "Sorunlar", "Pazar", "Roller", "Veri", "Premium", "Yol haritası"] as Panel[]).map(
             (item) => (
               <button
                 key={item}
@@ -435,21 +669,77 @@ export default function EndgameLab() {
               </aside>
             </div>
             <div className="solution-grid">
-              {activeProblem.ideas.map((idea, index) => (
-                <article key={idea.name}>
+              {activeProblem.ideas.map((idea, index) => {
+                const depth = ideaDepth[idea.name];
+                return <article key={idea.name}>
                   <span>{String(index + 1).padStart(2, "0")}</span>
                   <h4>{idea.name}</h4>
                   <p>{idea.basis}</p>
                   <small>PİLOT</small>
                   <b>{idea.pilot}</b>
-                </article>
-              ))}
+                  {depth && <details className="idea-depth">
+                    <summary>Dayanak ve teknik ayrıntı</summary>
+                    <dl>
+                      <div><dt>Temel</dt><dd>{depth.foundation}</dd></div>
+                      <div><dt>Sunucu maliyeti</dt><dd>{depth.load}</dd></div>
+                      <div><dt>Risk / sınır</dt><dd>{depth.risk}</dd></div>
+                      <div><dt>Başarı ölçütü</dt><dd>{depth.metric}</dd></div>
+                    </dl>
+                    {depth.source ? <a href={depth.source} target="_blank" rel="noreferrer">{depth.sourceLabel} ↗</a> : <em>{depth.sourceLabel}</em>}
+                  </details>}
+                </article>;
+              })}
             </div>
             <div className="benchmark-links">
               <span>Dayanak örnekleri</span>
               <a href={sourceLinks.partyFinder} target="_blank" rel="noreferrer">FFXIV grup bulucu</a>
               <a href={sourceLinks.weeklyObjectives} target="_blank" rel="noreferrer">GW2 haftalık hedefler</a>
               <a href={sourceLinks.weeklyChoice} target="_blank" rel="noreferrer">WoW ödül seçimi</a>
+            </div>
+          </div>
+        )}
+
+        {panel === "Pazar" && (
+          <div className="eg-panel market-design-panel">
+            <div className="panel-intro">
+              <div>
+                <small>İKV İÇİN MERKEZÎ PAZAR TASARIMI</small>
+                <h3>Tezgâh değil, Teşkilat Pazar Defteri.</h3>
+              </div>
+              <p>
+                Metin2/Karahan tipi fiziksel dükkânlar kalabalık nesne ve görüntü
+                üretir. İKV için çevrim dışı çalışan emir defteri; sohbet, oyuncu
+                konumu ve dünya çiziminden bağımsız daha düşük sürtünmeli temeldir.
+              </p>
+            </div>
+            <div className="market-scope-note">
+              <div><small>MEVCUT DURUM · OYUNCU GÖZLEMİ</small><b>WhatsApp, Facebook, Discord ve genel sohbet ilanı</b></div>
+              <p>Resmî Plus sayfası bölge, klan ve lonca kanallarına yazmayı ayrıcalık olarak listeliyor; ayrıca genel sohbet yazma ürünü bulunuyor. Pazar ve grup aramanın yapılandırılmış panoya taşınması sohbeti iletişime geri verir.</p>
+              <div className="scope-links"><a href={sourceLinks.ikvPlus} target="_blank" rel="noreferrer">İKV Plus ↗</a><a href={sourceLinks.ikvChatProduct} target="_blank" rel="noreferrer">Genel sohbet ürünü ↗</a></div>
+            </div>
+            <div className="market-verdict">
+              <span>ÖNERİLEN ÇEKİRDEK</span>
+              <h4>BDO depo/emir + GW2 emanet + WoW malzeme birleştirme</h4>
+              <p>Çalışan parçalar uyarlanır; BDO’nun katı fiyat bantları ve yüksek hacimli oyunlara özgü karmaşıklığı aynen taşınmaz. İKV’nin küçük ekonomisinde fiyatı yönetici değil, tamamlanmış işlem verisi görünür kılar.</p>
+            </div>
+            <div className="market-core-grid">{marketCore.map((item,index)=><article key={item.title}><span>{String(index+1).padStart(2,"0")}</span><h4>{item.title}</h4><p>{item.text}</p></article>)}</div>
+            <div className="market-compare">
+              <header><small>ÇALIŞAN SİSTEMLERDEN AL · KÖRÜ KÖRÜNE KOPYALAMA</small><h4>Kaynaklı örnek matrisi</h4></header>
+              <div>{marketBenchmarks.map(item=><article key={item.name}><h5>{item.name}</h5><p><b>Al:</b> {item.use}</p><p><b>Alma:</b> {item.avoid}</p><a href={item.url} target="_blank" rel="noreferrer">Resmî kaynak ↗</a></article>)}</div>
+            </div>
+            <div className="market-architecture">
+              <div><small>SUNUCUYU RAHATLATAN MİMARİ</small><h4>Dünya döngüsünden ayrılmış işlem servisi</h4><p>64-bit geçiş yönetici duyurusu olarak not edildi; bağlantısı gelene kadar bağımsız kaynak sayılmıyor. Daha geniş bellek alanı yararlı olabilir fakat pahalı arama, kilit ve yazma işlemlerini kendiliğinden ucuzlatmaz.</p></div>
+              <ol>{marketLoadRules.map((rule,index)=><li key={rule}><span>{String(index+1).padStart(2,"0")}</span>{rule}</li>)}</ol>
+            </div>
+            <div className="market-pilot">
+              <article><span>FAZ 1 · 4–6 HAFTA</span><h4>Salt okunur fiyat panosu</h4><p>20 malzeme, gönüllü/veri içe aktarımı, medyan ve işlem adedi. Oyun ekonomisine müdahale etmez.</p><b>Risk: düşük</b></article>
+              <article><span>FAZ 2 · KAPALI TEST</span><h4>Emanetli 20 ürün</h4><p>Satış ilanı, alış emri, süre sonu ve teslim kutusu. Yalnız test hesaplarıyla yük ve çoğaltma deneyi.</p><b>Başarı: sıfır mükerrer teslim</b></article>
+              <article><span>FAZ 3 · SINIRLI CANLI</span><h4>Malzeme pazarı</h4><p>Önce yığınlanabilir maden ve üretim girdileri; ekipman/efsun araması güven oluşunca açılır.</p><b>Başarı: sohbet ilanında düşüş</b></article>
+            </div>
+            <div className="market-group-bridge">
+              <div><small>AYNI MENÜ, AYRI DEFTER</small><h4>Grup ilanı pazara karışmamalı</h4></div>
+              <p>FFXIV görev–amaç–rol ölçütlerini, ESO’nun “kuyruk değil ilan” yaklaşımını temel al. GW2’nin LFG politikası gibi eşya satışı ile grup aramayı kesin olarak ayır.</p>
+              <div><a href={sourceLinks.ffxivParty} target="_blank" rel="noreferrer">FFXIV ↗</a><a href={sourceLinks.esoGroup} target="_blank" rel="noreferrer">ESO ↗</a><a href={sourceLinks.gw2LfgPolicy} target="_blank" rel="noreferrer">GW2 politika ↗</a></div>
             </div>
           </div>
         )}
@@ -610,8 +900,8 @@ export default function EndgameLab() {
                 <ul>
                   <li>Anka filtresi ve dolu çanta uyarısı</li>
                   <li>Rol bazlı grup ilanı</li>
-                  <li>Eşya karşılaştırma</li>
-                  <li>Anonim temel telemetri</li>
+                  <li>20 malzemelik salt okunur fiyat panosu</li>
+                  <li>Anonim temel telemetri + eşya karşılaştırma</li>
                 </ul>
                 <b>P0</b>
               </article>
@@ -621,8 +911,8 @@ export default function EndgameLab() {
                 <ul>
                   <li>Malzeme çantası pilotu</li>
                   <li>Teçhizat sayfaları</li>
-                  <li>Fiyat geçmişi</li>
-                  <li>Grup kurma veri pilotu</li>
+                  <li>20 ürünle emanetli pazar kapalı testi</li>
+                  <li>Fiyat geçmişi + grup kurma veri pilotu</li>
                 </ul>
                 <b>P1</b>
               </article>
@@ -632,8 +922,8 @@ export default function EndgameLab() {
                 <ul>
                   <li>Tek bölgede haftalık mutasyon</li>
                   <li>Garanti ilerleme jetonu</li>
-                  <li>Lonca seferi prototipi</li>
-                  <li>Kozmetik takım rekorları</li>
+                  <li>Üretim siparişi panosu prototipi</li>
+                  <li>Lonca seferi + kozmetik takım rekorları</li>
                 </ul>
                 <b>P2</b>
               </article>
