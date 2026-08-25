@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-type Panel = "Durum" | "Sorunlar" | "Roller" | "Premium" | "Yol haritası";
+type Panel = "Durum" | "Sorunlar" | "Roller" | "Veri" | "Premium" | "Yol haritası";
 type IssueId = "repeat" | "group" | "economy" | "anka" | "client";
 
 const sourceLinks = {
@@ -92,9 +92,9 @@ const problems: Array<{
         pilot: "Otomatik ışınlama olmadan bildirim sistemi.",
       },
       {
-        name: "Bağlantı sonrası geri dönüş",
-        basis: "Kopan oyuncuya kısa süre aynı gruba ve örneğe dönme hakkı verir.",
-        pilot: "Önce grup kimliğini 5 dakika sakla.",
+        name: "Grup kurma veri pilotu",
+        basis: "Bölge, eksik rol, bekleme süresi ve sonucun gönüllü kaydı gerçek darboğazı gösterir.",
+        pilot: "Discord yönlendirmesi + tek standart site formu.",
       },
     ],
   },
@@ -262,6 +262,38 @@ const roleRows = [
   },
 ];
 
+const dataChannels = [
+  {
+    name: "Discord",
+    role: "Önerilen pilot kanalı",
+    text: "Konu başlığı, sabit form bağlantısı, ekran görüntüsü ve moderatör akışı için en düzenli başlangıç noktası.",
+    verdict: "ANA GİRİŞ",
+  },
+  {
+    name: "Site formu",
+    role: "Tek veri standardı",
+    text: "Bütün kanallar aynı forma yönlenir; alan adları, tarih, sunucu ve kanıt seviyesi burada tek biçime çevrilir.",
+    verdict: "KAYNAK KAYIT",
+  },
+  {
+    name: "WhatsApp / Telegram",
+    role: "Erişim ve duyuru",
+    text: "Oyuncuya ulaşmak için kullanılır; serbest sohbet doğrudan veri tabanına aktarılmaz, standart forma yönlendirilir.",
+    verdict: "YÖNLENDİRME",
+  },
+];
+
+const contributionFields = [
+  "Sunucu + tarih",
+  "Bölge + alt rota",
+  "Maden / eşya tam adı",
+  "Kaynak, yaratık veya boss",
+  "Normal / saf / nadir çıktı",
+  "Tur süresi + adet",
+  "Kişisel / lonca artırıcı",
+  "Ekran görüntüsü veya video",
+];
+
 export default function EndgameLab() {
   const [panel, setPanel] = useState<Panel>("Durum");
   const [issue, setIssue] = useState<IssueId>("repeat");
@@ -316,7 +348,7 @@ export default function EndgameLab() {
         </div>
 
         <nav className="eg-tabs" role="tablist" aria-label="Endgame raporu bölümleri">
-          {(["Durum", "Sorunlar", "Roller", "Premium", "Yol haritası"] as Panel[]).map(
+          {(["Durum", "Sorunlar", "Roller", "Veri", "Premium", "Yol haritası"] as Panel[]).map(
             (item) => (
               <button
                 key={item}
@@ -455,6 +487,50 @@ export default function EndgameLab() {
           </div>
         )}
 
+        {panel === "Veri" && (
+          <div className="eg-panel data-panel">
+            <div className="panel-intro">
+              <div>
+                <small>TOPLULUK KATKISI · ÖNCE PİLOT</small>
+                <h3>Sohbeti değil, kanıtlı kaydı topla.</h3>
+              </div>
+              <p>
+                Oyun istemcisinin belleğini veya ağ trafiğini okumadan; gönüllü
+                formlar, ekran görüntüleri ve moderatör kontrolüyle güvenli bir
+                veri havuzu kurulabilir.
+              </p>
+            </div>
+            <div className="data-channel-grid">
+              {dataChannels.map((channel, index) => (
+                <article key={channel.name}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <small>{channel.role}</small>
+                  <h4>{channel.name}</h4>
+                  <p>{channel.text}</p>
+                  <b>{channel.verdict}</b>
+                </article>
+              ))}
+            </div>
+            <div className="data-schema">
+              <div>
+                <small>HER KAYITTA AYNI ALANLAR</small>
+                <h4>Maden, eşya ve grup verisi şeması</h4>
+                <p>Oyuncu adı zorunlu değildir. Kişisel mesajlar ve telefon numaraları veri tabanına alınmaz.</p>
+              </div>
+              <div>{contributionFields.map((field) => <span key={field}>{field}</span>)}</div>
+            </div>
+            <div className="evidence-ladder">
+              <article><b>GÖZLEM</b><span>Tek oyuncu bildirimi</span><small>Yayınlanabilir; açık uyarıyla</small></article>
+              <article><b>TOPLULUK TEYİDİ</b><span>İki bağımsız oyuncu veya kanıt</span><small>Güven seviyesi yükselir</small></article>
+              <article><b>DOĞRULANMIŞ</b><span>Oyun içi görüntü + kaynak eşleşmesi</span><small>Hesap ve rehberlerde kullanılabilir</small></article>
+            </div>
+            <div className="data-guardrail">
+              <b>İlk pilot:</b>
+              <p>Yalnız Büyük Hol / Lojman madenleri ve üç grup bölgesiyle başla. Otomatik oyun botu, paket okuma veya bellek tarama kullanma; ham bildirimi moderasyon görmeden kesin bilgiye dönüştürme.</p>
+            </div>
+          </div>
+        )}
+
         {panel === "Premium" && (
           <div className="eg-panel qol-panel">
             <div className="anka-review">
@@ -546,7 +622,7 @@ export default function EndgameLab() {
                   <li>Malzeme çantası pilotu</li>
                   <li>Teçhizat sayfaları</li>
                   <li>Fiyat geçmişi</li>
-                  <li>Bağlantı sonrası geri dönüş</li>
+                  <li>Grup kurma veri pilotu</li>
                 </ul>
                 <b>P1</b>
               </article>
