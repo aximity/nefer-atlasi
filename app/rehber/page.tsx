@@ -1,0 +1,136 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { publishableItems } from "../../lib/catalog";
+import { SITE_RELEASE } from "../../lib/site-release";
+import "../guide.css";
+
+export const metadata: Metadata = {
+  title: "Kullanım Rehberi | Nefer Atlası",
+  description:
+    "Nefer Atlası modüllerini, bilgi güven seviyelerini, build planlayıcıyı, eşya kataloğunu, maden rehberini ve katkı sistemini kullanma rehberi.",
+  openGraph: {
+    title: "Nefer Atlası Kullanım Rehberi",
+    description: "İKV bilgisini bulma, karşılaştırma, planlama ve doğrulama akışlarını adım adım öğren.",
+    images: ["/og.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nefer Atlası Kullanım Rehberi",
+    description: "Nefer Atlası’nı neden ve nasıl kullanacağını tek sayfada öğren.",
+    images: ["/og.png"],
+  },
+};
+
+const modules = [
+  ["01", "Build", "Sınıf, hedef ve oyun türünü seç; sekiz ekipman yuvasını doldur, toplamları gör ve planını paylaş.", "/?module=builder#modules"],
+  ["02", "Tılsım", "Sınıfına uygun tılsımı ve kademesini seç; yalnız kaynakta tanımlı etkileri hesaba kat.", "/?module=engine#modules"],
+  ["03", "Bölgeler", "Sığınak, Migrat ve Çemberlitaş gibi grup bölgelerinde sınıfa göre düşen eşyaları incele.", "/?module=group-regions#modules"],
+  ["04", "Eşyalar", "Sınıf ve yuva filtresiyle eşyayı bul; aynı yuvadan iki eşyayı yan yana karşılaştır.", "/?module=items#modules"],
+  ["05", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
+  ["06", "Maden", "Madenin bölgesini, değer sebebini, fiyat gözlemini ve farm rotası bilgisini birlikte oku.", "/?module=mining#modules"],
+  ["07", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
+  ["08", "Gelişim", "Sitenin güçlü, gelişen ve bekleyen bölümlerini gör; hangi veriye ihtiyaç olduğunu takip et.", "/?module=health#modules"],
+  ["09", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
+] as const;
+
+const journeys = [
+  {
+    number: "01",
+    title: "Bir eşyanın gerçek bilgisini arıyorum",
+    steps: ["Eşyalar modülünü aç.", "Sınıf ve yuva filtresini seç.", "Kartı açıp özellik, elde edilme yeri ve kaynak durumunu oku.", "Kararsızsan aynı yuvadan ikinci eşyayı karşılaştır."],
+    href: "/?module=items#modules",
+    action: "Eşya kataloğunu aç",
+  },
+  {
+    number: "02",
+    title: "Karakterim için build kurmak istiyorum",
+    steps: ["Sınıfını ve ana hedefini seç.", "PvE, PvP, Farm veya Grup Bölgesi bağlamını belirle.", "Sekiz yuvayı doldur; eksik ve çelişkili alan uyarılarını kontrol et.", "Bağlantıyı kopyalayarak buildi arkadaşınla paylaş."],
+    href: "/?module=builder#modules",
+    action: "Build planlayıcıyı aç",
+  },
+  {
+    number: "03",
+    title: "Maden veya farm verimi araştırıyorum",
+    steps: ["Maden modülünde bölge ve maden kaydını incele.", "Fiyatın tarihine ve para birimine bak.", "Fiyatın piyasa gerçeği değil, tarihli gözlem olabileceğini unutma.", "Saha pilotuysan özel Farm Operasyonu’nda tur kaydet ve rotaları karşılaştır."],
+    href: "/?module=mining#modules",
+    action: "Maden rehberini aç",
+  },
+  {
+    number: "04",
+    title: "Eksik veya yanlış bilgiyi düzeltmek istiyorum",
+    steps: ["Katkı türünü seç.", "Gözlem tarihini ve sunucuyu yaz.", "Ekran görüntüsü veya kaynak bağlantısını ekle.", "Gönderim makbuzunu sakla; bilgi doğrudan yayımlanmaz, önce incelenir."],
+    href: "/?module=contribute#modules",
+    action: "Katkı merkezini aç",
+  },
+];
+
+export default function GuidePage() {
+  return (
+    <main className="guidePage">
+      <header className="guideTop">
+        <Link className="guideBrand" href="/">
+          <b>N</b><span><strong>NEFER ATLASI</strong><small>KULLANIM REHBERİ</small></span>
+        </Link>
+        <nav><Link href="/">Ana site</Link><i>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</i></nav>
+      </header>
+
+      <section className="guideHero">
+        <div>
+          <p>{SITE_RELEASE.milestone} · BAŞLANGIÇ NOKTASI</p>
+          <h1>Bilgiyi bul.<br/><em>Güvenini ölç.</em></h1>
+          <span>Nefer Atlası; İKV’de eşya, build, yetenek, bölge, maden ve ekonomi bilgisini aynı kaynak zincirinde toplamak için var.</span>
+          <div><Link href="#baslangic">Hızlı başlangıç</Link><Link href="#guven">Güven etiketleri</Link></div>
+        </div>
+        <aside>
+          <small>ŞU ANKİ SÜRÜM</small>
+          <strong>v{SITE_RELEASE.version}</strong>
+          <b>{SITE_RELEASE.channel} · {SITE_RELEASE.title}</b>
+          <span>{SITE_RELEASE.releasedAt}</span>
+        </aside>
+      </section>
+
+      <section className="guideWhy" id="baslangic">
+        <header><p>NEDEN KULLANMALIYIM?</p><h2>Dağınık bilgiden<br/><em>karar verilebilir veriye.</em></h2></header>
+        <div>
+          <article><i>01</i><b>Kaynağı görünür</b><span>Bilginin nereden geldiğini ve ne zaman kontrol edildiğini saklamaz.</span></article>
+          <article><i>02</i><b>Tahmini ayırır</b><span>Doğrulanmış bilgi, tek kaynak, çelişki ve eksik veri aynı şeymiş gibi gösterilmez.</span></article>
+          <article><i>03</i><b>Karar kurdurur</b><span>Yalnız liste sunmaz; eşya karşılaştırır, build toplar ve farm sonuçlarını ölçer.</span></article>
+          <article><i>04</i><b>Toplulukla büyür</b><span>Yeni kanıtlar inceleme kuyruğundan geçer; kaynak olmadan kesin bilgiye dönüşmez.</span></article>
+        </div>
+      </section>
+
+      <section className="guideJourneys">
+        <header><p>NE YAPMAK İSTİYORSUN?</p><h2>Dört hızlı kullanım akışı</h2></header>
+        <div>{journeys.map((journey)=><article key={journey.number}><small>{journey.number}</small><h3>{journey.title}</h3><ol>{journey.steps.map((step)=><li key={step}>{step}</li>)}</ol><Link href={journey.href}>{journey.action} <span>↗</span></Link></article>)}</div>
+      </section>
+
+      <section className="guideTrust" id="guven">
+        <div><p>BİLGİYİ NASIL OKUMALIYIM?</p><h2>Her etiket aynı güveni taşımaz.</h2><span>Renk tek başına yeterli değildir; kart üzerindeki kaynak ve kontrol tarihini de aç.</span></div>
+        <div className="trustRows">
+          <article className="draft"><i>1</i><span><b>Taslak</b><small>Henüz yayımlanabilir bilgi değildir; inceleme veya kanıt bekler.</small></span></article>
+          <article className="single"><i>2</i><span><b>Tek kaynak · teyit bekliyor</b><small>Görülebilir ancak ikinci bağımsız kaynakla doğrulanmamıştır.</small></span></article>
+          <article className="verified"><i>3</i><span><b>Çapraz doğrulandı</b><small>Birbirinden bağımsız en az iki kanıt aynı iddiayı destekler.</small></span></article>
+          <article className="conflict"><i>!</i><span><b>Çelişkili</b><small>Kaynaklar uyuşmaz; değer hesaplamaya veya kesin sonuca katılmaz.</small></span></article>
+        </div>
+      </section>
+
+      <section className="guideModules">
+        <header><div><p>MODÜL HARİTASI</p><h2>Dokuz araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
+        <div>{modules.map(([number,title,description,href])=><Link href={href} key={title}><small>{number}</small><span><b>{title}</b><em>{description}</em></span><i>↗</i></Link>)}</div>
+      </section>
+
+      <section className="guideAccess">
+        <article><small>HERKESE AÇIK</small><h3>Ana atlas ve katkı merkezi</h3><p>Siteyi görüntülemek, build hazırlamak, eşyaları incelemek ve kanıt göndermek için ChatGPT hesabı gerekmez.</p><Link href="/">Ana siteye dön</Link></article>
+        <article><small>SAHA PİLOTU / EDİTÖR</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Özel rota görselleri, kişisel farm kayıtları ve moderasyon araçları yalnız yetkilendirilmiş hesaplara açıktır.</p><span>Bu ayrım özel veriyi ve yayın güvenini korur.</span></article>
+      </section>
+
+      <section className="guideRelease">
+        <header><span><small>{SITE_RELEASE.milestone} · SÜRÜM NOTLARI</small><h2>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</h2></span><b>{SITE_RELEASE.releasedAt}</b></header>
+        <p>{SITE_RELEASE.summary}</p>
+        <ul>{SITE_RELEASE.changes.map((change)=><li key={change}>{change}</li>)}</ul>
+      </section>
+
+      <footer className="guideFooter"><span><b>NEFER ATLASI</b><small>Bağımsız İKV topluluk projesi · resmî değildir.</small></span><Link href="/">Atlası aç</Link></footer>
+    </main>
+  );
+}

@@ -38,6 +38,7 @@ import {
   sanitizeBuild,
 } from "../lib/build-codec.mjs";
 import AbilitySimulator from "./ability-simulator";
+import { SITE_RELEASE } from "../lib/site-release";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n),
   familyNames: Record<string, string> = {
@@ -132,7 +133,12 @@ export default function Home() {
   };
   useEffect(() => {
     const hydrate = () => {
-      const saved = new URLSearchParams(location.search).get("build");
+      const params = new URLSearchParams(location.search);
+      const requestedModule = params.get("module");
+      if (requestedModule && moduleTabs.some((item) => item.id === requestedModule)) {
+        setActiveModule(requestedModule as MainModule);
+      }
+      const saved = params.get("build");
       if (!saved) return;
       try {
         const p = sanitizeBuild(
@@ -248,7 +254,8 @@ export default function Home() {
         </a>
         <nav className="top-status" aria-label="Açık modül">
           <span>{moduleTabs.find((item) => item.id === activeModule)?.label}</span>
-          <i>BETA</i>
+          <a href="/rehber">Rehber</a>
+          <i>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</i>
         </nav>
       </header>
       <section className="hero" id="top">
@@ -263,6 +270,10 @@ export default function Home() {
             Eşyaları, buildleri, yetenekleri, bölgeleri, madenleri ve pazar
             verisini aynı kaynak zincirinde incele; karşılaşmaya hazırlan.
           </p>
+          <div className="heroActions">
+            <a href="/rehber">Nasıl kullanılır?</a>
+            <button onClick={() => document.getElementById("modules")?.scrollIntoView()}>Modülleri aç</button>
+          </div>
         </div>
         <aside>
           <small>GENİŞLEYEN İKV KATALOĞU</small>
@@ -281,7 +292,12 @@ export default function Home() {
             role="tab"
             aria-selected={activeModule === item.id}
             className={activeModule === item.id ? "active" : ""}
-            onClick={() => setActiveModule(item.id)}
+            onClick={() => {
+              setActiveModule(item.id);
+              const url = new URL(location.href);
+              url.searchParams.set("module", item.id);
+              history.replaceState(null, "", url);
+            }}
           >
             <small>{String(index + 1).padStart(2, "0")}</small>
             <span>{item.label}</span>
@@ -565,13 +581,14 @@ export default function Home() {
       <footer className="siteFooter">
         <div>
           <b>NEFER ATLASI</b>
+          <span>{SITE_RELEASE.channel} v{SITE_RELEASE.version} · {SITE_RELEASE.releasedAt}</span>
           <span>Bağımsız İKV topluluk projesi · resmî değildir.</span>
         </div>
         <p>
           Kaynak yoksa kesin bilgi yok. Tek kaynak teyit bekler; çelişki saklanmaz;
           eşya adıyla görünüşü aynı kanıtta değilse görsel bağlanmaz.
         </p>
-        <span className="footerTools"><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
+        <span className="footerTools"><a href="/rehber">Kullanım Rehberi</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
       </footer>
       {detail && <ItemModal item={detail} close={() => setDetail(null)} />}
     </main>
