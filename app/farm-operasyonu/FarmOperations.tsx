@@ -7,6 +7,11 @@ import {
   compareBoosterProfiles,
   summarizeFarmSessions,
 } from "../../lib/farm-core.mjs";
+import {
+  groupRoutePerformance,
+  projectRoutePerformance,
+  summarizeMaterialPrices,
+} from "../../lib/farm-analytics.mjs";
 import { routeSessionDefaults } from "../../lib/route-core.mjs";
 
 type YieldRow = {
@@ -49,7 +54,8 @@ type DraftYield = {
 type RoutePoint = { id?: string; pointType: string; label: string; materialHint: string | null; xPermille: number; yPermille: number; notes: string | null };
 type FarmRoute = { id: string; server: string; region: string; routeName: string; profession: string; defaultBooster: string; expectedMinutes: number; notes: string | null; status: string; hasMap: boolean; points: RoutePoint[] };
 type DraftPoint = { pointType: string; label: string; materialHint: string; xPermille: number; yPermille: number; notes: string };
-type Tab = "Özet" | "Yeni Tur" | "Rotalar" | "Kayıtlar";
+type Tab = "Özet" | "Yeni Tur" | "Rotalar" | "Karar" | "Kayıtlar";
+type AnalysisMetric = "game" | "tl" | "items";
 
 const regions = ["Büyük Hol", "Eminönü", "Antrepo", "Labirent", "Meteor Bölgesi", "Sivri Ada", "Yeraltı", "Topkapı Sarayı"];
 const materials = ["Xenotim", "Jadeit", "Yeşim Taşı", "Monazit", "Gadolinyum", "Osmiridyum", "Osmiyum", "İridyum", "Altın", "Saf Altın", "Krizoberil", "Alexandrite"];
@@ -86,6 +92,9 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
   const [region, setRegion] = useState("Tümü");
   const [route, setRoute] = useState("Tümü");
   const [material, setMaterial] = useState("Tümü");
+  const [analysisRoute, setAnalysisRoute] = useState("");
+  const [analysisMetric, setAnalysisMetric] = useState<AnalysisMetric>("items");
+  const [projectionMinutes, setProjectionMinutes] = useState("120");
   const [form, setForm] = useState(freshForm);
   const [routeForm, setRouteForm] = useState(freshRoute);
   const [routeFile, setRouteFile] = useState<File | null>(null);
@@ -136,11 +145,33 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
     );
   }, [active, filterAnchor, material, period, region, route]);
   const summary = useMemo(() => summarizeFarmSessions(filtered) as Record<string, number | string>, [filtered]);
-  const boosters = useMemo(() => compareBoosterProfiles(filtered) as Record<string, number | string>[], [filtered]);
+  const boosters = useMemo(() => route === "Tümü" ? [] : compareBoosterProfiles(filtered) as Record<string, number | string>[], [filtered, route]);
   const prices = useMemo(() => filtered.flatMap((session) => session.yields.flatMap((row) => [
     row.unitGamePrice == null ? null : { material: row.material, currency: "Oyun parası", value: row.unitGamePrice, date: session.observedAt },
     row.unitTlKurus == null ? null : { material: row.material, currency: "TL", value: row.unitTlKurus / 100, date: session.observedAt },
   ].filter(Boolean) as {material:string;currency:string;value:number;date:string}[])).sort((a,b) => b.date.localeCompare(a.date)).slice(0, 8), [filtered]);
+  const analysisBase = useMemo(() => {
+    const anchor = new Date(`${filterAnchor}T12:00:00Z`).getTime();
+    const cutoff = period === "all" ? "" : new Date(anchor - Number(period) * 86_400_000).toISOString().slice(0, 10);
+    return active.filter((session) =>
+      (!cutoff || session.observedAt >= cutoff) &&
+      (region === "Tümü" || session.region === region) &&
+      (material === "Tümü" || session.yields.some((row) => row.material === material)),
+    );
+  }, [active, filterAnchor, material, period, region]);
+  const routePerformance = useMemo(() => {
+    const rows = groupRoutePerformance(analysisBase);
+    const metric = analysisMetric === "game" ? "gamePerHour" : analysisMetric === "tl" ? "tlKurusPerHour" : "itemsPerHour";
+    return [...rows].sort((a, b) => Number(b[metric]) - Number(a[metric]));
+  }, [analysisBase, analysisMetric]);
+  const selectedPerformance = routePerformance.find((row) => row.key === analysisRoute) ?? routePerformance[0] ?? null;
+  const projection = selectedPerformance ? projectRoutePerformance(selectedPerformance, Number(projectionMinutes)) : null;
+  const selectedTemplate = selectedPerformance && typeof selectedPerformance.routeTemplateId === "string"
+    ? routes.find((row) => row.id === selectedPerformance.routeTemplateId && row.status === "active") ?? null
+    : null;
+  const materialPrices = useMemo(() => summarizeMaterialPrices(analysisBase)
+    .filter((row) => material === "Tümü" || row.material === material)
+    .sort((a,b)=>a.material.localeCompare(b.material,"tr")), [analysisBase, material]);
 
   const updateYield = (index: number, key: keyof DraftYield, value: string) => {
     setForm((current) => ({ ...current, yields: current.yields.map((row, rowIndex) => rowIndex === index ? { ...row, [key]: value } : row) }));
@@ -252,16 +283,16 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
       <div><span><small>SAHA EDİTÖRÜ</small><b>{adminName}</b></span><Link href="/katki-inceleme">Editör Masası</Link><a href={signOutHref}>Çıkış</a></div>
     </header>
     <section className="farmHero">
-      <div><p>M10 · ROTA VE SAHA KANITI</p><h1>Rotanı işaretle.<br/><em>Turu doğrula.</em></h1><span>Harita noktaları yalnız yüklediğin ekran görüntüsüne bağlıdır; oyun koordinatı iddiası değildir.</span></div>
+      <div><p>M11 · SAHA KARAR MASASI</p><h1>Veriyi karşılaştır.<br/><em>Rotanı bilinçli seç.</em></h1><span>Sıralamalar yalnız kaydedilmiş turlardan çıkar; TL ile oyun parası ayrı tutulur.</span></div>
       <div className="farmHeroStats"><Metric label="Etkin tur" value={String(summary.sessionCount ?? 0)}/><Metric label="Toplam süre" value={durationLabel(Number(summary.durationMinutes ?? 0))}/><Metric label="Toplanan" value={fmt(Number(summary.totalQuantity ?? 0))}/><Metric label="Güven" value={String(summary.confidence ?? "Tek tur")}/></div>
     </section>
-    <nav className="farmTabs">{(["Özet","Yeni Tur","Rotalar","Kayıtlar"] as Tab[]).map((item) => <button className={tab === item ? "on" : ""} onClick={() => { setTab(item); setError(""); setSuccess(""); }} key={item}>{item}</button>)}</nav>
+    <nav className="farmTabs">{(["Özet","Yeni Tur","Rotalar","Karar","Kayıtlar"] as Tab[]).map((item) => <button className={tab === item ? "on" : ""} onClick={() => { setTab(item); setError(""); setSuccess(""); }} key={item}>{item}</button>)}</nav>
     {error && <p className="farmMessage error">{error}</p>}{success && <p className="farmMessage success">{success}</p>}
     {tab === "Özet" && <section className="farmDashboard">
       <div className="farmFilters"><select aria-label="Dönem" value={period} onChange={(event) => setPeriod(event.target.value)}><option value="7">Son 7 gün</option><option value="30">Son 30 gün</option><option value="all">Tüm dönem</option></select><select aria-label="Bölge" value={region} onChange={(event) => setRegion(event.target.value)}><option>Tümü</option>{regionOptions.map((item) => <option key={item}>{item}</option>)}</select><select aria-label="Rota" value={route} onChange={(event) => setRoute(event.target.value)}><option>Tümü</option>{routeOptions.map((item) => <option key={item}>{item}</option>)}</select><select aria-label="Maden" value={material} onChange={(event) => setMaterial(event.target.value)}><option>Tümü</option>{materialOptions.map((item) => <option key={item}>{item}</option>)}</select></div>
       {loading ? <div className="farmEmpty">Farm kayıtları yükleniyor…</div> : filtered.length === 0 ? <div className="farmEmpty"><i>◇</i><b>İlk ölçümlü turunu kaydet</b><span>Süre, damar ve çıkan maden olmadan verim tahmini yapılmaz.</span><button onClick={() => setTab("Yeni Tur")}>Tur ekle</button></div> : <>
         <div className="farmKpis"><Metric label="Adet / saat" value={decimal(Number(summary.itemsPerHour ?? 0))}/><Metric label="Net oyun parası / saat" value={fmt(Number(summary.gamePerHour ?? 0))}/><Metric label="Net TL / saat" value={money(Number(summary.tlKurusPerHour ?? 0) / 100)}/><Metric label="Toplam damar" value={fmt(Number(summary.nodeCount ?? 0))}/></div>
-        <div className="farmPanels"><article><PanelHead eyebrow="ARTIRICI TESTİ" title="Eşit şartta karşılaştır"/><div className="boosterCompare">{boosters.map((row) => <div key={String(row.boosterProfile)}><span><b>{row.boosterProfile}</b><small>{row.sessionCount} tur · {row.confidence}</small></span><strong>{decimal(Number(row.itemsPerHour))}<small>adet/saat</small></strong><em>{fmt(Number(row.gamePerHour))}<small>oyun parası/saat</small></em></div>)}</div><p className="farmCaution">Artırıcı sonucu ancak aynı rota, benzer süre ve yeterli tur sayısıyla anlamlıdır. Bu tablo nedensellik iddiası değildir.</p></article><article><PanelHead eyebrow="FİYAT DEFTERİ" title="Son birim gözlemleri"/><div className="priceLedger">{prices.length ? prices.map((row, index) => <div key={`${row.material}-${row.currency}-${row.date}-${index}`}><span><b>{row.material}</b><small>{row.date}</small></span><em>{row.currency}</em><strong>{row.currency === "TL" ? money(row.value) : fmt(row.value)}</strong></div>) : <p>Fiyat girilen maden satırı yok.</p>}</div></article></div>
+        <div className="farmPanels"><article><PanelHead eyebrow="ARTIRICI TESTİ" title="Aynı rotada karşılaştır"/><div className="boosterCompare">{route === "Tümü" ? <p className="boosterGuard">Farklı rotaları karıştırmamak için önce üstte tek bir rota seç.</p> : boosters.map((row) => <div key={String(row.boosterProfile)}><span><b>{row.boosterProfile}</b><small>{row.sessionCount} tur · {row.confidence}</small></span><strong>{decimal(Number(row.itemsPerHour))}<small>adet/saat</small></strong><em>{fmt(Number(row.gamePerHour))}<small>oyun parası/saat</small></em></div>)}</div><p className="farmCaution">Artırıcı sonucu ancak aynı rota, benzer süre ve yeterli tur sayısıyla anlamlıdır. Bu tablo nedensellik iddiası değildir.</p></article><article><PanelHead eyebrow="FİYAT DEFTERİ" title="Son birim gözlemleri"/><div className="priceLedger">{prices.length ? prices.map((row, index) => <div key={`${row.material}-${row.currency}-${row.date}-${index}`}><span><b>{row.material}</b><small>{row.date}</small></span><em>{row.currency}</em><strong>{row.currency === "TL" ? money(row.value) : fmt(row.value)}</strong></div>) : <p>Fiyat girilen maden satırı yok.</p>}</div></article></div>
         <SessionCards sessions={filtered.slice(0, 6)} onStatus={setStatus} onReview={submitReview} acting={acting}/>
       </>}
     </section>}
@@ -280,6 +311,16 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
       </div>
       <div className="savedRoutes"><header><p>KAYITLI ROTALAR</p><h2>Tek dokunuşla yeni tur</h2></header>{routes.length ? routes.map((routeRow)=><article className={routeRow.status==="archived"?"archived":""} key={routeRow.id}><div className="savedRouteMap"><img src={`/api/admin/farm-routes/map?id=${routeRow.id}`} alt={`${routeRow.routeName} saha haritası`}/>{routeRow.points.map((point,index)=><i className={`point point-${point.pointType.toLocaleLowerCase("tr-TR")}`} style={{left:`${point.xPermille/10}%`,top:`${point.yPermille/10}%`}} title={`${point.label}${point.materialHint?` · ${point.materialHint}`:""}`} key={point.id??index}>{index+1}</i>)}</div><div className="savedRouteBody"><span><small>{routeRow.region} · {routeRow.profession}</small><h3>{routeRow.routeName}</h3></span><div><b>{routeRow.expectedMinutes} dk</b><b>{routeRow.points.filter((point)=>point.pointType==="Damar").length} damar</b><b>{routeRow.defaultBooster}</b></div>{routeRow.notes&&<p>{routeRow.notes}</p>}<footer><button disabled={routeRow.status!=="active"} onClick={()=>startRoute(routeRow)}>Rotayı başlat</button><button disabled={acting===routeRow.id} onClick={()=>void setRouteStatus(routeRow)}>{routeRow.status==="archived"?"Geri yükle":"Arşivle"}</button></footer></div></article>) : <div className="farmEmpty">Henüz rota şablonu yok.</div>}</div>
     </section>}
+    {tab === "Karar" && <section className="decisionWorkspace">
+      <header className="decisionHead"><div><p>SAHA KARAR MASASI</p><h2>Rotaları eşit ölçekte karşılaştır</h2><span>Sonuç; seçilen dönem, bölge ve maden filtresindeki gerçek tur kayıtlarının süre ağırlıklı ortalamasıdır.</span></div><div className="decisionFilters"><select aria-label="Analiz dönemi" value={period} onChange={(e)=>setPeriod(e.target.value)}><option value="7">Son 7 gün</option><option value="30">Son 30 gün</option><option value="all">Tüm dönem</option></select><select aria-label="Analiz bölgesi" value={region} onChange={(e)=>setRegion(e.target.value)}><option>Tümü</option>{regionOptions.map((item)=><option key={item}>{item}</option>)}</select><select aria-label="Analiz madeni" value={material} onChange={(e)=>setMaterial(e.target.value)}><option>Tümü</option>{materialOptions.map((item)=><option key={item}>{item}</option>)}</select></div></header>
+      {loading ? <div className="farmEmpty">Saha verileri hazırlanıyor…</div> : routePerformance.length === 0 ? <div className="farmEmpty"><i>◇</i><b>Karşılaştırılabilir tur yok</b><span>Önce aynı rota için süre ve çıktı içeren en az bir tur kaydet.</span><button onClick={()=>setTab("Yeni Tur")}>Tur ekle</button></div> : <>
+        <div className="decisionMetric"><span>Sıralama ölçütü</span><div><button className={analysisMetric==="items"?"on":""} onClick={()=>setAnalysisMetric("items")}>Adet / saat</button><button className={analysisMetric==="game"?"on":""} onClick={()=>setAnalysisMetric("game")}>Oyun parası / saat</button><button className={analysisMetric==="tl"?"on":""} onClick={()=>setAnalysisMetric("tl")}>TL / saat</button></div><small>Para birimleri birbirine çevrilmez; seçtiğin sütun kendi içinde sıralanır.</small></div>
+        <div className="decisionGrid"><div className="routeRanking">{routePerformance.map((row,index)=><button className={(selectedPerformance?.key===row.key?"on ":"")+`evidence-${row.evidence.level}`} onClick={()=>setAnalysisRoute(row.key)} key={row.key}><i>{index+1}</i><span><small>{row.region} · {row.lastObservedAt}</small><b>{row.routeName}</b><em>{row.sessionCount} tur · {row.evidence.label}</em></span><strong>{analysisMetric==="game"?fmt(row.gamePerHour):analysisMetric==="tl"?money(row.tlKurusPerHour/100):decimal(row.itemsPerHour)}<small>{analysisMetric==="game"?"oyun/saat":analysisMetric==="tl"?"TL/saat":"adet/saat"}</small></strong></button>)}</div>
+          {selectedPerformance && projection && <article className="routeDecision"><header><span><small>SEÇİLİ ROTA</small><h3>{selectedPerformance.routeName}</h3><p>{selectedPerformance.region} · {selectedPerformance.sessionCount} kayıtlı tur</p></span><b className={`evidenceBadge level-${selectedPerformance.evidence.level}`}>{selectedPerformance.evidence.label}</b></header><div className="routeDecisionStats"><span><small>Adet / saat</small><b>{decimal(selectedPerformance.itemsPerHour)}</b></span><span><small>Damar / saat</small><b>{decimal(selectedPerformance.nodesPerHour)}</b></span><span><small>Oyun / saat</small><b>{fmt(selectedPerformance.gamePerHour)}</b></span><span><small>TL / saat</small><b>{money(selectedPerformance.tlKurusPerHour/100)}</b></span></div><div className="coverageBars"><Coverage label="Oyun fiyat kapsamı" value={selectedPerformance.gameCoverage}/><Coverage label="TL fiyat kapsamı" value={selectedPerformance.tlCoverage}/></div>{selectedPerformance.evidence.nextAt ? <p className="decisionCaution">Bu sonuç kesin sıralama değildir. Sonraki güven seviyesi için aynı koşullarda {selectedPerformance.evidence.nextAt-selectedPerformance.sessionCount} tur daha kaydet.</p> : <p className="decisionCaution strong">10+ tur güçlü örneklem sağlar; yine de yoğunluk, rekabet ve artırıcı değişimini ayrıca değerlendir.</p>}<div className="projection"><header><span><small>GÖZLENEN ORTALAMADAN PROJEKSİYON</small><b>{durationLabel(projection.minutes)} farm yaparsan</b></span><label><span>Dakika</span><input type="number" min="1" max="720" value={projectionMinutes} onChange={(e)=>setProjectionMinutes(e.target.value)}/></label></header><div><span><small>Tahmini adet</small><b>{decimal(projection.items)}</b></span><span><small>Tahmini damar</small><b>{decimal(projection.nodes)}</b></span><span><small>Tahmini oyun parası</small><b>{fmt(projection.game)}</b></span><span><small>Tahmini TL</small><b>{money(projection.tlKurus/100)}</b></span></div><p>Bu bir garanti değil; yalnız seçilen rotanın kayıtlı saatlik ortalamasının süreye uygulanmış hâlidir.</p></div>{selectedTemplate&&<button className="decisionStart" onClick={()=>startRoute(selectedTemplate)}>Bu rotayla yeni tur başlat</button>}</article>}
+        </div>
+        <section className="marketEvidence"><header><div><p>FİYAT KANIT TABLOSU</p><h3>Son gözlem ve medyan</h3></div><span>{materialPrices.length} maden · oyun parası ve TL ayrı</span></header><div>{materialPrices.map((row)=><article key={row.material}><b>{row.material}</b><PriceCell label="Oyun parası" stats={row.game} currency="game"/><PriceCell label="Reel değer" stats={row.tlKurus} currency="tl"/></article>)}</div><p>Medyan uç fiyatların etkisini azaltır. Gözlem sayısı azsa sonuç piyasa fiyatı değil, yalnız kayıtlı örnek olarak okunmalıdır.</p></section>
+      </>}
+    </section>}
     {tab === "Kayıtlar" && <section className="farmRecords"><header><div><p>SAHA ARŞİVİ</p><h2>Tüm turlar</h2></div><span>{active.length} etkin · {sessions.length-active.length} arşiv</span></header>{sessions.length ? <SessionCards sessions={sessions} onStatus={setStatus} onReview={submitReview} acting={acting}/> : <div className="farmEmpty">Henüz kayıt yok.</div>}</section>}
   </main>;
 }
@@ -287,6 +328,9 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
 function Metric({label,value}:{label:string;value:string}){return <article><small>{label}</small><strong>{value}</strong></article>}
 function PanelHead({eyebrow,title}:{eyebrow:string;title:string}){return <header className="farmPanelHead"><span>{eyebrow}</span><h3>{title}</h3></header>}
 function FormField({label,children}:{label:string;children:React.ReactNode}){return <label className="farmField"><span>{label}</span>{children}</label>}
+function Coverage({label,value}:{label:string;value:number}){const safe=Math.max(0,Math.min(1,value||0));return <div><span><b>{label}</b><em>%{Math.round(safe*100)}</em></span><i><b style={{width:`${safe*100}%`}}/></i></div>}
+type PriceStats={count:number;latest:number;latestAt:string;median:number;min:number;max:number};
+function PriceCell({label,stats,currency}:{label:string;stats:PriceStats|null;currency:"game"|"tl"}){const price=(value:number)=>currency==="tl"?money(value/100):fmt(value);return <span className="priceCell"><small>{label}</small>{stats?<><b>{price(stats.latest)}</b><em>{stats.latestAt} · {stats.count} gözlem</em><i>Medyan {price(stats.median)} · {price(stats.min)}–{price(stats.max)}</i></>:<><b>Veri yok</b><em>Fiyat girilmemiş</em></>}</span>}
 function SessionCards({sessions,onStatus,onReview,acting}:{sessions:FarmSession[];onStatus:(session:FarmSession)=>Promise<void>;onReview:(session:FarmSession)=>Promise<void>;acting:string}){return <div className="sessionCards">{sessions.map((session)=>{const metrics = calculateFarmSession(session) as Record<string,number>;return <article className={session.status === "archived" ? "archived" : ""} key={session.id}><header><span><small>{session.observedAt} · {session.profession}</small><h4>{session.routeName}</h4><p>{session.region} · {session.server}</p></span><b>{session.boosterProfile}</b></header><div className="sessionNumbers"><span><small>Süre</small><b>{session.durationMinutes} dk</b></span><span><small>Damar</small><b>{session.nodeCount}</b></span><span><small>Adet/saat</small><b>{decimal(metrics.itemsPerHour)}</b></span><span><small>Oyun/saat</small><b>{fmt(metrics.gamePerHour)}</b></span></div><div className="sessionYields">{session.yields.map((row)=><span key={row.id}><b>{row.material}</b><small>{row.grade} · {row.quantity} adet</small></span>)}</div>{session.notes && <p>{session.notes}</p>}<footer><small>{session.submittedContributionId?"Doğrulama kuyruğunda":`Fiyat kapsamı: oyun %${Math.round(metrics.gameCoverage*100)} · TL %${Math.round(metrics.tlCoverage*100)}`}</small><span>{session.status==="active"&&!session.submittedContributionId&&<button disabled={acting===session.id} onClick={()=>void onReview(session)}>Doğrulamaya gönder</button>}<button disabled={acting===session.id} onClick={()=>void onStatus(session)}>{session.status === "archived" ? "Geri yükle" : "Arşivle"}</button></span></footer></article>})}</div>}
 const fmt=(value:number)=>new Intl.NumberFormat("tr-TR",{maximumFractionDigits:0}).format(Number.isFinite(value)?value:0);
 const decimal=(value:number)=>new Intl.NumberFormat("tr-TR",{maximumFractionDigits:1}).format(Number.isFinite(value)?value:0);
