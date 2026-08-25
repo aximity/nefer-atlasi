@@ -1,4 +1,7 @@
 "use client";
+import EndgameLab from "./EndgameLab";
+import MiningGuide from "./MiningGuide";
+import SkillGuides from "./SkillGuides";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -228,6 +231,8 @@ export default function Home() {
           <a href="#builder">Donanım planlayıcı</a>
           <a href="#engine">Tılsım ve yetenek</a>
           <a href="#group-regions">Grup bölgeleri</a>
+          <a href="#endgame">Endgame</a>
+          <a href="#mining">Madenler</a>
           <a href="#items">Eşyalar</a>
           <i>M4</i>
         </nav>
@@ -256,7 +261,7 @@ export default function Home() {
         </aside>
       </section>
       <section className="builder" id="builder">
-        <Title eyebrow="M2 · DONANIM PLANLAYICI" title="Dokuz yuvayı sen doldur">
+        <Title eyebrow="M2 · DONANIM PLANLAYICI" title="Sekiz yuvayı sen doldur">
           <div className="actions">
             <button
               onClick={() =>
@@ -454,6 +459,9 @@ export default function Home() {
         <AbilitySimulator key={klass} klass={klass} />
       </section>
       <GroupRegions onOpen={setDetail} />
+      <EndgameLab />
+      <MiningGuide />
+      <SkillGuides />
       <section className="catalog" id="items">
         <Title eyebrow="KANITLI EŞYA KATALOĞU" title="Eşya rehberi">
           <div className="catalogTools">

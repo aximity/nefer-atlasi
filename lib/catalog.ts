@@ -35,7 +35,7 @@ export const evidence = [...evidenceRows,...groupLootEvidence,...glassesEvidence
 export const images = imageRows;
 export const talismans = talismanRows as Talisman[];
 export const contexts = contextRows;
-export const classSlots:Record<CharacterClass,Slot[]>={"Savaşçı":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Zırh","Yüzük","Kolye","Silah"],"Büyücü":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Amplifikatör","Yüzük","Kolye","Silah"],"Şifacı":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Zırh","Yüzük","Kolye","Silah"]};
+export const classSlots:Record<CharacterClass,Slot[]>={"Savaşçı":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Yüzük","Kolye","Silah"],"Büyücü":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Yüzük","Kolye","Silah"],"Şifacı":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Yüzük","Kolye","Silah"]};
 export const slots=[...new Set(Object.values(classSlots).flat())];
 export const isPublishable=(status:VerificationStatus)=>status==="single_source"||status==="cross_verified";
 export const itemEvidence=(itemId:string,field?:string)=>evidence.filter(e=>e.itemId===itemId&&(!field||e.field===field));
