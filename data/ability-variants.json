@@ -1,0 +1,12 @@
+[
+  {
+    "id": "warrior-bear-variant",
+    "name": "Boz Ayı",
+    "class": "Savaşçı",
+    "replacesAbilityId": "warrior-bleed",
+    "usesSamePoints": true,
+    "sourceId": "official-game-guide",
+    "status": "single_source",
+    "lastChecked": "2026-08-25"
+  }
+]

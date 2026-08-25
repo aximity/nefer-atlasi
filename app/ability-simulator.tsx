@@ -3,19 +3,24 @@
 import { useMemo, useState } from "react";
 import type { CharacterClass } from "../lib/catalog";
 import abilityRows from "../data/abilities.json";
+import abilityVariantRows from "../data/ability-variants.json";
 
 const baseBudget = 96;
+const variantByBaseAbility = Object.fromEntries(
+  abilityVariantRows.map((variant) => [variant.replacesAbilityId, variant]),
+);
 const abilities = Object.fromEntries(
   (["Savaşçı", "Büyücü", "Şifacı"] as CharacterClass[]).map((klass) => [
     klass,
     abilityRows
       .filter((row) => row.class === klass)
       .map((row) => ({
+        id: row.id,
         name: row.name,
         note: `Seviye ${row.unlockLevel} · KÖ sunucu rehberi`,
       })),
   ]),
-) as Record<CharacterClass, { name: string; note: string }[]>;
+) as Record<CharacterClass, { id: string; name: string; note: string }[]>;
 const presets: Record<
   CharacterClass,
   { name: string; points: Record<string, number>; note: string }[]
@@ -112,6 +117,18 @@ export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
           <a href="https://www.kiyametoyun.com/rehber" target="_blank" rel="noreferrer">KÖ yetenek listesi ↗</a>
         </div>
       </div>
+      <aside className="abilityVariantNote">
+        <b>15 temel yetenek:</b> Boz Ayı ayrı bir 16. yetenek değildir; resmî
+        oyun rehberinde Kanatma&apos;nın yerine geçen ve aynı puanı kullanan
+        varyant olarak açıklanır.
+        <a
+          href="https://download.istanbuloyun.com/ikv_oyun_rehberi.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Resmî oyun rehberi · sayfa 17 ↗
+        </a>
+      </aside>
       <label className="presetSelect">
         <span>Topluluk rehberi başlangıcı</span>
         <select
@@ -131,6 +148,12 @@ export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
             <span>
               <b>{ability.name}</b>
               <small>{ability.note}</small>
+              {variantByBaseAbility[ability.id] && (
+                <small className="variantTag">
+                  {variantByBaseAbility[ability.id].name} varyantı aynı puanı
+                  kullanır
+                </small>
+              )}
             </span>
             <input
               aria-label={`${ability.name} puanı`}

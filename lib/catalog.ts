@@ -29,7 +29,7 @@ const glassesStats:Stat[]=glassesStatRows.flatMap(row=>row.stats.map(([attribute
 export const stats = [...statRows,...glassesStats,...groupDerivedStatRows] as Stat[];
 export const recipes = recipeRows as Recipe[];
 export const sources = sourceRows as Source[];
-const groupLootEvidence:EvidenceClaim[]=groupLootEvidenceRows.flatMap(group=>group.itemIds.flatMap(itemId=>["name","class","slot"].map(field=>({id:`ev-${itemId}-${field}`,itemId,field,sourceId:group.sourceId,locator:group.locator,status:"single_source" as const,checkedAt:"2026-08-23"}))));
+const groupLootEvidence:EvidenceClaim[]=groupLootEvidenceRows.flatMap(group=>group.itemIds.flatMap(itemId=>["name","class","slot"].map(field=>({id:`ev-${itemId}-${field}-${group.sourceId}`,itemId,field,sourceId:group.sourceId,locator:group.locator,status:"single_source" as const,checkedAt:"2026-08-23"}))));
 const glassesEvidence:EvidenceClaim[]=glassesRows.flatMap(item=>["name","class","level","slot"].map(field=>({id:`ev-${item.id}-${field}`,itemId:item.id,field,sourceId:"fandom-glasses",locator:"Gözlükler tablosu",status:"single_source" as const,checkedAt:"2026-08-23"})));
 export const evidence = [...evidenceRows,...groupLootEvidence,...glassesEvidence] as EvidenceClaim[];
 export const images = imageRows;

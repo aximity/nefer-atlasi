@@ -88,7 +88,7 @@ test("tılsım kataloğu her sınıfta iki rengi ve tam kademeli serileri korur"
 
 test("efsun sözlüğü kaynaklı, pozitif ve birimli kayıtlardan oluşur",()=>{assert.ok(enchants.length>=35);for(const enchant of enchants){assert.ok(enchant.name&&enchant.attribute);assert.ok(enchant.value>0);assert.ok(enchant.unit);assert.ok(sources.some(source=>source.id===enchant.sourceId))}});
 test("efsun serileri büyü ve direnç kademelerini kapsar",()=>{assert.equal(enchantSeries.length,11);assert.ok(enchantSeries.flatMap(series=>series.entries).length>=128);for(const series of enchantSeries)assert.ok(series.entries.every(([name,value])=>name&&value>0))});
-test("üç sınıfın 45 yeteneği açılma seviyeleriyle kayıtlıdır",()=>{assert.equal(abilities.length,45);for(const klass of ["Savaşçı","Büyücü","Şifacı"]){const classAbilities=abilities.filter(ability=>ability.class===klass);assert.equal(classAbilities.length,15);assert.deepEqual([...new Set(classAbilities.map(ability=>ability.unlockLevel))],[1,10,20,30,40])}});
+test("üç sınıfın 45 temel yeteneği açılma seviyeleriyle kayıtlıdır",()=>{assert.equal(abilities.length,45);for(const klass of ["Savaşçı","Büyücü","Şifacı"]){const classAbilities=abilities.filter(ability=>ability.class===klass);assert.equal(classAbilities.length,15);for(const level of [1,10,20,30,40])assert.equal(classAbilities.filter(ability=>ability.unlockLevel===level).length,3,`${klass} ${level}. seviye`)}assert.ok(!abilities.some(ability=>ability.name==="Boz Ayı"),"Boz Ayı, Kanatma varyantıdır; ayrı temel yetenek değildir")});
 
 test("yayımlanan temel eşya alanlarının tarihli ve kaynaklı kanıtı vardır", () => {
   for (const item of items) {

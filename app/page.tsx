@@ -235,25 +235,29 @@ export default function Home() {
   return (
     <main>
       <header>
-        <a href="#top">
-          <b>İKV</b> EŞYA ARŞİVİ
+        <a className="brand" href="#top" aria-label="Nefer Atlası ana sayfa">
+          <b className="brandMark">N</b>
+          <span className="brandName">
+            <strong>NEFER ATLASI</strong>
+            <small>İKV BİLGİ PLATFORMU</small>
+          </span>
         </a>
         <nav className="top-status" aria-label="Açık modül">
           <span>{moduleTabs.find((item) => item.id === activeModule)?.label}</span>
-          <i>M5</i>
+          <i>BETA</i>
         </nav>
       </header>
       <section className="hero" id="top">
         <div>
-          <p className="eyebrow">KANITLI DONANIM PLANLAYICI</p>
+          <p className="eyebrow">İKV BİLGİ · STRATEJİ · EKONOMİ PLATFORMU</p>
           <h1>
-            Kur. Karşılaştır.
+            Bilgiyi doğrula.
             <br />
-            <em>Karşılaşmaya hazırlan.</em>
+            <em>Stratejini kur.</em>
           </h1>
           <p>
-            Her yuvayı bağımsız seç; hedef puanını, tılsım etkisini ve
-            grup bölgelerindeki ganimetleri aynı doğrulama zincirinde gör.
+            Eşyaları, buildleri, yetenekleri, bölgeleri, madenleri ve pazar
+            verisini aynı kaynak zincirinde incele; karşılaşmaya hazırlan.
           </p>
         </div>
         <aside>
@@ -266,7 +270,7 @@ export default function Home() {
           </p>
         </aside>
       </section>
-      <nav className="moduleTabs" id="modules" role="tablist" aria-label="Rehber modülleri">
+      <nav className="moduleTabs" id="modules" role="tablist" aria-label="Nefer Atlası modülleri">
         {moduleTabs.map((item, index) => (
           <button
             key={item.id}
@@ -570,7 +574,7 @@ function Totals({ totals }: { totals: Record<string, number> }) {
       </article>
       <article>
         <small>HESAP KURALI</small>
-        <h4>Çelişkili alanlar toplama girmez</h4>
+        <h4>Çelişkili özellikler hesap dışı</h4>
         <p>
           Her sınıfın tılsımı yalnız kendi doğrulanmış özelliğine uygulanır;
           gerekli yetenek tabanı ve tılsım çarpanı ayrı tutulur. Hedef puanı

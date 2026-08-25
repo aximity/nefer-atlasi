@@ -1,6 +1,6 @@
-# İKV Eşya Rehberi ve Build Oluşturucu
+# Nefer Atlası
 
-Kaynak gösteren eşya kataloğu, sekiz yuvalı build oluşturucu ve İKV tılsım/yetenek sinerjileri için topluluk projesi.
+İKV eşyaları, buildler, yetenekler, bölgeler, madenler, pazar ve endgame analizi için kaynak gösteren bağımsız topluluk platformu.
 
 ## Çalışmaya başlamadan önce
 

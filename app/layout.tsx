@@ -5,12 +5,24 @@ import "./mining.css";
 import "./skills.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://ikv-esya-rehberi.gdyon.chatgpt.site"),
-  title: "İKV Eşya Rehberi ve Donanım Planlayıcı",
+  title: "Nefer Atlası | İKV Bilgi, Strateji ve Ekonomi Platformu",
   description:
-    "Alan bazlı kanıtlara dayanan İKV eşya arşivi ve sekiz yuvalı donanım planlayıcı.",
+    "İKV eşyaları, buildler, yetenekler, bölgeler, madenler, pazar ve endgame analizi için kaynaklı topluluk platformu.",
+  icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "İKV Eşya Rehberi",
-    description: "Eşyanı kanıtla, donanımını güvenilir verilerle planla.",
+    title: "Nefer Atlası",
+    description:
+      "İKV bilgisini doğrula; donanımını, yeteneğini, farmını ve stratejini aynı atlas üzerinde planla.",
+    siteName: "Nefer Atlası",
+    locale: "tr_TR",
+    type: "website",
+    images: ["/og.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nefer Atlası",
+    description:
+      "İKV bilgi, strateji ve ekonomi platformu: kaynaklı eşya, build, yetenek, bölge, maden ve endgame analizi.",
     images: ["/og.png"],
   },
 };

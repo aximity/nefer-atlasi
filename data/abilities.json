@@ -8,7 +8,6 @@
 {"id":"warrior-stop","name":"Durdurma","class":"Savaşçı","unlockLevel":20,"roles":["Kontrol"],"sourceId":"kiyametin-onculeri-guide","status":"single_source"},
 {"id":"warrior-avoid","name":"Sakınma","class":"Savaşçı","unlockLevel":20,"roles":["Tank"],"sourceId":"kiyametin-onculeri-guide","status":"single_source"},
 {"id":"warrior-bleed","name":"Kanatma","class":"Savaşçı","unlockLevel":20,"roles":["SVH","Hiddet"],"sourceId":"kiyametin-onculeri-guide","status":"single_source"},
-{"id":"warrior-bear","name":"Boz Ayı","class":"Savaşçı","unlockLevel":20,"roles":["Yardımcı Hasar"],"sourceId":"kiyametin-onculeri-guide","status":"single_source"},
 {"id":"warrior-shout","name":"Savaş Narası","class":"Savaşçı","unlockLevel":30,"roles":["Tank","Hiddet"],"sourceId":"kiyametin-onculeri-guide","status":"single_source"},
 {"id":"warrior-focus","name":"Zihin Toplama","class":"Savaşçı","unlockLevel":30,"roles":["Temizleme"],"sourceId":"kiyametin-onculeri-guide","status":"single_source"},
 {"id":"warrior-steadfast","name":"Sarsılmaz","class":"Savaşçı","unlockLevel":30,"roles":["Tank","Acil Durum"],"sourceId":"kiyametin-onculeri-guide","status":"single_source"},

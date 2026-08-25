@@ -1,4 +1,4 @@
-# İKV Rehberi — Proje İşletim Sistemi
+# Nefer Atlası — Proje İşletim Sistemi
 
 Bu klasör projenin ikinci beynidir. Kod ne yaptığımızı, bu belgeler neden yaptığımızı ve sırada ne olduğunu kaydeder.
 
