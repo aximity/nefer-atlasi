@@ -27,7 +27,7 @@ const modules = [
   ["03", "Bölgeler", "Sığınak, Migrat ve Çemberlitaş gibi grup bölgelerinde sınıfa göre düşen eşyaları incele.", "/?module=group-regions#modules"],
   ["04", "Eşyalar", "Sınıf ve yuva filtresiyle eşyayı bul; aynı yuvadan iki eşyayı yan yana karşılaştır.", "/?module=items#modules"],
   ["05", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
-  ["06", "Maden", "Madenin bölgesini, değer sebebini, fiyat gözlemini ve farm rotası bilgisini birlikte oku.", "/?module=mining#modules"],
+  ["06", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
   ["07", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
   ["08", "Gelişim", "Sitenin güçlü, gelişen ve bekleyen bölümlerini gör; hangi veriye ihtiyaç olduğunu takip et.", "/?module=health#modules"],
   ["09", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
@@ -51,7 +51,7 @@ const journeys = [
   {
     number: "03",
     title: "Maden veya farm verimi araştırıyorum",
-    steps: ["Maden modülünde bölge ve maden kaydını incele.", "Fiyatın tarihine ve para birimine bak.", "Fiyatın piyasa gerçeği değil, tarihli gözlem olabileceğini unutma.", "Saha pilotuysan özel Farm Operasyonu’nda tur kaydet ve rotaları karşılaştır."],
+    steps: ["Maden topladığında bölge, maden adı ve kontrol aralığını gir.", "Sayaç dolunca boş kontrolü veya başarılı toplamayı kaydet.", "En az iki başarılı ölçümden sonra oluşan aralığı garanti değil gözlem olarak oku.", "Fiyatın tarihine ve para birimine bak; canlı konum paylaşma."],
     href: "/?module=mining#modules",
     action: "Maden rehberini aç",
   },
@@ -121,7 +121,7 @@ export default function GuidePage() {
 
       <section className="guideAccess">
         <article><small>HERKESE AÇIK</small><h3>Ana atlas ve katkı merkezi</h3><p>Siteyi görüntülemek, build hazırlamak, eşyaları incelemek ve kanıt göndermek için ChatGPT hesabı gerekmez.</p><Link href="/">Ana siteye dön</Link></article>
-        <article><small>SAHA PİLOTU / EDİTÖR</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Özel rota görselleri, kişisel farm kayıtları ve moderasyon araçları yalnız yetkilendirilmiş hesaplara açıktır.</p><span>Bu ayrım özel veriyi ve yayın güvenini korur.</span></article>
+        <article><small>SAHA PİLOTU / EDİTÖR</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Uzun farm oturumları, kişisel verim kayıtları ve moderasyon araçları yalnız yetkilendirilmiş hesaplara açıktır.</p><span>Herkese açık sayaçlar ise giriş istemeden cihazında çalışır.</span></article>
       </section>
 
       <section className="guideRelease">

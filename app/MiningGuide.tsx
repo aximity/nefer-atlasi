@@ -1,20 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import {
+  buildRespawnEstimate,
+  formatTimerDuration,
+  timerState,
+} from "../lib/mining-timer.mjs";
 
-type View = "Pazar" | "Kaynaklar" | "Bölgeler" | "Artırıcılar";
+type View = "Sayaçlar" | "Pazar" | "Kaynaklar" | "Gözlemler" | "Artırıcılar";
 type Profession = "Madenci" | "Sarraf";
+type Timer = { id: string; region: string; material: string; startedAt: number; nextCheckAt: number; reminderMinutes: number };
+type Observation = { id: string; region: string; material: string; result: "found" | "empty"; elapsedMinutes: number; observedAt: number };
 
-const regions = [
-  { name: "Eminönü", mark: "EM", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
-  { name: "Antrepo", mark: "AN", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
-  { name: "Labirent", mark: "LB", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
-  { name: "Meteor Bölgesi", mark: "MT", note: "Resmî kaynakta maden bakımından zengin", verified: true },
-  { name: "Sivri Ada", mark: "SA", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
-  { name: "Yeraltı", mark: "YA", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
-  { name: "Büyük Hol", mark: "BH", note: "Lojman madenleri alt rotası; Xenotim ve Jadeit oyuncu saha bilgisi", field: true },
-  { name: "Topkapı Sarayı", mark: "TS", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
-];
+const STORAGE_KEY = "nefer-atlasi:mining-timers:v1";
+const regionSuggestions = ["Eminönü", "Antrepo", "Labirent", "Meteor Bölgesi", "Sivri Ada", "Yeraltı", "Büyük Hol", "Topkapı Sarayı"];
 
 const materials = [
   { name: "Xenotim", kind: "Reçete malzemesi", demand: "Birden çok sınıfın tılsım reçetesinde geçiyor", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Büyük Hol · Lojman / oyuncu saha bilgisi", tone: "violet" },
@@ -70,17 +69,85 @@ const sources = {
 };
 
 export default function MiningGuide() {
-  const [view, setView] = useState<View>("Pazar");
+  const [view, setView] = useState<View>("Sayaçlar");
   const [query, setQuery] = useState("");
   const [profession, setProfession] = useState<Profession>("Madenci");
+  const [timers, setTimers] = useState<Timer[]>([]);
+  const [observations, setObservations] = useState<Observation[]>([]);
+  const [now, setNow] = useState(0);
+  const [hydrated, setHydrated] = useState(false);
+  const [timerDraft, setTimerDraft] = useState({ region: "", material: "", reminderMinutes: "10" });
+  const [timerError, setTimerError] = useState("");
   const shown = useMemo(() => materials.filter((item) => item.name.toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"))), [query]);
   const collectionShown = useMemo(() => collectionRows.filter((item) => item.profession === profession && [item.base, item.second, item.third].filter(Boolean).join(" ").toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"))), [profession, query]);
+  const estimates = useMemo(() => {
+    const grouped = new Map<string, Observation[]>();
+    observations.forEach((row) => {
+      const key = `${row.region}|||${row.material}`;
+      grouped.set(key, [...(grouped.get(key) ?? []), row]);
+    });
+    return [...grouped.entries()].map(([key, rows]) => {
+      const [region, material] = key.split("|||");
+      return { region, material, ...buildRespawnEstimate(rows) };
+    });
+  }, [observations]);
+
+  useEffect(() => {
+    const initialize = window.setTimeout(() => {
+      setNow(Date.now());
+      try {
+        const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null") as { timers?: Timer[]; observations?: Observation[] } | null;
+        if (stored) {
+          setTimers(Array.isArray(stored.timers) ? stored.timers : []);
+          setObservations(Array.isArray(stored.observations) ? stored.observations : []);
+        }
+      } catch {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+      setHydrated(true);
+    }, 0);
+    const ticker = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => {
+      window.clearTimeout(initialize);
+      window.clearInterval(ticker);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (hydrated) localStorage.setItem(STORAGE_KEY, JSON.stringify({ timers, observations }));
+  }, [hydrated, observations, timers]);
+
+  function startTimer() {
+    const reminderMinutes = Number(timerDraft.reminderMinutes);
+    if (!timerDraft.region.trim() || !timerDraft.material.trim()) {
+      setTimerError("Bölge ve maden adını yaz.");
+      return;
+    }
+    if (!Number.isFinite(reminderMinutes) || reminderMinutes < 1 || reminderMinutes > 180) {
+      setTimerError("Kontrol hatırlatıcısı 1–180 dakika arasında olmalı.");
+      return;
+    }
+    const startedAt = now || new Date().getTime();
+    setTimers((rows) => [{ id: crypto.randomUUID(), region: timerDraft.region.trim(), material: timerDraft.material.trim(), startedAt, nextCheckAt: startedAt + reminderMinutes * 60_000, reminderMinutes }, ...rows]);
+    setTimerDraft((draft) => ({ ...draft, material: "" }));
+    setTimerError("");
+  }
+
+  function recordCheck(timer: Timer, result: "found" | "empty") {
+    const checkedAt = now || new Date().getTime();
+    const elapsedMinutes = Math.max(1, Math.round((checkedAt - timer.startedAt) / 60_000));
+    setObservations((rows) => [{ id: crypto.randomUUID(), region: timer.region, material: timer.material, result, elapsedMinutes, observedAt: checkedAt }, ...rows].slice(0, 250));
+    setTimers((rows) => rows.map((row) => row.id === timer.id ? result === "found"
+      ? { ...row, startedAt: checkedAt, nextCheckAt: checkedAt + row.reminderMinutes * 60_000 }
+      : { ...row, nextCheckAt: checkedAt + row.reminderMinutes * 60_000 }
+      : row));
+  }
 
   return <section className="mining" id="mining">
     <div className="mining-hero">
       <div className="mining-kicker"><span>YENİ MODÜL</span> MADEN &amp; PAZAR TAKİBİ</div>
       <div className="mining-title">
-        <div><h2>Farm rotanı<br/><em>veriyle kur.</em></h2><p>Kaynağın nerede bulunduğunu, neden değerli olduğunu ve fiyatın hangi tarihte gözlendiğini aynı ekranda karşılaştır.</p><a className="farm-ops-link" href="/farm-operasyonu">Saha Operasyonunu aç <span>↗</span></a></div>
+        <div><h2>Çıkış rastgele.<br/><em>Süren ölçülebilir.</em></h2><p>Sabit nokta vaadi vermeden kontrol zamanını takip et, boş ve başarılı kontrolleri kaydet, yeniden çıkış aralığını gerçek gözlemlerle öğren.</p><a className="farm-ops-link" href="/farm-operasyonu">Saha Operasyonunu aç <span>↗</span></a></div>
         <div className="ore-orbit" aria-hidden="true"><span/><i>Xe</i><small>XENOTİM</small></div>
       </div>
       <div className="market-pulse">
@@ -93,7 +160,30 @@ export default function MiningGuide() {
     </div>
 
     <div className="mining-shell">
-      <div className="mining-tabs" role="tablist">{(["Pazar","Kaynaklar","Bölgeler","Artırıcılar"] as View[]).map(x=><button key={x} className={view===x?"active":""} onClick={()=>{setView(x);setQuery("");}}>{x}</button>)}</div>
+      <div className="mining-tabs" role="tablist">{(["Sayaçlar","Pazar","Kaynaklar","Gözlemler","Artırıcılar"] as View[]).map(x=><button key={x} className={view===x?"active":""} onClick={()=>{setView(x);setQuery("");}}>{x}</button>)}</div>
+
+      {view === "Sayaçlar" && <div className="mining-panel timer-panel">
+        <div className="mining-panel-head"><div><span>CİHAZINDA ÇALIŞIR</span><h3>Maden kontrol sayaçları</h3></div><b className="privacy-pill">Konum paylaşılmaz</b></div>
+        <p className="schematic-note">Bu sayaç yeniden doğmayı garanti etmez. Seçtiğin aralık yalnızca tekrar kontrol etme hatırlatıcısıdır; tahminler başarılı gözlem biriktikçe oluşur.</p>
+        <div className="timer-compose">
+          <label><span>Bölge</span><input list="mining-regions" value={timerDraft.region} onChange={(event)=>setTimerDraft({...timerDraft,region:event.target.value})} placeholder="Örn. Büyük Hol"/><datalist id="mining-regions">{regionSuggestions.map(region=><option value={region} key={region}/>)}</datalist></label>
+          <label><span>Maden</span><input value={timerDraft.material} onChange={(event)=>setTimerDraft({...timerDraft,material:event.target.value})} placeholder="Örn. Jadeit"/></label>
+          <label><span>Tekrar kontrol</span><div className="minute-input"><input type="number" min="1" max="180" value={timerDraft.reminderMinutes} onChange={(event)=>setTimerDraft({...timerDraft,reminderMinutes:event.target.value})}/><i>dk</i></div></label>
+          <button onClick={startTimer}>Toplandı · sayacı başlat</button>
+        </div>
+        {timerError && <p className="timer-error">{timerError}</p>}
+        {!hydrated ? <div className="timer-empty">Sayaçlar hazırlanıyor…</div> : timers.length === 0 ? <div className="timer-empty"><i>◷</i><b>Henüz etkin sayaç yok</b><span>Bir maden topladığında bölgeyi, maden adını ve kontrol aralığını gir.</span></div> : <div className="timer-grid">{timers.map(timer=>{
+          const status = timerState(timer.nextCheckAt, now);
+          const estimate = estimates.find(row=>row.region===timer.region&&row.material===timer.material);
+          return <article className={`timer-card ${status}`} key={timer.id}>
+            <header><span><small>{timer.region}</small><h4>{timer.material}</h4></span><button aria-label={`${timer.material} sayacını kaldır`} onClick={()=>setTimers(rows=>rows.filter(row=>row.id!==timer.id))}>×</button></header>
+            <div className="timer-clock"><small>{status==="due"?"KONTROL ZAMANI":status==="soon"?"HAZIRLAN":"SONRAKİ KONTROL"}</small><strong>{status==="due"?"Şimdi":formatTimerDuration(timer.nextCheckAt-now)}</strong></div>
+            <div className="timer-meta"><span><small>Döngü</small><b>{timer.reminderMinutes} dk</b></span><span><small>Başlangıç</small><b>{new Date(timer.startedAt).toLocaleTimeString("tr-TR",{hour:"2-digit",minute:"2-digit"})}</b></span><span><small>Veri</small><b>{estimate?.confidence??"Veri yok"}</b></span></div>
+            {estimate?.lowerMinutes!=null&&estimate.upperMinutes!=null?<p className="estimate-window"><b>{estimate.lowerMinutes}–{estimate.upperMinutes} dk</b><span>gözlenen yeniden çıkış aralığı · {estimate.sampleCount} başarılı ölçüm</span></p>:<p className="estimate-window pending"><b>Aralık oluşmadı</b><span>En az iki başarılı ölçüm gerekli.</span></p>}
+            <footer><button onClick={()=>recordCheck(timer,"empty")}>Hâlâ yok · tekrar hatırlat</button><button className="found" onClick={()=>recordCheck(timer,"found")}>Çıktı ve toplandı</button></footer>
+          </article>})}</div>}
+        <div className="timer-principles"><article><b>01</b><span><strong>Kesin süre yok</strong><small>Tek ölçümden kural üretilmez.</small></span></article><article><b>02</b><span><strong>Nokta paylaşılmaz</strong><small>Tekel oluşturacak canlı konum tutulmaz.</small></span></article><article><b>03</b><span><strong>Cihazda saklanır</strong><small>Kişisel sayaçların tarayıcında kalır.</small></span></article></div>
+      </div>}
 
       {view === "Pazar" && <div className="mining-panel">
         <div className="mining-panel-head"><div><span>CANLI VERİ İSKELETİ</span><h3>Maden değer defteri</h3></div><label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Malzeme ara"/></label></div>
@@ -123,12 +213,14 @@ export default function MiningGuide() {
         <p className="source-typo-note">Kaynak tablosundaki “Açık Pempe Ametist” yazımı aynen korunmuştur; oyun içi ekran görüntüsüyle doğru yazım teyit edilene kadar düzeltilmiş gibi gösterilmez.</p>
       </div>}
 
-      {view === "Bölgeler" && <div className="mining-panel">
-        <div className="mining-panel-head"><div><span>ŞEMATİK BÖLGE İNDEKSİ</span><h3>Maden rotaları</h3></div><a href={sources.regions} target="_blank" rel="noreferrer">Harita kaynağı ↗</a></div>
-        <p className="schematic-note">Bu görünüm coğrafi koordinat haritası değildir. Fandom indeksindeki bölge adları doğrulandı; kesin maden–bölge ve damar noktası eşlemesi saha kayıtları gelmeden doğrulanmış sayılmayacak.</p>
-        <div className="ko-region-note"><b>Karaköy ayrımı</b><span>Normal İKV harita indeksinde var; Kıyametin Öncüleri sunucusunda olmadığı için aktif rota listesinden çıkarıldı.</span></div>
-        <div className="region-map">{regions.map((r,i)=><article className={r.verified?"verified":r.field?"field":""} key={r.name}><span>{String(i+1).padStart(2,"0")}</span><div className="region-mark">{r.mark}</div><h4>{r.name}</h4><p>{r.note}</p><small>{r.verified?"Resmî bölge notu":r.field?"Oyuncu saha bilgisi":"Bölge adı kaynaklı"}</small></article>)}</div>
-        <div className="field-log"><div><small>GELECEK AY · SAHA ŞABLONU</small><h4>Her turda dört şeyi kaydet</h4></div><ol><li><b>Konum</b><span>Bölge + ekran görüntüsü</span></li><li><b>Süre</b><span>Tur ve yeniden doğma zamanı</span></li><li><b>Çıktı</b><span>Normal / saf / nadir adet</span></li><li><b>Pazar</b><span>O gün görülen oyun parası fiyatı</span></li></ol></div>
+      {view === "Gözlemler" && <div className="mining-panel">
+        <div className="mining-panel-head"><div><span>YEREL SÜRE DEFTERİ</span><h3>Yeniden çıkış gözlemleri</h3></div>{observations.length>0&&<button className="clear-observations" onClick={()=>setObservations([])}>Geçmişi temizle</button>}</div>
+        <p className="schematic-note">Boş kontroller tahmin aralığına eklenmez; yalnız madenin henüz çıkmadığını gösterir. Başarılı ölçümler de garanti değil, gözlenen aralıktır.</p>
+        {observations.length===0?<div className="timer-empty"><i>◇</i><b>Henüz süre gözlemi yok</b><span>Sayaç zamanı geldiğinde “Hâlâ yok” veya “Çıktı ve toplandı” seç.</span></div>:<>
+          <div className="estimate-grid">{estimates.map(row=><article key={`${row.region}-${row.material}`}><small>{row.region}</small><h4>{row.material}</h4><strong>{row.lowerMinutes!=null&&row.upperMinutes!=null?`${row.lowerMinutes}–${row.upperMinutes} dk`:row.medianMinutes!=null?`${row.medianMinutes} dk tek ölçüm`:"Başarılı ölçüm yok"}</strong><span>{row.confidence} · {row.sampleCount} başarılı ölçüm</span></article>)}</div>
+          <div className="observation-list">{observations.slice(0,20).map(row=><article key={row.id}><i className={row.result}/><span><b>{row.material}</b><small>{row.region}</small></span><strong>{row.elapsedMinutes} dk</strong><em>{row.result==="found"?"Çıktı":"Boştu"}</em><time>{new Date(row.observedAt).toLocaleString("tr-TR",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})}</time></article>)}</div>
+        </>}
+        <div className="field-log"><div><small>SAHA ŞABLONU</small><h4>Dört veriyi ayır</h4></div><ol><li><b>Bölge</b><span>Yalnız geniş bölge adı</span></li><li><b>Süre</b><span>Toplama ile yeniden çıkış arası</span></li><li><b>Sonuç</b><span>Boş kontrol / başarılı toplama</span></li><li><b>Koşul</b><span>Artırıcı ve yoğunluk notu</span></li></ol></div>
       </div>}
 
       {view === "Artırıcılar" && <div className="mining-panel">

@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.12.0",
+  version: "0.13.0",
   channel: "BETA",
-  milestone: "M12",
+  milestone: "M13",
   releasedAt: "25 Ağustos 2026",
-  title: "Kullanım rehberi ve sürüm kimliği",
+  title: "Maden zamanlayıcısı ve süre gözlemleri",
   summary:
-    "Nefer Atlası artık sürümünü her ziyaretçiye açıkça gösteriyor ve temel kullanım akışlarını tek rehberde açıklıyor.",
+    "Maden modülü sabit konum yaklaşımından çıkarıldı; kişisel sayaçlar ve başarılı gözlemlerden oluşan tahmin aralıkları eklendi.",
   changes: [
-    "Ana sayfaya kalıcı sürüm rozeti ve rehber bağlantısı eklendi.",
-    "Build, eşya, maden, katkı ve doğrulama akışları adım adım açıklandı.",
-    "Bilgi güven seviyelerinin nasıl okunacağı tek yerde toplandı.",
-    "Saha Operasyonu ile herkese açık bölümler arasındaki erişim farkı netleştirildi.",
+    "Aynı anda birden fazla maden için cihazda saklanan kontrol sayacı eklendi.",
+    "Boş ve başarılı kontrolleri ayıran yerel gözlem defteri oluşturuldu.",
+    "Tek ölçümün kesin süre gibi sunulması engellendi; tahmin aralığı için en az iki başarılı ölçüm şartı getirildi.",
+    "Canlı maden noktası paylaşmadan tekel riskini azaltan süre odaklı yaklaşım benimsendi.",
   ],
 } as const;
