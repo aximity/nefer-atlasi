@@ -23,3 +23,11 @@ Ana hedef eşleşmesi iki, hibrit hedef eşleşmesi bir puandır. Bu sayı yaln�
 ## ADR-006 — Gazap tabanı ve tılsım çarpanı ayrıdır
 
 Gazap tılsımı seçimi tek başına toplamları değiştirmez. Hesap ancak Şifacı sınıfında gerekli Gazap tabanı ayrıca etkinleştirildiğinde uygulanır.
+
+## ADR-007 — Yetenek medyasında dürüst bekleme durumu
+
+Bir yetenek kartına yalnız gerçek oyun içi klip bağlanır. Video yoksa başka yetenek, yapay animasyon veya rehber fotoğrafı tekrar kullanılmaz. WebM/MP4 kullanıcı kontrolüyle oynar; ses otomatik başlamaz.
+
+## ADR-008 — Proje puanı popülerlik değildir
+
+Gelişim puanı kanıt, hesaplanabilir özellik, elde etme bilgisi, doğrulanmış medya, veri bütünlüğü ve güncellik kapsamından türetilir. Meta gücü, oyuncu sayısı veya başarı oranı olarak yorumlanmaz.

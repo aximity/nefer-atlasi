@@ -1,0 +1,41 @@
+[
+  {
+    "id": "media-warrior-sweep",
+    "abilityId": "warrior-sweep",
+    "status": "awaiting_capture",
+    "poster": null,
+    "sources": [],
+    "audio": null,
+    "durationSeconds": null,
+    "sourceIds": [],
+    "server": null,
+    "capturedAt": null,
+    "checkedAt": null
+  },
+  {
+    "id": "media-mage-tesla",
+    "abilityId": "mage-tesla",
+    "status": "awaiting_capture",
+    "poster": null,
+    "sources": [],
+    "audio": null,
+    "durationSeconds": null,
+    "sourceIds": [],
+    "server": null,
+    "capturedAt": null,
+    "checkedAt": null
+  },
+  {
+    "id": "media-healer-heal-circle",
+    "abilityId": "healer-heal-circle",
+    "status": "awaiting_capture",
+    "poster": null,
+    "sources": [],
+    "audio": null,
+    "durationSeconds": null,
+    "sourceIds": [],
+    "server": null,
+    "capturedAt": null,
+    "checkedAt": null
+  }
+]

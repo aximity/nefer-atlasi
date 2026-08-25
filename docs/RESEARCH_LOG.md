@@ -1,5 +1,25 @@
 # Araştırma Günlüğü
 
+## 2026-08-25 — Yetenek sayısı, Boz Ayı ve ad çelişkisi
+
+- İddia: Resmî sınıf sayfası her sınıfta 1/10/20/30/40 seviyelerinde üçer yetenek, toplam 15 temel yetenek listeler.
+- Kaynak: https://www.istanbuloyun.com/Classes.aspx
+- Tür: Resmî İKV sınıf rehberi
+- İddia: Resmî oyun rehberi Boz Ayı'yı Kanatma'nın yerine geçen ve aynı puanı kullanan seçenek olarak açıklar.
+- Kaynak: https://download.istanbuloyun.com/ikv_oyun_rehberi.pdf — sayfa 17
+- Tür: Resmî İKV oyun rehberi
+- Karar: Boz Ayı ayrı 16. yetenek değil, `warrior-bleed` tabanına bağlı varyant olarak modellenir.
+- Çelişki: Resmî sınıf sayfası “Süpürme Saldırısı”, Karaköy ses duyurusu “Süpürme Vuruşu” adını kullanır. Tek ad kesinleştirilene kadar iki adın aynı yeteneği işaret ettiği not edilir.
+- Kaynaklar: https://www.istanbuloyun.com/Classes.aspx, https://www.istanbuloyun.com/News.aspx?NewsId=479
+
+## 2026-08-25 — Bağlantı tanısı için çalışan örnekler
+
+- VALORANT ağ kararlılığı açıklaması gecikme ve bağlantı dalgalanmasının ayrıştırılmasına örnektir: https://playvalorant.com/en-us/news/game-updates/valorant-game-and-network-instability-basics/
+- Fortnite istemci ağ göstergesi paket kaybı görünürlüğüne örnektir: https://www.epicgames.com/help/c-202300000001636/c-202300000001719/how-can-i-check-if-i-have-packet-loss-while-playing-fortnite-a202300000012783?lang=en-US
+- Destiny hata kodları kopma nedenini açık kodlarla sınıflandırmaya örnektir: https://help.bungie.net/hc/en-us/articles/360049496971-Error-Codes-Disconnected-From-Destiny
+- EVE LogLite ve ESO pathping, kullanıcının isteğe bağlı paylaşabileceği tanı çıktısına örnektir: https://support.eveonline.com/hc/en-us/articles/5885024878236-LogLite-tool, https://help.elderscrollsonline.com/app/answers/detail/a_id/37818/~/how-do-i-read-my-pathping-results
+- Sınır: İKV protokolünde açık sıra/teslim bilgisi yoksa “paket kaybı” hesaplanmış gibi gösterilmez; yalnız zaman aşımı veya yanıt kaçırma gözlemi yayımlanır.
+
 ## 2026-08-22 — Şaheser seviyesi ve sınıflandırması
 
 - İddia: Resmi İKV duyurusu üretici ve toplayıcılar için eklenen Şaheser eşya reçetelerini 49 seviye olarak tanımlar.

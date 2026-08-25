@@ -40,7 +40,7 @@ test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", a
   assert.match(html, /Nucleus Yüzük/);
   assert.match(html, /Alternatör Kolye/);
   assert.match(html, /Kıyamet Ceket/);
-  for (const tab of ["Build", "Tılsım", "Bölgeler", "Eşyalar", "Endgame", "Maden", "Yetenek"]) {
+  for (const tab of ["Build", "Tılsım", "Bölgeler", "Eşyalar", "Endgame", "Maden", "Yetenek", "Gelişim"]) {
     assert.match(html, new RegExp(`<span>${tab}</span>`));
   }
   assert.doesNotMatch(html, /M3 · TILSIM VE YETENEK HESAPLAYICI/);

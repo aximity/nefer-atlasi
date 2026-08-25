@@ -25,6 +25,16 @@ const sourceLinks = {
   ffxivParty: "https://na.finalfantasyxiv.com/game_manual/pp/",
   esoGroup: "https://help.elderscrollsonline.com/app/answers/detail/a_id/63691/~/how-do-i-use-the-new-group-finder-introduced-in-update-40",
   gw2LfgPolicy: "https://help.guildwars2.com/hc/en-us/articles/360025563714-Policy-Looking-For-Group-LFG-Tool",
+  valorantNetwork:
+    "https://playvalorant.com/en-us/news/game-updates/valorant-game-and-network-instability-basics/",
+  fortnitePacketLoss:
+    "https://www.epicgames.com/help/c-202300000001636/c-202300000001719/how-can-i-check-if-i-have-packet-loss-while-playing-fortnite-a202300000012783?lang=en-US",
+  destinyDisconnect:
+    "https://help.bungie.net/hc/en-us/articles/360049496971-Error-Codes-Disconnected-From-Destiny",
+  eveLogLite:
+    "https://support.eveonline.com/hc/en-us/articles/5885024878236-LogLite-tool",
+  esoPathping:
+    "https://help.elderscrollsonline.com/app/answers/detail/a_id/37818/~/how-do-i-read-my-pathping-results",
 };
 
 type IdeaDepth = {
@@ -218,9 +228,9 @@ const problems: Array<{
         pilot: "Sadece grup bölgesi son sandığı.",
       },
       {
-        name: "Bağlantı sağlık göstergesi",
-        basis: "Gecikme ve paket kaybı görünür olur; oyuncu oyun hatasıyla ağ sorununu ayırır.",
-        pilot: "Basit üç durum: iyi, dalgalı, kötü.",
+        name: "Bağlantı Merkezi",
+        basis: "RTT, dalgalanma, FPS ve kopma makbuzu görünür olur; kesin neden yalnız protokol kanıtı varsa söylenir.",
+        pilot: "Mevcut heartbeat verisinden saniyede en fazla bir yerel özet.",
       },
     ],
   },
@@ -408,12 +418,13 @@ const ideaDepth: Record<string, IdeaDepth> = {
     metric: "Kurtarılan ödül, mükerrer teslim ve destek talebi.",
     sourceLabel: "İKV için ileri aşama güvenlik özelliği",
   },
-  "Bağlantı sağlık göstergesi": {
-    foundation: "Gecikme ve paket kaybını üç basit durumda gösterir; savaş sonucunu değiştirmez.",
-    load: "Çok düşük · mevcut bağlantı ölçümünün istemci özeti.",
-    risk: "Sunucu hatası teşhisi gibi sunulmamalı; yalnız ağ belirtisi gösterir.",
-    metric: "Bağlantı kaynaklı çıkış ve yanlış hata bildirimi.",
-    sourceLabel: "İKV istemci tanı pilotu",
+  "Bağlantı Merkezi": {
+    foundation: "Mevcut yanıt sürelerinden RTT ve dalgalanma üretir; kopmada kullanıcıya zaman damgalı, güven seviyeli bir makbuz verir.",
+    load: "Çok düşük · yeni yüksek frekanslı paket yok; 30 saniyelik halka tampon yalnız RAM'de.",
+    risk: "Sıra numarası yoksa paket kaybı hesaplanamaz; arayüz yalnız yanıt kaçırma veya zaman aşımı demeli.",
+    metric: "Tanı kaydıyla çözülen destek talebi, yanlış kesin neden oranı ve istemci ek yükü.",
+    sourceLabel: "VALORANT ağ kararlılığı yaklaşımı",
+    source: sourceLinks.valorantNetwork,
   },
 };
 
@@ -690,6 +701,7 @@ export default function EndgameLab() {
                 </article>;
               })}
             </div>
+            {activeProblem.id === "client" && <ConnectionCenterProposal />}
             <div className="benchmark-links">
               <span>Dayanak örnekleri</span>
               <a href={sourceLinks.partyFinder} target="_blank" rel="noreferrer">FFXIV grup bulucu</a>
@@ -940,6 +952,99 @@ export default function EndgameLab() {
             </div>
           </div>
         )}
+      </div>
+    </section>
+  );
+}
+
+function ConnectionCenterProposal() {
+  const confidenceRows = [
+    ["Kesin", "Sunucu açık bakım, kapatma veya oturum kodu gönderdi."],
+    ["Güçlü belirti", "Belirli süre yanıt alınamadı; zaman aşımı gözlendi."],
+    ["Olası", "İşletim sistemi yerel bağlantı kaybı bildirdi."],
+    ["Bilinmiyor", "Yerel veri nedeni güvenle ayırmaya yetmiyor."],
+  ];
+  const guardrails = [
+    "Yeni yüksek frekanslı ping paketi gönderme; mümkünse mevcut heartbeat yanıtını kullan.",
+    "Göstergeyi saniyede en fazla bir kez yenile; son 30 saniyeyi yalnız RAM'de tut.",
+    "Protokolde sıra bilgisi yoksa ‘paket kaybı’ değil ‘yanıt kaçırma / zaman aşımı’ de.",
+    "Kopmada yalnız tek küçük olay özeti üret; sürekli telemetri veya veritabanı yazımı yapma.",
+    "IP, MAC, sohbet, karakter mesajı ve konum geçmişi kaydetme; paylaşımı oyuncu başlatsın.",
+  ];
+
+  return (
+    <section className="connection-center" aria-labelledby="connection-center-title">
+      <header className="connection-head">
+        <div>
+          <small>İSTEMCİ PİLOTU · YENİDEN BAĞLANMA DEĞİL, GÖRÜNÜRLÜK</small>
+          <h4 id="connection-center-title">Bağlantı Merkezi</h4>
+        </div>
+        <p>
+          Oyunda bulunan beş dakikalık grup/örnek geri dönüşü korunur. Bu öneri
+          onun yerine geçmez; kopmadan önce ne görüldüğünü açıklanabilir hâle getirir.
+        </p>
+      </header>
+
+      <div className="connection-layout">
+        <article className="connection-preview">
+          <div className="connection-preview-title">
+            <span>ÖRNEK ARAYÜZ</span><b>Yalnız yerel ölçüm</b>
+          </div>
+          <div className="connection-live-status">
+            <div><small>RTT</small><strong>— ms</strong></div>
+            <div><small>DALGALANMA</small><strong>— ms</strong></div>
+            <div><small>FPS</small><strong>—</strong></div>
+          </div>
+          <div className="connection-states">
+            <span className="good">İyi</span>
+            <span className="wave">Dalgalı</span>
+            <span className="lost">Yanıt yok</span>
+          </div>
+          <div className="connection-receipt">
+            <small>KOPMA MAKBUZU</small>
+            <dl>
+              <div><dt>Saat / bölge</dt><dd>—</dd></div>
+              <div><dt>Gözlenen olay</dt><dd>Yanıt zaman aşımına uğradı</dd></div>
+              <div><dt>Güven</dt><dd>Güçlü belirti</dd></div>
+            </dl>
+            <span>Oyuncu isterse “tanı kaydını kopyala” ile paylaşır.</span>
+          </div>
+        </article>
+
+        <div className="connection-diagnosis">
+          <article>
+            <small>NEDEN DİLİ</small>
+            <h5>Kesin hüküm değil, kanıt seviyesi</h5>
+            <div className="connection-confidence">
+              {confidenceRows.map(([label, text]) => (
+                <div key={label}><b>{label}</b><span>{text}</span></div>
+              ))}
+            </div>
+          </article>
+          <article>
+            <small>SUNUCU MALİYETİ KORUMASI</small>
+            <h5>Beş teknik kırmızı çizgi</h5>
+            <ol className="connection-guardrail">
+              {guardrails.map((rule) => <li key={rule}>{rule}</li>)}
+            </ol>
+          </article>
+        </div>
+      </div>
+
+      <div className="connection-pilot">
+        <article><span>F0</span><b>Yerel üst katman</b><p>RTT ve FPS, saniyede en fazla bir görsel güncelleme.</p></article>
+        <article><span>F1</span><b>30 sn halka tampon</b><p>Disk veya veri tabanı yok; istemci kapanınca veri silinir.</p></article>
+        <article><span>F2</span><b>Kopma makbuzu</b><p>Açık sunucu kodu varsa kesin; yoksa gözlenen belirti.</p></article>
+        <article><span>F3</span><b>İsteğe bağlı paylaşım</b><p>Küçük metin çıktısı; otomatik yükleme ve kişisel ağ verisi yok.</p></article>
+      </div>
+
+      <div className="connection-sources">
+        <span>Resmî uygulama ve tanı örnekleri</span>
+        <a href={sourceLinks.valorantNetwork} target="_blank" rel="noreferrer">VALORANT ağ kararlılığı ↗</a>
+        <a href={sourceLinks.fortnitePacketLoss} target="_blank" rel="noreferrer">Fortnite ağ göstergesi ↗</a>
+        <a href={sourceLinks.destinyDisconnect} target="_blank" rel="noreferrer">Destiny hata kodları ↗</a>
+        <a href={sourceLinks.eveLogLite} target="_blank" rel="noreferrer">EVE LogLite ↗</a>
+        <a href={sourceLinks.esoPathping} target="_blank" rel="noreferrer">ESO pathping ↗</a>
       </div>
     </section>
   );

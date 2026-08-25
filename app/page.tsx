@@ -2,6 +2,7 @@
 import EndgameLab from "./EndgameLab";
 import MiningGuide from "./MiningGuide";
 import SkillGuides from "./SkillGuides";
+import ProjectScorecard from "./ProjectScorecard";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -60,6 +61,7 @@ const moduleTabs = [
   { id: "endgame", label: "Endgame" },
   { id: "mining", label: "Maden" },
   { id: "skills", label: "Yetenek" },
+  { id: "health", label: "Gelişim" },
 ] as const;
 type MainModule = (typeof moduleTabs)[number]["id"];
 interface BuildSnapshot {
@@ -487,6 +489,7 @@ export default function Home() {
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide />}
       {activeModule === "skills" && <SkillGuides />}
+      {activeModule === "health" && <ProjectScorecard />}
       {activeModule === "items" && <section className="catalog" id="items">
         <Title eyebrow="KAYNAK DURUMLU EŞYA KATALOĞU" title="Eşya rehberi">
           <div className="catalogTools">
@@ -556,6 +559,16 @@ export default function Home() {
           </p>
         )}
       </section>}
+      <footer className="siteFooter">
+        <div>
+          <b>NEFER ATLASI</b>
+          <span>Bağımsız İKV topluluk projesi · resmî değildir.</span>
+        </div>
+        <p>
+          Kaynak yoksa kesin bilgi yok. Tek kaynak teyit bekler; çelişki saklanmaz;
+          eşya adıyla görünüşü aynı kanıtta değilse görsel bağlanmaz.
+        </p>
+      </footer>
       {detail && <ItemModal item={detail} close={() => setDetail(null)} />}
     </main>
   );

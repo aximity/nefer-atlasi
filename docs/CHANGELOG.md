@@ -1,5 +1,15 @@
 # Değişiklik Günlüğü
 
+## 2026-08-25 — Nefer Atlası, şeffaf kalite ve istemci pilotları
+
+- Proje kapsamı eşya rehberinin ötesine geçtiği için marka “Nefer Atlası” olarak yenilendi; başlık, favicon ve sosyal paylaşım kartı güncellendi.
+- Yetenek modeli 45 temel yetenek kuralına bağlandı. Boz Ayı, Kanatma'nın yerine geçen ve aynı puanı kullanan varyant olarak ayrıştırıldı.
+- Yinelenen kanıt kimlikleri kaynak kimliğiyle ayrıldı; `server_guide` kaynak türü veri doğrulayıcısına eklendi.
+- Gelişim sekmesinde kanıt, özellik, elde etme, medya, bütünlük ve güncellikten otomatik hesaplanan proje puan kartı açıldı.
+- Savaşçı, Büyücü ve Şifacı için üç yeteneklik medya pilotu kuruldu; gerçek klip gelene kadar dosyasız bekleme durumu zorunlu kılındı.
+- Endgame → Sorunlar → İstemci altında yeni paket göndermeyen, 30 saniyelik yerel özet ve güven seviyeli kopma makbuzu öneren Bağlantı Merkezi tasarlandı.
+- Yetenek rehberi görselleri Next Image ile responsive hâle getirildi; lint uyarıları temizlendi.
+
 ## 2026-08-23 — M4.1 doğruluk ve güvenlik
 
 - Türkçe karakterleri kayıpsız taşıyan sürümlü Base64URL build bağlantıları eklendi.
