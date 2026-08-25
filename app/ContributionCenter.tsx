@@ -52,6 +52,17 @@ type StatusResult = {
   updatedAt: string;
 };
 
+type PublishedContribution = {
+  id: string;
+  type: ContributionKind;
+  subject: string;
+  server: string;
+  observedAt: string;
+  sourceCount: number;
+  publishedAt: string | null;
+  details: Record<string, unknown>;
+};
+
 const DRAFT_KEY = "nefer-atlasi-contribution-draft-v1";
 const CLIENT_KEY = "nefer-atlasi-anonymous-client-v1";
 const kinds: {
@@ -1000,8 +1011,116 @@ export default function ContributionCenter() {
           )}
         </div>
       </div>
+      <PublishedEvidence />
     </section>
   );
+}
+
+function PublishedEvidence() {
+  const [rows, setRows] = useState<PublishedContribution[]>([]);
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    let active = true;
+    const run = async () => {
+      try {
+        const response = await fetch("/api/contributions/published");
+        const result = (await response.json()) as {
+          rows?: PublishedContribution[];
+        };
+        if (active && response.ok) setRows(result.rows ?? []);
+      } finally {
+        if (active) setLoaded(true);
+      }
+    };
+    void run();
+    return () => {
+      active = false;
+    };
+  }, []);
+  return (
+    <div className="publishedEvidence">
+      <div className="publishedHead">
+        <div>
+          <p className="eyebrow">ÇAPRAZ DOĞRULANAN TOPLULUK KAYITLARI</p>
+          <h3>Editör onaylı saha akışı</h3>
+          <p>
+            Burada yalnız bağımsız kanıtları kontrol edilmiş ve editör
+            tarafından yayımlanmış güvenli alanlar görünür. İletişim bilgisi ve
+            ham dosya yayımlanmaz.
+          </p>
+        </div>
+        <span>{rows.length} yayımlanmış kayıt</span>
+      </div>
+      {loaded && rows.length === 0 ? (
+        <div className="publishedEmpty">
+          <i>◇</i>
+          <span>
+            <b>İlk çapraz doğrulanmış katkı bekleniyor</b>
+            <small>
+              Kuyruktaki kayıtlar editör onayından geçtikçe burada görünecek.
+            </small>
+          </span>
+        </div>
+      ) : (
+        <div className="publishedGrid">
+          {rows.map((row) => (
+            <article key={row.id}>
+              <header>
+                <span>{kindNames[row.type]}</span>
+                <b>ÇAPRAZ DOĞRULANDI</b>
+              </header>
+              <h4>{row.subject}</h4>
+              <p>{row.server} · {row.observedAt}</p>
+              <dl>
+                {Object.entries(row.details)
+                  .slice(0, 4)
+                  .map(([key, value]) => (
+                    <div key={key}>
+                      <dt>{publicDetailLabel(key)}</dt>
+                      <dd>{formatPublicValue(value)}</dd>
+                    </div>
+                  ))}
+              </dl>
+              <footer>{row.sourceCount} bağımsızlığı incelenmiş kanıt</footer>
+            </article>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function publicDetailLabel(key: string) {
+  const labels: Record<string, string> = {
+    className: "Sınıf",
+    slot: "Yuva",
+    levelTier: "Seviye / kademe",
+    acquisitionPlace: "Elde edilme",
+    rarity: "Nadirlik",
+    statLines: "Özellikler",
+    appearanceProof: "Görünüş eşleşmesi",
+    region: "Bölge",
+    routeMinutes: "Tur süresi",
+    nodeCount: "Damar",
+    runCount: "Tur",
+    yields: "Çıkanlar",
+    boosters: "Arttırıcı",
+    listingType: "Kayıt",
+    quantity: "Miktar",
+    currency: "Para",
+    price: "Fiyat",
+    channel: "Kanal",
+    settledPrice: "Son fiyat",
+    captureContext: "Ortam",
+    abilityPoints: "Puan",
+  };
+  return labels[key] ?? key;
+}
+
+function formatPublicValue(value: unknown) {
+  if (typeof value === "boolean") return value ? "Evet" : "Hayır";
+  if (value === null || value === undefined || value === "") return "—";
+  return String(value);
 }
 
 function Input({

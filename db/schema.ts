@@ -21,6 +21,7 @@ export const contributions = sqliteTable(
     uploadStatus: text("upload_status").notNull().default("complete"),
     moderationNote: text("moderation_note"),
     reviewedAt: text("reviewed_at"),
+    publishedAt: text("published_at"),
     createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
     updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
   },
@@ -29,6 +30,31 @@ export const contributions = sqliteTable(
     index("contributions_client_created_idx").on(table.clientTokenHash, table.createdAt),
     index("contributions_payload_created_idx").on(table.payloadHash, table.createdAt),
     index("contributions_queue_idx").on(table.publicationStatus, table.createdAt),
+  ],
+);
+
+export const contributionEvents = sqliteTable(
+  "contribution_events",
+  {
+    id: text("id").primaryKey(),
+    contributionId: text("contribution_id")
+      .notNull()
+      .references(() => contributions.id, { onDelete: "cascade" }),
+    action: text("action").notNull(),
+    actorLabel: text("actor_label").notNull(),
+    actorEmailHash: text("actor_email_hash").notNull(),
+    fromVerification: text("from_verification"),
+    toVerification: text("to_verification"),
+    fromPublication: text("from_publication"),
+    toPublication: text("to_publication"),
+    note: text("note"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("contribution_events_contribution_idx").on(
+      table.contributionId,
+      table.createdAt,
+    ),
   ],
 );
 
