@@ -136,3 +136,55 @@ export const canonicalRevisions = sqliteTable(
     ),
   ],
 );
+
+export const farmSessions = sqliteTable(
+  "farm_sessions",
+  {
+    id: text("id").primaryKey(),
+    ownerEmailHash: text("owner_email_hash").notNull(),
+    server: text("server").notNull(),
+    region: text("region").notNull(),
+    routeName: text("route_name").notNull(),
+    profession: text("profession").notNull(),
+    observedAt: text("observed_at").notNull(),
+    durationMinutes: integer("duration_minutes").notNull(),
+    nodeCount: integer("node_count").notNull(),
+    boosterProfile: text("booster_profile").notNull(),
+    gameCost: integer("game_cost").notNull().default(0),
+    tlCostKurus: integer("tl_cost_kurus").notNull().default(0),
+    notes: text("notes"),
+    status: text("status").notNull().default("active"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("farm_sessions_owner_date_idx").on(
+      table.ownerEmailHash,
+      table.observedAt,
+    ),
+    index("farm_sessions_owner_region_idx").on(
+      table.ownerEmailHash,
+      table.region,
+    ),
+  ],
+);
+
+export const farmYields = sqliteTable(
+  "farm_yields",
+  {
+    id: text("id").primaryKey(),
+    sessionId: text("session_id")
+      .notNull()
+      .references(() => farmSessions.id, { onDelete: "cascade" }),
+    material: text("material").notNull(),
+    grade: text("grade").notNull(),
+    quantity: integer("quantity").notNull(),
+    unitGamePrice: integer("unit_game_price"),
+    unitTlKurus: integer("unit_tl_kurus"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    index("farm_yields_session_idx").on(table.sessionId),
+    index("farm_yields_material_idx").on(table.material),
+  ],
+);

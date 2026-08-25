@@ -22,6 +22,13 @@
       "when": 1787670002916,
       "tag": "0002_violet_screwball",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1787670660456,
+      "tag": "0003_sturdy_domino",
+      "breakpoints": true
     }
   ]
 }

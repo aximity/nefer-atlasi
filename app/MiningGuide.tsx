@@ -80,7 +80,7 @@ export default function MiningGuide() {
     <div className="mining-hero">
       <div className="mining-kicker"><span>YENİ MODÜL</span> MADEN &amp; PAZAR TAKİBİ</div>
       <div className="mining-title">
-        <div><h2>Farm rotanı<br/><em>veriyle kur.</em></h2><p>Kaynağın nerede bulunduğunu, neden değerli olduğunu ve fiyatın hangi tarihte gözlendiğini aynı ekranda karşılaştır.</p></div>
+        <div><h2>Farm rotanı<br/><em>veriyle kur.</em></h2><p>Kaynağın nerede bulunduğunu, neden değerli olduğunu ve fiyatın hangi tarihte gözlendiğini aynı ekranda karşılaştır.</p><a className="farm-ops-link" href="/farm-operasyonu">Saha Operasyonunu aç <span>↗</span></a></div>
         <div className="ore-orbit" aria-hidden="true"><span/><i>Xe</i><small>XENOTİM</small></div>
       </div>
       <div className="market-pulse">

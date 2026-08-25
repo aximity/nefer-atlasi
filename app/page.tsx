@@ -571,7 +571,7 @@ export default function Home() {
           Kaynak yoksa kesin bilgi yok. Tek kaynak teyit bekler; çelişki saklanmaz;
           eşya adıyla görünüşü aynı kanıtta değilse görsel bağlanmaz.
         </p>
-        <a href="/katki-inceleme">Editör Masası</a>
+        <span className="footerTools"><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
       </footer>
       {detail && <ItemModal item={detail} close={() => setDetail(null)} />}
     </main>
