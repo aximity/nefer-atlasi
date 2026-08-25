@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import EventCalendar from "./EventCalendar";
 import GroupBoard from "./GroupBoard";
+import GroupAnalytics from "./GroupAnalytics";
 
-type View = "İlan Panosu" | "Planlayıcı";
+type View = "İlan Panosu" | "İhtiyaç Analizi" | "Planlayıcı";
 
 export default function CommunityEvents() {
   const [view, setView] = useState<View>("İlan Panosu");
@@ -17,8 +18,8 @@ export default function CommunityEvents() {
   }, []);
   return <div className="community-events">
     <nav className="community-tabs" aria-label="Topluluk etkinlik araçları">
-      {(["İlan Panosu", "Planlayıcı"] as View[]).map((item) => <button key={item} className={view === item ? "active" : ""} onClick={() => setView(item)}>{item}</button>)}
+      {(["İlan Panosu", "İhtiyaç Analizi", "Planlayıcı"] as View[]).map((item) => <button key={item} className={view === item ? "active" : ""} onClick={() => setView(item)}>{item}</button>)}
     </nav>
-    {view === "İlan Panosu" ? <GroupBoard/> : <EventCalendar/>}
+    {view === "İlan Panosu" ? <GroupBoard/> : view === "İhtiyaç Analizi" ? <GroupAnalytics/> : <EventCalendar/>}
   </div>;
 }

@@ -1,4 +1,4 @@
-import { and, eq, gt } from "drizzle-orm";
+import { and, eq, gt, gte, ne } from "drizzle-orm";
 import { getDb, getRawDb } from "../db";
 import { groupAnnouncements } from "../db/schema";
 
@@ -42,4 +42,17 @@ export async function cancelGroupAnnouncement(receiptTokenHash: string) {
   const db = await getDb();
   const result = await db.update(groupAnnouncements).set({ status: "cancelled", updatedAt: new Date().toISOString() }).where(and(eq(groupAnnouncements.receiptTokenHash, receiptTokenHash), eq(groupAnnouncements.status, "active"))).returning({ id: groupAnnouncements.id });
   return result.length > 0;
+}
+
+export async function listGroupAnnouncementAnalyticsRows(now = Date.now()) {
+  const db = await getDb();
+  const cutoff = new Date(now - 30 * 24 * 60 * 60_000).toISOString();
+  const rows = await db.select({
+    category: groupAnnouncements.category,
+    region: groupAnnouncements.region,
+    rolesJson: groupAnnouncements.rolesJson,
+    startAt: groupAnnouncements.startAt,
+    status: groupAnnouncements.status,
+  }).from(groupAnnouncements).where(and(ne(groupAnnouncements.status, "cancelled"), gte(groupAnnouncements.startAt, cutoff))).limit(1000);
+  return rows.map((row) => ({ ...row, roles: JSON.parse(row.rolesJson), rolesJson: undefined }));
 }

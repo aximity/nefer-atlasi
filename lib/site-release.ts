@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.15.0",
+  version: "0.16.0",
   channel: "BETA",
-  milestone: "M15",
+  milestone: "M16",
   releasedAt: "25 Ağustos 2026",
-  title: "Süreli grup ve etkinlik panosu",
+  title: "Grup ihtiyacı analizi",
   summary:
-    "WhatsApp, Discord ve oyun sohbeti duyurularını yapılandırılmış, süreli grup ilanına dönüştüren topluluk panosu açıldı.",
+    "Topluluk ilanlarını rol, bölge, etkinlik türü ve saat yoğunluğuna dönüştüren gizlilik korumalı analiz açıldı.",
   changes: [
-    "Yapıştırılan duyurudan bölge, saat, kanal, etkinlik türü ve rol ihtiyacı çıkarılıyor.",
-    "Ham sohbet metni sunucuya gönderilmeden yalnız yapılandırılmış ilan alanları saklanıyor.",
-    "Telefon ve özel grup bağlantıları engelleniyor; ilanlar süre dolunca otomatik kapanıyor.",
-    "Oyuncu kendi ilanını cihazında saklanan tek kullanımlık anahtarla kapatabiliyor.",
+    "Son 7 ve 30 günlük ilan hacmi örneklem seviyesiyle birlikte gösteriliyor.",
+    "Aranan roller, yoğun bölgeler, etkinlik türleri ve UTC+3 başlangıç saatleri analiz ediliyor.",
+    "Üç kayıttan az başlıklar oyuncu hareketini ele vermemek için tek tek gösterilmiyor.",
+    "İptal edilen ilanlar analize girmiyor; lider adı ve iletişim verisi istatistiğe taşınmıyor.",
   ],
 } as const;
