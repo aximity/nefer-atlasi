@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.16.0",
+  version: "0.17.0",
   channel: "BETA",
-  milestone: "M16",
+  milestone: "M17",
   releasedAt: "25 Ağustos 2026",
-  title: "Grup ihtiyacı analizi",
+  title: "Lonca lojistik masası",
   summary:
-    "Topluluk ilanlarını rol, bölge, etkinlik türü ve saat yoğunluğuna dönüştüren gizlilik korumalı analiz açıldı.",
+    "Loncalar için haftalık hedef, katkı, oyun parası gideri ve artırıcı takibini tek paylaşılabilir masada birleştiren lojistik pilotu açıldı.",
   changes: [
-    "Son 7 ve 30 günlük ilan hacmi örneklem seviyesiyle birlikte gösteriliyor.",
-    "Aranan roller, yoğun bölgeler, etkinlik türleri ve UTC+3 başlangıç saatleri analiz ediliyor.",
-    "Üç kayıttan az başlıklar oyuncu hareketini ele vermemek için tek tek gösterilmiyor.",
-    "İptal edilen ilanlar analize girmiyor; lider adı ve iletişim verisi istatistiğe taşınmıyor.",
+    "Haftalık malzeme, oyun parası, farm, grup bölgesi ve hazırlık hedefleri paylaşılabiliyor.",
+    "Üyeler oyun içi adlarıyla hedefe katkı işleyebiliyor ve son katkılarını geri çekebiliyor.",
+    "Lonca yöneticisi gider, artırıcı ve yeni hedef ekleyebiliyor; artırıcı yaşam döngüsü ayrı izleniyor.",
+    "Gerçek para, telefon ve özel grup bağlantısı tutulmuyor; yönetim anahtarı paylaşım bağlantısına eklenmiyor.",
   ],
 } as const;

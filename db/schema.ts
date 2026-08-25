@@ -276,3 +276,94 @@ export const groupAnnouncements = sqliteTable(
     index("group_announcements_client_created_idx").on(table.clientTokenHash, table.createdAt),
   ],
 );
+
+export const guildLogisticsBoards = sqliteTable(
+  "guild_logistics_boards",
+  {
+    id: text("id").primaryKey(),
+    publicCode: text("public_code").notNull(),
+    managerTokenHash: text("manager_token_hash").notNull(),
+    clientTokenHash: text("client_token_hash").notNull(),
+    guildName: text("guild_name").notNull(),
+    server: text("server").notNull(),
+    weekStart: text("week_start").notNull(),
+    note: text("note"),
+    status: text("status").notNull().default("active"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("guild_logistics_boards_public_code_unique").on(table.publicCode),
+    uniqueIndex("guild_logistics_boards_manager_hash_unique").on(table.managerTokenHash),
+    index("guild_logistics_boards_client_created_idx").on(table.clientTokenHash, table.createdAt),
+  ],
+);
+
+export const guildLogisticsGoals = sqliteTable(
+  "guild_logistics_goals",
+  {
+    id: text("id").primaryKey(),
+    boardId: text("board_id").notNull().references(() => guildLogisticsBoards.id, { onDelete: "cascade" }),
+    title: text("title").notNull(),
+    category: text("category").notNull(),
+    targetAmount: integer("target_amount").notNull(),
+    unit: text("unit").notNull(),
+    assignedRole: text("assigned_role").notNull(),
+    status: text("status").notNull().default("active"),
+    orderIndex: integer("order_index").notNull().default(0),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [index("guild_logistics_goals_board_order_idx").on(table.boardId, table.orderIndex)],
+);
+
+export const guildLogisticsContributions = sqliteTable(
+  "guild_logistics_contributions",
+  {
+    id: text("id").primaryKey(),
+    boardId: text("board_id").notNull().references(() => guildLogisticsBoards.id, { onDelete: "cascade" }),
+    goalId: text("goal_id").notNull().references(() => guildLogisticsGoals.id, { onDelete: "cascade" }),
+    receiptTokenHash: text("receipt_token_hash").notNull(),
+    clientTokenHash: text("client_token_hash").notNull(),
+    contributorAlias: text("contributor_alias").notNull(),
+    amount: integer("amount").notNull(),
+    note: text("note"),
+    status: text("status").notNull().default("active"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("guild_logistics_contributions_receipt_unique").on(table.receiptTokenHash),
+    index("guild_logistics_contributions_goal_idx").on(table.goalId, table.status),
+    index("guild_logistics_contributions_client_created_idx").on(table.clientTokenHash, table.createdAt),
+  ],
+);
+
+export const guildLogisticsExpenses = sqliteTable(
+  "guild_logistics_expenses",
+  {
+    id: text("id").primaryKey(),
+    boardId: text("board_id").notNull().references(() => guildLogisticsBoards.id, { onDelete: "cascade" }),
+    title: text("title").notNull(),
+    category: text("category").notNull(),
+    gameAmount: integer("game_amount").notNull(),
+    note: text("note"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [index("guild_logistics_expenses_board_idx").on(table.boardId, table.createdAt)],
+);
+
+export const guildLogisticsBoosters = sqliteTable(
+  "guild_logistics_boosters",
+  {
+    id: text("id").primaryKey(),
+    boardId: text("board_id").notNull().references(() => guildLogisticsBoards.id, { onDelete: "cascade" }),
+    title: text("title").notNull(),
+    scope: text("scope").notNull(),
+    quantity: integer("quantity").notNull(),
+    status: text("status").notNull().default("Planlandı"),
+    sponsorAlias: text("sponsor_alias"),
+    note: text("note"),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [index("guild_logistics_boosters_board_status_idx").on(table.boardId, table.status)],
+);

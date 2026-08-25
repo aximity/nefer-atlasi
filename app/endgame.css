@@ -141,7 +141,7 @@
   margin-top: 26px;
   padding: 5px;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(9, 1fr);
   background: #0e0d0f;
   border: 1px solid #2e2a31;
   border-radius: 15px;

@@ -6,6 +6,7 @@ import "./skills.css";
 import "./project-scorecard.css";
 import "./contribution.css";
 import "./group-board.css";
+import "./guild-logistics.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://ikv-esya-rehberi.gdyon.chatgpt.site"),
   title: "Nefer Atlası | İKV Bilgi, Strateji ve Ekonomi Platformu",
