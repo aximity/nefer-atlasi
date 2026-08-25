@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { formatDisplayValue, humanizeIdentifier } from "../lib/presentation.mjs";
 
 type ContributionKind =
   | "item_evidence"
@@ -1009,18 +1010,18 @@ export default function ContributionCenter() {
           {statusError && <p className="contributionError">{statusError}</p>}
           {statusResult && (
             <div className="statusResult">
-              <small>{kindNames[statusResult.type] ?? statusResult.type}</small>
+              <small>{kindNames[statusResult.type] ?? humanizeIdentifier(statusResult.type)}</small>
               <p>
                 <span>Doğrulama</span>
-                <b>{verificationLabels[statusResult.verificationStatus] ?? statusResult.verificationStatus}</b>
+                <b>{verificationLabels[statusResult.verificationStatus] ?? humanizeIdentifier(statusResult.verificationStatus)}</b>
               </p>
               <p>
                 <span>Yayın</span>
-                <b>{publicationLabels[statusResult.publicationStatus] ?? statusResult.publicationStatus}</b>
+                <b>{publicationLabels[statusResult.publicationStatus] ?? humanizeIdentifier(statusResult.publicationStatus)}</b>
               </p>
               <p>
                 <span>Kanıt</span>
-                <b>{uploadLabels[statusResult.uploadStatus] ?? statusResult.uploadStatus}</b>
+                <b>{uploadLabels[statusResult.uploadStatus] ?? humanizeIdentifier(statusResult.uploadStatus)}</b>
               </p>
             </div>
           )}
@@ -1156,7 +1157,7 @@ function canonicalTypeLabel(value: string) {
       mining_route: "MADEN ROTASI",
       market_observation: "PAZAR GÖZLEMİ",
       ability_media: "YETENEK",
-    }[value] ?? value
+    }[value] ?? humanizeIdentifier(value)
   );
 }
 
@@ -1187,13 +1188,11 @@ function publicDetailLabel(key: string) {
     observedAt: "Gözlem",
     name: "Ad",
   };
-  return labels[key] ?? key;
+  return labels[key] ?? humanizeIdentifier(key);
 }
 
 function formatPublicValue(value: unknown) {
-  if (typeof value === "boolean") return value ? "Evet" : "Hayır";
-  if (value === null || value === undefined || value === "") return "—";
-  return String(value);
+  return formatDisplayValue(value);
 }
 
 function Input({

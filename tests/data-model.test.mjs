@@ -88,6 +88,14 @@ test("tılsım kataloğu her sınıfta iki rengi ve tam kademeli serileri korur"
 });
 
 test("efsun sözlüğü kaynaklı, pozitif ve birimli kayıtlardan oluşur",()=>{assert.ok(enchants.length>=35);for(const enchant of enchants){assert.ok(enchant.name&&enchant.attribute);assert.ok(enchant.value>0);assert.ok(enchant.unit);assert.ok(sources.some(source=>source.id===enchant.sourceId))}});
+
+test("özellik birimleri kullanıcıya açık Türkçe veri sözlüğü kullanır", () => {
+  for (const row of [...stats, ...enchants, ...groupDerivedStats]) {
+    assert.notEqual(row.unit, "raw_game_value");
+    assert.equal(row.unit, "puan");
+  }
+  for (const series of enchantSeries) assert.equal(series.unit, "puan");
+});
 test("efsun serileri büyü ve direnç kademelerini kapsar",()=>{assert.equal(enchantSeries.length,11);assert.ok(enchantSeries.flatMap(series=>series.entries).length>=128);for(const series of enchantSeries)assert.ok(series.entries.every(([name,value])=>name&&value>0))});
 test("üç sınıfın 45 temel yeteneği açılma seviyeleriyle kayıtlıdır",()=>{assert.equal(abilities.length,45);for(const klass of ["Savaşçı","Büyücü","Şifacı"]){const classAbilities=abilities.filter(ability=>ability.class===klass);assert.equal(classAbilities.length,15);for(const level of [1,10,20,30,40])assert.equal(classAbilities.filter(ability=>ability.unlockLevel===level).length,3,`${klass} ${level}. seviye`)}assert.ok(!abilities.some(ability=>ability.name==="Boz Ayı"),"Boz Ayı, Kanatma varyantıdır; ayrı temel yetenek değildir")});
 test("medya pilotu üç sınıfta sahte dosya kullanmadan bekleme durumu açar",()=>{assert.equal(abilityMedia.length,3);assert.deepEqual(new Set(abilityMedia.map(row=>abilities.find(ability=>ability.id===row.abilityId)?.class)),new Set(["Savaşçı","Büyücü","Şifacı"]));for(const row of abilityMedia){assert.equal(row.status,"awaiting_capture");assert.equal(row.poster,null);assert.deepEqual(row.sources,[]);assert.equal(row.audio,null);assert.deepEqual(row.sourceIds,[])}});

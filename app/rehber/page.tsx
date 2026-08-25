@@ -30,7 +30,7 @@ const modules = [
   ["06", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
   ["07", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
   ["08", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
-  ["09", "Gelişim", "Sitenin güçlü, gelişen ve bekleyen bölümlerini gör; hangi veriye ihtiyaç olduğunu takip et.", "/?module=health#modules"],
+  ["09", "Gelişim", "Sağlık puanını ve M19 eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
   ["10", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
 ] as const;
 

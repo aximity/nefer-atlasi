@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { formatDisplayValue, humanizeIdentifier } from "../../lib/presentation.mjs";
 
 type ListRow = {
   id: string;
@@ -478,7 +479,7 @@ export default function AdminDesk({
                   key={row.id}
                 >
                   <span className="queueMeta">
-                    <i>{kindLabels[row.type] ?? row.type}</i>
+                    <i>{kindLabels[row.type] ?? humanizeIdentifier(row.type)}</i>
                     <small>{row.observedAt}</small>
                   </span>
                   <b>{row.subject}</b>
@@ -525,14 +526,12 @@ export default function AdminDesk({
                 </div>
                 <div className="detailStatus">
                   <span data-status={detail.contribution.verificationStatus}>
-                    {verificationLabels[
-                      detail.contribution.verificationStatus
-                    ] ?? detail.contribution.verificationStatus}
+                    {verificationLabels[detail.contribution.verificationStatus] ??
+                      humanizeIdentifier(detail.contribution.verificationStatus)}
                   </span>
                   <span data-publication={detail.contribution.publicationStatus}>
-                    {publicationLabels[
-                      detail.contribution.publicationStatus
-                    ] ?? detail.contribution.publicationStatus}
+                    {publicationLabels[detail.contribution.publicationStatus] ??
+                      humanizeIdentifier(detail.contribution.publicationStatus)}
                   </span>
                 </div>
               </header>
@@ -543,7 +542,7 @@ export default function AdminDesk({
                     <dl className="fieldTable">
                       {detailEntries.map(([key, value]) => (
                         <div key={key}>
-                          <dt>{detailLabels[key] ?? key}</dt>
+                          <dt>{detailLabels[key] ?? humanizeIdentifier(key)}</dt>
                           <dd>{formatValue(value)}</dd>
                         </div>
                       ))}
@@ -996,7 +995,5 @@ function formatBytes(value: number) {
 }
 
 function formatValue(value: unknown) {
-  if (typeof value === "boolean") return value ? "Evet" : "Hayır";
-  if (value === null || value === undefined || value === "") return "Belirtilmedi";
-  return String(value);
+  return formatDisplayValue(value);
 }

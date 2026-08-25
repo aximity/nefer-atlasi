@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.18.0",
+  version: "0.19.0",
   channel: "BETA",
-  milestone: "M18",
+  milestone: "M19",
   releasedAt: "25 Ağustos 2026",
-  title: "Bağlantılı Atlas",
+  title: "Atlas Tamamlama Merkezi",
   summary:
-    "Eşya, boss, reçete, malzeme, geniş bölge, farm ve pazar verisini aynı doğrulanabilir bağlantı zincirinde birleştiren Atlas açıldı.",
+    "Kullanıcıya sızan teknik birimler temizlendi; eksik, çelişkili ve teyit bekleyen Atlas bağlantıları kanıt toplama kuyruğuna dönüştürüldü.",
   changes: [
-    "Eşya, malzeme, boss ve bölge kayıtları tek aramada ayrı türlerle süzülebiliyor.",
-    "Eşyanın ganimet kaynağı, oyun içi özellikleri, reçetesi ve malzeme ihtiyaçları aynı akışta gösteriliyor.",
-    "Malzemeden onu kullanan eşyalara, geniş bölgeye, maden rehberine ve pazar kaydına geri dönülebiliyor.",
-    "Kaynağı eşleşmeyen malzemelere tahmini bölge veya düşman atanmıyor; fiyat boşluğu uydurulmuyor.",
+    "İngilizce geliştirici birimleri bütün özellik kayıtlarından ve kullanıcıya açık gösterim yollarından kaldırıldı.",
+    "Çelişki, elde etme, özellik, malzeme kaynağı, görsel ve ikinci teyit eksikleri ayrı kuyruklarda gösteriliyor.",
+    "Her açık iş doğrudan ilgili Atlas kaydına ve kanıt gönderme akışına bağlandı.",
+    "Mobilde ekranı uzatmamak için sonuçlar filtrelenebilir ve ilk 18 kayıtla sınırlı tutuldu.",
   ],
 } as const;

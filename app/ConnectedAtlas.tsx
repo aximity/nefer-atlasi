@@ -7,6 +7,7 @@ import { atlasCoverage, buildAtlasGraph, searchAtlasNodes } from "../lib/atlas-g
 import { images, itemEvidence, publishableItems, publishableStats, recipes, sourceFor, statusLabel } from "../lib/catalog";
 import { materialSourceFor } from "../lib/material-sources";
 import { summarizeMarket } from "../lib/market-board.mjs";
+import { displayUnit } from "../lib/presentation.mjs";
 
 type NodeType = "all" | "item" | "material" | "boss" | "region";
 type PublishedRow = { id: string; type: string; subject: string; server: string; observedAt: string; sourceCount: number; details: Record<string, unknown> };
@@ -117,7 +118,7 @@ function ItemAtlasDetail({ node, selectNode, nodeFor }: { node: AtlasNode; selec
   return <div className="atlas-item-detail">
     {visual && <div className="atlas-item-image"><Image src={visual.url} alt={`${item.name} oyun içi görünümü`} width={1200} height={1600}/><span>OYUN İÇİ GÖRSEL · KAYNAK EŞLEŞMELİ</span></div>}
     <section className="atlas-origin"><header><span>ELDE ETME ZİNCİRİ</span></header><div>{regionNode ? <button onClick={() => selectNode(regionNode)}><small>BÖLGE</small><b>{node.region}</b></button> : <article><small>BÖLGE</small><b>Eşleşme yok</b></article>}<i>→</i>{bossNode ? <button onClick={() => selectNode(bossNode)}><small>BOSS</small><b>{node.boss}</b></button> : <article><small>BOSS</small><b>Eşleşme yok</b></article>}<i>→</i><article><small>SONUÇ</small><b>{node.recipe?.method || item.acquisition || "Ganimet kaydı"}</b></article></div></section>
-    {stats.length > 0 && <section className="atlas-stats"><header><span>OYUN İÇİ ÖZELLİKLER</span></header><div>{stats.map((stat) => <article key={stat.id}><span>{stat.attribute}</span><b>{fmt(stat.value)} {stat.unit === "puan" ? "" : stat.unit}</b></article>)}</div></section>}
+    {stats.length > 0 && <section className="atlas-stats"><header><span>OYUN İÇİ ÖZELLİKLER</span></header><div>{stats.map((stat) => <article key={stat.id}><span>{stat.attribute}</span><b>{fmt(stat.value)}{displayUnit(stat.unit) ? ` ${displayUnit(stat.unit)}` : ""}</b></article>)}</div></section>}
     {node.recipe ? <section className="atlas-recipe"><header><span>REÇETE · {node.recipe.materials.length} MALZEME</span><b>{node.recipe.verificationStatus === "cross_verified" ? "Çapraz doğrulandı" : "Tek kaynak"}</b></header><div>{node.recipe.materials.map((material) => { const materialNode = nodeFor("material", material.name.toLocaleLowerCase("tr-TR")); return <button key={material.name} onClick={() => materialNode && selectNode(materialNode)} disabled={!materialNode}><span><small>{materialNode?.region || "Kaynak eşleşmesi yok"}</small><b>{material.name}</b></span><strong>×{material.quantity}</strong></button>; })}</div></section> : <p className="atlas-empty-link">Bu eşya için reçete bağlantısı yok.</p>}
     <div className="atlas-source-row">{itemSource && <a href={itemSource.url} target="_blank" rel="noreferrer">Eşya kaynağı · {itemSource.title} ↗</a>}{recipeSource && recipeSource.id !== itemSource?.id && <a href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı · {recipeSource.title} ↗</a>}</div>
   </div>;

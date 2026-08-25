@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+import AtlasCompletionCenter from "./AtlasCompletionCenter";
 import {
   projectHealthAuditDate,
   projectHealthMetrics,
@@ -11,8 +15,14 @@ const formatPercent = (value: number) =>
   new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 1 }).format(value);
 
 export default function ProjectScorecard() {
+  const [view, setView] = useState<"health" | "completion">("health");
   return (
     <section className="projectHealth" id="health">
+      <nav className="healthViewTabs" aria-label="Gelişim görünümü">
+        <button className={view === "health" ? "active" : ""} onClick={() => setView("health")}><span>01</span>Genel sağlık</button>
+        <button className={view === "completion" ? "active" : ""} onClick={() => setView("completion")}><span>02</span>Eksik bağlantılar</button>
+      </nav>
+      {view === "completion" ? <AtlasCompletionCenter /> : <>
       <div className="healthHero">
         <div>
           <p className="eyebrow">ATLAS DENETİMİ · OTOMATİK HESAP</p>
@@ -80,6 +90,7 @@ export default function ProjectScorecard() {
           eşya adı ve görünüşü aynı kanıtta yer aldığında artar.
         </p>
       </details>
+      </>}
     </section>
   );
 }
