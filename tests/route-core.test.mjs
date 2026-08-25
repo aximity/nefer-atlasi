@@ -68,3 +68,8 @@ test("farm turu inceleme kuyruğu için tek kaynaklı maden gözlemine dönüş�
   assert.equal(payload.common.sourceUrl, "");
   assert.equal(payload.farmSessionId, "22222222-2222-2222-2222-222222222222");
 });
+
+test("Lokman rota şablonu kabul edilir", () => {
+  const result = validateRouteTemplate({ ...route, profession: "Lokman" });
+  assert.equal(result.profession, "Lokman");
+});

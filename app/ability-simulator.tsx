@@ -95,8 +95,8 @@ export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
       </div>
       <div className="budgetProof">
         <p>
-          <b>49. seviye standart hesabı:</b> 48 seviye artışı × 2 puan = 96.
-          Önceki 80 puan değeri kaldırıldı.
+          <b>49. seviye güncel web kuralı hesabı:</b> 48 seviye artışı × 2
+          puan = 96.
         </p>
         <label>
           <input
@@ -108,11 +108,13 @@ export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
           Resmî İKV +5 yetenek hakkını ekle
         </label>
         <small>
-          Bu hak açıkken toplam 101 olur. Kıyametin Öncüleri sunucusunda hesabına
-          uygulanıp uygulanmadığını oyun içinden teyit et.
+          Güncel resmî web sayfası seviye başına 2 puan, eski 6.0 PDF rehberi
+          ise 1 puan yazar. Bu hak açıkken toplam 101 olur. Kıyametin Öncüleri
+          hesabındaki toplamı oyun içinden teyit et.
         </small>
         <div>
           <a href="https://istanbuloyun.com/AbilitySystem.aspx" target="_blank" rel="noreferrer">2 puan / seviye kaynağı ↗</a>
+          <a href="https://download.istanbuloyun.com/ikv_oyun_rehberi.pdf" target="_blank" rel="noreferrer">Eski 6.0 rehberi · 1 puan / seviye ↗</a>
           <a href="https://istanbuloyun.com/cemberlitasikvbox.aspx" target="_blank" rel="noreferrer">+5 puan kaynağı ↗</a>
           <a href="https://www.kiyametoyun.com/rehber" target="_blank" rel="noreferrer">KÖ yetenek listesi ↗</a>
         </div>

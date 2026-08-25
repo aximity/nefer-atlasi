@@ -71,3 +71,8 @@ test("invalid price and empty yield are rejected", () => {
     /aralığın dışında/,
   );
 });
+
+test("Lokman saha oturumu kabul edilir", () => {
+  const result = validateFarmSession({ ...raw, profession: "Lokman" });
+  assert.equal(result.profession, "Lokman");
+});

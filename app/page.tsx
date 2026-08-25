@@ -447,7 +447,7 @@ export default function Home() {
           eyebrow="M3 · TILSIM VE YETENEK HESAPLAYICI"
           title="Tılsımı denetle, puan planını kur"
         >
-          <span className="count">49 seviye · 96 standart puan · yetenek başına en fazla 15</span>
+          <span className="count">49 seviye · güncel web kuralıyla 96 puan · yetenek başına en fazla 15</span>
         </Title>
         <div className="engineGrid">
           <article>
