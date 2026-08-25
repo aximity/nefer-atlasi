@@ -19,9 +19,12 @@ import {
   itemEvidence,
   sourceFor,
   statusLabel,
+  talismanAcquisition,
   type Item,
   type CharacterClass,
+  type TalismanAcquisition,
 } from "../lib/catalog";
+import { gatheringSourceFor } from "../lib/gathering-catalog";
 import {
   applyTalisman,
   buildTotals,
@@ -108,6 +111,7 @@ export default function Home() {
     [regionId, setRegionId] = useState("cemberlitas"),
     [rival, setRival] = useState<CharacterClass | "Rakip yok">("Rakip yok"),
     [talismanId, setTalismanId] = useState(""),
+    [talismanPath, setTalismanPath] = useState<"Tümü" | TalismanAcquisition>("Tümü"),
     [wrathBase, setWrathBase] = useState(false),
     [wrathCriticalBase, setWrathCriticalBase] = useState(0),
     [abilities, setAbilities] = useState(emptyAbilities),
@@ -138,6 +142,8 @@ export default function Home() {
       if (requestedModule && moduleTabs.some((item) => item.id === requestedModule)) {
         setActiveModule(requestedModule as MainModule);
       }
+      const requestedItem = params.get("item");
+      if (requestedItem) setDetail(items.find((item) => item.id === requestedItem) ?? null);
       const saved = params.get("build");
       if (!saved) return;
       try {
@@ -158,6 +164,7 @@ export default function Home() {
       [selection],
     ) as Record<string, number>,
     classTalismans = talismans.filter((t) => t.class === klass),
+    visibleTalismans = classTalismans.filter((t) => talismanPath === "Tümü" || talismanAcquisition(t) === talismanPath),
     tal = classTalismans.find((t) => t.id === talismanId),
     totals = applyTalisman(
       baseTotals,
@@ -187,6 +194,7 @@ export default function Home() {
       setSecondary(s);
       setSelection(suggestedSelection(next, p, s));
       setTalismanId("");
+      setTalismanPath("Tümü");
       setWrathBase(false);
       setWrathCriticalBase(0);
     },
@@ -442,6 +450,11 @@ export default function Home() {
         <div className="engineGrid">
           <article>
             <h3>{klass} tılsımı</h3>
+            <div className="talismanPaths" aria-label="Tılsım elde etme yolu">
+              {(["Tümü", "Büyük Hol düşümü", "Reçeteyle üretim", "Yalnız reçeteyle üretim"] as const).map((path) => (
+                <button className={talismanPath === path ? "on" : ""} onClick={() => { setTalismanPath(path); setTalismanId(""); }} key={path}>{path}</button>
+              ))}
+            </div>
             <select
               aria-label={`${klass} tılsımı`}
               value={talismanId}
@@ -454,9 +467,9 @@ export default function Home() {
               <option value="">Tılsım seçilmedi</option>
               {(["Kırmızı", "Mavi"] as const).map((color) => (
                 <optgroup label={`${color} tılsımlar`} key={color}>
-                  {classTalismans.filter((t) => t.color === color).map((t) => (
+                  {visibleTalismans.filter((t) => t.color === color).map((t) => (
                     <option value={t.id} key={t.id}>
-                      {t.name}{t.tier === null ? " · Özel" : ""}
+                      {t.name}{t.tier === null ? " · Özel" : ""} · {talismanAcquisition(t)}
                     </option>
                   ))}
                 </optgroup>
@@ -489,8 +502,7 @@ export default function Home() {
               </label>
             )}
             <p className="data-note">
-              {classTalismans.length} resmî İKV kaydı · {new Set(classTalismans.map((t) => `${t.series}|${t.color}`)).size} seri · kırmızı ve mavi birlikte.
-              KÖ sunucusundaki birebir davranış ayrıca oyun içi testle teyit edilmelidir.
+              {classTalismans.length} resmî İKV kaydı · I. kademe Büyük Hol düşümü; II–III. kademe ve kademesiz özel tılsımlar reçete üretimiyle edinilir. Filtrede {visibleTalismans.length} kayıt gösteriliyor.
             </p>
           </article>
           <TalismanResult
@@ -688,6 +700,7 @@ function TalismanResult({
         <b>Bağlı yetenek:</b> {tal.series} · <b>Kademe:</b> {tal.tier ?? "Özel"}
       </p>
       <p><b>Resmî etki:</b> {tal.effectText}</p>
+      <p className="talismanPathLine"><b>Elde etme:</b> {talismanAcquisition(tal)}{tal.tier === 2 || tal.tier === 3 ? " · önceki kademeden üretim" : ""}</p>
       {blocked ? (
         <div className="effectWarning">
           Çalışmıyor: önce {tal.requiresBase} yeteneğini etkinleştir.
@@ -837,7 +850,9 @@ function ItemCard({
   const all = itemStats(item.id),
     usable = publishableStats(item.id),
     hasConflict = all.some((s) => s.verificationStatus === "conflicted"),
-    visual = images.find((image) => image.itemId === item.id);
+    visual = images.find((image) => image.itemId === item.id),
+    recipe = itemRecipe(item.id),
+    cemberlitasOrigin = recipe?.sourceId === "maxigame-cemberlitas-2015";
   return (
     <article className={`card ${visual ? "withArt" : "dataOnly"}`}>
       <button className="cardOpen" onClick={() => onOpen(item)}>
@@ -879,6 +894,9 @@ function ItemCard({
                 <div className="acquisition">
                   Düşme yeri: {item.region} · {item.boss}
                 </div>
+              )}
+              {!item.region && cemberlitasOrigin && (
+                <div className="acquisition">Ganimet/üretim: Çemberlitaş · Gaffar Bey · {recipe.materials.length} malzeme</div>
               )}
             </>
           ) : (
@@ -956,7 +974,9 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
   const recipe = itemRecipe(item.id),
     claims = itemEvidence(item.id),
     source = sourceFor(claims[0]?.sourceId),
-    visual = images.find((image) => image.itemId === item.id);
+    recipeSource = recipe ? sourceFor(recipe.sourceId) : undefined,
+    visual = images.find((image) => image.itemId === item.id),
+    cemberlitasOrigin = recipe?.sourceId === "maxigame-cemberlitas-2015";
   return (
     <div
       className="modal"
@@ -999,11 +1019,11 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
               <dd>{item.level}</dd>
             </div>
           )}
-          {item.region && (
+          {(item.region || cemberlitasOrigin) && (
             <div>
               <dt>Ganimet</dt>
               <dd>
-                {item.region} · {item.boss}
+                {item.region ?? "Çemberlitaş"} · {item.boss ?? "Gaffar Bey"}
               </dd>
             </div>
           )}
@@ -1021,10 +1041,16 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
               </div>
               <div>
                 <dt>Malzemeler</dt>
-                <dd>
-                  {recipe.materials
-                    .map((m) => `${m.name} ×${m.quantity}`)
-                    .join(", ")}
+                <dd className="recipeMaterialList">
+                  {recipe.materials.map((material) => {
+                    const gathering = gatheringSourceFor(material.name);
+                    return <span key={material.name}>
+                      <b>{material.name} ×{material.quantity}</b>
+                      {gathering
+                        ? <small>{gathering.profession} · {gathering.base} kaynağının {gathering.output}. çıktısı · {gathering.region} · <a href={`/?module=mining&material=${encodeURIComponent(material.name)}#mining`}>madende aç ↗</a></small>
+                        : <small>Toplayıcılık kaynağı değil veya kaynak eşleşmesi henüz yok</small>}
+                    </span>;
+                  })}
                 </dd>
               </div>
             </>
@@ -1039,6 +1065,9 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
           >
             {source.title} ↗
           </a>
+        )}
+        {recipeSource && recipeSource.id !== source?.id && (
+          <a className="sourceLink secondary" href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı · {recipeSource.title} ↗</a>
         )}
       </article>
     </div>

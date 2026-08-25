@@ -7,9 +7,14 @@ import {
   timerState,
 } from "../lib/mining-timer.mjs";
 import { items, recipes } from "../lib/catalog";
+import {
+  gatheringRegionFor,
+  gatheringRows,
+  type GatheringProfession,
+} from "../lib/gathering-catalog";
 
 type View = "Sayaçlar" | "Pazar" | "Kaynaklar" | "Gözlemler" | "Artırıcılar";
-type Profession = "Madenci" | "Sarraf" | "Lokman";
+type Profession = GatheringProfession;
 type Timer = { id: string; region: string; material: string; startedAt: number; nextCheckAt: number; reminderMinutes: number };
 type Observation = { id: string; region: string; material: string; result: "found" | "empty"; elapsedMinutes: number; observedAt: number };
 
@@ -17,53 +22,11 @@ const STORAGE_KEY = "nefer-atlasi:mining-timers:v1";
 const regionSuggestions = ["Eminönü", "Antrepo", "Labirent", "Meteor Bölgesi", "Sivri Ada", "Yeraltı", "Büyük Hol", "Topkapı Sarayı"];
 
 const materials = [
-  { name: "Xenotim", kind: "Reçete malzemesi", demand: "Birden çok sınıfın tılsım reçetesinde geçiyor", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Büyük Hol · Lojman / oyuncu saha bilgisi", tone: "violet" },
+  { name: "Xenotim", kind: "Reçete malzemesi", demand: "Birden çok sınıfın tılsım reçetesinde geçiyor", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Büyük Hol · Lojman dâhil", tone: "violet" },
   { name: "Kondrit", kind: "Reçete malzemesi", demand: "II–III kademe tılsım reçetelerinde geçiyor", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Toplayıcı türü ve bölgesi teyit bekliyor", tone: "amber" },
   { name: "Gadolinyum", kind: "Madenci çıktısı", demand: "Monazit kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "45 toplama puanı · kaynaklı", tone: "cyan" },
-  { name: "Jadeit", kind: "Sarraf çıktısı", demand: "Yeşim Taşı kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Büyük Hol · Lojman / oyuncu saha bilgisi", tone: "green" },
+  { name: "Jadeit", kind: "Sarraf çıktısı", demand: "Yeşim Taşı kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Büyük Hol · Lojman dâhil", tone: "green" },
   { name: "Saf Altın", kind: "Madenci çıktısı", demand: "Altın kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "23 toplama puanı · kaynaklı", tone: "gold" },
-];
-
-const collectionRows: { profession: Profession; base: string; second?: string; third?: string; points: number }[] = [
-  { profession: "Madenci", base: "Bakır", second: "Saf Bakır", points: 1 },
-  { profession: "Madenci", base: "Kalay", second: "Saf Kalay", points: 3 },
-  { profession: "Madenci", base: "Kurşun", second: "Saf Kurşun", points: 5 },
-  { profession: "Madenci", base: "Demir", second: "Saf Demir", points: 7 },
-  { profession: "Madenci", base: "Nikel", second: "Saf Nikel", points: 10 },
-  { profession: "Madenci", base: "Krom", second: "Saf Krom", points: 18 },
-  { profession: "Madenci", base: "Gümüş", second: "Saf Gümüş", points: 20 },
-  { profession: "Madenci", base: "Altın", second: "Saf Altın", points: 23 },
-  { profession: "Madenci", base: "Tungsten", second: "Saf Tungsten", third: "Şelit", points: 30 },
-  { profession: "Madenci", base: "Platin", second: "Saf Platin", points: 36 },
-  { profession: "Madenci", base: "Titanyum", second: "Saf Titanyum", points: 40 },
-  { profession: "Madenci", base: "Osmiridyum", second: "Osmiyum", third: "İridyum", points: 45 },
-  { profession: "Madenci", base: "Monazit", second: "Gadolinyum", points: 45 },
-  { profession: "Sarraf", base: "Kuvars", points: 1 },
-  { profession: "Sarraf", base: "Obsidyen", points: 1 },
-  { profession: "Sarraf", base: "Kan Taşı", points: 5 },
-  { profession: "Sarraf", base: "Açık Mavi Lapis", second: "Koyu Mavi Lapis", points: 8 },
-  { profession: "Sarraf", base: "Turkuaz", points: 10 },
-  { profession: "Sarraf", base: "Ametist", second: "Açık Pempe Ametist", third: "Sibiryalı", points: 15 },
-  { profession: "Sarraf", base: "Kalsedon", second: "Kripraz", third: "Akik", points: 21 },
-  { profession: "Sarraf", base: "Elmas", second: "Yeşil Elmas", third: "Menekşe Elmas", points: 23 },
-  { profession: "Sarraf", base: "Mavi Safir", second: "Turuncu Safir", points: 33 },
-  { profession: "Sarraf", base: "Beril", second: "Yeşil Zümrüt", third: "Kızıl Zümrüt", points: 37 },
-  { profession: "Sarraf", base: "Topaz", second: "Mavi Topaz", points: 40 },
-  { profession: "Sarraf", base: "Krizoberil", second: "Alexandrite", points: 45 },
-  { profession: "Sarraf", base: "Yeşim Taşı", second: "Jadeit", points: 45 },
-  { profession: "Lokman", base: "Meşe Odunu", second: "Budaksız Meşe", points: 1 },
-  { profession: "Lokman", base: "Ceviz Yaprağı", second: "Ceviz", points: 3 },
-  { profession: "Lokman", base: "Isırgan Otu", second: "Isırgan Tohumu", points: 5 },
-  { profession: "Lokman", base: "Ökse Otu", second: "Ökse Meyvesi", points: 7 },
-  { profession: "Lokman", base: "Adaçayı Yaprağı", second: "Ada Sürgünü", points: 12 },
-  { profession: "Lokman", base: "Akçaağaç Odunu", second: "Zamk", points: 17 },
-  { profession: "Lokman", base: "Koni Yaprağı", second: "Koni Çiçeği", points: 20 },
-  { profession: "Lokman", base: "Civan Perçemi", second: "Civan Çiçeği", points: 23 },
-  { profession: "Lokman", base: "Mantar", second: "Sinek Mantarı", third: "Ganoderma", points: 30 },
-  { profession: "Lokman", base: "Şerbetçi Otu", points: 36 },
-  { profession: "Lokman", base: "Abanoz Odunu", second: "Budaksız Abanoz", points: 40 },
-  { profession: "Lokman", base: "Çıban Otu", second: "Çıban Çiçeği", third: "Dört Yapraklı Yonca", points: 45 },
-  { profession: "Lokman", base: "Çiğdem", second: "Safran", points: 45 },
 ];
 
 const aboveCapRows = [
@@ -74,21 +37,6 @@ const aboveCapRows = [
   { profession: "Lokman", chain: "Papatya → Anthemis → Sevgi Çiçeği", points: 50 },
   { profession: "Lokman", chain: "Kardelen → Narin Kardelen → İstanbul Kardeleni", points: 55 },
 ];
-
-const historicalRegions: Record<Profession, Record<string, string>> = {
-  Madenci: {
-    Bakır: "Eminönü", Kalay: "Eminönü", Kurşun: "Eminönü", Demir: "Eminönü", Nikel: "Eminönü", Krom: "Eminönü", Gümüş: "Eminönü", Altın: "Eminönü",
-    Tungsten: "Meteor Bölgesi", Platin: "Meteor Bölgesi", Titanyum: "Yeraltı", Osmiridyum: "Yeraltı",
-  },
-  Sarraf: {
-    Kuvars: "Eminönü", Obsidyen: "Eminönü", "Kan Taşı": "Eminönü", "Açık Mavi Lapis": "Eminönü", Turkuaz: "Eminönü", Ametist: "Eminönü", Kalsedon: "Eminönü", Elmas: "Eminönü",
-    "Mavi Safir": "Meteor Bölgesi", Beril: "Meteor Bölgesi", Topaz: "Yeraltı", Krizoberil: "Yeraltı", "Yeşim Taşı": "Büyük Hol · Lojman",
-  },
-  Lokman: {
-    "Meşe Odunu": "Eminönü", "Ceviz Yaprağı": "Eminönü", "Isırgan Otu": "Eminönü", "Ökse Otu": "Eminönü", "Adaçayı Yaprağı": "Eminönü", "Akçaağaç Odunu": "Eminönü", "Koni Yaprağı": "Eminönü", "Civan Perçemi": "Eminönü",
-    Mantar: "Meteor Bölgesi", "Şerbetçi Otu": "Meteor Bölgesi", "Abanoz Odunu": "Yeraltı", "Çıban Otu": "Yeraltı",
-  },
-};
 
 const potionExamples: Record<string, string[]> = {
   "Meşe Odunu": ["Kedi İyileştiren", "Zırh Artırıcı", "Buz Hasarı Veren", "Zehir Hasarı Artırıcı"],
@@ -129,8 +77,8 @@ export default function MiningGuide() {
   const [timerDraft, setTimerDraft] = useState({ region: "", material: "", reminderMinutes: "10" });
   const [timerError, setTimerError] = useState("");
   const shown = useMemo(() => materials.filter((item) => item.name.toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"))), [query]);
-  const collectionShown = useMemo(() => collectionRows.filter((item) => {
-    const region = historicalRegions[item.profession][item.base] ?? "Saha teyidi bekliyor";
+  const collectionShown = useMemo(() => gatheringRows.filter((item) => {
+    const region = gatheringRegionFor(item);
     return item.profession === profession
       && (collectionRegion === "Tümü" || region === collectionRegion)
       && [item.base, item.second, item.third].filter(Boolean).join(" ").toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"));
@@ -150,6 +98,8 @@ export default function MiningGuide() {
   useEffect(() => {
     const initialize = window.setTimeout(() => {
       setNow(Date.now());
+      const requestedMaterial = new URLSearchParams(window.location.search).get("material");
+      if (requestedMaterial) setQuery(requestedMaterial);
       try {
         const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null") as { timers?: Timer[]; observations?: Observation[] } | null;
         if (stored) {
@@ -198,13 +148,13 @@ export default function MiningGuide() {
       : row));
   }
 
-  function recipeUsage(row: (typeof collectionRows)[number]) {
+  function recipeUsage(row: (typeof gatheringRows)[number]) {
     const names = [row.base, row.second, row.third].filter(Boolean) as string[];
-    const equipment = recipes
+    const equipmentRows = recipes
       .filter((recipe) => recipe.materials.some((material) => names.some((name) => name.toLocaleLowerCase("tr") === material.name.toLocaleLowerCase("tr"))))
-      .map((recipe) => itemNameById.get(recipe.itemId) ?? recipe.itemId);
+      .map((recipe) => ({ id: recipe.itemId, name: itemNameById.get(recipe.itemId) ?? recipe.itemId }));
     return {
-      equipment: [...new Set(equipment)],
+      equipment: [...new Map(equipmentRows.map((item) => [item.id, item])).values()],
       potions: potionExamples[row.base] ?? [],
     };
   }
@@ -266,20 +216,20 @@ export default function MiningGuide() {
         <div className="mining-panel-head"><div><span>49 SEVİYE KAPSAM DENETİMİ</span><h3>Toplayıcılık kataloğu</h3></div><a href={sources.professions} target="_blank" rel="noreferrer">Ad tablosu ↗</a></div>
         <div className="collection-tools">
           <div>{(["Madenci","Sarraf","Lokman"] as Profession[]).map(x=><button key={x} className={profession===x?"active":""} onClick={()=>{setProfession(x);setCollectionRegion("Tümü");}}>{x}</button>)}</div>
-          <select aria-label="Bölge filtresi" value={collectionRegion} onChange={(event)=>setCollectionRegion(event.target.value)}><option>Tümü</option><option>Eminönü</option><option>Meteor Bölgesi</option><option>Yeraltı</option><option>Büyük Hol · Lojman</option><option>Saha teyidi bekliyor</option></select>
+          <select aria-label="Bölge filtresi" value={collectionRegion} onChange={(event)=>setCollectionRegion(event.target.value)}><option>Tümü</option><option>Eminönü</option><option>Meteor Bölgesi</option><option>Yeraltı</option><option>Büyük Hol</option><option>Bölge kaydı eksik</option></select>
           <label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Kaynak veya çıktı ara"/></label>
         </div>
-        <p className="schematic-note">Madenci, Sarraf ve Lokman ile 1./2./3. çıktı zincirleri kaynak tablosundan alındı. Bölge eşleşmeleri 2010 tarihli saha rehberidir; Kıyametin Öncüleri’nde oyuncu kaydı gelene kadar “tarihî kaynak” olarak gösterilir.</p>
+        <p className="schematic-note">Madenci, Sarraf ve Lokman ile 1./2./3. çıktı zincirleri kaynak tablosundan alındı. Bölge dağılımı normal İKV ile aynıdır; Monazit, Yeşim Taşı ve Çiğdem Büyük Hol altında birlikte gösterilir.</p>
         <div className="catalog-sources"><a href={sources.officialJobs} target="_blank" rel="noreferrer">Resmî meslek tanımları ↗</a><a href={sources.historicalRegions} target="_blank" rel="noreferrer">Bölge ve çıktı rehberi ↗</a><a href={sources.potionRecipes} target="_blank" rel="noreferrer">İksir reçeteleri ↗</a></div>
         <div className="collection-list">{collectionShown.map(item=>{
           const usage = recipeUsage(item);
-          const region = historicalRegions[item.profession][item.base] ?? "Saha teyidi bekliyor";
+          const region = gatheringRegionFor(item);
           return <article key={`${item.profession}-${item.base}`}>
             <div><small>{item.profession}</small><h4>{item.base}</h4></div>
             <div className="output-chain"><span><small>1. ÇIKTI</small>{item.base}</span>{item.second&&<><i>→</i><span><small>2. ÇIKTI</small>{item.second}</span></>}{item.third&&<><i>→</i><span><small>3. ÇIKTI</small>{item.third}</span></>}</div>
             <div className="point-pill"><b>{item.points}</b><small>puan</small></div>
-            <div className="collection-region"><span>BÖLGE</span><b>{region}</b><small>{region === "Saha teyidi bekliyor" ? "Bölge kaydı bulunamadı" : item.base === "Yeşim Taşı" ? "Oyuncu saha bilgisi" : "Tarihî kaynak · KÖ teyidi bekliyor"}</small></div>
-            <div className="recipe-usage"><span>REÇETE KULLANIMI</span>{usage.equipment.length>0&&<p><b>Ekipman:</b> {usage.equipment.slice(0,4).join(" · ")}{usage.equipment.length>4?` · +${usage.equipment.length-4} kayıt`:""}</p>}{usage.potions.length>0&&<p><b>İksir örnekleri:</b> {usage.potions.join(" · ")}</p>}{usage.equipment.length===0&&usage.potions.length===0&&<p>Taranan reçete kataloğunda kullanım kaydı bulunamadı; katkı bekleniyor.</p>}</div>
+            <div className="collection-region"><span>BÖLGE</span><b>{region}</b><small>{region === "Bölge kaydı eksik" ? "Bölge kaydı bulunamadı" : "İKV bölge dağılımı"}</small></div>
+            <div className="recipe-usage"><span>REÇETE KULLANIMI</span>{usage.equipment.length>0&&<p><b>Ekipman:</b> {usage.equipment.slice(0,4).map((equipment,index)=><span key={equipment.id}>{index>0&&" · "}<a href={`/?module=items&item=${equipment.id}#items`}>{equipment.name}</a></span>)}{usage.equipment.length>4?` · +${usage.equipment.length-4} kayıt`:""}</p>}{usage.potions.length>0&&<p><b>İksir örnekleri:</b> {usage.potions.join(" · ")}</p>}{usage.equipment.length===0&&usage.potions.length===0&&<p>Taranan reçete kataloğunda kullanım kaydı bulunamadı; katkı bekleniyor.</p>}</div>
           </article>;
         })}</div>
         <div className="cap-warning"><div><small>49 ÜSTÜ REFERANS</small><h4>Aktif KÖ farm listesine alınmadı</h4></div><ul>{aboveCapRows.filter(x=>x.profession===profession).map(x=><li key={x.chain}><span>{x.chain}</span><b>{x.points} puan</b></li>)}</ul></div>

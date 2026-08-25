@@ -23,6 +23,7 @@ export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıfl
 export interface Recipe {id:string;itemId:string;method:string;materials:{name:string;quantity:number}[];sourceId:string;verificationStatus:VerificationStatus;lastChecked:string}
 type TalismanBase={id:string;name:string;class:CharacterClass;color:"Kırmızı"|"Mavi";series:string;tier:1|2|3|null;value:number|null;unit:"percent"|"second"|null;effectText:string;requiresBase?:string;status:VerificationStatus;sourceId:string;verificationSourceIds?:string[];lastChecked:string};
 export type Talisman=TalismanBase&({effect:"stat_multiplier";targetAttributes:string[];outputAttribute:string}|{effect:"damage_multiplier"|"critical_multiplier"|"informational";targetAttributes?:never;outputAttribute?:never});
+export type TalismanAcquisition = "Büyük Hol düşümü" | "Reçeteyle üretim" | "Yalnız reçeteyle üretim";
 
 export const items = [...itemRows,...groupLootRows,...glassesRows] as Item[];
 const glassesStats:Stat[]=glassesStatRows.flatMap(row=>row.stats.map(([attribute,value],index)=>({id:`stat-${row.itemId}-${index}`,itemId:row.itemId,attribute:String(attribute),value:Number(value),unit:"puan",verificationStatus:"single_source" as const,lastChecked:"2026-08-23"})));
@@ -43,6 +44,7 @@ export const itemStats=(itemId:string)=>stats.filter(s=>s.itemId===itemId);
 export const publishableStats=(itemId:string)=>itemStats(itemId).filter(s=>isPublishable(s.verificationStatus));
 export const itemRecipe=(itemId:string)=>recipes.find(r=>r.itemId===itemId);
 export const sourceFor=(sourceId:string)=>sources.find(s=>s.id===sourceId);
+export const talismanAcquisition=(talisman:Talisman):TalismanAcquisition=>talisman.tier===1?"Büyük Hol düşümü":talisman.tier===2||talisman.tier===3?"Reçeteyle üretim":"Yalnız reçeteyle üretim";
 export const publishableItems=items.filter(item=>["name","class","slot"].every(field=>itemEvidence(item.id,field).some(e=>isPublishable(e.status))));
 export const statusLabel:Record<VerificationStatus,string>={draft:"Taslak",single_source:"Tek kaynak · teyit bekliyor",cross_verified:"Çapraz doğrulandı",conflicted:"Çelişkili"};
 export function sumStats(selected:(Item|undefined)[]){const total:Record<string,number>={};for(const item of selected)if(item)for(const stat of publishableStats(item.id))total[stat.attribute]=(total[stat.attribute]??0)+stat.value;return total}
