@@ -52,6 +52,16 @@ const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
     siyanur: "Siyanür",
   };
 type AbilityKey = "main" | "support" | "defense";
+const moduleTabs = [
+  { id: "builder", label: "Build" },
+  { id: "engine", label: "Tılsım" },
+  { id: "group-regions", label: "Bölgeler" },
+  { id: "items", label: "Eşyalar" },
+  { id: "endgame", label: "Endgame" },
+  { id: "mining", label: "Maden" },
+  { id: "skills", label: "Yetenek" },
+] as const;
+type MainModule = (typeof moduleTabs)[number]["id"];
 interface BuildSnapshot {
   v: number;
   klass: CharacterClass;
@@ -101,6 +111,7 @@ export default function Home() {
     [slotFilter, setSlotFilter] = useState("Tümü"),
     [compareIds, setCompareIds] = useState<string[]>([]),
     [detail, setDetail] = useState<Item | null>(null),
+    [activeModule, setActiveModule] = useState<MainModule>("builder"),
     [notice, setNotice] = useState("");
   const applySaved = (p: BuildSnapshot) => {
     setKlass(p.klass);
@@ -227,14 +238,9 @@ export default function Home() {
         <a href="#top">
           <b>İKV</b> EŞYA ARŞİVİ
         </a>
-        <nav>
-          <a href="#builder">Donanım planlayıcı</a>
-          <a href="#engine">Tılsım ve yetenek</a>
-          <a href="#group-regions">Grup bölgeleri</a>
-          <a href="#endgame">Endgame</a>
-          <a href="#mining">Madenler</a>
-          <a href="#items">Eşyalar</a>
-          <i>M4</i>
+        <nav className="top-status" aria-label="Açık modül">
+          <span>{moduleTabs.find((item) => item.id === activeModule)?.label}</span>
+          <i>M5</i>
         </nav>
       </header>
       <section className="hero" id="top">
@@ -260,7 +266,21 @@ export default function Home() {
           </p>
         </aside>
       </section>
-      <section className="builder" id="builder">
+      <nav className="moduleTabs" id="modules" role="tablist" aria-label="Rehber modülleri">
+        {moduleTabs.map((item, index) => (
+          <button
+            key={item.id}
+            role="tab"
+            aria-selected={activeModule === item.id}
+            className={activeModule === item.id ? "active" : ""}
+            onClick={() => setActiveModule(item.id)}
+          >
+            <small>{String(index + 1).padStart(2, "0")}</small>
+            <span>{item.label}</span>
+          </button>
+        ))}
+      </nav>
+      {activeModule === "builder" && <section className="builder" id="builder">
         <Title eyebrow="M2 · DONANIM PLANLAYICI" title="Sekiz yuvayı sen doldur">
           <div className="actions">
             <button
@@ -386,8 +406,8 @@ export default function Home() {
             <Totals totals={totals} />
           </div>
         </div>
-      </section>
-      <section className="engine" id="engine">
+      </section>}
+      {activeModule === "engine" && <section className="engine" id="engine">
         <Title
           eyebrow="M3 · TILSIM VE YETENEK HESAPLAYICI"
           title="Tılsımı denetle, puan planını kur"
@@ -457,12 +477,12 @@ export default function Home() {
           />
         </div>
         <AbilitySimulator key={klass} klass={klass} />
-      </section>
-      <GroupRegions onOpen={setDetail} />
-      <EndgameLab />
-      <MiningGuide />
-      <SkillGuides />
-      <section className="catalog" id="items">
+      </section>}
+      {activeModule === "group-regions" && <GroupRegions onOpen={setDetail} />}
+      {activeModule === "endgame" && <EndgameLab />}
+      {activeModule === "mining" && <MiningGuide />}
+      {activeModule === "skills" && <SkillGuides />}
+      {activeModule === "items" && <section className="catalog" id="items">
         <Title eyebrow="KANITLI EŞYA KATALOĞU" title="Eşya rehberi">
           <div className="catalogTools">
             <input
@@ -522,7 +542,7 @@ export default function Home() {
             Bu filtrelerle eşleşen kanıtlı eşya yok.
           </p>
         )}
-      </section>
+      </section>}
       {detail && <ItemModal item={detail} close={() => setDetail(null)} />}
     </main>
   );
