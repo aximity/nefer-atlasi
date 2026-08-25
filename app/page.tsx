@@ -3,6 +3,7 @@ import EndgameLab from "./EndgameLab";
 import MiningGuide from "./MiningGuide";
 import SkillGuides from "./SkillGuides";
 import ProjectScorecard from "./ProjectScorecard";
+import ContributionCenter from "./ContributionCenter";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -62,6 +63,7 @@ const moduleTabs = [
   { id: "mining", label: "Maden" },
   { id: "skills", label: "Yetenek" },
   { id: "health", label: "Gelişim" },
+  { id: "contribute", label: "Katkı" },
 ] as const;
 type MainModule = (typeof moduleTabs)[number]["id"];
 interface BuildSnapshot {
@@ -490,6 +492,7 @@ export default function Home() {
       {activeModule === "mining" && <MiningGuide />}
       {activeModule === "skills" && <SkillGuides />}
       {activeModule === "health" && <ProjectScorecard />}
+      {activeModule === "contribute" && <ContributionCenter />}
       {activeModule === "items" && <section className="catalog" id="items">
         <Title eyebrow="KAYNAK DURUMLU EŞYA KATALOĞU" title="Eşya rehberi">
           <div className="catalogTools">
