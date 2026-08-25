@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.17.0",
+  version: "0.18.0",
   channel: "BETA",
-  milestone: "M17",
+  milestone: "M18",
   releasedAt: "25 Ağustos 2026",
-  title: "Lonca lojistik masası",
+  title: "Bağlantılı Atlas",
   summary:
-    "Loncalar için haftalık hedef, katkı, oyun parası gideri ve artırıcı takibini tek paylaşılabilir masada birleştiren lojistik pilotu açıldı.",
+    "Eşya, boss, reçete, malzeme, geniş bölge, farm ve pazar verisini aynı doğrulanabilir bağlantı zincirinde birleştiren Atlas açıldı.",
   changes: [
-    "Haftalık malzeme, oyun parası, farm, grup bölgesi ve hazırlık hedefleri paylaşılabiliyor.",
-    "Üyeler oyun içi adlarıyla hedefe katkı işleyebiliyor ve son katkılarını geri çekebiliyor.",
-    "Lonca yöneticisi gider, artırıcı ve yeni hedef ekleyebiliyor; artırıcı yaşam döngüsü ayrı izleniyor.",
-    "Gerçek para, telefon ve özel grup bağlantısı tutulmuyor; yönetim anahtarı paylaşım bağlantısına eklenmiyor.",
+    "Eşya, malzeme, boss ve bölge kayıtları tek aramada ayrı türlerle süzülebiliyor.",
+    "Eşyanın ganimet kaynağı, oyun içi özellikleri, reçetesi ve malzeme ihtiyaçları aynı akışta gösteriliyor.",
+    "Malzemeden onu kullanan eşyalara, geniş bölgeye, maden rehberine ve pazar kaydına geri dönülebiliyor.",
+    "Kaynağı eşleşmeyen malzemelere tahmini bölge veya düşman atanmıyor; fiyat boşluğu uydurulmuyor.",
   ],
 } as const;

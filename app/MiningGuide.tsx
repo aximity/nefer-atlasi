@@ -94,7 +94,7 @@ export default function MiningGuide() {
       const requestedMaterial = new URLSearchParams(window.location.search).get("material");
       const requestedView = new URLSearchParams(window.location.search).get("view");
       if (requestedMaterial) setQuery(requestedMaterial);
-      if (requestedView === "Pazar") setView("Pazar");
+      if (["Sayaçlar", "Pazar", "Kaynaklar", "Gözlemler", "Artırıcılar"].includes(requestedView || "")) setView(requestedView as View);
       try {
         const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "null") as { timers?: Timer[]; observations?: Observation[] } | null;
         if (stored) {
@@ -206,7 +206,7 @@ export default function MiningGuide() {
           <label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Kaynak veya çıktı ara"/></label>
         </div>
         <p className="schematic-note">Madenci, Sarraf ve Lokman ile 1./2./3. çıktı zincirleri kaynak tablosundan alındı. Bölge dağılımı normal İKV ile aynıdır; Monazit, Yeşim Taşı ve Çiğdem Büyük Hol altında birlikte gösterilir.</p>
-        <div className="hol-specials creature-loot"><span>YARATIK GANİMETLERİ · MADEN DEĞİL</span>{creatureDropSources.map((item)=><article key={item.name}><b>{item.name}</b><small>{item.region} · {item.enemy} · {item.usage}</small><em>{item.verification}</em>{item.source&&<a href={item.source} target="_blank" rel="noreferrer">Kaynak ↗</a>}</article>)}</div>
+        <div className="hol-specials creature-loot"><span>YARATIK GANİMETLERİ · MADEN DEĞİL</span>{creatureDropSources.map((item)=><article key={item.name}><b>{item.name}</b><small>{item.region} · {item.enemy} · {item.usage}</small><em>{item.verification}</em>{item.source&&<a href={item.source} target="_blank" rel="noreferrer">Kaynak ↗</a>}<a href={`/?module=atlas&node=${encodeURIComponent(`material:${item.name.toLocaleLowerCase("tr-TR")}`)}#atlas`}>Atlas ↗</a></article>)}</div>
         <div className="catalog-sources"><a href={sources.officialJobs} target="_blank" rel="noreferrer">Resmî meslek tanımları ↗</a><a href={sources.historicalRegions} target="_blank" rel="noreferrer">Bölge ve çıktı rehberi ↗</a><a href={sources.potionRecipes} target="_blank" rel="noreferrer">İksir reçeteleri ↗</a></div>
         <div className="collection-list">{collectionShown.map(item=>{
           const usage = recipeUsage(item);
@@ -217,6 +217,7 @@ export default function MiningGuide() {
             <div className="point-pill"><b>{item.points}</b><small>puan</small></div>
             <div className="collection-region"><span>BÖLGE</span><b>{region}</b><small>{region === "Bölge kaydı eksik" ? "Bölge kaydı bulunamadı" : "İKV bölge dağılımı"}</small></div>
             <div className="recipe-usage"><span>REÇETE KULLANIMI</span>{usage.equipment.length>0&&<p><b>Ekipman:</b> {usage.equipment.slice(0,4).map((equipment,index)=><span key={equipment.id}>{index>0&&" · "}<a href={`/?module=items&item=${equipment.id}#items`}>{equipment.name}</a></span>)}{usage.equipment.length>4?` · +${usage.equipment.length-4} kayıt`:""}</p>}{usage.potions.length>0&&<p><b>İksir örnekleri:</b> {usage.potions.join(" · ")}</p>}{usage.equipment.length===0&&usage.potions.length===0&&<p>Taranan reçete kataloğunda kullanım kaydı bulunamadı; katkı bekleniyor.</p>}</div>
+            <div className="atlas-output-links">{[item.base,item.second,item.third].filter(Boolean).map((name)=><a key={name} href={`/?module=atlas&node=${encodeURIComponent(`material:${String(name).toLocaleLowerCase("tr-TR")}`)}#atlas`}>{name} bağlantıları ↗</a>)}</div>
           </article>;
         })}</div>
         <div className="cap-warning"><div><small>49 ÜSTÜ REFERANS</small><h4>Aktif KÖ farm listesine alınmadı</h4></div><ul>{aboveCapRows.filter(x=>x.profession===profession).map(x=><li key={x.chain}><span>{x.chain}</span><b>{x.points} puan</b></li>)}</ul></div>

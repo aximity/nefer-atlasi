@@ -4,6 +4,7 @@ import MiningGuide from "./MiningGuide";
 import SkillGuides from "./SkillGuides";
 import ProjectScorecard from "./ProjectScorecard";
 import ContributionCenter from "./ContributionCenter";
+import ConnectedAtlas from "./ConnectedAtlas";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -63,6 +64,7 @@ const moduleTabs = [
   { id: "engine", label: "Tılsım" },
   { id: "group-regions", label: "Bölgeler" },
   { id: "items", label: "Eşyalar" },
+  { id: "atlas", label: "Atlas" },
   { id: "endgame", label: "Endgame" },
   { id: "mining", label: "Maden" },
   { id: "skills", label: "Yetenek" },
@@ -590,6 +592,7 @@ export default function Home() {
           </p>
         )}
       </section>}
+      {activeModule === "atlas" && <ConnectedAtlas />}
       <footer className="siteFooter">
         <div>
           <b>NEFER ATLASI</b>
@@ -1051,6 +1054,7 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
                         : materialSource?.kind === "creature_drop"
                           ? <small>{materialSource.region} · {materialSource.enemy} ganimeti · {materialSource.verification} · <a href={`/?module=mining&material=${encodeURIComponent(material.name)}#mining`}>kaynaklarda aç ↗</a></small>
                           : <small>Kaynak eşleşmesi henüz yok</small>}
+                      <a href={`/?module=atlas&node=${encodeURIComponent(`material:${material.name.toLocaleLowerCase("tr-TR")}`)}#atlas`}>bağlantılı atlas ↗</a>
                     </span>;
                   })}
                 </dd>
@@ -1071,6 +1075,7 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
         {recipeSource && recipeSource.id !== source?.id && (
           <a className="sourceLink secondary" href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı · {recipeSource.title} ↗</a>
         )}
+        <a className="sourceLink secondary" href={`/?module=atlas&node=${encodeURIComponent(`item:${item.id}`)}#atlas`}>Eşyanın bağlantılı atlasını aç ↗</a>
       </article>
     </div>
   );
