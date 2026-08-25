@@ -10,6 +10,7 @@ import { items, recipes } from "../lib/catalog";
 import {
   gatheringRegionFor,
   gatheringRows,
+  specialMaterialSources,
   type GatheringProfession,
 } from "../lib/gathering-catalog";
 
@@ -220,6 +221,7 @@ export default function MiningGuide() {
           <label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Kaynak veya çıktı ara"/></label>
         </div>
         <p className="schematic-note">Madenci, Sarraf ve Lokman ile 1./2./3. çıktı zincirleri kaynak tablosundan alındı. Bölge dağılımı normal İKV ile aynıdır; Monazit, Yeşim Taşı ve Çiğdem Büyük Hol altında birlikte gösterilir.</p>
+        <div className="hol-specials"><span>BÜYÜK HOL ÖZEL MALZEMELERİ</span>{specialMaterialSources.map((item)=><article key={item.name}><b>{item.name}</b><small>{item.region} · tılsım reçete malzemesi · standart meslek çıktı zincirinden ayrı</small></article>)}</div>
         <div className="catalog-sources"><a href={sources.officialJobs} target="_blank" rel="noreferrer">Resmî meslek tanımları ↗</a><a href={sources.historicalRegions} target="_blank" rel="noreferrer">Bölge ve çıktı rehberi ↗</a><a href={sources.potionRecipes} target="_blank" rel="noreferrer">İksir reçeteleri ↗</a></div>
         <div className="collection-list">{collectionShown.map(item=>{
           const usage = recipeUsage(item);

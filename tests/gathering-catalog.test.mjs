@@ -27,3 +27,9 @@ test("reçete malzemesi ikinci ve üçüncü çıktısından ana kaynağa döner
 test("toplayıcılık dışı üretim malzemesine sahte bölge atanmaz", () => {
   assert.equal(gatheringSourceFor("Peptit Kolorotoksin"), null);
 });
+
+test("Xenotim yanlış bir mesleğe bağlanmadan Büyük Hol özel malzemesi kalır", () => {
+  const source = gatheringSourceFor("Xenotim");
+  assert.equal(source?.profession, "Özel Hol malzemesi");
+  assert.equal(source?.region, "Büyük Hol");
+});
