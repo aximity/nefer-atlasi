@@ -2,27 +2,62 @@
 
 import { useMemo, useState } from "react";
 
-type View = "Pazar" | "Bölgeler" | "Artırıcılar";
+type View = "Pazar" | "Kaynaklar" | "Bölgeler" | "Artırıcılar";
+type Profession = "Madenci" | "Sarraf";
 
 const regions = [
-  { name: "Eminönü", mark: "EM", note: "Rota noktaları saha kaydı bekliyor" },
-  { name: "Antrepo", mark: "AN", note: "Rota noktaları saha kaydı bekliyor" },
-  { name: "Labirent", mark: "LB", note: "Rota noktaları saha kaydı bekliyor" },
-  { name: "Meteor Bölgesi", mark: "MT", note: "Resmî kaynakta maden bakımından zengin" },
-  { name: "Sivri Ada", mark: "SA", note: "Rota noktaları saha kaydı bekliyor" },
-  { name: "Yeraltı", mark: "YA", note: "Yeraltı kaynaklarıyla ilişkilendiriliyor" },
-  { name: "Büyük Hol", mark: "BH", note: "Eski Arz madenleri ve tünelleri" },
-  { name: "Topkapı Sarayı", mark: "TS", note: "Rota noktaları saha kaydı bekliyor" },
-  { name: "Karaköy", mark: "KK", note: "Kıyametin Öncüleri sunucusunda bulunmuyor" },
+  { name: "Eminönü", mark: "EM", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
+  { name: "Antrepo", mark: "AN", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
+  { name: "Labirent", mark: "LB", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
+  { name: "Meteor Bölgesi", mark: "MT", note: "Resmî kaynakta maden bakımından zengin", verified: true },
+  { name: "Sivri Ada", mark: "SA", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
+  { name: "Yeraltı", mark: "YA", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
+  { name: "Büyük Hol", mark: "BH", note: "Lojman madenleri alt rotası; Xenotim ve Jadeit oyuncu saha bilgisi", field: true },
+  { name: "Topkapı Sarayı", mark: "TS", note: "Bölge adı kaynaklı; damar noktaları saha kaydı bekliyor" },
 ];
 
 const materials = [
-  { name: "Xenotim", kind: "Tılsım malzemesi", demand: "Çok sayıda sınıf tılsımı", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Kullanıcı gözlemi · Ağu 2026", tone: "violet" },
-  { name: "Kondrit", kind: "Tılsım malzemesi", demand: "II–III kademe tılsım reçeteleri", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Tek reçete kaynağında listeleniyor", tone: "amber" },
-  { name: "Gadolinyum", kind: "Nadir madenci çıktısı", demand: "Çeşitli sınıf tılsımları", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Monazit'in 2. seviye çıktısı", tone: "cyan" },
-  { name: "Jadeit", kind: "Değerli taş / reçete girdisi", demand: "Çeşitli sınıf tılsımları", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Tek reçete kaynağında listeleniyor", tone: "green" },
-  { name: "Saf Altın", kind: "Saf madenci çıktısı", demand: "Şaheser eşya üretimi", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Altın'ın 2. seviye çıktısı", tone: "gold" },
-  { name: "Euksenit", kind: "Madenci kaynağı", demand: "Skandiyum / Yttrium çekimi", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "50 toplama puanı", tone: "blue" },
+  { name: "Xenotim", kind: "Reçete malzemesi", demand: "Birden çok sınıfın tılsım reçetesinde geçiyor", game: "Veri bekleniyor", real: "150–200 TL", trend: "↓", status: "Büyük Hol · Lojman / oyuncu saha bilgisi", tone: "violet" },
+  { name: "Kondrit", kind: "Reçete malzemesi", demand: "II–III kademe tılsım reçetelerinde geçiyor", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Toplayıcı türü ve bölgesi teyit bekliyor", tone: "amber" },
+  { name: "Gadolinyum", kind: "Madenci çıktısı", demand: "Monazit kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "45 toplama puanı · kaynaklı", tone: "cyan" },
+  { name: "Jadeit", kind: "Sarraf çıktısı", demand: "Yeşim Taşı kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "Büyük Hol · Lojman / oyuncu saha bilgisi", tone: "green" },
+  { name: "Saf Altın", kind: "Madenci çıktısı", demand: "Altın kaynağının ikinci çıktısı", game: "Veri bekleniyor", real: "Veri bekleniyor", trend: "—", status: "23 toplama puanı · kaynaklı", tone: "gold" },
+];
+
+const collectionRows: { profession: Profession; base: string; second?: string; third?: string; points: number }[] = [
+  { profession: "Madenci", base: "Bakır", second: "Saf Bakır", points: 1 },
+  { profession: "Madenci", base: "Kalay", second: "Saf Kalay", points: 3 },
+  { profession: "Madenci", base: "Kurşun", second: "Saf Kurşun", points: 5 },
+  { profession: "Madenci", base: "Demir", second: "Saf Demir", points: 7 },
+  { profession: "Madenci", base: "Nikel", second: "Saf Nikel", points: 10 },
+  { profession: "Madenci", base: "Krom", second: "Saf Krom", points: 18 },
+  { profession: "Madenci", base: "Gümüş", second: "Saf Gümüş", points: 20 },
+  { profession: "Madenci", base: "Altın", second: "Saf Altın", points: 23 },
+  { profession: "Madenci", base: "Tungsten", second: "Saf Tungsten", third: "Şelit", points: 30 },
+  { profession: "Madenci", base: "Platin", second: "Saf Platin", points: 36 },
+  { profession: "Madenci", base: "Titanyum", second: "Saf Titanyum", points: 40 },
+  { profession: "Madenci", base: "Osmiridyum", second: "Osmiyum", third: "İridyum", points: 45 },
+  { profession: "Madenci", base: "Monazit", second: "Gadolinyum", points: 45 },
+  { profession: "Sarraf", base: "Kuvars", points: 1 },
+  { profession: "Sarraf", base: "Obsidyen", points: 1 },
+  { profession: "Sarraf", base: "Kan Taşı", points: 5 },
+  { profession: "Sarraf", base: "Açık Mavi Lapis", second: "Koyu Mavi Lapis", points: 8 },
+  { profession: "Sarraf", base: "Turkuaz", points: 10 },
+  { profession: "Sarraf", base: "Ametist", second: "Açık Pempe Ametist", third: "Sibiryalı", points: 15 },
+  { profession: "Sarraf", base: "Kalsedon", second: "Kripraz", third: "Akik", points: 21 },
+  { profession: "Sarraf", base: "Elmas", second: "Yeşil Elmas", third: "Menekşe Elmas", points: 23 },
+  { profession: "Sarraf", base: "Mavi Safir", second: "Turuncu Safir", points: 33 },
+  { profession: "Sarraf", base: "Beril", second: "Yeşil Zümrüt", third: "Kızıl Zümrüt", points: 37 },
+  { profession: "Sarraf", base: "Topaz", second: "Mavi Topaz", points: 40 },
+  { profession: "Sarraf", base: "Krizoberil", second: "Alexandrite", points: 45 },
+  { profession: "Sarraf", base: "Yeşim Taşı", second: "Jadeit", points: 45 },
+];
+
+const aboveCapRows = [
+  { profession: "Madenci", chain: "Euksenit → Skandiyum → Yttrium", points: 50 },
+  { profession: "Madenci", chain: "Lantan → Turyum → Erbium", points: 55 },
+  { profession: "Sarraf", chain: "Fluorit → Mavi John → Taaffeite", points: 50 },
+  { profession: "Sarraf", chain: "Bor → Ludwigite → Painite", points: 55 },
 ];
 
 const sources = {
@@ -37,7 +72,9 @@ const sources = {
 export default function MiningGuide() {
   const [view, setView] = useState<View>("Pazar");
   const [query, setQuery] = useState("");
+  const [profession, setProfession] = useState<Profession>("Madenci");
   const shown = useMemo(() => materials.filter((item) => item.name.toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"))), [query]);
+  const collectionShown = useMemo(() => collectionRows.filter((item) => item.profession === profession && [item.base, item.second, item.third].filter(Boolean).join(" ").toLocaleLowerCase("tr").includes(query.toLocaleLowerCase("tr"))), [profession, query]);
 
   return <section className="mining" id="mining">
     <div className="mining-hero">
@@ -56,7 +93,7 @@ export default function MiningGuide() {
     </div>
 
     <div className="mining-shell">
-      <div className="mining-tabs" role="tablist">{(["Pazar","Bölgeler","Artırıcılar"] as View[]).map(x=><button key={x} className={view===x?"active":""} onClick={()=>setView(x)}>{x}</button>)}</div>
+      <div className="mining-tabs" role="tablist">{(["Pazar","Kaynaklar","Bölgeler","Artırıcılar"] as View[]).map(x=><button key={x} className={view===x?"active":""} onClick={()=>{setView(x);setQuery("");}}>{x}</button>)}</div>
 
       {view === "Pazar" && <div className="mining-panel">
         <div className="mining-panel-head"><div><span>CANLI VERİ İSKELETİ</span><h3>Maden değer defteri</h3></div><label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Malzeme ara"/></label></div>
@@ -69,10 +106,28 @@ export default function MiningGuide() {
         <div className="value-logic"><div><span>01</span><h4>Reçete talebi</h4><p>Bir malzeme farklı sınıfların çok sayıda tılsım veya şaheser reçetesinde geçiyorsa sürekli talep görür.</p></div><div><span>02</span><h4>Erişim ve çekim</h4><p>Bölge erişimi, kaynak yoğunluğu, toplama puanı ve saf/nadir çekim olasılığı arzı belirler.</p></div><div><span>03</span><h4>Pazar baskısı</h4><p>Yoğun farm, rota tekeli ve stokların pazara aynı anda girmesi fiyatı aşağı çekebilir.</p></div></div>
       </div>}
 
+      {view === "Kaynaklar" && <div className="mining-panel">
+        <div className="mining-panel-head"><div><span>49 SEVİYE KAPSAM DENETİMİ</span><h3>Toplayıcılık kataloğu</h3></div><a href={sources.professions} target="_blank" rel="noreferrer">Ad tablosu ↗</a></div>
+        <div className="collection-tools">
+          <div>{(["Madenci","Sarraf"] as Profession[]).map(x=><button key={x} className={profession===x?"active":""} onClick={()=>setProfession(x)}>{x}</button>)}</div>
+          <label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Kaynak veya çıktı ara"/></label>
+        </div>
+        <p className="schematic-note">Adlar ve çıktı zincirleri Fandom Toplayıcılık tablosuyla karşılaştırıldı. Puan eşiği 45 ve altında olsa bile KÖ sunucusunda fiilî erişim ile kesin bölge noktası saha kaydı gelene kadar ayrı tutulur.</p>
+        <div className="collection-list">{collectionShown.map(item=><article key={`${item.profession}-${item.base}`}>
+          <div><small>{item.profession}</small><h4>{item.base}</h4></div>
+          <div className="output-chain"><span>{item.base}</span>{item.second&&<><i>→</i><span>{item.second}</span></>}{item.third&&<><i>→</i><span>{item.third}</span></>}</div>
+          <div className="point-pill"><b>{item.points}</b><small>puan</small></div>
+          <p>Kesin KÖ bölgesi: <strong>{item.base === "Yeşim Taşı" ? "Büyük Hol · Lojman (oyuncu bilgisi)" : "saha teyidi bekliyor"}</strong></p>
+        </article>)}</div>
+        <div className="cap-warning"><div><small>49 ÜSTÜ REFERANS</small><h4>Aktif KÖ farm listesine alınmadı</h4></div><ul>{aboveCapRows.filter(x=>x.profession===profession).map(x=><li key={x.chain}><span>{x.chain}</span><b>{x.points} puan</b></li>)}</ul></div>
+        <p className="source-typo-note">Kaynak tablosundaki “Açık Pempe Ametist” yazımı aynen korunmuştur; oyun içi ekran görüntüsüyle doğru yazım teyit edilene kadar düzeltilmiş gibi gösterilmez.</p>
+      </div>}
+
       {view === "Bölgeler" && <div className="mining-panel">
         <div className="mining-panel-head"><div><span>ŞEMATİK BÖLGE İNDEKSİ</span><h3>Maden rotaları</h3></div><a href={sources.regions} target="_blank" rel="noreferrer">Harita kaynağı ↗</a></div>
-        <p className="schematic-note">Bu görünüm coğrafi koordinat haritası değildir. Yanlış nokta üretmemek için kesin damar konumları, gelecek ay yapılacak saha kayıtlarıyla adım adım işaretlenecek.</p>
-        <div className="region-map">{regions.map((r,i)=><article className={(r.name==="Meteor Bölgesi"||r.name==="Büyük Hol")?"verified":""} key={r.name}><span>{String(i+1).padStart(2,"0")}</span><div className="region-mark">{r.mark}</div><h4>{r.name}</h4><p>{r.note}</p><small>{(r.name==="Meteor Bölgesi"||r.name==="Büyük Hol")?"Kaynaklı not":"Saha verisi bekleniyor"}</small></article>)}</div>
+        <p className="schematic-note">Bu görünüm coğrafi koordinat haritası değildir. Fandom indeksindeki bölge adları doğrulandı; kesin maden–bölge ve damar noktası eşlemesi saha kayıtları gelmeden doğrulanmış sayılmayacak.</p>
+        <div className="ko-region-note"><b>Karaköy ayrımı</b><span>Normal İKV harita indeksinde var; Kıyametin Öncüleri sunucusunda olmadığı için aktif rota listesinden çıkarıldı.</span></div>
+        <div className="region-map">{regions.map((r,i)=><article className={r.verified?"verified":r.field?"field":""} key={r.name}><span>{String(i+1).padStart(2,"0")}</span><div className="region-mark">{r.mark}</div><h4>{r.name}</h4><p>{r.note}</p><small>{r.verified?"Resmî bölge notu":r.field?"Oyuncu saha bilgisi":"Bölge adı kaynaklı"}</small></article>)}</div>
         <div className="field-log"><div><small>GELECEK AY · SAHA ŞABLONU</small><h4>Her turda dört şeyi kaydet</h4></div><ol><li><b>Konum</b><span>Bölge + ekran görüntüsü</span></li><li><b>Süre</b><span>Tur ve yeniden doğma zamanı</span></li><li><b>Çıktı</b><span>Normal / saf / nadir adet</span></li><li><b>Pazar</b><span>O gün görülen oyun parası fiyatı</span></li></ol></div>
       </div>}
 

@@ -524,6 +524,9 @@ export default function Home() {
           <b>Doğrulama notu:</b> “Tek kaynak” etiketi kesin bilgi anlamına gelmez.
           Bu kayıtlar ikinci bağımsız kaynak veya aynı eşya adını gösteren oyun içi
           ekran görüntüsü gelene kadar teyit bekler; çelişkili değerler hesaplara alınmaz.
+          Çemberlitaş adları resmî eşya listeleriyle, Sığınaklar ve Migrat adları sınıf
+          ganimet tablolarıyla karşılaştırıldı. “Farabi Modeli Farabi Modeli” gibi tekrarlar
+          kaynakta çift efsunu ifade ettiği için otomatik olarak silinmez.
         </p>
         <p className="resultCount">
           {filtered.length} eşya gösteriliyor · Aynı sınıf ve yuvadan iki eşyayı

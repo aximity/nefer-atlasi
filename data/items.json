@@ -745,6 +745,9 @@
     "rarity": "Doğrulanmadı",
     "appearanceFamily": "alternator",
     "publicationStatus": "single_source",
-    "lastChecked": "2026-08-23"
+    "lastChecked": "2026-08-25",
+    "region": "Sığınaklar",
+    "boss": "Kenan",
+    "acquisition": "Kenan ganimeti"
   }
 ]
