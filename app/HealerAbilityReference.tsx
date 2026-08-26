@@ -56,11 +56,19 @@ export default function HealerAbilityReference() {
         })}
       </div>
 
-      <div className="healerAbilityWaiting">
-        <b>Sonraki görsel paketi</b>
-        <p>{waiting.map((ability) => ability.name).join(" · ")}</p>
-        <small>Bu beş yetenek adı kayıtlı; sayısal tooltip ayrıntıları henüz yayımlanmadı.</small>
-      </div>
+      {waiting.length > 0 ? (
+        <div className="healerAbilityWaiting">
+          <b>Sonraki görsel paketi</b>
+          <p>{waiting.map((ability) => ability.name).join(" · ")}</p>
+          <small>Bu yeteneklerin adları kayıtlı; sayısal tooltip ayrıntıları henüz yayımlanmadı.</small>
+        </div>
+      ) : (
+        <div className="healerAbilityWaiting complete">
+          <b>Şifacı sınıfı tamamlandı · 15/15</b>
+          <p>Tüm temel şifacı yetenekleri oyun içi görüntü ve KÖ rehberiyle kayıtlı.</p>
+          <small>Yeni bir metin farkı görülürse ilgili kartın kaynak görüntüsü üzerinden yeniden doğrulanır.</small>
+        </div>
+      )}
     </section>
   );
 }

@@ -108,8 +108,8 @@ test("özellik birimleri kullanıcıya açık Türkçe veri sözlüğü kullanı
 });
 test("efsun serileri büyü ve direnç kademelerini kapsar",()=>{assert.equal(enchantSeries.length,11);assert.ok(enchantSeries.flatMap(series=>series.entries).length>=128);for(const series of enchantSeries)assert.ok(series.entries.every(([name,value])=>name&&value>0))});
 test("üç sınıfın 45 temel yeteneği açılma seviyeleriyle kayıtlıdır",()=>{assert.equal(abilities.length,45);for(const klass of ["Savaşçı","Büyücü","Şifacı"]){const classAbilities=abilities.filter(ability=>ability.class===klass);assert.equal(classAbilities.length,15);for(const level of [1,10,20,30,40])assert.equal(classAbilities.filter(ability=>ability.unlockLevel===level).length,3,`${klass} ${level}. seviye`)}assert.ok(!abilities.some(ability=>ability.name==="Boz Ayı"),"Boz Ayı, Kanatma varyantıdır; ayrı temel yetenek değildir")});
-test("şifacının ilk on yeteneği oyun içi tooltip ve bağımsız KÖ rehberiyle doğrulanır",()=>{
-  assert.equal(abilityDetails.length,10);
+test("şifacının 15 temel yeteneği oyun içi tooltip ve bağımsız KÖ rehberiyle doğrulanır",()=>{
+  assert.equal(abilityDetails.length,15);
   const sourceById=new Map(sources.map(source=>[source.id,source]));
   for(const detail of abilityDetails){
     const ability=abilities.find(ability=>ability.id===detail.abilityId);
@@ -123,6 +123,7 @@ test("şifacının ilk on yeteneği oyun içi tooltip ve bağımsız KÖ rehberi
   assert.deepEqual(abilityDetails.map(detail=>detail.abilityId),[
     "healer-heal","healer-poison","healer-heal-knowledge","healer-revive","healer-spirit-shield",
     "healer-meditation","healer-acid","healer-dispel","healer-acid-knowledge","healer-physical-field",
+    "healer-element-field","healer-wrath","healer-summon","healer-lifesaver","healer-heal-circle",
   ]);
 });
 test("medya pilotu üç sınıfta sahte dosya kullanmadan bekleme durumu açar",()=>{assert.equal(abilityMedia.length,3);assert.deepEqual(new Set(abilityMedia.map(row=>abilities.find(ability=>ability.id===row.abilityId)?.class)),new Set(["Savaşçı","Büyücü","Şifacı"]));for(const row of abilityMedia){assert.equal(row.status,"awaiting_capture");assert.equal(row.poster,null);assert.deepEqual(row.sources,[]);assert.equal(row.audio,null);assert.deepEqual(row.sourceIds,[])}});

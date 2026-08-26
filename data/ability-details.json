@@ -176,5 +176,91 @@
     "evidenceImage": "/evidence/healer-abilities/fiziksel-direnc-alani.webp",
     "status": "cross_verified",
     "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-element-field",
+    "target": "Çevre",
+    "effect": "Ateş, buz ve elektrik dirençlerini artırır.",
+    "duration": "Başlangıçta 2 dk",
+    "cooldown": "1 sn",
+    "progression": [
+      "1 puanda 100 direnç artırır; her puan 10 direnç artırır ve kudret gereksinimini %3 azaltır.",
+      "5 puanda süre 3 dk olur.",
+      "10 puanda süre 4 dk olur ve toplam 200 direnç artırır; 10 puandan itibaren her puan 20 direnç artırır.",
+      "15 puanda süre 5 dk olur ve zehir ile asit dirençlerini de 100 artırır."
+    ],
+    "sourceId": "player-healer-element-field-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/element-direnc-alani.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-wrath",
+    "target": "Kendisi",
+    "effect": "Gazap moduna girer; bu modda verilen hasar artar. İyileştirme büyüleri ve Can Kurtaran kullanılamaz.",
+    "duration": "Yok",
+    "cooldown": "5 sn",
+    "progression": [
+      "Her puan %2 daha fazla hasar verir.",
+      "Gazap açıkken iyileştirme büyüleri ve Can Kurtaran kullanılamaz."
+    ],
+    "sourceId": "player-healer-wrath-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/gazap.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-summon",
+    "target": "Yok",
+    "effect": "Kendisine yardımcı olacak aynı seviyede bir dost hayvan çağırır. Hayvan çağrıldığı alanda kalıp savaşır; şifacısını takip etmez.",
+    "duration": "Başlangıçta 15 sn",
+    "cooldown": "Başlangıçta 15 sn",
+    "progression": [
+      "Her puanda yenilenme ve etki süresi 3 sn artar.",
+      "5 puanda hayvanın enerjisi %20 artar; 5 puandan itibaren her puan kudret gereksinimini %3 azaltır.",
+      "10 puanda hayvanın enerjisi %40 artar.",
+      "15 puanda hayvanın enerjisi %50 ve hasarı %10 artar."
+    ],
+    "sourceId": "player-healer-summon-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/cagri.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-lifesaver",
+    "target": "Müttefik",
+    "effect": "Hedefin bir sonraki maruz kalacağı, toplam enerjisinin %5'inden fazla olan her çeşit hasarın büyük bir kısmından etkilenmemesini sağlar.",
+    "duration": "90 sn; hasar alınca biter",
+    "cooldown": "Başlangıçta 20 sn",
+    "progression": [
+      "Başlangıçta bir sonraki hasara karşı hasar indirgeme miktarı %30'dur; her puan miktarı %2 artırır.",
+      "5 puandan itibaren her puan kudret gereksinimini %3 azaltır; 5 puanda hasar indirgeme miktarı ayrıca %10 artar.",
+      "10 puanda hasar indirgeme miktarı ayrıca %10 artar.",
+      "15 puanda hasar indirgeme miktarı %90 olur ve yenilenme süresi 15 sn olur."
+    ],
+    "sourceId": "player-healer-lifesaver-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/can-kurtaran.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-heal-circle",
+    "target": "Kendisi ve çevresi",
+    "effect": "Çevresindeki grup üyesi dostlarına her 3 sn'de bir iyileştirme yapar.",
+    "duration": "20 sn",
+    "cooldown": "Başlangıçta 6 sn",
+    "progression": [
+      "Her puan iyileştirme miktarını %10 ve menzili %1,6 artırır; yenilenme süresini 0,1 sn azaltır.",
+      "Şifa Bilgisinden etkilenir."
+    ],
+    "sourceId": "player-healer-heal-circle-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/iyilestirme-cemberi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
   }
 ]

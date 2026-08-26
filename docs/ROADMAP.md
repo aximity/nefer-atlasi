@@ -53,15 +53,23 @@
 - [x] Mobil uyumlu açılır yetenek kartlarını yayıma hazırla
 - [x] Mikro şartname, hata ve veri kanıtı şablonlarını kur
 
-## Aktif — M24: Şifacı yetenek kapsamını tamamlama
+## Tamamlandı — M24: Şifacı yetenek kapsamını tamamlama
 
-- [ ] Element Direnç Alanı oyun içi tooltip kanıtı
-- [ ] Gazap oyun içi tooltip kanıtı
-- [ ] Çağrı oyun içi tooltip kanıtı
-- [ ] Can Kurtaran oyun içi tooltip kanıtı
-- [ ] İyileştirme Çemberi oyun içi tooltip kanıtı
+- [x] Element Direnç Alanı oyun içi tooltip kanıtı
+- [x] Gazap oyun içi tooltip kanıtı
+- [x] Çağrı oyun içi tooltip kanıtı
+- [x] Can Kurtaran oyun içi tooltip kanıtı
+- [x] İyileştirme Çemberi oyun içi tooltip kanıtı
 
 Çıkış kapısı: 15 şifacı yeteneğinin tamamı tarihli oyun içi görüntüye bağlıdır; okunmayan değer tahmin edilmez.
+
+## Aktif — M25: Özel kullanım doğrulaması
+
+- [ ] On beş yetenek kartını gerçek kullanım sırasında kontrol et
+- [ ] Bildirilen metin farklarını yeni ekran görüntüsüyle kanıt kuyruğuna al
+- [ ] Kullanıcı açıkça istemeden siteyi herkese açma
+
+Çıkış kapısı: Görülen farklar ekran görüntüsüyle çözülür; erişim, kullanıcı açılmasını isteyene kadar yalnızca sahibinde kalır.
 
 ## Şimdilik yapılmayacaklar
 

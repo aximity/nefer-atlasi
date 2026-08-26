@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Şifacı yetenek kapsamı 15/15
+
+- Element Direnç Alanı, Gazap, Çağrı, Can Kurtaran ve İyileştirme Çemberi oyun içi tooltip verileri eklendi.
+- Beş yeni kayıt kırpılmış kanıt görüntüleri ve Kıyametin Öncüleri rehberiyle çapraz doğrulandı.
+- Yetenek sözlüğü 15/15 tamamlandı; bekleme kutusu otomatik tamamlanma durumuna geçirildi.
+- Site sahibine özel erişim kararı M25 doğrulama sürecinde korunacak şekilde yol haritasına işlendi.
+
 ## 2026-08-26 — Şifacı Yetenek Sözlüğü ve proje kalite omurgası
 
 - On şifacı yeteneğinin oyun içi hedef, etki, süre, yenilenme ve puan eşikleri kaynak görüntüleriyle eklendi.
