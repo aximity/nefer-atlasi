@@ -21,6 +21,20 @@ test("pazar medyanı para birimlerini karıştırmaz ve az veriyi güçlü göst
   ];
   const [summary] = summarizeMarket(rows, { currency: "TL", mode: "Satış", now });
   assert.equal(summary.sevenDayMedian, 175);
-  assert.equal(summary.totalCount, 2);
+  assert.equal(summary.totalCount, 4);
   assert.equal(summary.evidence.label, "Ön sinyal");
+});
+
+test("alım teklifi ile satılık fiyatını ayırır ve anonim kaynak ağırlığını korur", () => {
+  const now = new Date("2026-08-26T18:00:00Z").getTime();
+  const rows = [
+    { ...row("1", "Jadeit", "2026-08-25", { quantity: 1, currency: "TL", price: 150, listingType: "İlan", tradeDirection: "Alınır" }), sourceCount: 3 },
+    { ...row("2", "Jadeit", "2026-08-25", { quantity: 1, currency: "TL", price: 300, listingType: "İlan", tradeDirection: "Satılık" }), sourceCount: 2 },
+  ];
+  const [ask] = summarizeMarket(rows, { currency: "TL", direction: "Satılık", now });
+  const [bid] = summarizeMarket(rows, { currency: "TL", direction: "Alınır", now });
+  assert.equal(ask.sevenDayMedian, 300);
+  assert.equal(ask.sevenDayCount, 2);
+  assert.equal(bid.sevenDayMedian, 150);
+  assert.equal(bid.sevenDayCount, 3);
 });

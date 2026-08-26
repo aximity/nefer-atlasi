@@ -30,7 +30,7 @@ const modules = [
   ["06", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
   ["07", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
   ["08", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
-  ["09", "Gelişim", "Sağlık puanını ve M19 eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
+  ["09", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
   ["10", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
 ] as const;
 
@@ -65,6 +65,37 @@ const journeys = [
   },
 ];
 
+const portalSources = [
+  {
+    label: "SUNUCU REHBERİ",
+    title: "Sınıflar, bölgeler ve sistemler",
+    description: "Kıyametin Öncüleri sunucusuna özgü mekanikleri kontrol etmek için tek kaynak olarak kullanılır; resmî İKV kaynağı sayılmaz.",
+    href: "https://kiyametoyun.net/rehber",
+    action: "Rehberi aç",
+  },
+  {
+    label: "GÜNCELLEME AKIŞI",
+    title: "Haberler ve değişiklik notları",
+    description: "Yeni etkinlik, yama ve sunucu değişikliklerini izlemek için kullanılabilir; tarihli iddialar gerektiğinde ikinci kanıt bekler.",
+    href: "https://kiyametoyun.net/haberler",
+    action: "Haberleri aç",
+  },
+  {
+    label: "CANLI VERİ",
+    title: "Oyuncu sıralaması",
+    description: "Sınıf, seviye ve sıralama görünümü değişkendir. Statik kataloğa kopyalanmaz; güncel sonuç doğrudan portalda açılır.",
+    href: "https://kiyametoyun.net/siralama",
+    action: "Sıralamayı aç",
+  },
+  {
+    label: "CANLI VERİ",
+    title: "Lonca sıralaması",
+    description: "Lonca puanı ve sırası canlı kaynaktan okunur. Nefer Atlası bu veriyi kalıcı gerçek gibi saklamaz.",
+    href: "https://kiyametoyun.net/lonca",
+    action: "Loncaları aç",
+  },
+] as const;
+
 export default function GuidePage() {
   return (
     <main className="guidePage">
@@ -72,7 +103,7 @@ export default function GuidePage() {
         <Link className="guideBrand" href="/">
           <b>N</b><span><strong>NEFER ATLASI</strong><small>KULLANIM REHBERİ</small></span>
         </Link>
-        <nav><Link href="/">Ana site</Link><i>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</i></nav>
+        <nav><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a><Link href="/">Ana site</Link><i>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</i></nav>
       </header>
 
       <section className="guideHero">
@@ -125,13 +156,22 @@ export default function GuidePage() {
         <article><small>SAHA PİLOTU / EDİTÖR</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Uzun farm oturumları, kişisel verim kayıtları ve moderasyon araçları yalnız yetkilendirilmiş hesaplara açıktır.</p><span>Herkese açık sayaçlar ise giriş istemeden cihazında çalışır.</span></article>
       </section>
 
+      <section className="guidePortal">
+        <header>
+          <div><p>GÜNCEL SUNUCU PORTALI</p><h2>Canlı bilgiyi doğru yerde kullan.</h2></div>
+          <a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">kiyametoyun.net ↗</a>
+        </header>
+        <p className="guidePortalNote">Portal, kendi beyanına göre bağımsız bir özel sunucu/topluluk projesidir. Bu kaynaklar orijinal oyunun resmî yayıncısı yerine geçmez. Giriş gerektiren mağaza ve hesap alanları değerlendirme kapsamına alınmaz.</p>
+        <div>{portalSources.map((source)=><article key={source.title}><small>{source.label}</small><h3>{source.title}</h3><p>{source.description}</p><a href={source.href} target="_blank" rel="noreferrer">{source.action} ↗</a></article>)}</div>
+      </section>
+
       <section className="guideRelease">
         <header><span><small>{SITE_RELEASE.milestone} · SÜRÜM NOTLARI</small><h2>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</h2></span><b>{SITE_RELEASE.releasedAt}</b></header>
         <p>{SITE_RELEASE.summary}</p>
         <ul>{SITE_RELEASE.changes.map((change)=><li key={change}>{change}</li>)}</ul>
       </section>
 
-      <footer className="guideFooter"><span><b>NEFER ATLASI</b><small>Bağımsız İKV topluluk projesi · resmî değildir.</small></span><Link href="/">Atlası aç</Link></footer>
+      <footer className="guideFooter"><span><b>NEFER ATLASI</b><small>Bağımsız İKV topluluk projesi · resmî değildir.</small></span><div><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyun portalı</a><Link href="/">Atlası aç</Link></div></footer>
     </main>
   );
 }

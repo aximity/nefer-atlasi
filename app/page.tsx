@@ -264,6 +264,7 @@ export default function Home() {
         </a>
         <nav className="top-status" aria-label="Açık modül">
           <span>{moduleTabs.find((item) => item.id === activeModule)?.label}</span>
+          <a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a>
           <a href="/rehber">Rehber</a>
           <i>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</i>
         </nav>
@@ -603,7 +604,7 @@ export default function Home() {
           Kaynak yoksa kesin bilgi yok. Tek kaynak teyit bekler; çelişki saklanmaz;
           eşya adıyla görünüşü aynı kanıtta değilse görsel bağlanmaz.
         </p>
-        <span className="footerTools"><a href="/rehber">Kullanım Rehberi</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
+        <span className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/rehber">Kullanım Rehberi</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
       </footer>
       {detail && <ItemModal item={detail} close={() => setDetail(null)} />}
     </main>

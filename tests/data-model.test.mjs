@@ -24,6 +24,15 @@ const groupDerivedStats = read("group-derived-stats.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
+test("güncel Kıyametin Öncüleri portalı canlı ve statik kaynakları ayırır", () => {
+  const portalSources = sources.filter((source) => source.url.startsWith("https://kiyametoyun.net/"));
+  assert.equal(portalSources.length, 4);
+  assert.ok(portalSources.some((source) => source.url.endsWith("/rehber") && source.type === "community_server_guide"));
+  assert.ok(portalSources.some((source) => source.url.endsWith("/haberler") && source.type === "community_server_news"));
+  assert.equal(portalSources.filter((source) => source.type === "community_server_live_data").length, 2);
+  assert.ok(!sources.some((source) => source.url.includes("kiyametoyun.com")));
+});
+
 test("67 parçalık Çemberlitaş çekirdeği korunur; doğrulanmış aksesuarlar ayrıca eklenir", () => {
   assert.equal(items.length, 68);
   assert.equal(recipes.length, 67);

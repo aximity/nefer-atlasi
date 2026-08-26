@@ -8,7 +8,7 @@ type Panel = "Durum" | "Sorunlar" | "Takvim" | "Lonca" | "Pazar" | "Roller" | "V
 type IssueId = "repeat" | "group" | "economy" | "anka" | "client";
 
 const sourceLinks = {
-  guide: "https://www.kiyametoyun.com/rehber",
+  guide: "https://kiyametoyun.net/rehber",
   home: "https://kiyametoyun.net/",
   craftBag:
     "https://help.elderscrollsonline.com/app/answers/detail/a_id/34329/~/what-is-a-craft-bag-in-the-elder-scrolls-online",

@@ -116,7 +116,7 @@ export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
           <a href="https://istanbuloyun.com/AbilitySystem.aspx" target="_blank" rel="noreferrer">2 puan / seviye kaynağı ↗</a>
           <a href="https://download.istanbuloyun.com/ikv_oyun_rehberi.pdf" target="_blank" rel="noreferrer">Eski 6.0 rehberi · 1 puan / seviye ↗</a>
           <a href="https://istanbuloyun.com/cemberlitasikvbox.aspx" target="_blank" rel="noreferrer">+5 puan kaynağı ↗</a>
-          <a href="https://www.kiyametoyun.com/rehber" target="_blank" rel="noreferrer">KÖ yetenek listesi ↗</a>
+          <a href="https://kiyametoyun.net/rehber" target="_blank" rel="noreferrer">KÖ yetenek listesi ↗</a>
         </div>
       </div>
       <aside className="abilityVariantNote">
