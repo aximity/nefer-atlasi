@@ -30,10 +30,11 @@ const modules = [
   ["06", "Atlas", "Eşya, boss, reçete, malzeme, bölge ve pazar bağlantılarını tek zincir üzerinde izle.", "/?module=atlas#modules"],
   ["07", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
   ["08", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
-  ["09", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
-  ["10", "Sorunlar", "Teknik bildirimlerle anonim ekonomi gözlemlerini; çıkarım, çözüm adımı ve başarı ölçüsünden ayrı kesinlikte incele.", "/?module=issues#modules"],
-  ["11", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
-  ["12", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
+  ["09", "Döngü", "Çöp eşya, maden ve oyun parasını tüketen kozmetik, iksir ve sözleşme önerilerini filtrele; para çıkışı senaryosu kur.", "/?module=economy#modules"],
+  ["10", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
+  ["11", "Sorunlar", "Teknik bildirimlerle anonim ekonomi gözlemlerini; çıkarım, çözüm adımı ve başarı ölçüsünden ayrı kesinlikte incele.", "/?module=issues#modules"],
+  ["12", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
+  ["13", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
 ] as const;
 
 const journeys = [
@@ -67,13 +68,20 @@ const journeys = [
   },
   {
     number: "04",
+    title: "Çöp eşya ve maden için kullanım alanı tasarlıyorum",
+    steps: ["Döngü modülünü aç.", "Çöp eşya, Maden veya Karma filtresini seç.", "Girdi, çıktı, para çıkışı ve suistimal kilitlerini birlikte oku.", "Katılımcı ve harcama varsayımıyla dört haftalık pilot hedefini hesapla."],
+    href: "/?module=economy#modules",
+    action: "Ekonomi Döngü Atölyesi'ni aç",
+  },
+  {
+    number: "05",
     title: "Bildirilen bir oyun sorununu ve çözümünü inceliyorum",
     steps: ["Sorunlar modülünü aç.", "P0, P1, P2 veya konu filtresini seç.", "Kartta oyuncu bildirimiyle teknik çıkarımı ayrı oku.", "Kısa, orta ve uzun vadeli çözümün başarı ölçüsünü kontrol et."],
     href: "/?module=issues#modules",
     action: "Sorun ve çözüm masasını aç",
   },
   {
-    number: "05",
+    number: "06",
     title: "Eksik veya yanlış bilgiyi düzeltmek istiyorum",
     steps: ["Katkı türünü seç.", "Gözlem tarihini ve sunucuyu yaz.", "Ekran görüntüsü veya kaynak bağlantısını ekle.", "Gönderim makbuzunu sakla; bilgi doğrudan yayımlanmaz, önce incelenir."],
     href: "/?module=contribute#modules",
@@ -148,7 +156,7 @@ export default function GuidePage() {
       </section>
 
       <section className="guideJourneys">
-        <header><p>NE YAPMAK İSTİYORSUN?</p><h2>Altı hızlı kullanım akışı</h2></header>
+        <header><p>NE YAPMAK İSTİYORSUN?</p><h2>Yedi hızlı kullanım akışı</h2></header>
         <div>{journeys.map((journey)=><article key={journey.number}><small>{journey.number}</small><h3>{journey.title}</h3><ol>{journey.steps.map((step)=><li key={step}>{step}</li>)}</ol><Link href={journey.href}>{journey.action} <span>↗</span></Link></article>)}</div>
       </section>
 
@@ -163,7 +171,7 @@ export default function GuidePage() {
       </section>
 
       <section className="guideModules">
-        <header><div><p>MODÜL HARİTASI</p><h2>On iki araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
+        <header><div><p>MODÜL HARİTASI</p><h2>On üç araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
         <div>{modules.map(([number,title,description,href])=><Link href={href} key={title}><small>{number}</small><span><b>{title}</b><em>{description}</em></span><i>↗</i></Link>)}</div>
       </section>
 

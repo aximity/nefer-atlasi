@@ -7,6 +7,7 @@ import ContributionCenter from "./ContributionCenter";
 import ConnectedAtlas from "./ConnectedAtlas";
 import QuestAtlas from "./QuestAtlas";
 import IssueDesk from "./IssueDesk";
+import EconomyWorkshop from "./EconomyWorkshop";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -76,6 +77,7 @@ const moduleTabs = [
   { id: "atlas", label: "Atlas" },
   { id: "endgame", label: "Endgame" },
   { id: "mining", label: "Maden" },
+  { id: "economy", label: "Döngü" },
   { id: "skills", label: "Yetenek" },
   { id: "issues", label: "Sorunlar" },
   { id: "health", label: "Gelişim" },
@@ -532,6 +534,7 @@ export default function Home() {
       {activeModule === "quests" && <QuestAtlas />}
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide />}
+      {activeModule === "economy" && <EconomyWorkshop />}
       {activeModule === "skills" && <SkillGuides />}
       {activeModule === "issues" && <IssueDesk />}
       {activeModule === "health" && <ProjectScorecard />}

@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.30.0",
+  version: "0.31.0",
   channel: "BETA",
-  milestone: "M29",
+  milestone: "M30",
   releasedAt: "26 Ağustos 2026",
-  title: "Görev Devam Bulucu ve Ekonomi Gözlemleri",
+  title: "Ekonomi Döngü Atölyesi",
   summary:
-    "101 kaynaklı görevde kaldığın zinciri bulma akışı açıldı; anonim oyuncu sohbetinden dört ekonomi ve topluluk gözlemi çözümleriyle ayrıştırıldı.",
+    "Çöp eşya, maden ve oyun parasına savaş gücü satmadan kullanım alanı açan sekiz ölçülebilir ekonomi döngüsü tasarlandı.",
   changes: [
-    "Görev kataloğu 83'ten 101 kayda çıkarıldı; Labirent zincirinin kaynakta görülen seviyeleri düzeltildi.",
-    "Son tamamlanan görev seçilerek yalnız bağlantılı ön koşulların otomatik işlenmesi eklendi.",
-    "İlerleme temposu, materyal talebi, tekel baskısı ve etkinlik ekonomisi anonim oyuncu gözlemi olarak eklendi.",
-    "Hardcore süre uzatımı yerine emek–ödül, kalıcı tüketim ve ölçülebilir içerik ömrü yaklaşımı benimsendi.",
+    "Hurdacı Fişi, Ham Alaşım ve Boyahane düşük riskli ilk pilot olarak sıralandı.",
+    "Kostüm, boya, hasarsız silah izi, iksir ve şehir sözleşmesi önerileri girdi–çıktı zinciriyle ayrıştırıldı.",
+    "Her tasarım için para çıkışı, suistimal kilidi, pilot kapsamı ve başarı ölçüsü tanımlandı.",
+    "Katılımcı ve kişi başı harcama girilerek haftalık ve dört haftalık para çıkışı senaryosu kurulabilir.",
   ],
 } as const;

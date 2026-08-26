@@ -148,6 +148,15 @@
 - Karar: KÖ için doğrudan “gear score kapısı” önerilmez. Önce gerçek direnç, görev ön koşulu ve rol hazırlığını açıklayan rehberlik skoru sınanır; sert kapı ancak yanlış dışlamaya yol açmadığı ölçülürse değerlendirilir.
 - Kaynaklar: https://albiononline.com/news/video-black-market-feature, https://www.eveonline.com/news/view/monthly-economic-report-april-2026, https://worldofwarcraft.blizzard.com/en-us/news/24124661
 
+## 2026-08-26 — Çöp eşya, maden ve para tüketim döngüsü
+
+- İKV meslek yapısı üç üretici (Silahtar, Zırhçı, Kimyager) ile üç toplayıcıyı (Madenci, Sarraf, Lokman) birbirine bağlar; öneriler yeni bir meslek açmak yerine bu yapıyı genişletir.
+- İksir reçetelerinde düşük ve orta kademe maden, taş ve bitkilerin birlikte kullanıldığı mevcut örnekler vardır. Bu nedenle yardımcı iksir önerisi oyunun üretim diline uygundur; ancak yeni güç katmanı oluşturmayacak şekilde sınırlandırılır.
+- Albion Black Market örneği, alt seviye eşyaların sürekli tüketilmesinin kalıcı talep yaratabileceğini gösteren dış tasarım dayanağıdır. KÖ önerisi aynı sistemi kopyalamaz; hurdayı bağlı kozmetik girdiye dönüştürür.
+- EVE aylık ekonomi raporu; maden, üretim, tüketim ve para çıkışının birlikte ölçülmesi gerektiğine dayanak olur. Site hesaplayıcısı gerçek telemetri değil, pilot varsayımı olarak etiketlenir.
+- İlk uygulama sırası: Hurdacı Fişi → Ham Alaşım → Boyahane. İksir, aura ve sunucu ortak hedefi ilk dört haftalık tüketim ve fiyat verisinden sonra değerlendirilir.
+- Kaynaklar: https://istanbulkiyametvakti.fandom.com/tr/wiki/Meslekler, https://istanbulkiyametvakti.fandom.com/tr/wiki/%C4%B0ksir_Re%C3%A7eteleri, https://albiononline.com/news/video-black-market-feature, https://www.eveonline.com/news/view/monthly-economic-report-april-2026
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı

@@ -127,6 +127,7 @@ export default function IssueDesk() {
                     )) : <span>Dış örnek yok; önce KÖ tur verisiyle pilot ölçümü gerekir.</span>}
                   </div>
                   {issue.id === "group-finding" && <Link className="issueCta" href="/?module=endgame#modules">Mevcut grup panosunu aç →</Link>}
+                  {issue.id === "low-tier-material-demand" && <Link className="issueCta" href="/?module=economy#modules">Ekonomi döngülerini aç →</Link>}
                 </footer>
               </div>
             </details>

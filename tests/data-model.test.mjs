@@ -24,8 +24,23 @@ const glassesItems = read("glasses-items.json");
 const glassesStats = read("glasses-stats.json");
 const groupDerivedStats = read("group-derived-stats.json");
 const issues = read("issues.json");
+const economyLoops = read("economy-loops.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
+
+test("sekiz ekonomi döngüsü gerçek tüketim, para çıkışı ve güç kilidi tanımlar", () => {
+  assert.equal(economyLoops.length, 8);
+  assert.equal(new Set(economyLoops.map((loop) => loop.id)).size, economyLoops.length);
+  const sourceIds = new Set(sources.map((source) => source.id));
+  assert.ok(economyLoops.filter((loop) => loop.priority === "İlk pilot").length >= 3);
+  assert.ok(economyLoops.filter((loop) => loop.powerImpact === "Savaş gücü yok").length >= 7);
+  for (const loop of economyLoops) {
+    assert.ok(loop.inputs.length >= 2);
+    assert.ok(loop.output && loop.coinSink && loop.pilot && loop.metric);
+    assert.ok(loop.guardrails.length >= 3);
+    assert.ok(loop.sourceIds.every((sourceId) => sourceIds.has(sourceId)));
+  }
+});
 
 test("on iki oyuncu sorunu gözlem, çıkarım, çözüm ve ölçüyle ayrıştırılır", () => {
   assert.equal(issues.length, 12);

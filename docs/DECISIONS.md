@@ -59,3 +59,11 @@ Paylaşılan konuşmalardaki telefon numarası, kişi adı ve başka doğrudan t
 ## ADR-015 — Görev devamı yalnız bağlantılı zinciri tamamlar
 
 Oyuncu son tamamladığı görevi seçtiğinde sistem yalnız o kaydın kaynaklı ön koşullarını tamamlandı sayar. Aynı seviyedeki veya bağımsız başka görevler otomatik işaretlenmez; böylece “kaldığım yeri bul” kolaylığı yanlış ilerleme üretmez.
+
+## ADR-016 — Ekonomi döngüsü güç satmadan tüketim üretir
+
+Çöp eşya ve maden için ilk kullanım alanları kozmetik, görünüm, sözleşme ve ara malzemedir. Her döngü hem gerçek eşya/malzeme tüketmeli hem NPC hizmet bedeliyle oyun parasını sistemden çıkarmalıdır. İksirler yeni bir güç tavanı oluşturamaz, daha güçlü eşdeğerlerle üst üste binemez ve ayrı PvP/PvE pilotunda ölçülür.
+
+## ADR-017 — İlk pilot üçlü ve geri alınabilirdir
+
+Hurdacı Fişi, Ham Alaşım ve Boyahane ilk pilot paketidir. Savaş gücü vermediği, erken seviye malzemeye talep açtığı ve tarif oranları sunucu kapatılmadan değiştirilebildiği için kostüm seti, aura ve iksirden önce ölçülür.

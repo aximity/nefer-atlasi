@@ -112,7 +112,17 @@
 
 Çıkış kapısı: Kullanıcı bir görevi seçip bağlantılı geçmişini işleyebilir; anonim gözlem doğrulanmış sunucu verisi gibi sunulmaz.
 
-## Sıradaki — M30: Sorun kanıtı ve ölçüm pilotu
+## Tamamlandı — M30: Ekonomi Döngü Atölyesi
+
+- [x] Çöp eşyayı kozmetik girdiye dönüştüren Hurdacı Fişi modeli
+- [x] Erken kademe madenleri kozmetik tariflere bağlayan Ham Alaşım modeli
+- [x] Boya, kostüm, hasarsız silah izi, kontrollü iksir ve şehir sözleşmesi önerileri
+- [x] Her döngüde NPC para çıkışı, suistimal kilidi, pilot ve başarı ölçüsü
+- [x] Varsayımsal haftalık ve dört haftalık para çıkışı hesaplayıcısı
+
+Çıkış kapısı: Öneri mevcut özellik gibi gösterilmez; güç vermeyen ilk pilot paketi ile iksir gibi denge riski taşıyan ikinci aşama birbirinden ayrılır.
+
+## Sıradaki — M31: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir
 - [ ] Grup ilanı bekleme süresi ve eksik rol ölçümünü gerçek olay verisiyle başlat

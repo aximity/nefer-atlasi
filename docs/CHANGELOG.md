@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Ekonomi Döngü Atölyesi
+
+- Çöp eşya, maden ve oyun parasını aynı tarifte tüketen sekiz tasarım önerisi eklendi.
+- Hurdacı Fişi, Ham Alaşım ve Boyahane savaş gücü vermeyen ilk pilot paketi olarak öne çıkarıldı.
+- Kostüm, boya, silah izi, iksir, şehir ıslahı ve haftalık hurda sözleşmeleri için girdi, çıktı, suistimal kilidi ve başarı ölçüsü tanımlandı.
+- Katılımcı ve kişi başı harcama varsayımıyla haftalık/dört haftalık para çıkışı senaryosu eklendi; sonuç gerçek sunucu verisi olarak sunulmuyor.
+
 ## 2026-08-26 — Görev devam bulucu ve ekonomi gözlemleri
 
 - Zincir görevler ve açıklamalı görev listesi temel alınarak katalog 83'ten 101 göreve çıkarıldı; Labirent hattındaki 21–22 seviye kayıtları kaynakla hizalandı.
