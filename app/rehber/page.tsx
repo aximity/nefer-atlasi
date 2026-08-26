@@ -22,16 +22,16 @@ export const metadata: Metadata = {
 };
 
 const modules = [
-  ["01", "Build", "Sınıf, hedef ve oyun türünü seç; sekiz ekipman yuvasını doldur, toplamları gör ve planını paylaş.", "/?module=builder#modules"],
-  ["02", "Tılsım", "Sınıfına uygun tılsımı ve kademesini seç; yalnız kaynakta tanımlı etkileri hesaba kat.", "/?module=engine#modules"],
-  ["03", "Bölgeler", "Sığınak, Migrat ve Çemberlitaş gibi grup bölgelerinde sınıfa göre düşen eşyaları incele.", "/?module=group-regions#modules"],
-  ["04", "Görevler", "Seviyeni ve sınıfını seç; 101 kaynaklı görevde son tamamladığın adımı işleyip zincirin kaldığı yeri, NPC'yi ve ödülü bul.", "/?module=quests#modules"],
-  ["05", "Eşyalar", "Sınıf ve yuva filtresiyle eşyayı bul; aynı yuvadan iki eşyayı yan yana karşılaştır.", "/?module=items#modules"],
-  ["06", "Atlas", "Eşya, boss, reçete, malzeme, bölge ve pazar bağlantılarını tek zincir üzerinde izle.", "/?module=atlas#modules"],
-  ["07", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
-  ["08", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
-  ["09", "Döngü", "Çöp eşya, maden ve oyun parasını tüketen kozmetik, iksir ve sözleşme önerilerini filtrele; para çıkışı senaryosu kur.", "/?module=economy#modules"],
-  ["10", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
+  ["01", "Donanım", "Sınıf, hedef ve oyun türünü seç; sekiz ekipman yuvasını doldur, toplamları gör ve planını paylaş.", "/?module=builder#modules"],
+  ["02", "Yetenek", "Sınıf ve seviyeni seç; açılan yeteneklere 0–15 puan dağıt, etkin eşikleri gör, planını kaydet veya paylaş.", "/?module=skills#modules"],
+  ["03", "Tılsım", "Bağlı yeteneği, kademeyi, elde etme yolunu ve hesaplanabilen önce/sonra etkisini incele; bu ekran puan dağıtmaz.", "/?module=engine#modules"],
+  ["04", "Bölgeler", "Sığınak, Migrat ve Çemberlitaş gibi grup bölgelerinde sınıfa göre düşen eşyaları incele.", "/?module=group-regions#modules"],
+  ["05", "Görevler", "Seviyeni ve sınıfını seç; 101 kaynaklı görevde son tamamladığın adımı işleyip zincirin kaldığı yeri, NPC'yi ve ödülü bul.", "/?module=quests#modules"],
+  ["06", "Eşyalar", "Sınıf ve yuva filtresiyle eşyayı bul; aynı yuvadan iki eşyayı yan yana karşılaştır.", "/?module=items#modules"],
+  ["07", "Atlas", "Eşya, boss, reçete, malzeme, bölge ve pazar bağlantılarını tek zincir üzerinde izle.", "/?module=atlas#modules"],
+  ["08", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
+  ["09", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
+  ["10", "Döngü", "Çöp eşya, maden ve oyun parasını tüketen kozmetik, iksir ve sözleşme önerilerini filtrele; para çıkışı senaryosu kur.", "/?module=economy#modules"],
   ["11", "Sorunlar", "Teknik bildirimlerle anonim ekonomi gözlemlerini; çıkarım, çözüm adımı ve başarı ölçüsünden ayrı kesinlikte incele.", "/?module=issues#modules"],
   ["12", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
   ["13", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
@@ -61,27 +61,34 @@ const journeys = [
   },
   {
     number: "03",
+    title: "Yetenek puanlarımı dağıtmak istiyorum",
+    steps: ["Yetenek modülünü aç.", "Sınıfını ve seviyeni seç.", "Her yetenekte 0, 5, 10, 15 eşiklerini veya artı/eksi düğmelerini kullan.", "Etkin sonuçları ve sonraki eşiği kontrol edip planı kaydet veya bağlantısını kopyala."],
+    href: "/?module=skills#modules",
+    action: "Yetenek simülatörünü aç",
+  },
+  {
+    number: "04",
     title: "Maden veya farm verimi araştırıyorum",
     steps: ["Maden topladığında bölge, maden adı ve kontrol aralığını gir.", "Sayaç dolunca boş kontrolü veya başarılı toplamayı kaydet.", "En az iki başarılı ölçümden sonra oluşan aralığı garanti değil gözlem olarak oku.", "Fiyatın tarihine ve para birimine bak; canlı konum paylaşma."],
     href: "/?module=mining#modules",
     action: "Maden rehberini aç",
   },
   {
-    number: "04",
+    number: "05",
     title: "Çöp eşya ve maden için kullanım alanı tasarlıyorum",
     steps: ["Döngü modülünü aç.", "Çöp eşya, Maden veya Karma filtresini seç.", "Girdi, çıktı, para çıkışı ve suistimal kilitlerini birlikte oku.", "Katılımcı ve harcama varsayımıyla dört haftalık pilot hedefini hesapla."],
     href: "/?module=economy#modules",
     action: "Ekonomi Döngü Atölyesi'ni aç",
   },
   {
-    number: "05",
+    number: "06",
     title: "Bildirilen bir oyun sorununu ve çözümünü inceliyorum",
     steps: ["Sorunlar modülünü aç.", "P0, P1, P2 veya konu filtresini seç.", "Kartta oyuncu bildirimiyle teknik çıkarımı ayrı oku.", "Kısa, orta ve uzun vadeli çözümün başarı ölçüsünü kontrol et."],
     href: "/?module=issues#modules",
     action: "Sorun ve çözüm masasını aç",
   },
   {
-    number: "06",
+    number: "07",
     title: "Eksik veya yanlış bilgiyi düzeltmek istiyorum",
     steps: ["Katkı türünü seç.", "Gözlem tarihini ve sunucuyu yaz.", "Ekran görüntüsü veya kaynak bağlantısını ekle.", "Gönderim makbuzunu sakla; bilgi doğrudan yayımlanmaz, önce incelenir."],
     href: "/?module=contribute#modules",
@@ -156,7 +163,7 @@ export default function GuidePage() {
       </section>
 
       <section className="guideJourneys">
-        <header><p>NE YAPMAK İSTİYORSUN?</p><h2>Yedi hızlı kullanım akışı</h2></header>
+        <header><p>NE YAPMAK İSTİYORSUN?</p><h2>Sekiz hızlı kullanım akışı</h2></header>
         <div>{journeys.map((journey)=><article key={journey.number}><small>{journey.number}</small><h3>{journey.title}</h3><ol>{journey.steps.map((step)=><li key={step}>{step}</li>)}</ol><Link href={journey.href}>{journey.action} <span>↗</span></Link></article>)}</div>
       </section>
 

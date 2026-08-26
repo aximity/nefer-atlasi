@@ -122,7 +122,18 @@
 
 Çıkış kapısı: Öneri mevcut özellik gibi gösterilmez; güç vermeyen ilk pilot paketi ile iksir gibi denge riski taşıyan ikinci aşama birbirinden ayrılır.
 
-## Sıradaki — M31: Sorun kanıtı ve ölçüm pilotu
+## Tamamlandı — M31: Bağımsız Yetenek Simülatörü
+
+- [x] Yetenek puanı dağıtımını Tılsım ekranından ayır
+- [x] Sınıf ve 1–49 seviye üzerinden gerçek zamanlı puan bütçesi kur
+- [x] 0/5/10/15 eşikleri, artı/eksi ayarı, etkin sonuç ve sonraki kazanımı göster
+- [x] Boz Ayı'yı KÖ'de Kanatma yuvasının karşılığı olarak kullan
+- [x] Planı cihazda kaydetme, yükleme ve bağlantıyla paylaşma ekle
+- [x] Tılsım ekranının kapsamını ve sınırını kullanıcıya açıkla
+
+Çıkış kapısı: Yetenek simülatörü ilk görünümde kullanılabilir; puan dağıtımı tılsım sekmesine bağımlı değildir ve seviye alanı tamamen silinip yeniden yazılabilir.
+
+## Sıradaki — M32: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir
 - [ ] Grup ilanı bekleme süresi ve eksik rol ölçümünü gerçek olay verisiyle başlat

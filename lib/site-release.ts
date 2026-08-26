@@ -1,15 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.31.0",
+  version: "0.32.0",
   channel: "BETA",
-  milestone: "M30",
+  milestone: "M31",
   releasedAt: "26 Ağustos 2026",
-  title: "Ekonomi Döngü Atölyesi",
+  title: "Bağımsız Yetenek Simülatörü",
   summary:
-    "Çöp eşya, maden ve oyun parasına savaş gücü satmadan kullanım alanı açan sekiz ölçülebilir ekonomi döngüsü tasarlandı.",
+    "Yetenek puanı dağıtımı Tılsım bölümünden ayrıldı; seviye bütçesi, 0–15 eşikleri, etkin sonuçlar ve paylaşılabilir plan tek ekranda birleştirildi.",
   changes: [
-    "Hurdacı Fişi, Ham Alaşım ve Boyahane düşük riskli ilk pilot olarak sıralandı.",
-    "Kostüm, boya, hasarsız silah izi, iksir ve şehir sözleşmesi önerileri girdi–çıktı zinciriyle ayrıştırıldı.",
-    "Her tasarım için para çıkışı, suistimal kilidi, pilot kapsamı ve başarı ölçüsü tanımlandı.",
-    "Katılımcı ve kişi başı harcama girilerek haftalık ve dört haftalık para çıkışı senaryosu kurulabilir.",
+    "Build sekmesi Donanım olarak netleştirildi; Yetenek hemen yanına taşındı ve simülatör ilk çalışma alanı yapıldı.",
+    "1–49 seviye, isteğe bağlı +5 hak, kalan puan ve kilitli yetenek hesabı eklendi.",
+    "Her yetenekte 0/5/10/15 hızlı dağıtım, artı/eksi ayarı, etkin sonuç ve sonraki eşik gösteriliyor.",
+    "Boz Ayı KÖ'de Kanatma yuvasının karşılığı olarak gösteriliyor; plan kaydetme, yükleme ve bağlantıyla paylaşma eklendi.",
+    "Tılsım bölümü yalnız tılsım etkisi, kademe ve edinme yolunu anlatacak şekilde ayrıştırıldı.",
   ],
 } as const;

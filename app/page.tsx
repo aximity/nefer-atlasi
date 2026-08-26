@@ -44,7 +44,6 @@ import {
   encodeBuild,
   sanitizeBuild,
 } from "../lib/build-codec.mjs";
-import AbilitySimulator from "./ability-simulator";
 import { SITE_RELEASE } from "../lib/site-release";
 import {
   GROUP_REGION_DEFINITIONS,
@@ -69,7 +68,8 @@ const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   };
 type AbilityKey = "main" | "support" | "defense";
 const moduleTabs = [
-  { id: "builder", label: "Build" },
+  { id: "builder", label: "Donanım" },
+  { id: "skills", label: "Yetenek" },
   { id: "engine", label: "Tılsım" },
   { id: "group-regions", label: "Bölgeler" },
   { id: "quests", label: "Görevler" },
@@ -78,7 +78,6 @@ const moduleTabs = [
   { id: "endgame", label: "Endgame" },
   { id: "mining", label: "Maden" },
   { id: "economy", label: "Döngü" },
-  { id: "skills", label: "Yetenek" },
   { id: "issues", label: "Sorunlar" },
   { id: "health", label: "Gelişim" },
   { id: "contribute", label: "Katkı" },
@@ -457,11 +456,34 @@ export default function Home() {
       </section>}
       {activeModule === "engine" && <section className="engine" id="engine">
         <Title
-          eyebrow="M3 · TILSIM VE YETENEK HESAPLAYICI"
-          title="Tılsımı denetle, puan planını kur"
+          eyebrow="M3 · TILSIM ATLASI"
+          title="Tılsım hangi yeteneği nasıl değiştiriyor?"
         >
-          <span className="count">49 seviye · güncel web kuralıyla 96 puan · yetenek başına en fazla 15</span>
+          <span className="count">{talismans.length} sınıf ve kademe kaydı · etki ve elde etme yolu</span>
         </Title>
+        <div className="talismanPurpose">
+          <article>
+            <small>TILSIM NEDİR?</small>
+            <b>Yetenek değiştiricisidir.</b>
+            <p>Belirli bir yeteneğin hasarını, kritiğini veya çalışma biçimini kendi resmî açıklamasındaki kurala göre geliştirir.</p>
+          </article>
+          <article>
+            <small>BU EKRAN NE YAPAR?</small>
+            <b>Etkisini ve edinme yolunu gösterir.</b>
+            <p>Kademe, renk, bağlı yetenek, Büyük Hol düşümü veya reçete üretimi ve hesaplanabilen önce/sonra sonucunu gösterir.</p>
+          </article>
+          <article>
+            <small>NE YAPMAZ?</small>
+            <b>Yetenek puanı dağıtmaz.</b>
+            <p>Puan planı ayrı Yetenek ekranındadır. Tılsım hesabı, seçili donanımda ilgili taban özellik yoksa sonuç uydurmaz.</p>
+            <button onClick={() => {
+              setActiveModule("skills");
+              const url = new URL(location.href);
+              url.searchParams.set("module", "skills");
+              history.replaceState(null, "", url);
+            }}>Yetenek puanı dağıt →</button>
+          </article>
+        </div>
         <div className="engineGrid">
           <article>
             <h3>{klass} tılsımı</h3>
@@ -528,14 +550,13 @@ export default function Home() {
             criticalBase={wrathCriticalBase}
           />
         </div>
-        <AbilitySimulator key={klass} klass={klass} />
       </section>}
       {activeModule === "group-regions" && <GroupRegions onOpen={setDetail} />}
       {activeModule === "quests" && <QuestAtlas />}
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide />}
       {activeModule === "economy" && <EconomyWorkshop />}
-      {activeModule === "skills" && <SkillGuides />}
+      {activeModule === "skills" && <SkillGuides klass={klass} onClassChange={setClass} />}
       {activeModule === "issues" && <IssueDesk />}
       {activeModule === "health" && <ProjectScorecard />}
       {activeModule === "contribute" && <ContributionCenter />}

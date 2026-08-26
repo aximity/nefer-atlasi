@@ -67,3 +67,7 @@ Oyuncu son tamamladığı görevi seçtiğinde sistem yalnız o kaydın kaynakl�
 ## ADR-017 — İlk pilot üçlü ve geri alınabilirdir
 
 Hurdacı Fişi, Ham Alaşım ve Boyahane ilk pilot paketidir. Savaş gücü vermediği, erken seviye malzemeye talep açtığı ve tarif oranları sunucu kapatılmadan değiştirilebildiği için kostüm seti, aura ve iksirden önce ölçülür.
+
+## ADR-018 — Yetenek puanı ile tılsım etkisi ayrı araçlardır
+
+Yetenek Simülatörü sınıf, seviye, puan bütçesi ve 0–15 yetenek eşiklerini yönetir. Tılsım Atlası yalnız seçilen tılsımın bağlı yeteneğini, kademesini, edinme yolunu ve doğrulanmış hesaplanabilir etkisini gösterir. Bir araç diğerinin içinde gizlenmez; tılsım seçmek yetenek puanı dağıtmaz.

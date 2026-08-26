@@ -3,6 +3,7 @@ import "./globals.css";
 import "./endgame.css";
 import "./mining.css";
 import "./skills.css";
+import "./ability-simulator.css";
 import "./project-scorecard.css";
 import "./contribution.css";
 import "./group-board.css";

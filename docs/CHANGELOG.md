@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Bağımsız Yetenek Simülatörü
+
+- Build sekmesi Donanım olarak netleştirildi; yetenek puanı dağıtımı Tılsım bölümünden çıkarılıp hemen yanındaki bağımsız Yetenek sekmesine taşındı.
+- Sınıf, 1–49 seviye, isteğe bağlı +5 hak, toplam/kalan puan ve seviye kilidi aynı çalışma alanında birleştirildi.
+- Her yetenek için artı/eksi ve 0/5/10/15 hızlı eşikleri; seçilen puanda etkin sonuç, sonraki eşik ve oyun içi kanıt bağlantısı eklendi.
+- KÖ savaşçısında Kanatma yerine Boz Ayı gösteriliyor; iki kayıt aynı puan yuvası gibi modellenmeye devam ediyor.
+- Planı cihazda kaydetme, yükleme ve bağlantıyla paylaşma eklendi; seviye alanı tamamen silinip yeniden yazılabilir hâle getirildi.
+- Tılsım ekranı; yetenek puanı dağıtmadığı, yalnız tılsım etkisi, kademe, edinme yolu ve hesaplanabilir önce/sonra sonucunu gösterdiği açıkça anlatılacak biçimde sadeleştirildi.
+
 ## 2026-08-26 — Ekonomi Döngü Atölyesi
 
 - Çöp eşya, maden ve oyun parasını aynı tarifte tüketen sekiz tasarım önerisi eklendi.

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import AbilityMediaShowcase from "./AbilityMediaShowcase";
 import AbilityReference from "./AbilityReference";
+import AbilitySimulator from "./ability-simulator";
 
 type GuideClass = "Savaşçı" | "Büyücü" | "Şifacı";
 type Region = "Çemberlitaş" | "Migrat" | "Sığınak";
@@ -150,7 +151,13 @@ const guides: Guide[] = [
 const regions: ("Tümü" | Region)[] = ["Tümü", "Çemberlitaş", "Migrat", "Sığınak"];
 const classes: ("Tümü" | GuideClass)[] = ["Tümü", "Savaşçı", "Büyücü", "Şifacı"];
 
-export default function SkillGuides() {
+export default function SkillGuides({
+  klass,
+  onClassChange,
+}: {
+  klass: GuideClass;
+  onClassChange: (klass: GuideClass) => void;
+}) {
   const [region, setRegion] = useState<(typeof regions)[number]>("Tümü");
   const [className, setClassName] = useState<(typeof classes)[number]>("Tümü");
   const [active, setActive] = useState<Guide | null>(null);
@@ -168,14 +175,22 @@ export default function SkillGuides() {
     <section className="skill-guides" id="skills">
       <div className="skill-head">
         <div>
-          <p className="eyebrow">KAYNAK GÖRÜNTÜLERİNDEN DERLENDİ</p>
-          <h2>Bölgeye özel<br /><em>yetenek dizilimleri.</em></h2>
+          <p className="eyebrow">M31 · YETENEK LABORATUVARI</p>
+          <h2>Puanını dağıt.<br /><em>Etkisini anında gör.</em></h2>
         </div>
         <p>
-          Paylaşılan rehber ekranları yapılandırılmış notlara dönüştürüldü.
-          Bunlar zorunlu meta değil; grup stratejisine göre değişebilen topluluk
-          önerileridir.
+          Simülatör artık Tılsım bölümüne bağlı değil. Seviye ve sınıfını seç;
+          puan bütçeni, açılan yetenekleri, etkin eşikleri ve sonraki kazanımı
+          tek ekranda planla.
         </p>
+      </div>
+
+      <AbilitySimulator klass={klass} onClassChange={onClassChange} />
+
+      <div className="skill-library-heading">
+        <p className="eyebrow">OYUN İÇİ GÖRÜNTÜLERDEN DERLENDİ</p>
+        <h3>Yetenek sözlüğü ve bölge dizilimleri</h3>
+        <span>Simülasyonun altındaki kaynak kayıtları neyin neden değiştiğini doğrulamak içindir; topluluk dizilimleri zorunlu meta değildir.</span>
       </div>
 
       <AbilityReference />
