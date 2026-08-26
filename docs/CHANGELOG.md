@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Sade Menü, Genel Arama ve Okunabilirlik
+
+- On üç modülün aynı anda göründüğü yatay çubuk kaldırıldı; Donanım, Yetenek, Görevler ve Eşyalar ana kısayol olarak bırakıldı.
+- Kalan bölümler kısa açıklamalarıyla “Tümü” menüsünde toplandı; içerik veya işlev silinmedi.
+- Başlığa modül, eşya, görev ve tılsım arayan tek bir arama düğmesi eklendi; masaüstünde `/` kısayolu destekleniyor.
+- Arama sonucundaki eşya doğrudan ayrıntısını, görev ilgili filtreyi, tılsım kendi sınıf ve kayıt ekranını açıyor.
+- Mobil ve masaüstünde gövde metni, butonlar, alanlar ve mikro etiketler için asgari okunabilir yazı ölçüsü yükseltildi.
+
 ## 2026-08-26 — Bağımsız Yetenek Simülatörü
 
 - Build sekmesi Donanım olarak netleştirildi; yetenek puanı dağıtımı Tılsım bölümünden çıkarılıp hemen yanındaki bağımsız Yetenek sekmesine taşındı.

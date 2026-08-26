@@ -133,7 +133,17 @@
 
 Çıkış kapısı: Yetenek simülatörü ilk görünümde kullanılabilir; puan dağıtımı tılsım sekmesine bağımlı değildir ve seviye alanı tamamen silinip yeniden yazılabilir.
 
-## Sıradaki — M32: Sorun kanıtı ve ölçüm pilotu
+## Tamamlandı — M32: Sade gezinme ve genel arama
+
+- [x] On üç modülü dört ana kısayol ve bir Tümü menüsünde grupla
+- [x] Modül, eşya, görev ve tılsım için tek arama yüzeyi kur
+- [x] Arama sonucunu ilgili kayıt veya filtreye yönlendir
+- [x] Mobil ve masaüstünde küçük yazılar için okunabilirlik tabanı uygula
+- [x] Klavye ve dokunma kullanımını birlikte destekle
+
+Çıkış kapısı: Ana çubuk ilk bakışta beş karar noktasını aşmaz; hiçbir mevcut modül kaybolmaz ve arama tek dokunuşla açılır.
+
+## Sıradaki — M33: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir
 - [ ] Grup ilanı bekleme süresi ve eksik rol ölçümünü gerçek olay verisiyle başlat

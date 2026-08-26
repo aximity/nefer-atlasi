@@ -71,3 +71,7 @@ Hurdacı Fişi, Ham Alaşım ve Boyahane ilk pilot paketidir. Savaş gücü verm
 ## ADR-018 — Yetenek puanı ile tılsım etkisi ayrı araçlardır
 
 Yetenek Simülatörü sınıf, seviye, puan bütçesi ve 0–15 yetenek eşiklerini yönetir. Tılsım Atlası yalnız seçilen tılsımın bağlı yeteneğini, kademesini, edinme yolunu ve doğrulanmış hesaplanabilir etkisini gösterir. Bir araç diğerinin içinde gizlenmez; tılsım seçmek yetenek puanı dağıtmaz.
+
+## ADR-019 — İçerik silmeden ilk görünümü sadeleştir
+
+Ana gezinme en sık kullanılan Donanım, Yetenek, Görevler ve Eşyalar işlerine ayrılır. Diğer modüller açıklamalı Tümü menüsünde korunur ve genel aramadan erişilebilir kalır. Böylece yeni kullanıcıya aynı anda on üç karar sunulmaz; uzman kullanıcı hiçbir aracı kaybetmez.

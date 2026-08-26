@@ -44,12 +44,12 @@ function ancestorsOf(quest: Quest) {
   return result;
 }
 
-export default function QuestAtlas() {
+export default function QuestAtlas({ initialQuery = "" }: { initialQuery?: string }) {
   const [klass, setKlass] = useState<QuestClass>("Savaşçı");
   const [view, setView] = useState<View>("route");
   const [track, setTrack] = useState("Tümü");
   const [levelInput, setLevelInput] = useState("15");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [checkpointId, setCheckpointId] = useState("");
   const [checkpointNote, setCheckpointNote] = useState("");
   const [completed, setCompleted] = useState<Set<string>>(new Set());

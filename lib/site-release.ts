@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.32.0",
+  version: "0.33.0",
   channel: "BETA",
-  milestone: "M31",
+  milestone: "M32",
   releasedAt: "26 Ağustos 2026",
-  title: "Bağımsız Yetenek Simülatörü",
+  title: "Sade Menü ve Genel Arama",
   summary:
-    "Yetenek puanı dağıtımı Tılsım bölümünden ayrıldı; seviye bütçesi, 0–15 eşikleri, etkin sonuçlar ve paylaşılabilir plan tek ekranda birleştirildi.",
+    "On üç modül dört ana kısayol ve tek Tümü menüsünde sadeleştirildi; genel arama ve daha okunaklı metin ölçeği eklendi.",
   changes: [
-    "Build sekmesi Donanım olarak netleştirildi; Yetenek hemen yanına taşındı ve simülatör ilk çalışma alanı yapıldı.",
-    "1–49 seviye, isteğe bağlı +5 hak, kalan puan ve kilitli yetenek hesabı eklendi.",
-    "Her yetenekte 0/5/10/15 hızlı dağıtım, artı/eksi ayarı, etkin sonuç ve sonraki eşik gösteriliyor.",
-    "Boz Ayı KÖ'de Kanatma yuvasının karşılığı olarak gösteriliyor; plan kaydetme, yükleme ve bağlantıyla paylaşma eklendi.",
-    "Tılsım bölümü yalnız tılsım etkisi, kademe ve edinme yolunu anlatacak şekilde ayrıştırıldı.",
+    "Ana çubuk Donanım, Yetenek, Görevler ve Eşyalar kısayollarına indirildi.",
+    "Diğer dokuz bölüm açıklamalı Tümü menüsünde toplandı; açık bölümün adı menü düğmesinde korunuyor.",
+    "Başlıktaki arama düğmesi modül, eşya, görev ve tılsımları tek kutudan buluyor.",
+    "Slash tuşuyla arama açma ve Escape ile kapatma desteği eklendi.",
+    "Mobil ve masaüstünde açıklama, buton, filtre ve küçük etiket yazıları büyütüldü.",
   ],
 } as const;

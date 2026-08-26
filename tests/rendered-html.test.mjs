@@ -40,12 +40,13 @@ test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", a
   assert.match(html, /Nucleus Yüzük/);
   assert.match(html, /Alternatör Kolye/);
   assert.match(html, /Kıyamet Ceket/);
-  for (const tab of ["Donanım", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Atlas", "Endgame", "Maden", "Döngü", "Yetenek", "Sorunlar", "Gelişim", "Katkı"]) {
+  for (const tab of ["Donanım", "Yetenek", "Görevler", "Eşyalar", "Tümü"]) {
     assert.match(html, new RegExp(`<span>${tab}</span>`));
   }
   assert.doesNotMatch(html, /M3 · TILSIM VE YETENEK HESAPLAYICI/);
   assert.match(html, /129<\/strong><span>kaynaklı eşya kaydı/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.32\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.33\.0/);
+  assert.match(html, /Atlas genelinde ara/);
   assert.doesNotMatch(html, /raw_game_value/);
   assert.match(html, /href="\/rehber"/);
   assert.match(html, /href="https:\/\/kiyametoyun\.net\/"/);
@@ -63,7 +64,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Kullanım Rehberi \| Nefer Atlası/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.32\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.33\.0/);
   assert.match(html, /Yetenek puanlarımı dağıtmak istiyorum/);
   assert.match(html, /NEDEN KULLANMALIYIM\?/);
   assert.match(html, /Bir eşyanın gerçek bilgisini arıyorum/);

@@ -45,6 +45,7 @@ import {
   sanitizeBuild,
 } from "../lib/build-codec.mjs";
 import { SITE_RELEASE } from "../lib/site-release";
+import { quests } from "../lib/quest-catalog";
 import {
   GROUP_REGION_DEFINITIONS,
   cemberlitasBossesFor,
@@ -68,21 +69,22 @@ const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   };
 type AbilityKey = "main" | "support" | "defense";
 const moduleTabs = [
-  { id: "builder", label: "Donanım" },
-  { id: "skills", label: "Yetenek" },
-  { id: "engine", label: "Tılsım" },
-  { id: "group-regions", label: "Bölgeler" },
-  { id: "quests", label: "Görevler" },
-  { id: "items", label: "Eşyalar" },
-  { id: "atlas", label: "Atlas" },
-  { id: "endgame", label: "Endgame" },
-  { id: "mining", label: "Maden" },
-  { id: "economy", label: "Döngü" },
-  { id: "issues", label: "Sorunlar" },
-  { id: "health", label: "Gelişim" },
-  { id: "contribute", label: "Katkı" },
+  { id: "builder", label: "Donanım", summary: "Eşya seç, toplam özelliklerini gör.", keywords: "build set zırh silah" },
+  { id: "skills", label: "Yetenek", summary: "Seviyene göre yetenek puanı dağıt.", keywords: "skill simülasyon puan" },
+  { id: "engine", label: "Tılsım", summary: "Tılsım etkisini ve edinme yolunu incele.", keywords: "kademe reçete büyük hol" },
+  { id: "group-regions", label: "Bölgeler", summary: "Boss ve bölge ganimetlerini gör.", keywords: "gaffar semiha stuart çemberlitaş migrat sığınak" },
+  { id: "quests", label: "Görevler", summary: "Seviyene uygun görev zincirini bul.", keywords: "npc ödül görev zinciri" },
+  { id: "items", label: "Eşyalar", summary: "Eşya kataloğunda ara ve karşılaştır.", keywords: "item drop ganimet" },
+  { id: "atlas", label: "Atlas", summary: "Eşya, reçete, boss ve malzeme bağlarını izle.", keywords: "bağlantı kaynak tarif" },
+  { id: "endgame", label: "Endgame", summary: "Son oyun hazırlığını ve stratejiyi incele.", keywords: "grup bölgesi strateji" },
+  { id: "mining", label: "Maden", summary: "Maden kaynaklarını ve kullanım alanlarını bul.", keywords: "madenci sarraf lokman cevher" },
+  { id: "economy", label: "Ekonomi", summary: "Maden, çöp ve para döngülerini incele.", keywords: "döngü pazar para çöp üretim" },
+  { id: "issues", label: "Sorunlar", summary: "Oyun sorunlarını ve çözüm önerilerini gör.", keywords: "şikayet öneri lag bağlantı" },
+  { id: "health", label: "Gelişim", summary: "Projenin veri ve kalite durumunu izle.", keywords: "durum kapsam kalite" },
+  { id: "contribute", label: "Katkı", summary: "Yeni bilgi ve kanıt gönder.", keywords: "ekle düzelt kanıt görsel" },
 ] as const;
 type MainModule = (typeof moduleTabs)[number]["id"];
+const primaryModuleIds: MainModule[] = ["builder", "skills", "quests", "items"];
 interface BuildSnapshot {
   v: number;
   klass: CharacterClass;
@@ -134,6 +136,10 @@ export default function Home() {
     [compareIds, setCompareIds] = useState<string[]>([]),
     [detail, setDetail] = useState<Item | null>(null),
     [activeModule, setActiveModule] = useState<MainModule>("builder"),
+    [moreOpen, setMoreOpen] = useState(false),
+    [searchOpen, setSearchOpen] = useState(false),
+    [globalQuery, setGlobalQuery] = useState(""),
+    [questSearchSeed, setQuestSearchSeed] = useState(""),
     [notice, setNotice] = useState("");
   const applySaved = (p: BuildSnapshot) => {
     setKlass(p.klass);
@@ -171,6 +177,20 @@ export default function Home() {
       }
     };
     queueMicrotask(hydrate);
+  }, []);
+  useEffect(() => {
+    const openSearch = (event: KeyboardEvent) => {
+      if (event.key === "/" && !(event.target instanceof HTMLInputElement) && !(event.target instanceof HTMLTextAreaElement)) {
+        event.preventDefault();
+        setSearchOpen(true);
+      }
+      if (event.key === "Escape") {
+        setSearchOpen(false);
+        setMoreOpen(false);
+      }
+    };
+    addEventListener("keydown", openSearch);
+    return () => removeEventListener("keydown", openSearch);
   }, []);
   const baseTotals = useMemo(
       () => buildTotals(selection),
@@ -240,7 +260,29 @@ export default function Home() {
         setNotice("Kayıtlı donanım planı geçersiz veya eski sürüm.");
       }
     };
-  const filtered = publishableItems.filter(
+  const openModule = (id: MainModule) => {
+      setActiveModule(id);
+      setMoreOpen(false);
+      setSearchOpen(false);
+      const url = new URL(location.href);
+      url.searchParams.set("module", id);
+      history.replaceState(null, "", url);
+      requestAnimationFrame(() => document.getElementById("modules")?.scrollIntoView());
+    },
+    normalizedGlobalQuery = globalQuery.trim().toLocaleLowerCase("tr-TR"),
+    globalModuleResults = normalizedGlobalQuery
+      ? moduleTabs.filter((item) => `${item.label} ${item.summary} ${item.keywords}`.toLocaleLowerCase("tr-TR").includes(normalizedGlobalQuery)).slice(0, 6)
+      : moduleTabs.filter((item) => primaryModuleIds.includes(item.id)),
+    globalItemResults = normalizedGlobalQuery
+      ? publishableItems.filter((item) => `${item.name} ${item.class} ${item.slot}`.toLocaleLowerCase("tr-TR").includes(normalizedGlobalQuery)).slice(0, 5)
+      : [],
+    globalTalismanResults = normalizedGlobalQuery
+      ? talismans.filter((item) => `${item.name} ${item.class} ${item.color}`.toLocaleLowerCase("tr-TR").includes(normalizedGlobalQuery)).slice(0, 4)
+      : [],
+    globalQuestResults = normalizedGlobalQuery
+      ? quests.filter((item) => `${item.title} ${item.giver} ${item.location} ${item.region}`.toLocaleLowerCase("tr-TR").includes(normalizedGlobalQuery)).slice(0, 4)
+      : [],
+    filtered = publishableItems.filter(
       (i) =>
         (!query ||
           `${i.name} ${i.class} ${i.slot}`
@@ -275,6 +317,10 @@ export default function Home() {
         </a>
         <nav className="top-status" aria-label="Açık modül">
           <span>{moduleTabs.find((item) => item.id === activeModule)?.label}</span>
+          <button className="globalSearchTrigger" type="button" onClick={() => setSearchOpen(true)} aria-label="Atlas genelinde ara">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/></svg>
+            <b>Ara</b>
+          </button>
           <a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a>
           <a href="/rehber">Rehber</a>
           <i>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</i>
@@ -307,24 +353,34 @@ export default function Home() {
           </p>
         </aside>
       </section>
-      <nav className="moduleTabs" id="modules" role="tablist" aria-label="Nefer Atlası modülleri">
-        {moduleTabs.map((item, index) => (
+      <nav className="moduleTabs" id="modules" aria-label="Nefer Atlası ana bölümleri">
+        <div className="modulePrimary" role="tablist">
+        {moduleTabs.filter((item) => primaryModuleIds.includes(item.id)).map((item) => (
           <button
             key={item.id}
             role="tab"
             aria-selected={activeModule === item.id}
             className={activeModule === item.id ? "active" : ""}
-            onClick={() => {
-              setActiveModule(item.id);
-              const url = new URL(location.href);
-              url.searchParams.set("module", item.id);
-              history.replaceState(null, "", url);
-            }}
+            onClick={() => openModule(item.id)}
           >
-            <small>{String(index + 1).padStart(2, "0")}</small>
             <span>{item.label}</span>
           </button>
         ))}
+        </div>
+        <div className="moduleMore">
+          <button type="button" className={!primaryModuleIds.includes(activeModule) ? "active" : ""} aria-expanded={moreOpen} onClick={() => setMoreOpen((value) => !value)}>
+            <span>{primaryModuleIds.includes(activeModule) ? "Tümü" : moduleTabs.find((item) => item.id === activeModule)?.label}</span>
+            <small aria-hidden="true">{moreOpen ? "×" : "+"}</small>
+          </button>
+          {moreOpen && <div className="moduleMenu">
+            <header><b>Tüm bölümler</b><span>Aradığın aracı seç</span></header>
+            {moduleTabs.filter((item) => !primaryModuleIds.includes(item.id)).map((item) => (
+              <button type="button" key={item.id} className={activeModule === item.id ? "active" : ""} onClick={() => openModule(item.id)}>
+                <span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i>
+              </button>
+            ))}
+          </div>}
+        </div>
       </nav>
       {activeModule === "builder" && <section className="builder" id="builder">
         <Title eyebrow="M2 · DONANIM PLANLAYICI" title="Sekiz yuvayı sen doldur">
@@ -552,7 +608,7 @@ export default function Home() {
         </div>
       </section>}
       {activeModule === "group-regions" && <GroupRegions onOpen={setDetail} />}
-      {activeModule === "quests" && <QuestAtlas />}
+      {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide />}
       {activeModule === "economy" && <EconomyWorkshop />}
@@ -630,6 +686,26 @@ export default function Home() {
         )}
       </section>}
       {activeModule === "atlas" && <ConnectedAtlas />}
+      {searchOpen && <div className="globalSearchOverlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setSearchOpen(false)}>
+        <section className="globalSearch" role="dialog" aria-modal="true" aria-label="Atlas genelinde ara">
+          <header>
+            <label>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/></svg>
+              <input autoFocus value={globalQuery} onChange={(event) => setGlobalQuery(event.target.value)} placeholder="Eşya, görev, tılsım veya bölüm ara…" />
+            </label>
+            <button type="button" onClick={() => setSearchOpen(false)} aria-label="Aramayı kapat">×</button>
+          </header>
+          <p className="globalSearchHint">Örn. Gaffar, Xenotim, Boz Ayı, Labirent veya Maden</p>
+          <div className="globalSearchResults">
+            {globalModuleResults.length > 0 && <section><h3>Bölümler</h3>{globalModuleResults.map((item) => <button type="button" key={item.id} onClick={() => openModule(item.id)}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>)}</section>}
+            {globalItemResults.length > 0 && <section><h3>Eşyalar</h3>{globalItemResults.map((item) => <button type="button" key={item.id} onClick={() => { setDetail(item); setSearchOpen(false); }}><span><b>{item.name}</b><small>{item.class} · {item.slot}</small></span><i>↗</i></button>)}</section>}
+            {globalQuestResults.length > 0 && <section><h3>Görevler</h3>{globalQuestResults.map((item) => <button type="button" key={item.id} onClick={() => { setQuestSearchSeed(item.title); openModule("quests"); }}><span><b>{item.title}</b><small>Sv. {item.level} · {item.giver} · {item.location}</small></span><i>→</i></button>)}</section>}
+            {globalTalismanResults.length > 0 && <section><h3>Tılsımlar</h3>{globalTalismanResults.map((item) => <button type="button" key={item.id} onClick={() => { setClass(item.class); setTalismanId(item.id); openModule("engine"); }}><span><b>{item.name}</b><small>{item.class} · {item.color}</small></span><i>→</i></button>)}</section>}
+            {normalizedGlobalQuery && !globalModuleResults.length && !globalItemResults.length && !globalQuestResults.length && !globalTalismanResults.length && <div className="globalSearchEmpty"><b>Sonuç bulunamadı.</b><span>Farklı veya daha kısa bir kelime dene.</span></div>}
+          </div>
+          <footer><span><kbd>/</kbd> ile aç</span><span><kbd>Esc</kbd> ile kapat</span></footer>
+        </section>
+      </div>}
       <footer className="siteFooter">
         <div>
           <b>NEFER ATLASI</b>

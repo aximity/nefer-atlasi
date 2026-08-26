@@ -1,0 +1,55 @@
+/* M32: less navigation, readable type and one global search surface. */
+main :where(p,li,dd,dt){font-size:max(13px,.8125rem)!important;line-height:1.6}
+main :where(label,input,select,textarea){font-size:max(13px,.8125rem)!important}
+main :where(button){font-size:max(12px,.75rem)!important}
+main :where(a,small){font-size:max(11px,.6875rem)!important}
+
+.moduleTabs{display:flex!important;align-items:stretch;gap:8px;overflow:visible!important}
+.modulePrimary{min-width:0;flex:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.moduleTabs button{min-height:48px}
+.moduleTabs button span{font-size:13px!important}
+.moduleMore{flex:0 0 145px;position:relative}
+.moduleMore>button{width:100%;height:100%;display:flex;justify-content:space-between}
+.moduleMore>button small{font-size:16px!important}
+.moduleMenu{width:min(430px,calc(100vw - 24px));max-height:min(650px,70vh);padding:10px;display:grid;grid-template-columns:1fr 1fr;gap:7px;overflow:auto;position:absolute;right:0;top:calc(100% + 10px);z-index:40;background:#0c1015;border:1px solid #3a4551;border-radius:16px;box-shadow:0 24px 70px #000b}
+.moduleMenu header{grid-column:1/-1;height:auto;padding:10px 9px 13px;display:grid;gap:4px;position:static;background:transparent;border:0;backdrop-filter:none}
+.moduleMenu header b{font-size:15px}.moduleMenu header span{color:var(--muted);font-size:12px!important}
+.moduleMenu>button{min-height:74px;padding:12px;display:flex;justify-content:space-between;text-align:left}
+.moduleMenu>button>span{display:grid;gap:5px}.moduleMenu>button b{font-size:13px}.moduleMenu>button small{color:var(--muted);font-size:11px!important;line-height:1.4}
+.moduleMenu>button i{align-self:center;color:var(--gold);font-style:normal}
+
+.globalSearchTrigger{padding:8px 11px;display:flex;align-items:center;gap:7px;color:#17110a;background:var(--gold);border:1px solid var(--gold);border-radius:8px;font-weight:900;cursor:pointer}
+.globalSearchTrigger svg,.globalSearch header svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.globalSearchTrigger b{font-size:12px}
+.globalSearchOverlay{padding:80px 14px 20px;position:fixed;inset:0;z-index:80;display:flex;align-items:flex-start;justify-content:center;background:#000c;backdrop-filter:blur(12px)}
+.globalSearch{width:min(680px,100%);max-height:calc(100vh - 100px);display:flex;flex-direction:column;overflow:hidden;background:#0d1116;border:1px solid #3a4551;border-radius:20px;box-shadow:0 30px 100px #000}
+.globalSearch>header{height:auto;padding:14px;display:grid;grid-template-columns:1fr 42px;gap:10px;position:static;background:transparent;border:0;border-bottom:1px solid var(--line);backdrop-filter:none}
+.globalSearch>header label{padding:0 13px;display:grid;grid-template-columns:22px 1fr;gap:9px;align-items:center;background:#080b0f;border:1px solid #414c59;border-radius:12px}
+.globalSearch>header input{min-width:0;padding:14px 0;color:var(--text);background:transparent;border:0;outline:0;font-size:15px!important}
+.globalSearch>header button{color:#cdd4dc;background:#151b22;border:1px solid #36404c;border-radius:11px;font-size:24px!important}
+.globalSearchHint{margin:0;padding:12px 18px;color:var(--muted);border-bottom:1px solid #202832;font-size:12px!important}
+.globalSearchResults{padding:10px;display:grid;gap:10px;overflow:auto}
+.globalSearchResults section{display:grid;gap:5px}.globalSearchResults h3{margin:5px 8px;color:var(--gold);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.globalSearchResults button{padding:12px 13px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:inherit;text-align:left;background:#11161c;border:1px solid #29323d;border-radius:11px;cursor:pointer}
+.globalSearchResults button:hover,.globalSearchResults button:focus-visible{background:#171d25;border-color:#d6aa5d80;outline:0}
+.globalSearchResults button>span{min-width:0;display:grid;gap:4px}.globalSearchResults button b{font-size:14px}.globalSearchResults button small{overflow:hidden;color:var(--muted);font-size:12px!important;text-overflow:ellipsis;white-space:nowrap}.globalSearchResults button i{color:var(--gold);font-style:normal}
+.globalSearchEmpty{padding:38px;display:grid;gap:7px;text-align:center;border:1px dashed #3b4652;border-radius:12px}.globalSearchEmpty span{color:var(--muted);font-size:13px}
+.globalSearch>footer{padding:10px 16px;display:flex;gap:15px;color:var(--muted);border-top:1px solid var(--line);font-size:11px}.globalSearch kbd{padding:3px 6px;color:#dce2e8;background:#171d24;border:1px solid #3c4652;border-radius:5px;font:11px monospace}
+
+@media(max-width:760px){
+  main :where(p,li,dd,dt){font-size:max(14px,.875rem)!important}
+  main :where(label,input,select,textarea){font-size:max(14px,.875rem)!important}
+  main :where(button){font-size:max(13px,.8125rem)!important}
+  main :where(a,small){font-size:max(12px,.75rem)!important}
+  .moduleTabs{top:64px;padding:8px!important;gap:6px}
+  .modulePrimary{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}
+  .moduleTabs button{min-height:46px;padding:9px 6px!important}
+  .moduleTabs button span{font-size:11px!important}
+  .moduleMore{flex-basis:72px}
+  .moduleMore>button{justify-content:center}.moduleMore>button small{display:none}
+  .moduleMenu{right:0;grid-template-columns:1fr;max-height:65vh}.moduleMenu>button{min-height:64px}
+  .globalSearchTrigger{width:40px;height:40px;padding:0;justify-content:center}.globalSearchTrigger b{display:none}
+  .top-status>a,.top-status>i,.top-status>span{display:none!important}
+  .globalSearchOverlay{padding:12px;align-items:flex-end}.globalSearch{max-height:92vh;border-radius:20px 20px 12px 12px}
+  .globalSearch>footer{display:none}
+}
