@@ -5,6 +5,7 @@ import SkillGuides from "./SkillGuides";
 import ProjectScorecard from "./ProjectScorecard";
 import ContributionCenter from "./ContributionCenter";
 import ConnectedAtlas from "./ConnectedAtlas";
+import QuestAtlas from "./QuestAtlas";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -69,6 +70,7 @@ const moduleTabs = [
   { id: "builder", label: "Build" },
   { id: "engine", label: "Tılsım" },
   { id: "group-regions", label: "Bölgeler" },
+  { id: "quests", label: "Görevler" },
   { id: "items", label: "Eşyalar" },
   { id: "atlas", label: "Atlas" },
   { id: "endgame", label: "Endgame" },
@@ -525,6 +527,7 @@ export default function Home() {
         <AbilitySimulator key={klass} klass={klass} />
       </section>}
       {activeModule === "group-regions" && <GroupRegions onOpen={setDetail} />}
+      {activeModule === "quests" && <QuestAtlas />}
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide />}
       {activeModule === "skills" && <SkillGuides />}

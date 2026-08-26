@@ -1,15 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.21.1",
+  version: "0.22.0",
   channel: "BETA",
-  milestone: "M21",
+  milestone: "M22",
   releasedAt: "26 Ağustos 2026",
-  title: "KÖ Marka Dili",
+  title: "Görev Atlası",
   summary:
-    "Nefer Atlası'nın oyuncuya görünen marka dili KÖ ve Kıyametin Öncüleri adıyla güncellendi.",
+    "Yeni hesap rotası, zincir bağlantıları ve sınıfa göre görev ödülleri aynı takip ekranında birleştirildi.",
   changes: [
-    "Ana sayfa, rehber, maden, farm ve endgame alanlarındaki eski marka ifadeleri KÖ olarak değiştirildi.",
-    "Sayfa başlıkları ve arama motoru açıklamaları Kıyametin Öncüleri adıyla güncellendi.",
-    "Özgün oyuna ait resmî kaynaklar yanlışlıkla KÖ kaynağı gibi etiketlenmedi; 'özgün oyun kaydı' ayrımı kullanıldı.",
-    "Bağımsız topluluk projesi uyarısı Kıyametin Öncüleri adıyla yenilendi.",
+    "Yeni hesap ve önemli bölge erişim görevleri için kaynaklı çekirdek rota eklendi.",
+    "Görevi veren NPC, konum, yapılacak iş, ön koşul ve sonraki görevler birlikte gösteriliyor.",
+    "Savaşçı, Büyücü ve Şifacı görev ödülleri ayrı ayrı aranabiliyor.",
+    "Tamamlanan görevler cihazda saklanıyor ve sıradaki yapılabilir görev öneriliyor.",
+    "Özgün oyun Wiki verileri KÖ teyidi bekleyen kayıt olarak açıkça ayrıldı.",
   ],
 } as const;

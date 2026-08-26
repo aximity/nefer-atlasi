@@ -7,7 +7,7 @@ import "../guide.css";
 export const metadata: Metadata = {
   title: "Kullanım Rehberi | Nefer Atlası",
   description:
-    "Nefer Atlası modüllerini, bilgi güven seviyelerini, build planlayıcıyı, eşya kataloğunu, maden rehberini ve katkı sistemini kullanma rehberi.",
+    "Nefer Atlası modüllerini, görev rotalarını, bilgi güven seviyelerini, build planlayıcıyı, eşya kataloğunu, maden rehberini ve katkı sistemini kullanma rehberi.",
   openGraph: {
     title: "Nefer Atlası Kullanım Rehberi",
     description: "KÖ bilgisini bulma, karşılaştırma, planlama ve doğrulama akışlarını adım adım öğren.",
@@ -25,16 +25,24 @@ const modules = [
   ["01", "Build", "Sınıf, hedef ve oyun türünü seç; sekiz ekipman yuvasını doldur, toplamları gör ve planını paylaş.", "/?module=builder#modules"],
   ["02", "Tılsım", "Sınıfına uygun tılsımı ve kademesini seç; yalnız kaynakta tanımlı etkileri hesaba kat.", "/?module=engine#modules"],
   ["03", "Bölgeler", "Sığınak, Migrat ve Çemberlitaş gibi grup bölgelerinde sınıfa göre düşen eşyaları incele.", "/?module=group-regions#modules"],
-  ["04", "Eşyalar", "Sınıf ve yuva filtresiyle eşyayı bul; aynı yuvadan iki eşyayı yan yana karşılaştır.", "/?module=items#modules"],
-  ["05", "Atlas", "Eşya, boss, reçete, malzeme, bölge ve pazar bağlantılarını tek zincir üzerinde izle.", "/?module=atlas#modules"],
-  ["06", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
-  ["07", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
-  ["08", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
-  ["09", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
-  ["10", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
+  ["04", "Görevler", "Seviyeni ve sınıfını seç; yeni hesap rotasını, zincir ön koşullarını, NPC konumlarını ve ödül eşyalarını takip et.", "/?module=quests#modules"],
+  ["05", "Eşyalar", "Sınıf ve yuva filtresiyle eşyayı bul; aynı yuvadan iki eşyayı yan yana karşılaştır.", "/?module=items#modules"],
+  ["06", "Atlas", "Eşya, boss, reçete, malzeme, bölge ve pazar bağlantılarını tek zincir üzerinde izle.", "/?module=atlas#modules"],
+  ["07", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
+  ["08", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
+  ["09", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
+  ["10", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
+  ["11", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
 ] as const;
 
 const journeys = [
+  {
+    number: "00",
+    title: "Yeni hesap için görev rotası arıyorum",
+    steps: ["Görevler modülünü aç.", "Sınıfını ve mevcut seviyeni seç.", "Şimdi Ne Yapmalı kartından sıradaki uygun görevi aç.", "Bitirdiğin görevleri işaretle; ilerlemen bu cihazda saklanır."],
+    href: "/?module=quests#modules",
+    action: "Görev Atlası'nı aç",
+  },
   {
     number: "01",
     title: "Bir eşyanın gerçek bilgisini arıyorum",
@@ -147,7 +155,7 @@ export default function GuidePage() {
       </section>
 
       <section className="guideModules">
-        <header><div><p>MODÜL HARİTASI</p><h2>On araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
+        <header><div><p>MODÜL HARİTASI</p><h2>On bir araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
         <div>{modules.map(([number,title,description,href])=><Link href={href} key={title}><small>{number}</small><span><b>{title}</b><em>{description}</em></span><i>↗</i></Link>)}</div>
       </section>
 
