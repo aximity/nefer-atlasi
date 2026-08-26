@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Saha Operasyonu | Nefer Atlası",
-  description: "İKV maden farm turları, fiyat gözlemleri ve saatlik verim hesabı.",
+  description: "KÖ maden farm turları, fiyat gözlemleri ve saatlik verim hesabı.",
   robots: { index: false, follow: false },
 };
 

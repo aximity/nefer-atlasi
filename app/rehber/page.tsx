@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Nefer Atlası modüllerini, bilgi güven seviyelerini, build planlayıcıyı, eşya kataloğunu, maden rehberini ve katkı sistemini kullanma rehberi.",
   openGraph: {
     title: "Nefer Atlası Kullanım Rehberi",
-    description: "İKV bilgisini bulma, karşılaştırma, planlama ve doğrulama akışlarını adım adım öğren.",
+    description: "KÖ bilgisini bulma, karşılaştırma, planlama ve doğrulama akışlarını adım adım öğren.",
     images: ["/og.png"],
   },
   twitter: {
@@ -69,7 +69,7 @@ const portalSources = [
   {
     label: "SUNUCU REHBERİ",
     title: "Sınıflar, bölgeler ve sistemler",
-    description: "Kıyametin Öncüleri sunucusuna özgü mekanikleri kontrol etmek için tek kaynak olarak kullanılır; resmî İKV kaynağı sayılmaz.",
+    description: "Kıyametin Öncüleri sunucusuna özgü mekanikleri kontrol etmek için tek kaynak olarak kullanılır; özgün oyunun resmî kaynağı sayılmaz.",
     href: "https://kiyametoyun.net/rehber",
     action: "Rehberi aç",
   },
@@ -110,7 +110,7 @@ export default function GuidePage() {
         <div>
           <p>{SITE_RELEASE.milestone} · BAŞLANGIÇ NOKTASI</p>
           <h1>Bilgiyi bul.<br/><em>Güvenini ölç.</em></h1>
-          <span>Nefer Atlası; İKV’de eşya, build, yetenek, bölge, maden ve ekonomi bilgisini aynı kaynak zincirinde toplamak için var.</span>
+          <span>Nefer Atlası; Kıyametin Öncüleri’nde eşya, build, yetenek, bölge, maden ve ekonomi bilgisini aynı kaynak zincirinde toplamak için var.</span>
           <div><Link href="#baslangic">Hızlı başlangıç</Link><Link href="#guven">Güven etiketleri</Link></div>
         </div>
         <aside>
@@ -171,7 +171,7 @@ export default function GuidePage() {
         <ul>{SITE_RELEASE.changes.map((change)=><li key={change}>{change}</li>)}</ul>
       </section>
 
-      <footer className="guideFooter"><span><b>NEFER ATLASI</b><small>Bağımsız İKV topluluk projesi · resmî değildir.</small></span><div><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyun portalı</a><Link href="/">Atlası aç</Link></div></footer>
+      <footer className="guideFooter"><span><b>NEFER ATLASI</b><small>Bağımsız Kıyametin Öncüleri topluluk projesi · resmî değildir.</small></span><div><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyun portalı</a><Link href="/">Atlası aç</Link></div></footer>
     </main>
   );
 }

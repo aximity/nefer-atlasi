@@ -1,17 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.21.0",
+  version: "0.21.1",
   channel: "BETA",
   milestone: "M21",
   releasedAt: "26 Ağustos 2026",
-  title: "Üretim Ağı",
+  title: "KÖ Marka Dili",
   summary:
-    "Maden, toplayıcılık çıktısı ve şaheser reçeteleri çift yönlü bir üretim ağı üzerinde birleştirildi.",
+    "Nefer Atlası'nın oyuncuya görünen marka dili KÖ ve Kıyametin Öncüleri adıyla güncellendi.",
   changes: [
-    "Maden modülündeki Kaynaklar sekmesi, görünür Üretim Ağı çalışma alanına dönüştürüldü.",
-    "Her 1., 2. ve 3. çıktı ayrı ayrı açılarak kullanıldığı şaheserleri ve reçete miktarlarını gösteriyor.",
-    "Masaüstünde hızlı kullanım önizlemesi, mobilde dokunmalı ayrıntı paneli eklendi.",
-    "Şaheser adıyla arama yapıldığında ilgili maden zincirleri de bulunuyor.",
-    "Eşya ayrıntısındaki reçete malzemeleri Üretim Ağına geri bağlandı.",
-    "Kaynağı olmayan kullanım iddiaları kesin bilgi gibi gösterilmiyor; katkı bekliyor etiketi korunuyor.",
+    "Ana sayfa, rehber, maden, farm ve endgame alanlarındaki eski marka ifadeleri KÖ olarak değiştirildi.",
+    "Sayfa başlıkları ve arama motoru açıklamaları Kıyametin Öncüleri adıyla güncellendi.",
+    "Özgün oyuna ait resmî kaynaklar yanlışlıkla KÖ kaynağı gibi etiketlenmedi; 'özgün oyun kaydı' ayrımı kullanıldı.",
+    "Bağımsız topluluk projesi uyarısı Kıyametin Öncüleri adıyla yenilendi.",
   ],
 } as const;

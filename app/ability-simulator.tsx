@@ -105,7 +105,7 @@ export default function AbilitySimulator({ klass }: { klass: CharacterClass }) {
             disabled={extraFive && spent > baseBudget}
             onChange={(event) => setExtraFive(event.target.checked)}
           />
-          Resmî İKV +5 yetenek hakkını ekle
+          Özgün oyundaki resmî +5 yetenek hakkını ekle
         </label>
         <small>
           Güncel resmî web sayfası seviye başına 2 puan, eski 6.0 PDF rehberi

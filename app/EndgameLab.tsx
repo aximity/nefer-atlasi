@@ -265,7 +265,7 @@ const ideaDepth: Record<string, IdeaDepth> = {
     load: "Orta · ayrı yaratık kopyası yerine örnek kural bayrakları kullanılır.",
     risk: "Yalnız can artışı yaparsa savaş uzar, oynanış derinleşmez.",
     metric: "Kademe seçimi, terk oranı ve ödül başına süre.",
-    sourceLabel: "İKV için mekanik pilot çıkarımı",
+    sourceLabel: "KÖ için mekanik pilot çıkarımı",
   },
   "Eski bölge rotasyonu": {
     foundation: "Haftanın bölgesini görünür yapıp küçük ek ödülle nüfusu toplar.",
@@ -280,7 +280,7 @@ const ideaDepth: Record<string, IdeaDepth> = {
     load: "Düşük · bitişte tek özet kayıt, liste önbellekten okunur.",
     risk: "Hileli veya eksik koşullu kayıtlar moderasyon gerektirir.",
     metric: "Katılan takım sayısı ve farklı kompozisyon adedi.",
-    sourceLabel: "İKV geri alınabilir pilotu",
+    sourceLabel: "KÖ geri alınabilir pilotu",
   },
   "Rol bazlı grup ilanı": {
     foundation: "Bölge, amaç, eksik sınıf/rol ve saat tek ilan kaydında tutulur.",
@@ -341,7 +341,7 @@ const ideaDepth: Record<string, IdeaDepth> = {
     load: "Orta · mevcut doğma yöneticisine sınırlı rota havuzu eklenir.",
     risk: "Arzı aşırı artırıp fiyatı çökertmemeli; önce küçük örneklem.",
     metric: "Rota yoğunluğu, saatlik çıktı ve fiyat değişimi.",
-    sourceLabel: "İKV saha verisi gerektiren pilot",
+    sourceLabel: "KÖ saha verisi gerektiren pilot",
   },
   "Üretim siparişi panosu": {
     foundation: "Alıcı reçete, malzeme ve teklif bırakır; üretici çevrim dışıyken de siparişi görebilir.",
@@ -356,14 +356,14 @@ const ideaDepth: Record<string, IdeaDepth> = {
     load: "Düşük · hesap başına haftalık sayaç ve NPC alışverişi.",
     risk: "Farmı anlamsızlaştırmamalı; tavan piyasa verisine göre ayarlanmalı.",
     metric: "Jeton kullanımı, maden fiyatı ve farm katılımı.",
-    sourceLabel: "İKV ekonomi pilotu",
+    sourceLabel: "KÖ ekonomi pilotu",
   },
   "Kalıcı malzeme tüketimi": {
     foundation: "Lonca dekoru ve kozmetik hedefler stok fazlasını güç satmadan tüketir.",
     load: "Düşük · mevcut envanter eksiltme ve proje sayacı.",
     risk: "Zorunlu lonca vergisine dönüşmemeli; gönüllü ve görünür olmalı.",
     metric: "Tüketilen stok, katılımcı sayısı ve fiyat dengesi.",
-    sourceLabel: "İKV kozmetik tüketim önerisi",
+    sourceLabel: "KÖ kozmetik tüketim önerisi",
   },
   "Gelişmiş ganimet filtresi": {
     foundation: "Anka yalnız sunucunun zaten düşürdüğü çantaları tür, nadirlik ve beyaz listeye göre toplar.",
@@ -378,7 +378,7 @@ const ideaDepth: Record<string, IdeaDepth> = {
     load: "Çok düşük · mevcut çanta kapasitesi ve eşya sınıfı kontrolü.",
     risk: "Yanlış nadirlik sınıfı; kullanıcı beyaz listesi öncelikli olmalı.",
     metric: "Dolu çanta nedeniyle kaçan yüksek değerli eşya bildirimi.",
-    sourceLabel: "İKV güvenli QoL pilotu",
+    sourceLabel: "KÖ güvenli QoL pilotu",
   },
   "Otomatik istifleme": {
     foundation: "Toplama tamamlanınca aynı kimlikteki malzemeleri mevcut yığın sınırında birleştirir.",
@@ -401,7 +401,7 @@ const ideaDepth: Record<string, IdeaDepth> = {
     load: "Yok denecek kadar az · varsayılan olarak istemci tarafında.",
     risk: "Kesin düşme oranı sanılmamalı; örneklem büyüklüğü gösterilmeli.",
     metric: "Özeti açan oyuncu ve paylaşılan doğrulanabilir tur sayısı.",
-    sourceLabel: "İKV veri toplama pilotu",
+    sourceLabel: "KÖ veri toplama pilotu",
   },
   "Arayüz ölçekleme": {
     foundation: "Metin ve panel ölçüsünü sabit üç profil ile değiştirir; oyun mantığına dokunmaz.",
@@ -416,21 +416,21 @@ const ideaDepth: Record<string, IdeaDepth> = {
     load: "Yok · yerel ayar dosyası.",
     risk: "Bozuk profil oyuncuyu kilitlememeli; varsayılana dön düğmesi şart.",
     metric: "Profil değişimi ve ayar sıfırlama ihtiyacı.",
-    sourceLabel: "İKV istemci QoL pilotu",
+    sourceLabel: "KÖ istemci QoL pilotu",
   },
   "Eşya karşılaştırma": {
     foundation: "Takılı ve seçilen eşyadaki aynı özellikleri istemcide fark olarak renklendirir.",
     load: "Yok · zaten gelen eşya verisinin yerel karşılaştırması.",
     risk: "Efsun birimleri normalize edilmeden toplam puan üretmemeli.",
     metric: "Karşılaştırma açılışı ve yanlış değer bildirimi.",
-    sourceLabel: "İKV kaynaklı alanlarla sınırlı pilot",
+    sourceLabel: "KÖ kaynaklı alanlarla sınırlı pilot",
   },
   "Çökme sonrası ganimet koruması": {
     foundation: "Yalnız kazanımı sunucuda kesinleşmiş son sandık ödülünü süreli emanete alır.",
     load: "Orta–yüksek · idempotent ödül kaydı ve teslim kuyruğu.",
     risk: "Çoğaltma ve sahte hak iddiası; işlem kimliği olmadan yapılmamalı.",
     metric: "Kurtarılan ödül, mükerrer teslim ve destek talebi.",
-    sourceLabel: "İKV için ileri aşama güvenlik özelliği",
+    sourceLabel: "KÖ için ileri aşama güvenlik özelliği",
   },
   "Bağlantı Merkezi": {
     foundation: "Mevcut yanıt sürelerinden RTT ve dalgalanma üretir; kopmada kullanıcıya zaman damgalı, güven seviyeli bir makbuz verir.",
@@ -443,8 +443,8 @@ const ideaDepth: Record<string, IdeaDepth> = {
 };
 
 const marketBenchmarks = [
-  { name: "Black Desert", use: "Merkezî pazar deposu, anlık satın alma ve ön sipariş", avoid: "Dar fiyat bantlarını küçük İKV ekonomisine aynen kopyalama", url: sourceLinks.bdoMarket },
-  { name: "Guild Wars 2", use: "Satış emanet sistemi, alış emri ve ayrılmış para", avoid: "İKV hacmi ölçülmeden sabit yüksek kesinti oranı", url: sourceLinks.gw2Market },
+  { name: "Black Desert", use: "Merkezî pazar deposu, anlık satın alma ve ön sipariş", avoid: "Dar fiyat bantlarını küçük KÖ ekonomisine aynen kopyalama", url: sourceLinks.bdoMarket },
+  { name: "Guild Wars 2", use: "Satış emanet sistemi, alış emri ve ayrılmış para", avoid: "KÖ hacmi ölçülmeden sabit yüksek kesinti oranı", url: sourceLinks.gw2Market },
   { name: "World of Warcraft", use: "Malzemeleri tek emir defterinde adet ve birim fiyatla birleştirme", avoid: "Ekipman ile yığınlanabilir malzemeyi aynı arama akışına sıkıştırma", url: sourceLinks.wowAuction },
   { name: "WoW Crafting Orders", use: "Alıcı malzeme koyar, üretici çevrim dışı siparişi tamamlar", avoid: "Kalite/efsun koşulu tanımlanmadan serbest metin anlaşması", url: sourceLinks.wowCrafting },
 ];
@@ -741,24 +741,24 @@ export default function EndgameLab() {
           <div className="eg-panel market-design-panel">
             <div className="panel-intro">
               <div>
-                <small>İKV İÇİN MERKEZÎ PAZAR TASARIMI</small>
+                <small>KÖ İÇİN MERKEZÎ PAZAR TASARIMI</small>
                 <h3>Tezgâh değil, Teşkilat Pazar Defteri.</h3>
               </div>
               <p>
                 Metin2/Karahan tipi fiziksel dükkânlar kalabalık nesne ve görüntü
-                üretir. İKV için çevrim dışı çalışan emir defteri; sohbet, oyuncu
+                üretir. KÖ için çevrim dışı çalışan emir defteri; sohbet, oyuncu
                 konumu ve dünya çiziminden bağımsız daha düşük sürtünmeli temeldir.
               </p>
             </div>
             <div className="market-scope-note">
               <div><small>MEVCUT DURUM · OYUNCU GÖZLEMİ</small><b>WhatsApp, Facebook, Discord ve genel sohbet ilanı</b></div>
               <p>Resmî Plus sayfası bölge, klan ve lonca kanallarına yazmayı ayrıcalık olarak listeliyor; ayrıca genel sohbet yazma ürünü bulunuyor. Pazar ve grup aramanın yapılandırılmış panoya taşınması sohbeti iletişime geri verir.</p>
-              <div className="scope-links"><a href={sourceLinks.ikvPlus} target="_blank" rel="noreferrer">İKV Plus ↗</a><a href={sourceLinks.ikvChatProduct} target="_blank" rel="noreferrer">Genel sohbet ürünü ↗</a></div>
+              <div className="scope-links"><a href={sourceLinks.ikvPlus} target="_blank" rel="noreferrer">Özgün oyunun Plus sistemi ↗</a><a href={sourceLinks.ikvChatProduct} target="_blank" rel="noreferrer">Genel sohbet ürünü ↗</a></div>
             </div>
             <div className="market-verdict">
               <span>ÖNERİLEN ÇEKİRDEK</span>
               <h4>BDO depo/emir + GW2 emanet + WoW malzeme birleştirme</h4>
-              <p>Çalışan parçalar uyarlanır; BDO’nun katı fiyat bantları ve yüksek hacimli oyunlara özgü karmaşıklığı aynen taşınmaz. İKV’nin küçük ekonomisinde fiyatı yönetici değil, tamamlanmış işlem verisi görünür kılar.</p>
+              <p>Çalışan parçalar uyarlanır; BDO’nun katı fiyat bantları ve yüksek hacimli oyunlara özgü karmaşıklığı aynen taşınmaz. KÖ’nün küçük ekonomisinde fiyatı yönetici değil, tamamlanmış işlem verisi görünür kılar.</p>
             </div>
             <div className="market-core-grid">{marketCore.map((item,index)=><article key={item.title}><span>{String(index+1).padStart(2,"0")}</span><h4>{item.title}</h4><p>{item.text}</p></article>)}</div>
             <div className="market-compare">

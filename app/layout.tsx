@@ -10,14 +10,14 @@ import "./guild-logistics.css";
 import "./connected-atlas.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://ikv-esya-rehberi.gdyon.chatgpt.site"),
-  title: "Nefer Atlası | İKV Bilgi, Strateji ve Ekonomi Platformu",
+  title: "Nefer Atlası | KÖ Bilgi, Strateji ve Ekonomi Platformu",
   description:
-    "İKV eşyaları, buildler, yetenekler, bölgeler, madenler, pazar ve endgame analizi için kaynaklı topluluk platformu.",
+    "Kıyametin Öncüleri eşyaları, buildleri, yetenekleri, bölgeleri, madenleri, pazarı ve endgame analizi için kaynaklı topluluk platformu.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "Nefer Atlası",
     description:
-      "İKV bilgisini doğrula; donanımını, yeteneğini, farmını ve stratejini aynı atlas üzerinde planla.",
+      "Kıyametin Öncüleri bilgisini doğrula; donanımını, yeteneğini, farmını ve stratejini aynı atlas üzerinde planla.",
     siteName: "Nefer Atlası",
     locale: "tr_TR",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nefer Atlası",
     description:
-      "İKV bilgi, strateji ve ekonomi platformu: kaynaklı eşya, build, yetenek, bölge, maden ve endgame analizi.",
+      "KÖ bilgi, strateji ve ekonomi platformu: kaynaklı eşya, build, yetenek, bölge, maden ve endgame analizi.",
     images: ["/og.png"],
   },
 };

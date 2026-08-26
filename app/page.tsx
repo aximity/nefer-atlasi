@@ -265,7 +265,7 @@ export default function Home() {
           <b className="brandMark">N</b>
           <span className="brandName">
             <strong>NEFER ATLASI</strong>
-            <small>İKV BİLGİ PLATFORMU</small>
+            <small>KÖ BİLGİ PLATFORMU</small>
           </span>
         </a>
         <nav className="top-status" aria-label="Açık modül">
@@ -277,7 +277,7 @@ export default function Home() {
       </header>
       <section className="hero" id="top">
         <div>
-          <p className="eyebrow">İKV BİLGİ · STRATEJİ · EKONOMİ PLATFORMU</p>
+          <p className="eyebrow">KÖ BİLGİ · STRATEJİ · EKONOMİ PLATFORMU</p>
           <h1>
             Bilgiyi doğrula.
             <br />
@@ -293,7 +293,7 @@ export default function Home() {
           </div>
         </div>
         <aside>
-          <small>GENİŞLEYEN İKV KATALOĞU</small>
+          <small>GENİŞLEYEN KÖ KATALOĞU</small>
           <strong>{publishableItems.length}</strong>
           <span>kaynaklı eşya kaydı</span>
           <p>
@@ -511,7 +511,7 @@ export default function Home() {
               </label>
             )}
             <p className="data-note">
-              {classTalismans.length} resmî İKV kaydı · I. kademe Büyük Hol düşümü; II–III. kademe ve kademesiz özel tılsımlar reçete üretimiyle edinilir. Filtrede {visibleTalismans.length} kayıt gösteriliyor.
+              {classTalismans.length} özgün oyun kaydı · I. kademe Büyük Hol düşümü; II–III. kademe ve kademesiz özel tılsımlar reçete üretimiyle edinilir. Filtrede {visibleTalismans.length} kayıt gösteriliyor.
             </p>
           </article>
           <TalismanResult
@@ -604,7 +604,7 @@ export default function Home() {
         <div>
           <b>NEFER ATLASI</b>
           <span>{SITE_RELEASE.channel} v{SITE_RELEASE.version} · {SITE_RELEASE.releasedAt}</span>
-          <span>Bağımsız İKV topluluk projesi · resmî değildir.</span>
+          <span>Bağımsız Kıyametin Öncüleri topluluk projesi · resmî değildir.</span>
         </div>
         <p>
           Kaynak yoksa kesin bilgi yok. Tek kaynak teyit bekler; çelişki saklanmaz;
