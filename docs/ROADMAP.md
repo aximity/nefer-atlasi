@@ -71,7 +71,7 @@
 
 Çıkış kapısı: Görülen farklar ekran görüntüsüyle çözülür; erişim, kullanıcı açılmasını isteyene kadar yalnızca sahibinde kalır.
 
-## Aktif — M26: Savaşçı yetenek kapsamı
+## Tamamlandı — M26: Savaşçı yetenek kapsamı
 
 - [x] Depar, Ofansif Dövüş ve Sert Vuruş tooltip kanıtları
 - [x] Defansif Dövüşme, Kışkırtma ve Dikkat Dağıtma tooltip kanıtları
@@ -80,15 +80,17 @@
 - [x] Boz Ayı'nı Kanatma'nın yerine geçen varyant olarak kanıtla
 - [x] Zihin Toplama, Sarsılmaz ve Süpürme Vuruşu tooltip kanıtları
 - [x] Hedef Saptırma ve Ağır Vuruş tooltip kanıtları
-- [ ] Kanatma'nın oyun içi tooltip görüntüsünü işle
+- [x] KÖ'de Kanatma yuvasını Boz Ayı'nın doldurduğunu kapsam hesabına uygula
 
-Çıkış kapısı: 15 temel savaşçı yeteneği tarihli görüntüye bağlıdır; Boz Ayı ayrı temel yetenek sayılmaz.
+Çıkış kapısı: 15 savaşçı yetenek yuvası tarihli görüntüye bağlıdır; Boz Ayı ayrı bir 16. yetenek değil, Kanatma yuvasının KÖ karşılığıdır.
 
 ## Aktif — M27: Büyücü yetenek kapsamı
 
 - [x] Meteorit, Konsantrasyon ve Fiziksel Bilgi tooltip kanıtları
 - [x] Buz Oku tooltip kanıtı
-- [ ] Kalan on bir temel büyücü yeteneğinin oyun içi görüntülerini işle
+- [x] Direnç Kırma Alanı, Buz Bilgisi, Ateş Çemberi, Ateş Bilgisi ve Meditasyon tooltip kanıtları
+- [x] Yıldırım, Elektrik Bilgisi, Büyü Bozma, Tesla Küresi ve Kutup Rüzgarı tooltip kanıtları
+- [ ] Zihin Saldırısı tooltip kanıtını işle
 
 Çıkış kapısı: 15 temel büyücü yeteneğinin hedef, etki, süre, yenilenme ve puan eşikleri tarihli oyun içi görüntüye bağlıdır.
 

@@ -594,5 +594,187 @@
     "evidenceImage": "/evidence/mage-abilities/buz-oku.webp",
     "status": "cross_verified",
     "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-resistance-break",
+    "target": "Çevresi",
+    "effect": "Ateş, buz ve elektrik dirençlerini düşürür. Sıfırın altına düşürmesi de etkilidir.",
+    "duration": "Başlangıçta 4 sn",
+    "cooldown": "Başlangıçta 10 sn",
+    "progression": [
+      "Her puan %2 direnç düşürür ve kudret gereksinimini %2 azaltır.",
+      "5 puanda yenilenme süresi 8 sn ve etki süresi 4,5 sn olur.",
+      "10 puanda yenilenme süresi 7 sn ve etki süresi 6 sn olur.",
+      "15 puanda yenilenme süresi 6 sn ve etki süresi 8 sn olur; dirençleri 100 daha düşürür."
+    ],
+    "sourceId": "player-mage-resistance-break-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/direnc-kirma-alani.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-ice-knowledge",
+    "target": "Kendisi",
+    "effect": "Buz hasarı veren büyüleri etkiler.",
+    "duration": "Daima aktif",
+    "cooldown": "Yok",
+    "progression": [
+      "Her puan Buz Oku büyüsünün kudret gereksinimini %2 azaltır.",
+      "5 puandan itibaren her puan %5'lik hasar artışı sağlar.",
+      "15 puanda kritik darbe yediğinde kritik hasarını ekstra %15 düşürür.",
+      "15 puanda yaratıklara karşı bütün büyü hasarı buz veren eşyaların 4 katı, oyunculara karşı 1,5 katı kadar hasar bonusu ana hasara eklenir."
+    ],
+    "sourceId": "player-mage-ice-knowledge-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/buz-bilgisi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-fire-circle",
+    "target": "Çevresi",
+    "effect": "Düşmana ateş hasarı verir. Yaratıklara atıldığında kritik gelirse eşyalardan gelen bonus daha çok etki eder.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 10 sn",
+    "progression": [
+      "Her puanda hasarı %2 ve kritik şansı %1 artar.",
+      "5 puanda her puan için yenilenme süresi 1 sn azalır.",
+      "10 puanda ateş direnci sıfırın altına düşmüşlere %50 ihtimalle çifte hasar verir.",
+      "15 puanda ateş direnci sıfırın altına düşmüşlere %50 ihtimalle üç kat hasar verir."
+    ],
+    "sourceId": "player-mage-fire-circle-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/ates-cemberi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-fire-knowledge",
+    "target": "Kendisi",
+    "effect": "Ateş hasarı veren büyüleri etkiler.",
+    "duration": "Daima aktif",
+    "cooldown": "Yok",
+    "progression": [
+      "Her puan hasarı %3, kritik şansını %1 artırır ve kudret gereksinimini %2 azaltır.",
+      "15 puanda %5 ek hasar artışı verir.",
+      "15 puanda kritik darbe yediğinde kritik hasarını ekstra %15 düşürür.",
+      "15 puanda yaratıklara karşı bütün büyü hasarı ateş veren eşyaların 4 katı kadar hasar bonusu ana hasara eklenir."
+    ],
+    "sourceId": "player-mage-fire-knowledge-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/ates-bilgisi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-meditation",
+    "target": "Kendisi",
+    "effect": "Kudret yenilenmesini artırır.",
+    "duration": "46 sn",
+    "cooldown": "Başlangıçta 2 dk",
+    "progression": [
+      "Her puan %5 ilave kudret yenileme verir.",
+      "5 puanda yenilenme süresi 1,5 dk olur.",
+      "10 puanda %10 enerji yenilenmesi de verir.",
+      "15 puanda %25 enerji yenilenmesi de verir ve büyülerin kritik şansını %5 artırır."
+    ],
+    "sourceId": "player-mage-meditation-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/meditasyon.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-lightning",
+    "target": "Düşman; ileri Elektrik Bilgisi seviyelerinde düşmanın çevresi",
+    "effect": "Elektrik hasarı verir. Yaratıklara atıldığında kritik gelirse eşyalardan gelen bonus daha çok etki eder.",
+    "duration": "0 sn veya 5 sn",
+    "cooldown": "Başlangıçta 5 sn",
+    "progression": [
+      "Her puan hasarı %3 ve kritik şansını %1 artırır.",
+      "Üzerinde elektrik etkisi kalmış hedeflere, üzerlerindeki her bir elektrik etkisi başına fazladan %5 kritik şansı verir.",
+      "Kritik vurunca hedefte 3 veya daha fazla elektrik etkisi kalmışsa %50 ihtimalle 3 kat hasar verir.",
+      "Bu %50'lik 3 kat vurma ihtimali, hedefin üzerindeki elektrik etkisi sayısıyla %5'er artar.",
+      "5, 10 ve 15 puanda yenilenme süresi sırasıyla 4, 4 ve 3 sn olur."
+    ],
+    "sourceId": "player-mage-lightning-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/yildirim.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-lightning-knowledge",
+    "target": "Kendisi",
+    "effect": "Elektrik hasarı veren büyüleri etkiler.",
+    "duration": "Daima aktif",
+    "cooldown": "Yok",
+    "progression": [
+      "Her puan Yıldırımın kudret gereksinimini %2 azaltır, elektrik etkisi bırakma ihtimalini %5 artırır ve etki alanını artırır.",
+      "1 puanda Yıldırımın elektrik etkisi bırakma süresi 5 sn olur ve Yıldırım hedefin çevresine de etki eder.",
+      "5, 10 ve 15 puanda elektrik etkisi süresi sırasıyla 10, 15 ve 20 sn olur.",
+      "15 puanda kritik darbe yediğinde kritik hasarını ekstra %15 düşürür.",
+      "15 puanda yaratıklara karşı bütün büyü hasarı elektrik veren eşyaların 4 katı kadar hasar bonusu ana hasara eklenir."
+    ],
+    "sourceId": "player-mage-lightning-knowledge-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/elektrik-bilgisi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-dispel",
+    "target": "Müttefik",
+    "effect": "Büyüsel tüm kötü etkileri kaldırır.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 10 sn",
+    "progression": [
+      "Her puan kudret gereksinimini %3 azaltır.",
+      "5 puanda kudret gereksiniminde %10 azalma ve 7 sn yenilenme verir; %10 ihtimalle Ruhsal ve Savaşsal etkileri de kaldırır.",
+      "10 puanda kudret gereksiniminde %15 azalma ve 5 sn yenilenme verir; %20 ihtimalle Ruhsal ve Savaşsal etkileri de kaldırır.",
+      "15 puanda kudret gereksiniminde %30 azalma ve 3 sn yenilenme verir; %25 ihtimalle Ruhsal ve Savaşsal etkileri de kaldırır."
+    ],
+    "sourceId": "player-mage-dispel-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/buyu-bozma.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-tesla",
+    "target": "Yok",
+    "effect": "Kendisine yardımcı olacak bir Tesla Küresi çalıştırır.",
+    "duration": "Başlangıçta 15 sn",
+    "cooldown": "Başlangıçta 15 sn",
+    "progression": [
+      "Her puanda yenilenme ve etki süresi 3 sn artar, hasarı %2 artar.",
+      "Elektrik Bilgisindeki her puan da hasarını %1 artırır.",
+      "5 puanda kürenin enerjisi %20 artar; 5 puandan itibaren her puan kudret gereksinimini %3 azaltır.",
+      "10 puanda kürenin enerjisi %40 artar.",
+      "15 puanda kürenin enerjisi %50 artar."
+    ],
+    "sourceId": "player-mage-tesla-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/tesla-kuresi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-polar-wind",
+    "target": "Kendisi, çevresindeki grup üyeleri ve düşmanları",
+    "effect": "Kendisi dahil etrafındaki dost ve düşmanlar buz içinde hapis kalır.",
+    "duration": "Başlangıçta 5 sn",
+    "cooldown": "Başlangıçta 90 sn",
+    "progression": [
+      "Her puan yenilenme süresini 1 sn ve kudret gereksinimini %2 azaltır; etki süresini 0,25 sn ve etki menzilini %2,5 artırır.",
+      "10 puandan itibaren etki süresi 10 sn olur.",
+      "15 puanda etki süresi çevresindekiler için 10 sn, kendisi için 2 sn olur ve yenilenme süresi 60 sn'ye iner."
+    ],
+    "sourceId": "player-mage-polar-wind-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/kutup-ruzgari.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
   }
 ]

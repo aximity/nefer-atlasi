@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Savaşçı 15/15 ve büyücü 14/15
+
+- Kullanıcı düzeltmesiyle KÖ'de Boz Ayı'nın Kanatma yuvasının karşılığı olduğu kesinleştirildi; Kanatma eksik listesinden çıkarıldı.
+- Savaşçı kapsam hesabı 14 temel tooltip + 1 doğrulanmış yer değiştirme varyantıyla 15/15 olarak düzeltildi.
+- On yeni büyücü yeteneği oyun içi tooltip ayrıntıları ve kırpılmış kanıt görüntüleriyle eklendi.
+- Büyücü kapsamı 14/15'e ulaştı; yalnız Zihin Saldırısı görüntüsü bekleniyor.
+
 ## 2026-08-26 — Savaşçı 14/15 ve büyücü yetenekleri paket 1
 
 - Zihin Toplama, Sarsılmaz, Süpürme Vuruşu, Hedef Saptırma ve Ağır Vuruş oyun içi tooltip ayrıntılarıyla eklendi.

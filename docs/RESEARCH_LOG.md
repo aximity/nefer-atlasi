@@ -113,6 +113,14 @@
 - Kural: Doğrudan ve sayısal özellik çarpanları hesaplanır. Süre, bekleme, koşullu kontrol ve kaynak tüketimi etkileri ayrı durum modeli kurulana kadar yalnız araştırma kapsamındadır.
 - Kaynaklar: https://istanbuloyun.com/BuyukHolWarrior.aspx, https://istanbuloyun.com/BuyukHolMage.aspx, https://istanbuloyun.com/BuyukHolHealer.aspx
 
+## 2026-08-26 — KÖ savaşçı yuva düzeltmesi ve büyücü paketi 2
+
+- Kullanıcı doğrulaması: KÖ'de Kanatma yerine Boz Ayı bulunuyor; Boz Ayı ayrı bir 16. yetenek değil, aynı yuvanın ve puanların sunucu karşılığıdır.
+- Kaynak: Kullanıcının oyun içi savaşçı ekran görüntüsü ve açık düzeltmesi.
+- Sonuç: Savaşçı 15/15 tamamlandı; Kanatma artık bekleyen tooltip olarak gösterilmiyor.
+- Kaynak paketi: Direnç Kırma Alanı, Buz Bilgisi, Ateş Çemberi, Meditasyon, Ateş Bilgisi, Yıldırım, Büyü Bozma, Elektrik Bilgisi, Tesla Küresi ve Kutup Rüzgarı oyun içi görüntüleri.
+- Sonuç: Büyücü 14/15; yalnız Zihin Saldırısı bekliyor.
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı

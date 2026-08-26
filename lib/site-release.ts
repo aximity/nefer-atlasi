@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.26.0",
+  version: "0.27.0",
   channel: "BETA",
   milestone: "M27",
   releasedAt: "26 Ağustos 2026",
-  title: "Savaşçı 14/15 · Büyücü 4/15",
+  title: "Savaşçı 15/15 · Büyücü 14/15",
   summary:
-    "Beş yeni savaşçı ve dört büyücü yeteneği oyun içi tooltip kanıtlarıyla sözlüğe eklendi; tekrarlı Savaş Narası görüntüsü ikinci kayıt yapılmadı.",
+    "Boz Ayı'nın Kanatma yuvasının KÖ karşılığı olduğu kapsam hesabına işlendi; on yeni büyücü yeteneği oyun içi tooltip kanıtlarıyla eklendi.",
   changes: [
-    "Zihin Toplama, Sarsılmaz, Süpürme Vuruşu, Hedef Saptırma ve Ağır Vuruş ayrıntıları eklendi.",
-    "Meteorit, Konsantrasyon, Fiziksel Bilgi ve Buz Oku ile büyücü sözlüğü 4/15 başladı.",
-    "Savaşçı kapsamı 14/15'e ulaştı; yalnız Kanatma'nın oyun içi tooltip görüntüsü bekleniyor.",
-    "Dokuz yeni kayıt gerçek oyun içi görüntü ve bağımsız rehber kaynağına bağlandı.",
+    "Savaşçı kapsamı 15/15 tamamlandı; Kanatma artık eksik gösterilmiyor.",
+    "Direnç Kırma Alanı, Buz Bilgisi, Ateş Çemberi, Ateş Bilgisi ve Meditasyon eklendi.",
+    "Yıldırım, Elektrik Bilgisi, Büyü Bozma, Tesla Küresi ve Kutup Rüzgarı eklendi.",
+    "Büyücü kapsamı 14/15'e ulaştı; yalnız Zihin Saldırısı görüntüsü bekleniyor.",
   ],
 } as const;

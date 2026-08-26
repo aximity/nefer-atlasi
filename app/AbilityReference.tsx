@@ -9,6 +9,16 @@ type AbilityClass = "Savaşçı" | "Büyücü" | "Şifacı";
 
 const classes: AbilityClass[] = ["Savaşçı", "Büyücü", "Şifacı"];
 
+function coveredAbilityIds(className: AbilityClass) {
+  const ids = new Set(
+    detailRows
+      .filter((detail) => abilityRows.some((ability) => ability.id === detail.abilityId && ability.class === className))
+      .map((detail) => detail.abilityId),
+  );
+  for (const variant of variantRows.filter((row) => row.class === className)) ids.add(variant.replacesAbilityId);
+  return ids;
+}
+
 export default function AbilityReference() {
   const [activeClass, setActiveClass] = useState<AbilityClass>("Savaşçı");
   const classAbilities = useMemo(
@@ -20,16 +30,14 @@ export default function AbilityReference() {
     [classAbilities],
   );
   const classVariants = variantRows.filter((variant) => variant.class === activeClass);
-  const detailedIds = new Set(classDetails.map((row) => row.abilityId));
-  const waiting = classAbilities.filter((row) => !detailedIds.has(row.id));
+  const coveredIds = coveredAbilityIds(activeClass);
+  const waiting = classAbilities.filter((row) => !coveredIds.has(row.id));
 
   return (
     <section className={`healerReference abilityReference ${activeClass === "Savaşçı" ? "warrior" : activeClass === "Büyücü" ? "mage" : "healer"}`} aria-labelledby="ability-reference-title">
       <div className="abilityClassTabs" aria-label="Yetenek sınıfı">
         {classes.map((className) => {
-          const count = detailRows.filter((detail) =>
-            abilityRows.some((ability) => ability.id === detail.abilityId && ability.class === className),
-          ).length;
+          const count = coveredAbilityIds(className).size;
           return (
             <button
               key={className}
@@ -49,7 +57,7 @@ export default function AbilityReference() {
           <small>OYUN İÇİ TOOLTIP KANITI</small>
           <h3 id="ability-reference-title">{activeClass} Yetenek Sözlüğü</h3>
         </div>
-        <strong>{classDetails.length} / 15</strong>
+        <strong>{coveredIds.size} / 15</strong>
         <p>
           Kayıtlar oyun içi metinden yapılandırıldı. Her kartın kaynak görüntüsü
           açılabilir; temel yetenek ile yerine geçen varyant ayrı gösterilir.
@@ -125,7 +133,11 @@ export default function AbilityReference() {
       ) : (
         <div className="healerAbilityWaiting complete">
           <b>{activeClass} sınıfı tamamlandı · 15/15</b>
-          <p>Tüm temel {activeClass.toLocaleLowerCase("tr-TR")} yetenekleri oyun içi görüntü ve KÖ rehberiyle kayıtlı.</p>
+          <p>
+            {classVariants.length
+              ? `${classVariants.map((variant) => variant.name).join(" · ")}, ${classVariants.map((variant) => abilityRows.find((ability) => ability.id === variant.replacesAbilityId)?.name).join(" · ")} yuvasının KÖ karşılığı olarak kayıtlı.`
+              : `Tüm temel ${activeClass.toLocaleLowerCase("tr-TR")} yetenekleri oyun içi görüntü ve KÖ rehberiyle kayıtlı.`}
+          </p>
           <small>Metin farkı görülürse kartın kaynak görüntüsü üzerinden yeniden doğrulanır.</small>
         </div>
       )}

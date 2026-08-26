@@ -110,7 +110,7 @@ test("özellik birimleri kullanıcıya açık Türkçe veri sözlüğü kullanı
 test("efsun serileri büyü ve direnç kademelerini kapsar",()=>{assert.equal(enchantSeries.length,11);assert.ok(enchantSeries.flatMap(series=>series.entries).length>=128);for(const series of enchantSeries)assert.ok(series.entries.every(([name,value])=>name&&value>0))});
 test("üç sınıfın 45 temel yeteneği açılma seviyeleriyle kayıtlıdır",()=>{assert.equal(abilities.length,45);for(const klass of ["Savaşçı","Büyücü","Şifacı"]){const classAbilities=abilities.filter(ability=>ability.class===klass);assert.equal(classAbilities.length,15);for(const level of [1,10,20,30,40])assert.equal(classAbilities.filter(ability=>ability.unlockLevel===level).length,3,`${klass} ${level}. seviye`)}assert.ok(!abilities.some(ability=>ability.name==="Boz Ayı"),"Boz Ayı, Kanatma varyantıdır; ayrı temel yetenek değildir")});
 test("şifacının 15 temel yeteneği oyun içi tooltip ve bağımsız KÖ rehberiyle doğrulanır",()=>{
-  assert.equal(abilityDetails.length,33);
+  assert.equal(abilityDetails.length,43);
   const sourceById=new Map(sources.map(source=>[source.id,source]));
   const healerDetails=abilityDetails.filter(detail=>detail.abilityId.startsWith("healer-"));
   assert.equal(healerDetails.length,15);
@@ -129,7 +129,7 @@ test("şifacının 15 temel yeteneği oyun içi tooltip ve bağımsız KÖ rehbe
     "healer-element-field","healer-wrath","healer-summon","healer-lifesaver","healer-heal-circle",
   ]);
 });
-test("savaşçı kapsamı on dört temel yetenek ve Boz Ayı varyantını ayrı tutar",()=>{
+test("Boz Ayı, Kanatma yuvasını doldurur ve savaşçı kapsamını 15/15 tamamlar",()=>{
   const sourceById=new Map(sources.map(source=>[source.id,source]));
   const warriorDetails=abilityDetails.filter(detail=>detail.abilityId.startsWith("warrior-"));
   assert.deepEqual(warriorDetails.map(detail=>detail.abilityId),[
@@ -149,13 +149,20 @@ test("savaşçı kapsamı on dört temel yetenek ve Boz Ayı varyantını ayrı 
   assert.equal(bear.status,"cross_verified");
   assert.equal(bear.evidenceImage,"/evidence/warrior-abilities/boz-ayi.webp");
   assert.ok(!abilities.some(ability=>ability.name==="Boz Ayı"));
+  const covered=new Set([...warriorDetails.map(detail=>detail.abilityId),bear.replacesAbilityId]);
+  assert.equal(covered.size,15);
+  assert.ok(covered.has("warrior-bleed"));
 });
-test("ilk büyücü paketi dört temel yeteneği kanıt görüntüsüne bağlar",()=>{
+test("büyücü kapsamı on dört temel yeteneği kanıt görüntüsüne bağlar",()=>{
   const sourceById=new Map(sources.map(source=>[source.id,source]));
   const mageDetails=abilityDetails.filter(detail=>detail.abilityId.startsWith("mage-"));
   assert.deepEqual(mageDetails.map(detail=>detail.abilityId),[
     "mage-meteor","mage-concentration","mage-physical-knowledge","mage-ice-arrow",
+    "mage-resistance-break","mage-ice-knowledge","mage-fire-circle","mage-fire-knowledge","mage-meditation",
+    "mage-lightning","mage-lightning-knowledge","mage-dispel","mage-tesla","mage-polar-wind",
   ]);
+  assert.equal(mageDetails.length,14);
+  assert.ok(!mageDetails.some(detail=>detail.abilityId==="mage-mind-attack"));
   for(const detail of mageDetails){
     assert.equal(detail.status,"cross_verified");
     assert.ok(detail.evidenceImage.startsWith("/evidence/mage-abilities/"));
