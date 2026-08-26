@@ -262,7 +262,7 @@ export default function Home() {
     };
   return (
     <main>
-      <header>
+      <header className="siteHeader">
         <a className="brand" href="#top" aria-label="Nefer Atlası ana sayfa">
           <b className="brandMark">N</b>
           <span className="brandName">

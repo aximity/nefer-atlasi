@@ -1,16 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.22.0",
+  version: "0.22.1",
   channel: "BETA",
   milestone: "M22",
   releasedAt: "26 Ağustos 2026",
-  title: "Görev Atlası",
+  title: "Görev Atlası Mobil Düzeltmesi",
   summary:
-    "Yeni hesap rotası, zincir bağlantıları ve sınıfa göre görev ödülleri aynı takip ekranında birleştirildi.",
+    "Görev Atlası'nın mobil yerleşimi ve seviye seçme davranışı gerçek kullanım geri bildirimiyle düzeltildi.",
   changes: [
-    "Yeni hesap ve önemli bölge erişim görevleri için kaynaklı çekirdek rota eklendi.",
-    "Görevi veren NPC, konum, yapılacak iş, ön koşul ve sonraki görevler birlikte gösteriliyor.",
-    "Savaşçı, Büyücü ve Şifacı görev ödülleri ayrı ayrı aranabiliyor.",
-    "Tamamlanan görevler cihazda saklanıyor ve sıradaki yapılabilir görev öneriliyor.",
-    "Özgün oyun Wiki verileri KÖ teyidi bekleyen kayıt olarak açıkça ayrıldı.",
+    "Genel başlık stili görev kartlarından ayrıldı; kart ve açıklama metinlerinin üst üste binmesi önlendi.",
+    "Seviye alanı artık tamamen silinip yeniden yazılabiliyor ve 1–49 doğrulaması yapıyor.",
+    "Görev listesi yalnız mevcut seviye ile önceki iki seviyenin ilgili görevlerini gösteriyor.",
+    "Eski zincir görevleri listede kalabalık yaratmadan görev detayındaki ön koşullardan açılabiliyor.",
   ],
 } as const;

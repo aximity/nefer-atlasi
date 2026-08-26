@@ -11,6 +11,7 @@ import {
   type Quest,
   type QuestClass,
 } from "../lib/quest-catalog";
+import { parseQuestLevel, questLevelWindow, questMatchesLevel } from "../lib/quest-level";
 
 const classes: QuestClass[] = ["Savaşçı", "Büyücü", "Şifacı"];
 const STORAGE_KEY = "nefer-atlasi:quest-progress:v1";
@@ -46,7 +47,7 @@ export default function QuestAtlas() {
   const [klass, setKlass] = useState<QuestClass>("Savaşçı");
   const [view, setView] = useState<View>("route");
   const [track, setTrack] = useState("Tümü");
-  const [level, setLevel] = useState(15);
+  const [levelInput, setLevelInput] = useState("15");
   const [query, setQuery] = useState("");
   const [completed, setCompleted] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<Quest | null>(null);
@@ -79,10 +80,14 @@ export default function QuestAtlas() {
     return () => window.removeEventListener("keydown", close);
   }, [selected]);
 
+  const level = parseQuestLevel(levelInput);
+  const levelRange = level ? questLevelWindow(level) : null;
+
   const filtered = useMemo(() => {
     const needle = normalized(query.trim());
+    if (!level) return [];
     return quests
-      .filter((quest) => quest.level <= level)
+      .filter((quest) => questMatchesLevel(quest.level, level))
       .filter((quest) => track === "Tümü" || quest.track === track)
       .filter((quest) => {
         if (view === "route") return quest.recommended;
@@ -106,11 +111,13 @@ export default function QuestAtlas() {
       .sort((a, b) => a.level - b.level || a.track.localeCompare(b.track, "tr") || a.title.localeCompare(b.title, "tr"));
   }, [klass, level, query, track, view]);
 
-  const eligible = quests.filter((quest) => quest.recommended && quest.level <= level);
+  const eligible = level
+    ? quests.filter((quest) => quest.recommended && questMatchesLevel(quest.level, level))
+    : [];
   const finished = eligible.filter((quest) => completed.has(quest.id)).length;
   const next = eligible.find(
     (quest) => !completed.has(quest.id) && quest.dependsOn.every((id) => completed.has(id)),
-  );
+  ) ?? eligible.find((quest) => !completed.has(quest.id));
   const progress = eligible.length ? Math.round((finished / eligible.length) * 100) : 0;
 
   const toggle = (quest: Quest) => {
@@ -139,10 +146,10 @@ export default function QuestAtlas() {
           </p>
         </div>
         <aside className="questProgress" aria-label="Görev ilerlemesi">
-          <span>SEVİYE {level} ROTASI</span>
+          <span>{levelRange ? `SEVİYE ${levelRange.min}–${levelRange.max} GÖREVLERİ` : "GEÇERLİ SEVİYE GİR"}</span>
           <strong>%{progress}</strong>
           <div><i style={{ width: `${progress}%` }} /></div>
-          <small>{finished} / {eligible.length} önerilen adım tamamlandı</small>
+          <small>{finished} / {eligible.length} seviyene uygun adım tamamlandı</small>
         </aside>
       </header>
 
@@ -154,7 +161,7 @@ export default function QuestAtlas() {
             <small>Sv. {next.level} · {next.giver} · {next.location}</small>
           </button>
         ) : (
-          <p>Bu seviyeye kadar önerilen rota tamamlandı. Seviyeyi yükselterek devam et.</p>
+          <p>{level ? "Bu seviye aralığındaki önerilen rota tamamlandı veya henüz katalogda görev yok." : "Önce 1–49 arasında karakter seviyeni gir."}</p>
         )}
       </div>
 
@@ -164,8 +171,18 @@ export default function QuestAtlas() {
           <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Örn. Anka, Agah Efendi, Labirent…" />
         </label>
         <label>
-          <span>Karakter seviyesi</span>
-          <input type="number" min="1" max="49" value={level} onChange={(event) => setLevel(Math.min(49, Math.max(1, Number(event.target.value) || 1)))} />
+          <span>Mevcut seviye</span>
+          <input
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            maxLength={2}
+            value={levelInput}
+            aria-invalid={levelInput !== "" && level === null}
+            placeholder="1–49"
+            onChange={(event) => setLevelInput(event.target.value.replace(/\D/g, "").slice(0, 2))}
+          />
+          <small>{levelRange ? `Sv. ${levelRange.min}–${levelRange.max} gösterilir` : "Alanı silip yeni seviyeyi yazabilirsin"}</small>
         </label>
         <label>
           <span>Görev hattı</span>
@@ -188,7 +205,7 @@ export default function QuestAtlas() {
       </div>
 
       <div className="questResultHead">
-        <p><b>{filtered.length}</b> görev gösteriliyor</p>
+        <p><b>{filtered.length}</b> {levelRange ? `görev · Sv. ${levelRange.min}–${levelRange.max}` : "görev"} gösteriliyor</p>
         <span>Özgün oyun Wiki’si · KÖ teyidi bekliyor</span>
       </div>
 
@@ -228,7 +245,7 @@ export default function QuestAtlas() {
         })}
       </div>
 
-      {filtered.length === 0 && <p className="questEmpty">Bu filtrelerle eşleşen görev bulunamadı.</p>}
+      {filtered.length === 0 && <p className="questEmpty">{level ? `Sv. ${levelRange?.min}–${levelRange?.max} aralığında bu filtrelerle eşleşen kaynaklı görev bulunamadı.` : "Görevleri görmek için 1–49 arasında geçerli bir seviye gir."}</p>}
 
       <footer className="questSourceNote">
         <div>
