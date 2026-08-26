@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.33.1",
+  version: "0.34.0",
   channel: "BETA",
-  milestone: "M32.1",
+  milestone: "M32.2",
   releasedAt: "26 Ağustos 2026",
-  title: "Akıllı Arama ve Genel Yerleşim Düzeltmesi",
+  title: "Özel Trafik Merkezi ve Reklam Hazırlığı",
   summary:
-    "Genel arama tür filtreleri ve kayıt odaklı yönlendirmelerle genişletildi; iç bölüm başlıklarının mobilde üst üste binmesine neden olan genel stil sızıntısı giderildi.",
+    "Gizlilik odaklı birinci taraf trafik ölçümü, yalnız sahibin erişebildiği parola korumalı istatistik paneli ve gelecekte etkinleştirilebilecek izinli reklam altyapısı eklendi.",
   changes: [
-    "Arama alanı başlıkta görünür bir kutuya dönüştürüldü.",
-    "Bölüm, eşya, görev, yetenek, maden, bölge/boss ve tılsım filtreleri eklendi.",
-    "Sonuçlar yalnız liste vermek yerine ilgili filtreyi, kaydı veya ayrıntı kartını doğrudan açıyor.",
-    "Türkçe karakter farkları ve çok kelimeli aramalar birlikte destekleniyor.",
-    "Genel header ve nav stilleri site çubuğuyla sınırlandırılarak bütün modüllerdeki metin çakışması önlendi.",
+    "Sayfa görüntüleme, günlük tekil ziyaretçi, trafik kaynağı ve cihaz türü anonim olarak ölçülüyor.",
+    "Trafik paneli ChatGPT girişi yerine güçlü erişim anahtarı ve güvenli oturum çereziyle korunuyor.",
+    "Hatalı girişler on beş dakikalık hız sınırına bağlandı; yönetim trafiği ve bilinen botlar sayımdan çıkarıldı.",
+    "AdSense alanları, ads.txt ve reklam izni katmanı yayıncı kimlikleri eklenene kadar görünmez ve kapalı tutuluyor.",
+    "Gizlilik sayfası ham IP saklanmadığını ve reklamların yalnız açık izinle çalışacağını açıklıyor.",
   ],
 } as const;

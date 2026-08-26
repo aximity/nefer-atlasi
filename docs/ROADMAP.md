@@ -154,6 +154,18 @@
 
 Çıkış kapısı: Her arama sonucu ilgili modülü doğru kayıt veya filtreyle açar; site içeriğinde kabuk kaynaklı yapışkan başlık ya da metin çakışması kalmaz.
 
+## Tamamlandı — M32.2: Özel trafik ve gelir hazırlığı
+
+- [x] Bot ve yönetim sayfalarını dışlayan birinci taraf sayfa görüntüleme kaydı kur
+- [x] Ham IP saklamadan günlük tekil ziyaretçi, kaynak ve cihaz türü ölç
+- [x] 7/30/90 günlük özel trafik paneli oluştur
+- [x] Paneli ChatGPT hesabından bağımsız erişim anahtarı, güvenli oturum ve giriş hız sınırıyla koru
+- [x] Reklam alanları, `ads.txt` ve ziyaretçi izin katmanını pasif biçimde hazırla
+- [x] Reklam ayarı yokken ziyaretçiye boş alan veya izin penceresi gösterme
+- [x] Trafik ve reklam kullanımını gizlilik sayfasında açıkla
+
+Çıkış kapısı: Genel site giriş istemeden çalışır; trafik kayıtları üretimde birikir, özel panel yalnız sahibin anahtarıyla açılır ve reklam kodu yayıncı kimliği ile izin olmadan yüklenmez.
+
 ## Sıradaki — M33: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir

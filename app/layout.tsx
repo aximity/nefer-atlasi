@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import AnalyticsTracker from "./AnalyticsTracker";
+import AdvertisingConsent from "./AdvertisingConsent";
 import "./globals.css";
 import "./endgame.css";
 import "./mining.css";
@@ -13,6 +15,7 @@ import "./quest-atlas.css";
 import "./issue-desk.css";
 import "./economy-workshop.css";
 import "./readability.css";
+import "./analytics.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://ikv-esya-rehberi.gdyon.chatgpt.site"),
   title: "Nefer Atlası | KÖ Bilgi, Strateji ve Ekonomi Platformu",
@@ -43,7 +46,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
-      <body>{children}</body>
+      <body>
+        {children}
+        <AnalyticsTracker />
+        <AdvertisingConsent />
+      </body>
     </html>
   );
 }

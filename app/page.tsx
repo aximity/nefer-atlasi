@@ -2,6 +2,7 @@
 import EndgameLab from "./EndgameLab";
 import MiningGuide from "./MiningGuide";
 import SkillGuides from "./SkillGuides";
+import AdSlot from "./AdSlot";
 import ProjectScorecard from "./ProjectScorecard";
 import ContributionCenter from "./ContributionCenter";
 import ConnectedAtlas from "./ConnectedAtlas";
@@ -429,6 +430,7 @@ export default function Home() {
           </p>
         </aside>
       </section>
+      <AdSlot placement="home_top" />
       <nav className="moduleTabs" id="modules" aria-label="Nefer Atlası ana bölümleri">
         <div className="modulePrimary" role="tablist">
         {moduleTabs.filter((item) => primaryModuleIds.includes(item.id)).map((item) => (
@@ -788,6 +790,7 @@ export default function Home() {
           <footer><span><kbd>/</kbd> ile aç</span><span><kbd>Esc</kbd> ile kapat</span></footer>
         </section>
       </div>}
+      <AdSlot placement="home_inline" />
       <footer className="siteFooter">
         <div>
           <b>NEFER ATLASI</b>
@@ -798,7 +801,7 @@ export default function Home() {
           Kaynak yoksa kesin bilgi yok. Tek kaynak teyit bekler; çelişki saklanmaz;
           eşya adıyla görünüşü aynı kanıtta değilse görsel bağlanmaz.
         </p>
-        <span className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/rehber">Kullanım Rehberi</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
+        <span className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
       </footer>
       {detail && <ItemModal item={detail} close={() => setDetail(null)} />}
     </main>

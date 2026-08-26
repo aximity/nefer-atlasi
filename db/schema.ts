@@ -367,3 +367,63 @@ export const guildLogisticsBoosters = sqliteTable(
   },
   (table) => [index("guild_logistics_boosters_board_status_idx").on(table.boardId, table.status)],
 );
+
+export const analyticsDailyPages = sqliteTable(
+  "analytics_daily_pages",
+  {
+    id: text("id").primaryKey(),
+    day: text("day").notNull(),
+    path: text("path").notNull(),
+    views: integer("views").notNull().default(0),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("analytics_daily_pages_day_path_unique").on(table.day, table.path),
+    index("analytics_daily_pages_day_idx").on(table.day),
+  ],
+);
+
+export const analyticsDailySources = sqliteTable(
+  "analytics_daily_sources",
+  {
+    id: text("id").primaryKey(),
+    day: text("day").notNull(),
+    source: text("source").notNull(),
+    views: integer("views").notNull().default(0),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("analytics_daily_sources_day_source_unique").on(table.day, table.source),
+    index("analytics_daily_sources_day_idx").on(table.day),
+  ],
+);
+
+export const analyticsDailyVisitors = sqliteTable(
+  "analytics_daily_visitors",
+  {
+    id: text("id").primaryKey(),
+    day: text("day").notNull(),
+    visitorHash: text("visitor_hash").notNull(),
+    device: text("device").notNull(),
+    firstPath: text("first_path").notNull(),
+    source: text("source").notNull(),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("analytics_daily_visitors_day_hash_unique").on(table.day, table.visitorHash),
+    index("analytics_daily_visitors_day_idx").on(table.day),
+    index("analytics_daily_visitors_day_device_idx").on(table.day, table.device),
+  ],
+);
+
+export const analyticsLoginAttempts = sqliteTable(
+  "analytics_login_attempts",
+  {
+    id: text("id").primaryKey(),
+    fingerprintHash: text("fingerprint_hash").notNull(),
+    windowStart: integer("window_start").notNull(),
+    failures: integer("failures").notNull().default(0),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [index("analytics_login_attempts_fingerprint_idx").on(table.fingerprintHash, table.windowStart)],
+);

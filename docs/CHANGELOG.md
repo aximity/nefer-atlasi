@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Özel Trafik Merkezi ve Reklam Hazırlığı
+
+- Birinci taraf trafik ölçümü; sayfa görüntüleme, günlük tekil ziyaretçi, yönlendiren alan adı ve cihaz türünü toplulaştırılmış olarak kaydetmeye başladı.
+- Ham IP veritabanına yazılmıyor; günlük ziyaretçi kimliği gizli anahtarla tek yönlü ve günle sınırlı üretiliyor. Botlar, yönetim ekranları ve tarayıcının izlememe isteği sayımdan çıkarılıyor.
+- `/istatistik` ekranı yalnız site sahibine verilen erişim anahtarıyla açılıyor; ChatGPT hesabı gerektirmiyor, oturum HttpOnly çerezle korunuyor ve hatalı girişler hız sınırına tabi.
+- 7, 30 ve 90 günlük görüntüleme/tekil ziyaretçi, günlük hareket, popüler sayfalar, kaynaklar ve cihazlar aynı özel panelde gösteriliyor.
+- AdSense alanları, `ads.txt` ve izin katmanı hazırlandı; yayıncı kimlikleri eklenene kadar reklam veya izin penceresi ziyaretçiye gösterilmiyor.
+- Gizlilik açıklaması eklendi ve ana site altbilgisine bağlandı.
+
 ## 2026-08-26 — Akıllı Arama ve Genel Yerleşim Düzeltmesi
 
 - On üç modülün aynı anda göründüğü yatay çubuk kaldırıldı; Donanım, Yetenek, Görevler ve Eşyalar ana kısayol olarak bırakıldı.

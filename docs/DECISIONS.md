@@ -79,3 +79,7 @@ Ana gezinme en sık kullanılan Donanım, Yetenek, Görevler ve Eşyalar işleri
 ## ADR-020 — Genel kabuk stillerini semantik etiketlere bağlama
 
 Yapışkan üst başlık ve ana gezinme stilleri çıplak `header` veya `nav` etiketlerine değil yalnız `.siteHeader` kabuk sınıfına uygulanır. Modüller ve kartlar erişilebilirlik için aynı semantik etiketleri kullanabildiğinden, etikete bağlı genel stiller içerik başlıklarını yanlışlıkla sabitleyip mobilde metin çakışmasına yol açar. Yeni genel yerleşim kuralları da içerik alanında taşmayı engelleyecek, ancak bileşenin kendi konumlandırmasını değiştirmeyecek şekilde sınırlandırılır.
+
+## ADR-021 — Trafik ölçümü birinci taraf ve veri-minimumdur
+
+Trafik ölçümü haricî bir izleyici yerine mevcut D1 üzerinde tutulur. Ham IP, tam kullanıcı aracısı, ad, e-posta veya oyun hesabı kaydedilmez. Tekil ziyaretçi hesabı gizli anahtarlı, günle sınırlı özet üzerinden yapılır; bu nedenle günler arası kişi profili çıkarılmaz. Özel trafik paneli herkese açık siteden ayrıdır, navigasyonda yayımlanmaz ve ChatGPT kimliği yerine güçlü erişim anahtarı, imzalı HttpOnly oturum ve giriş hız sınırı kullanır. Reklam kodu yalnız geçerli yayıncı ayarları ve ziyaretçi izni birlikte bulunduğunda çalışır.

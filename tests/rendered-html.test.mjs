@@ -45,7 +45,7 @@ test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", a
   }
   assert.doesNotMatch(html, /M3 · TILSIM VE YETENEK HESAPLAYICI/);
   assert.match(html, /129<\/strong><span>kaynaklı eşya kaydı/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.33\.1/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.34\.0/);
   assert.match(html, /Atlas genelinde ara/);
   assert.match(html, /Atlas’ta ara/);
   assert.doesNotMatch(html, /raw_game_value/);
@@ -65,7 +65,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Kullanım Rehberi \| Nefer Atlası/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.33\.1/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.34\.0/);
   assert.match(html, /Yetenek puanlarımı dağıtmak istiyorum/);
   assert.match(html, /NEDEN KULLANMALIYIM\?/);
   assert.match(html, /Bir eşyanın gerçek bilgisini arıyorum/);
@@ -79,4 +79,22 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   for (const moduleName of ["Donanım", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Atlas", "Endgame", "Maden", "Döngü", "Yetenek", "Sorunlar", "Gelişim", "Katkı"]) {
     assert.match(html, new RegExp(`>${moduleName}<`));
   }
+});
+
+test("gizlilik ve özel istatistik girişi ChatGPT hesabı istemeden açılır", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("analytics-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+  const privacy = await worker.fetch(new Request("http://localhost/gizlilik", { headers: { accept: "text/html" } }), env, ctx);
+  assert.equal(privacy.status, 200);
+  const privacyHtml = await privacy.text();
+  assert.match(privacyHtml, /Ham IP adresi/);
+  assert.match(privacyHtml, /Reklam sistemi şu an kapalıdır/);
+  const login = await worker.fetch(new Request("http://localhost/istatistik/giris", { headers: { accept: "text/html" } }), env, ctx);
+  assert.equal(login.status, 200);
+  const loginHtml = await login.text();
+  assert.match(loginHtml, /ChatGPT hesabı gerekmez/);
+  assert.match(loginHtml, /action="\/api\/analytics\/session"/);
 });
