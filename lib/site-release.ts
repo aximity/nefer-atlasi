@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.22.1",
+  version: "0.23.0",
   channel: "BETA",
-  milestone: "M22",
+  milestone: "M23",
   releasedAt: "26 Ağustos 2026",
-  title: "Görev Atlası Mobil Düzeltmesi",
+  title: "Şifacı Yetenek Sözlüğü",
   summary:
-    "Görev Atlası'nın mobil yerleşimi ve seviye seçme davranışı gerçek kullanım geri bildirimiyle düzeltildi.",
+    "İlk 10 şifacı yeteneği oyun içi tooltip görüntüleriyle kaynaklı ve mobil uyumlu bir sözlüğe dönüştürüldü.",
   changes: [
-    "Genel başlık stili görev kartlarından ayrıldı; kart ve açıklama metinlerinin üst üste binmesi önlendi.",
-    "Seviye alanı artık tamamen silinip yeniden yazılabiliyor ve 1–49 doğrulaması yapıyor.",
-    "Görev listesi yalnız mevcut seviye ile önceki iki seviyenin ilgili görevlerini gösteriyor.",
-    "Eski zincir görevleri listede kalabalık yaratmadan görev detayındaki ön koşullardan açılabiliyor.",
+    "İyileştirme'den Fiziksel Direnç Alanı'na kadar 10 yeteneğin hedef, etki, süre ve puan eşikleri eklendi.",
+    "Her kayıt gerçek oyun içi kaynak görüntüsüne ve Kıyametin Öncüleri rehberine bağlandı.",
+    "Kalan beş yetenek eksikliği açıkça gösterilerek sonraki görsel paketine hazırlandı.",
+    "Mikro şartname, hata kaydı ve veri kanıtı şablonlarıyla kalıcı kalite omurgası kuruldu.",
   ],
 } as const;

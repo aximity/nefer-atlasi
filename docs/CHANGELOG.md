@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Şifacı Yetenek Sözlüğü ve proje kalite omurgası
+
+- On şifacı yeteneğinin oyun içi hedef, etki, süre, yenilenme ve puan eşikleri kaynak görüntüleriyle eklendi.
+- Yetenek sekmesine mobil uyumlu, açılır ayrıntı kartları ve kaynak görüntüsü bağlantıları eklendi.
+- Kalan beş şifacı yeteneği eksik veri gizlenmeden “sonraki görsel paketi” olarak işaretlendi.
+- `AGENTS.md`, özellik/hata/kanıt şablonları ve görsel paket kararlarıyla mikro şartname tabanlı çalışma düzeni kuruldu.
+
 ## 2026-08-25 — Nefer Atlası, şeffaf kalite ve istemci pilotları
 
 - Proje kapsamı eşya rehberinin ötesine geçtiği için marka “Nefer Atlası” olarak yenilendi; başlık, favicon ve sosyal paylaşım kartı güncellendi.

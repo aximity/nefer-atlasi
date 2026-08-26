@@ -1,5 +1,13 @@
 # Araştırma Günlüğü
 
+## 2026-08-26 — Şifacı yetenekleri oyun içi tooltip paketi 1
+
+- Kaynak: Kullanıcı tarafından sağlanan 10 gerçek oyun içi ekran görüntüsü.
+- Kapsam: İyileştirme, Zehirleme, Şifa Bilgisi, Can Verme, Ruh Kalkanı, Meditasyon, Asit Saldırısı, Büyü Bozma, Asit Bilgisi ve Fiziksel Direnç Alanı.
+- İşlem: Hedef, etki, süre, yenilenme ve puan eşikleri yapılandırıldı; kırpılmış kaynak görüntüleri her kayda bağlandı.
+- Doğrulama: Yetenek adı ve açılma seviyesi Kıyametin Öncüleri rehberiyle karşılaştırıldı; iki bağımsız kaynak grubu uyuştuğu için bu 10 kayıt çapraz doğrulandı.
+- Açık kapsam: Element Direnç Alanı, Gazap, Çağrı, Can Kurtaran ve İyileştirme Çemberi oyun içi tooltip görüntüsü bekliyor.
+
 ## 2026-08-25 — Yetenek sayısı, Boz Ayı ve ad çelişkisi
 
 - İddia: Resmî sınıf sayfası her sınıfta 1/10/20/30/40 seviyelerinde üçer yetenek, toplam 15 temel yetenek listeler.

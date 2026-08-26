@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import AbilityMediaShowcase from "./AbilityMediaShowcase";
+import HealerAbilityReference from "./HealerAbilityReference";
 
 type GuideClass = "Savaşçı" | "Büyücü" | "Şifacı";
 type Region = "Çemberlitaş" | "Migrat" | "Sığınak";
@@ -176,6 +177,8 @@ export default function SkillGuides() {
           önerileridir.
         </p>
       </div>
+
+      <HealerAbilityReference />
 
       <AbilityMediaShowcase />
 

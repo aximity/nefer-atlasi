@@ -5,12 +5,13 @@ Bu klasör projenin ikinci beynidir. Kod ne yaptığımızı, bu belgeler neden 
 ## Her oturumun çalışma döngüsü
 
 1. `ROADMAP.md` içinden tek bir aktif çıktı seç.
-2. İlgili iddia için kaynak bul; önce resmi kaynak, sonra bağımsız topluluk arşivi.
-3. Bulguyu `RESEARCH_LOG.md` içine kaynak, tarih ve güven seviyesiyle yaz.
-4. Çelişki varsa veri ekleme; `DATA_QUALITY.md` kuyruğuna taşı.
-5. Uygula; kod ve veri değişikliklerini birbirinden ayır.
-6. Derleme, ürün testi ve mobil/masaüstü kontrolünü tamamla.
-7. `CHANGELOG.md` ve gerekiyorsa `DECISIONS.md` kaydını güncelle.
+2. Uygun şablonla oyuncu ihtiyacını, kapsamı ve kabul koşullarını yaz.
+3. İlgili iddia için kaynak bul; önce resmi kaynak, sonra bağımsız topluluk arşivi.
+4. Bulguyu `RESEARCH_LOG.md` içine kaynak, tarih ve güven seviyesiyle yaz.
+5. Çelişki varsa veri ekleme; `DATA_QUALITY.md` kuyruğuna taşı.
+6. Uygula; kod ve veri değişikliklerini birbirinden ayır.
+7. Otomatik test, veri doğrulama ve gerekli mobil/masaüstü kabul koşullarını tamamla.
+8. `CHANGELOG.md` ve gerekiyorsa `DECISIONS.md` kaydını güncelle.
 
 ## Tek doğruluk kaynakları
 
@@ -28,6 +29,7 @@ Bu klasör projenin ikinci beynidir. Kod ne yaptığımızı, bu belgeler neden 
 - Görsel, eşya adıyla aynı kanıtta görülmeden eşya kaydına bağlanmaz.
 - Kullanım ve başarı sıralaması yalnız gerçek olay verisiyle açılır.
 - Her tamamlandı iddiası yeni doğrulama çıktısına dayanır.
+- Bir süreç ancak en az üç başarılı ve tekrarlanabilir kullanımdan sonra skill adayıdır.
 
 ## Haftalık ritim
 

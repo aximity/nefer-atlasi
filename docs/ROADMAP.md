@@ -33,12 +33,35 @@
 - [x] Oyun modu uygunluk kanıtı
 - [x] Hazır build ile teorik kombinasyon sayılarını ayır
 
-## Sıradaki — M5: Topluluk ve ölçüm
+## Bekleyen ürün hattı — M5: Topluluk ve ölçüm
 
 - [ ] Kimlik, build kaydetme ve paylaşma
 - [ ] Topluluk build moderasyonu
 - [ ] Oy/kullanım olayları
 - [ ] Yeterli gerçek veri oluşunca sıralamalar
+
+## Tamamlandı — M22: Görev Atlası mobil düzeltmesi
+
+- [x] Seviye alanı tamamen silinip yeniden yazılabilir
+- [x] Görevler mevcut seviye ve önceki iki seviyeye göre süzülür
+- [x] Genel başlık stilinin görev kartlarında metin çakıştırması engellendi
+
+## Tamamlandı — M23: Şifacı Yetenek Sözlüğü
+
+- [x] İlk 10 şifacı yeteneğinin oyun içi tooltip verisini yapılandır
+- [x] Her kaydı kırpılmış kaynak görüntüsü ve KÖ rehberiyle bağla
+- [x] Mobil uyumlu açılır yetenek kartlarını yayıma hazırla
+- [x] Mikro şartname, hata ve veri kanıtı şablonlarını kur
+
+## Aktif — M24: Şifacı yetenek kapsamını tamamlama
+
+- [ ] Element Direnç Alanı oyun içi tooltip kanıtı
+- [ ] Gazap oyun içi tooltip kanıtı
+- [ ] Çağrı oyun içi tooltip kanıtı
+- [ ] Can Kurtaran oyun içi tooltip kanıtı
+- [ ] İyileştirme Çemberi oyun içi tooltip kanıtı
+
+Çıkış kapısı: 15 şifacı yeteneğinin tamamı tarihli oyun içi görüntüye bağlıdır; okunmayan değer tahmin edilmez.
 
 ## Şimdilik yapılmayacaklar
 

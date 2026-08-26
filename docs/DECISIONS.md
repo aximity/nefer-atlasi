@@ -31,3 +31,11 @@ Bir yetenek kartına yalnız gerçek oyun içi klip bağlanır. Video yoksa baş
 ## ADR-008 — Proje puanı popülerlik değildir
 
 Gelişim puanı kanıt, hesaplanabilir özellik, elde etme bilgisi, doğrulanmış medya, veri bütünlüğü ve güncellik kapsamından türetilir. Meta gücü, oyuncu sayısı veya başarı oranı olarak yorumlanmaz.
+
+## ADR-009 — Görsel paketleri sınırlı ama birikimlidir
+
+Sohbet başına görsel sınırı veri kapsamını düşürmez. Her paket tarihli kaynaklara ayrılır, önceki paketlerle aynı kararlı yetenek kimliklerine bağlanır ve eksik kalan kayıtlar açıkça “görsel bekliyor” durumunda tutulur.
+
+## ADR-010 — Skill yalnız kanıtlanmış tekrar için oluşturulur
+
+Proje bağlamı ve tek seferlik kararlar `AGENTS.md` ile `docs/` altında kalır. Bir süreç ancak en az üç doğrulanmış kullanımda aynı biçimde işe yararsa projeler arası skill adayına dönüşür.

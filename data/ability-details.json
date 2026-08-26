@@ -1,0 +1,180 @@
+[
+  {
+    "abilityId": "healer-heal",
+    "target": "Müttefik",
+    "effect": "Enerji verir.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 6 sn",
+    "progression": [
+      "Her puan %10 daha fazla iyileştirir ve yenilenme süresini 0,1 sn azaltır.",
+      "15 puanda %10 daha az hiddet yaratır."
+    ],
+    "sourceId": "player-healer-heal-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/iyilestirme.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-poison",
+    "target": "Düşman",
+    "effect": "Etki süresi boyunca her 3 saniyede zehir hasarı verir.",
+    "duration": "Başlangıçta 20 sn; 15 puanda 26 sn",
+    "cooldown": "1 sn",
+    "progression": [
+      "Her puan hasarı %2 ve menzili %1,25 artırır.",
+      "5 puanda rakibi 7,5 sn süreyle %15 yavaşlatır.",
+      "5 puandan itibaren her puan yavaşlatmayı %1,5 artırır ve kudret gereksinimini %3 düşürür.",
+      "5 / 10 / 15 puanda kritik şansı sırasıyla %5 / %10 / %15 artar.",
+      "Yaratıklara karşı, büyü hasarı zehir veren eşyaların iki katı kadar hasar bonusu ana hasara eklenir."
+    ],
+    "sourceId": "player-healer-poison-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/zehirleme.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-heal-knowledge",
+    "target": "Kendisi",
+    "effect": "İyileştirme büyülerini etkiler.",
+    "duration": "Daima aktif",
+    "cooldown": "Yok",
+    "progression": [
+      "Her puan %10 daha fazla iyileştirme sağlar, kudret gereksinimini %4 azaltır ve %1 kritik şansı verir.",
+      "15 puanda %10 daha az hiddet yaratır."
+    ],
+    "sourceId": "player-healer-heal-knowledge-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/sifa-bilgisi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-revive",
+    "target": "Müttefik",
+    "effect": "Hayata döndürür.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 75 sn; her puan 1 sn azaltır",
+    "progression": [
+      "Her puan menzili %3,75 artırır.",
+      "5 puanda kudret gereksinimi %40 düşer; hedef %20 enerjiyle dirilir ve yaratılan hiddet %12,5 azalır.",
+      "10 puanda kudret gereksinimi %30 düşer; hedef %40 enerji ve %10 kudretle dirilir, yaratılan hiddet %25 azalır.",
+      "15 puanda kudret gereksinimi %20 düşer; hedef %100 enerji ve %30 kudretle dirilir, yaratılan hiddet %40 azalır."
+    ],
+    "sourceId": "player-healer-revive-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/can-verme.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-spirit-shield",
+    "target": "Kendisi",
+    "effect": "Zırh, savunma ve saldırı verir.",
+    "duration": "Başlangıçta 30 sn",
+    "cooldown": "1 sn",
+    "progression": [
+      "1 puanda %10 zırh ve 10 saldırı verir; her puan %1 zırh, 1 savunma ve 2 saldırı artırır.",
+      "5 puandan itibaren her puan süreyi 3 sn uzatır.",
+      "10 puanda zırh artışı %20 olur; 10 puandan sonra her puan zırhı %2 artırır.",
+      "15 puanda maksimum zırh sınırını %60'tan %70'e çıkarır."
+    ],
+    "sourceId": "player-healer-spirit-shield-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/ruh-kalkani.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-meditation",
+    "target": "Kendisi",
+    "effect": "Kudret yenilenmesini artırır.",
+    "duration": "46 sn",
+    "cooldown": "Başlangıçta 2 dk",
+    "progression": [
+      "Her puan %5 ilave kudret yenilenmesi verir.",
+      "5 puanda yenilenme süresi 1,5 dk olur.",
+      "10 puanda %10 enerji yenilenmesi de verir.",
+      "15 puanda %25 enerji yenilenmesi verir ve büyülerin kritik şansını %5 artırır."
+    ],
+    "sourceId": "player-healer-meditation-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/meditasyon.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-acid",
+    "target": "Düşman",
+    "effect": "Asit hasarı verir.",
+    "duration": "Başlangıçta 3 sn",
+    "cooldown": "Başlangıçta 5 sn",
+    "progression": [
+      "Her puan hasarı %2 ve kritik şansını %1 artırır.",
+      "5 puanda rakibin iyileştirme yeteneğini kötüleştirir; yenilenme süresi 4 sn olur.",
+      "10 puanda iyileştirme yeteneğini 2 kat kötüleştirir; yenilenme süresi 3,5 sn olur.",
+      "15 puanda iyileştirme yeteneğini 3 kat kötüleştirir; yenilenme süresi 3 sn olur."
+    ],
+    "sourceId": "player-healer-acid-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/asit-saldirisi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-dispel",
+    "target": "Müttefik",
+    "effect": "Ruhsal tüm kötü etkileri kaldırır.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 10 sn",
+    "progression": [
+      "Her puan kudret gereksinimini %3 azaltır.",
+      "5 puanda kudret gereksinimi %10 azalır, yenilenme 7 sn olur ve %10 ihtimalle savaşsal/büyüsel etkileri de kaldırır.",
+      "10 puanda kudret gereksinimi %15 azalır, yenilenme 5 sn olur ve ek etki ihtimali %20'ye çıkar.",
+      "15 puanda kudret gereksinimi %30 azalır, yenilenme 3 sn olur ve ek etki ihtimali %25'e çıkar."
+    ],
+    "sourceId": "player-healer-dispel-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/buyu-bozma.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-acid-knowledge",
+    "target": "Kendisi",
+    "effect": "Asit hasarı veren büyüleri etkiler.",
+    "duration": "Daima aktif",
+    "cooldown": "Yok",
+    "progression": [
+      "Her puan kritik şansını %1 artırır.",
+      "5 puandan itibaren her puan kudret gereksinimini %3 azaltır.",
+      "10 puanda %25 ihtimalle rakibe ek olarak 10 sn boyunca asit hasarı verir.",
+      "15 puanda %50 ihtimalle rakibe ek olarak 16 sn boyunca asit hasarı verir.",
+      "Yaratıklara karşı, büyü hasarı asit veren eşyaların iki katı kadar hasar bonusu ana hasara eklenir."
+    ],
+    "sourceId": "player-healer-acid-knowledge-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/asit-bilgisi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "healer-physical-field",
+    "target": "Çevre",
+    "effect": "Zehir ve asit dirençlerini artırır.",
+    "duration": "Başlangıçta 2 dk",
+    "cooldown": "1 sn",
+    "progression": [
+      "1 puanda 100 direnç artırır; her puan 10 direnç artırır ve kudret gereksinimini %3 azaltır.",
+      "5 puanda süre 3 dk olur.",
+      "10 puanda süre 4 dk olur ve toplam 200 direnç artırır; 10 puandan itibaren her puan 20 direnç artırır.",
+      "15 puanda süre 5 dk olur ve ateş, buz ve elektrik dirençlerini de 100 artırır."
+    ],
+    "sourceId": "player-healer-physical-field-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/healer-abilities/fiziksel-direnc-alani.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  }
+]
