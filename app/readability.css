@@ -1,8 +1,10 @@
 /* M32: less navigation, readable type and one global search surface. */
-main :where(p,li,dd,dt){font-size:max(13px,.8125rem)!important;line-height:1.6}
-main :where(label,input,select,textarea){font-size:max(13px,.8125rem)!important}
-main :where(button){font-size:max(12px,.75rem)!important}
-main :where(a,small){font-size:max(11px,.6875rem)!important}
+body :where(button,input,select,textarea){font-family:var(--font-sans)}
+:where(h1,h2,h3){font-family:var(--font-display)!important}
+main :where(p,li,dd,dt){font-size:max(14px,.875rem)!important;line-height:1.65}
+main :where(label,input,select,textarea){font-size:max(14px,.875rem)!important}
+main :where(button){font-size:max(13px,.8125rem)!important}
+main :where(a,small){font-size:max(12px,.75rem)!important}
 main :where(section,article,header,nav,div){min-width:0}
 main :where(h1,h2,h3,h4,p,li,dd,dt){overflow-wrap:anywhere}
 

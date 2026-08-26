@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import {
   questById,
   questPathThrough,
+  recentEarlierQuests,
   quests,
   questTracks,
   rewardFor,
@@ -72,6 +73,20 @@ test("explained quest source levels are preserved for the Labirent chain", () =>
   assert.equal(questById.get("philotheosun-salonu")?.level, 22);
   assert.equal(questById.get("tilsim-gorevi")?.level, 22);
   assert.equal(questById.get("akil-oyunlari")?.level, 22);
+});
+
+test("Meteor start keeps true prerequisites separate from earlier level suggestions", () => {
+  assert.deepEqual(questById.get("meteor-yolu")?.dependsOn, []);
+  const earlier = recentEarlierQuests("meteor-yolu");
+  assert.ok(earlier.length > 0);
+  assert.ok(earlier.every((quest) => quest.level < 29));
+  assert.ok(earlier.some((quest) => quest.level === 27));
+});
+
+test("Meteor intelligence handoff uses the Teşkilat headquarters location", () => {
+  const location = questById.get("istihbarata-katilis")?.location ?? "";
+  assert.match(location, /Teşkilat karargâhı/);
+  assert.doesNotMatch(location, /Mısır Çarşısı/);
 });
 
 test("quest headers opt out of the global sticky header layout", () => {

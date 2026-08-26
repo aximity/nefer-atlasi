@@ -7,6 +7,7 @@ import {
   questSources,
   questTracks,
   questPathThrough,
+  recentEarlierQuests,
   rewardFor,
   unlockedBy,
   type Quest,
@@ -128,6 +129,8 @@ export default function QuestAtlas({ initialQuery = "" }: { initialQuery?: strin
     (quest) => !completed.has(quest.id) && quest.dependsOn.every((id) => completed.has(id)),
   ) ?? eligible.find((quest) => !completed.has(quest.id));
   const progress = eligible.length ? Math.round((finished / eligible.length) * 100) : 0;
+  const selectedAncestors = selected ? ancestorsOf(selected) : [];
+  const selectedEarlier = selected ? recentEarlierQuests(selected.id) : [];
 
   const toggle = (quest: Quest) => {
     setCompleted((current) => {
@@ -331,13 +334,26 @@ export default function QuestAtlas({ initialQuery = "" }: { initialQuery?: strin
               <p className="questSheetReward">{rewardFor(selected, klass) ?? "Bu sınıf için kaynakta kayıtlı eşya ödülü yok."}</p>
             </section>
             <section>
-              <h4>Önceki görevler</h4>
+              <h4>Zorunlu ön koşullar</h4>
               <div className="questLinks">
-                {ancestorsOf(selected).length ? ancestorsOf(selected).map((quest) => (
+                {selectedAncestors.length ? selectedAncestors.map((quest) => (
                   <button key={quest.id} onClick={() => openQuest(quest)} className={completed.has(quest.id) ? "done" : ""}>
                     <span>Sv. {quest.level}</span>{quest.title}{completed.has(quest.id) && " ✓"}
                   </button>
-                )) : <p>Ön koşul görünmüyor; bu görev bağımsız bir başlangıç olabilir.</p>}
+                )) : <p>Kaynakta bu görev için zorunlu bir önceki görev bulunmuyor.</p>}
+              </div>
+            </section>
+            <section>
+              <h4>Kaçırmış olabileceğin önceki görevler</h4>
+              <p className="questSheetContext">Bunlar zorunlu ön koşul değildir; mevcut görevden daha düşük seviyedeki yakın kayıtları gösterir.</p>
+              <div className="questLinks">
+                {selectedEarlier.length ? selectedEarlier.map((quest) => (
+                  <button key={quest.id} onClick={() => openQuest(quest)} className={completed.has(quest.id) ? "done" : ""}>
+                    <span>Sv. {quest.level}</span>
+                    <b>{quest.title}<small>{quest.giver} · {quest.location}</small></b>
+                    {completed.has(quest.id) && " ✓"}
+                  </button>
+                )) : <p>Daha düşük seviyede kataloglanmış görev bulunmuyor.</p>}
               </div>
             </section>
             <section>

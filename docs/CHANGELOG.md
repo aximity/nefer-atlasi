@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Görev geçmişi ve masaüstü okunabilirlik
+
+- Görev ayrıntısındaki gerçek zorunlu ön koşullar ile daha düşük seviyede kaçırılmış olabilecek görevler birbirinden ayrıldı.
+- Meteor Yolu gibi bağımsız başlayan görevlerde sahte bir zincir kurulmadan, yakın önceki seviye görevlerine NPC ve konum bilgisiyle erişim eklendi.
+- Teşkilat İstihbarat'a Katılış konumu “Eminönü · Teşkilat karargâhı” olarak düzeltildi.
+- Mobil ölçüler korunurken masaüstü metin, form, buton ve yardımcı yazıları bir kademe büyütüldü.
+- Koyu lacivert ve altın tema korunarak başlık ve arayüz fontları daha rafine sistem yazı ailelerine geçirildi.
+
 ## 2026-08-26 — Özel Trafik Merkezi ve Reklam Hazırlığı
 
 - Birinci taraf trafik ölçümü; sayfa görüntüleme, günlük tekil ziyaretçi, yönlendiren alan adı ve cihaz türünü toplulaştırılmış olarak kaydetmeye başladı.

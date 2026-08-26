@@ -92,7 +92,7 @@ export const quests: Quest[] = [
   { id:"daha-guclu-zehir", title:"Daha Güçlü Zehir", level:27, giver:"Aktar Şevket", location:"Mısır Çarşısı", region:"Labirent", objective:"Labirent içinde 20 Gölge Akrep öldür.", dependsOn:["guclu-zehir"], track:"Arzuhalci" },
 
   { id:"meteor-yolu", title:"Meteor Yolu", level:29, giver:"Agah Efendi", location:"Yeni Cami avlusu", region:"Meteor Bölgesi", objective:"Komutan ile konuş.", dependsOn:[], track:"Meteor", recommended:true },
-  { id:"istihbarata-katilis", title:"Teşkilat İstihbarat'a Katılış", level:29, giver:"Komutan", location:"Mısır Çarşısı", region:"Meteor Bölgesi", objective:"İstihbarat Subayı ile konuş.", dependsOn:["meteor-yolu"], track:"Meteor", recommended:true },
+  { id:"istihbarata-katilis", title:"Teşkilat İstihbarat'a Katılış", level:29, giver:"Komutan", location:"Eminönü · Teşkilat karargâhı", region:"Meteor Bölgesi", objective:"İstihbarat Subayı ile konuş.", dependsOn:["meteor-yolu"], track:"Meteor", recommended:true },
   { id:"kesif-gorevleri", title:"Keşif Görevleri I–V", level:29, giver:"İstihbarat Subayı", location:"Meteor Bölgesi girişi", region:"Meteor Bölgesi", objective:"Krater, Çeteci Mağaraları, Küçük Tüneller, Arz merkezi ve Yeni Bab-ı Ali'yi keşfet.", dependsOn:["istihbarata-katilis"], track:"Meteor", recommended:true },
   { id:"yeni-babialiye-mektup", title:"Yeni Bab-ı Ali'ye Mektup", level:30, giver:"İstihbarat Subayı", location:"Meteor Bölgesi", region:"Meteor Bölgesi", objective:"Yeni Bab-ı Ali'deki Mebrure Hanım ile konuş.", dependsOn:["kesif-gorevleri"], track:"Meteor", recommended:true },
   { id:"mebrure-ile-tanisma", title:"Mebrure ile Tanışma", level:30, giver:"Mebrure Hanım", location:"Yeni Bab-ı Ali", region:"Meteor Bölgesi", objective:"Bab-ı Ali Komutanı ile konuş.", dependsOn:["yeni-babialiye-mektup"], track:"Meteor", recommended:true },
@@ -160,4 +160,14 @@ export function questPathThrough(questId: string) {
   };
   visit(questId);
   return seen;
+}
+
+export function recentEarlierQuests(questId: string, limit = 6) {
+  const selected = questById.get(questId);
+  if (!selected || limit <= 0) return [];
+  const requiredPath = questPathThrough(questId);
+  return quests
+    .filter((quest) => quest.level < selected.level && !requiredPath.has(quest.id))
+    .sort((a, b) => b.level - a.level || Number(Boolean(b.recommended)) - Number(Boolean(a.recommended)) || a.title.localeCompare(b.title, "tr"))
+    .slice(0, limit);
 }

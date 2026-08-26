@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.34.0",
+  version: "0.34.1",
   channel: "BETA",
-  milestone: "M32.2",
+  milestone: "M32.3",
   releasedAt: "26 Ağustos 2026",
-  title: "Özel Trafik Merkezi ve Reklam Hazırlığı",
+  title: "Görev Geçmişi ve Masaüstü Okunabilirlik",
   summary:
-    "Gizlilik odaklı birinci taraf trafik ölçümü, yalnız sahibin erişebildiği parola korumalı istatistik paneli ve gelecekte etkinleştirilebilecek izinli reklam altyapısı eklendi.",
+    "Görev ayrıntılarında gerçek ön koşullar ile kaçırılmış olabilecek eski görevler ayrıldı; Meteor konumu ve masaüstü tipografisi iyileştirildi.",
   changes: [
-    "Sayfa görüntüleme, günlük tekil ziyaretçi, trafik kaynağı ve cihaz türü anonim olarak ölçülüyor.",
-    "Trafik paneli ChatGPT girişi yerine güçlü erişim anahtarı ve güvenli oturum çereziyle korunuyor.",
-    "Hatalı girişler on beş dakikalık hız sınırına bağlandı; yönetim trafiği ve bilinen botlar sayımdan çıkarıldı.",
-    "AdSense alanları, ads.txt ve reklam izni katmanı yayıncı kimlikleri eklenene kadar görünmez ve kapalı tutuluyor.",
-    "Gizlilik sayfası ham IP saklanmadığını ve reklamların yalnız açık izinle çalışacağını açıklıyor.",
+    "Görev detayında zorunlu zincir ile daha düşük seviyede kaçırılmış olabilecek görevler ayrı listeleniyor.",
+    "Önceki seviye görevlerinin NPC ve konumu aynı panelden açılabiliyor.",
+    "Teşkilat İstihbarat'a Katılış konumu Mısır Çarşısı yerine Teşkilat karargâhı olarak düzeltildi.",
+    "Masaüstü gövde, form ve yardımcı metin ölçüleri bir kademe büyütüldü; mobil ölçüler korunuyor.",
+    "Başlık ve arayüz yazı aileleri daha rafine sistem font yığınlarıyla yenilendi; renk ve tema değiştirilmedi.",
   ],
 } as const;
