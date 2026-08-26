@@ -23,8 +23,23 @@ const groupLootItems = read("group-loot-items.json");
 const glassesItems = read("glasses-items.json");
 const glassesStats = read("glasses-stats.json");
 const groupDerivedStats = read("group-derived-stats.json");
+const issues = read("issues.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
+
+test("sekiz oyuncu sorunu gözlem, çıkarım, çözüm ve ölçüyle ayrıştırılır", () => {
+  assert.equal(issues.length, 8);
+  assert.equal(issues.filter((issue) => issue.priority === "P0").length, 2);
+  assert.equal(issues.filter((issue) => issue.priority === "P1").length, 3);
+  assert.equal(issues.filter((issue) => issue.priority === "P2").length, 3);
+  const sourceIds = new Set(sources.map((source) => source.id));
+  for (const issue of issues) {
+    assert.equal(issue.evidenceStatus, "Oyuncu bildirimi");
+    assert.ok(issue.observation && issue.inference && issue.quickFix && issue.midTermFix && issue.longTermFix && issue.metric);
+    assert.ok(issue.reproduction.length >= 3);
+    assert.ok(issue.sourceIds.every((sourceId) => sourceIds.has(sourceId)));
+  }
+});
 
 test("güncel Kıyametin Öncüleri portalı canlı ve statik kaynakları ayırır", () => {
   const portalSources = sources.filter((source) => source.url.startsWith("https://kiyametoyun.net/"));

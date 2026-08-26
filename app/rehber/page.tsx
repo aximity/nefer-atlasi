@@ -31,8 +31,9 @@ const modules = [
   ["07", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
   ["08", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
   ["09", "Yetenek", "Sınıf yeteneklerini, puan sınırlarını ve görsel medya kanıtı durumunu kontrol et.", "/?module=skills#modules"],
-  ["10", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
-  ["11", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
+  ["10", "Sorunlar", "Oyuncu bildirimini, teknik çıkarımı ve KÖ’ye uyumlu çözüm adımlarını aynı kayıtta ama ayrı kesinlikte incele.", "/?module=issues#modules"],
+  ["11", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
+  ["12", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
 ] as const;
 
 const journeys = [
@@ -66,6 +67,13 @@ const journeys = [
   },
   {
     number: "04",
+    title: "Bildirilen bir oyun sorununu ve çözümünü inceliyorum",
+    steps: ["Sorunlar modülünü aç.", "P0, P1, P2 veya konu filtresini seç.", "Kartta oyuncu bildirimiyle teknik çıkarımı ayrı oku.", "Kısa, orta ve uzun vadeli çözümün başarı ölçüsünü kontrol et."],
+    href: "/?module=issues#modules",
+    action: "Sorun ve çözüm masasını aç",
+  },
+  {
+    number: "05",
     title: "Eksik veya yanlış bilgiyi düzeltmek istiyorum",
     steps: ["Katkı türünü seç.", "Gözlem tarihini ve sunucuyu yaz.", "Ekran görüntüsü veya kaynak bağlantısını ekle.", "Gönderim makbuzunu sakla; bilgi doğrudan yayımlanmaz, önce incelenir."],
     href: "/?module=contribute#modules",
@@ -140,7 +148,7 @@ export default function GuidePage() {
       </section>
 
       <section className="guideJourneys">
-        <header><p>NE YAPMAK İSTİYORSUN?</p><h2>Dört hızlı kullanım akışı</h2></header>
+        <header><p>NE YAPMAK İSTİYORSUN?</p><h2>Altı hızlı kullanım akışı</h2></header>
         <div>{journeys.map((journey)=><article key={journey.number}><small>{journey.number}</small><h3>{journey.title}</h3><ol>{journey.steps.map((step)=><li key={step}>{step}</li>)}</ol><Link href={journey.href}>{journey.action} <span>↗</span></Link></article>)}</div>
       </section>
 
@@ -155,13 +163,13 @@ export default function GuidePage() {
       </section>
 
       <section className="guideModules">
-        <header><div><p>MODÜL HARİTASI</p><h2>On bir araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
+        <header><div><p>MODÜL HARİTASI</p><h2>On iki araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
         <div>{modules.map(([number,title,description,href])=><Link href={href} key={title}><small>{number}</small><span><b>{title}</b><em>{description}</em></span><i>↗</i></Link>)}</div>
       </section>
 
       <section className="guideAccess">
-        <article><small>GEÇİCİ ÖZEL KULLANIM</small><h3>Ana atlas ve katkı merkezi</h3><p>Doğrulama dönemi boyunca ana atlas, görevler, yetenekler ve katkı araçlarına yalnızca site sahibi erişebilir.</p><Link href="/">Ana siteye dön</Link></article>
-        <article><small>SAHA PİLOTU / EDİTÖR</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Uzun farm oturumları, kişisel verim kayıtları ve moderasyon araçları da bu özel erişim sınırının içinde kalır.</p><span>Site, sahibi açıkça istediğinde yeniden herkese açılacaktır.</span></article>
+        <article><small>BAĞLANTIYLA ERİŞİM</small><h3>Ana atlas ve katkı merkezi</h3><p>Bağlantıya sahip herkes atlası görüntüleyebilir. Düzenleme ve yayımlama yetkisi yalnızca site sahibindedir.</p><Link href="/">Ana siteye dön</Link></article>
+        <article><small>YÖNETİM SINIRI</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Kişisel farm kayıtları, gönderi inceleme ve moderasyon işlemleri yetkilendirilmiş yönetim akışında kalır.</p><span>Genel erişim, yönetim yetkisi vermez.</span></article>
       </section>
 
       <section className="guidePortal">

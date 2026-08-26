@@ -63,13 +63,13 @@
 
 Çıkış kapısı: 15 şifacı yeteneğinin tamamı tarihli oyun içi görüntüye bağlıdır; okunmayan değer tahmin edilmez.
 
-## Sürekli — M25: Özel kullanım doğrulaması
+## Tamamlandı — M25: Özel kullanım doğrulaması
 
-- [ ] On beş yetenek kartını gerçek kullanım sırasında kontrol et
-- [ ] Bildirilen metin farklarını yeni ekran görüntüsüyle kanıt kuyruğuna al
-- [ ] Kullanıcı açıkça istemeden siteyi herkese açma
+- [x] Üç sınıfta 45 temel yetenek yuvasını gerçek oyun içi görüntülerle kontrol et
+- [x] Bildirilen metin farklarını yeni ekran görüntüsüyle kanıt kuyruğuna al
+- [x] Kullanıcı açıkça isteyene kadar siteyi sahibine özel tut; istek sonrası bağlantıyla erişime aç
 
-Çıkış kapısı: Görülen farklar ekran görüntüsüyle çözülür; erişim, kullanıcı açılmasını isteyene kadar yalnızca sahibinde kalır.
+Çıkış kapısı: Görülen farklar ekran görüntüsüyle çözülür; erişim 26 Ağustos 2026 tarihli açık kullanıcı isteğiyle bağlantıya sahip herkese açılır.
 
 ## Tamamlandı — M26: Savaşçı yetenek kapsamı
 
@@ -94,13 +94,21 @@
 
 Çıkış kapısı: 15 temel büyücü yeteneğinin hedef, etki, süre, yenilenme ve puan eşikleri tarihli oyun içi görüntüye bağlıdır.
 
-## Sıradaki — M28: Sorun, şikâyet ve çözüm önerileri
+## Tamamlandı — M28: Sorun, şikâyet ve çözüm önerileri
 
-- [ ] Sorunları etki alanı ve önceliğe göre sınıflandır
-- [ ] Her sorunu kanıt, oyuncu etkisi ve tekrar üretme adımlarıyla kaydet
-- [ ] KÖ'ye uyumlu kısa, orta ve uzun vadeli çözüm önerilerini eşleştir
+- [x] Sorunları etki alanı ve önceliğe göre sınıflandır
+- [x] Her sorunu kanıt durumu, oyuncu etkisi ve tekrar üretme adımlarıyla kaydet
+- [x] KÖ'ye uyumlu kısa, orta ve uzun vadeli çözüm önerilerini eşleştir
 
 Çıkış kapısı: Sorun ile çözüm birbirinden ayrılır; görüş, gözlem ve doğrulanmış kanıt aynı kesinlikte sunulmaz.
+
+## Sıradaki — M29: Sorun kanıtı ve ölçüm pilotu
+
+- [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir
+- [ ] Grup ilanı bekleme süresi ve eksik rol ölçümünü gerçek olay verisiyle başlat
+- [ ] Grup bölgesi masraf–ödül kaydında süre, sarf ve ödülü aynı tur kimliğinde topla
+
+Çıkış kapısı: İlk çözüm önceliği varsayımla değil, tarihli ve karşılaştırılabilir KÖ saha verisiyle seçilir.
 
 ## Şimdilik yapılmayacaklar
 

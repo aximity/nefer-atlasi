@@ -39,3 +39,11 @@ Sohbet başına görsel sınırı veri kapsamını düşürmez. Her paket tarihl
 ## ADR-010 — Skill yalnız kanıtlanmış tekrar için oluşturulur
 
 Proje bağlamı ve tek seferlik kararlar `AGENTS.md` ile `docs/` altında kalır. Bir süreç ancak en az üç doğrulanmış kullanımda aynı biçimde işe yararsa projeler arası skill adayına dönüşür.
+
+## ADR-011 — Genel okuma, sınırlı yönetim
+
+Site 26 Ağustos 2026 tarihli kullanıcı isteğiyle bağlantıya sahip herkesin görüntüleyebileceği erişime açılır. Bu değişiklik düzenleme, moderasyon veya yayımlama yetkisi vermez; yönetim işlemleri yalnız yetkilendirilmiş site sahibinde kalır.
+
+## ADR-012 — Sorun, çıkarım ve çözüm aynı kesinlikte değildir
+
+Oyuncunun yaşadığı belirti “oyuncu bildirimi”, olası teknik neden “teknik çıkarım”, uygulanacak adım “çözüm önerisi” olarak ayrı gösterilir. Sunucu günlüğü veya tekrar ölçümü olmadan kök neden doğrulanmış sayılmaz.

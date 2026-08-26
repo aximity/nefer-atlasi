@@ -40,18 +40,18 @@ test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", a
   assert.match(html, /Nucleus Yüzük/);
   assert.match(html, /Alternatör Kolye/);
   assert.match(html, /Kıyamet Ceket/);
-  for (const tab of ["Build", "Tılsım", "Bölgeler", "Eşyalar", "Atlas", "Endgame", "Maden", "Yetenek", "Gelişim", "Katkı"]) {
+  for (const tab of ["Build", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Atlas", "Endgame", "Maden", "Yetenek", "Sorunlar", "Gelişim", "Katkı"]) {
     assert.match(html, new RegExp(`<span>${tab}</span>`));
   }
   assert.doesNotMatch(html, /M3 · TILSIM VE YETENEK HESAPLAYICI/);
   assert.match(html, /129<\/strong><span>kaynaklı eşya kaydı/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.28\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.29\.0/);
   assert.doesNotMatch(html, /raw_game_value/);
   assert.match(html, /href="\/rehber"/);
   assert.match(html, /href="https:\/\/kiyametoyun\.net\/"/);
 });
 
-test("özel rehber sürümü, kullanım akışlarını ve güven sözlüğünü gösterir", async () => {
+test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlüğünü gösterir", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("guide-test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -63,16 +63,17 @@ test("özel rehber sürümü, kullanım akışlarını ve güven sözlüğünü 
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Kullanım Rehberi \| Nefer Atlası/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.28\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.29\.0/);
   assert.match(html, /NEDEN KULLANMALIYIM\?/);
   assert.match(html, /Bir eşyanın gerçek bilgisini arıyorum/);
   assert.match(html, /Çapraz doğrulandı/);
-  assert.match(html, /GEÇİCİ ÖZEL KULLANIM/);
-  assert.match(html, /yalnızca site sahibi erişebilir/);
+  assert.match(html, /BAĞLANTIYLA ERİŞİM/);
+  assert.match(html, /Bağlantıya sahip herkes atlası görüntüleyebilir/);
+  assert.match(html, /Genel erişim, yönetim yetkisi vermez/);
   assert.match(html, /GÜNCEL SUNUCU PORTALI/);
   assert.match(html, /https:\/\/kiyametoyun\.net\/siralama/);
   assert.match(html, /Giriş gerektiren mağaza ve hesap alanları/);
-  for (const moduleName of ["Build", "Tılsım", "Bölgeler", "Eşyalar", "Atlas", "Endgame", "Maden", "Yetenek", "Gelişim", "Katkı"]) {
+  for (const moduleName of ["Build", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Atlas", "Endgame", "Maden", "Yetenek", "Sorunlar", "Gelişim", "Katkı"]) {
     assert.match(html, new RegExp(`>${moduleName}<`));
   }
 });

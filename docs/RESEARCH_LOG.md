@@ -1,5 +1,15 @@
 # Araştırma Günlüğü
 
+## 2026-08-26 — Sorun ve çözüm dayanakları
+
+- Oyuncu bildirimi: Maden tükendi hatası, grup bölgesi gecikmesi ve bağlantı hatası, ölen yaratığın ayakta kalması, sohbet kirliliği, grup bulamama, tank/şifacı açığı ve grup bölgesi masraf–ödül dengesizliği.
+- Sınır: Bunlar tarihli oyuncu gözlemidir; sunucu günlüğü veya tekrar ölçümü olmadan doğrulanmış kök neden ya da ölçülmüş düşüş oranı değildir.
+- PlayFab Matchmaking kuyrukları bilet, oyuncu özelliği, takım büyüklüğü ve zamanla gevşetilebilen kuralları açıklar; rol ve bekleme tabanlı grup bulma önerisine dayanak olur: https://learn.microsoft.com/en-us/xbox/playfab/multiplayer/matchmaking/
+- Unreal Engine ağ fiziği belgesi sunucu otoriteli durumun istemciye ulaştırılması ve gecikme sonrası uzlaştırma yaklaşımını açıklar; eski maden görünümü ve hayalet yaratık için teknik örnektir: https://dev.epicgames.com/documentation/en-us/unreal-engine/networked-physics-overview
+- Discord AutoMod spam filtresi ve otomatik mesaj engelleme yanıtlarını açıklar; sohbet tekrar filtresi, hız sınırı ve açıklayıcı geri bildirim önerisine dayanak olur: https://discord.com/safety/auto-moderation-in-discord
+- VALORANT ağ kararlılığı açıklaması istemci, ağ ve sunucu belirtilerinin ayrıştırılmasına; Bungie hata kodları kopmanın kullanıcıya sınıflandırılmış bir nedenle bildirilmesine örnektir.
+- Karar: Dış oyunlardaki yöntemler doğrudan kopyalanmaz; KÖ’de küçük, geri alınabilir pilot ve tanımlı başarı metriği olmadan kalıcılaştırılmaz.
+
 ## 2026-08-26 — Savaşçı paket 2 ve büyücü paket 1
 
 - Kaynak: Kullanıcı tarafından sağlanan 10 gerçek oyun içi ekran görüntüsü.

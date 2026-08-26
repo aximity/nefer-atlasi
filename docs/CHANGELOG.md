@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Sorun ve Çözüm Masası
+
+- Site bağlantıya sahip herkesin görüntüleyebileceği erişime açıldı; düzenleme ve yayımlama yetkisi sahibinde kaldı.
+- Sekiz güncel oyuncu sorunu P0/P1/P2 ve konu başlıklarıyla sınıflandırıldı.
+- Her kayda oyuncu etkisi, tekrar planı, teknik çıkarım, kısa/orta/uzun vadeli çözüm ve başarı ölçüsü eklendi.
+- Grup bulma, ağ eşitleme ve sohbet denetimi önerileri ilgili resmî mühendislik belgelerine bağlandı; ölçülmemiş düşüş oranı kesin bilgi olarak yayımlanmadı.
+
 ## 2026-08-26 — Üç sınıfta 45/45 yetenek kapsamı
 
 - Zihin Saldırısı oyun içi tooltip ayrıntıları ve kırpılmış kanıt görüntüsüyle eklendi.

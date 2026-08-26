@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.28.0",
+  version: "0.29.0",
   channel: "BETA",
   milestone: "M28",
   releasedAt: "26 Ağustos 2026",
-  title: "Üç sınıf · 45/45 yetenek",
+  title: "Sorun ve Çözüm Masası",
   summary:
-    "Zihin Saldırısı eklendi; Savaşçı, Büyücü ve Şifacı yetenek sözlüklerinin üçü de tamamlandı.",
+    "Sekiz güncel oyuncu sorunu öncelik, tekrar adımı, teknik çıkarım, çözüm ufku ve başarı ölçüsüyle ayrıştırıldı.",
   changes: [
-    "Zihin Saldırısı hedef, etki, süre, yenilenme ve puan eşikleriyle eklendi.",
-    "Büyücü kapsamı 15/15'e, toplam yetenek kapsamı 45/45'e ulaştı.",
-    "Ham ekran görüntüsü, okunabilir ve düşük boyutlu kanıt kartına dönüştürüldü.",
-    "Sıradaki çalışma sorun, şikâyet ve çözüm önerileri modülü olarak belirlendi.",
+    "Maden, gecikme, bağlantı, hayalet yaratık, sohbet, grup, rol ve ödül sorunları tek masada toplandı.",
+    "Oyuncu bildirimi, teknik çıkarım ve çözüm önerisi ayrı kesinlik katmanlarında gösteriliyor.",
+    "P0/P1/P2 ile konu filtreleri ve açılır ayrıntı kartları eklendi.",
+    "Site yeniden bağlantıya sahip herkesin görüntüleyebileceği erişime açıldı; yönetim yetkisi sahibinde kaldı.",
   ],
 } as const;
