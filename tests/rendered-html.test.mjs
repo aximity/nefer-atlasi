@@ -27,12 +27,12 @@ test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", a
     /^text\/html\b/i,
   );
   const html = await response.text();
-  assert.match(html, /Nefer Atlası \| İKV Bilgi, Strateji ve Ekonomi Platformu/);
+  assert.match(html, /Nefer Atlası \| KÖ Bilgi, Strateji ve Ekonomi Platformu/);
   assert.match(html, /M2 · DONANIM PLANLAYICI/);
   for (const slot of ["Gözlük", "Ceket", "Eldiven", "Pantolon", "Ayakkabı", "Yüzük", "Kolye", "Silah"]) {
     assert.match(html, new RegExp(slot));
   }
-  assert.match(html, /İKV BİLGİ · STRATEJİ · EKONOMİ PLATFORMU/);
+  assert.match(html, /KÖ BİLGİ · STRATEJİ · EKONOMİ PLATFORMU/);
   assert.match(html, /Sekiz yuvayı sen doldur/);
   assert.match(html, /Çelişkili özellikler hesap dışı/);
   assert.doesNotMatch(html, /DOĞRULANMIŞ GÖRSEL YOK/);
