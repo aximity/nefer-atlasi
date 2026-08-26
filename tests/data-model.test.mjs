@@ -27,14 +27,14 @@ const issues = read("issues.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
-test("sekiz oyuncu sorunu gözlem, çıkarım, çözüm ve ölçüyle ayrıştırılır", () => {
-  assert.equal(issues.length, 8);
+test("on iki oyuncu sorunu gözlem, çıkarım, çözüm ve ölçüyle ayrıştırılır", () => {
+  assert.equal(issues.length, 12);
   assert.equal(issues.filter((issue) => issue.priority === "P0").length, 2);
-  assert.equal(issues.filter((issue) => issue.priority === "P1").length, 3);
-  assert.equal(issues.filter((issue) => issue.priority === "P2").length, 3);
+  assert.equal(issues.filter((issue) => issue.priority === "P1").length, 4);
+  assert.equal(issues.filter((issue) => issue.priority === "P2").length, 6);
   const sourceIds = new Set(sources.map((source) => source.id));
   for (const issue of issues) {
-    assert.equal(issue.evidenceStatus, "Oyuncu bildirimi");
+    assert.ok(["Oyuncu bildirimi", "Anonim oyuncu gözlemi"].includes(issue.evidenceStatus));
     assert.ok(issue.observation && issue.inference && issue.quickFix && issue.midTermFix && issue.longTermFix && issue.metric);
     assert.ok(issue.reproduction.length >= 3);
     assert.ok(issue.sourceIds.every((sourceId) => sourceIds.has(sourceId)));

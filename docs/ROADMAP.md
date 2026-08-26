@@ -102,7 +102,17 @@
 
 Çıkış kapısı: Sorun ile çözüm birbirinden ayrılır; görüş, gözlem ve doğrulanmış kanıt aynı kesinlikte sunulmaz.
 
-## Sıradaki — M29: Sorun kanıtı ve ölçüm pilotu
+## Tamamlandı — M29: Görev devam bulucu ve oyuncu ekonomi gözlemleri
+
+- [x] Görev kataloğunu zincir kısıtlamaları ve açıklamalı görev listesiyle 101 kayda çıkar
+- [x] Son tamamlanan görevi seçerek yalnız bağlantılı ön koşulları cihaz ilerlemesine işle
+- [x] Labirent zincirindeki kaynak seviyelerini düzelt ve seviye filtresini koru
+- [x] Paylaşılan sohbeti ad/telefon yayımlamadan oyuncu gözlemine dönüştür
+- [x] İlerleme temposu, materyal talebi, tekel baskısı ve etkinlik ekonomisini ölçülebilir önerilere bağla
+
+Çıkış kapısı: Kullanıcı bir görevi seçip bağlantılı geçmişini işleyebilir; anonim gözlem doğrulanmış sunucu verisi gibi sunulmaz.
+
+## Sıradaki — M30: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir
 - [ ] Grup ilanı bekleme süresi ve eksik rol ölçümünü gerçek olay verisiyle başlat

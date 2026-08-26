@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Görev devam bulucu ve ekonomi gözlemleri
+
+- Zincir görevler ve açıklamalı görev listesi temel alınarak katalog 83'ten 101 göreve çıkarıldı; Labirent hattındaki 21–22 seviye kayıtları kaynakla hizalandı.
+- “Nereden devam edeceğim?” aracı eklendi: oyuncu son tamamladığı görevi seçtiğinde yalnız o görevin bağlantılı ön koşulları cihaz ilerlemesine işleniyor.
+- Paylaşılan sohbetten telefon numarası ve kişisel ad yayımlanmadan ilerleme temposu, materyal talebi, tekel baskısı ve etkinlik ekonomisi gözlemleri çıkarıldı.
+- Çözüm yaklaşımı salt zorluk artırmak yerine emek–ödül değeri, alt seviye materyaller için kalıcı tüketim, alternatif erişim ve ölçülebilir içerik ömrüne bağlandı.
+
 ## 2026-08-26 — Sorun ve Çözüm Masası
 
 - Site bağlantıya sahip herkesin görüntüleyebileceği erişime açıldı; düzenleme ve yayımlama yetkisi sahibinde kaldı.

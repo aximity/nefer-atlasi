@@ -6,6 +6,7 @@ import {
   quests,
   questSources,
   questTracks,
+  questPathThrough,
   rewardFor,
   unlockedBy,
   type Quest,
@@ -49,6 +50,8 @@ export default function QuestAtlas() {
   const [track, setTrack] = useState("Tümü");
   const [levelInput, setLevelInput] = useState("15");
   const [query, setQuery] = useState("");
+  const [checkpointId, setCheckpointId] = useState("");
+  const [checkpointNote, setCheckpointNote] = useState("");
   const [completed, setCompleted] = useState<Set<string>>(new Set());
   const [selected, setSelected] = useState<Quest | null>(null);
   const [ready, setReady] = useState(false);
@@ -82,6 +85,12 @@ export default function QuestAtlas() {
 
   const level = parseQuestLevel(levelInput);
   const levelRange = level ? questLevelWindow(level) : null;
+  const checkpointOptions = useMemo(
+    () => quests
+      .filter((quest) => !level || quest.level <= level)
+      .sort((a, b) => b.level - a.level || a.title.localeCompare(b.title, "tr")),
+    [level],
+  );
 
   const filtered = useMemo(() => {
     const needle = normalized(query.trim());
@@ -134,6 +143,22 @@ export default function QuestAtlas() {
     requestAnimationFrame(() => document.querySelector(".questSheet")?.scrollTo(0, 0));
   };
 
+  const markCheckpoint = () => {
+    const quest = questById.get(checkpointId);
+    if (!quest) {
+      setCheckpointNote("Son tamamladığın görevi seç.");
+      return;
+    }
+    const path = questPathThrough(quest.id);
+    setCompleted((current) => new Set([...current, ...path]));
+    const following = unlockedBy(quest.id).find((item) => !path.has(item.id));
+    setCheckpointNote(
+      following
+        ? `${path.size} bağlantılı adım işlendi. Sıradaki olası görev: ${following.title}.`
+        : `${path.size} bağlantılı adım işlendi. Bu zincirde kaynaklı bir sonraki adım görünmüyor.`,
+    );
+  };
+
   return (
     <section className="questAtlas" id="quests">
       <header className="questHero">
@@ -163,6 +188,23 @@ export default function QuestAtlas() {
         ) : (
           <p>{level ? "Bu seviye aralığındaki önerilen rota tamamlandı veya henüz katalogda görev yok." : "Önce 1–49 arasında karakter seviyeni gir."}</p>
         )}
+      </div>
+
+      <div className="questLocator">
+        <div>
+          <span>NEREDEN DEVAM EDECEĞİM?</span>
+          <b>Hatırladığın son görevi seç; ön koşul zinciri otomatik işlensin.</b>
+          <small>Yalnızca seçilen görevin bağlantılı geçmişi tamamlanır; bağımsız görevler kendiliğinden işaretlenmez.</small>
+        </div>
+        <label>
+          <span>Son tamamladığım görev</span>
+          <select value={checkpointId} onChange={(event) => { setCheckpointId(event.target.value); setCheckpointNote(""); }}>
+            <option value="">Görev seç…</option>
+            {checkpointOptions.map((quest) => <option value={quest.id} key={quest.id}>Sv. {quest.level} · {quest.title} · {quest.giver}</option>)}
+          </select>
+        </label>
+        <button type="button" onClick={markCheckpoint}>Kaldığım yeri işle</button>
+        {checkpointNote && <p role="status">{checkpointNote}</p>}
       </div>
 
       <div className="questControls">
@@ -206,7 +248,7 @@ export default function QuestAtlas() {
 
       <div className="questResultHead">
         <p><b>{filtered.length}</b> {levelRange ? `görev · Sv. ${levelRange.min}–${levelRange.max}` : "görev"} gösteriliyor</p>
-        <span>Özgün oyun Wiki’si · KÖ teyidi bekliyor</span>
+        <span>{quests.length} kaynaklı kayıt · KÖ teyidi sürüyor</span>
       </div>
 
       <div className="questGrid">
@@ -251,8 +293,8 @@ export default function QuestAtlas() {
         <div>
           <b>Kaynak ve doğrulama durumu</b>
           <p>
-            Bu ilk sürüm, yeni hesap rotası ve önemli bölge erişim zincirlerinden oluşan
-            kaynaklı bir çekirdektir. Özgün oyun verileri KÖ içinde ayrıca doğrulanmalıdır.
+            Zincir kısıtlamaları ve açıklamalı görev listesi birlikte kullanıldı. Seviye,
+            NPC, hedef ve ön koşullar KÖ içinde ayrıca doğrulanmaya devam eder.
           </p>
         </div>
         <nav>
@@ -307,6 +349,14 @@ export default function QuestAtlas() {
               </div>
             </section>
             <footer>
+              <button className="questPathButton" onClick={() => {
+                setCheckpointId(selected.id);
+                const path = questPathThrough(selected.id);
+                setCompleted((current) => new Set([...current, ...path]));
+                setCheckpointNote(`${selected.title} ve ${Math.max(0, path.size - 1)} bağlantılı ön adım işlendi.`);
+              }}>
+                Bu göreve kadar olan zinciri işle
+              </button>
               <button className="questDoneButton" onClick={() => toggle(selected)}>
                 {completed.has(selected.id) ? "Tamamlandı işaretini kaldır" : "Görevi tamamlandı işaretle"}
               </button>

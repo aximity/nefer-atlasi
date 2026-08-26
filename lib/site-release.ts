@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.29.0",
+  version: "0.30.0",
   channel: "BETA",
-  milestone: "M28",
+  milestone: "M29",
   releasedAt: "26 Ağustos 2026",
-  title: "Sorun ve Çözüm Masası",
+  title: "Görev Devam Bulucu ve Ekonomi Gözlemleri",
   summary:
-    "Sekiz güncel oyuncu sorunu öncelik, tekrar adımı, teknik çıkarım, çözüm ufku ve başarı ölçüsüyle ayrıştırıldı.",
+    "101 kaynaklı görevde kaldığın zinciri bulma akışı açıldı; anonim oyuncu sohbetinden dört ekonomi ve topluluk gözlemi çözümleriyle ayrıştırıldı.",
   changes: [
-    "Maden, gecikme, bağlantı, hayalet yaratık, sohbet, grup, rol ve ödül sorunları tek masada toplandı.",
-    "Oyuncu bildirimi, teknik çıkarım ve çözüm önerisi ayrı kesinlik katmanlarında gösteriliyor.",
-    "P0/P1/P2 ile konu filtreleri ve açılır ayrıntı kartları eklendi.",
-    "Site yeniden bağlantıya sahip herkesin görüntüleyebileceği erişime açıldı; yönetim yetkisi sahibinde kaldı.",
+    "Görev kataloğu 83'ten 101 kayda çıkarıldı; Labirent zincirinin kaynakta görülen seviyeleri düzeltildi.",
+    "Son tamamlanan görev seçilerek yalnız bağlantılı ön koşulların otomatik işlenmesi eklendi.",
+    "İlerleme temposu, materyal talebi, tekel baskısı ve etkinlik ekonomisi anonim oyuncu gözlemi olarak eklendi.",
+    "Hardcore süre uzatımı yerine emek–ödül, kalıcı tüketim ve ölçülebilir içerik ömrü yaklaşımı benimsendi.",
   ],
 } as const;

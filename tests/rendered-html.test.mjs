@@ -45,7 +45,7 @@ test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", a
   }
   assert.doesNotMatch(html, /M3 · TILSIM VE YETENEK HESAPLAYICI/);
   assert.match(html, /129<\/strong><span>kaynaklı eşya kaydı/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.29\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.30\.0/);
   assert.doesNotMatch(html, /raw_game_value/);
   assert.match(html, /href="\/rehber"/);
   assert.match(html, /href="https:\/\/kiyametoyun\.net\/"/);
@@ -63,7 +63,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Kullanım Rehberi \| Nefer Atlası/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.29\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.30\.0/);
   assert.match(html, /NEDEN KULLANMALIYIM\?/);
   assert.match(html, /Bir eşyanın gerçek bilgisini arıyorum/);
   assert.match(html, /Çapraz doğrulandı/);

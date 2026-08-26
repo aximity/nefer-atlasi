@@ -26,7 +26,7 @@ type Issue = {
 };
 
 const issues = issueRows as Issue[];
-const filters = ["Tümü", "P0", "P1", "P2", "Teknik", "Topluluk", "Ekonomi"] as const;
+const filters = ["Tümü", "P0", "P1", "P2", "Teknik", "Topluluk", "Ekonomi", "Kaynak", "Denge"] as const;
 const priorityLabels: Record<Priority, string> = {
   P0: "Önce durdur",
   P1: "Sıradaki düzeltme",
@@ -44,10 +44,11 @@ export default function IssueDesk() {
     <section className="issueDesk" id="issues">
       <div className="issueIntro">
         <div>
-          <p>M28 · OYUNCU DENEYİMİ KAYDI</p>
-          <h2>Sorunu çözümden<br/><em>ayrı okuyalım.</em></h2>
+          <p>M29 · OYUNCU GÖZLEMİ + ÇÖZÜM KAYDI</p>
+          <h2>Şikâyeti veriye,<br/><em>emeği değere bağla.</em></h2>
           <span>
             Buradaki sorunlar oyuncu bildirimi, teknik açıklamalar ise inceleme hipotezidir.
+            Ekonomi gözlemleri paylaşılan sohbetten ad ve telefon numarası çıkarılarak özetlendi.
             Sunucu günlüğü ve ölçüm olmadan hiçbiri kesin kök neden olarak sunulmaz.
           </span>
         </div>

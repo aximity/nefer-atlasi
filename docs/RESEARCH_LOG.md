@@ -138,6 +138,16 @@
 - Görsel kararı: Ham ekran fotoğrafı büyütülmedi; yalnız okunabilir tooltip alanı kırpılıp WebP kanıtına dönüştürüldü. Böylece yapay keskinlik ve gereksiz arayüz kalabalığı üretilmedi.
 - Sonuç: Büyücü 15/15; üç sınıf toplamı 45/45.
 
+## 2026-08-26 — Görev zincirleri ve ekonomi gözlemleri
+
+- Görev kaynakları: https://istanbulkiyametvakti.fandom.com/tr/wiki/Zincir_G%C3%B6revler_ve_G%C3%B6rev_K%C4%B1s%C4%B1tlamalar%C4%B1 ve https://istanbulkiyametvakti.fandom.com/tr/wiki/A%C3%A7%C4%B1klamal%C4%B1_G%C3%B6rev_Listesi
+- Bulgular: Açıklamalı listede Fotoğrafçı ve Kitabe 21; Philotheos'un Salonu, Tılsım ve Akıl Oyunları 22. seviye görünür. Katalog bu seviyelerle hizalandı; 18 eksik kayıt eklenerek toplam 101'e çıkarıldı.
+- Ürün kararı: Son tamamlanan görev seçimi yalnız bağlı ön koşulları işler. Bu davranış bağımsız görevleri yanlışlıkla tamamlamaz.
+- Oyuncu gözlemi: Üst seviye donanıma çok hızlı ulaşma, alt seviye materyal talebinin erimesi, kaynak/alan tekeli ve etkinliklerin kalıcı kullanım üretmemesi konuşmada tekrarlanan temalardır. Kişi adı ve telefon numarası kaydedilmedi.
+- Dış örnekler: Albion Online'ın alt seviye eşyaları oyundan kaldırarak sürekli talep üretme açıklaması; EVE Online'ın üretim, madencilik, tüketim ve fiyat endekslerini düzenli raporlaması; World of Warcraft'ın içerik girişinde eşya seviyesi kullanması.
+- Karar: KÖ için doğrudan “gear score kapısı” önerilmez. Önce gerçek direnç, görev ön koşulu ve rol hazırlığını açıklayan rehberlik skoru sınanır; sert kapı ancak yanlış dışlamaya yol açmadığı ölçülürse değerlendirilir.
+- Kaynaklar: https://albiononline.com/news/video-black-market-feature, https://www.eveonline.com/news/view/monthly-economic-report-april-2026, https://worldofwarcraft.blizzard.com/en-us/news/24124661
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı

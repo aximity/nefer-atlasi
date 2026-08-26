@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
   questById,
+  questPathThrough,
   quests,
   questTracks,
   rewardFor,
@@ -11,7 +12,7 @@ import {
 import { parseQuestLevel, questLevelWindow, questMatchesLevel } from "../lib/quest-level.ts";
 
 test("quest catalog has unique, complete records", () => {
-  assert.ok(quests.length >= 60);
+  assert.ok(quests.length >= 100);
   assert.equal(new Set(quests.map((quest) => quest.id)).size, quests.length);
   for (const quest of quests) {
     assert.ok(quest.title);
@@ -56,6 +57,21 @@ test("level 20 shows only the current three-level window", () => {
   assert.equal(questMatchesLevel(18, 20), true);
   assert.equal(questMatchesLevel(20, 20), true);
   assert.equal(questMatchesLevel(21, 20), false);
+});
+
+test("a remembered quest checkpoint completes only its connected prerequisite path", () => {
+  const path = questPathThrough("gizemli-kisilik");
+  assert.deepEqual([...path], ["arzuhalci-ile-tanisma", "eski-bir-kitap", "isimsiz-ve-yazarsiz", "akrep-orumcek-notlari", "mezarlik-parsomenleri", "cetecilere-merhaba", "gizemli-kisilik"]);
+  assert.equal(path.has("teskilata-katilis"), false);
+  assert.equal(path.has("teskilat-fa-darbesi"), false);
+});
+
+test("explained quest source levels are preserved for the Labirent chain", () => {
+  assert.equal(questById.get("fotografci")?.level, 21);
+  assert.equal(questById.get("kitabe")?.level, 21);
+  assert.equal(questById.get("philotheosun-salonu")?.level, 22);
+  assert.equal(questById.get("tilsim-gorevi")?.level, 22);
+  assert.equal(questById.get("akil-oyunlari")?.level, 22);
 });
 
 test("quest headers opt out of the global sticky header layout", () => {

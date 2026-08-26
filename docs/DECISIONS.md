@@ -47,3 +47,15 @@ Site 26 Ağustos 2026 tarihli kullanıcı isteğiyle bağlantıya sahip herkesin
 ## ADR-012 — Sorun, çıkarım ve çözüm aynı kesinlikte değildir
 
 Oyuncunun yaşadığı belirti “oyuncu bildirimi”, olası teknik neden “teknik çıkarım”, uygulanacak adım “çözüm önerisi” olarak ayrı gösterilir. Sunucu günlüğü veya tekrar ölçümü olmadan kök neden doğrulanmış sayılmaz.
+
+## ADR-013 — Oyuncu sohbeti anonim gözleme dönüşür
+
+Paylaşılan konuşmalardaki telefon numarası, kişi adı ve başka doğrudan tanımlayıcılar site verisine alınmaz. Yalnız ürün kararına yarayan ortak gözlem, karşı görüş, ölçüm önerisi ve çözüm ilkesi yayımlanır.
+
+## ADR-014 — Zorluk hedef değil, emek–ödül dengesi araçtır
+
+“Hardcore” talebi doğrudan daha uzun farm veya daha düşük oran olarak uygulanmaz. İlerleme süresi; hedef ömrü, pazar talebi, yeni oyuncu erişimi ve emeğin korunması birlikte ölçülerek düzenlenir. Eşya seviyesi benzeri skorlar önce rehberlik amacıyla sınanır; kanıt olmadan zorunlu giriş kapısına dönüşmez.
+
+## ADR-015 — Görev devamı yalnız bağlantılı zinciri tamamlar
+
+Oyuncu son tamamladığı görevi seçtiğinde sistem yalnız o kaydın kaynaklı ön koşullarını tamamlandı sayar. Aynı seviyedeki veya bağımsız başka görevler otomatik işaretlenmez; böylece “kaldığım yeri bul” kolaylığı yanlış ilerleme üretmez.
