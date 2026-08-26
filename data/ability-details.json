@@ -425,5 +425,174 @@
     "evidenceImage": "/evidence/warrior-abilities/savas-narasi.webp",
     "status": "cross_verified",
     "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-focus",
+    "target": "Müttefik",
+    "effect": "Savaşsal tüm kötü etkileri kaldırır.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 10 sn",
+    "progression": [
+      "Her puan kudret gereksinimini %3 azaltır.",
+      "5 puanda kudret gereksiniminde %10 ek azalma olur; yenilenme süresi 7 sn'ye iner ve %10 ihtimalle ruhsal ve büyüsel etkileri de kaldırır.",
+      "10 puanda kudret gereksiniminde %15 ek azalma olur; yenilenme süresi 5 sn'ye iner ve ek etki ihtimali %20'ye çıkar.",
+      "15 puanda kudret gereksiniminde %30 ek azalma olur; yenilenme süresi 3 sn'ye iner ve ek etki ihtimali %25'e çıkar."
+    ],
+    "sourceId": "player-warrior-focus-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/zihin-toplama.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-steadfast",
+    "target": "Kendisi",
+    "effect": "Sarsılmaz duruma geçip büyü ve saldırılardan etkilenmezken, kendisi de iksir içmek dışında hiçbir şey yapamaz ve kımıldayamaz.",
+    "duration": "Başlangıçta 5 sn",
+    "cooldown": "Başlangıçta 2 dk",
+    "progression": [
+      "Her puan yenilenme süresini 2 sn azaltır, etki süresini 0,25 sn artırır ve kudret gereksinimini %2 azaltır.",
+      "10 puanda Sarsılmaz durumundayken %50 enerji yenilenmesi artışı verir.",
+      "15 puanda etki süresi 12 sn, yenilenme süresi 60 sn olur ve Sarsılmaz durumundayken %100 enerji yenilenmesi artışı verir."
+    ],
+    "sourceId": "player-warrior-steadfast-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/sarsilmaz.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-sweep",
+    "target": "Çevresindeki düşmanlar",
+    "effect": "Çevresindeki herkese vuracak bir hamle yapar.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 10 sn",
+    "progression": [
+      "Her puan kudret gereksinimini %3 azaltır ve hasarı %4 artırır.",
+      "5 puandan itibaren her puan yenilenme süresini 1 sn azaltır.",
+      "10 puandan itibaren yenilenme süresi 5 sn olur.",
+      "15 puanda hasarı %10 daha artar."
+    ],
+    "sourceId": "player-warrior-sweep-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/supurme-vurusu.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-redirect",
+    "target": "Müttefik",
+    "effect": "Müttefikin yarattığı hiddetin bir kısmının kendisine aktarılmasını sağlar.",
+    "duration": "Başlangıçta 5 sn",
+    "cooldown": "Başlangıçta 60 sn",
+    "progression": [
+      "Defansif Dövüş açılmadan kullanılamaz.",
+      "Her puan yenilenme süresini 1 sn azaltır, kudret gereksinimini %2 azaltır ve menzili %3 artırır.",
+      "1 puanda hiddet aktarımı %20'dir ve her puanla birlikte %2 daha artar.",
+      "10 puanda etki süresi 10 sn olur.",
+      "15 puanda etki süresi 15 sn, yenilenme süresi 30 sn ve hiddet aktarımı %60 olur."
+    ],
+    "sourceId": "player-warrior-redirect-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/hedef-saptirma.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-heavy-hit",
+    "target": "Düşman",
+    "effect": "Hedefe ağır bir darbe indirir.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 10 sn",
+    "progression": [
+      "Ofansif Dövüş açılmadan kullanılamaz.",
+      "Her puan kudret gereksinimini %2 azaltır ve hasarı %4 artırır.",
+      "5 puandan itibaren her puan yenilenme süresini 1 sn azaltır.",
+      "10 puandan itibaren yenilenme süresi 5 sn olur.",
+      "15 puanda hasarı %10 daha artar.",
+      "15 puanda yaratıklara karşı, üzerindeki bütün maksimum hasar veren eşyaların 1,5 katı kadar hasar bonusu ana hasara eklenir."
+    ],
+    "sourceId": "player-warrior-heavy-hit-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/agir-vurus.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-meteor",
+    "target": "Düşman",
+    "effect": "Fiziksel hasar verir. Yaratıklara atıldığında kritik gelirse eşyalardan gelen bonus daha çok etki eder.",
+    "duration": "Yok",
+    "cooldown": "4 sn",
+    "progression": [
+      "Her puanda hasarı %2 artar.",
+      "5 puandan itibaren kritik şansı her puan için %1 artar.",
+      "10 puanda yenilenme süresi 0,5 sn azalır.",
+      "15 puanda yenilenme süresi 1 sn azalır ve kritik vurursa rakibin zırhını 4,5 sn'liğine %20 azaltır."
+    ],
+    "sourceId": "player-mage-meteor-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/meteorit.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-concentration",
+    "target": "Kendisi",
+    "effect": "Yüksek konsantrasyon durumuyla Ateş Çemberi dışında tüm büyülerin hasar ve kritik şansı artarken kendisi de kıpırdayamaz. Kritik şansını büyücünün üzerindeki kritik efsunları kadar fazladan artırır.",
+    "duration": "Başlangıçta 4–8 sn",
+    "cooldown": "Başlangıçta 2 dk",
+    "progression": [
+      "Her puan yenilenme süresini 2 sn azaltır ve tüm büyü hasarlarını %2 artırır.",
+      "5 puandan itibaren her puan kudret gereksinimini %5 azaltır.",
+      "10 puanda süre 5–7 sn arasında değişir ve Konsantrasyon durumundayken %50 kudret yenilenmesi artışı verir.",
+      "15 puanda süre 6 sn'de sabitlenir, yenilenme süresi 60 sn olur; Konsantrasyon durumundayken %100 kudret yenilenmesi artışı ve 0,3 kritik çarpanı verir.",
+      "Yaratıklarla savaşırken Ateş Çemberi hariç bütün hasar ve yeteneklerin yenilenme süresini 1 sn düşürür."
+    ],
+    "sourceId": "player-mage-concentration-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/konsantrasyon.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-physical-knowledge",
+    "target": "Kendisi",
+    "effect": "Fiziksel hasar veren büyüleri etkiler.",
+    "duration": "Daima aktif",
+    "cooldown": "Yok",
+    "progression": [
+      "Her puan menzili %1,25 artırır.",
+      "Her puan kudret gereksinimini %2 azaltır.",
+      "5 puandan itibaren her puan %5'lik hasar artışı sağlar.",
+      "15 puanda kritik darbe yediğinde kritik hasarını ekstra %15 düşürür.",
+      "15 puanda yaratıklara karşı, bütün büyü hasarı fiziksel veren eşyaların 4 katı kadar hasar bonusu ana hasara eklenir."
+    ],
+    "sourceId": "player-mage-physical-knowledge-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/fiziksel-bilgi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-ice-arrow",
+    "target": "Düşman",
+    "effect": "Buz hasarı verir. Yaratıklara atıldığında kritik gelirse eşyalardan gelen bonus daha çok etki eder.",
+    "duration": "Yok",
+    "cooldown": "4 sn",
+    "progression": [
+      "Direnci sıfırın altında olanlara %25 daha fazla kritik vurma şansı olur.",
+      "Kritik vurursa rakibi 1 sn durdurur.",
+      "Her puanda hasarı %2 artar.",
+      "5 puandan itibaren kritik şansı her puan için %1 artar.",
+      "5 puanda rakibi 3 sn boyunca %10 yavaşlatır.",
+      "10 puanda yenilenme süresi 0,5 sn azalır ve rakibi 3 sn boyunca %15 yavaşlatır.",
+      "15 puanda yenilenme süresi 0,5 sn azalır ve rakibi 3 sn boyunca %20 yavaşlatır."
+    ],
+    "sourceId": "player-mage-ice-arrow-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/buz-oku.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
   }
 ]

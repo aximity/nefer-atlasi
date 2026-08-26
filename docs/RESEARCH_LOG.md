@@ -1,5 +1,15 @@
 # Araştırma Günlüğü
 
+## 2026-08-26 — Savaşçı paket 2 ve büyücü paket 1
+
+- Kaynak: Kullanıcı tarafından sağlanan 10 gerçek oyun içi ekran görüntüsü.
+- Tekrar denetimi: İlk görüntü daha önce işlenen Savaş Narası ile aynı tooltipi gösterdiği için yeni kayıt veya kaynak kimliği oluşturulmadı.
+- Savaşçı kapsamı: Zihin Toplama, Sarsılmaz, Süpürme Vuruşu, Hedef Saptırma ve Ağır Vuruş; toplam temel kapsam 14/15'e ulaştı.
+- Büyücü kapsamı: Meteorit, Konsantrasyon, Fiziksel Bilgi ve Buz Oku; toplam temel kapsam 4/15 oldu.
+- İşlem: Hedef, etki, süre, yenilenme ve puan eşikleri yapılandırıldı; dokuz benzersiz kırpılmış görüntü ilgili kayıtlara bağlandı.
+- Doğrulama: Yetenek adları ve açılma seviyeleri Kıyametin Öncüleri rehberiyle karşılaştırıldı; oyun içi görüntü ve rehber iki bağımsız kaynak grubu olarak tutuldu.
+- Açık kapsam: Savaşçıda Kanatma; büyücüde kalan on bir temel yetenek.
+
 ## 2026-08-26 — Savaşçı yetenekleri oyun içi tooltip paketi 1
 
 - Kaynak: Kullanıcı tarafından sağlanan 10 gerçek oyun içi ekran görüntüsü.
@@ -7,7 +17,7 @@
 - Varyant kapsamı: Boz Ayı; Kanatma'nın yerine geçer ve aynı yetenek puanlarını kullanır.
 - İşlem: Hedef, etki, süre, yenilenme ve puan eşikleri yapılandırıldı; kırpılmış görüntüler her kayda bağlandı.
 - Doğrulama: Temel yetenekler Kıyametin Öncüleri rehberiyle, Boz Ayı ilişkisi ayrıca resmî oyun rehberiyle karşılaştırıldı.
-- Açık kapsam: Kanatma, Zihin Toplama, Sarsılmaz, Süpürme Vuruşu, Hedef Saptırma ve Ağır Vuruş görüntüleri bekleniyor.
+- Açık kapsam: İkinci pakette Zihin Toplama, Sarsılmaz, Süpürme Vuruşu, Hedef Saptırma ve Ağır Vuruş tamamlandı; yalnız Kanatma görüntüsü bekleniyor.
 
 ## 2026-08-26 — Şifacı yetenekleri oyun içi tooltip paketi 2
 

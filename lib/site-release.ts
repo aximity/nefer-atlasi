@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.25.0",
+  version: "0.26.0",
   channel: "BETA",
-  milestone: "M26",
+  milestone: "M27",
   releasedAt: "26 Ağustos 2026",
-  title: "Savaşçı Yetenekleri · Paket 1",
+  title: "Savaşçı 14/15 · Büyücü 4/15",
   summary:
-    "Dokuz temel savaşçı yeteneği ve Kanatma'nın yerine geçen Boz Ayı varyantı oyun içi tooltip kanıtlarıyla sözlüğe eklendi.",
+    "Beş yeni savaşçı ve dört büyücü yeteneği oyun içi tooltip kanıtlarıyla sözlüğe eklendi; tekrarlı Savaş Narası görüntüsü ikinci kayıt yapılmadı.",
   changes: [
-    "Depar'dan Savaş Narası'na dokuz temel savaşçı yeteneğinin hedef, süre, yenilenme ve puan eşikleri eklendi.",
-    "Boz Ayı, 16. temel yetenek sayılmadan Kanatma'nın aynı puanları kullanan varyantı olarak gösterildi.",
-    "Yetenek sözlüğüne Savaşçı, Büyücü ve Şifacı arasında geçiş sağlayan sınıf seçici eklendi.",
-    "Her kayıt gerçek oyun içi kaynak görüntüsüne ve bağımsız rehber kaynağına bağlandı.",
+    "Zihin Toplama, Sarsılmaz, Süpürme Vuruşu, Hedef Saptırma ve Ağır Vuruş ayrıntıları eklendi.",
+    "Meteorit, Konsantrasyon, Fiziksel Bilgi ve Buz Oku ile büyücü sözlüğü 4/15 başladı.",
+    "Savaşçı kapsamı 14/15'e ulaştı; yalnız Kanatma'nın oyun içi tooltip görüntüsü bekleniyor.",
+    "Dokuz yeni kayıt gerçek oyun içi görüntü ve bağımsız rehber kaynağına bağlandı.",
   ],
 } as const;

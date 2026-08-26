@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Savaşçı 14/15 ve büyücü yetenekleri paket 1
+
+- Zihin Toplama, Sarsılmaz, Süpürme Vuruşu, Hedef Saptırma ve Ağır Vuruş oyun içi tooltip ayrıntılarıyla eklendi.
+- Meteorit, Konsantrasyon, Fiziksel Bilgi ve Buz Oku ile büyücü yetenek kapsamı 4/15 başladı.
+- Tekrarlı Savaş Narası görüntüsü ikinci kaynak veya ikinci yetenek kaydı oluşturulmadan ayıklandı.
+- Yetenek sözlüğü Savaşçı 14/15 + 1 varyant, Büyücü 4/15 ve Şifacı 15/15 kapsamını gösteriyor.
+
 ## 2026-08-26 — Savaşçı yetenekleri paket 1
 
 - Dokuz temel savaşçı yeteneğinin oyun içi tooltip ayrıntıları ve kanıt görüntüleri eklendi.

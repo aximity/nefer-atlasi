@@ -78,9 +78,19 @@
 - [x] Durdurma ve Sakınma tooltip kanıtları
 - [x] Savaş Narası tooltip kanıtı
 - [x] Boz Ayı'nı Kanatma'nın yerine geçen varyant olarak kanıtla
-- [ ] Kanatma ve kalan altı temel savaşçı yeteneğinin oyun içi görüntülerini işle
+- [x] Zihin Toplama, Sarsılmaz ve Süpürme Vuruşu tooltip kanıtları
+- [x] Hedef Saptırma ve Ağır Vuruş tooltip kanıtları
+- [ ] Kanatma'nın oyun içi tooltip görüntüsünü işle
 
 Çıkış kapısı: 15 temel savaşçı yeteneği tarihli görüntüye bağlıdır; Boz Ayı ayrı temel yetenek sayılmaz.
+
+## Aktif — M27: Büyücü yetenek kapsamı
+
+- [x] Meteorit, Konsantrasyon ve Fiziksel Bilgi tooltip kanıtları
+- [x] Buz Oku tooltip kanıtı
+- [ ] Kalan on bir temel büyücü yeteneğinin oyun içi görüntülerini işle
+
+Çıkış kapısı: 15 temel büyücü yeteneğinin hedef, etki, süre, yenilenme ve puan eşikleri tarihli oyun içi görüntüye bağlıdır.
 
 ## Şimdilik yapılmayacaklar
 

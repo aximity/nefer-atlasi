@@ -160,8 +160,8 @@ export default function GuidePage() {
       </section>
 
       <section className="guideAccess">
-        <article><small>HERKESE AÇIK</small><h3>Ana atlas ve katkı merkezi</h3><p>Siteyi görüntülemek, build hazırlamak, eşyaları incelemek ve kanıt göndermek için ChatGPT hesabı gerekmez.</p><Link href="/">Ana siteye dön</Link></article>
-        <article><small>SAHA PİLOTU / EDİTÖR</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Uzun farm oturumları, kişisel verim kayıtları ve moderasyon araçları yalnız yetkilendirilmiş hesaplara açıktır.</p><span>Herkese açık sayaçlar ise giriş istemeden cihazında çalışır.</span></article>
+        <article><small>GEÇİCİ ÖZEL KULLANIM</small><h3>Ana atlas ve katkı merkezi</h3><p>Doğrulama dönemi boyunca ana atlas, görevler, yetenekler ve katkı araçlarına yalnızca site sahibi erişebilir.</p><Link href="/">Ana siteye dön</Link></article>
+        <article><small>SAHA PİLOTU / EDİTÖR</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Uzun farm oturumları, kişisel verim kayıtları ve moderasyon araçları da bu özel erişim sınırının içinde kalır.</p><span>Site, sahibi açıkça istediğinde yeniden herkese açılacaktır.</span></article>
       </section>
 
       <section className="guidePortal">
