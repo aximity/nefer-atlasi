@@ -34,3 +34,11 @@ test("arama kayıt türünü ve Türkçe adı birlikte süzer", () => {
   assert.deepEqual(searchAtlasNodes(graph.nodes, "jadeit", "material").map((node) => node.name), ["Jadeit"]);
   assert.equal(searchAtlasNodes(graph.nodes, "büyük hol", "region")[0].name, "Büyük Hol");
 });
+
+test("Çemberlitaş eşyası Gaffar varsayımı yerine yuva kaynağına bağlanır", () => {
+  const graph = buildAtlasGraph({ items, recipes, materialSourceFor: sourceForMaterial });
+  const ceket = graph.itemNodes.find((node) => node.key === "ceket");
+  assert.deepEqual(ceket.bosses, ["Gaffar Bey"]);
+  assert.equal(graph.bossNodes.find((node) => node.name === "Gaffar Bey").itemIds.includes("ceket"), true);
+  assert.equal(graph.regionNodes.find((node) => node.name === "Çemberlitaş").bosses.length, 6);
+});

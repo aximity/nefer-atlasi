@@ -1,4 +1,4 @@
 [
-  {"id":"cemberlitas","name":"Çemberlitaş","type":"group_region","bosses":["Gaffar Bey"],"modes":["Grup Bölgesi","PvE"],"restriction":"Savaşçılar Depar yeteneğini kullanamaz.","sourceId":"ikv-cemberlitas-faq","status":"single_source","lastChecked":"2026-08-22"},
+  {"id":"cemberlitas","name":"Çemberlitaş","type":"group_region","bosses":["Yol Savaşçısı","GBM-X","Stuart Efendi","Semiha Hanım","İstihbarat Komutanı","Gaffar Bey"],"modes":["Grup Bölgesi","PvE"],"restriction":"Savaşçılar Depar yeteneğini kullanamaz.","sourceId":"kiyametin-onculeri-guide","status":"single_source","lastChecked":"2026-08-26"},
   {"id":"buyuk-hol","name":"Büyük Hol","type":"region","bosses":[],"modes":[],"restriction":"Bölge/boss ve oyun modu uygunluğu için kaynak taraması sürüyor.","sourceId":"ikv-healer-talismans","status":"draft","lastChecked":"2026-08-22"}
 ]

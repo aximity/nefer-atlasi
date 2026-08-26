@@ -43,6 +43,12 @@ import {
 } from "../lib/build-codec.mjs";
 import AbilitySimulator from "./ability-simulator";
 import { SITE_RELEASE } from "../lib/site-release";
+import {
+  GROUP_REGION_DEFINITIONS,
+  cemberlitasBossesFor,
+  cemberlitasLootSourceIdFor,
+  isCemberlitasRecipe,
+} from "../lib/group-region-loot.mjs";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n),
   familyNames: Record<string, string> = {
@@ -746,28 +752,28 @@ function TalismanResult({
 function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
   const cemberlitasLoot = publishableItems
       .filter(
-        (item) =>
-          itemRecipe(item.id)?.sourceId === "maxigame-cemberlitas-2015",
+        (item) => isCemberlitasRecipe(itemRecipe(item.id)),
       )
       .map((item) => ({
         ...item,
         region: "Çemberlitaş",
-        boss: "Gaffar Bey",
+        bosses: cemberlitasBossesFor(item),
         acquisition: itemRecipe(item.id)?.method,
       })),
     loot = [
       ...cemberlitasLoot,
-      ...publishableItems.filter((item) => item.region && item.boss),
+      ...publishableItems
+        .filter((item) => item.region && item.boss)
+        .map((item) => ({ ...item, region: item.region as string, bosses: [item.boss as string] })),
     ],
-    regions = [...new Set(loot.map((item) => item.region as string))],
-    [activeRegion, setActiveRegion] = useState(regions[0] ?? ""),
+    regions = GROUP_REGION_DEFINITIONS.filter((region) => loot.some((item) => item.region === region.name)),
+    [activeRegion, setActiveRegion] = useState(regions[0] ?? GROUP_REGION_DEFINITIONS[0]),
     [activeClass, setActiveClass] = useState("Tümü"),
     visible = loot.filter(
       (item) =>
-        item.region === activeRegion &&
+        item.region === activeRegion.name &&
         (activeClass === "Tümü" || item.class === activeClass),
-    ),
-    bosses = [...new Set(visible.map((item) => item.boss as string))];
+    );
 
   return (
     <section className="groupRegions" id="group-regions">
@@ -778,18 +784,18 @@ function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
         <span className="count">{loot.length} kaynaklı ganimet ve üretim kaydı</span>
       </Title>
       <div className="regionTabs" role="tablist" aria-label="Grup bölgesi seç">
-        {regions.map((regionName) => (
+        {regions.map((region) => (
           <button
             role="tab"
-            aria-selected={activeRegion === regionName}
-            className={activeRegion === regionName ? "on" : ""}
-            onClick={() => setActiveRegion(regionName)}
-            key={regionName}
+            aria-selected={activeRegion.name === region.name}
+            className={activeRegion.name === region.name ? "on" : ""}
+            onClick={() => setActiveRegion(region)}
+            key={region.name}
           >
-            <span>{regionName}</span>
+            <span>{region.name}</span>
             <small>
-              {loot.filter((item) => item.region === regionName).length} eşya ·{" "}
-              {new Set(loot.filter((item) => item.region === regionName).map((item) => item.boss)).size} boss
+              {loot.filter((item) => item.region === region.name).length} eşya · {region.bossCount} boss
+              {region.encounterCount !== region.bossCount ? ` · ${region.encounterCount} karşılaşma` : ""}
             </small>
           </button>
         ))}
@@ -806,15 +812,15 @@ function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
         ))}
       </div>
       <div className="bossLootGrid">
-        {bosses.map((boss, bossIndex) => {
-          const drops = visible.filter((item) => item.boss === boss);
+        {activeRegion.bossGroups.map((boss, bossIndex) => {
+          const drops = visible.filter((item) => item.bosses.some((itemBoss) => boss.lootBosses.includes(itemBoss)));
           return (
-            <article className="bossLoot" key={boss}>
+            <article className="bossLoot" key={boss.name}>
               <header>
                 <div className="bossMark">{String(bossIndex + 1).padStart(2, "0")}</div>
                 <div>
-                  <small>BÖLÜM SONU DÜŞMANI</small>
-                  <h3>{boss}</h3>
+                  <small>{boss.stage}{boss.encounters > 1 ? ` · ${boss.encounters} KARŞILAŞMA` : ""}</small>
+                  <h3>{boss.name}</h3>
                 </div>
                 <b>{drops.length} parça</b>
               </header>
@@ -829,12 +835,13 @@ function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
                     <em>{item.slot}</em>
                   </button>
                 ))}
+                {!drops.length && <p className="bossLootEmpty">Bu boss için kaynakta eşya ganimeti listelenmiyor.</p>}
               </div>
             </article>
           );
         })}
       </div>
-      {!bosses.length && (
+      {!activeRegion.bossGroups.length && (
         <p className="emptyResult">Bu sınıf için kayıtlı ganimet yok.</p>
       )}
     </section>
@@ -856,7 +863,8 @@ function ItemCard({
     hasConflict = all.some((s) => s.verificationStatus === "conflicted"),
     visual = images.find((image) => image.itemId === item.id),
     recipe = itemRecipe(item.id),
-    cemberlitasOrigin = recipe?.sourceId === "maxigame-cemberlitas-2015";
+    cemberlitasOrigin = isCemberlitasRecipe(recipe),
+    cemberlitasBosses = cemberlitasOrigin ? cemberlitasBossesFor(item) : [];
   return (
     <article className={`card ${visual ? "withArt" : "dataOnly"}`}>
       <button className="cardOpen" onClick={() => onOpen(item)}>
@@ -900,7 +908,7 @@ function ItemCard({
                 </div>
               )}
               {!item.region && cemberlitasOrigin && (
-                <div className="acquisition">Ganimet/üretim: Çemberlitaş · Gaffar Bey · {recipe.materials.length} malzeme</div>
+                <div className="acquisition">Ganimet/üretim: Çemberlitaş · {cemberlitasBosses.join(", ")} · {recipe.materials.length} malzeme</div>
               )}
             </>
           ) : (
@@ -980,7 +988,9 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
     source = sourceFor(claims[0]?.sourceId),
     recipeSource = recipe ? sourceFor(recipe.sourceId) : undefined,
     visual = images.find((image) => image.itemId === item.id),
-    cemberlitasOrigin = recipe?.sourceId === "maxigame-cemberlitas-2015";
+    cemberlitasOrigin = isCemberlitasRecipe(recipe),
+    cemberlitasBosses = cemberlitasOrigin ? cemberlitasBossesFor(item) : [],
+    lootSource = cemberlitasOrigin ? sourceFor(cemberlitasLootSourceIdFor(item) ?? "") : undefined;
   return (
     <div
       className="modal"
@@ -1027,7 +1037,7 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
             <div>
               <dt>Ganimet</dt>
               <dd>
-                {item.region ?? "Çemberlitaş"} · {item.boss ?? "Gaffar Bey"}
+                {item.region ?? "Çemberlitaş"} · {item.boss ?? cemberlitasBosses.join(", ")}
               </dd>
             </div>
           )}
@@ -1075,6 +1085,9 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
         )}
         {recipeSource && recipeSource.id !== source?.id && (
           <a className="sourceLink secondary" href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı · {recipeSource.title} ↗</a>
+        )}
+        {lootSource && lootSource.id !== source?.id && (
+          <a className="sourceLink secondary" href={lootSource.url} target="_blank" rel="noreferrer">Ganimet kaynağı · {lootSource.title} ↗</a>
         )}
         <a className="sourceLink secondary" href={`/?module=atlas&node=${encodeURIComponent(`item:${item.id}`)}#atlas`}>Eşyanın bağlantılı atlasını aç ↗</a>
       </article>
