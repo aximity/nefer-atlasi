@@ -262,5 +262,168 @@
     "evidenceImage": "/evidence/healer-abilities/iyilestirme-cemberi.webp",
     "status": "cross_verified",
     "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-sprint",
+    "target": "Kendisi",
+    "effect": "Hareket hızını artırır.",
+    "duration": "Başlangıçta 5 sn",
+    "cooldown": "40 sn",
+    "progression": [
+      "Her puan süreyi 0,5 sn artırır.",
+      "1 puanda %50, 5 puanda %100 ve 10 puanda %150 hız artışı verir.",
+      "15 puanda Durdurma etkisinden etkilenmez."
+    ],
+    "sourceId": "player-warrior-sprint-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/depar.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-offensive",
+    "target": "Kendisi",
+    "effect": "Saldırıyı artırırken zırh değerini %25 düşürür ve maksimum zırhı 30 yapar. Defansif Dövüşmeyi kapatır; Sert Vuruş ve Ağır Vuruş kullanılabilir.",
+    "duration": "Sınırsız",
+    "cooldown": "60 sn",
+    "progression": [
+      "1 puanda 12 saldırı artırır; 1 puandan itibaren her puan 2 ilave saldırı verir.",
+      "5 puandan itibaren her puan, kritik gelen Ağır Vuruşun %5 daha az kudret tüketmesini sağlar.",
+      "15 puanda Sert Vuruş ve Ağır Vuruş hasarı silaha bağlı olarak artar; normal vuruşlar etkilenmez.",
+      "15 puanda Süpürme saldırısının hasarı 2 katına çıkar."
+    ],
+    "sourceId": "player-warrior-offensive-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/ofansif-dovus.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-hard-hit",
+    "target": "Düşman",
+    "effect": "Hedefe sert bir darbe indirir.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 10 sn",
+    "progression": [
+      "Ofansif Dövüş açılmadan kullanılamaz; Konsantrasyon durumundaki düşmana ekstra hasar verir.",
+      "Her puan %3 ilave hasar artışı sağlar.",
+      "5 / 10 / 15 puanda Bedelsiz Yetenek şansı sırasıyla %10 / %20 / %40 olur; tetiklendiğinde kudret harcamaz.",
+      "10 puandan itibaren yenilenme süresi 5 sn olur.",
+      "15 puanda yaratıklara karşı, üzerindeki maksimum hasar veren eşyaların 1,5 katı kadar hasar bonusu ana hasara eklenir."
+    ],
+    "sourceId": "player-warrior-hard-hit-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/sert-vurus.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-taunt",
+    "target": "Rakip",
+    "effect": "Rakibin hedef olarak savaşçıyı seçmesini teşvik eder.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 8 sn",
+    "progression": [
+      "Defansif Dövüş açılmadan kullanılamaz.",
+      "Her puan %5 daha fazla hiddet yaratır ve menzili %1,25 artırır.",
+      "5 puanda kudret gereksinimi %25 azalır ve yenilenme süresi 1 sn kısalır.",
+      "10 puanda kudret gereksinimi %50 azalır ve yenilenme süresi 2 sn kısalır.",
+      "15 puanda kudret gereksinimi %50 azalır, yenilenme süresi 3 sn kısalır ve rakibin savunmasını 20 düşürür."
+    ],
+    "sourceId": "player-warrior-taunt-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/kiskirtma.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-defensive",
+    "target": "Kendisi",
+    "effect": "Sakınma, Kışkırtma, Savaş Narası ve Hedef Saptırmayı kullanılabilir kılar. Savunmayı artırır; zırh bonuslarının %25'i kadar zırh verir. Hasarı %25 düşürürken yaratılan hiddeti %25 artırır ve Ofansif Dövüşmeyi kapatır.",
+    "duration": "Sınırsız",
+    "cooldown": "60 sn",
+    "progression": [
+      "1 puanda savunmayı 12 artırır; her puan 2 ilave savunma verir.",
+      "15 puanda maksimum zırh sınırını %75 yapar ve Süpürme saldırısının kudret gereksinimini yarıya düşürür.",
+      "15 puanda Süpürme saldırısı ve Kanatma fazladan hiddet yaratır."
+    ],
+    "sourceId": "player-warrior-defensive-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/defansif-dovusme.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-distract",
+    "target": "Düşman",
+    "effect": "Saldırı, savunma ve hareket hızını düşürür.",
+    "duration": "Başlangıçta 10 sn",
+    "cooldown": "1 sn",
+    "progression": [
+      "Her puan 1 savunma ve 1 saldırı düşürür; menzili %1,25 artırır.",
+      "5 puanda süre 5 sn uzar ve rakibin hareketini %5 yavaşlatır.",
+      "10 puanda rakibin saldırı ve savunmasını 20 düşürür; süre 10 sn uzar ve hareketi %15 yavaşlatır.",
+      "10 puandan itibaren her puan rakibin savunma ve saldırısını 2 düşürmeye başlar.",
+      "15 puanda süre 20 sn uzar ve rakibin hareketini %25 yavaşlatır."
+    ],
+    "sourceId": "player-warrior-distract-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/dikkat-dagitma.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-stop",
+    "target": "Düşman",
+    "effect": "Rakibin hareket etmesini 2 sn engeller; El Tutulup savaşamayabilir veya Zihni Tutulup yetenek kullanamayabilir.",
+    "duration": "Başlangıçta 2 sn",
+    "cooldown": "30 sn",
+    "progression": [
+      "Her puan süreyi 0,1 sn ve menzili %1,25 artırır.",
+      "5 puanda süre 0,5 sn artar; %10 ihtimalle Zihin ve El Tutulması, %30 ihtimalle El Tutulması uygular.",
+      "10 puanda süre 1 sn artar; %20 ihtimalle Zihin ve El Tutulması, %50 ihtimalle El Tutulması uygular.",
+      "15 puanda süre 1,5 sn artar; %30 ihtimalle Zihin Tutulması ve her zaman El Tutulması uygular."
+    ],
+    "sourceId": "player-warrior-stop-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/durdurma.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-avoid",
+    "target": "Kendisi",
+    "effect": "Zırhı daha etkin kullanmayı sağlar.",
+    "duration": "Sınırsız",
+    "cooldown": "60 sn",
+    "progression": [
+      "Defansif Dövüş açılmadan kullanılamaz; Ofansif Dövüş açıldığında etkisi kalkar.",
+      "1 puanda %10 zırh artışı verir; her puan %1 ilave zırh artışı sağlar.",
+      "5 puanda Maksimum Enerji efsunlarının 2 kat etkili olmasını sağlar.",
+      "15 puanda Maksimum Enerji efsunlarının 4 kat etkili olmasını sağlar."
+    ],
+    "sourceId": "player-warrior-avoid-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/sakinma.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "warrior-shout",
+    "target": "Düşman; yüksek puanlarda çevresi",
+    "effect": "Hedefi, üzerindeki en yüksek hiddet değerini taşıyan oyuncuya verir; yüksek puanlarda çevresindekilerde de genel hiddet artışı sağlar.",
+    "duration": "Yok",
+    "cooldown": "Başlangıçta 20 sn",
+    "progression": [
+      "Defansif Dövüş açılmadan kullanılamaz.",
+      "Her puan yenilenme süresini 0,5 sn ve kudret gereksinimini %3 azaltır.",
+      "10 puanda çevresindeki düşmanlarda hiddet yaratır.",
+      "15 puanda çevresindeki düşmanlarda 2 kat hiddet yaratır ve yenilenme süresi 10 sn olur."
+    ],
+    "sourceId": "player-warrior-shout-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/savas-narasi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
   }
 ]

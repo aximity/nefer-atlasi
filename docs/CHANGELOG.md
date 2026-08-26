@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Savaşçı yetenekleri paket 1
+
+- Dokuz temel savaşçı yeteneğinin oyun içi tooltip ayrıntıları ve kanıt görüntüleri eklendi.
+- Boz Ayı, Kanatma'nın yerine geçen ve aynı puanları kullanan doğrulanmış varyant olarak modellendi.
+- Yetenek sözlüğü sınıf seçicili hâle getirildi; Savaşçı 9/15 + 1 varyant, Şifacı 15/15 olarak gösteriliyor.
+- Eksik altı temel savaşçı yeteneği, tahmin edilmeden görsel bekleme listesinde bırakıldı.
+
 ## 2026-08-26 — Şifacı yetenek kapsamı 15/15
 
 - Element Direnç Alanı, Gazap, Çağrı, Can Kurtaran ve İyileştirme Çemberi oyun içi tooltip verileri eklendi.

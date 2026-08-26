@@ -1,5 +1,14 @@
 # Araştırma Günlüğü
 
+## 2026-08-26 — Savaşçı yetenekleri oyun içi tooltip paketi 1
+
+- Kaynak: Kullanıcı tarafından sağlanan 10 gerçek oyun içi ekran görüntüsü.
+- Temel yetenek kapsamı: Depar, Ofansif Dövüş, Sert Vuruş, Defansif Dövüşme, Kışkırtma, Dikkat Dağıtma, Durdurma, Sakınma ve Savaş Narası.
+- Varyant kapsamı: Boz Ayı; Kanatma'nın yerine geçer ve aynı yetenek puanlarını kullanır.
+- İşlem: Hedef, etki, süre, yenilenme ve puan eşikleri yapılandırıldı; kırpılmış görüntüler her kayda bağlandı.
+- Doğrulama: Temel yetenekler Kıyametin Öncüleri rehberiyle, Boz Ayı ilişkisi ayrıca resmî oyun rehberiyle karşılaştırıldı.
+- Açık kapsam: Kanatma, Zihin Toplama, Sarsılmaz, Süpürme Vuruşu, Hedef Saptırma ve Ağır Vuruş görüntüleri bekleniyor.
+
 ## 2026-08-26 — Şifacı yetenekleri oyun içi tooltip paketi 2
 
 - Kaynak: Kullanıcı tarafından sağlanan 5 gerçek oyun içi ekran görüntüsü.

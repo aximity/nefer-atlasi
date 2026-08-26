@@ -28,7 +28,11 @@ for(const detail of abilityDetails){
   if(!abilityIds.has(detail.abilityId)||!detail.target||!detail.effect||!detail.duration||!detail.cooldown||!Array.isArray(detail.progression)||!detail.progression.length||!sourceIds.has(detail.sourceId)||(detail.verificationSourceIds??[]).some(id=>!sourceIds.has(id))||!detail.evidenceImage?.startsWith("/evidence/")||!allowed.status.includes(detail.status)||!detail.lastChecked)errors.push(`${detail.abilityId}: eksik/geçersiz yetenek ayrıntısı`);
   if(detail.status==="cross_verified"&&sourceGroups.size<2)errors.push(`${detail.abilityId}: bağımsız olmayan yetenek doğrulaması`);
 }
-for(const variant of abilityVariants)if(!allowed.class.includes(variant.class)||!variant.name||!abilityIds.has(variant.replacesAbilityId)||variant.usesSamePoints!==true||!sourceIds.has(variant.sourceId)||!allowed.status.includes(variant.status)||!variant.lastChecked)errors.push(`${variant.id}: eksik/geçersiz yetenek varyantı`);
+for(const variant of abilityVariants){
+  const sourceGroups=new Set([variant.sourceId,...(variant.verificationSourceIds??[])].map(id=>sources.find(source=>source.id===id)?.independenceGroup));
+  if(!allowed.class.includes(variant.class)||!variant.name||!abilityIds.has(variant.replacesAbilityId)||variant.usesSamePoints!==true||!variant.target||!variant.effect||!variant.duration||!variant.cooldown||!Array.isArray(variant.progression)||!variant.progression.length||!sourceIds.has(variant.sourceId)||(variant.verificationSourceIds??[]).some(id=>!sourceIds.has(id))||!variant.evidenceImage?.startsWith("/evidence/")||!allowed.status.includes(variant.status)||!variant.lastChecked)errors.push(`${variant.id}: eksik/geçersiz yetenek varyantı`);
+  if(variant.status==="cross_verified"&&sourceGroups.size<2)errors.push(`${variant.id}: bağımsız olmayan varyant doğrulaması`);
+}
 const mediaStatuses=["awaiting_capture","single_source","cross_verified","conflicted"];
 for(const media of abilityMedia){
   if(!abilityIds.has(media.abilityId)||!mediaStatuses.includes(media.status)||!Array.isArray(media.sources)||!Array.isArray(media.sourceIds))errors.push(`${media.id}: eksik/geçersiz yetenek medyası`);

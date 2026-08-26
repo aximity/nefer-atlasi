@@ -5,8 +5,22 @@
     "class": "Savaşçı",
     "replacesAbilityId": "warrior-bleed",
     "usesSamePoints": true,
-    "sourceId": "official-game-guide",
-    "status": "single_source",
-    "lastChecked": "2026-08-25"
+    "target": "Yok",
+    "effect": "Güçlü bir Boz Ayı çağırır. Ayı çağrıldığı alanda kalıp savaşır; savaşçısını takip etmez. Yetenek yeniden kullanılarak kudret harcamadan bir hedefe veya savaşçının yanına yönlendirilebilir.",
+    "duration": "Başlangıçta 15 sn",
+    "cooldown": "Başlangıçta 15 sn",
+    "progression": [
+      "Ayı hedefe vurduğunda hasar verir ve 60 sn kanama uygular; puan arttıkça kanama hedefe negatif iyileştirme verir. Kanama etkisi yaratıklarda 2 kat fazladır.",
+      "Defansif mod açıksa 10 sn boyunca hedefin kudretini azaltan bir etki bırakır.",
+      "Her puan yenilenme ve etki süresini 3 sn artırır.",
+      "5 puanda ayının enerjisi %20 artar; 5 puandan itibaren her puan kudret gereksinimini %3 azaltır.",
+      "10 puanda ayının enerjisi %40 artar.",
+      "15 puanda ayının enerjisi %50 ve hasarı %10 artar."
+    ],
+    "sourceId": "player-warrior-bear-20260826",
+    "verificationSourceIds": ["official-game-guide", "kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/warrior-abilities/boz-ayi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
   }
 ]

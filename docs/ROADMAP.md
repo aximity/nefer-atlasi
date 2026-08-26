@@ -63,13 +63,24 @@
 
 Çıkış kapısı: 15 şifacı yeteneğinin tamamı tarihli oyun içi görüntüye bağlıdır; okunmayan değer tahmin edilmez.
 
-## Aktif — M25: Özel kullanım doğrulaması
+## Sürekli — M25: Özel kullanım doğrulaması
 
 - [ ] On beş yetenek kartını gerçek kullanım sırasında kontrol et
 - [ ] Bildirilen metin farklarını yeni ekran görüntüsüyle kanıt kuyruğuna al
 - [ ] Kullanıcı açıkça istemeden siteyi herkese açma
 
 Çıkış kapısı: Görülen farklar ekran görüntüsüyle çözülür; erişim, kullanıcı açılmasını isteyene kadar yalnızca sahibinde kalır.
+
+## Aktif — M26: Savaşçı yetenek kapsamı
+
+- [x] Depar, Ofansif Dövüş ve Sert Vuruş tooltip kanıtları
+- [x] Defansif Dövüşme, Kışkırtma ve Dikkat Dağıtma tooltip kanıtları
+- [x] Durdurma ve Sakınma tooltip kanıtları
+- [x] Savaş Narası tooltip kanıtı
+- [x] Boz Ayı'nı Kanatma'nın yerine geçen varyant olarak kanıtla
+- [ ] Kanatma ve kalan altı temel savaşçı yeteneğinin oyun içi görüntülerini işle
+
+Çıkış kapısı: 15 temel savaşçı yeteneği tarihli görüntüye bağlıdır; Boz Ayı ayrı temel yetenek sayılmaz.
 
 ## Şimdilik yapılmayacaklar
 
