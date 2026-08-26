@@ -1,17 +1,17 @@
 export const SITE_RELEASE = {
-  version: "0.20.1",
+  version: "0.21.0",
   channel: "BETA",
-  milestone: "M20",
+  milestone: "M21",
   releasedAt: "26 Ağustos 2026",
-  title: "Çemberlitaş Ganimet Düzeltmesi",
+  title: "Üretim Ağı",
   summary:
-    "Çemberlitaş ganimetleri sınıf ve yuvaya göre gerçek bosslarla eşleştirildi; Gaffar Bey'e yapılan toplu ve hatalı atama kaldırıldı.",
+    "Maden, toplayıcılık çıktısı ve şaheser reçeteleri çift yönlü bir üretim ağı üzerinde birleştirildi.",
   changes: [
-    "Çemberlitaş 6 farklı boss ve Semiha'nın ikinci kesimiyle 7 karşılaşma olarak gösteriliyor.",
-    "Gaffar Bey yalnız Ceket ve Silah; Semiha Hanım Pantolon; Stuart Efendi Eldiven; GBM-X Ayakkabı ganimetlerine bağlandı.",
-    "Savaşçı ve Şifacı Zırhları ile Büyücü Amplifikatörleri Yol Savaşçısı, GBM-X, Stuart ve Semiha'nın ortak ganimeti olarak modellendi.",
-    "İstihbarat Komutanı boss listesine eklendi; Wiki'de eşya ganimeti bulunmadığı için boş kayıt uydurulmadı.",
-    "Sığınaklar 3 karşılaşma ve Kenan–Zahir dahil 4 boss olarak düzeltildi; Migrat'ın 2 boss kaydı korundu.",
-    "Eşya kartları, ayrıntı pencereleri ve bağlantılı Atlas artık aynı çoklu boss kaynağını kullanıyor.",
+    "Maden modülündeki Kaynaklar sekmesi, görünür Üretim Ağı çalışma alanına dönüştürüldü.",
+    "Her 1., 2. ve 3. çıktı ayrı ayrı açılarak kullanıldığı şaheserleri ve reçete miktarlarını gösteriyor.",
+    "Masaüstünde hızlı kullanım önizlemesi, mobilde dokunmalı ayrıntı paneli eklendi.",
+    "Şaheser adıyla arama yapıldığında ilgili maden zincirleri de bulunuyor.",
+    "Eşya ayrıntısındaki reçete malzemeleri Üretim Ağına geri bağlandı.",
+    "Kaynağı olmayan kullanım iddiaları kesin bilgi gibi gösterilmiyor; katkı bekliyor etiketi korunuyor.",
   ],
 } as const;

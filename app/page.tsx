@@ -1061,9 +1061,9 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
                     return <span key={material.name}>
                       <b>{material.name} ×{material.quantity}</b>
                       {materialSource?.kind === "gathering"
-                        ? <small>{materialSource.profession} · {materialSource.base} kaynağının {materialSource.output}. çıktısı · {materialSource.region} · <a href={`/?module=mining&material=${encodeURIComponent(material.name)}#mining`}>kaynaklarda aç ↗</a></small>
+                        ? <small>{materialSource.profession} · {materialSource.base} kaynağının {materialSource.output}. çıktısı · {materialSource.region} · <a href={`/?module=mining&view=Kaynaklar&material=${encodeURIComponent(material.name)}#mining`}>Üretim Ağında aç ↗</a></small>
                         : materialSource?.kind === "creature_drop"
-                          ? <small>{materialSource.region} · {materialSource.enemy} ganimeti · {materialSource.verification} · <a href={`/?module=mining&material=${encodeURIComponent(material.name)}#mining`}>kaynaklarda aç ↗</a></small>
+                          ? <small>{materialSource.region} · {materialSource.enemy} ganimeti · {materialSource.verification} · <a href={`/?module=mining&view=Kaynaklar&material=${encodeURIComponent(material.name)}#mining`}>Üretim Ağında aç ↗</a></small>
                           : <small>Kaynak eşleşmesi henüz yok</small>}
                       <a href={`/?module=atlas&node=${encodeURIComponent(`material:${material.name.toLocaleLowerCase("tr-TR")}`)}#atlas`}>bağlantılı atlas ↗</a>
                     </span>;
