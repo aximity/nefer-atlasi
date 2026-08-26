@@ -19,8 +19,14 @@ function coveredAbilityIds(className: AbilityClass) {
   return ids;
 }
 
-export default function AbilityReference() {
-  const [activeClass, setActiveClass] = useState<AbilityClass>("Savaşçı");
+export default function AbilityReference({
+  initialClass = "Savaşçı",
+  focusAbilityId = "",
+}: {
+  initialClass?: AbilityClass;
+  focusAbilityId?: string;
+}) {
+  const [activeClass, setActiveClass] = useState<AbilityClass>(initialClass);
   const classAbilities = useMemo(
     () => abilityRows.filter((row) => row.class === activeClass),
     [activeClass],
@@ -69,7 +75,7 @@ export default function AbilityReference() {
           const ability = abilityRows.find((row) => row.id === detail.abilityId);
           if (!ability) return null;
           return (
-            <details className="healerAbilityCard" key={detail.abilityId}>
+            <details className="healerAbilityCard" defaultOpen={focusAbilityId === detail.abilityId} key={detail.abilityId}>
               <summary>
                 <span className="healerAbilityLevel">SV. {ability.unlockLevel}</span>
                 <span><b>{ability.name}</b><small>{detail.effect}</small></span>
@@ -94,7 +100,7 @@ export default function AbilityReference() {
         {classVariants.map((variant) => {
           const replaced = abilityRows.find((row) => row.id === variant.replacesAbilityId);
           return (
-            <details className="healerAbilityCard abilityVariantCard" key={variant.id}>
+            <details className="healerAbilityCard abilityVariantCard" defaultOpen={focusAbilityId === variant.id} key={variant.id}>
               <summary>
                 <span className="healerAbilityLevel">SV. {replaced?.unlockLevel ?? 20}</span>
                 <span>

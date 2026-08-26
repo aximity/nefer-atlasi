@@ -80,3 +80,11 @@ test("quest headers opt out of the global sticky header layout", () => {
   assert.match(css, /\.questCard>header\{[^}]*position:static/);
   assert.match(css, /\.questSheet>header\{[^}]*position:static/);
 });
+
+test("sticky site chrome never leaks into section headers or navigation", () => {
+  const css = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
+  assert.doesNotMatch(css, /(?:^|\})header\{/);
+  assert.doesNotMatch(css, /(?:^|\})nav\{/);
+  assert.match(css, /\.siteHeader\{[^}]*position:sticky/);
+  assert.match(css, /\.siteHeader nav\{/);
+});

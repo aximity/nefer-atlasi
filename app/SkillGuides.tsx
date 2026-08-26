@@ -154,9 +154,11 @@ const classes: ("Tümü" | GuideClass)[] = ["Tümü", "Savaşçı", "Büyücü",
 export default function SkillGuides({
   klass,
   onClassChange,
+  initialAbilityId = "",
 }: {
   klass: GuideClass;
   onClassChange: (klass: GuideClass) => void;
+  initialAbilityId?: string;
 }) {
   const [region, setRegion] = useState<(typeof regions)[number]>("Tümü");
   const [className, setClassName] = useState<(typeof classes)[number]>("Tümü");
@@ -193,7 +195,7 @@ export default function SkillGuides({
         <span>Simülasyonun altındaki kaynak kayıtları neyin neden değiştiğini doğrulamak içindir; topluluk dizilimleri zorunlu meta değildir.</span>
       </div>
 
-      <AbilityReference />
+      <AbilityReference initialClass={klass} focusAbilityId={initialAbilityId} />
 
       <AbilityMediaShowcase />
 

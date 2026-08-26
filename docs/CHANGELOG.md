@@ -1,12 +1,14 @@
 # Değişiklik Günlüğü
 
-## 2026-08-26 — Sade Menü, Genel Arama ve Okunabilirlik
+## 2026-08-26 — Akıllı Arama ve Genel Yerleşim Düzeltmesi
 
 - On üç modülün aynı anda göründüğü yatay çubuk kaldırıldı; Donanım, Yetenek, Görevler ve Eşyalar ana kısayol olarak bırakıldı.
 - Kalan bölümler kısa açıklamalarıyla “Tümü” menüsünde toplandı; içerik veya işlev silinmedi.
-- Başlığa modül, eşya, görev ve tılsım arayan tek bir arama düğmesi eklendi; masaüstünde `/` kısayolu destekleniyor.
-- Arama sonucundaki eşya doğrudan ayrıntısını, görev ilgili filtreyi, tılsım kendi sınıf ve kayıt ekranını açıyor.
+- Başlığa her ekranda görünen arama kutusu ve masaüstünde `/` kısayolu eklendi; sonuçlar sekiz içerik türüne göre filtrelenebiliyor.
+- Türkçe karakter farklarını tolere eden çok sözcüklü arama; modül, eşya, görev, yetenek, maden, bölge/boss ve tılsım kayıtlarını tarıyor.
+- Sonuçlar yalnız sekmeye götürmüyor: eşyanın ayrıntısını, görev aramasını, yeteneğin sınıf/kartını, maden kaynağını, ilgili bölgeyi veya tılsım kaydını doğrudan hazırlıyor.
 - Mobil ve masaüstünde gövde metni, butonlar, alanlar ve mikro etiketler için asgari okunabilir yazı ölçüsü yükseltildi.
+- Genel `header` ve `nav` stilleri site kabuğuna sınırlandı; iç kart başlıklarının yapışkan başlık gibi davranıp metinleri üst üste bindirmesi engellendi.
 
 ## 2026-08-26 — Bağımsız Yetenek Simülatörü
 

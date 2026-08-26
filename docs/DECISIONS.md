@@ -75,3 +75,7 @@ Yetenek Simülatörü sınıf, seviye, puan bütçesi ve 0–15 yetenek eşikler
 ## ADR-019 — İçerik silmeden ilk görünümü sadeleştir
 
 Ana gezinme en sık kullanılan Donanım, Yetenek, Görevler ve Eşyalar işlerine ayrılır. Diğer modüller açıklamalı Tümü menüsünde korunur ve genel aramadan erişilebilir kalır. Böylece yeni kullanıcıya aynı anda on üç karar sunulmaz; uzman kullanıcı hiçbir aracı kaybetmez.
+
+## ADR-020 — Genel kabuk stillerini semantik etiketlere bağlama
+
+Yapışkan üst başlık ve ana gezinme stilleri çıplak `header` veya `nav` etiketlerine değil yalnız `.siteHeader` kabuk sınıfına uygulanır. Modüller ve kartlar erişilebilirlik için aynı semantik etiketleri kullanabildiğinden, etikete bağlı genel stiller içerik başlıklarını yanlışlıkla sabitleyip mobilde metin çakışmasına yol açar. Yeni genel yerleşim kuralları da içerik alanında taşmayı engelleyecek, ancak bileşenin kendi konumlandırmasını değiştirmeyecek şekilde sınırlandırılır.

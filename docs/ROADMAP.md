@@ -143,6 +143,17 @@
 
 Çıkış kapısı: Ana çubuk ilk bakışta beş karar noktasını aşmaz; hiçbir mevcut modül kaybolmaz ve arama tek dokunuşla açılır.
 
+## Tamamlandı — M32.1: Akıllı arama ve yerleşim güvenliği
+
+- [x] Arama düğmesini başlıkta görünür arama kutusuna dönüştür
+- [x] Modül, eşya, görev, yetenek, maden, bölge/boss ve tılsımları aynı dizinde tara
+- [x] Sonuçları içerik türüne göre filtrele ve ilgili kayıt/filtre durumuna yönlendir
+- [x] Çok sözcüklü ve Türkçe karakter farklarını tolere eden eşleştirme uygula
+- [x] Kabuk stillerini `.siteHeader` ile sınırla ve genel taşma güvenliği ekle
+- [x] Çıplak `header`/`nav` seçicilerinin geri dönmesini otomatik testle engelle
+
+Çıkış kapısı: Her arama sonucu ilgili modülü doğru kayıt veya filtreyle açar; site içeriğinde kabuk kaynaklı yapışkan başlık ya da metin çakışması kalmaz.
+
 ## Sıradaki — M33: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir

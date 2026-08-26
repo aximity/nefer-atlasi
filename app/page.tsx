@@ -46,12 +46,16 @@ import {
 } from "../lib/build-codec.mjs";
 import { SITE_RELEASE } from "../lib/site-release";
 import { quests } from "../lib/quest-catalog";
+import abilityRows from "../data/abilities.json";
+import abilityVariantRows from "../data/ability-variants.json";
+import { gatheringRegionFor, gatheringRows } from "../lib/gathering-catalog";
 import {
   GROUP_REGION_DEFINITIONS,
   cemberlitasBossesFor,
   cemberlitasLootSourceIdFor,
   isCemberlitasRecipe,
 } from "../lib/group-region-loot.mjs";
+import { creatureDropSources } from "../lib/material-sources";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n),
   familyNames: Record<string, string> = {
@@ -84,6 +88,19 @@ const moduleTabs = [
   { id: "contribute", label: "Katkı", summary: "Yeni bilgi ve kanıt gönder.", keywords: "ekle düzelt kanıt görsel" },
 ] as const;
 type MainModule = (typeof moduleTabs)[number]["id"];
+const searchFilters = ["Tümü", "Bölümler", "Eşyalar", "Görevler", "Yetenekler", "Madenler", "Bölgeler", "Tılsımlar"] as const;
+type SearchFilter = (typeof searchFilters)[number];
+const normalizeSearch = (value: string) => value
+  .normalize("NFD")
+  .replace(/\p{Diacritic}/gu, "")
+  .replace(/ı/g, "i")
+  .toLocaleLowerCase("tr-TR")
+  .trim();
+const matchesSearch = (haystack: string, query: string) => {
+  const words = normalizeSearch(query).split(/\s+/).filter(Boolean);
+  const normalizedHaystack = normalizeSearch(haystack);
+  return words.every((word) => normalizedHaystack.includes(word));
+};
 const primaryModuleIds: MainModule[] = ["builder", "skills", "quests", "items"];
 interface BuildSnapshot {
   v: number;
@@ -139,7 +156,10 @@ export default function Home() {
     [moreOpen, setMoreOpen] = useState(false),
     [searchOpen, setSearchOpen] = useState(false),
     [globalQuery, setGlobalQuery] = useState(""),
+    [searchFilter, setSearchFilter] = useState<SearchFilter>("Tümü"),
     [questSearchSeed, setQuestSearchSeed] = useState(""),
+    [abilitySearchSeed, setAbilitySearchSeed] = useState(""),
+    [regionSearchSeed, setRegionSearchSeed] = useState(""),
     [notice, setNotice] = useState("");
   const applySaved = (p: BuildSnapshot) => {
     setKlass(p.klass);
@@ -260,28 +280,83 @@ export default function Home() {
         setNotice("Kayıtlı donanım planı geçersiz veya eski sürüm.");
       }
     };
-  const openModule = (id: MainModule) => {
+  const openModule = (id: MainModule, searchParams?: Record<string, string>) => {
       setActiveModule(id);
       setMoreOpen(false);
       setSearchOpen(false);
       const url = new URL(location.href);
       url.searchParams.set("module", id);
+      if (searchParams) {
+        ["item", "quest", "ability", "material", "view", "region", "boss", "node", "talisman"].forEach((key) => url.searchParams.delete(key));
+        Object.entries(searchParams).forEach(([key, value]) => url.searchParams.set(key, value));
+      }
       history.replaceState(null, "", url);
       requestAnimationFrame(() => document.getElementById("modules")?.scrollIntoView());
     },
-    normalizedGlobalQuery = globalQuery.trim().toLocaleLowerCase("tr-TR"),
+    normalizedGlobalQuery = normalizeSearch(globalQuery),
     globalModuleResults = normalizedGlobalQuery
-      ? moduleTabs.filter((item) => `${item.label} ${item.summary} ${item.keywords}`.toLocaleLowerCase("tr-TR").includes(normalizedGlobalQuery)).slice(0, 6)
+      ? moduleTabs.filter((item) => matchesSearch(`${item.label} ${item.summary} ${item.keywords}`, globalQuery)).slice(0, 8)
       : moduleTabs.filter((item) => primaryModuleIds.includes(item.id)),
     globalItemResults = normalizedGlobalQuery
-      ? publishableItems.filter((item) => `${item.name} ${item.class} ${item.slot}`.toLocaleLowerCase("tr-TR").includes(normalizedGlobalQuery)).slice(0, 5)
+      ? publishableItems.filter((item) => {
+          const recipe = itemRecipe(item.id);
+          return matchesSearch([
+            item.name, item.class, item.slot, item.region, item.boss, item.acquisition,
+            ...publishableStats(item.id).map((stat) => stat.attribute),
+            ...(recipe?.materials.map((material) => material.name) ?? []),
+          ].filter(Boolean).join(" "), globalQuery);
+        }).slice(0, 8)
       : [],
     globalTalismanResults = normalizedGlobalQuery
-      ? talismans.filter((item) => `${item.name} ${item.class} ${item.color}`.toLocaleLowerCase("tr-TR").includes(normalizedGlobalQuery)).slice(0, 4)
+      ? talismans.filter((item) => matchesSearch(`${item.name} ${item.class} ${item.color} ${item.series} ${item.effectText} ${talismanAcquisition(item)}`, globalQuery)).slice(0, 8)
       : [],
     globalQuestResults = normalizedGlobalQuery
-      ? quests.filter((item) => `${item.title} ${item.giver} ${item.location} ${item.region}`.toLocaleLowerCase("tr-TR").includes(normalizedGlobalQuery)).slice(0, 4)
+      ? quests.filter((item) => matchesSearch([
+          item.title, String(item.level), `seviye ${item.level} görev`, item.giver, item.location, item.region, item.track, item.objective, item.note,
+          ...Object.values(item.reward ?? {}),
+        ].filter(Boolean).join(" "), globalQuery)).slice(0, 8)
       : [],
+    globalAbilityResults = normalizedGlobalQuery
+      ? [
+          ...abilityRows.map((item) => ({ id: item.id, focusId: item.id, name: item.name, class: item.class, level: item.unlockLevel, description: item.roles.join(" · ") })),
+          ...abilityVariantRows.map((item) => {
+            const replaced = abilityRows.find((ability) => ability.id === item.replacesAbilityId);
+            return { id: item.id, focusId: item.id, name: item.name, class: item.class, level: replaced?.unlockLevel ?? 20, description: `${replaced?.name ?? "Temel yetenek"} yerine geçen KÖ varyantı` };
+          }),
+        ].filter((item) => matchesSearch(`${item.name} ${item.class} ${item.level} ${item.description}`, globalQuery)).slice(0, 8)
+      : [],
+    globalMaterialResults = normalizedGlobalQuery
+      ? [
+          ...gatheringRows.flatMap((row) => [row.base, row.second, row.third].filter(Boolean).map((name) => ({
+            id: `${row.profession}-${name}`,
+            name: String(name),
+            description: `${row.profession} · ${gatheringRegionFor(row)} · ${row.points} puan`,
+            target: "mining" as const,
+          }))),
+          ...creatureDropSources.map((item) => ({
+            id: `drop-${item.name}`,
+            name: item.name,
+            description: `${item.region} · ${item.enemy} · ${item.usage}`,
+            aliases: item.aliases?.join(" ") ?? "",
+            target: "atlas" as const,
+          })),
+        ].filter((item) => matchesSearch(`${item.name} ${item.description} ${"aliases" in item ? item.aliases : ""}`, globalQuery)).slice(0, 8)
+      : [],
+    globalRegionResults = normalizedGlobalQuery
+      ? GROUP_REGION_DEFINITIONS.flatMap((region) => [
+          { id: `region-${region.name}`, name: region.name, region: region.name, boss: "", description: `${region.bossCount} boss · ${region.encounterCount} karşılaşma` },
+          ...region.bosses.map((boss) => ({ id: `boss-${region.name}-${boss}`, name: boss, region: region.name, boss, description: `${region.name} bossu` })),
+        ]).filter((item) => matchesSearch(`${item.name} ${item.region} ${item.description}`, globalQuery)).slice(0, 8)
+      : [],
+    categoryVisible = (category: SearchFilter) => searchFilter === "Tümü" || searchFilter === category,
+    globalResultCount =
+      (categoryVisible("Bölümler") ? globalModuleResults.length : 0) +
+      (categoryVisible("Eşyalar") ? globalItemResults.length : 0) +
+      (categoryVisible("Görevler") ? globalQuestResults.length : 0) +
+      (categoryVisible("Yetenekler") ? globalAbilityResults.length : 0) +
+      (categoryVisible("Madenler") ? globalMaterialResults.length : 0) +
+      (categoryVisible("Bölgeler") ? globalRegionResults.length : 0) +
+      (categoryVisible("Tılsımlar") ? globalTalismanResults.length : 0),
     filtered = publishableItems.filter(
       (i) =>
         (!query ||
@@ -319,7 +394,8 @@ export default function Home() {
           <span>{moduleTabs.find((item) => item.id === activeModule)?.label}</span>
           <button className="globalSearchTrigger" type="button" onClick={() => setSearchOpen(true)} aria-label="Atlas genelinde ara">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/></svg>
-            <b>Ara</b>
+            <b>Atlas’ta ara</b>
+            <small aria-hidden="true">/</small>
           </button>
           <a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a>
           <a href="/rehber">Rehber</a>
@@ -607,12 +683,12 @@ export default function Home() {
           />
         </div>
       </section>}
-      {activeModule === "group-regions" && <GroupRegions onOpen={setDetail} />}
+      {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} onOpen={setDetail} />}
       {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide />}
       {activeModule === "economy" && <EconomyWorkshop />}
-      {activeModule === "skills" && <SkillGuides klass={klass} onClassChange={setClass} />}
+      {activeModule === "skills" && <SkillGuides key={abilitySearchSeed} klass={klass} initialAbilityId={abilitySearchSeed} onClassChange={setClass} />}
       {activeModule === "issues" && <IssueDesk />}
       {activeModule === "health" && <ProjectScorecard />}
       {activeModule === "contribute" && <ContributionCenter />}
@@ -691,17 +767,23 @@ export default function Home() {
           <header>
             <label>
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/></svg>
-              <input autoFocus value={globalQuery} onChange={(event) => setGlobalQuery(event.target.value)} placeholder="Eşya, görev, tılsım veya bölüm ara…" />
+              <input autoFocus value={globalQuery} onChange={(event) => setGlobalQuery(event.target.value)} placeholder="Ne arıyorsun? Örn. Gaffar asa…" />
             </label>
             <button type="button" onClick={() => setSearchOpen(false)} aria-label="Aramayı kapat">×</button>
           </header>
-          <p className="globalSearchHint">Örn. Gaffar, Xenotim, Boz Ayı, Labirent veya Maden</p>
+          <div className="globalSearchFilters" aria-label="Arama türü">
+            {searchFilters.map((filter) => <button type="button" key={filter} className={searchFilter === filter ? "active" : ""} onClick={() => setSearchFilter(filter)}>{filter}</button>)}
+          </div>
+          <p className="globalSearchHint">Birden fazla kelimeyi birlikte süzer: “Gaffar asa”, “20 seviye görev” veya “Büyük Hol maden”.</p>
           <div className="globalSearchResults">
-            {globalModuleResults.length > 0 && <section><h3>Bölümler</h3>{globalModuleResults.map((item) => <button type="button" key={item.id} onClick={() => openModule(item.id)}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>)}</section>}
-            {globalItemResults.length > 0 && <section><h3>Eşyalar</h3>{globalItemResults.map((item) => <button type="button" key={item.id} onClick={() => { setDetail(item); setSearchOpen(false); }}><span><b>{item.name}</b><small>{item.class} · {item.slot}</small></span><i>↗</i></button>)}</section>}
-            {globalQuestResults.length > 0 && <section><h3>Görevler</h3>{globalQuestResults.map((item) => <button type="button" key={item.id} onClick={() => { setQuestSearchSeed(item.title); openModule("quests"); }}><span><b>{item.title}</b><small>Sv. {item.level} · {item.giver} · {item.location}</small></span><i>→</i></button>)}</section>}
-            {globalTalismanResults.length > 0 && <section><h3>Tılsımlar</h3>{globalTalismanResults.map((item) => <button type="button" key={item.id} onClick={() => { setClass(item.class); setTalismanId(item.id); openModule("engine"); }}><span><b>{item.name}</b><small>{item.class} · {item.color}</small></span><i>→</i></button>)}</section>}
-            {normalizedGlobalQuery && !globalModuleResults.length && !globalItemResults.length && !globalQuestResults.length && !globalTalismanResults.length && <div className="globalSearchEmpty"><b>Sonuç bulunamadı.</b><span>Farklı veya daha kısa bir kelime dene.</span></div>}
+            {categoryVisible("Bölümler") && globalModuleResults.length > 0 && <section><h3>Bölümler</h3>{globalModuleResults.map((item) => <button type="button" key={item.id} onClick={() => openModule(item.id)}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>)}</section>}
+            {categoryVisible("Eşyalar") && globalItemResults.length > 0 && <section><h3>Eşyalar</h3>{globalItemResults.map((item) => <button type="button" key={item.id} onClick={() => { setQuery(item.name); setClassFilter(item.class === "Tüm Sınıflar" ? "Tümü" : item.class); setSlotFilter(item.slot); setDetail(item); openModule("items", { item: item.id }); }}><span><b>{item.name}</b><small>{item.class} · {item.slot}{item.boss ? ` · ${item.boss}` : ""}</small></span><i>↗</i></button>)}</section>}
+            {categoryVisible("Görevler") && globalQuestResults.length > 0 && <section><h3>Görevler</h3>{globalQuestResults.map((item) => <button type="button" key={item.id} onClick={() => { setQuestSearchSeed(item.title); openModule("quests", { quest: item.id }); }}><span><b>{item.title}</b><small>Sv. {item.level} · {item.giver} · {item.location}</small></span><i>→</i></button>)}</section>}
+            {categoryVisible("Yetenekler") && globalAbilityResults.length > 0 && <section><h3>Yetenekler</h3>{globalAbilityResults.map((item) => <button type="button" key={item.id} onClick={() => { setClass(item.class as CharacterClass); setAbilitySearchSeed(item.focusId); openModule("skills", { ability: item.id }); }}><span><b>{item.name}</b><small>{item.class} · Sv. {item.level} · {item.description}</small></span><i>→</i></button>)}</section>}
+            {categoryVisible("Madenler") && globalMaterialResults.length > 0 && <section><h3>Maden ve materyaller</h3>{globalMaterialResults.map((item) => <button type="button" key={item.id} onClick={() => item.target === "mining" ? openModule("mining", { view: "Kaynaklar", material: item.name }) : openModule("atlas", { node: `material:${item.name.toLocaleLowerCase("tr-TR")}` })}><span><b>{item.name}</b><small>{item.description}</small></span><i>→</i></button>)}</section>}
+            {categoryVisible("Bölgeler") && globalRegionResults.length > 0 && <section><h3>Bölgeler ve bosslar</h3>{globalRegionResults.map((item) => <button type="button" key={item.id} onClick={() => { setRegionSearchSeed(`${item.region}|||${item.boss}`); openModule("group-regions", { region: item.region, ...(item.boss ? { boss: item.boss } : {}) }); }}><span><b>{item.name}</b><small>{item.description}</small></span><i>→</i></button>)}</section>}
+            {categoryVisible("Tılsımlar") && globalTalismanResults.length > 0 && <section><h3>Tılsımlar</h3>{globalTalismanResults.map((item) => <button type="button" key={item.id} onClick={() => { setClass(item.class); setTalismanId(item.id); openModule("engine", { talisman: item.id }); }}><span><b>{item.name}</b><small>{item.class} · {item.color} · {talismanAcquisition(item)}</small></span><i>→</i></button>)}</section>}
+            {normalizedGlobalQuery && globalResultCount === 0 && <div className="globalSearchEmpty"><b>Bu filtrede sonuç bulunamadı.</b><span>“Tümü”nü seç veya daha kısa bir kelime dene.</span></div>}
           </div>
           <footer><span><kbd>/</kbd> ile aç</span><span><kbd>Esc</kbd> ile kapat</span></footer>
         </section>
@@ -855,7 +937,7 @@ function TalismanResult({
     </article>
   );
 }
-function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
+function GroupRegions({ onOpen, initialRegionName = "" }: { onOpen: (item: Item) => void; initialRegionName?: string }) {
   const cemberlitasLoot = publishableItems
       .filter(
         (item) => isCemberlitasRecipe(itemRecipe(item.id)),
@@ -873,7 +955,9 @@ function GroupRegions({ onOpen }: { onOpen: (item: Item) => void }) {
         .map((item) => ({ ...item, region: item.region as string, bosses: [item.boss as string] })),
     ],
     regions = GROUP_REGION_DEFINITIONS.filter((region) => loot.some((item) => item.region === region.name)),
-    [activeRegion, setActiveRegion] = useState(regions[0] ?? GROUP_REGION_DEFINITIONS[0]),
+    [activeRegion, setActiveRegion] = useState(
+      regions.find((region) => region.name === initialRegionName) ?? regions[0] ?? GROUP_REGION_DEFINITIONS[0],
+    ),
     [activeClass, setActiveClass] = useState("Tümü"),
     visible = loot.filter(
       (item) =>
