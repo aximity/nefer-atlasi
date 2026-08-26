@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## 2026-08-26 — Üç sınıfta 45/45 yetenek kapsamı
+
+- Zihin Saldırısı oyun içi tooltip ayrıntıları ve kırpılmış kanıt görüntüsüyle eklendi.
+- Büyücü yetenek kapsamı 15/15'e, üç sınıfın toplam kapsamı 45/45'e ulaştı.
+- Oyuncu görüntüleri dekoratif ana görsel yerine, gerektiğinde açılan kaynak kanıtı olarak kullanılmaya devam ediyor.
+- Sonraki çalışma “Sorun, şikâyet ve çözüm önerileri” modülü olarak yol haritasına alındı.
+
 ## 2026-08-26 — Savaşçı 15/15 ve büyücü 14/15
 
 - Kullanıcı düzeltmesiyle KÖ'de Boz Ayı'nın Kanatma yuvasının karşılığı olduğu kesinleştirildi; Kanatma eksik listesinden çıkarıldı.

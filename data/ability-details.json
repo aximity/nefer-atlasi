@@ -776,5 +776,24 @@
     "evidenceImage": "/evidence/mage-abilities/kutup-ruzgari.webp",
     "status": "cross_verified",
     "lastChecked": "2026-08-26"
+  },
+  {
+    "abilityId": "mage-mind-attack",
+    "target": "Düşman",
+    "effect": "Belli bir ihtimalle hedefi etki süresi boyunca hapseder. Zihin hapsine maruz kalan yaratık veya oyuncu hareket edemez, yetenek kullanamaz ve saldıramaz. Yaratıklarda etki süresi normalin 3 katıdır.",
+    "duration": "Başlangıçta 10 sn",
+    "cooldown": "Başlangıçta 90 sn",
+    "progression": [
+      "Her puan menzili %1,6 artırır ve kudret gereksinimini %3 azaltır.",
+      "5 puana kadar hapsetme ihtimali %25'tir.",
+      "5 puanda hapsetme ihtimali %50 olur; 5 puandan itibaren kritik şansı her puan için %1 artar.",
+      "10 puanda hapsetme ihtimali %75, yenilenme süresi 75 sn ve hapsetme süresi 12 sn olur.",
+      "15 puanda hapsetme ihtimali %100, yenilenme süresi 60 sn ve hapsetme süresi 15 sn olur."
+    ],
+    "sourceId": "player-mage-mind-attack-20260826",
+    "verificationSourceIds": ["kiyametin-onculeri-guide"],
+    "evidenceImage": "/evidence/mage-abilities/zihin-saldirisi.webp",
+    "status": "cross_verified",
+    "lastChecked": "2026-08-26"
   }
 ]

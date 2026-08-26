@@ -84,15 +84,23 @@
 
 Çıkış kapısı: 15 savaşçı yetenek yuvası tarihli görüntüye bağlıdır; Boz Ayı ayrı bir 16. yetenek değil, Kanatma yuvasının KÖ karşılığıdır.
 
-## Aktif — M27: Büyücü yetenek kapsamı
+## Tamamlandı — M27: Büyücü yetenek kapsamı
 
 - [x] Meteorit, Konsantrasyon ve Fiziksel Bilgi tooltip kanıtları
 - [x] Buz Oku tooltip kanıtı
 - [x] Direnç Kırma Alanı, Buz Bilgisi, Ateş Çemberi, Ateş Bilgisi ve Meditasyon tooltip kanıtları
 - [x] Yıldırım, Elektrik Bilgisi, Büyü Bozma, Tesla Küresi ve Kutup Rüzgarı tooltip kanıtları
-- [ ] Zihin Saldırısı tooltip kanıtını işle
+- [x] Zihin Saldırısı tooltip kanıtını işle
 
 Çıkış kapısı: 15 temel büyücü yeteneğinin hedef, etki, süre, yenilenme ve puan eşikleri tarihli oyun içi görüntüye bağlıdır.
+
+## Sıradaki — M28: Sorun, şikâyet ve çözüm önerileri
+
+- [ ] Sorunları etki alanı ve önceliğe göre sınıflandır
+- [ ] Her sorunu kanıt, oyuncu etkisi ve tekrar üretme adımlarıyla kaydet
+- [ ] KÖ'ye uyumlu kısa, orta ve uzun vadeli çözüm önerilerini eşleştir
+
+Çıkış kapısı: Sorun ile çözüm birbirinden ayrılır; görüş, gözlem ve doğrulanmış kanıt aynı kesinlikte sunulmaz.
 
 ## Şimdilik yapılmayacaklar
 

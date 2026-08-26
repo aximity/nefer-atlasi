@@ -121,6 +121,13 @@
 - Kaynak paketi: Direnç Kırma Alanı, Buz Bilgisi, Ateş Çemberi, Meditasyon, Ateş Bilgisi, Yıldırım, Büyü Bozma, Elektrik Bilgisi, Tesla Küresi ve Kutup Rüzgarı oyun içi görüntüleri.
 - Sonuç: Büyücü 14/15; yalnız Zihin Saldırısı bekliyor.
 
+## 2026-08-26 — Zihin Saldırısı ve tam yetenek kapsamı
+
+- Kaynak: Kullanıcının oyun içi Zihin Saldırısı tooltip görüntüsü.
+- Bulgular: 40. seviyede açılır; düşmanı olasılıkla hapseder, yaratıklarda etki süresi üç katına çıkar ve 15 puanda hapsetme ihtimali %100'e ulaşır.
+- Görsel kararı: Ham ekran fotoğrafı büyütülmedi; yalnız okunabilir tooltip alanı kırpılıp WebP kanıtına dönüştürüldü. Böylece yapay keskinlik ve gereksiz arayüz kalabalığı üretilmedi.
+- Sonuç: Büyücü 15/15; üç sınıf toplamı 45/45.
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı
