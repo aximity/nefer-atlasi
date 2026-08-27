@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.37.0",
+    date: "27 Ağustos 2026",
+    title: "Piyasa ve Kullanım Nabzı",
+    changes: [
+      "Anonim WhatsApp verisi alış–satış liderlerine ve oranlarına dönüştürüldü.",
+      "Yönetici paneline aktif kullanım süresi ve en çok vakit geçirilen bölümler eklendi.",
+      "Gönül envanteri KÖ oyuncu bildirimiyle, doğrulama bekleyen kayıt olarak güncellendi.",
+    ],
+  },
+  {
     version: "0.36.2",
     date: "27 Ağustos 2026",
     title: "KÖ Doğrulama Kapısı",

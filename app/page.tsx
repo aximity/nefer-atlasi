@@ -395,6 +395,7 @@ export default function Home() {
           </button>
           <a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a>
           <a href="/rehber">Rehber</a>
+          <a href="/istatistik/giris">Yönetici</a>
           <i>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</i>
         </nav>
       </header>
@@ -709,7 +710,7 @@ export default function Home() {
           Kaynak yoksa kesin bilgi yok. Tek kaynak teyit bekler; çelişki saklanmaz;
           eşya adıyla görünüşü aynı kanıtta değilse görsel bağlanmaz.
         </p>
-        <span className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
+        <span className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a><a href="/istatistik/giris">Yönetici Girişi</a></span>
       </footer>
       <ReleaseCenter />
       {detail && <ItemModal item={detail} close={() => setDetail(null)} />}

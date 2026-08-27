@@ -148,6 +148,8 @@ test("tılsım üretim atlası kademe zincirini ve kaynaklı NPC kapsamını dü
   assert.ok(talismanProduction.tierRules.every((rule) => !rule.acquisition.includes("Büyük Hol düşümü")));
   const inventoryReport = talismanProduction.playerReports.find((row) => row.id === "ko-gonul-buyu-bozma-1-ve-kondrit");
   assert.match(inventoryReport?.claim ?? "", /Büyü Bozma \(I\).*Kondrit/);
+  assert.match(inventoryReport?.claim ?? "", /Safran.*Jade\/Jadeit/);
+  assert.equal(inventoryReport?.status, "needs_verification");
   assert.equal(inventoryReport?.price, null);
 });
 

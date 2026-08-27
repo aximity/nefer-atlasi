@@ -29,9 +29,12 @@ test("reklam kodu ayar ve ziyaretçi izni birlikte olmadan açılmaz", async () 
 
 test("özel istatistik alanı açıkça yönetici girişi olarak sunulur", async () => {
   const login = await readFile(new URL("../app/istatistik/giris/page.tsx", import.meta.url), "utf8");
+  const home = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   assert.match(login, /Yönetici Girişi/);
   assert.match(login, /Yönetici erişim anahtarınla/);
   assert.doesNotMatch(login, /şifremi göster|anahtarı göster/i);
+  assert.match(home, /href="\/istatistik\/giris">Yönetici<\/a>/);
+  assert.match(home, /href="\/istatistik\/giris">Yönetici Girişi<\/a>/);
 });
 
 test("yönetici girişi çalışma zamanı sınırını aşan hashlerde 500 vermez", async () => {
