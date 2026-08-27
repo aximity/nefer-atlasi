@@ -166,6 +166,49 @@
 
 Çıkış kapısı: Genel site giriş istemeden çalışır; trafik kayıtları üretimde birikir, özel panel yalnız sahibin anahtarıyla açılır ve reklam kodu yayıncı kimliği ile izin olmadan yüklenmez.
 
+## Tamamlandı — M32.4: Görsel kalite ve kanıt kırpımları
+
+- [x] Dokuz bölge dizilimi kartının içerik odaklarını kayıt bazında düzenle
+- [x] Kart önizlemesi ile değişmeden açılan tam kaynak görüntüsünü ayır
+- [x] Alternatör Kolye kanıtını ad, simge ve tooltip korunacak biçimde kırp
+- [x] İnternette bulunan fakat ad + görünüş kapısını geçmeyen görselleri yayımdan uzak tut
+
+Çıkış kapısı: Kartlar belge içeriğine odaklanır; kaynak kanıtı değişmeden açılabilir ve dekoratif görsel doğrulanmış eşya görseli gibi sunulmaz.
+
+## Taslak hazır — M32.5: Wiki set görünüşleri ve görsel edinim kuyruğu
+
+- [x] Set görünüşü ile tekil eşya görselini ayrı veri türleri olarak modelle
+- [x] Bıçak Sırtı set görünüşünü altı parçaya görünüş ailesi referansı olarak bağla
+- [x] Savaşçı, Büyücü ve Şifacı için 11 ailelik edinim kuyruğu oluştur
+- [x] Kart, ayrıntı paneli ve Atlas'ta kanıt kapsamını açık etiketle göster
+- [ ] Kalan 10 görünüş ailesinin özgün Wiki dosya sayfası ve lisansını doğrula
+- [ ] 67 eşyanın her biri için tekil ad + görünüş kanıtını tamamla
+
+Çıkış kapısı: Set renderı tekil eşya medyası sayılmaz; yalnız dosya sayfası, ad eşleşmesi ve kullanım hakkı doğrulanan görseller yayıma alınır.
+
+## Taslak hazır — M34: Üretim takibi ve sürdürülebilirlik merkezi
+
+- [x] Manuel stok ve cihaz içi fotoğraf referansı girişi
+- [x] Elde olan malzemelerden üretilebilir reçeteleri hesapla
+- [x] Hedef adede göre eksik miktarı ve edinme kaynağını göster
+- [x] Favori reçete, sorumlu kişi ve üretim hedefi takibi
+- [x] Ana sayfada ekonomi, etkinlik ve kaynak uyarlaması merkezi
+- [x] Önerilen etkinliği doğrulanmış sunucu takviminden ayır
+- [ ] Fotoğraftan malzeme/adet okuma için doğrulamalı OCR pilotu
+- [ ] Takım üyeleri arasında paylaşılan üretim planı ve rol yetkileri
+
+Çıkış kapısı: Üretim sonucu yalnız reçete + kullanıcı stoku üzerinden hesaplanır; kaynağı bilinmeyen malzeme için konum uydurulmaz ve öneri mevcut oyun özelliği gibi gösterilmez.
+
+## Tamamlandı — M34.1: Yenilikler merkezi ve hızlı tanıtım
+
+- [x] Köşede kalıcı ve okunmamış sürümü işaretleyen Yenilikler düğmesi
+- [x] Güncel ve önceki önemli sürümleri tek panelde göster
+- [x] İlk ziyarette üç adımlı, engellemesiz kısa tanıtım
+- [x] Tanıtımı cihazda bir kez göster ve isteğe bağlı yeniden aç
+- [x] Mobil görünümde tek sütunlu, kolay kapatılabilir düzen
+
+Çıkış kapısı: Ziyaretçi rehber sayfasına gitmeden arama, karar ve planlama değerini anlar; tanıtım ana görevi engellemez ve tekrar gösterim kullanıcının kontrolündedir.
+
 ## Sıradaki — M33: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir

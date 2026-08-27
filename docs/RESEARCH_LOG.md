@@ -1,5 +1,21 @@
 # Araştırma Günlüğü
 
+## 2026-08-27 — Üretim planı, sürdürülebilirlik ve görsel kapsam sınırı
+
+- Reçete planlayıcısı mevcut 67 reçete kaydını ve kullanıcı tarafından elle onaylanan stok miktarlarını kullanır; fotoğraf yalnız cihaz içi görsel referanstır, otomatik okuma yapılmaz.
+- Malzeme edinme açıklaması yalnız mevcut toplayıcılık kataloğu ve kaynaklı yaratık düşümü eşleşmelerinden gelir. Eşleşme yoksa konum tahmini üretilmez.
+- Ekonomi önerilerinde Albion alt seviye eşya tüketimi, EVE ekonomi ölçümü ve İKV meslek/iksir yapısı kaynak→uyarlama→koruma sınırı olarak ayrı sütunlarda tutuldu.
+- Etkinlik takvimi fikirleri ilan edilmiş sunucu etkinliği değildir; tarih ve yetkili duyuru kaynağı doğrulanmadan takvim gerçeği olarak yayımlanmaz.
+- Kullanıcının yeni Fandom/Google görsel görüntüsünden yalnız Bıçak Sırtı set renderı kullanıldı. Fandom sayfasındaki metin, istatistik, reklam veya başka içerik veri setine alınmadı.
+
+## 2026-08-27 — İnternet görsel taraması ve kalite kapısı
+
+- Resmî İKV Çemberlitaş konsept/karakter görselleri ile topluluk eşya rehberi görselleri tarandı.
+- Resmî görseller bölge atmosferini ve zırh ailelerini gösteriyor; ancak tekil eşya adı ile görünüş aynı karede bulunmadığı için `data/images.json` kayıtlarına eklenmedi.
+- Arama sonuçlarında aynı adlı fakat İKV ile ilgisiz gerçek dünya ürünleri görüldü; hiçbirisi veri setine alınmadı.
+- Mevcut Alternatör Kolye oyuncu görüntüsü ad + simge + tooltip kapısını geçti. Kaynak dosya korunarak kamuya açık sunum için kişisel ekran alanlarını dışlayan türetilmiş WebP kırpımı oluşturuldu.
+- Dokuz dizilim görselinde metin veya piksel üretilmedi; kart odağı CSS ile belge içeriğine taşındı, modal tam kaynağı göstermeye devam ediyor.
+
 ## 2026-08-26 — Sorun ve çözüm dayanakları
 
 - Oyuncu bildirimi: Maden tükendi hatası, grup bölgesi gecikmesi ve bağlantı hatası, ölen yaratığın ayakta kalması, sohbet kirliliği, grup bulamama, tank/şifacı açığı ve grup bölgesi masraf–ödül dengesizliği.
@@ -157,13 +173,23 @@
 - İlk uygulama sırası: Hurdacı Fişi → Ham Alaşım → Boyahane. İksir, aura ve sunucu ortak hedefi ilk dört haftalık tüketim ve fiyat verisinden sonra değerlendirilir.
 - Kaynaklar: https://istanbulkiyametvakti.fandom.com/tr/wiki/Meslekler, https://istanbulkiyametvakti.fandom.com/tr/wiki/%C4%B0ksir_Re%C3%A7eteleri, https://albiononline.com/news/video-black-market-feature, https://www.eveonline.com/news/view/monthly-economic-report-april-2026
 
+## 2026-08-27 — Fandom set görünüşleri ve kanıt kapsamı
+
+- Kullanıcı kaynağı: `Savaşçı - Çemberlitaş Eşyaları` Fandom sayfasının mobil ekran görüntüsü.
+- Doğrulanan görünür eşleşme: “Bıçak Sırtı (Maksimum Hasar)” bölüm başlığı ile tam zırhlı savaşçı renderı aynı sayfa görüntüsünde yer alıyor.
+- Kapsam kararı: Bu görsel `Bıçak Sırtı` görünüş ailesinin genel set referansıdır; Ceket, Pantolon, Eldiven, Ayakkabı, Zırh veya Kılıç için ayrı ikon/tooltip kanıtı değildir.
+- Ürün kararı: Set referansları kart, modal ve Atlas'ta gösterilebilir; medya sağlık puanı yalnız eşya adı ile tekil görünüşü aynı kanıtta taşıyan `images.json` kayıtlarından hesaplanmaya devam eder.
+- Kuyruk: 11 görünüş ailesi ve 67 çekirdek Çemberlitaş eşyası kapsama alındı. Bıçak Sırtı `set_reference_only`; diğer aileler dosya sayfası, başlık eşleşmesi ve lisans denetimi bekliyor.
+- Erişim sınırı: Bu çalışma ortamındaki tarayıcı Fandom sayfasını güvenlik politikası nedeniyle açamadı. Kullanıcı görüntüsü dışındaki dosyalar doğrudan alınmadı; Büyücü ve Şifacı sayfa yolları yayımlanabilir kaynak olarak işaretlenmedi.
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı
 - [ ] NotebookLM strateji çıktısındaki kaynaksız “%40 verim”, “%30 grup hızı” ve “%15 hata payı” iddialarını birincil kaynakla doğrula
-- [ ] Çemberlitaş eşya adı ile gerçek görünüşü aynı karede gösteren görsel kanıtları topla; mevcut NotebookLM çıktısı ana eşyalar için görseli “Yok” olarak işaretliyor
+- [ ] Bıçak Sırtı dışındaki 10 görünüş ailesinin set başlığını, özgün Wiki dosya sayfasını ve lisansını doğrula
+- [ ] 67 Çemberlitaş eşyası için ad + tekil görünüşü aynı kanıtta gösteren ikon veya tooltip görsellerini topla
 - [ ] Resmi İKV kaynaklarında ekipman yuvaları
 - [ ] Klan tüccarı gözlükleri ve klan parası
 - [ ] TurkMMO Çemberlitaş arşiviyle satır karşılaştırması
-- [ ] Fandom eşya sayfalarının kaynak izleri
+- [ ] Fandom Büyücü ve Şifacı Çemberlitaş eşya sayfalarının gerçek adreslerini ve dosya kaynak izlerini doğrula
 - [ ] Adı ve görünüşü aynı karede bulunan video kanıtları

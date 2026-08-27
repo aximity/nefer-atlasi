@@ -1,0 +1,14 @@
+[
+  {
+    "id": "appearance-bicak-sirti-warrior",
+    "appearanceFamily": "bicak-sirti",
+    "class": "Savaşçı",
+    "label": "Bıçak Sırtı (Maksimum Hasar)",
+    "sourceId": "fandom-warrior-cemberlitas-items-20260827",
+    "url": "/references/fandom-bicak-sirti-image-viewer-20260827.jpg",
+    "focus": "50% 47%",
+    "checkedAt": "2026-08-27",
+    "scope": "set_appearance",
+    "nameAndSetAppearanceTogether": true
+  }
+]

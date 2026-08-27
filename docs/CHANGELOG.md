@@ -1,5 +1,38 @@
 # Değişiklik Günlüğü
 
+## 2026-08-27 — Yenilikler düğmesi ve hızlı tanıtım
+
+- Ekranın köşesine okunmamış sürümü “Yeni” işaretiyle belirten kalıcı Yenilikler düğmesi eklendi.
+- Güncel değişiklikler ile önceki önemli sürümler aynı açılır panelde kronolojik olarak gösteriliyor.
+- İlk ziyarette arama, karar verme ve planlama akışını üç kısa adımda anlatan engellemesiz tanıtım eklendi.
+- Tanıtım kapatıldıktan sonra kendiliğinden tekrar açılmıyor; Yenilikler panelinden istenirse yeniden gösterilebiliyor.
+- Detaylı kullanım rehberi korunurken temel işlevleri anlamak için ayrı sayfa açma zorunluluğu kaldırıldı.
+
+## 2026-08-27 — Üretim takip masası ve sürdürülebilirlik merkezi
+
+- Saha Operasyonu'na cihazda saklanan stok, favori reçete, hedef adet, fotoğraf referansı ve üretici/sorumlu takibi eklendi.
+- Reçete motoru eldeki malzemelerle üretilebilenleri, hedefe göre eksik miktarları ve stoktan çıkabilecek adedi hesaplıyor.
+- Kaynağı eşleşen eksikler bölge, meslek veya yaratıkla açıklanıyor; eşleşmeyen malzemelerde tahmin yürütülmüyor.
+- Ana gezinmeye Sürdürülebilirlik sekmesi eklendi; ekonomi, etkinlik önerileri, maden/para döngüsü ve kaynak→İKV uyarlaması tek çalışma alanında birleştirildi.
+- Etkinlik fikirleri resmî duyuru gibi gösterilmiyor; tarihsiz öneri ile doğrulanmış takvim kaydı açıkça ayrılıyor.
+- Yeni Fandom ekran görüntüsünden yalnız Bıçak Sırtı karakter görseli referans alındı; sayfadaki metin ve diğer bilgiler içeri aktarılmadı.
+
+## 2026-08-27 — Wiki set görünüşleri ve görsel edinim kuyruğu
+
+- Bıçak Sırtı set renderı, paylaşılan Fandom sayfa görüntüsünden kaynaklanan bir “set görünüş referansı” olarak eklendi.
+- Aynı set renderı altı farklı Bıçak Sırtı parçasında kullanılabilse de doğrulanmış tekil eşya görseli sayacına eklenmedi.
+- Kart, ayrıntı paneli ve Bağlantılı Atlas üzerinde tekil parça kanıtı ile set referansı açık etiketlerle ayrıldı.
+- Savaşçı, Büyücü ve Şifacı için 11 görünüş ailesi ve 67 Çemberlitaş eşyasını kapsayan görsel edinim kuyruğu kuruldu.
+- Özgün Wiki dosya sayfası, başlık eşleşmesi ve kullanım lisansı doğrulanmayan görseller yayımdan uzak tutuldu.
+
+## 2026-08-27 — Görsel kalite ve kanıt kırpımları
+
+- Dokuz bölge dizilimi görselinin kart içi odak noktası ayrı ayrı ayarlandı; ekran dışındaki tavan, çerçeve ve görev çubuğu kart önizlemelerinde geri plana alındı.
+- Kart önizlemelerine premium iç çerçeve, kontrollü kontrast, vignette ve açık “kaynak kırpımı” etiketi eklendi.
+- Tam kaynak fotoğrafı modal içinde değişmeden korunarak kanıt ile sunum kırpımı birbirinden ayrıldı.
+- Alternatör Kolye görseli eşya adı, simgesi ve özellik tooltipi korunarak kişisel karakter ekranının gereksiz bölümlerinden kırpıldı ve WebP olarak küçültüldü.
+- İnternet taramasında bulunan resmî konsept ve set görselleri bağlamsal olarak yararlı olsa da eşya adı + görünüş kapısını geçmediği için tekil eşya kayıtlarına bağlanmadı.
+
 ## 2026-08-26 — Görev geçmişi ve masaüstü okunabilirlik
 
 - Görev ayrıntısındaki gerçek zorunlu ön koşullar ile daha düşük seviyede kaçırılmış olabilecek görevler birbirinden ayrıldı.

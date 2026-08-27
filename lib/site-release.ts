@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.34.1",
+  version: "0.35.1",
   channel: "BETA",
-  milestone: "M32.3",
-  releasedAt: "26 Ağustos 2026",
-  title: "Görev Geçmişi ve Masaüstü Okunabilirlik",
+  milestone: "M34",
+  releasedAt: "27 Ağustos 2026",
+  title: "Yenilikler Merkezi ve Hızlı Tanıtım",
   summary:
-    "Görev ayrıntılarında gerçek ön koşullar ile kaçırılmış olabilecek eski görevler ayrıldı; Meteor konumu ve masaüstü tipografisi iyileştirildi.",
+    "Siteyi ilk kez açanlar için kısa ve geçilebilir bir tanıtım; son eklemeleri kaçırmamak için kalıcı Yenilikler düğmesi hazırlandı.",
   changes: [
-    "Görev detayında zorunlu zincir ile daha düşük seviyede kaçırılmış olabilecek görevler ayrı listeleniyor.",
-    "Önceki seviye görevlerinin NPC ve konumu aynı panelden açılabiliyor.",
-    "Teşkilat İstihbarat'a Katılış konumu Mısır Çarşısı yerine Teşkilat karargâhı olarak düzeltildi.",
-    "Masaüstü gövde, form ve yardımcı metin ölçüleri bir kademe büyütüldü; mobil ölçüler korunuyor.",
-    "Başlık ve arayüz yazı aileleri daha rafine sistem font yığınlarıyla yenilendi; renk ve tema değiştirilmedi.",
+    "İlk ziyarette arama, karar ve planlama akışını anlatan üç adımlı kısa tanıtım eklendi.",
+    "Tanıtım siteyi kilitlemiyor, kapatıldığında yeniden açılmıyor ve Yenilikler bölümünden isteğe bağlı tekrarlanabiliyor.",
+    "Ekranın köşesine okunmamış sürümü işaretleyen kalıcı Yenilikler düğmesi eklendi.",
+    "Güncel sürüm ayrıntıları ile önceki önemli sürümler tek panelde kronolojik olarak gösteriliyor.",
+    "v0.35.0 üretim takibi, sürdürülebilirlik merkezi ve yalnız görsel kullanılan Fandom referansı aynı yayına dâhil edildi.",
   ],
 } as const;

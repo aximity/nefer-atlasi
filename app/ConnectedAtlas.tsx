@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { atlasCoverage, buildAtlasGraph, searchAtlasNodes } from "../lib/atlas-graph.mjs";
-import { images, itemEvidence, publishableItems, publishableStats, recipes, sourceFor, statusLabel } from "../lib/catalog";
+import { appearanceImageFor, images, itemEvidence, publishableItems, publishableStats, recipes, sourceFor, statusLabel } from "../lib/catalog";
 import { materialSourceFor } from "../lib/material-sources";
 import { summarizeMarket } from "../lib/market-board.mjs";
 import { displayUnit } from "../lib/presentation.mjs";
@@ -109,18 +109,21 @@ export default function ConnectedAtlas() {
 function ItemAtlasDetail({ node, selectNode, nodeFor }: { node: AtlasNode; selectNode: (node: AtlasNode) => void; nodeFor: (type: AtlasNode["type"], key: string) => AtlasNode | undefined }) {
   const item = node.item!;
   const visual = images.find((image) => image.itemId === item.id);
+  const appearance = visual ? undefined : appearanceImageFor(item);
   const stats = publishableStats(item.id);
   const evidence = itemEvidence(item.id);
   const itemSource = sourceFor(evidence[0]?.sourceId);
   const recipeSource = node.recipe ? sourceFor(node.recipe.sourceId) : null;
+  const appearanceSource = appearance ? sourceFor(appearance.sourceId) : null;
   const bossNodes = (node.bosses ?? []).map((boss) => graph.bossNodes.find((candidate) => candidate.name === boss && candidate.region === node.region)).filter((boss): boss is AtlasNode => Boolean(boss));
   const regionNode = node.region ? nodeFor("region", node.region.toLocaleLowerCase("tr-TR")) : null;
   return <div className="atlas-item-detail">
     {visual && <div className="atlas-item-image"><Image src={visual.url} alt={`${item.name} oyun içi görünümü`} width={1200} height={1600}/><span>OYUN İÇİ GÖRSEL · KAYNAK EŞLEŞMELİ</span></div>}
+    {appearance && <div className="atlas-item-image set-reference"><Image src={appearance.url} alt={`${appearance.label} set görünüşü`} width={709} height={1536} unoptimized style={{objectPosition:appearance.focus,width:"100%",height:"100%",objectFit:"cover"}}/><span>SET GÖRÜNÜŞ REFERANSI · TEKİL PARÇA DEĞİL</span></div>}
     <section className="atlas-origin"><header><span>ELDE ETME ZİNCİRİ</span></header><div>{regionNode ? <button onClick={() => selectNode(regionNode)}><small>BÖLGE</small><b>{node.region}</b></button> : <article><small>BÖLGE</small><b>Eşleşme yok</b></article>}<i>→</i>{bossNodes.length ? <article><small>{bossNodes.length > 1 ? "BOSSLAR" : "BOSS"}</small><b>{bossNodes.map((boss) => boss.name).join(" · ")}</b></article> : <article><small>BOSS</small><b>Eşleşme yok</b></article>}<i>→</i><article><small>SONUÇ</small><b>{node.recipe?.method || item.acquisition || "Ganimet kaydı"}</b></article></div></section>
     {stats.length > 0 && <section className="atlas-stats"><header><span>OYUN İÇİ ÖZELLİKLER</span></header><div>{stats.map((stat) => <article key={stat.id}><span>{stat.attribute}</span><b>{fmt(stat.value)}{displayUnit(stat.unit) ? ` ${displayUnit(stat.unit)}` : ""}</b></article>)}</div></section>}
     {node.recipe ? <section className="atlas-recipe"><header><span>REÇETE · {node.recipe.materials.length} MALZEME</span><b>{node.recipe.verificationStatus === "cross_verified" ? "Çapraz doğrulandı" : "Tek kaynak"}</b></header><div>{node.recipe.materials.map((material) => { const materialNode = nodeFor("material", material.name.toLocaleLowerCase("tr-TR")); return <button key={material.name} onClick={() => materialNode && selectNode(materialNode)} disabled={!materialNode}><span><small>{materialNode?.region || "Kaynak eşleşmesi yok"}</small><b>{material.name}</b></span><strong>×{material.quantity}</strong></button>; })}</div></section> : <p className="atlas-empty-link">Bu eşya için reçete bağlantısı yok.</p>}
-    <div className="atlas-source-row">{itemSource && <a href={itemSource.url} target="_blank" rel="noreferrer">Eşya kaynağı · {itemSource.title} ↗</a>}{recipeSource && recipeSource.id !== itemSource?.id && <a href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı · {recipeSource.title} ↗</a>}</div>
+    <div className="atlas-source-row">{itemSource && <a href={itemSource.url} target="_blank" rel="noreferrer">Eşya kaynağı · {itemSource.title} ↗</a>}{recipeSource && recipeSource.id !== itemSource?.id && <a href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı · {recipeSource.title} ↗</a>}{appearance && appearanceSource && <a href={appearanceSource.url} target="_blank" rel="noreferrer">Set görünüş kaynağı · {appearance.label} ↗</a>}</div>
   </div>;
 }
 

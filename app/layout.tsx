@@ -14,6 +14,7 @@ import "./connected-atlas.css";
 import "./quest-atlas.css";
 import "./issue-desk.css";
 import "./economy-workshop.css";
+import "./sustainability.css";
 import "./readability.css";
 import "./analytics.css";
 export const metadata: Metadata = {

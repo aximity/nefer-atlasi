@@ -1,5 +1,6 @@
 import {
   evidence,
+  appearanceImages,
   images,
   itemEvidence,
   itemRecipe,
@@ -44,6 +45,7 @@ const integrityChecks = [
   images.every(
     (asset) => itemIds.has(asset.itemId) && sourceIds.has(asset.sourceId),
   ),
+  appearanceImages.every((asset) => sourceIds.has(asset.sourceId)),
   publishableItems.every((item) =>
     ["name", "class", "slot"].every((field) =>
       itemEvidence(item.id, field).some(
@@ -61,6 +63,7 @@ const auditRecords = [
   ...evidence.map((claim) => claim.checkedAt),
   ...sources.map((source) => source.accessedAt),
   ...images.map((image) => image.checkedAt),
+  ...appearanceImages.map((image) => image.checkedAt),
 ].filter(Boolean);
 const latestAuditMs = Math.max(...auditRecords.map((date) => Date.parse(date)));
 const freshnessWindowMs = 30 * 24 * 60 * 60 * 1000;

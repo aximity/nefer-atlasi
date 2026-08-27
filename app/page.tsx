@@ -9,12 +9,15 @@ import ConnectedAtlas from "./ConnectedAtlas";
 import QuestAtlas from "./QuestAtlas";
 import IssueDesk from "./IssueDesk";
 import EconomyWorkshop from "./EconomyWorkshop";
+import SustainabilityHub from "./SustainabilityHub";
+import ReleaseCenter from "./ReleaseCenter";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
   classSlots,
   contexts,
   images,
+  appearanceImageFor,
   items,
   publishableItems,
   talismans,
@@ -84,6 +87,7 @@ const moduleTabs = [
   { id: "endgame", label: "Endgame", summary: "Son oyun hazırlığını ve stratejiyi incele.", keywords: "grup bölgesi strateji" },
   { id: "mining", label: "Maden", summary: "Maden kaynaklarını ve kullanım alanlarını bul.", keywords: "madenci sarraf lokman cevher" },
   { id: "economy", label: "Ekonomi", summary: "Maden, çöp ve para döngülerini incele.", keywords: "döngü pazar para çöp üretim" },
+  { id: "sustainability", label: "Sürdürülebilirlik", summary: "Ekonomi, etkinlik ve kaynak uyarlamalarını izle.", keywords: "sürdürülebilirlik ekonomi etkinlik takvim maden para kaynak" },
   { id: "issues", label: "Sorunlar", summary: "Oyun sorunlarını ve çözüm önerilerini gör.", keywords: "şikayet öneri lag bağlantı" },
   { id: "health", label: "Gelişim", summary: "Projenin veri ve kalite durumunu izle.", keywords: "durum kapsam kalite" },
   { id: "contribute", label: "Katkı", summary: "Yeni bilgi ve kanıt gönder.", keywords: "ekle düzelt kanıt görsel" },
@@ -102,7 +106,7 @@ const matchesSearch = (haystack: string, query: string) => {
   const normalizedHaystack = normalizeSearch(haystack);
   return words.every((word) => normalizedHaystack.includes(word));
 };
-const primaryModuleIds: MainModule[] = ["builder", "skills", "quests", "items"];
+const primaryModuleIds: MainModule[] = ["builder", "skills", "quests", "sustainability"];
 interface BuildSnapshot {
   v: number;
   klass: CharacterClass;
@@ -690,6 +694,7 @@ export default function Home() {
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide />}
       {activeModule === "economy" && <EconomyWorkshop />}
+      {activeModule === "sustainability" && <SustainabilityHub />}
       {activeModule === "skills" && <SkillGuides key={abilitySearchSeed} klass={klass} initialAbilityId={abilitySearchSeed} onClassChange={setClass} />}
       {activeModule === "issues" && <IssueDesk />}
       {activeModule === "health" && <ProjectScorecard />}
@@ -803,6 +808,7 @@ export default function Home() {
         </p>
         <span className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a></span>
       </footer>
+      <ReleaseCenter />
       {detail && <ItemModal item={detail} close={() => setDetail(null)} />}
     </main>
   );
@@ -1055,11 +1061,12 @@ function ItemCard({
     usable = publishableStats(item.id),
     hasConflict = all.some((s) => s.verificationStatus === "conflicted"),
     visual = images.find((image) => image.itemId === item.id),
+    appearance = visual ? undefined : appearanceImageFor(item),
     recipe = itemRecipe(item.id),
     cemberlitasOrigin = isCemberlitasRecipe(recipe),
     cemberlitasBosses = cemberlitasOrigin ? cemberlitasBossesFor(item) : [];
   return (
-    <article className={`card ${visual ? "withArt" : "dataOnly"}`}>
+    <article className={`card ${visual || appearance ? "withArt" : "dataOnly"}`}>
       <button className="cardOpen" onClick={() => onOpen(item)}>
         {visual && (
           <div className="art verifiedArt">
@@ -1070,6 +1077,19 @@ function ItemCard({
               height={1600}
             />
             <small>OYUN İÇİ GÖRSEL · TEK KAYNAK</small>
+          </div>
+        )}
+        {appearance && (
+          <div className="art appearanceArt">
+            <Image
+              src={appearance.url}
+              alt={`${appearance.label} set görünüşü`}
+              width={709}
+              height={1536}
+              unoptimized
+              style={{ objectPosition: appearance.focus, width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            <small>SET GÖRÜNÜŞ REFERANSI · WIKI</small>
           </div>
         )}
         <div className="copy">
@@ -1181,6 +1201,8 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
     source = sourceFor(claims[0]?.sourceId),
     recipeSource = recipe ? sourceFor(recipe.sourceId) : undefined,
     visual = images.find((image) => image.itemId === item.id),
+    appearance = visual ? undefined : appearanceImageFor(item),
+    appearanceSource = appearance ? sourceFor(appearance.sourceId) : undefined,
     cemberlitasOrigin = isCemberlitasRecipe(recipe),
     cemberlitasBosses = cemberlitasOrigin ? cemberlitasBossesFor(item) : [],
     lootSource = cemberlitasOrigin ? sourceFor(cemberlitasLootSourceIdFor(item) ?? "") : undefined;
@@ -1203,6 +1225,19 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
             />
           </div>
         )}
+        {appearance && (
+          <div className="art appearanceArt modalAppearanceArt">
+            <Image
+              src={appearance.url}
+              alt={`${appearance.label} set görünüşü`}
+              width={709}
+              height={1536}
+              unoptimized
+              style={{ objectPosition: appearance.focus, width: "100%", height: "100%", objectFit: "cover" }}
+            />
+            <small>SET GÖRÜNÜŞ REFERANSI · TEKİL PARÇA KANITI DEĞİL</small>
+          </div>
+        )}
         <p className="eyebrow">
           {item.class} · {item.slot} · {item.rarity}
         </p>
@@ -1214,6 +1249,12 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
               <dd>
                 {familyNames[item.appearanceFamily] ?? item.appearanceFamily}
               </dd>
+            </div>
+          )}
+          {appearance && (
+            <div>
+              <dt>Görsel kapsamı</dt>
+              <dd>{appearance.label} setinin genel görünüşü; bu eşyanın tekil simgesi veya tooltip kanıtı değildir.</dd>
             </div>
           )}
           <div>
@@ -1281,6 +1322,9 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
         )}
         {lootSource && lootSource.id !== source?.id && (
           <a className="sourceLink secondary" href={lootSource.url} target="_blank" rel="noreferrer">Ganimet kaynağı · {lootSource.title} ↗</a>
+        )}
+        {appearanceSource && appearanceSource.id !== source?.id && (
+          <a className="sourceLink secondary" href={appearanceSource.url} target="_blank" rel="noreferrer">Set görünüş kaynağı · {appearanceSource.title} ↗</a>
         )}
         <a className="sourceLink secondary" href={`/?module=atlas&node=${encodeURIComponent(`item:${item.id}`)}#atlas`}>Eşyanın bağlantılı atlasını aç ↗</a>
       </article>

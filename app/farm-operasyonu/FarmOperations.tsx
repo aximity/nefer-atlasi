@@ -13,6 +13,7 @@ import {
   summarizeMaterialPrices,
 } from "../../lib/farm-analytics.mjs";
 import { routeSessionDefaults } from "../../lib/route-core.mjs";
+import ProductionPlanner from "./ProductionPlanner";
 
 type YieldRow = {
   id: string;
@@ -54,7 +55,7 @@ type DraftYield = {
 type RoutePoint = { id?: string; pointType: string; label: string; materialHint: string | null; xPermille: number; yPermille: number; notes: string | null };
 type FarmRoute = { id: string; server: string; region: string; routeName: string; profession: string; defaultBooster: string; expectedMinutes: number; notes: string | null; status: string; hasMap: boolean; points: RoutePoint[] };
 type DraftPoint = { pointType: string; label: string; materialHint: string; xPermille: number; yPermille: number; notes: string };
-type Tab = "Özet" | "Yeni Tur" | "Rotalar" | "Karar" | "Kayıtlar";
+type Tab = "Özet" | "Yeni Tur" | "Rotalar" | "Üretim" | "Karar" | "Kayıtlar";
 type AnalysisMetric = "game" | "tl" | "items";
 
 const regions = ["Büyük Hol", "Eminönü", "Antrepo", "Labirent", "Meteor Bölgesi", "Sivri Ada", "Yeraltı", "Topkapı Sarayı"];
@@ -286,7 +287,7 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
       <div><p>M11 · SAHA KARAR MASASI</p><h1>Veriyi karşılaştır.<br/><em>Rotanı bilinçli seç.</em></h1><span>Sıralamalar yalnız kaydedilmiş turlardan çıkar; TL ile oyun parası ayrı tutulur.</span></div>
       <div className="farmHeroStats"><Metric label="Etkin tur" value={String(summary.sessionCount ?? 0)}/><Metric label="Toplam süre" value={durationLabel(Number(summary.durationMinutes ?? 0))}/><Metric label="Toplanan" value={fmt(Number(summary.totalQuantity ?? 0))}/><Metric label="Güven" value={String(summary.confidence ?? "Tek tur")}/></div>
     </section>
-    <nav className="farmTabs">{(["Özet","Yeni Tur","Rotalar","Karar","Kayıtlar"] as Tab[]).map((item) => <button className={tab === item ? "on" : ""} onClick={() => { setTab(item); setError(""); setSuccess(""); }} key={item}>{item}</button>)}</nav>
+    <nav className="farmTabs">{(["Özet","Yeni Tur","Rotalar","Üretim","Karar","Kayıtlar"] as Tab[]).map((item) => <button className={tab === item ? "on" : ""} onClick={() => { setTab(item); setError(""); setSuccess(""); }} key={item}>{item}</button>)}</nav>
     {error && <p className="farmMessage error">{error}</p>}{success && <p className="farmMessage success">{success}</p>}
     {tab === "Özet" && <section className="farmDashboard">
       <div className="farmFilters"><select aria-label="Dönem" value={period} onChange={(event) => setPeriod(event.target.value)}><option value="7">Son 7 gün</option><option value="30">Son 30 gün</option><option value="all">Tüm dönem</option></select><select aria-label="Bölge" value={region} onChange={(event) => setRegion(event.target.value)}><option>Tümü</option>{regionOptions.map((item) => <option key={item}>{item}</option>)}</select><select aria-label="Rota" value={route} onChange={(event) => setRoute(event.target.value)}><option>Tümü</option>{routeOptions.map((item) => <option key={item}>{item}</option>)}</select><select aria-label="Maden" value={material} onChange={(event) => setMaterial(event.target.value)}><option>Tümü</option>{materialOptions.map((item) => <option key={item}>{item}</option>)}</select></div>
@@ -311,6 +312,7 @@ export default function FarmOperations({ adminName, signOutHref }: { adminName: 
       </div>
       <div className="savedRoutes"><header><p>KAYITLI ROTALAR</p><h2>Tek dokunuşla yeni tur</h2></header>{routes.length ? routes.map((routeRow)=><article className={routeRow.status==="archived"?"archived":""} key={routeRow.id}><div className="savedRouteMap"><img src={`/api/admin/farm-routes/map?id=${routeRow.id}`} alt={`${routeRow.routeName} saha haritası`}/>{routeRow.points.map((point,index)=><i className={`point point-${point.pointType.toLocaleLowerCase("tr-TR")}`} style={{left:`${point.xPermille/10}%`,top:`${point.yPermille/10}%`}} title={`${point.label}${point.materialHint?` · ${point.materialHint}`:""}`} key={point.id??index}>{index+1}</i>)}</div><div className="savedRouteBody"><span><small>{routeRow.region} · {routeRow.profession}</small><h3>{routeRow.routeName}</h3></span><div><b>{routeRow.expectedMinutes} dk</b><b>{routeRow.points.filter((point)=>point.pointType==="Damar").length} damar</b><b>{routeRow.defaultBooster}</b></div>{routeRow.notes&&<p>{routeRow.notes}</p>}<footer><button disabled={routeRow.status!=="active"} onClick={()=>startRoute(routeRow)}>Rotayı başlat</button><button disabled={acting===routeRow.id} onClick={()=>void setRouteStatus(routeRow)}>{routeRow.status==="archived"?"Geri yükle":"Arşivle"}</button></footer></div></article>) : <div className="farmEmpty">Henüz rota şablonu yok.</div>}</div>
     </section>}
+    {tab === "Üretim" && <ProductionPlanner />}
     {tab === "Karar" && <section className="decisionWorkspace">
       <header className="decisionHead"><div><p>SAHA KARAR MASASI</p><h2>Rotaları eşit ölçekte karşılaştır</h2><span>Sonuç; seçilen dönem, bölge ve maden filtresindeki gerçek tur kayıtlarının süre ağırlıklı ortalamasıdır.</span></div><div className="decisionFilters"><select aria-label="Analiz dönemi" value={period} onChange={(e)=>setPeriod(e.target.value)}><option value="7">Son 7 gün</option><option value="30">Son 30 gün</option><option value="all">Tüm dönem</option></select><select aria-label="Analiz bölgesi" value={region} onChange={(e)=>setRegion(e.target.value)}><option>Tümü</option>{regionOptions.map((item)=><option key={item}>{item}</option>)}</select><select aria-label="Analiz madeni" value={material} onChange={(e)=>setMaterial(e.target.value)}><option>Tümü</option>{materialOptions.map((item)=><option key={item}>{item}</option>)}</select></div></header>
       {loading ? <div className="farmEmpty">Saha verileri hazırlanıyor…</div> : routePerformance.length === 0 ? <div className="farmEmpty"><i>◇</i><b>Karşılaştırılabilir tur yok</b><span>Önce aynı rota için süre ve çıktı içeren en az bir tur kaydet.</span><button onClick={()=>setTab("Yeni Tur")}>Tur ekle</button></div> : <>

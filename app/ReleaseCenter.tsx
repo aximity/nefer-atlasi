@@ -1,0 +1,95 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { SITE_RELEASE } from "../lib/site-release";
+
+const previousReleases = [
+  {
+    version: "0.35.0",
+    date: "27 Ağustos 2026",
+    title: "Üretim Takibi ve Sürdürülebilirlik Merkezi",
+    changes: [
+      "Saha Operasyonu'na stok, favori reçete, hedef adet ve sorumlu kişi takibi eklendi.",
+      "Eksik malzemeler bilinen edinme bölgeleri ve yaratıklarla eşleştirildi.",
+      "Sürdürülebilirlik; ekonomi, etkinlik önerileri ve kaynak uyarlamalarını birleştirdi.",
+    ],
+  },
+  {
+    version: "0.34.3",
+    date: "27 Ağustos 2026",
+    title: "Wiki Set Görünüşleri",
+    changes: [
+      "Bıçak Sırtı set görünüşü, tekil eşya kanıtından ayrı bir görsel referans olarak eklendi.",
+      "On bir görünüş ailesi için kaynak ve lisans kontrollü görsel kuyruğu kuruldu.",
+    ],
+  },
+] as const;
+
+const introKey = "nefer-intro-seen-v1";
+const releaseKey = "nefer-release-seen";
+
+export default function ReleaseCenter() {
+  const [updatesOpen, setUpdatesOpen] = useState(false);
+  const [introOpen, setIntroOpen] = useState(false);
+  const [hasNew, setHasNew] = useState(false);
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      setHasNew(localStorage.getItem(releaseKey) !== SITE_RELEASE.version);
+      if (!localStorage.getItem(introKey)) setIntroOpen(true);
+    });
+  }, []);
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setUpdatesOpen(false);
+        setIntroOpen(false);
+      }
+    };
+    addEventListener("keydown", closeOnEscape);
+    return () => removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  const openUpdates = () => {
+    setUpdatesOpen(true);
+    setHasNew(false);
+    localStorage.setItem(releaseKey, SITE_RELEASE.version);
+  };
+  const closeIntro = () => {
+    setIntroOpen(false);
+    localStorage.setItem(introKey, "seen");
+  };
+  const replayIntro = () => {
+    setUpdatesOpen(false);
+    setIntroOpen(true);
+  };
+
+  return <>
+    <button className="releaseButton" type="button" onClick={openUpdates} aria-label={`Yenilikleri aç${hasNew ? "; okunmamış güncelleme var" : ""}`}>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg>
+      <span>Yenilikler</span>
+      {hasNew && <i>Yeni</i>}
+    </button>
+
+    {introOpen && <section className="quickIntro" role="dialog" aria-modal="false" aria-labelledby="quick-intro-title">
+      <button className="quickIntroClose" type="button" onClick={closeIntro} aria-label="Tanıtımı kapat">×</button>
+      <header><small>60 SANİYELİK TANITIM</small><h2 id="quick-intro-title">Nefer Atlası ne yapar?</h2><p>Aradığın bilgiyi bulur, güvenini gösterir ve bir sonraki adımını planlamana yardım eder.</p></header>
+      <div className="quickIntroSteps">
+        <article><i>1</i><span><b>Bul</b><small>Üstteki aramaya eşya, görev, yetenek, maden veya boss yaz.</small></span></article>
+        <article><i>2</i><span><b>Karar ver</b><small>Donanım, reçete, bölge ve kaynak bağlantılarını birlikte incele.</small></span></article>
+        <article><i>3</i><span><b>Planla</b><small>Buildini, farm rotanı ve üretim eksiklerini takip et.</small></span></article>
+      </div>
+      <footer><button type="button" onClick={closeIntro}>Atlası kullanmaya başla</button><Link href="/rehber" onClick={closeIntro}>Detaylı rehber</Link></footer>
+    </section>}
+
+    {updatesOpen && <div className="releaseOverlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setUpdatesOpen(false)}>
+      <aside className="releasePanel" role="dialog" aria-modal="true" aria-labelledby="release-title">
+        <header><span><small>DEĞİŞİKLİK MERKEZİ</small><h2 id="release-title">Son yenilikler</h2></span><button type="button" onClick={() => setUpdatesOpen(false)} aria-label="Yenilikleri kapat">×</button></header>
+        <section className="currentRelease"><div><small>{SITE_RELEASE.releasedAt} · {SITE_RELEASE.channel}</small><b>v{SITE_RELEASE.version}</b></div><h3>{SITE_RELEASE.title}</h3><p>{SITE_RELEASE.summary}</p><ul>{SITE_RELEASE.changes.map((change) => <li key={change}>{change}</li>)}</ul></section>
+        <div className="releaseHistory">{previousReleases.map((release) => <details key={release.version}><summary><span><small>{release.date}</small><b>v{release.version} · {release.title}</b></span><i>+</i></summary><ul>{release.changes.map((change) => <li key={change}>{change}</li>)}</ul></details>)}</div>
+        <footer><button type="button" onClick={replayIntro}>Kısa tanıtımı tekrar göster</button><Link href="/rehber">Tüm kullanım rehberi →</Link></footer>
+      </aside>
+    </div>}
+  </>;
+}

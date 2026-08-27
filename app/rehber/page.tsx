@@ -35,6 +35,7 @@ const modules = [
   ["11", "Sorunlar", "Teknik bildirimlerle anonim ekonomi gözlemlerini; çıkarım, çözüm adımı ve başarı ölçüsünden ayrı kesinlikte incele.", "/?module=issues#modules"],
   ["12", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
   ["13", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
+  ["14", "Sürdürülebilirlik", "Ekonomi döngülerini, etkinlik önerilerini, maden kullanımını ve dış kaynakların İKV'ye nasıl uyarlandığını birlikte incele.", "/?module=sustainability#modules"],
 ] as const;
 
 const journeys = [
@@ -178,7 +179,7 @@ export default function GuidePage() {
       </section>
 
       <section className="guideModules">
-        <header><div><p>MODÜL HARİTASI</p><h2>On üç araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
+        <header><div><p>MODÜL HARİTASI</p><h2>On dört araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
         <div>{modules.map(([number,title,description,href])=><Link href={href} key={title}><small>{number}</small><span><b>{title}</b><em>{description}</em></span><i>↗</i></Link>)}</div>
       </section>
 

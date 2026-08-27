@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { type CSSProperties, useMemo, useState } from "react";
 import AbilityMediaShowcase from "./AbilityMediaShowcase";
 import AbilityReference from "./AbilityReference";
 import AbilitySimulator from "./ability-simulator";
@@ -16,6 +16,7 @@ type Guide = {
   role: string;
   resistance: string;
   image: string;
+  previewFocus: string;
   notes: string[];
 };
 
@@ -28,6 +29,7 @@ const guides: Guide[] = [
     role: "Destek · Temizleme",
     resistance: "Ateş · Asit · Elektrik · Buz",
     image: "/references/cemberlitas-sifaci.jpg",
+    previewFocus: "50% 58%",
     notes: [
       "GBM-X ve Yol Savaşçısı kesimlerinde Büyü Bozma 10/15 öne çıkıyor.",
       "İki şifacı varsa Element ve Fiziksel Direnç Alanı görevleri paylaşılabilir.",
@@ -42,6 +44,7 @@ const guides: Guide[] = [
     role: "Üç farklı görev",
     resistance: "1. bölge Ateş–Asit · 2. bölge Elektrik–Buz",
     image: "/references/cemberlitas-buyucu.jpg",
+    previewFocus: "50% 61%",
     notes: [
       "Büyücüler hasar, direnç kırma ve büyü bozma rollerine ayrılabiliyor.",
       "İkinci bölüm için kaynakta 200 Elektrik ve 40 Buz örneği veriliyor.",
@@ -56,6 +59,7 @@ const guides: Guide[] = [
     role: "Hiddet · Kontrol",
     resistance: "Bölüme göre değişken",
     image: "/references/cemberlitas-savasci.jpg",
+    previewFocus: "50% 55%",
     notes: [
       "Temel görev tanklık ve düşman gruplarını Kışkırtma ile toplamaktır.",
       "Sarsılmaz kesimi rahatlatır; düşük puanda iksir ihtiyacı artabilir.",
@@ -70,6 +74,7 @@ const guides: Guide[] = [
     role: "Kontrol · Destek Hasarı",
     resistance: "Elektrik",
     image: "/references/migrat-buyucu.jpg",
+    previewFocus: "50% 56%",
     notes: [
       "Junon'un Meteorit ve Yıldırım saldırıları nedeniyle Elektrik direnci öne çıkıyor.",
       "Zihin Saldırısı 10/15 zayıf gruplarda kontrol amacıyla değerlendirilebilir.",
@@ -84,6 +89,7 @@ const guides: Guide[] = [
     role: "Şifa · Direnç Alanı",
     resistance: "Element / Fiziksel paylaşımı",
     image: "/references/migrat-sifaci.jpg",
+    previewFocus: "50% 62%",
     notes: [
       "İki şifacı olduğunda direnç alanları iki oyuncu arasında paylaşılabilir.",
       "Ruh Kalkanı zırh desteği; Meditasyon kudret sorunu için alternatif olabilir.",
@@ -98,6 +104,7 @@ const guides: Guide[] = [
     role: "Toplama · Hiddet",
     resistance: "Elektrik odaklı",
     image: "/references/migrat-savasci.jpg",
+    previewFocus: "50% 60%",
     notes: [
       "Kışkırtma ve Savaş Narası dağılımı grup stratejisine göre değişebilir.",
       "Depar grup bölgelerinde kullanılamadığı için dizilimin dışında tutuluyor.",
@@ -112,6 +119,7 @@ const guides: Guide[] = [
     role: "Kontrol · Elektrik",
     resistance: "200 Elektrik · kalan Asit",
     image: "/references/siginak-buyucu.jpg",
+    previewFocus: "50% 58%",
     notes: [
       "Kaynak, 200 Elektrik ve kalan direnç puanlarının Asit olmasını öneriyor.",
       "Tesla Küresi baş döndürme ve yavaşlatma için 1 puanla kullanılabilir.",
@@ -126,6 +134,7 @@ const guides: Guide[] = [
     role: "Şifa · Alan Desteği",
     resistance: "Elektrik · Asit",
     image: "/references/siginak-sifaci.jpg",
+    previewFocus: "50% 62%",
     notes: [
       "İki şifacı varsa Element ve Fiziksel Direnç Alanı görevleri paylaşılabilir.",
       "Ruh Kalkanı ve Meditasyon duruma bağlı alternatiflerdir.",
@@ -140,6 +149,7 @@ const guides: Guide[] = [
     role: "Hiddet · Acil Kontrol",
     resistance: "Elektrik · Asit",
     image: "/references/siginak-savasci.jpg",
+    previewFocus: "50% 58%",
     notes: [
       "Boz Ayı, Kanatma'nın aynı puanı kullanan varyantı olarak acil kontrol amacıyla tutulabilir.",
       "Sarsılmaz 1–15 seçimi grup stratejisine göre yapılabilir.",
@@ -233,6 +243,7 @@ export default function SkillGuides({
               className="guide-image"
               onClick={() => setActive(guide)}
               aria-label={`${guide.region} ${guide.className} kaynak görüntüsünü aç`}
+              style={{ "--guide-focus": guide.previewFocus } as CSSProperties}
             >
               <Image
                 fill
@@ -240,7 +251,7 @@ export default function SkillGuides({
                 src={guide.image}
                 alt={`${guide.region} ${guide.className} yetenek dizilimi kaynak fotoğrafı`}
               />
-              <span>Kaynak görüntüsünü büyüt ↗</span>
+              <span><b>KAYNAK KIRPIMI</b> Tam görüntüyü aç ↗</span>
             </button>
             <div className="guide-copy">
               <div className="guide-meta">

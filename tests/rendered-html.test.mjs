@@ -40,12 +40,12 @@ test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", a
   assert.match(html, /Nucleus Yüzük/);
   assert.match(html, /Alternatör Kolye/);
   assert.match(html, /Kıyamet Ceket/);
-  for (const tab of ["Donanım", "Yetenek", "Görevler", "Eşyalar", "Tümü"]) {
+  for (const tab of ["Donanım", "Yetenek", "Görevler", "Sürdürülebilirlik", "Tümü"]) {
     assert.match(html, new RegExp(`<span>${tab}</span>`));
   }
   assert.doesNotMatch(html, /M3 · TILSIM VE YETENEK HESAPLAYICI/);
   assert.match(html, /129<\/strong><span>kaynaklı eşya kaydı/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.34\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.35\.1/);
   assert.match(html, /Atlas genelinde ara/);
   assert.match(html, /Atlas’ta ara/);
   assert.doesNotMatch(html, /raw_game_value/);
@@ -65,7 +65,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Kullanım Rehberi \| Nefer Atlası/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.34\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.35\.1/);
   assert.match(html, /Yetenek puanlarımı dağıtmak istiyorum/);
   assert.match(html, /NEDEN KULLANMALIYIM\?/);
   assert.match(html, /Bir eşyanın gerçek bilgisini arıyorum/);
@@ -76,7 +76,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.match(html, /GÜNCEL SUNUCU PORTALI/);
   assert.match(html, /https:\/\/kiyametoyun\.net\/siralama/);
   assert.match(html, /Giriş gerektiren mağaza ve hesap alanları/);
-  for (const moduleName of ["Donanım", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Atlas", "Endgame", "Maden", "Döngü", "Yetenek", "Sorunlar", "Gelişim", "Katkı"]) {
+  for (const moduleName of ["Donanım", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Atlas", "Endgame", "Maden", "Döngü", "Yetenek", "Sorunlar", "Gelişim", "Katkı", "Sürdürülebilirlik"]) {
     assert.match(html, new RegExp(`>${moduleName}<`));
   }
 });
