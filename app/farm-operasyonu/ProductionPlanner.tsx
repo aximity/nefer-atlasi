@@ -2,7 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { publishableItems, recipes, sourceFor } from "../../lib/catalog";
+import Link from "next/link";
+import { publishableItems, recipes, sourceFor, talismans } from "../../lib/catalog";
 import { materialSourceFor } from "../../lib/material-sources";
 import { buildProductionPlans, productionSummary } from "../../lib/production-planner.mjs";
 
@@ -17,6 +18,7 @@ const keys = {
   favorites: "nefer-production-favorites-v1",
   targets: "nefer-production-targets-v1",
   owners: "nefer-production-owners-v1",
+  talismanGoals: "nefer-talisman-production-favorites-v1",
 };
 const readStored = <T,>(key: string, fallback: T): T => {
   try {
@@ -44,6 +46,7 @@ export default function ProductionPlanner() {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [targets, setTargets] = useState<Targets>({});
   const [owners, setOwners] = useState<Owners>({});
+  const [talismanGoals, setTalismanGoals] = useState<string[]>([]);
   const [material, setMaterial] = useState("");
   const [quantity, setQuantity] = useState("1");
   const [query, setQuery] = useState("");
@@ -57,6 +60,7 @@ export default function ProductionPlanner() {
       setFavorites(readStored(keys.favorites, []));
       setTargets(readStored(keys.targets, {}));
       setOwners(readStored(keys.owners, {}));
+      setTalismanGoals(readStored(keys.talismanGoals, []));
       setHydrated(true);
     });
   }, []);
@@ -64,9 +68,11 @@ export default function ProductionPlanner() {
   useEffect(() => { if (hydrated) localStorage.setItem(keys.favorites, JSON.stringify(favorites)); }, [favorites, hydrated]);
   useEffect(() => { if (hydrated) localStorage.setItem(keys.targets, JSON.stringify(targets)); }, [hydrated, targets]);
   useEffect(() => { if (hydrated) localStorage.setItem(keys.owners, JSON.stringify(owners)); }, [hydrated, owners]);
+  useEffect(() => { if (hydrated) localStorage.setItem(keys.talismanGoals, JSON.stringify(talismanGoals)); }, [hydrated, talismanGoals]);
   useEffect(() => () => { if (photoPreview) URL.revokeObjectURL(photoPreview); }, [photoPreview]);
 
   const itemById = useMemo(() => new Map(publishableItems.map((item) => [item.id, item])), []);
+  const talismanGoalRows = useMemo(() => talismanGoals.map((id) => talismans.find((row) => row.id === id)).filter((row) => Boolean(row)), [talismanGoals]);
   const materialOptions = useMemo(() => [...new Set(recipes.flatMap((recipe) => recipe.materials.map((row) => row.name)))].sort((a, b) => a.localeCompare(b, "tr")), []);
   const plans = useMemo(() => buildProductionPlans({ recipes, items: publishableItems, stock, targets }) as ProductionPlan[], [stock, targets]);
   const summary = useMemo(() => productionSummary(plans, favorites), [favorites, plans]);
@@ -131,6 +137,13 @@ export default function ProductionPlanner() {
         <p>Otomatik okuma doğrulanmadan stok değiştirilmez. Fotoğrafa bakıp adetleri manuel onayla; görüntü sunucuya gönderilmez.</p>
       </section>
     </div>
+
+    <section className="productionTalismanGoals">
+      <header><span><small>TILSIM ÜRETİM HEDEFLERİ</small><h3>Atlas’tan seçilenler</h3></span><b>{talismanGoalRows.length} hedef</b></header>
+      <p>Kesin reçete malzemeleri doğrulanana kadar bu hedefler stoktan düşülmez ve “üretilebilir” sayılmaz.</p>
+      <div>{talismanGoalRows.map((row) => row && <article key={row.id}><span><small>{row.class} · {row.color} · {row.tier === null ? "Özel" : `${row.tier}. kademe`}</small><b>{row.name}</b></span><em>Malzeme doğrulaması bekliyor</em><button type="button" aria-label={`${row.name} tılsım hedefini kaldır`} onClick={() => setTalismanGoals((current) => current.filter((id) => id !== row.id))}>×</button></article>)}{talismanGoalRows.length === 0 && <span className="emptyTalismanGoals">Ana sitedeki Tılsım Üretim Atlası’ndan yıldızla hedef ekleyebilirsin.</span>}</div>
+      <Link href="/?module=engine#engine">Tılsım Üretim Atlası’nı aç →</Link>
+    </section>
 
     <section className="productionAdvice">
       <div><small>SIRADAKİ EN YAKIN HEDEF</small><b>{summary.closest ? itemById.get(summary.closest.recipe.itemId)?.name ?? summary.closest.recipe.itemId : summary.ready ? "Seçili reçeteler üretime hazır" : "Stok girdikçe öneri oluşacak"}</b><span>{summary.closest ? `%${summary.closest.completion} tamam · ${summary.closest.missing.length} eksik malzeme` : "Favoriler varsa önce onlar değerlendirilir."}</span></div>

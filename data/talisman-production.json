@@ -1,0 +1,54 @@
+{
+  "tierRules": [
+    {
+      "tier": 1,
+      "label": "I. Kademe",
+      "acquisition": "Büyük Hol düşümü",
+      "recipeRequired": false,
+      "materialsStatus": "awaiting_verification",
+      "note": "Genel edinme yolu doğrulandı; yaratık ve oran tılsım bazında henüz ayrıştırılmadı.",
+      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
+    },
+    {
+      "tier": 2,
+      "label": "II. Kademe",
+      "acquisition": "Reçeteyle üretim",
+      "recipeRequired": true,
+      "materialsStatus": "awaiting_verification",
+      "note": "Aynı seri ve renkteki I. kademe tılsım ön koşuldur; kesin malzeme listesi yayıma alınmadı.",
+      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
+    },
+    {
+      "tier": 3,
+      "label": "III. Kademe",
+      "acquisition": "Reçeteyle üretim",
+      "recipeRequired": true,
+      "materialsStatus": "awaiting_verification",
+      "note": "Aynı seri ve renkteki II. kademe tılsım ön koşuldur; kesin malzeme listesi yayıma alınmadı.",
+      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
+    },
+    {
+      "tier": "special",
+      "label": "Özel",
+      "acquisition": "Yalnız reçeteyle üretim",
+      "recipeRequired": true,
+      "materialsStatus": "awaiting_verification",
+      "note": "Kademesiz özel tılsım için reçete gerekir; kesin malzeme ve üretim NPC'si doğrulama bekliyor.",
+      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
+    }
+  ],
+  "vendors": [
+    {
+      "id": "gonul-buyuk-hol",
+      "name": "Gönül",
+      "kind": "OOK",
+      "region": "Büyük Hol",
+      "role": "Reçete ve tılsım satışı",
+      "namedOffers": ["Büyü Bozma (I)", "Hedef Saptırma (I)"],
+      "scopeNote": "Resmî duyuru bu iki adı Gönül'e eklenen tılsımlar olarak belirtir; sınıf varyantlarını veya tüm dükkân envanterini ayrıştırmaz.",
+      "sourceId": "official-ikv-gonul-vendor",
+      "status": "single_source",
+      "lastChecked": "2026-08-27"
+    }
+  ]
+}

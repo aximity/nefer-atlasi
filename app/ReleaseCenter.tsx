@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.35.1",
+    date: "27 Ağustos 2026",
+    title: "Yenilikler Merkezi ve Hızlı Tanıtım",
+    changes: [
+      "İlk ziyaret için kısa, kapatılabilir tanıtım eklendi.",
+      "Okunmamış sürümü işaretleyen kalıcı Yenilikler düğmesi hazırlandı.",
+      "Güncel ve önceki önemli değişiklikler tek panelde birleştirildi.",
+    ],
+  },
+  {
     version: "0.35.0",
     date: "27 Ağustos 2026",
     title: "Üretim Takibi ve Sürdürülebilirlik Merkezi",

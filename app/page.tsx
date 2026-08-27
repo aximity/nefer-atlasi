@@ -11,6 +11,7 @@ import IssueDesk from "./IssueDesk";
 import EconomyWorkshop from "./EconomyWorkshop";
 import SustainabilityHub from "./SustainabilityHub";
 import ReleaseCenter from "./ReleaseCenter";
+import TalismanProductionAtlas from "./TalismanProductionAtlas";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -688,6 +689,7 @@ export default function Home() {
             criticalBase={wrathCriticalBase}
           />
         </div>
+        <TalismanProductionAtlas klass={klass} />
       </section>}
       {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} onOpen={setDetail} />}
       {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}

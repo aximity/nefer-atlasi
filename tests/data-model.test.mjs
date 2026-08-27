@@ -13,6 +13,7 @@ const recipes = read("recipes.json");
 const sources = read("sources.json");
 const evidence = read("evidence.json");
 const talismans = read("talismans.json");
+const talismanProduction = read("talisman-production.json");
 const enchants = read("enchants.json");
 const enchantSeries = read("enchant-series.json");
 const abilities = read("abilities.json");
@@ -126,6 +127,17 @@ test("tılsım kataloğu her sınıfta iki rengi ve tam kademeli serileri korur"
     for (const tiers of series.values()) assert.deepEqual([...new Set(tiers)].sort(), [1, 2, 3]);
     assert.ok(classRows.some((talisman) => talisman.tier === null), `${klass} özel tılsımları eksik`);
   }
+});
+
+test("tılsım üretim atlası kademe zincirini ve kaynaklı NPC kapsamını dürüstçe sınırlar", () => {
+  assert.deepEqual(talismanProduction.tierRules.map((rule) => rule.tier), [1, 2, 3, "special"]);
+  assert.equal(talismanProduction.tierRules.filter((rule) => rule.recipeRequired).length, 3);
+  assert.ok(talismanProduction.tierRules.every((rule) => rule.materialsStatus === "awaiting_verification"));
+  const vendor = talismanProduction.vendors.find((row) => row.id === "gonul-buyuk-hol");
+  assert.equal(vendor?.name, "Gönül");
+  assert.equal(vendor?.region, "Büyük Hol");
+  assert.deepEqual(vendor?.namedOffers, ["Büyü Bozma (I)", "Hedef Saptırma (I)"]);
+  assert.ok(sources.some((source) => source.id === vendor?.sourceId && source.type === "official"));
 });
 
 test("efsun sözlüğü kaynaklı, pozitif ve birimli kayıtlardan oluşur",()=>{assert.ok(enchants.length>=35);for(const enchant of enchants){assert.ok(enchant.name&&enchant.attribute);assert.ok(enchant.value>0);assert.ok(enchant.unit);assert.ok(sources.some(source=>source.id===enchant.sourceId))}});

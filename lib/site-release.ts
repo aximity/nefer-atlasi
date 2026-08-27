@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.35.1",
+  version: "0.36.0",
   channel: "BETA",
-  milestone: "M34",
+  milestone: "M35",
   releasedAt: "27 Ağustos 2026",
-  title: "Yenilikler Merkezi ve Hızlı Tanıtım",
+  title: "Tılsım Üretim Atlası",
   summary:
-    "Siteyi ilk kez açanlar için kısa ve geçilebilir bir tanıtım; son eklemeleri kaçırmamak için kalıcı Yenilikler düğmesi hazırlandı.",
+    "Tılsımın kademesi, önceki tılsım gereksinimi, doğrulanmış NPC kaydı ve üretim hedefi aynı akışta birleştirildi.",
   changes: [
-    "İlk ziyarette arama, karar ve planlama akışını anlatan üç adımlı kısa tanıtım eklendi.",
-    "Tanıtım siteyi kilitlemiyor, kapatıldığında yeniden açılmıyor ve Yenilikler bölümünden isteğe bağlı tekrarlanabiliyor.",
-    "Ekranın köşesine okunmamış sürümü işaretleyen kalıcı Yenilikler düğmesi eklendi.",
-    "Güncel sürüm ayrıntıları ile önceki önemli sürümler tek panelde kronolojik olarak gösteriliyor.",
-    "v0.35.0 üretim takibi, sürdürülebilirlik merkezi ve yalnız görsel kullanılan Fandom referansı aynı yayına dâhil edildi.",
+    "179 tılsım sınıf, renk ve kademe filtresiyle üretim hedefi olarak seçilebilir hale geldi.",
+    "II ve III. kademe için aynı seri ve renkteki önceki tılsım otomatik bağlanıyor.",
+    "Büyük Hol'deki Gönül OOK kaydı ve duyuruda isimle geçen iki tılsım resmî kaynakla gösteriliyor.",
+    "Kesin malzeme veya NPC verisi bulunmayan reçeteler açıkça doğrulama bekliyor; tahmin stok hesabına katılmıyor.",
+    "Favori tılsım hedefleri cihazda saklanıyor ve Saha Operasyonu üretim masasında görünür oluyor.",
   ],
 } as const;
