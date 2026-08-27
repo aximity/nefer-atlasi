@@ -12,6 +12,7 @@ test("WhatsApp pazar arşivi yalnız anonim ve toplulaştırılmış veri taşı
   assert.ok(archive.metadata.tradeMessageCount >= 300);
   assert.ok(archive.priceObservations.length >= 20);
   assert.ok(archive.signals.length >= 15);
+  assert.ok(archive.signals.some((row) => row.subject === "Kondrit"));
   assert.doesNotMatch(raw, /(?:\+90|https?:\/\/|chat\.whatsapp|@\w)/i);
   assert.ok(archive.priceObservations.every((row) =>
     row.id.startsWith("wa-")
@@ -20,4 +21,12 @@ test("WhatsApp pazar arşivi yalnız anonim ve toplulaştırılmış veri taşı
       && ["Satılık", "Alınır"].includes(row.details.tradeDirection)
       && row.details.importScope === "single_channel_anonymized_daily_aggregate"
   ));
+});
+
+test("WhatsApp güncelleme hattı ZIP'i geçici açar ve ham sohbeti projede saklamaz", async () => {
+  const script = await readFile(new URL("../scripts/update-market-archive.sh", import.meta.url), "utf8");
+  assert.match(script, /mktemp -d/);
+  assert.match(script, /trap cleanup EXIT/);
+  assert.match(script, /import-whatsapp-market\.mjs/);
+  assert.doesNotMatch(script, /cp .*data\//);
 });

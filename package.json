@@ -14,7 +14,8 @@
     "test:unit": "node --experimental-strip-types --test tests/data-model.test.mjs tests/planner.test.mjs tests/build-codec.test.mjs tests/enchant-resolver.test.mjs tests/contribution-core.test.mjs tests/moderation-core.test.mjs tests/canonical-core.test.mjs tests/farm-core.test.mjs tests/route-core.test.mjs tests/farm-analytics.test.mjs tests/production-planner.test.mjs tests/mining-timer.test.mjs tests/gathering-catalog.test.mjs tests/event-calendar.test.mjs tests/market-board.test.mjs tests/whatsapp-market.test.mjs tests/group-board-core.test.mjs tests/group-analytics.test.mjs tests/guild-logistics-core.test.mjs tests/atlas-graph.test.mjs tests/group-region-loot.test.mjs tests/presentation.test.mjs tests/atlas-completion.test.mjs tests/quest-catalog.test.mjs tests/analytics-privacy.test.mjs",
     "test": "npm run validate:data && npm run test:unit && npm run build && node --test tests/rendered-html.test.mjs",
     "lint": "node scripts/run-tool.mjs eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern .sites-runtime",
-    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate"
+    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
+    "market:import": "bash scripts/update-market-archive.sh"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",

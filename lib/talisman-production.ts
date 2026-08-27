@@ -41,9 +41,10 @@ export interface TalismanPlayerReport {
   id: string;
   server: "Kıyametin Öncüleri";
   seriesMatch: string;
+  itemKind: "Hazır tılsım";
   claim: string;
   npc: string;
-  price: number;
+  price: number | null;
   priceLabel: string;
   status: "needs_verification";
   evidenceNeeded: string;

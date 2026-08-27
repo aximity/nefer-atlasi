@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.36.2",
+    date: "27 Ağustos 2026",
+    title: "KÖ Doğrulama Kapısı",
+    changes: [
+      "KÖ ile normal İKV edinme bilgileri birbirinden ayrıldı.",
+      "Doğrulanmayan reçete malzemeleri ve adetler teyit bekliyor olarak işaretlendi.",
+      "Katkı ekranı konu, yorum ve gönder düğmesine indirildi.",
+    ],
+  },
+  {
     version: "0.36.1",
     date: "27 Ağustos 2026",
     title: "Sade Tılsım Rehberi",

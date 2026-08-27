@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import marketArchive from "../data/market-whatsapp.json";
-import { summarizeMarket } from "../lib/market-board.mjs";
+import { summarizeMarket, summarizeMarketSignals } from "../lib/market-board.mjs";
 
 type Currency = "Oyun parası" | "TL";
 type Mode = "Tümü" | "Satış" | "İlan";
@@ -73,6 +73,7 @@ export default function MarketBoard({ query, setQuery }: { query: string; setQue
     .filter((row) => row.subject.toLocaleLowerCase("tr-TR").includes(query.toLocaleLowerCase("tr-TR")))
     .slice(0, query ? 18 : 10);
   const maxSignal = Math.max(1, ...shownSignals.map((row) => row.buySignals + row.sellSignals));
+  const signalLeaders = summarizeMarketSignals(marketArchive.signals);
   const archiveWindow = liveCount === 0;
 
   return <div className="mining-panel market-board">
@@ -83,6 +84,13 @@ export default function MarketBoard({ query, setQuery }: { query: string; setQue
       <dl><div><dt>Mesaj</dt><dd>{marketArchive.metadata.messageCount.toLocaleString("tr-TR")}</dd></div><div><dt>Anonim sinyal</dt><dd>{marketArchive.metadata.tradeMessageCount}</dd></div><div><dt>Fiyat kesiti</dt><dd>{marketArchive.metadata.priceObservationCount}</dd></div><div><dt>Ürün</dt><dd>{marketArchive.signals.length}</dd></div></dl>
       <p className="market-privacy"><b>Kişisel veri taşınmadı.</b> {marketArchive.metadata.privacy} {state === "archive-only" && "Canlı topluluk kayıtlarına ulaşılamadığı için arşiv kesiti gösteriliyor."}</p>
     </section>
+
+    <div className="market-integrity-strip market-leaders">
+      <article><b>{signalLeaders.mostWanted?.subject ?? "Veri yok"}</b><span>En çok aranıyor · {signalLeaders.mostWanted?.buySignals ?? 0} anonim alım sinyali</span></article>
+      <article><b>{signalLeaders.mostOffered?.subject ?? "Veri yok"}</b><span>En çok satılığa çıkıyor · {signalLeaders.mostOffered?.sellSignals ?? 0} anonim satış sinyali</span></article>
+      <article><b>{signalLeaders.demandGap?.subject ?? "Veri yok"}</b><span>En yüksek talep açığı · alış, satıştan {signalLeaders.demandGap ? signalLeaders.demandGap.buySignals - signalLeaders.demandGap.sellSignals : 0} fazla</span></article>
+      <article><b>{signalLeaders.mostActive?.subject ?? "Veri yok"}</b><span>En hareketli ürün · {signalLeaders.mostActive ? signalLeaders.mostActive.buySignals + signalLeaders.mostActive.sellSignals : 0} toplam sinyal</span></article>
+    </div>
 
     <div className="market-board-controls">
       <div><span>PARA BİRİMİ</span>{(["TL", "Oyun parası"] as Currency[]).map((item) => <button key={item} className={currency === item ? "active" : ""} onClick={() => setCurrency(item)}>{item}</button>)}</div>
@@ -105,7 +113,9 @@ export default function MarketBoard({ query, setQuery }: { query: string; setQue
       <header><div><small>FİYATSIZ İLANLAR DA BOŞA GİTMİYOR</small><h4>Arz–talep hareketi</h4></div><p>Aynı kişinin aynı gün tekrarladığı ilan tek sayıldı. Bu tablo fiyat veya işlem hacmi değil, yalnız görünür ilgi sinyalidir.</p></header>
       <div>{shownSignals.map((row) => {
         const total = row.buySignals + row.sellSignals;
-        return <article key={row.subject}><span><b>{row.subject}</b><small>{row.activeDays} aktif gün · {row.independentParticipants} anonim katılımcı</small></span><div className="signal-bars"><i className="buy" style={{ width: `${row.buySignals / maxSignal * 100}%` }}/><i className="sell" style={{ width: `${row.sellSignals / maxSignal * 100}%` }}/></div><dl><div><dt>Alınır</dt><dd>{row.buySignals}</dd></div><div><dt>Satılık</dt><dd>{row.sellSignals}</dd></div><div><dt>Toplam</dt><dd>{total}</dd></div></dl></article>;
+        const buyPercent = total ? Math.round(row.buySignals / total * 100) : 0;
+        const sellPercent = total ? 100 - buyPercent : 0;
+        return <article key={row.subject}><span><b>{row.subject}</b><small>{row.activeDays} aktif gün · {row.independentParticipants} anonim katılımcı</small></span><div className="signal-bars"><i className="buy" style={{ width: `${row.buySignals / maxSignal * 100}%` }}/><i className="sell" style={{ width: `${row.sellSignals / maxSignal * 100}%` }}/></div><dl><div><dt>Alınır</dt><dd>{row.buySignals} · %{buyPercent}</dd></div><div><dt>Satılık</dt><dd>{row.sellSignals} · %{sellPercent}</dd></div><div><dt>Toplam</dt><dd>{total}</dd></div></dl></article>;
       })}</div>
     </section>
 

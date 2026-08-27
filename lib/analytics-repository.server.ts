@@ -1,6 +1,7 @@
 import { getRawDb } from "../db";
 
 type PageViewInput = { path: string; referrer?: string };
+type EngagementInput = { path: string; seconds: number };
 
 function turkeyDay(date = new Date()) {
   return new Intl.DateTimeFormat("en-CA", {
@@ -92,9 +93,30 @@ export async function recordPageView(input: PageViewInput, request: Request) {
   return { accepted: true as const };
 }
 
+export async function recordEngagement(input: EngagementInput, request: Request) {
+  const device = deviceFrom(request.headers.get("user-agent") ?? "");
+  if (device === "bot") return { accepted: false as const, reason: "bot" };
+  const path = normalizePath(input.path);
+  if (path.startsWith("/istatistik") || path.startsWith("/api/") || path.startsWith("/katki-inceleme")) {
+    return { accepted: false as const, reason: "private" };
+  }
+  const seconds = Math.min(60, Math.max(1, Math.round(input.seconds)));
+  const day = turkeyDay();
+  const db = await getRawDb();
+  await db.prepare(`
+    INSERT INTO analytics_daily_engagement (id, day, path, engaged_seconds)
+    VALUES (?, ?, ?, ?)
+    ON CONFLICT(day, path) DO UPDATE SET
+      engaged_seconds = engaged_seconds + excluded.engaged_seconds,
+      updated_at = CURRENT_TIMESTAMP
+  `).bind(`${day}:${path}`, day, path, seconds).run();
+  return { accepted: true as const };
+}
+
 type CountRow = { value: number };
 type LabelCountRow = { label: string; value: number };
 type DayCountRow = { day: string; views: number; visitors: number };
+type EngagementRow = { label: string; seconds: number; views: number };
 
 export async function getAnalyticsSummary(days = 30) {
   const safeDays = Math.min(365, Math.max(1, Math.round(days)));
@@ -103,7 +125,7 @@ export async function getAnalyticsSummary(days = 30) {
   startDate.setUTCDate(startDate.getUTCDate() - (safeDays - 1));
   const start = turkeyDay(startDate);
   const db = await getRawDb();
-  const [views, visitors, todayViews, todayVisitors, pages, sources, devices, timeline] = await Promise.all([
+  const [views, visitors, todayViews, todayVisitors, pages, sources, devices, timeline, engagement, engagementTotal] = await Promise.all([
     db.prepare("SELECT COALESCE(SUM(views), 0) AS value FROM analytics_daily_pages WHERE day >= ?").bind(start).first<CountRow>(),
     db.prepare("SELECT COUNT(*) AS value FROM analytics_daily_visitors WHERE day >= ?").bind(start).first<CountRow>(),
     db.prepare("SELECT COALESCE(SUM(views), 0) AS value FROM analytics_daily_pages WHERE day = ?").bind(today).first<CountRow>(),
@@ -117,7 +139,26 @@ export async function getAnalyticsSummary(days = 30) {
       LEFT JOIN (SELECT day, COUNT(*) AS visitors FROM analytics_daily_visitors WHERE day >= ? GROUP BY day) v ON v.day = p.day
       ORDER BY p.day ASC
     `).bind(start, start).all<DayCountRow>(),
+    db.prepare(`
+      SELECT e.path AS label,
+             SUM(e.engaged_seconds) AS seconds,
+             COALESCE(SUM(p.views), 0) AS views
+      FROM analytics_daily_engagement e
+      LEFT JOIN analytics_daily_pages p ON p.day = e.day AND p.path = e.path
+      WHERE e.day >= ?
+      GROUP BY e.path
+      ORDER BY seconds DESC
+      LIMIT 10
+    `).bind(start).all<EngagementRow>(),
+    db.prepare("SELECT COALESCE(SUM(engaged_seconds), 0) AS value FROM analytics_daily_engagement WHERE day >= ?").bind(start).first<CountRow>(),
   ]);
+  const engagementRows = engagement.results.map((row) => ({
+    label: String(row.label),
+    seconds: Number(row.seconds),
+    views: Number(row.views),
+    averageSeconds: Number(row.views) > 0 ? Math.round(Number(row.seconds) / Number(row.views)) : 0,
+  }));
+  const totalEngagedSeconds = Number(engagementTotal?.value ?? 0);
   return {
     periodDays: safeDays,
     totalViews: Number(views?.value ?? 0),
@@ -127,6 +168,9 @@ export async function getAnalyticsSummary(days = 30) {
     pages: pages.results.map((row) => ({ label: String(row.label), value: Number(row.value) })),
     sources: sources.results.map((row) => ({ label: String(row.label), value: Number(row.value) })),
     devices: devices.results.map((row) => ({ label: String(row.label), value: Number(row.value) })),
+    totalEngagedSeconds,
+    averageEngagedSeconds: Number(views?.value) > 0 ? Math.round(totalEngagedSeconds / Number(views?.value)) : 0,
+    engagement: engagementRows,
     timeline: timeline.results.map((row) => ({ day: String(row.day), views: Number(row.views), visitors: Number(row.visitors) })),
   };
 }

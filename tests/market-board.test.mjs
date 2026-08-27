@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { normalizeMarketObservations, summarizeMarket } from "../lib/market-board.mjs";
+import { normalizeMarketObservations, summarizeMarket, summarizeMarketSignals } from "../lib/market-board.mjs";
 
 const row = (id, subject, date, details) => ({ id, type: "market_price", subject, server: "Kıyametin Öncüleri", observedAt: date, sourceCount: 2, details });
 
@@ -23,6 +23,18 @@ test("pazar medyanı para birimlerini karıştırmaz ve az veriyi güçlü göst
   assert.equal(summary.sevenDayMedian, 175);
   assert.equal(summary.totalCount, 4);
   assert.equal(summary.evidence.label, "Ön sinyal");
+});
+
+test("pazar sinyalleri en çok arananı, sunulanı ve talep açığını ayırır", () => {
+  const result = summarizeMarketSignals([
+    { subject: "Jadeit", buySignals: 42, sellSignals: 24 },
+    { subject: "Xenotim", buySignals: 20, sellSignals: 42 },
+    { subject: "Malahit Taşı", buySignals: 24, sellSignals: 3 },
+  ]);
+  assert.equal(result.mostWanted.subject, "Jadeit");
+  assert.equal(result.mostOffered.subject, "Xenotim");
+  assert.equal(result.demandGap.subject, "Malahit Taşı");
+  assert.equal(result.mostActive.subject, "Jadeit");
 });
 
 test("alım teklifi ile satılık fiyatını ayırır ve anonim kaynak ağırlığını korur", () => {

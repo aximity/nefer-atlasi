@@ -49,20 +49,24 @@ export async function verifyAnalyticsPassword(password: string) {
   const [version, roundsText, saltText, expectedText] = stored.split("$");
   if (version !== "v1" || !roundsText || !saltText || !expectedText) return false;
   const rounds = Number(roundsText);
-  if (!Number.isInteger(rounds) || rounds < 100_000) return false;
-  const keyMaterial = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(password),
-    "PBKDF2",
-    false,
-    ["deriveBits"],
-  );
-  const derived = await crypto.subtle.deriveBits(
-    { name: "PBKDF2", hash: "SHA-256", salt: base64UrlToBytes(saltText), iterations: rounds },
-    keyMaterial,
-    256,
-  );
-  return constantTimeEqual(bytesToBase64Url(new Uint8Array(derived)), expectedText);
+  if (!Number.isInteger(rounds) || rounds < 100_000 || rounds > 100_000) return false;
+  try {
+    const keyMaterial = await crypto.subtle.importKey(
+      "raw",
+      new TextEncoder().encode(password),
+      "PBKDF2",
+      false,
+      ["deriveBits"],
+    );
+    const derived = await crypto.subtle.deriveBits(
+      { name: "PBKDF2", hash: "SHA-256", salt: base64UrlToBytes(saltText), iterations: rounds },
+      keyMaterial,
+      256,
+    );
+    return constantTimeEqual(bytesToBase64Url(new Uint8Array(derived)), expectedText);
+  } catch {
+    return false;
+  }
 }
 
 export async function createAnalyticsSessionCookie() {

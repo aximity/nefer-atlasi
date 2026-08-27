@@ -7,7 +7,7 @@ import { getAnalyticsSummary } from "../../lib/analytics-repository.server";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Trafik Merkezi | Nefer Atlası",
+  title: "Yönetici Paneli | Nefer Atlası",
   description: "Nefer Atlası sahibine özel trafik ve gelir hazırlık paneli.",
   robots: { index: false, follow: false },
 };
@@ -31,6 +31,26 @@ function RankedList({ title, rows }: { title: string; rows: { label: string; val
   );
 }
 
+function duration(seconds: number) {
+  if (seconds < 60) return `${seconds} sn`;
+  const minutes = Math.floor(seconds / 60);
+  const rest = seconds % 60;
+  return rest ? `${minutes} dk ${rest} sn` : `${minutes} dk`;
+}
+
+function EngagementList({ rows }: { rows: { label: string; seconds: number; averageSeconds: number }[] }) {
+  const max = Math.max(1, ...rows.map((row) => row.seconds));
+  return <section className="analyticsPanel engagementPanel">
+    <h2>En çok vakit geçirilen yerler</h2>
+    {rows.length === 0 ? <p className="analyticsEmpty">Aktif kullanım süresi birikmeye başladığında burada görünecek.</p> : <ol>
+      {rows.map((row) => <li key={row.label}>
+        <div><b>{row.label}</b><span>{duration(row.seconds)} · ort. {duration(row.averageSeconds)}</span></div>
+        <i style={{ width: `${Math.max(4, row.seconds / max * 100)}%` }} />
+      </li>)}
+    </ol>}
+  </section>;
+}
+
 export default async function AnalyticsDashboard({
   searchParams,
 }: {
@@ -45,7 +65,7 @@ export default async function AnalyticsDashboard({
     <main className="analyticsDashboard">
       <header>
         <Link className="analyticsBrand" href="/"><b>N</b><span>NEFER ATLASI</span></Link>
-        <div><small>SAHİBE ÖZEL</small><h1>Trafik Merkezi</h1></div>
+        <div><small>SAHİBE ÖZEL · TRAFİK VE KULLANIM</small><h1>Yönetici Paneli</h1></div>
         <form action="/api/analytics/logout" method="post"><button type="submit">Çıkış</button></form>
       </header>
       <nav aria-label="İstatistik dönemi">
@@ -56,6 +76,7 @@ export default async function AnalyticsDashboard({
         <NumberCard label={`${days} GÜNLÜK GÖRÜNTÜLEME`} value={summary.totalViews} note="Bot trafiği hariç" />
         <NumberCard label={`${days} GÜNLÜK TEKİL`} value={summary.uniqueVisitors} note="Günlük anonim sayım" />
         <NumberCard label="SAYFA / ZİYARETÇİ" value={summary.uniqueVisitors ? Number((summary.totalViews / summary.uniqueVisitors).toFixed(1)) : 0} note="İçerik derinliği göstergesi" />
+        <NumberCard label="ORT. AKTİF SÜRE" value={summary.averageEngagedSeconds} note="Saniye · sekme açık bekleme hariç" />
       </section>
       <section className="analyticsPanel timelinePanel">
         <div className="panelHeading"><h2>Günlük hareket</h2><span>Görüntüleme / tekil</span></div>
@@ -70,6 +91,7 @@ export default async function AnalyticsDashboard({
         <RankedList title="En çok açılan sayfalar" rows={summary.pages} />
         <RankedList title="Trafik kaynakları" rows={summary.sources} />
         <RankedList title="Cihazlar" rows={summary.devices} />
+        <EngagementList rows={summary.engagement} />
         <section className="analyticsPanel revenuePanel">
           <h2>Reklam hazırlığı</h2>
           <ul>

@@ -29,7 +29,7 @@ const products = [
   { name: "Klorotoksin", aliases: ["klorotoksin", "kloro"] },
   { name: "Menekşe Elmas", aliases: ["menekse elmas", "menekşe elmas", "menekse", "menekşe"] },
   { name: "Akik", aliases: ["akik"] },
-  { name: "Kondrit", aliases: ["kondrit"] },
+  { name: "Kondrit", aliases: ["kondrit", "kondit"] },
 ];
 
 const fold = (value) => String(value)

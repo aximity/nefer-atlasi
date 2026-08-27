@@ -416,6 +416,21 @@ export const analyticsDailyVisitors = sqliteTable(
   ],
 );
 
+export const analyticsDailyEngagement = sqliteTable(
+  "analytics_daily_engagement",
+  {
+    id: text("id").primaryKey(),
+    day: text("day").notNull(),
+    path: text("path").notNull(),
+    engagedSeconds: integer("engaged_seconds").notNull().default(0),
+    updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => [
+    uniqueIndex("analytics_daily_engagement_day_path_unique").on(table.day, table.path),
+    index("analytics_daily_engagement_day_idx").on(table.day),
+  ],
+);
+
 export const analyticsLoginAttempts = sqliteTable(
   "analytics_login_attempts",
   {
