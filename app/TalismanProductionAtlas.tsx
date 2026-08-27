@@ -18,11 +18,11 @@ const readFavorites = () => {
   }
 };
 
-export default function TalismanProductionAtlas({ klass }: { klass: CharacterClass }) {
+export default function TalismanProductionAtlas({ klass, initialTalismanId = "" }: { klass: CharacterClass; initialTalismanId?: string }) {
   const [query, setQuery] = useState("");
   const [tier, setTier] = useState<TierFilter>("Tümü");
   const [color, setColor] = useState<ColorFilter>("Tümü");
-  const [selectedId, setSelectedId] = useState("");
+  const [selectedId, setSelectedId] = useState(initialTalismanId);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [hydrated, setHydrated] = useState(false);
 
@@ -32,6 +32,9 @@ export default function TalismanProductionAtlas({ klass }: { klass: CharacterCla
       setHydrated(true);
     });
   }, []);
+  useEffect(() => {
+    if (initialTalismanId) queueMicrotask(() => setSelectedId(initialTalismanId));
+  }, [initialTalismanId]);
   useEffect(() => {
     if (hydrated) localStorage.setItem(favoriteKey, JSON.stringify(favorites));
   }, [favorites, hydrated]);
@@ -53,6 +56,7 @@ export default function TalismanProductionAtlas({ klass }: { klass: CharacterCla
   const favorite = selected ? favorites.includes(selected.id) : false;
   const vendor = talismanProduction.vendors[0];
   const vendorSource = sourceFor(vendor.sourceId);
+  const effectSource = selected ? sourceFor(selected.sourceId) : null;
 
   const toggleFavorite = (row: Talisman) => setFavorites((current) =>
     current.includes(row.id) ? current.filter((id) => id !== row.id) : [...current, row.id],
@@ -60,47 +64,35 @@ export default function TalismanProductionAtlas({ klass }: { klass: CharacterCla
 
   return <section className="talismanProduction" aria-labelledby="talisman-production-title">
     <header className="talismanProductionHead">
-      <div><small>M35 · TILSIM ÜRETİM ATLASI</small><h3 id="talisman-production-title">Reçeteden hedefe, bilineni bilinmeyenden ayır.</h3><p>Tılsımı seç; edinme kademesini, önceki tılsım gereksinimini, doğrulanmış satıcı bilgisini ve reçete kapsamını tek yerde gör.</p></div>
-      <div className="talismanProductionStats"><span><b>{talismans.length}</b><small>tılsım</small></span><span><b>{vendor.namedOffers.length}</b><small>adı doğrulanan satış</small></span><span className="pending"><b>0</b><small>tam malzeme reçetesi</small></span></div>
+      <div><small>SADE TILSIM ATLASI</small><h3 id="talisman-production-title">Tılsımını seç, gerekeni gör.</h3><p>Kullanım amacı, edinme yolu ve üretim reçetesi. Hepsi bu.</p></div>
     </header>
-
-    <div className="talismanFlow" aria-label="Tılsım edinme akışı">
-      <article><i>1</i><span><b>I. kademeyi edin</b><small>Büyük Hol düşümü; adı doğrulanan iki satış ayrıca işaretlenir.</small></span></article>
-      <article><i>2</i><span><b>Reçeteyi bul</b><small>II–III ve özel tılsımlar reçete ister. Reçetenin satıcısı henüz kesinleştirilmedi.</small></span></article>
-      <article><i>3</i><span><b>Malzemeyi doğrula</b><small>Kesin miktarlar kaynaklanmadan stok hesabına veya üretilebilir sonucuna girmez.</small></span></article>
-    </div>
 
     <div className="talismanAtlasGrid">
       <section className="talismanPicker">
-        <header><span><small>HEDEF SEÇİMİ</small><h4>{klass}</h4></span><b>{visible.length} kayıt</b></header>
-        <input aria-label="Tılsım üretim atlasında ara" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tılsım veya seri ara…" />
+        <header><span><small>TILSIM SEÇ</small><h4>{klass}</h4></span><b>{visible.length} kayıt</b></header>
+        <input aria-label="Tılsım ara" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tılsım adı ara…" />
         <div className="talismanFilters">
           <div>{(["Tümü", "Kırmızı", "Mavi"] as ColorFilter[]).map((value) => <button type="button" className={color === value ? "on" : ""} onClick={() => setColor(value)} key={value}>{value}</button>)}</div>
           <div>{(["Tümü", "I", "II", "III", "Özel"] as TierFilter[]).map((value) => <button type="button" className={tier === value ? "on" : ""} onClick={() => setTier(value)} key={value}>{value}</button>)}</div>
         </div>
-        <select aria-label="Üretim hedefi tılsım" value={selected?.id ?? ""} onChange={(event) => setSelectedId(event.target.value)}>
+        <select aria-label="Tılsım seç" value={selected?.id ?? ""} onChange={(event) => setSelectedId(event.target.value)}>
           {visible.map((row) => <option value={row.id} key={row.id}>{favorites.includes(row.id) ? "★ " : ""}{row.name} · {row.color}</option>)}
         </select>
         {visible.length === 0 && <p className="talismanEmpty">Bu filtrede tılsım yok.</p>}
-        <div className="talismanFavoriteSummary"><b>{favorites.length} üretim hedefi</b><span>Bu cihazda saklanır; doğrulanmamış malzemeler eksik hesabına katılmaz.</span></div>
       </section>
 
       {selected && rule && <section className="talismanRecipeCard">
-        <header><button type="button" className={favorite ? "favorite on" : "favorite"} onClick={() => toggleFavorite(selected)} aria-label={favorite ? "Üretim hedeflerinden çıkar" : "Üretim hedeflerine ekle"}>{favorite ? "★" : "☆"}</button><span><small>{selected.class} · {selected.color} · {rule.label}</small><h4>{selected.name}</h4></span><b className={rule.recipeRequired ? "recipe" : "drop"}>{rule.acquisition}</b></header>
-        <div className="talismanRecipeSteps">
-          <article className="known"><small>ÖN KOŞUL</small><b>{previous ? previous.name : selected.tier === 1 ? "Önceki kademe yok" : "Kaynak bekliyor"}</b><span>{previous ? "Aynı sınıf, seri ve renkte bir önceki kademe." : selected.tier === 1 ? "Doğrudan edinim aşaması." : "Özel tılsım koşulu doğrulanmadı."}</span></article>
-          <article className={vendorMentions.length ? "known" : "pending"}><small>NPC / SATIŞ</small><b>{vendorMentions.length ? `${vendor.name} duyurusunda aynı ad var` : "Doğrulama bekliyor"}</b><span>{vendorMentions.length ? "Kaynak sınıf varyantını ayırmadığı için eşleşme ad düzeyindedir." : "Kesin NPC ataması yapılmadı."}</span></article>
-          <article className="pending"><small>MALZEMELER</small><b>Tam reçete bekliyor</b><span>Adet ve kaynak kanıtı olmadan tahmin gösterilmez.</span></article>
+        <header><button type="button" className={favorite ? "favorite on" : "favorite"} onClick={() => toggleFavorite(selected)} aria-label={favorite ? "Üretim hedeflerinden çıkar" : "Üretim hedeflerine ekle"}>{favorite ? "★" : "☆"}</button><span><small>{selected.class} · {selected.color} · {rule.label}</small><h4>{selected.name}</h4></span></header>
+
+        <div className="talismanFacts">
+          <article><small>NEDİR?</small><b>Tılsım</b><p>Karaktere takılarak belirli bir oyun etkisini güçlendiren özel eşyadır.</p></article>
+          <article><small>NE İŞE YARAR?</small><b>{selected.series}</b><p>{selected.effectText}</p>{effectSource && <a href={effectSource.url} target="_blank" rel="noreferrer">Etki kaynağı ↗</a>}</article>
+          <article><small>NEREDEN ELDE EDİLİR?</small><b>{rule.acquisition}</b><p>{vendorMentions.length ? `${vendor.name} adlı ${vendor.kind} duyurusunda aynı isimle satış kaydı var. Sınıf varyantı kaynakta ayrıştırılmıyor.` : rule.note}</p>{vendorMentions.length > 0 && vendorSource && <a href={vendorSource.url} target="_blank" rel="noreferrer">NPC kaynağı ↗</a>}</article>
+          <article className="recipeContent"><small>REÇETE İÇERİĞİ</small><b>{rule.recipeRequired ? previous ? previous.name : "Malzeme listesi bekliyor" : "Reçete gerektirmez"}</b><p>{rule.recipeRequired ? previous ? "Önceki kademe kesin ön koşuldur. Diğer malzemeler ve adetleri doğrulanmadan gösterilmiyor." : "Kesin malzeme ve adet bilgisi doğrulama bekliyor." : "I. kademe doğrudan edinilir; üretim reçetesi yoktur."}</p></article>
         </div>
-        <p className="talismanRuleNote">{rule.note}</p>
-        <footer><button type="button" onClick={() => toggleFavorite(selected)}>{favorite ? "Üretim hedefinden çıkar" : "Üretim hedeflerine ekle"}</button><Link href="/farm-operasyonu#production-planner">Üretim Takibi’ni aç →</Link></footer>
+
+        <footer><button type="button" onClick={() => toggleFavorite(selected)}>{favorite ? "Üretim hedefinden çıkar" : "Üretim hedeflerine ekle"}</button><Link href="/farm-operasyonu#production-planner">Üretim Takibi →</Link></footer>
       </section>}
     </div>
-
-    <aside className="talismanVendorCard">
-      <span><small>DOĞRULANMIŞ NPC KAYDI</small><b>{vendor.name} · {vendor.kind}</b><em>{vendor.region} · {vendor.role}</em></span>
-      <p><strong>İsimle geçenler:</strong> {vendor.namedOffers.join(" ve ")}. {vendor.scopeNote}</p>
-      {vendorSource && <a href={vendorSource.url} target="_blank" rel="noreferrer">Resmî duyuruyu aç ↗</a>}
-    </aside>
   </section>;
 }

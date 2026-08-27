@@ -31,11 +31,9 @@ import {
   talismanAcquisition,
   type Item,
   type CharacterClass,
-  type TalismanAcquisition,
 } from "../lib/catalog";
 import { materialSourceFor } from "../lib/material-sources";
 import {
-  applyTalisman,
   buildTotals,
   compatibleItems,
   goalsByClass,
@@ -149,7 +147,7 @@ export default function Home() {
     [regionId, setRegionId] = useState("cemberlitas"),
     [rival, setRival] = useState<CharacterClass | "Rakip yok">("Rakip yok"),
     [talismanId, setTalismanId] = useState(""),
-    [talismanPath, setTalismanPath] = useState<"Tümü" | TalismanAcquisition>("Tümü"),
+    [, setTalismanPath] = useState("Tümü"),
     [wrathBase, setWrathBase] = useState(false),
     [wrathCriticalBase, setWrathCriticalBase] = useState(0),
     [abilities, setAbilities] = useState(emptyAbilities),
@@ -222,15 +220,7 @@ export default function Home() {
       () => buildTotals(selection),
       [selection],
     ) as Record<string, number>,
-    classTalismans = talismans.filter((t) => t.class === klass),
-    visibleTalismans = classTalismans.filter((t) => talismanPath === "Tümü" || talismanAcquisition(t) === talismanPath),
-    tal = classTalismans.find((t) => t.id === talismanId),
-    totals = applyTalisman(
-      baseTotals,
-      tal ?? null,
-      wrathBase,
-      wrathCriticalBase,
-    ),
+    totals = baseTotals,
     score = scoreBuild(selection, primary, secondary),
     payload = {
       klass,
@@ -595,101 +585,12 @@ export default function Home() {
       </section>}
       {activeModule === "engine" && <section className="engine" id="engine">
         <Title
-          eyebrow="M3 · TILSIM ATLASI"
-          title="Tılsım hangi yeteneği nasıl değiştiriyor?"
+          eyebrow="TILSIM REHBERİ"
+          title="Ne işe yarar, nereden elde edilir?"
         >
-          <span className="count">{talismans.length} sınıf ve kademe kaydı · etki ve elde etme yolu</span>
+          <span className="count">{talismans.length} tılsım · kullanım, edinme ve reçete bilgisi</span>
         </Title>
-        <div className="talismanPurpose">
-          <article>
-            <small>TILSIM NEDİR?</small>
-            <b>Yetenek değiştiricisidir.</b>
-            <p>Belirli bir yeteneğin hasarını, kritiğini veya çalışma biçimini kendi resmî açıklamasındaki kurala göre geliştirir.</p>
-          </article>
-          <article>
-            <small>BU EKRAN NE YAPAR?</small>
-            <b>Etkisini ve edinme yolunu gösterir.</b>
-            <p>Kademe, renk, bağlı yetenek, Büyük Hol düşümü veya reçete üretimi ve hesaplanabilen önce/sonra sonucunu gösterir.</p>
-          </article>
-          <article>
-            <small>NE YAPMAZ?</small>
-            <b>Yetenek puanı dağıtmaz.</b>
-            <p>Puan planı ayrı Yetenek ekranındadır. Tılsım hesabı, seçili donanımda ilgili taban özellik yoksa sonuç uydurmaz.</p>
-            <button onClick={() => {
-              setActiveModule("skills");
-              const url = new URL(location.href);
-              url.searchParams.set("module", "skills");
-              history.replaceState(null, "", url);
-            }}>Yetenek puanı dağıt →</button>
-          </article>
-        </div>
-        <div className="engineGrid">
-          <article>
-            <h3>{klass} tılsımı</h3>
-            <div className="talismanPaths" aria-label="Tılsım elde etme yolu">
-              {(["Tümü", "Büyük Hol düşümü", "Reçeteyle üretim", "Yalnız reçeteyle üretim"] as const).map((path) => (
-                <button className={talismanPath === path ? "on" : ""} onClick={() => { setTalismanPath(path); setTalismanId(""); }} key={path}>{path}</button>
-              ))}
-            </div>
-            <select
-              aria-label={`${klass} tılsımı`}
-              value={talismanId}
-              onChange={(e) => {
-                setTalismanId(e.target.value);
-                setWrathBase(false);
-                setWrathCriticalBase(0);
-              }}
-            >
-              <option value="">Tılsım seçilmedi</option>
-              {(["Kırmızı", "Mavi"] as const).map((color) => (
-                <optgroup label={`${color} tılsımlar`} key={color}>
-                  {visibleTalismans.filter((t) => t.color === color).map((t) => (
-                    <option value={t.id} key={t.id}>
-                      {t.name}{t.tier === null ? " · Özel" : ""} · {talismanAcquisition(t)}
-                    </option>
-                  ))}
-                </optgroup>
-              ))}
-            </select>
-            {tal?.requiresBase === "Gazap" && (
-              <label className="toggle">
-                <input
-                  type="checkbox"
-                  checked={wrathBase}
-                  onChange={(e) => setWrathBase(e.target.checked)}
-                />{" "}
-                Gazap yeteneği aktif
-              </label>
-            )}
-            {tal?.effect === "critical_multiplier" && (
-              <label className="criticalBase">
-                <span>Gazap yeteneğinden gelen taban kritik</span>
-                <input
-                  aria-label="Gazap taban kritik ihtimali"
-                  type="number"
-                  min="0"
-                  value={wrathCriticalBase}
-                  onChange={(e) =>
-                    setWrathCriticalBase(
-                      Math.max(0, Number(e.target.value) || 0),
-                    )
-                  }
-                />
-              </label>
-            )}
-            <p className="data-note">
-              {classTalismans.length} özgün oyun kaydı · I. kademe Büyük Hol düşümü; II–III. kademe ve kademesiz özel tılsımlar reçete üretimiyle edinilir. Filtrede {visibleTalismans.length} kayıt gösteriliyor.
-            </p>
-          </article>
-          <TalismanResult
-            tal={tal ?? null}
-            base={baseTotals}
-            totals={totals}
-            baseActive={wrathBase}
-            criticalBase={wrathCriticalBase}
-          />
-        </div>
-        <TalismanProductionAtlas klass={klass} />
+        <TalismanProductionAtlas klass={klass} initialTalismanId={talismanId} />
       </section>}
       {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} onOpen={setDetail} />}
       {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}
@@ -837,115 +738,6 @@ function Totals({ totals }: { totals: Record<string, number> }) {
         </p>
       </article>
     </div>
-  );
-}
-function TalismanResult({
-  tal,
-  base,
-  totals,
-  baseActive,
-  criticalBase,
-}: {
-  tal: (typeof talismans)[number] | null;
-  base: Record<string, number>;
-  totals: Record<string, number>;
-  baseActive: boolean;
-  criticalBase: number;
-}) {
-  if (!tal)
-    return (
-      <article className="effectReport empty">
-        <small>ETKİ RAPORU</small>
-        <h3>Önce tılsım seç</h3>
-        <p>
-          Seçtiğinde hangi özelliğin, kaçtan kaça çıktığını burada göreceksin.
-        </p>
-      </article>
-    );
-  const source = sourceFor(tal.sourceId);
-  let rows: { name: string; before: number; after: number }[] = [];
-  if (
-    tal.effect === "stat_multiplier" &&
-    "targetAttributes" in tal &&
-    "outputAttribute" in tal
-  ) {
-    const before = tal.targetAttributes.reduce(
-      (sum, key) => sum + (base[key] ?? 0),
-      0,
-    );
-    rows = [
-      {
-        name: tal.outputAttribute,
-        before,
-        after: totals[tal.outputAttribute] ?? before,
-      },
-    ];
-  } else if (tal.effect === "damage_multiplier")
-    rows = Object.keys(base)
-      .filter((key) => /Asit|Zehir|Maksimum Hasar/.test(key))
-      .map((name) => ({
-        name,
-        before: base[name],
-        after: totals[name] ?? base[name],
-      }));
-  else if (tal.effect === "critical_multiplier")
-    rows = [
-      {
-        name: "Gazap Kritik İhtimali",
-        before: criticalBase,
-        after: totals["Gazap Kritik İhtimali"] ?? criticalBase,
-      },
-    ];
-  const informational = tal.effect === "informational",
-    blocked = Boolean(tal.requiresBase && !baseActive),
-    noBase = !informational && (rows.length === 0 || rows.every((row) => row.before === 0));
-  return (
-    <article
-      className={`effectReport ${blocked || noBase ? "blocked" : "active"}`}
-    >
-      <small>ETKİ RAPORU · {tal.color.toUpperCase()}</small>
-      <h3>{tal.name}</h3>
-      <p>
-        <b>Bağlı yetenek:</b> {tal.series} · <b>Kademe:</b> {tal.tier ?? "Özel"}
-      </p>
-      <p><b>Resmî etki:</b> {tal.effectText}</p>
-      <p className="talismanPathLine"><b>Elde etme:</b> {talismanAcquisition(tal)}{tal.tier === 2 || tal.tier === 3 ? " · önceki kademeden üretim" : ""}</p>
-      {blocked ? (
-        <div className="effectWarning">
-          Çalışmıyor: önce {tal.requiresBase} yeteneğini etkinleştir.
-        </div>
-      ) : informational ? (
-        <div className="effectRows">
-          <div><span>Etki türü</span><b>Mekanik / koşullu</b></div>
-          <p>Bu tılsım sahte bir puan toplamına çevrilmez; resmî mekanik açıklaması esas alınır.</p>
-        </div>
-      ) : noBase ? (
-        <div className="effectWarning">
-          Bu donanımda tılsımın etkileyebileceği taban özellik yok.
-        </div>
-      ) : (
-        <div className="effectRows">
-          {rows.map((row) => (
-            <div key={row.name}>
-              <span>{row.name}</span>
-              <b>
-                {fmt(row.before)} <i>→</i> {fmt(row.after)}
-              </b>
-            </div>
-          ))}
-        </div>
-      )}
-      {source && (
-        <a
-          className="evidenceLink"
-          href={source.url}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Resmî etki kaynağını aç ↗
-        </a>
-      )}
-    </article>
   );
 }
 function GroupRegions({ onOpen, initialRegionName = "" }: { onOpen: (item: Item) => void; initialRegionName?: string }) {

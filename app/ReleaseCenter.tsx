@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.36.0",
+    date: "27 Ağustos 2026",
+    title: "Tılsım Üretim Atlası",
+    changes: [
+      "179 tılsım için sınıf, renk ve kademe filtreleri eklendi.",
+      "Önceki kademe, doğrulanmış Gönül kaydı ve üretim hedefleri bağlandı.",
+      "Doğrulanmayan reçete malzemeleri hesap dışında bırakıldı.",
+    ],
+  },
+  {
     version: "0.35.1",
     date: "27 Ağustos 2026",
     title: "Yenilikler Merkezi ve Hızlı Tanıtım",

@@ -27,6 +27,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   const productionPlanner = readFileSync(new URL("../app/farm-operasyonu/ProductionPlanner.tsx", import.meta.url), "utf8");
   const sustainability = readFileSync(new URL("../app/SustainabilityHub.tsx", import.meta.url), "utf8");
   const releaseCenter = readFileSync(new URL("../app/ReleaseCenter.tsx", import.meta.url), "utf8");
+  const talismanAtlas = readFileSync(new URL("../app/TalismanProductionAtlas.tsx", import.meta.url), "utf8");
 
   assert.match(component, /previewFocus/);
   assert.match(component, /--guide-focus/);
@@ -48,4 +49,10 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(releaseCenter, /Nefer Atlası ne yapar\?/);
   assert.match(releaseCenter, /Yenilikler/);
   assert.match(releaseCenter, /nefer-intro-seen-v1/);
+  assert.doesNotMatch(page, /Yetenek puanı dağıt →/);
+  assert.doesNotMatch(page, /function TalismanResult/);
+  assert.match(talismanAtlas, /NEDİR\?/);
+  assert.match(talismanAtlas, /NE İŞE YARAR\?/);
+  assert.match(talismanAtlas, /NEREDEN ELDE EDİLİR\?/);
+  assert.match(talismanAtlas, /REÇETE İÇERİĞİ/);
 });

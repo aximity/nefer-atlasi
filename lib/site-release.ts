@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.36.0",
+  version: "0.36.1",
   channel: "BETA",
   milestone: "M35",
   releasedAt: "27 Ağustos 2026",
-  title: "Tılsım Üretim Atlası",
+  title: "Sade Tılsım Rehberi",
   summary:
-    "Tılsımın kademesi, önceki tılsım gereksinimi, doğrulanmış NPC kaydı ve üretim hedefi aynı akışta birleştirildi.",
+    "Tılsım ekranı yalnız gerekli dört bilgiye indirildi: ne olduğu, kullanım amacı, edinme yolu ve reçete içeriği.",
   changes: [
-    "179 tılsım sınıf, renk ve kademe filtresiyle üretim hedefi olarak seçilebilir hale geldi.",
-    "II ve III. kademe için aynı seri ve renkteki önceki tılsım otomatik bağlanıyor.",
-    "Büyük Hol'deki Gönül OOK kaydı ve duyuruda isimle geçen iki tılsım resmî kaynakla gösteriliyor.",
-    "Kesin malzeme veya NPC verisi bulunmayan reçeteler açıkça doğrulama bekliyor; tahmin stok hesabına katılmıyor.",
-    "Favori tılsım hedefleri cihazda saklanıyor ve Saha Operasyonu üretim masasında görünür oluyor.",
+    "Yetenek puanı yönlendirmesi ve önce/sonra hesaplama kartları Tılsım bölümünden kaldırıldı.",
+    "Seçilen tılsımın resmî kullanım açıklaması doğrudan gösteriliyor.",
+    "Edinme yolu ve doğrulanmış NPC bağlantısı tek kartta sadeleştirildi.",
+    "Reçetede bilinen önceki kademe gösteriliyor; doğrulanmayan diğer malzeme ve adetler tahmin edilmiyor.",
+    "Favoriye ekleme ve Üretim Takibi bağlantısı korunuyor.",
   ],
 } as const;
