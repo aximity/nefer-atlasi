@@ -28,6 +28,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   const sustainability = readFileSync(new URL("../app/SustainabilityHub.tsx", import.meta.url), "utf8");
   const releaseCenter = readFileSync(new URL("../app/ReleaseCenter.tsx", import.meta.url), "utf8");
   const talismanAtlas = readFileSync(new URL("../app/TalismanProductionAtlas.tsx", import.meta.url), "utf8");
+  const contributionCenter = readFileSync(new URL("../app/ContributionCenter.tsx", import.meta.url), "utf8");
 
   assert.match(component, /previewFocus/);
   assert.match(component, /--guide-focus/);
@@ -55,4 +56,9 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(talismanAtlas, /NE İŞE YARAR\?/);
   assert.match(talismanAtlas, /NEREDEN ELDE EDİLİR\?/);
   assert.match(talismanAtlas, /REÇETE İÇERİĞİ/);
+  assert.match(talismanAtlas, /DOĞRULAMA GEREKİYOR/);
+  assert.match(talismanAtlas, /Normal İKV referansı/);
+  assert.match(contributionCenter, /Neyin yanlış veya değişmesi gerekiyor\?/);
+  assert.match(contributionCenter, /Yorumu gönder/);
+  assert.doesNotMatch(contributionCenter, /Makbuz|Sorgu|Katkı numarası/);
 });

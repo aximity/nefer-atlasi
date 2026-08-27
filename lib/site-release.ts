@@ -1,16 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.36.1",
+  version: "0.36.2",
   channel: "BETA",
-  milestone: "M35",
+  milestone: "M36",
   releasedAt: "27 Ağustos 2026",
-  title: "Sade Tılsım Rehberi",
+  title: "KÖ Doğrulama Kapısı",
   summary:
-    "Tılsım ekranı yalnız gerekli dört bilgiye indirildi: ne olduğu, kullanım amacı, edinme yolu ve reçete içeriği.",
+    "KÖ ile normal İKV bilgisi ayrıldı; Bilgi Tılsımı bildirimi açık doğrulama etiketiyle eklendi ve katkı formu iki alana indirildi.",
   changes: [
-    "Yetenek puanı yönlendirmesi ve önce/sonra hesaplama kartları Tılsım bölümünden kaldırıldı.",
-    "Seçilen tılsımın resmî kullanım açıklaması doğrudan gösteriliyor.",
-    "Edinme yolu ve doğrulanmış NPC bağlantısı tek kartta sadeleştirildi.",
-    "Reçetede bilinen önceki kademe gösteriliyor; doğrulanmayan diğer malzeme ve adetler tahmin edilmiyor.",
-    "Favoriye ekleme ve Üretim Takibi bağlantısı korunuyor.",
+    "Bilgi Tılsımlarının Gönül'de 10 M olduğu bildirimi KÖ oyuncu kaydı ve doğrulama uyarısıyla eklendi.",
+    "Normal İKV'deki Hol, Gönül ve kademe bilgileri KÖ için kesin bilgi gibi gösterilmiyor.",
+    "Reçete malzemesi, adet ve edinme kaynağı doğrulanmadığında açıkça teyit bekliyor deniyor.",
+    "Katkı ekranı yalnız konu, düzeltme yorumu ve gönder düğmesine indirildi.",
   ],
 } as const;

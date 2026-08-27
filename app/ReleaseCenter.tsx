@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.36.1",
+    date: "27 Ağustos 2026",
+    title: "Sade Tılsım Rehberi",
+    changes: [
+      "Tılsım ekranı ne olduğu, kullanım amacı, edinme yolu ve reçete içeriğine indirildi.",
+      "Yetenek puanı ve önce/sonra hesaplama kartları kaldırıldı.",
+      "Favori ve Üretim Takibi bağlantısı korundu.",
+    ],
+  },
+  {
     version: "0.36.0",
     date: "27 Ağustos 2026",
     title: "Tılsım Üretim Atlası",

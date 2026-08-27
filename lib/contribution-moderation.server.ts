@@ -66,7 +66,7 @@ export async function listAdminContributions({
     conditions.push(eq(contributions.verificationStatus, filter));
   }
   if (
-    ["item_evidence", "mining_run", "market_price", "ability_media"].includes(
+    ["site_feedback", "item_evidence", "mining_run", "market_price", "ability_media"].includes(
       kind,
     )
   ) {

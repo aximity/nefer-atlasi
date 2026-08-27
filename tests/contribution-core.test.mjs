@@ -26,6 +26,14 @@ const common = {
 
 const samples = [
   {
+    kind: "site_feedback",
+    common: { ...common, sourceUrl: "" },
+    details: {
+      subject: "Bilgi Tılsımı fiyatı",
+      comment: "Gönül NPC fiyatı kontrol edilmeli.",
+    },
+  },
+  {
     kind: "item_evidence",
     common,
     details: {
@@ -78,7 +86,7 @@ const samples = [
   },
 ];
 
-test("dört katkı türü yapılandırılmış veriyle doğrulanır", () => {
+test("beş katkı türü yapılandırılmış veriyle doğrulanır", () => {
   for (const sample of samples) {
     const result = validateContributionPayload(sample, { now });
     assert.equal(result.kind, sample.kind);
@@ -91,7 +99,7 @@ test("kanıt ve açık beyan olmadan katkı kabul edilmez", () => {
     () =>
       validateContributionPayload(
         {
-          ...samples[0],
+          ...samples[1],
           common: { ...common, sourceUrl: "", declaration: false },
         },
         { now },
@@ -101,7 +109,7 @@ test("kanıt ve açık beyan olmadan katkı kabul edilmez", () => {
   assert.throws(
     () =>
       validateContributionPayload(
-        { ...samples[0], common: { ...common, sourceUrl: "" } },
+        { ...samples[1], common: { ...common, sourceUrl: "" } },
         { now },
       ),
     /kanıt dosyası veya kaynak bağlantısı/i,

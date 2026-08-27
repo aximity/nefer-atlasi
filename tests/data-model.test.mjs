@@ -136,8 +136,15 @@ test("tılsım üretim atlası kademe zincirini ve kaynaklı NPC kapsamını dü
   const vendor = talismanProduction.vendors.find((row) => row.id === "gonul-buyuk-hol");
   assert.equal(vendor?.name, "Gönül");
   assert.equal(vendor?.region, "Büyük Hol");
+  assert.equal(vendor?.serverScope, "normal_ikv");
   assert.deepEqual(vendor?.namedOffers, ["Büyü Bozma (I)", "Hedef Saptırma (I)"]);
   assert.ok(sources.some((source) => source.id === vendor?.sourceId && source.type === "official"));
+  const report = talismanProduction.playerReports.find((row) => row.id === "ko-gonul-bilgi-tilsimlari-10m");
+  assert.equal(report?.npc, "Gönül");
+  assert.equal(report?.price, 10_000_000);
+  assert.equal(report?.status, "needs_verification");
+  assert.match(report?.evidenceNeeded ?? "", /oyun içi görüntü/i);
+  assert.ok(talismanProduction.tierRules.every((rule) => !rule.acquisition.includes("Büyük Hol düşümü")));
 });
 
 test("efsun sözlüğü kaynaklı, pozitif ve birimli kayıtlardan oluşur",()=>{assert.ok(enchants.length>=35);for(const enchant of enchants){assert.ok(enchant.name&&enchant.attribute);assert.ok(enchant.value>0);assert.ok(enchant.unit);assert.ok(sources.some(source=>source.id===enchant.sourceId))}});

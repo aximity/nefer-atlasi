@@ -21,14 +21,40 @@ export interface TalismanVendor {
   role: string;
   namedOffers: string[];
   scopeNote: string;
+  serverScope: "normal_ikv";
   sourceId: string;
   status: "single_source";
   lastChecked: string;
 }
 
+export interface TalismanServerReference {
+  id: string;
+  server: "Kıyametin Öncüleri";
+  claim: string;
+  scopeNote: string;
+  sourceId: string;
+  status: "single_source";
+  lastChecked: string;
+}
+
+export interface TalismanPlayerReport {
+  id: string;
+  server: "Kıyametin Öncüleri";
+  seriesMatch: string;
+  claim: string;
+  npc: string;
+  price: number;
+  priceLabel: string;
+  status: "needs_verification";
+  evidenceNeeded: string;
+  reportedAt: string;
+}
+
 export const talismanProduction = productionRows as {
   tierRules: TalismanTierRule[];
   vendors: TalismanVendor[];
+  serverReferences: TalismanServerReference[];
+  playerReports: TalismanPlayerReport[];
 };
 
 export function tierRuleFor(talisman: Talisman) {
@@ -48,4 +74,8 @@ export function previousTierFor(talisman: Talisman, rows: Talisman[]) {
 
 export function vendorMentionsFor(talisman: Talisman) {
   return talismanProduction.vendors.filter((vendor) => vendor.namedOffers.includes(talisman.name));
+}
+
+export function playerReportsFor(talisman: Talisman) {
+  return talismanProduction.playerReports.filter((report) => talisman.series.includes(report.seriesMatch));
 }

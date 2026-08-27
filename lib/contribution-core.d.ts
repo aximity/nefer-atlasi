@@ -1,4 +1,5 @@
 export const CONTRIBUTION_KINDS: readonly [
+  "site_feedback",
   "item_evidence",
   "mining_run",
   "market_price",

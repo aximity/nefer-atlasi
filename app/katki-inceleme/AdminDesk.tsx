@@ -95,6 +95,7 @@ type MergePreview = {
 };
 
 const kindLabels: Record<string, string> = {
+  site_feedback: "Site yorumu",
   item_evidence: "Eşya",
   mining_run: "Maden",
   market_price: "Pazar",
@@ -439,6 +440,7 @@ export default function AdminDesk({
         <div className="filterTools">
           <select value={kind} onChange={(event) => setKind(event.target.value)}>
             <option value="all">Tüm katkı türleri</option>
+            <option value="site_feedback">Site yorumu</option>
             <option value="item_evidence">Eşya</option>
             <option value="mining_run">Maden</option>
             <option value="market_price">Pazar</option>

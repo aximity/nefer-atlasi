@@ -3,37 +3,37 @@
     {
       "tier": 1,
       "label": "I. Kademe",
-      "acquisition": "Büyük Hol düşümü",
+      "acquisition": "KÖ edinme yolu doğrulanıyor",
       "recipeRequired": false,
       "materialsStatus": "awaiting_verification",
-      "note": "Genel edinme yolu doğrulandı; yaratık ve oran tılsım bazında henüz ayrıştırılmadı.",
+      "note": "Normal İKV kaynaklarında Büyük Hol bilgisi bulunuyor; Kıyametin Öncüleri için aynı kural doğrulanmadı.",
       "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
     },
     {
       "tier": 2,
       "label": "II. Kademe",
-      "acquisition": "Reçeteyle üretim",
+      "acquisition": "KÖ reçete kaynağı doğrulanıyor",
       "recipeRequired": true,
       "materialsStatus": "awaiting_verification",
-      "note": "Aynı seri ve renkteki I. kademe tılsım ön koşuldur; kesin malzeme listesi yayıma alınmadı.",
+      "note": "Normal İKV referansında aynı seri ve renkteki I. kademe kullanılır; KÖ reçetesi, malzemeleri ve adetleri doğrulanmadı.",
       "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
     },
     {
       "tier": 3,
       "label": "III. Kademe",
-      "acquisition": "Reçeteyle üretim",
+      "acquisition": "KÖ reçete kaynağı doğrulanıyor",
       "recipeRequired": true,
       "materialsStatus": "awaiting_verification",
-      "note": "Aynı seri ve renkteki II. kademe tılsım ön koşuldur; kesin malzeme listesi yayıma alınmadı.",
+      "note": "Normal İKV referansında aynı seri ve renkteki II. kademe kullanılır; KÖ reçetesi, malzemeleri ve adetleri doğrulanmadı.",
       "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
     },
     {
       "tier": "special",
       "label": "Özel",
-      "acquisition": "Yalnız reçeteyle üretim",
+      "acquisition": "KÖ reçete kaynağı doğrulanıyor",
       "recipeRequired": true,
       "materialsStatus": "awaiting_verification",
-      "note": "Kademesiz özel tılsım için reçete gerekir; kesin malzeme ve üretim NPC'si doğrulama bekliyor.",
+      "note": "Normal İKV referansında reçeteyle üretilir; KÖ malzemeleri, adetleri ve reçete kaynağı doğrulanmadı.",
       "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
     }
   ],
@@ -46,9 +46,35 @@
       "role": "Reçete ve tılsım satışı",
       "namedOffers": ["Büyü Bozma (I)", "Hedef Saptırma (I)"],
       "scopeNote": "Resmî duyuru bu iki adı Gönül'e eklenen tılsımlar olarak belirtir; sınıf varyantlarını veya tüm dükkân envanterini ayrıştırmaz.",
+      "serverScope": "normal_ikv",
       "sourceId": "official-ikv-gonul-vendor",
       "status": "single_source",
       "lastChecked": "2026-08-27"
+    }
+  ],
+  "serverReferences": [
+    {
+      "id": "ko-talisman-system",
+      "server": "Kıyametin Öncüleri",
+      "claim": "Sunucuda 179 tılsım bulunur; meslek reçeteleri NPC'lerden öğrenilir.",
+      "scopeNote": "Kaynak, belirli bir tılsım reçetesini, malzeme adetlerini veya Gönül envanterini açıklamıyor.",
+      "sourceId": "kiyametin-onculeri-guide",
+      "status": "single_source",
+      "lastChecked": "2026-08-27"
+    }
+  ],
+  "playerReports": [
+    {
+      "id": "ko-gonul-bilgi-tilsimlari-10m",
+      "server": "Kıyametin Öncüleri",
+      "seriesMatch": "Bilgi",
+      "claim": "Bilgi Tılsımları Gönül adlı NPC'de 10 M oyun parasına satılıyor.",
+      "npc": "Gönül",
+      "price": 10000000,
+      "priceLabel": "10 M oyun parası",
+      "status": "needs_verification",
+      "evidenceNeeded": "Gönül dükkânında tılsım adı ve 10 M fiyatı aynı karede gösteren oyun içi görüntü veya bağımsız ikinci KÖ kaynağı.",
+      "reportedAt": "2026-08-27"
     }
   ]
 }
