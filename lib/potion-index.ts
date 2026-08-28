@@ -1,22 +1,26 @@
-export const potionRecipeSourceId = "fandom-potion-recipes-20260826";
+import { potionRecipes, potionRecipeSourceId } from "./potion-recipes.ts";
+
+export { potionRecipeSourceId };
+
 export const potionRecipeSourcePolicy = {
   authority: "primary_game_reference",
   requiresCrossVerification: false,
   label: "Ana kaynak · İKV Wiki",
 } as const;
 
-export const potionIngredientIndex: Record<string, string[]> = {
-  "Meşe Odunu": ["Kedi İyileştiren", "Zırh Artırıcı", "Buz Hasarı Veren", "Zehir Hasarı Artırıcı"],
-  "Ceviz Yaprağı": ["Kedi İyileştiren", "Kritik Artırıcı", "Elektrik Hasarı Artırıcı", "Asit Direnci Artırıcı"],
-  "Isırgan Otu": ["Koç İyileştiren", "İğne Deliği Misali", "Kutup Esintili", "Plastik Emsali"],
-  "Ökse Otu": ["Koç İyileştiren", "Fareadam Menşeili", "Çekiç Başlı", "Erciyes Modeli"],
-  "Adaçayı Yaprağı": ["Eski Köprü Usulü", "Horoz Gagası Misali", "Çamlıca Menşeili", "Bakırköy Usulü"],
-  "Koni Yaprağı": ["Aygır İyileştiren", "Epe Ucu Misali", "Faraday Modeli", "Oğuz Bey İcadı"],
-  "Civan Perçemi": ["Aygır İyileştiren", "Yılan Isırığı Emsali", "Vatoz Emsali", "Şimal Usulü"],
-  Mantar: ["Timsah Derisi Emsali", "Karayel Etkili", "Toprak Modeli", "Aktar Şevket İcadı"],
-  "Şerbetçi Otu": ["Demirci Dilek Modeli", "Buz Kristali Modeli", "Derviş Hasan Usulü", "Beygir Emsali"],
-  "Abanoz Odunu": ["Fil İyileştiren", "Karacin Modeli", "Karakürk Emsali"],
-  "Çıban Otu": ["Solucan Modeli", "Halit Girmenç İcadı", "Ruh Çalan Emsali", "Nötron Yıldızı Emsali"],
-};
+const ingredientMap = new Map<string, Set<string>>();
+for (const recipe of potionRecipes) {
+  for (const material of recipe.materials) {
+    const names = ingredientMap.get(material.name) ?? new Set<string>();
+    names.add(recipe.name);
+    ingredientMap.set(material.name, names);
+  }
+}
 
-export const indexedPotionCount = new Set(Object.values(potionIngredientIndex).flat()).size;
+export const potionIngredientIndex: Record<string, string[]> = Object.fromEntries(
+  [...ingredientMap.entries()]
+    .sort(([a], [b]) => a.localeCompare(b, "tr"))
+    .map(([ingredient, names]) => [ingredient, [...names].sort((a, b) => a.localeCompare(b, "tr"))]),
+);
+
+export const indexedPotionCount = potionRecipes.length;

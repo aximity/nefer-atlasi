@@ -211,12 +211,21 @@
 
 ## Tamamlandı — M43: Tam iksir üretimi
 
-- [x] İKV Wiki'deki 79 iksir reçetesini malzeme ve adetleriyle yapılandır
+- [x] İlk 79 iksir reçetesini malzeme ve adetleriyle yapılandır
 - [x] Reçete kataloğunda iksirleri aranabilir, açılır kartlara dönüştür
 - [x] İksir favorilerini üretim planına ve cihazdaki stok hesabına bağla
 - [x] Üretilebilir adet ile eksik malzemeyi reçete bazında hesapla
 
 Çıkış kapısı: İksirler yalnız ad dizini değildir; Wiki reçetesi, favori, stok ve üretim hedefi aynı akışta çalışır.
+
+## Tamamlandı — M44: Eksiksiz iksir kategori denetimi
+
+- [x] 28 kategorideki 246 iksir reçetesinin tamamını yapılandır
+- [x] 581 malzeme/adet satırını stok hesabına bağla
+- [x] Genel aramayı kısmi malzeme dizini yerine gerçek iksir reçetelerine geçir
+- [x] İksir favorilerini üretim ekranında ayrı hedef listesi olarak göster
+
+Çıkış kapısı: Katalog, arama ve üretim takibi aynı 246 reçetelik veri kümesini kullanır; atlanan ek malzeme satırı kalmaz.
 
 ## Sıradaki — M33: Sorun kanıtı ve ölçüm pilotu
 

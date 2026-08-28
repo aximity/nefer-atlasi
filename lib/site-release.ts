@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.43.0",
+  version: "0.44.0",
   channel: "BETA",
-  milestone: "M43",
+  milestone: "M44",
   releasedAt: "28 Ağustos 2026",
-  title: "Tam İksir Üretimi",
+  title: "Eksiksiz İksir Atlası",
   summary:
-    "İKV Wiki'deki 79 iksir reçetesi seviye, tür, malzeme ve adetleriyle kataloğa ve üretim takibine bağlandı.",
+    "İKV Wiki'den derlenen 28 kategorideki 246 iksir reçetesi tüm malzeme satırlarıyla kataloğa, aramaya ve üretim takibine bağlandı.",
   changes: [
-    "İksir dizini gerçek açılır reçete kartlarına dönüştürüldü.",
-    "Can, kudret ve destek iksirleri ortak renk/görünüş ailelerine bağlandı.",
-    "İksirler favoriye eklenebilir ve cihazdaki stokla üretilebilirlik hesabına katılır.",
-    "Üretim takibinde iksir hedefi, eksik miktar ve malzeme kaynağı diğer reçetelerle birlikte gösterilir.",
+    "Önceki 79 kayıtlık kısmi aktarım 246 reçetelik tam kategori kapsamına çıkarıldı.",
+    "Atlanan üçüncü ve sonraki malzeme satırları reçete ve stok hesabına eklendi.",
+    "Doğrudan hasar, büyü hasarı ve direnç iksirlerinin düşük seviye serileri tamamlandı.",
+    "İksir favorileri üretim ekranında ayrı hedef listesi olarak görünür hâle getirildi.",
   ],
 } as const;

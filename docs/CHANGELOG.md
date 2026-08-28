@@ -185,7 +185,15 @@
 - Wiki dışı oyuncu/pazar/KÖ canlı verileri ve görsel lisansı ayrı tutuldu.
 # v0.43.0 — Tam İksir Üretimi
 
-- 79 iksir reçetesi seviye, tür, malzeme ve adetleriyle yapılandırıldı.
+- İlk 79 iksir reçetesi seviye, tür, malzeme ve adetleriyle yapılandırıldı.
 - İksir dizini gerçek açılır reçete kartlarına dönüştürüldü.
 - İksir favorileri üretim takibi ve stok hesabına bağlandı.
 - Can, kudret ve destek görsel aileleri korundu.
+
+# v0.44.0 — Eksiksiz İksir Atlası
+
+- Wiki'den derlenen 28 kategorideki 246 reçetenin tamamı üretim modeline alındı.
+- Önceki aktarımda atlanan üçüncü ve sonraki malzeme satırları tamamlandı.
+- Doğrudan hasar, büyü hasarı ve direnç serilerinin düşük seviyeleri eklendi.
+- Malzeme dizini 49 benzersiz malzemeyi tam reçete kümesinden otomatik üretir hâle getirildi.
+- İksir favorileri üretim ekranında ayrı ve kaldırılabilir hedef listesine bağlandı.

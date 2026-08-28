@@ -17,7 +17,7 @@
 
 ## Açık sorunlar
 
-- İksir Reçeteleri sayfasındaki 79 üretim kaydı seviye, tür, malzeme ve adetleriyle yapılandırıldı.
+- İksir Reçeteleri kapsamındaki 28 kategori ve 246 üretim kaydı, 581 malzeme satırıyla yapılandırıldı.
 - Projedeki 22 İKV Wiki kaynağı genel ana kaynak politikasına geçirildi; eksik alanlar ilgili Wiki sayfaları bulunup yapılandırıldıkça tamamlanır.
 
 - Bazı Çemberlitaş arşiv satırlarında aynı özellik iki kez yazılmış görünüyor.

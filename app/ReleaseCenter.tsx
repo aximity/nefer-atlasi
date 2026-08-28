@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.43.0",
+    date: "28 Ağustos 2026",
+    title: "Tam İksir Üretimi",
+    changes: [
+      "İksir dizini açılır reçete kartlarına dönüştürüldü.",
+      "İksir favorileri üretim takibi ve stok hesabına bağlandı.",
+      "Can, kudret ve destek görünüş aileleri tanımlandı.",
+    ],
+  },
+  {
     version: "0.42.0",
     date: "28 Ağustos 2026",
     title: "Wiki Ana Kaynak Sistemi",

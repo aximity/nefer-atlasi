@@ -106,6 +106,7 @@ export default function ProductionPlanner() {
 
   const itemById = useMemo(() => new Map(plannerItems.map((item) => [item.id, item])), []);
   const talismanGoalRows = useMemo(() => talismanGoals.map((id) => talismans.find((row) => row.id === id)).filter((row) => Boolean(row)), [talismanGoals]);
+  const potionGoalRows = useMemo(() => potionGoals.map((id) => potionRecipes.find((row) => row.itemId === id)).filter((row) => Boolean(row)), [potionGoals]);
   const materialOptions = useMemo(() => [...new Set(plannerRecipes.flatMap((recipe) => recipe.materials.map((row) => row.name)))].sort((a, b) => a.localeCompare(b, "tr")), []);
   const plans = useMemo(() => buildProductionPlans({ recipes: plannerRecipes, items: plannerItems, stock, targets }) as ProductionPlan[], [stock, targets]);
   const favoriteIds = useMemo(() => [...new Set([...favorites, ...talismanGoals, ...potionGoals])], [favorites, potionGoals, talismanGoals]);
@@ -207,6 +208,17 @@ export default function ProductionPlanner() {
         return <article key={row.id}><span><small>{row.class} · {row.color} · {row.tier === null ? "Özel" : `${row.tier}. kademe`}</small><b>{row.name}</b></span><em>{plan ? plan.status === "ready" ? "Üretilebilir" : `%${plan.completion} tamam · ${plan.missing.length} eksik` : "Kaynakta reçete yok"}</em><button type="button" aria-label={`${row.name} tılsım hedefini kaldır`} onClick={() => setTalismanGoals((current) => current.filter((id) => id !== row.id))}>×</button></article>;
       })}{talismanGoalRows.length === 0 && <span className="emptyTalismanGoals">Reçeteler kataloğunda bir tılsımı yıldızlayarak hedef ekleyebilirsin.</span>}</div>
       <Link href="/?module=recipes&kind=talisman#recipes">Tılsım reçetelerini aç →</Link>
+    </section>
+
+    <section className="productionTalismanGoals">
+      <header><span><small>İKSİR ÜRETİM HEDEFLERİ</small><h3>Favoriye alınan iksirler</h3></span><b>{potionGoalRows.length} hedef</b></header>
+      <p>Favori iksirler stok hesabında tılsım ve eşyalardan ayrı kaybolmaz; hedef adet, eksik malzeme ve en yakın üretim birlikte hesaplanır.</p>
+      <div>{potionGoalRows.map((row) => {
+        if (!row) return null;
+        const plan = planByItemId.get(row.itemId);
+        return <article key={row.itemId}><span><small>Sv. {row.level} · {row.category}</small><b>{row.name}</b></span><em>{plan ? plan.status === "ready" ? "Üretilebilir" : `%${plan.completion} tamam · ${plan.missing.length} eksik` : "Kaynakta reçete yok"}</em><button type="button" aria-label={`${row.name} iksir hedefini kaldır`} onClick={() => setPotionGoals((current) => current.filter((id) => id !== row.itemId))}>×</button></article>;
+      })}{potionGoalRows.length === 0 && <span className="emptyTalismanGoals">Reçeteler kataloğunda bir iksiri yıldızlayarak hedef ekleyebilirsin.</span>}</div>
+      <Link href="/?module=recipes&kind=potion#recipes">İksir reçetelerini aç →</Link>
     </section>
 
     <section className="productionAdvice">

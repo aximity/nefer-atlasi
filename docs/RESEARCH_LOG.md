@@ -204,8 +204,16 @@
 - Kullanıcı kararı: İKV Wiki oyun doğrusu kabul edilir; eksik bilgi için kullanıcının tek tek bağlantı vermesi beklenmez.
 - Uygulama: Projedeki 22 Fandom kaydı çalışma zamanında `primary_game_reference` olarak işaretlenir ve ikinci kaynak şartı aranmaz.
 - Sınır: Pazar fiyatı, oyuncu bildirimi, KÖ’ye özel canlı değişiklik ve görsel kullanım lisansı ayrı kanıt türüdür.
-# 28 Ağustos 2026 — Tam iksir reçetesi aktarımı
+# 28 Ağustos 2026 — İlk iksir reçetesi aktarımı
 
 - Kaynak: `fandom-potion-recipes-20260826` — İKV Wiki İksir Reçeteleri.
-- Kapsam: 79 reçete; seviye, iksir türü, malzeme adı ve adet.
+- Kapsam: İlk 79 reçete; seviye, iksir türü, malzeme adı ve adet.
 - Ürün bağlantısı: Reçete kataloğu, favoriler, ortak görünüş aileleri ve üretim stok hesabı.
+
+# 28 Ağustos 2026 — Tam iksir kategori denetimi
+
+- Ana kaynak: `fandom-potion-recipes-20260826` — İKV Wiki İksir Reçeteleri.
+- Erişim yöntemi: Wiki verisini kaynak gösteren erişilebilir reçete görünümündeki 28 kategori satır bazında denetlendi; site kaynağı ve güven etiketi İKV Wiki olarak korundu.
+- Sonuç: 246 tekil üretim kaydı, 49 benzersiz malzeme ve toplam 581 malzeme/adet satırı.
+- Düzeltme: Önceki 79 kayıtlık aktarımda eksik kalan düşük seviye hasar/direnç serileri ile üçüncü ve sonraki malzemeler eklendi.
+- Ürün bağlantısı: Genel arama, reçete kataloğu, favoriler, üretim hedefleri ve stoktan üretilebilirlik hesabı aynı tam veri kümesini kullanır.

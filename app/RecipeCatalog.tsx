@@ -46,8 +46,7 @@ export default function RecipeCatalog() {
       const requestedKind = params.get("kind");
       const requestedRecipe = params.get("recipe") ?? "";
       if (["item", "talisman", "potion"].includes(requestedKind ?? "")) setKind(requestedKind as RecipeKind);
-      if (requestedRecipe && requestedKind === "potion") setQuery(requestedRecipe);
-      else if (requestedRecipe) setExpandedId(requestedRecipe);
+      if (requestedRecipe) setExpandedId(requestedRecipe);
       setItemFavorites(readList(itemFavoriteKey));
       setTalismanFavorites(readList(talismanFavoriteKey));
       setPotionFavorites(readList(potionFavoriteKey));

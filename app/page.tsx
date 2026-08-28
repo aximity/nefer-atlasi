@@ -62,7 +62,7 @@ import {
 } from "../lib/group-region-loot.mjs";
 import { creatureDropSources } from "../lib/material-sources";
 import { talismanRecipes } from "../lib/talisman-recipes";
-import { potionIngredientIndex } from "../lib/potion-index";
+import { potionRecipes } from "../lib/potion-recipes";
 import {
   isSharedItemVisualFamily,
   itemVisualFamilyFor,
@@ -382,12 +382,12 @@ export default function Home() {
             const item = talismans.find((row) => row.id === recipe.itemId);
             return { id: recipe.itemId, kind: "talisman" as const, name: item?.name ?? recipe.itemId, description: `${item?.class ?? ""} · Tılsım · ${recipe.materials.length} malzeme`, search: recipe.materials.map((material) => material.name).join(" ") };
           }),
-          ...Object.entries(potionIngredientIndex).map(([ingredient, names]) => ({
-            id: ingredient,
+          ...potionRecipes.map((recipe) => ({
+            id: recipe.itemId,
             kind: "potion" as const,
-            name: `${ingredient} kullanılan iksirler`,
-            description: `İksir dizini · ${names.length} bağlantı`,
-            search: names.join(" "),
+            name: recipe.name,
+            description: `Sv. ${recipe.level} · ${recipe.category} · ${recipe.materials.length} malzeme`,
+            search: recipe.materials.map((material) => material.name).join(" "),
           })),
         ].filter((item) => matchesSearch(`${item.name} ${item.description} ${item.search}`, globalQuery)).slice(0, 8)
       : [],

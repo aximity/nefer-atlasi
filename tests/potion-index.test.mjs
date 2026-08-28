@@ -7,9 +7,9 @@ import { applyPrimaryGameSourcePolicy, isPrimaryGameSource, policyStatusLabel } 
 
 const sourceRows = JSON.parse(readFileSync(new URL("../data/sources.json", import.meta.url), "utf8"));
 
-test("iksir dizini eksik adetleri reçete gibi göstermeden kaynak ilişkisini korur", () => {
-  assert.equal(Object.keys(potionIngredientIndex).length, 11);
-  assert.equal(indexedPotionCount, 40);
+test("iksir malzeme dizini tam reçete kümesinden türetilir", () => {
+  assert.equal(Object.keys(potionIngredientIndex).length, 49);
+  assert.equal(indexedPotionCount, 246);
   assert.equal(potionRecipeSourceId, "fandom-potion-recipes-20260826");
   assert.equal(potionRecipeSourcePolicy.authority, "primary_game_reference");
   assert.equal(potionRecipeSourcePolicy.requiresCrossVerification, false);
@@ -33,10 +33,13 @@ test("İKV Wiki kaynaklarının tamamı genel ana oyun referansıdır", () => {
 });
 
 test("İKV Wiki iksir reçeteleri tam malzeme ve adetlerle üretime hazırdır", () => {
-  assert.equal(potionRecipes.length, 79);
+  assert.equal(potionRecipes.length, 246);
   assert.equal(new Set(potionRecipes.map((recipe) => recipe.itemId)).size, potionRecipes.length);
   assert.ok(potionRecipes.every((recipe) => recipe.level > 0 && recipe.category && recipe.materials.length > 0));
   assert.ok(potionRecipes.every((recipe) => recipe.materials.every((material) => material.name && material.quantity > 0)));
   assert.deepEqual(potionRecipes.find((recipe) => recipe.name === "Kedi İyileştiren İksir")?.materials, [{ name: "Ceviz Yaprağı", quantity: 1 }, { name: "Meşe Odunu", quantity: 1 }]);
-  assert.deepEqual(potionRecipes.find((recipe) => recipe.name === "Antilop Emsali İksir")?.materials, [{ name: "Saf Bakır", quantity: 1 }, { name: "Budaksız Meşe", quantity: 1 }]);
+  assert.deepEqual(potionRecipes.find((recipe) => recipe.name === "Antilop Emsali İksir")?.materials, [{ name: "Saf Bakır", quantity: 1 }, { name: "Budaksız Meşe", quantity: 1 }, { name: "Kan Taşı", quantity: 2 }, { name: "Ceviz", quantity: 1 }]);
+  assert.deepEqual(potionRecipes.find((recipe) => recipe.name === "Kangal Kudretlendiren İksir")?.materials, [{ name: "Sinek Karışımı", quantity: 1 }, { name: "Ceviz", quantity: 1 }, { name: "Ceviz Yaprağı", quantity: 7 }]);
+  assert.ok(potionRecipes.some((recipe) => recipe.name === "Elektrik Hasarı Veren İksir" && recipe.level === 1));
+  assert.equal(potionRecipes.filter((recipe) => recipe.name === "GB Modeli İksir").length, 2);
 });
