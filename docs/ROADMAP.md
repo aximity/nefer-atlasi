@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M52: Çift kaynaklı grup ganimetleri
+
+- [x] Sığınaklar ve Migrat ganimetlerini ikinci bağımsız arşiv listesiyle eşleştir
+- [x] 50 grup eşyasının ad, sınıf ve yuva alanlarını çapraz doğrula
+- [x] Likit Kristal, Klorotoksin ve Sürüngen Pulu düşüren yaratıkları bağla
+- [x] Kaynakta belirtilmeyen malzeme bölgesini tahmin etme
+- [x] Kalan 152 açık işi otomatik yayın kapısında say
+
+Çıkış kapısı: 50 grup eşyası iki bağımsız kaynağa bağlıdır; ikinci teyit açığı 79'a, malzeme kaynağı açığı 20'ye ve toplam açık iş 152'ye iner.
+
 ## Tamamlandı — M51: Grup efsun köprüsü
 
 - [x] Cevriye Sultan, Halit Girmenç, İbn-i Sina ve Arsenikli değerlerini ikinci arşiv tablosundan yapılandır

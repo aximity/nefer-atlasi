@@ -40,7 +40,7 @@ export type CreatureDropSource = {
   kind: "creature_drop";
   name: string;
   aliases?: readonly string[];
-  region: string;
+  region: string | null;
   enemy: string;
   usage: string;
   verification: "Kaynaklı kayıt" | "Oyuncu bilgisi";
@@ -92,6 +92,33 @@ export const creatureDropSources: readonly CreatureDropSource[] = [
     enemy: "Bölge yaratıkları",
     usage: "Kullanım bağlantısı katkı bekliyor",
     verification: "Oyuncu bilgisi",
+  },
+  {
+    kind: "creature_drop",
+    name: "Likit Kristal",
+    region: null,
+    enemy: "Gecenin Takipçisi, Buz Büyücüsü veya Bekçi Kobra",
+    usage: "Çemberlitaş şaheser reçetelerinde kullanılır; kaynak bölgeyi belirtmiyor",
+    verification: "Kaynaklı kayıt",
+    source: "https://oyun-ikv.tr.gg/S.ue.r.ue.m-Notlar%26%23305%3B-%5B-Oe-nemli%5D.htm",
+  },
+  {
+    kind: "creature_drop",
+    name: "Klorotoksin",
+    region: null,
+    enemy: "Gümüş Akrep",
+    usage: "Çemberlitaş şaheser reçetelerinde kullanılır; kaynak bölgeyi belirtmiyor",
+    verification: "Kaynaklı kayıt",
+    source: "https://oyun-ikv.tr.gg/S.ue.r.ue.m-Notlar%26%23305%3B-%5B-Oe-nemli%5D.htm",
+  },
+  {
+    kind: "creature_drop",
+    name: "Sürüngen Pulu",
+    region: null,
+    enemy: "Fare Adam Terbiyeci veya Şah Kobra",
+    usage: "Çemberlitaş şaheser reçetelerinde kullanılır; kaynak bölgeyi belirtmiyor",
+    verification: "Kaynaklı kayıt",
+    source: "https://oyun-ikv.tr.gg/S.ue.r.ue.m-Notlar%26%23305%3B-%5B-Oe-nemli%5D.htm",
   },
 ] as const;
 

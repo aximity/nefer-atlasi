@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+# v0.52.0 — Çift Kaynaklı Grup Ganimetleri
+
+- Sığınaklar ve Migrat'taki 50 eşyanın ad, sınıf ve yuva alanları Wiki ile ayrı forum ganimet listesinde eşleştirildi.
+- 50 grup eşyası çapraz doğrulanmış duruma yükseldi; ikinci teyit açığı 129'dan 79'a indi.
+- Likit Kristal; Gecenin Takipçisi, Buz Büyücüsü ve Bekçi Kobra ganimetine bağlandı.
+- Klorotoksin Gümüş Akrep; Sürüngen Pulu Fare Adam Terbiyeci veya Şah Kobra ganimetine bağlandı.
+- Kaynak sürüm notları bu üç malzemenin bölgesini yazmadığı için düşüren yaratık yayımlandı, bölge tahmin edilmedi.
+- Açık malzeme kaynağı 23'ten 20'ye, toplam Atlas açığı 205'ten 152'ye düştü.
+
 # v0.51.0 — Grup Efsun Köprüsü
 
 - Arşiv efsun tablosundaki Cevriye Sultan Modeli, Halit Girmenç İcadı, İbn-i Sina Modeli ve Arsenikli sayısal değerleri kaynak sistemine eklendi.

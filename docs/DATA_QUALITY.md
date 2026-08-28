@@ -25,6 +25,8 @@
 - Gözlük, yüzük ve kolye kayıtları kaynak etiketli olarak yayımlanır; ikinci bağımsız kaynak bekleyenler tek kaynak durumunu korur.
 - Sığınaklar ve Migrat ganimetlerinde eksik özellikli 45 eşya doğrulanmış efsun sözlüklerine karşı denetlendi. İki turda 23 eşya hesaplanabilir hâle geldi; 31 özellik satırı yayımlandı ve kalan 27 eşya tahminsiz açık tutuluyor.
 - TurkMMO arşiv tablosundaki Cevriye Sultan, Halit Girmenç, İbn-i Sina ve Arsenikli değerleri yalnız adın birebir geçtiği kayıtlara bağlandı.
+- Sığınaklar ve Migrat'taki 50 grup eşyasının ad, sınıf ve yuva alanları Wiki ile TurkMMO ganimet listesinde uyuştuğu için çapraz doğrulandı; boss bazlı alanlar bu toplu listeden türetilmedi.
+- Likit Kristal, Klorotoksin ve Sürüngen Pulu için düşüren yaratık açıkça kaynaklandı; aynı metinde bölge verilmediğinden Atlas bölge tahmini yapmıyor.
 - `Fevzi Bey Modeli / Fevzi Bey İcadı`, `Tarshass Menşeili / Tarsharss Modeli` ve benzeri yakın yazımlar aynı efsun sayılmıyor; oyun içi özellik görüntüsü veya açık kaynak satırı bekleniyor.
 - 67 Çemberlitaş şaheser kaydı modele alındı; 28 Ağustos 2026 denetiminde 11 açık sayısal çelişki çözüldü ve eşyada bulunmayan 10 özellik satırı kaldırıldı.
 - Mevcut kayıtların tamamı ikinci bağımsız kaynak bekliyor.

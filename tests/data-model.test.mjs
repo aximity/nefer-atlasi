@@ -21,6 +21,7 @@ const abilityDetails = read("ability-details.json");
 const abilityVariants = read("ability-variants.json");
 const abilityMedia = read("ability-media.json");
 const groupLootItems = read("group-loot-items.json");
+const groupLootEvidence = read("group-loot-evidence.json");
 const glassesItems = read("glasses-items.json");
 const glassesStats = read("glasses-stats.json");
 const groupDerivedStats = read("group-derived-stats.json");
@@ -97,6 +98,15 @@ test("üç sınıf için yüzük, kolye ve hesaplanabilir gözlük verisi vardı
     assert.ok(groupLootItems.some((item) => item.class === klass && item.slot === "Kolye"));
   }
   assert.ok(glassesStats.every((row) => row.stats.length > 0 && row.stats.every(([, value]) => value > 0)));
+});
+
+test("Sığınaklar ve Migrat ganimetleri iki bağımsız listede doğrulanır", () => {
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  assert.equal(groupLootItems.filter((item) => item.publicationStatus === "cross_verified").length, 50);
+  for (const item of groupLootItems) {
+    const groups = new Set(groupLootEvidence.filter((claim) => claim.itemIds.includes(item.id) && claim.status === "cross_verified").map((claim) => sourceById.get(claim.sourceId)?.independenceGroup));
+    assert.equal(groups.size, 2, `${item.id} iki bağımsız listede yok`);
+  }
 });
 
 test("çift efsunlu grup yüzükleri kaynak değerinin iki katıyla hesaplanır", () => {

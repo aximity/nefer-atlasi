@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.51.0",
+  version: "0.52.0",
   channel: "BETA",
-  milestone: "M51",
+  milestone: "M52",
   releasedAt: "28 Ağustos 2026",
-  title: "Grup Efsun Köprüsü",
+  title: "Çift Kaynaklı Grup Ganimetleri",
   summary:
-    "Arşiv efsun tablosundaki dört sayısal seri Sığınaklar ve Migrat ganimetlerine bağlandı; açık özellikli eşya sayısı 27'ye indi.",
+    "Sığınaklar ve Migrat'taki 50 eşya iki bağımsız ganimet listesiyle doğrulandı; üç Çemberlitaş malzemesi yaratık kaynağına bağlandı.",
   changes: [
-    "Cevriye Sultan Modeli 2.721 Büyü Kritik Şansı, Halit Girmenç İcadı 2.721 Kritik Vuruş İhtimali olarak kaynaklandı.",
-    "İbn-i Sina Modeli 140.000 İyileştirme Büyüleri ve Arsenikli 187.000 Zehir Hasarı olarak sözlüğe eklendi.",
-    "Bu dört kesin efsun, adın birebir geçtiği 13 grup eşyasına toplam 16 yeni özellik satırı ekledi.",
-    "Açık özellikli grup eşyası 37'den 27'ye indi; Modeli/İcadı ve Menşeili/Modeli gibi farklı adlar birleştirilmedi.",
-    "Yayın kapısı yeni değerleri ve kalan 27 açık kaydı otomatik denetliyor.",
+    "50 Sığınaklar/Migrat ganimetinin ad, sınıf ve yuva alanları Wiki ile bağımsız forum arşivinde eşleştirildi.",
+    "Bu 50 eşya tek kaynak durumundan çapraz doğrulanmış duruma yükseldi; ikinci teyit kuyruğu 129'dan 79'a indi.",
+    "Likit Kristal, Klorotoksin ve Sürüngen Pulu açık yaratık adlarına bağlandı; kaynakta yazmayan bölge tahmin edilmedi.",
+    "Açık malzeme kaynağı 23'ten 20'ye, Atlas Tamamlama Merkezi'ndeki toplam açık iş 205'ten 152'ye indi.",
+    "Yayın kapısı 50 eşyanın iki bağımsız kaynak grubunu ve üç yeni yaratık ganimetini denetliyor.",
   ],
 } as const;

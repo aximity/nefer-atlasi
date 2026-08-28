@@ -45,6 +45,20 @@ test("yaratık ganimetleri toplayıcılık çıktısı gibi gösterilmez", () =>
   }
 });
 
+test("Çemberlitaş sürüm notlarındaki üç yaratık ganimeti bölge uydurulmadan bağlanır", () => {
+  for (const [name, enemy] of [
+    ["Likit Kristal", "Gecenin Takipçisi, Buz Büyücüsü veya Bekçi Kobra"],
+    ["Klorotoksin", "Gümüş Akrep"],
+    ["Sürüngen Pulu", "Fare Adam Terbiyeci veya Şah Kobra"],
+  ]) {
+    const source = materialSourceFor(name);
+    assert.equal(source?.kind, "creature_drop");
+    assert.equal(source?.enemy, enemy);
+    assert.equal(source?.region, null);
+    assert.equal(source?.verification, "Kaynaklı kayıt");
+  }
+});
+
 test("iksir ara malzemeleri üretim zincirine bağlanır", () => {
   const expected = {
     "Ok Sertleştirici": ["Sarraf", 9, "Obsidyen", 8],

@@ -77,14 +77,14 @@ function sourceText(materialName: string) {
       known: false,
     };
   }
-  return { label: `${source.region} · ${source.enemy}`, detail: `${source.verification}. ${source.usage}`, known: true };
+  return { label: `${source.region ?? "Bölge doğrulanıyor"} · ${source.enemy}`, detail: `${source.verification}. ${source.usage}`, known: true };
 }
 
 function sourceArea(source: NonNullable<ReturnType<typeof productionMaterialSourceFor>>) {
   if (source.kind === "crafted") return `${source.profession} tezgâhı`;
   if (source.kind === "talisman_craft") return "Tılsım üretimi";
   if (source.kind === "talisman_acquisition") return `${source.npc} · ${source.region}`;
-  return source.region;
+  return source.region ?? "Bölge doğrulanıyor";
 }
 
 export default function ProductionPlanner() {
