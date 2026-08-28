@@ -63,6 +63,13 @@ function sourceText(materialName: string) {
       known: true,
     };
   }
+  if (source.kind === "quest_reward") {
+    return {
+      label: `${source.quest} · Sv. ${source.level}`,
+      detail: `${source.classScope} görev ödülü${source.quantity === null ? "; adet kaynakta belirtilmiyor" : ` · ×${source.quantity}`}.`,
+      known: true,
+    };
+  }
   if (source.kind === "talisman_craft") {
     return {
       label: `${source.class} · ${source.color} · ${source.tier}. kademe tılsım üretimi`,
@@ -82,6 +89,7 @@ function sourceText(materialName: string) {
 
 function sourceArea(source: NonNullable<ReturnType<typeof productionMaterialSourceFor>>) {
   if (source.kind === "crafted") return `${source.profession} tezgâhı`;
+  if (source.kind === "quest_reward") return `Görev · Sv. ${source.level}`;
   if (source.kind === "talisman_craft") return "Tılsım üretimi";
   if (source.kind === "talisman_acquisition") return `${source.npc} · ${source.region}`;
   return source.region ?? "Bölge doğrulanıyor";

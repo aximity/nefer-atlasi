@@ -69,6 +69,24 @@ test("Sığınak rehberindeki ortak materyaller bölge kaynağına bağlanır", 
   }
 });
 
+test("görev ganimetleri görev adı, seviye ve adetle bağlanır", () => {
+  const expected = {
+    "Liderlik Sembolü": ["Solucan’ı Ezmek", 42, 1],
+    "Dev Komodo Dişi": ["Midedeki Pusula", 46, 1],
+    "İpek": ["Hidranın Sırrı", 47, 3],
+    "Hidra Pençesi": ["Yeşil Hidra Tehlike", 47, 1],
+    "Kadim Hidra Pençesi": ["Kadim Tehlike", 47, 1],
+  };
+  for (const [name, [quest, level, quantity]] of Object.entries(expected)) {
+    const source = materialSourceFor(name);
+    assert.equal(source?.kind, "quest_reward");
+    assert.equal(source?.quest, quest);
+    assert.equal(source?.level, level);
+    assert.equal(source?.quantity, quantity);
+    assert.equal(source?.verification, "Kaynaklı kayıt");
+  }
+});
+
 test("iksir ara malzemeleri üretim zincirine bağlanır", () => {
   const expected = {
     "Ok Sertleştirici": ["Sarraf", 9, "Obsidyen", 8],

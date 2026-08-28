@@ -47,6 +47,27 @@ export type CreatureDropSource = {
   source?: string;
 };
 
+export type QuestRewardMaterialSource = {
+  kind: "quest_reward";
+  name: string;
+  quest: string;
+  level: number;
+  quantity: number | null;
+  classScope: string;
+  verification: "Kaynaklı kayıt";
+  source: string;
+};
+
+const MAXIGAMERZ_QUEST_REWARDS = "https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-gorev-ganimetleri-listesi.240301/";
+
+export const questRewardMaterialSources: readonly QuestRewardMaterialSource[] = [
+  { kind: "quest_reward", name: "Liderlik Sembolü", quest: "Solucan’ı Ezmek", level: 42, quantity: 1, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
+  { kind: "quest_reward", name: "Dev Komodo Dişi", quest: "Midedeki Pusula", level: 46, quantity: 1, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
+  { kind: "quest_reward", name: "İpek", quest: "Hidranın Sırrı", level: 47, quantity: 3, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
+  { kind: "quest_reward", name: "Hidra Pençesi", quest: "Yeşil Hidra Tehlike", level: 47, quantity: 1, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
+  { kind: "quest_reward", name: "Kadim Hidra Pençesi", quest: "Kadim Tehlike", level: 47, quantity: 1, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
+] as const;
+
 export const creatureDropSources: readonly CreatureDropSource[] = [
   {
     kind: "creature_drop",
@@ -154,10 +175,17 @@ export function craftedMaterialSourceFor(materialName: string) {
   return craftedMaterialSources.find((entry) => normalize(entry.name) === wanted) ?? null;
 }
 
+export function questRewardMaterialSourceFor(materialName: string) {
+  const wanted = normalize(materialName);
+  return questRewardMaterialSources.find((entry) => normalize(entry.name) === wanted) ?? null;
+}
+
 export function materialSourceFor(materialName: string) {
   const gathering = gatheringSourceFor(materialName);
   if (gathering) return { kind: "gathering" as const, ...gathering };
   const creatureDrop = creatureDropSourceFor(materialName);
   if (creatureDrop) return creatureDrop;
+  const questReward = questRewardMaterialSourceFor(materialName);
+  if (questReward) return questReward;
   return craftedMaterialSourceFor(materialName);
 }
