@@ -56,3 +56,28 @@ test("tılsım ve iksir ortak görselleri eşya kuyruğundan ayrı görünür", 
   assert.ok(records.every((record) => record.priority === "high" && record.entityType === "visual"));
   assert.match(records.find((record) => record.name === "Can iksiri")?.detail ?? "", /Seviyeyle boyut/);
 });
+
+test("oyuncu bildirimiyle eşleşen hazır tılsım kaynak boşluğu değil doğrulama işi olur", () => {
+  const records = buildAtlasCompletionQueue({
+    graph: {
+      itemNodes: [],
+      materialNodes: [{
+        id: "material:buz-bilgisi-i",
+        key: "buz-bilgisi-i",
+        type: "material",
+        name: "Buz Bilgisi (I) · Mavi tılsım",
+        uses: [{ itemId: "buz-bilgisi-ii" }],
+        source: {
+          kind: "talisman_acquisition",
+          npc: "Gönül",
+          region: "Büyük Hol",
+          evidenceNeeded: "Dükkân görüntüsü gerekli.",
+        },
+      }],
+    },
+  });
+  const summary = completionSummary(records);
+  assert.equal(summary.materialSources, 0);
+  assert.equal(summary.verification, 1);
+  assert.equal(records[0].priority, "high");
+});

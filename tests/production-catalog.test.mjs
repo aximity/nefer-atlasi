@@ -15,7 +15,8 @@ test("ortak üretim kataloğu dört reçete türünü tek ağda toplar", () => {
   const previousTierTalismans = productionMaterialNames.filter((name) => name.endsWith(" tılsım"));
   assert.equal(previousTierTalismans.length, 106);
   assert.equal(previousTierTalismans.filter((name) => productionMaterialSourceFor(name)?.kind === "talisman_craft").length, 53);
-  assert.equal(previousTierTalismans.filter((name) => !productionMaterialSourceFor(name)).length, 53);
+  assert.equal(previousTierTalismans.filter((name) => productionMaterialSourceFor(name)?.kind === "talisman_acquisition").length, 10);
+  assert.equal(previousTierTalismans.filter((name) => !productionMaterialSourceFor(name)).length, 43);
 });
 
 test("Wiki malzeme ikonları tahminsiz ve ölçülebilir kapsama sahiptir", () => {

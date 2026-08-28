@@ -1,4 +1,4 @@
-import productionRows from "../data/talisman-production.json";
+import productionRows from "../data/talisman-production.json" with { type: "json" };
 import type { Talisman } from "./catalog";
 
 export type TalismanTierKey = 1 | 2 | 3 | "special";

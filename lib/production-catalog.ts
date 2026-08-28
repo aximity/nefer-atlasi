@@ -1,6 +1,7 @@
 import { publishableItems, recipes, sourceFor, talismans, type Recipe } from "./catalog.ts";
 import { craftedMaterialRecipes, craftedMaterialSources, materialSourceFor } from "./material-sources.ts";
 import { potionRecipes } from "./potion-recipes.ts";
+import { playerReportsFor, vendorMentionsFor } from "./talisman-production.ts";
 import { talismanRecipes } from "./talisman-recipes.ts";
 
 export type ProductionKind = "item" | "talisman" | "potion" | "material";
@@ -81,15 +82,35 @@ export function productionMaterialSourceFor(materialName: string) {
   if (direct) return direct;
   const talisman = talismanMaterialByName.get(normalize(materialName));
   const recipe = talisman && talismanRecipes.find((row) => row.itemId === talisman.id);
-  if (!talisman || !recipe) return null;
+  if (!talisman) return null;
+  if (recipe) {
+    return {
+      kind: "talisman_craft" as const,
+      name: materialName,
+      class: talisman.class,
+      color: talisman.color,
+      tier: talisman.tier,
+      materials: recipe.materials,
+      verification: "Kaynaklı kayıt" as const,
+      source: sourceFor(recipe.sourceId)?.url ?? null,
+    };
+  }
+  if (talisman.tier !== 1) return null;
+  const playerReport = playerReportsFor(talisman)[0];
+  const vendor = vendorMentionsFor(talisman)[0];
+  if (!playerReport && !vendor) return null;
   return {
-    kind: "talisman_craft" as const,
+    kind: "talisman_acquisition" as const,
     name: materialName,
+    talismanId: talisman.id,
     class: talisman.class,
     color: talisman.color,
     tier: talisman.tier,
-    materials: recipe.materials,
-    verification: "Kaynaklı kayıt" as const,
-    source: sourceFor(recipe.sourceId)?.url ?? null,
+    npc: playerReport?.npc ?? vendor?.name ?? "Gönül",
+    region: vendor?.region ?? "Büyük Hol",
+    priceLabel: playerReport?.priceLabel ?? "Fiyat doğrulanıyor",
+    verification: "KÖ oyuncu bildirimi · dükkân görüntüsü bekliyor" as const,
+    evidenceNeeded: playerReport?.evidenceNeeded ?? "Gönül dükkânında tılsım adını ve fiyatını gösteren KÖ oyun içi görüntüsü.",
+    source: vendor ? sourceFor(vendor.sourceId)?.url ?? null : null,
   };
 }
