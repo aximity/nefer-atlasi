@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+# v0.51.0 — Grup Efsun Köprüsü
+
+- Arşiv efsun tablosundaki Cevriye Sultan Modeli, Halit Girmenç İcadı, İbn-i Sina Modeli ve Arsenikli sayısal değerleri kaynak sistemine eklendi.
+- Adın birebir geçtiği 13 Sığınaklar/Migrat eşyasına 16 yeni özellik satırı bağlandı.
+- Arsenikli/Halit balyozunda iki, İbn-i Sina/Cevriye asa ve pantolonlarında iki efsun ayrı satırlar hâlinde korundu.
+- Açık özellikli grup eşyası sayısı 37'den 27'ye düştü.
+- Fevzi Bey Modeli/İcadı, Tarshass Menşeili/Tarsharss Modeli, Paracelsus İcadı/Modeli ve Zilfallon İcadı/Zilfallon eşleştirilmedi; ad farkları için oyun içi kanıt bekleniyor.
+
 # v0.50.0 — Kesin Efsun Eşleşmeleri
 
 - Sığınaklar ve Migrat ganimetlerindeki 45 özellik açığı, doğrulanmış efsun sözlüğüne karşı yeniden denetlendi.

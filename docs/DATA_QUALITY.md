@@ -23,7 +23,8 @@
 - Çemberlitaş ceket, amplifikatör ve bazı silah kayıtlarında aynı özellik iki ayrı efsun satırı olarak yer alıyor; hesap katmanında bu satırlar kaynak değeri korunarak tek toplamda birleştiriliyor.
 - Cehennem Pantolon ve Ayakkabı için arşivde ikinci alan etiketi hatalı görünse de mevcut tek kaynaklı kayıtlar tahminle değiştirilmez; oyun içi görüntü beklenir.
 - Gözlük, yüzük ve kolye kayıtları kaynak etiketli olarak yayımlanır; ikinci bağımsız kaynak bekleyenler tek kaynak durumunu korur.
-- Sığınaklar ve Migrat ganimetlerinde eksik özellikli 45 eşya doğrulanmış efsun sözlüğüne karşı denetlendi. Yalnız birebir ad eşleşmesi bulunan 8 eşya için 10 özellik satırı yayımlandı; kalan 37 eşya tahminsiz açık tutuluyor.
+- Sığınaklar ve Migrat ganimetlerinde eksik özellikli 45 eşya doğrulanmış efsun sözlüklerine karşı denetlendi. İki turda 23 eşya hesaplanabilir hâle geldi; 31 özellik satırı yayımlandı ve kalan 27 eşya tahminsiz açık tutuluyor.
+- TurkMMO arşiv tablosundaki Cevriye Sultan, Halit Girmenç, İbn-i Sina ve Arsenikli değerleri yalnız adın birebir geçtiği kayıtlara bağlandı.
 - `Fevzi Bey Modeli / Fevzi Bey İcadı`, `Tarshass Menşeili / Tarsharss Modeli` ve benzeri yakın yazımlar aynı efsun sayılmıyor; oyun içi özellik görüntüsü veya açık kaynak satırı bekleniyor.
 - 67 Çemberlitaş şaheser kaydı modele alındı; 28 Ağustos 2026 denetiminde 11 açık sayısal çelişki çözüldü ve eşyada bulunmayan 10 özellik satırı kaldırıldı.
 - Mevcut kayıtların tamamı ikinci bağımsız kaynak bekliyor.

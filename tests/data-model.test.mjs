@@ -113,7 +113,10 @@ test("grup eşyalarındaki birebir efsun adları tahminsiz özellik değerine ba
   assert.equal(rowsFor("azat-cevriye-latex-pantolon").find((row) => row.attribute === "Büyü Hasarı (Elektrik)")?.value, 93000);
   assert.deepEqual(rowsFor("farabi-solucan-latex-pantolon").map((row) => [row.attribute, row.value]).toSorted(), [["Maksimum Enerji", 239000], ["Zırh", 302]]);
   assert.deepEqual(rowsFor("yucelen-solucan-latex-pantolon").map((row) => [row.attribute, row.value]).toSorted(), [["Maksimum Hasar", 373000], ["Zırh", 302]]);
-  assert.equal(groupLootItems.filter((item) => !rowsFor(item.id).length).length, 37);
+  assert.deepEqual(rowsFor("arsenikli-halit-osmiridyum-runlu-balyoz").map((row) => [row.attribute, row.value]).toSorted(), [["Hasar (Zehir)", 187000], ["Kritik Vuruş İhtimali", 2721]]);
+  assert.deepEqual(rowsFor("ibni-sina-cevriye-cibanli-akrep-asa").map((row) => [row.attribute, row.value]).toSorted(), [["Büyü Kritik Şansı", 2721], ["İyileştirme Büyüleri", 140000]]);
+  assert.equal(rowsFor("zilfallon-halit-osmiridyum-gumus-dis").find((row) => row.attribute === "Kritik Vuruş İhtimali")?.value, 2721);
+  assert.equal(groupLootItems.filter((item) => !rowsFor(item.id).length).length, 27);
 });
 
 test("Sığınak, Migrat ve Çemberlitaş ekipmanları üç sınıfta da kapsanır", () => {

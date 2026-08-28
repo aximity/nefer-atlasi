@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.50.0",
+  version: "0.51.0",
   channel: "BETA",
-  milestone: "M50",
+  milestone: "M51",
   releasedAt: "28 Ağustos 2026",
-  title: "Kesin Efsun Eşleşmeleri",
+  title: "Grup Efsun Köprüsü",
   summary:
-    "Sığınaklar ve Migrat eşyalarında adı doğrulanmış efsun sözlüğüyle birebir eşleşen sekiz kayıt hesaplanabilir hâle geldi.",
+    "Arşiv efsun tablosundaki dört sayısal seri Sığınaklar ve Migrat ganimetlerine bağlandı; açık özellikli eşya sayısı 27'ye indi.",
   changes: [
-    "Eksik özellikli 45 grup eşyası içinden adı efsun sözlüğüyle birebir eşleşen sekiz eşya doğrulanmış sayısal değere bağlandı.",
-    "Cansiperhane, Bilge Kağan Modeli, Azat Efendi İcadı, Yücelen Ekolü, Farabi Modeli ve Solucan Modeli eşleşmeleri kullanıldı.",
-    "İki efsun adı taşıyan Farabi/Solucan ve Yücelen/Solucan pantolonlarda iki özellik ayrı satır olarak korundu.",
-    "Grup eşyalarındaki açık özellik kaydı 45'ten 37'ye indi; yakın yazımlar ve bilinmeyen özel adlar tahmin edilmedi.",
-    "Yeni veri kapısı kesin değerleri ve kalan 37 açık kaydı otomatik olarak denetliyor.",
+    "Cevriye Sultan Modeli 2.721 Büyü Kritik Şansı, Halit Girmenç İcadı 2.721 Kritik Vuruş İhtimali olarak kaynaklandı.",
+    "İbn-i Sina Modeli 140.000 İyileştirme Büyüleri ve Arsenikli 187.000 Zehir Hasarı olarak sözlüğe eklendi.",
+    "Bu dört kesin efsun, adın birebir geçtiği 13 grup eşyasına toplam 16 yeni özellik satırı ekledi.",
+    "Açık özellikli grup eşyası 37'den 27'ye indi; Modeli/İcadı ve Menşeili/Modeli gibi farklı adlar birleştirilmedi.",
+    "Yayın kapısı yeni değerleri ve kalan 27 açık kaydı otomatik denetliyor.",
   ],
 } as const;

@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M51: Grup efsun köprüsü
+
+- [x] Cevriye Sultan, Halit Girmenç, İbn-i Sina ve Arsenikli değerlerini ikinci arşiv tablosundan yapılandır
+- [x] Efsun adını birebir taşıyan grup eşyalarına sayısal değerleri bağla
+- [x] Çift efsunlu eşyalarda iki özelliği ayrı satırda koru
+- [x] Farklı ek ve unvan taşıyan yakın adları otomatik birleştirme
+- [x] Kalan 27 özellik açığını otomatik yayın kapısında denetle
+
+Çıkış kapısı: 13 grup eşyası 16 yeni özellik satırı kazanır; açık özellikli grup eşyası 27'ye iner; yakın yazımlar tahminle yayımlanmaz.
+
 ## Tamamlandı — M50: Kesin efsun eşleşmeleri
 
 - [x] Eksik özellikli 45 grup eşyasını doğrulanmış efsun sözlüğüyle karşılaştır

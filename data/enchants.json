@@ -8,6 +8,7 @@
 {"id":"ardenneler-misali","name":"Ardenneler Misali","attribute":"Saldırı","value":8600,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 {"id":"plevne-icadi","name":"Plevne İcadı","attribute":"Savunma","value":8600,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 {"id":"solucan-modeli","name":"Solucan Modeli","attribute":"Zırh","value":302,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
+{"id":"halit-girmenc-icadi","name":"Halit Girmenç İcadı","attribute":"Kritik Vuruş İhtimali","value":2721,"unit":"puan","sourceId":"turkmmo-all-enchants-20260828","status":"single_source","lastChecked":"2026-08-28"},
 {"id":"hg-icadi-mor","name":"H.G. İcadı (Mor)","attribute":"Kritik Vuruş İhtimali","value":3265,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 
 {"id":"babil-modeli","name":"Babil Modeli","attribute":"Büyü Hasarı (Fiziksel)","value":130000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
@@ -28,6 +29,7 @@
 {"id":"notron-yildizi-emsali","name":"Nötron Yıldızı Emsali","attribute":"Hasar (Buz)","value":187000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 {"id":"mesmer-modeli","name":"Mesmer Modeli","attribute":"Hasar (Elektrik)","value":187000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 {"id":"zilfallon-mor","name":"Zilfallon (Mor)","attribute":"Hasar (Asit)","value":224000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
+{"id":"arsenikli","name":"Arsenikli","attribute":"Hasar (Zehir)","value":187000,"unit":"puan","sourceId":"turkmmo-all-enchants-20260828","status":"single_source","lastChecked":"2026-08-28"},
 {"id":"arsenikli-mor","name":"Arsenikli (Mor)","attribute":"Hasar (Zehir)","value":224000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 
 {"id":"aramit-tipi","name":"Aramit Tipi","attribute":"Direnç (Ateş)","value":60000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
@@ -37,7 +39,9 @@
 {"id":"vadi-kobrasi-emsali","name":"Vadi Kobrası Emsali","attribute":"Direnç (Zehir)","value":60000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 {"id":"kutadgu-bilig-modeli","name":"Kutadgu Bilig Modeli","attribute":"Maksimum Kudret","value":137000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 {"id":"farabi-modeli","name":"Farabi Modeli","attribute":"Maksimum Enerji","value":239000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
+{"id":"ibni-sina-modeli","name":"İbn-i Sina Modeli","attribute":"İyileştirme Büyüleri","value":140000,"unit":"puan","sourceId":"turkmmo-all-enchants-20260828","status":"single_source","lastChecked":"2026-08-28"},
 {"id":"asklepios-modeli","name":"Asklepios Modeli","attribute":"İyileştirme Büyüleri","value":252000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
+{"id":"cevriye-sultan-modeli","name":"Cevriye Sultan Modeli","attribute":"Büyü Kritik Şansı","value":2721,"unit":"puan","sourceId":"turkmmo-all-enchants-20260828","status":"single_source","lastChecked":"2026-08-28"},
 {"id":"berosus-modeli","name":"Berosus Modeli","attribute":"Büyü Kritik Şansı","value":4000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 {"id":"antilop-emsali","name":"Antilop Emsali","attribute":"Hareket Hızı","value":2000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"},
 {"id":"cansiperhane","name":"Cansiperhane","attribute":"Kritik Zırhı","value":10000,"unit":"puan","sourceId":"fandom-all-enchants","status":"single_source","lastChecked":"2026-08-23"}
