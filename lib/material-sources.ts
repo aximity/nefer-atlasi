@@ -64,8 +64,8 @@ export const questRewardMaterialSources: readonly QuestRewardMaterialSource[] = 
   { kind: "quest_reward", name: "Liderlik Sembolü", quest: "Solucan’ı Ezmek", level: 42, quantity: 1, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
   { kind: "quest_reward", name: "Dev Komodo Dişi", quest: "Midedeki Pusula", level: 46, quantity: 1, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
   { kind: "quest_reward", name: "İpek", quest: "Hidranın Sırrı", level: 47, quantity: 3, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
-  { kind: "quest_reward", name: "Hidra Pençesi", quest: "Yeşil Hidra Tehlike", level: 47, quantity: 1, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
-  { kind: "quest_reward", name: "Kadim Hidra Pençesi", quest: "Kadim Tehlike", level: 47, quantity: 1, classScope: "Savaşçı, Büyücü ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
+  { kind: "quest_reward", name: "Hidra Pençesi", quest: "Yeşil Hidra Tehlike", level: 47, quantity: 1, classScope: "Savaşçı ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
+  { kind: "quest_reward", name: "Kadim Hidra Pençesi", quest: "Kadim Tehlike", level: 47, quantity: 1, classScope: "Savaşçı ve Şifacı", verification: "Kaynaklı kayıt", source: MAXIGAMERZ_QUEST_REWARDS },
 ] as const;
 
 export const creatureDropSources: readonly CreatureDropSource[] = [
@@ -158,6 +158,15 @@ export const creatureDropSources: readonly CreatureDropSource[] = [
     usage: "Sığınaklar rehberinde ortak materyal olarak listelenir",
     verification: "Kaynaklı kayıt",
     source: "https://forum.shiftdelete.net/konular/istanbul-kiyamet-vakti-siginaklar.537131/",
+  },
+  {
+    kind: "creature_drop",
+    name: "Taşkanat Derisi",
+    region: "Eminönü",
+    enemy: "Taş Kanat",
+    usage: "2007 Taş Kanat avı duyurusunda öldürme kanıtı olarak toplanır; güncel reçetelerde kullanılır",
+    verification: "Kaynaklı kayıt",
+    source: "https://i-k-v-dunyasi.tr.gg/Havadisler%26Haberler.htm",
   },
 ] as const;
 

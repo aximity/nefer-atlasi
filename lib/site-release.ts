@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.55.0",
+  version: "0.56.0",
   channel: "BETA",
-  milestone: "M55",
+  milestone: "M56",
   releasedAt: "28 Ağustos 2026",
-  title: "Görev Ödülü Kaynakları",
+  title: "Taş Kanat Avı Kaynağı",
   summary:
-    "Beş açık malzeme, görev adı, seviye ve adet bilgisiyle üretim zincirindeki doğrulanmış görev ödüllerine bağlandı.",
+    "Taşkanat Derisi eski av duyurusuyla Eminönü'ndeki Taş Kanatlara bağlandı; iki görev ödülünün sınıf kapsamı kaynakla düzeltildi.",
   changes: [
-    "Liderlik Sembolü, Dev Komodo Dişi, İpek, Hidra Pençesi ve Kadim Hidra Pençesi doğrudan görev ödülü olarak sınıflandırıldı.",
-    "Her kayıtta görev adı, görev seviyesi, verilen adet ve üç sınıf kapsamı gösteriliyor.",
-    "Üretim planlayıcısı bu malzemeleri artık yanlış bir bölge tahmini yerine ilgili göreve yönlendiriyor.",
-    "Malzeme kaynağı açığı 18'den 13'e, Atlas Tamamlama Merkezi'ndeki toplam açık iş 72'den 67'ye indi.",
+    "Taşkanat Derisi, 2007 av duyurusundaki Eminönü ve Taş Kanat bağlantısıyla yaratık ganimeti olarak kaydedildi.",
+    "Hidra Pençesi ve Kadim Hidra Pençesi görev ödüllerinin sınıf kapsamı Savaşçı ve Şifacı olarak düzeltildi.",
+    "Liderlik Sembolü, Dev Komodo Dişi ve İpek kayıtlarında üç sınıf kapsamı korunuyor.",
+    "Malzeme kaynağı açığı 13'ten 12'ye, Atlas Tamamlama Merkezi'ndeki toplam açık iş 67'den 66'ya indi.",
   ],
 } as const;

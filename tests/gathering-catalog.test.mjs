@@ -85,6 +85,16 @@ test("görev ganimetleri görev adı, seviye ve adetle bağlanır", () => {
     assert.equal(source?.quantity, quantity);
     assert.equal(source?.verification, "Kaynaklı kayıt");
   }
+  assert.equal(materialSourceFor("Hidra Pençesi")?.classScope, "Savaşçı ve Şifacı");
+  assert.equal(materialSourceFor("Kadim Hidra Pençesi")?.classScope, "Savaşçı ve Şifacı");
+});
+
+test("Taşkanat Derisi eski av duyurusundaki yaratığa ve bölgeye bağlanır", () => {
+  const source = materialSourceFor("Taşkanat Derisi");
+  assert.equal(source?.kind, "creature_drop");
+  assert.equal(source?.enemy, "Taş Kanat");
+  assert.equal(source?.region, "Eminönü");
+  assert.equal(source?.verification, "Kaynaklı kayıt");
 });
 
 test("iksir ara malzemeleri üretim zincirine bağlanır", () => {
