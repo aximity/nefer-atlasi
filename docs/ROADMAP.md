@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M50: Kesin efsun eşleşmeleri
+
+- [x] Eksik özellikli 45 grup eşyasını doğrulanmış efsun sözlüğüyle karşılaştır
+- [x] Eşya adında birebir geçen efsunları kaynak değerine bağla
+- [x] İki kesin efsun taşıyan kayıtlarda özellikleri ayrı tut
+- [x] Yakın yazımları ve bilinmeyen özel adları tahminle eşleştirme
+- [x] Kalan 37 açık kaydı otomatik yayın kapısında denetle
+
+Çıkış kapısı: Yalnız birebir efsun adı eşleşmeleri hesaplamaya girer; 8 eşya ve 10 özellik satırı kaynaklıdır; kalan 37 eşya oyun içi görüntü veya kaynak satırı gelene kadar açık kalır.
+
 ## Tamamlandı — M49: Çemberlitaş hesap güvenliği
 
 - [x] 11 çelişkili özellik kaydını kaynak satırlarıyla yeniden denetle

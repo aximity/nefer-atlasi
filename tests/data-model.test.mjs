@@ -106,6 +106,16 @@ test("çift efsunlu grup yüzükleri kaynak değerinin iki katıyla hesaplanır"
   assert.ok(groupDerivedStats.every((row) => sources.some((source) => source.id === row.sourceId)));
 });
 
+test("grup eşyalarındaki birebir efsun adları tahminsiz özellik değerine bağlanır", () => {
+  const rowsFor = (itemId) => groupDerivedStats.filter((row) => row.itemId === itemId);
+  assert.equal(rowsFor("maraton-cansiperhane-ayakkabi-buyucu").find((row) => row.attribute === "Kritik Zırhı")?.value, 10000);
+  assert.equal(rowsFor("bilge-kagan-cevriye-krizoberil-gunes-asa").find((row) => row.attribute === "Büyü Hasarı (Buz)")?.value, 93000);
+  assert.equal(rowsFor("azat-cevriye-latex-pantolon").find((row) => row.attribute === "Büyü Hasarı (Elektrik)")?.value, 93000);
+  assert.deepEqual(rowsFor("farabi-solucan-latex-pantolon").map((row) => [row.attribute, row.value]).toSorted(), [["Maksimum Enerji", 239000], ["Zırh", 302]]);
+  assert.deepEqual(rowsFor("yucelen-solucan-latex-pantolon").map((row) => [row.attribute, row.value]).toSorted(), [["Maksimum Hasar", 373000], ["Zırh", 302]]);
+  assert.equal(groupLootItems.filter((item) => !rowsFor(item.id).length).length, 37);
+});
+
 test("Sığınak, Migrat ve Çemberlitaş ekipmanları üç sınıfta da kapsanır", () => {
   for (const klass of ["Savaşçı", "Büyücü", "Şifacı"]) {
     assert.ok(groupLootItems.filter((item) => item.class === klass && item.region === "Sığınaklar").length >= 7, `${klass} Sığınak eksik`);

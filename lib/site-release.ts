@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.49.0",
+  version: "0.50.0",
   channel: "BETA",
-  milestone: "M49",
+  milestone: "M50",
   releasedAt: "28 Ağustos 2026",
-  title: "Çemberlitaş Hesap Güvenliği",
+  title: "Kesin Efsun Eşleşmeleri",
   summary:
-    "Çift yazılan Çemberlitaş özellikleri doğru toplamla hesaplamaya alındı; eşyada bulunmayan özellik satırları kaldırıldı.",
+    "Sığınaklar ve Migrat eşyalarında adı doğrulanmış efsun sözlüğüyle birebir eşleşen sekiz kayıt hesaplanabilir hâle geldi.",
   changes: [
-    "11 çelişkili Çemberlitaş özellik kaydı kaynak satırlarıyla yeniden denetlendi ve çelişkili kayıt sayısı sıfıra indirildi.",
-    "Aynı eşyada iki kez bulunan 150.000 hasar, 224.000 iyileştirme, 383.000 iyileştirme ve 477.000 enerji satırları hesap toplamı olarak birleştirildi.",
-    "Ceket ve amplifikatörlere yanlışlıkla bağlanan Maksimum Kudret satırları ile Taş Kanat Ceket'teki yanlış Savunma satırı kaldırıldı.",
-    "Build toplamları artık Kıyamet, Sıfır Kelvin, Transformatör, Cehennem, Mevlana ve Taş Kanat parçalarını doğru değerle hesaplıyor.",
-    "Yeni veri kapısı, çözülen 11 toplamı ve kaldırılan 10 yanlış satırı otomatik olarak denetliyor.",
+    "Eksik özellikli 45 grup eşyası içinden adı efsun sözlüğüyle birebir eşleşen sekiz eşya doğrulanmış sayısal değere bağlandı.",
+    "Cansiperhane, Bilge Kağan Modeli, Azat Efendi İcadı, Yücelen Ekolü, Farabi Modeli ve Solucan Modeli eşleşmeleri kullanıldı.",
+    "İki efsun adı taşıyan Farabi/Solucan ve Yücelen/Solucan pantolonlarda iki özellik ayrı satır olarak korundu.",
+    "Grup eşyalarındaki açık özellik kaydı 45'ten 37'ye indi; yakın yazımlar ve bilinmeyen özel adlar tahmin edilmedi.",
+    "Yeni veri kapısı kesin değerleri ve kalan 37 açık kaydı otomatik olarak denetliyor.",
   ],
 } as const;

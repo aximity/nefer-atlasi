@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+# v0.50.0 — Kesin Efsun Eşleşmeleri
+
+- Sığınaklar ve Migrat ganimetlerindeki 45 özellik açığı, doğrulanmış efsun sözlüğüne karşı yeniden denetlendi.
+- Eşya adında birebir bulunan Cansiperhane, Bilge Kağan Modeli, Azat Efendi İcadı, Yücelen Ekolü, Farabi Modeli ve Solucan Modeli değerleri sekiz eşyaya bağlandı.
+- Üç sınıfın Maraton/Cansiperhane ayakkabıları 10.000 Kritik Zırhı; Bilge Kağan asası 93.000 Buz Büyü Hasarı; Azat pantolonu 93.000 Elektrik Büyü Hasarı ile hesaplanabilir oldu.
+- Farabi/Solucan ve Yücelen/Solucan pantolonlarının iki ayrı efsunu iki özellik satırı olarak korundu.
+- Açık özellikli grup eşyası sayısı 45'ten 37'ye düştü; Fevzi Bey Modeli/İcadı ve Tarshass/Tarsharss gibi yakın ama birebir olmayan adlar tahminle eşleştirilmedi.
+
 # v0.49.0 — Çemberlitaş Hesap Güvenliği
 
 - Yanlış hesaplama riski taşıyan 11 çelişkili Çemberlitaş özellik kaydı kaynak satırlarıyla yeniden denetlendi; açık çelişki sayısı sıfıra indi.
