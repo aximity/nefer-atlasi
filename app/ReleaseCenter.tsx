@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.41.1",
+    date: "28 Ağustos 2026",
+    title: "Yönlendirme ve Pazar Onarımı",
+    changes: [
+      "Tılsım, reçete, eşya ve Atlas derin bağlantıları onarıldı.",
+      "Geri–ileri gezinme ve eşya penceresinin Esc ile kapanması düzeltildi.",
+      "Fiyat gözlemi bağlantısı gerçek alış–satış formuna dönüştürüldü.",
+    ],
+  },
+  {
     version: "0.41.0",
     date: "28 Ağustos 2026",
     title: "Ortak Görünüş Aileleri",

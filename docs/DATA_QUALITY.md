@@ -16,6 +16,8 @@
 
 ## Açık sorunlar
 
+- İksir Reçeteleri sayfası ana oyun referansı kabul edildi; mevcut 40 ad / 11 malzeme dizininde adetler henüz yapılandırılmış kayda aktarılmadı.
+
 - Bazı Çemberlitaş arşiv satırlarında aynı özellik iki kez yazılmış görünüyor.
 - Cehennem parçalarında alan adı/değer eşleşmeleri tutarsız olabilir.
 - Gözlük, yüzük ve kolye kayıtları henüz doğrulanmadı.

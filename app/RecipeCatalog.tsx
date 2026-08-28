@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { publishableItems, recipes, sourceFor, talismans } from "../lib/catalog";
-import { indexedPotionCount, potionIngredientIndex, potionRecipeSourceId } from "../lib/potion-index";
+import { indexedPotionCount, potionIngredientIndex, potionRecipeSourceId, potionRecipeSourcePolicy } from "../lib/potion-index";
 import { talismanRecipes } from "../lib/talisman-recipes";
 import { itemVisualFamilyFor, potionVisualFamilies, talismanVisualFamilyFor } from "../lib/visual-families";
 
@@ -15,7 +15,7 @@ const normalize = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
 const categoryRows = [
   { id: "item" as const, label: "Eşya", count: recipes.length, note: "Şaheser ve ekipman" },
   { id: "talisman" as const, label: "Tılsım", count: talismanRecipes.length, note: "II, III ve özel" },
-  { id: "potion" as const, label: "İksir dizini", count: indexedPotionCount, note: "Kısmi malzeme bağlantıları" },
+  { id: "potion" as const, label: "İksir", count: indexedPotionCount, note: "İKV Wiki ana kaynağı" },
 ];
 
 const readList = (key: string) => {
@@ -97,8 +97,8 @@ export default function RecipeCatalog() {
     </nav>
 
     {kind === "potion" ? <section className="potionIndex">
-      <header><div><small>İKSİR KULLANIM DİZİNİ</small><h3>Malzemeden iksire git.</h3></div>{potionSource && <a href={potionSource.url} target="_blank" rel="noreferrer">Tam kaynak tablosu ↗</a>}</header>
-      <p>Bu bölüm kaynakta ilişkilendirilen iksir adlarını gösterir. Eksiksiz malzeme ve adet tablosu henüz site içine doğrulanmadığı için yarım reçete kartı yayımlanmaz.</p>
+      <header><div><small>İKSİR REÇETELERİ</small><h3>Malzemeden iksire git.</h3></div>{potionSource && <a href={potionSource.url} target="_blank" rel="noreferrer">İKV Wiki reçeteleri ↗</a>}</header>
+      <p><b>{potionRecipeSourcePolicy.label}.</b> Bu sayfadaki iksir bilgileri için ikinci kaynak teyidi aranmaz. Sitede şu an {indexedPotionCount} iksir adı ve {Object.keys(potionIngredientIndex).length} malzeme bağlantısı bulunur; adet tablosu içeri aktarılana kadar eksik miktar tam reçete gibi gösterilmez.</p>
       <div className="potionVisualLegend" aria-label="İksir görünüş aileleri">
         {potionVisualFamilies.map((family) => <article className={family.category ?? "support"} key={family.id}><i aria-hidden="true"/><span><small>ORTAK İKSİR GÖRÜNÜŞÜ</small><b>{family.label} · {family.color}</b><em>{family.sizeRule}</em></span></article>)}
       </div>

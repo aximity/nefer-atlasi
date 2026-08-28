@@ -1,15 +1,14 @@
 export const SITE_RELEASE = {
-  version: "0.41.1",
+  version: "0.41.2",
   channel: "BETA",
   milestone: "M41",
   releasedAt: "28 Ağustos 2026",
-  title: "Yönlendirme ve Pazar Onarımı",
+  title: "İksir Kaynak Kuralı",
   summary:
-    "Ana sayfadaki modüller URL ile sürekli eşitlendi; kırık derin bağlantılar, geri–ileri gezinme ve fiyat gözlemi akışı çalışır hâle getirildi.",
+    "İksir reçetelerinde İKV Wiki ana oyun referansı olarak tanımlandı; ikinci kaynak teyidi zorunluluğu kaldırıldı.",
   changes: [
-    "Tılsımdan reçeteye, reçeteden eşya veya tılsıma ve Atlas içindeki modül geçişleri ortak yönlendirme katmanına bağlandı.",
-    "Tarayıcı Geri/İleri düğmeleri, eski sorgu parametrelerinin temizliği ve eşya penceresinin Esc ile kapanması düzeltildi.",
-    "Fiyat gözlemi bağlantısı; yön, ilan/satış, miktar, para birimi, fiyat, kanal ve görsel ya da bağlantı kanıtı alanları olan gerçek forma dönüştürüldü.",
-    "Boss ve bölge Atlas kayıtlarının yanlış maden filtresine gitmesi önlendi; eski yerel üretim verileri güvenli biçimde okunuyor.",
+    "İksir sekmesi ‘İksir dizini’ yerine doğrudan ‘İksir’ olarak adlandırıldı.",
+    "Kaynak kartında İKV Wiki'nin ana kaynak olduğu ve çapraz doğrulama aranmadığı açıkça gösterildi.",
+    "Mevcut 40 iksir adı ile 11 malzeme bağlantısı korundu; aktarılmamış adetler tam reçete gibi gösterilmedi.",
   ],
 } as const;

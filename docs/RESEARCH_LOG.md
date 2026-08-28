@@ -193,3 +193,8 @@
 - [ ] TurkMMO Çemberlitaş arşiviyle satır karşılaştırması
 - [ ] Fandom Büyücü ve Şifacı Çemberlitaş eşya sayfalarının gerçek adreslerini ve dosya kaynak izlerini doğrula
 - [ ] Adı ve görünüşü aynı karede bulunan video kanıtları
+# 28 Ağustos 2026 — İksir reçetesi kaynak kararı
+
+- Kaynak: `fandom-potion-recipes-20260826` — İKV Wiki, İksir Reçeteleri.
+- Kullanıcı kararı: Sayfadaki iksir adı, malzeme ve adetleri oyun doğrusu kabul edilir; çapraz doğrulama aranmaz.
+- Uygulama: Kaynak `primary_game_reference` olarak işaretlendi. Kaynak güveni ile siteye aktarım kapsamı ayrıldı; aktarılmayan adetler tahmin edilmedi.

@@ -75,8 +75,9 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(talismanAtlas, /Normal İKV referansı/);
   assert.match(recipeCatalog, /label: "Eşya"/);
   assert.match(recipeCatalog, /label: "Tılsım"/);
-  assert.match(recipeCatalog, /label: "İksir dizini"/);
-  assert.match(recipeCatalog, /Kısmi malzeme bağlantıları/);
+  assert.match(recipeCatalog, /label: "İksir"/);
+  assert.match(recipeCatalog, /ikinci kaynak teyidi aranmaz/);
+  assert.match(recipeCatalog, /İKV Wiki ana kaynağı/);
   assert.match(recipeCatalog, /ORTAK İKSİR GÖRÜNÜŞÜ/);
   assert.match(recipeCatalog, /talisman\.effectText/);
   assert.match(recipeCatalog, /<details/);

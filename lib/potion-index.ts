@@ -1,4 +1,9 @@
 export const potionRecipeSourceId = "fandom-potion-recipes-20260826";
+export const potionRecipeSourcePolicy = {
+  authority: "primary_game_reference",
+  requiresCrossVerification: false,
+  label: "Ana kaynak · İKV Wiki",
+} as const;
 
 export const potionIngredientIndex: Record<string, string[]> = {
   "Meşe Odunu": ["Kedi İyileştiren", "Zırh Artırıcı", "Buz Hasarı Veren", "Zehir Hasarı Artırıcı"],

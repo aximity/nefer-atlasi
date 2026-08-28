@@ -18,7 +18,7 @@ export type SourceType = "official" | "server_guide" | "community_server_guide" 
 export type CharacterClass = "Savaşçı" | "Büyücü" | "Şifacı";
 export type Slot = "Gözlük" | "Ceket" | "Eldiven" | "Pantolon" | "Ayakkabı" | "Zırh" | "Amplifikatör" | "Yüzük" | "Kolye" | "Silah";
 export interface EvidenceClaim {id:string;itemId:string;field:string;sourceId:string;locator:string;status:VerificationStatus;checkedAt:string}
-export interface Source {id:string;url:string;title:string;type:SourceType;accessedAt:string;independenceGroup:string}
+export interface Source {id:string;url:string;title:string;type:SourceType;accessedAt:string;independenceGroup:string;authority?:"primary_game_reference";requiresCrossVerification?:boolean}
 export interface Stat {id:string;itemId:string;attribute:string;value:number;unit:string;verificationStatus:VerificationStatus;lastChecked:string}
 export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıflar";level:number|null;slot:Slot;rarity:"Şaheser"|"Doğrulanmadı";appearanceFamily?:string;publicationStatus:VerificationStatus;lastChecked:string;region?:string;boss?:string;acquisition?:string}
 export interface AppearanceImage {id:string;appearanceFamily:string;class:CharacterClass;label:string;sourceId:string;url:string;focus:string;checkedAt:string;scope:"set_appearance";nameAndSetAppearanceTogether:true}

@@ -172,3 +172,8 @@
 - Üç sınıfın 11 Çemberlitaş set ailesi 67 eşya kaydıyla tamamlandı.
 - Savaşçı ve Şifacı için Zırh, Büyücü için Amplifikatör yuvası eklendi.
 - Büyücü fiziksel, Savaşçı ateş, Şifacı iyileştirme/asit/zehir hedefleri gerçek setlerle dolduruldu.
+# v0.41.2 — İksir Kaynak Kuralı
+
+- İKV Wiki İksir Reçeteleri sayfası ana oyun referansı olarak tanımlandı.
+- İksir sekmesindeki çapraz teyit bekleme dili kaldırıldı.
+- Mevcut iksir/malzeme dizini korunurken aktarılmamış adetlerin tam reçete gibi gösterilmesi engellendi.

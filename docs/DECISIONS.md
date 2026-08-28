@@ -83,3 +83,7 @@ Yapışkan üst başlık ve ana gezinme stilleri çıplak `header` veya `nav` et
 ## ADR-021 — Trafik ölçümü birinci taraf ve veri-minimumdur
 
 Trafik ölçümü haricî bir izleyici yerine mevcut D1 üzerinde tutulur. Ham IP, tam kullanıcı aracısı, ad, e-posta veya oyun hesabı kaydedilmez. Tekil ziyaretçi hesabı gizli anahtarlı, günle sınırlı özet üzerinden yapılır; bu nedenle günler arası kişi profili çıkarılmaz. Özel trafik paneli herkese açık siteden ayrıdır, navigasyonda yayımlanmaz ve ChatGPT kimliği yerine güçlü erişim anahtarı, imzalı HttpOnly oturum ve giriş hız sınırı kullanır. Reklam kodu yalnız geçerli yayıncı ayarları ve ziyaretçi izni birlikte bulunduğunda çalışır.
+
+## ADR-022 — İksir reçetelerinde İKV Wiki ana oyun referansıdır
+
+Kullanıcının 28 Ağustos 2026 tarihli açık kaynak kararıyla İKV Wiki'deki İksir Reçeteleri sayfası bu proje için iksir adı, malzeme ve adetlerinde ana oyun referansıdır. Bu kapsamdaki bilgi ikinci bağımsız kaynak beklemeden yayımlanabilir. Kaynakta henüz siteye aktarılmamış alanlar tahmin edilmez; aktarım eksikliği ile kaynak güveni ayrı tutulur.
