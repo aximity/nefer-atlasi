@@ -269,16 +269,42 @@ test("yayımlanan temel eşya alanlarının tarihli ve kaynaklı kanıtı vardı
   }
 });
 
-test("çelişkili özellikler yayımlanabilir özellik toplamına girmez", () => {
-  const conflicted = stats.filter(
-    (stat) => stat.verificationStatus === "conflicted",
-  );
-  assert.ok(conflicted.length > 0, "beklenen çelişkili denetim örneği yok");
-  assert.ok(
-    conflicted.every(
-      (stat) => !publishableStatuses.has(stat.verificationStatus),
-    ),
-  );
+test("Çemberlitaş çift özellik satırları hesap toplamına bir kez ve doğru değerle girer", () => {
+  const expectedTotals = new Map([
+    ["stat-tas-kanat-ceket-maksimum-enerji", 954000],
+    ["stat-kiyamet-ceket-buyu-hasari-fiziksel", 300000],
+    ["stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel", 300000],
+    ["stat-sifir-kelvin-ceket-buyu-hasari-buz", 300000],
+    ["stat-sifir-kelvin-amplifikator-buyu-hasari-buz", 300000],
+    ["stat-transformator-ceket-buyu-hasari-elektrik", 300000],
+    ["stat-transformator-amplifikator-buyu-hasari-elektrik", 300000],
+    ["stat-cehennem-ceket-buyu-hasari-ates", 300000],
+    ["stat-cehennem-amplifikator-buyu-hasari-ates", 300000],
+    ["stat-mevlana-ceket-iyilestirme-buyuleri", 448000],
+    ["stat-mevlana-asa-iyilestirme-buyuleri", 766000],
+  ]);
+  for (const [id, value] of expectedTotals) {
+    const row = stats.find((stat) => stat.id === id);
+    assert.equal(row?.value, value, `${id} toplamı yanlış`);
+    assert.equal(row?.verificationStatus, "single_source", `${id} hesap dışı kaldı`);
+  }
+
+  const removedFalseRows = [
+    "stat-tas-kanat-ceket-savunma",
+    "stat-kiyamet-ceket-maksimum-kudret",
+    "stat-kiyamet-amplifikatoru-maksimum-kudret",
+    "stat-sifir-kelvin-ceket-maksimum-kudret",
+    "stat-sifir-kelvin-amplifikator-maksimum-kudret",
+    "stat-transformator-ceket-maksimum-kudret",
+    "stat-transformator-amplifikator-maksimum-kudret",
+    "stat-cehennem-ceket-maksimum-kudret",
+    "stat-cehennem-amplifikator-maksimum-kudret",
+    "stat-mevlana-ceket-maksimum-kudret",
+  ];
+  assert.ok(removedFalseRows.every((id) => !stats.some((stat) => stat.id === id)));
+  assert.equal(stats.filter((stat) => stat.verificationStatus === "conflicted").length, 0);
+  assert.equal(evidence.filter((claim) => claim.status === "conflicted").length, 0);
+  assert.equal(items.filter((item) => item.publicationStatus === "conflicted").length, 0);
 });
 
 test("reçeteler pozitif miktarlı parça satırlarına ve bir kaynağa bağlıdır", () => {

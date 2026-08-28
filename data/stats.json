@@ -165,19 +165,10 @@
     "id": "stat-tas-kanat-ceket-maksimum-enerji",
     "itemId": "tas-kanat-ceket",
     "attribute": "Maksimum Enerji",
-    "value": 477000,
+    "value": 954000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-tas-kanat-ceket-savunma",
-    "itemId": "tas-kanat-ceket",
-    "attribute": "Savunma",
-    "value": 13760,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-tas-kanat-ceket-kritik-zirhi",
@@ -579,19 +570,10 @@
     "id": "stat-kiyamet-ceket-buyu-hasari-fiziksel",
     "itemId": "kiyamet-ceket",
     "attribute": "Büyü Hasarı (Fiziksel)",
-    "value": 150000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-kiyamet-ceket-maksimum-kudret",
-    "itemId": "kiyamet-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 300000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-kiyamet-ceket-buyu-kritik-sansi",
@@ -687,19 +669,10 @@
     "id": "stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel",
     "itemId": "kiyamet-amplifikatoru",
     "attribute": "Büyü Hasarı (Fiziksel)",
-    "value": 150000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-kiyamet-amplifikatoru-maksimum-kudret",
-    "itemId": "kiyamet-amplifikatoru",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 300000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-kiyamet-amplifikatoru-buyu-kritik-sansi",
@@ -750,19 +723,10 @@
     "id": "stat-sifir-kelvin-ceket-buyu-hasari-buz",
     "itemId": "sifir-kelvin-ceket",
     "attribute": "Büyü Hasarı (Buz)",
-    "value": 150000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-sifir-kelvin-ceket-maksimum-kudret",
-    "itemId": "sifir-kelvin-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 300000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-sifir-kelvin-ceket-buyu-kritik-sansi",
@@ -858,19 +822,10 @@
     "id": "stat-sifir-kelvin-amplifikator-buyu-hasari-buz",
     "itemId": "sifir-kelvin-amplifikator",
     "attribute": "Büyü Hasarı (Buz)",
-    "value": 150000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-sifir-kelvin-amplifikator-maksimum-kudret",
-    "itemId": "sifir-kelvin-amplifikator",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 300000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-sifir-kelvin-amplifikator-buyu-kritik-sansi",
@@ -921,19 +876,10 @@
     "id": "stat-transformator-ceket-buyu-hasari-elektrik",
     "itemId": "transformator-ceket",
     "attribute": "Büyü Hasarı (Elektrik)",
-    "value": 150000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-transformator-ceket-maksimum-kudret",
-    "itemId": "transformator-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 300000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-transformator-ceket-buyu-kritik-sansi",
@@ -1029,19 +975,10 @@
     "id": "stat-transformator-amplifikator-buyu-hasari-elektrik",
     "itemId": "transformator-amplifikator",
     "attribute": "Büyü Hasarı (Elektrik)",
-    "value": 150000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-transformator-amplifikator-maksimum-kudret",
-    "itemId": "transformator-amplifikator",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 300000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-transformator-amplifikator-buyu-kritik-sansi",
@@ -1092,19 +1029,10 @@
     "id": "stat-cehennem-ceket-buyu-hasari-ates",
     "itemId": "cehennem-ceket",
     "attribute": "Büyü Hasarı (Ateş)",
-    "value": 150000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-cehennem-ceket-maksimum-kudret",
-    "itemId": "cehennem-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 300000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-cehennem-ceket-buyu-kritik-sansi",
@@ -1200,19 +1128,10 @@
     "id": "stat-cehennem-amplifikator-buyu-hasari-ates",
     "itemId": "cehennem-amplifikator",
     "attribute": "Büyü Hasarı (Ateş)",
-    "value": 150000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-cehennem-amplifikator-maksimum-kudret",
-    "itemId": "cehennem-amplifikator",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 300000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-cehennem-amplifikator-buyu-kritik-sansi",
@@ -1425,19 +1344,10 @@
     "id": "stat-mevlana-ceket-iyilestirme-buyuleri",
     "itemId": "mevlana-ceket",
     "attribute": "İyileştirme Büyüleri",
-    "value": 224000,
-    "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
-  },
-  {
-    "id": "stat-mevlana-ceket-maksimum-kudret",
-    "itemId": "mevlana-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "value": 448000,
     "unit": "puan",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-mevlana-ceket-buyu-kritik-sansi",
@@ -1560,10 +1470,10 @@
     "id": "stat-mevlana-asa-iyilestirme-buyuleri",
     "itemId": "mevlana-asa",
     "attribute": "İyileştirme Büyüleri",
-    "value": 383000,
+    "value": 766000,
     "unit": "puan",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-08-28"
   },
   {
     "id": "stat-mevlana-asa-buyu-kritik-sansi",

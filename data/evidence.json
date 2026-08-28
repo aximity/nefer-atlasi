@@ -544,18 +544,9 @@
     "itemId": "tas-kanat-ceket",
     "field": "stats.Maksimum Enerji",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Taş Kanat Ceket özellik satırları",
+    "locator": "Taş Kanat Ceket: iki ayrı Maksimum Enerji 477.000 satırı; hesap toplamı 954.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-tas-kanat-ceket-savunma",
-    "itemId": "tas-kanat-ceket",
-    "field": "stats.Savunma",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Taş Kanat Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-tas-kanat-ceket-kritik-zirhi",
@@ -1777,18 +1768,9 @@
     "itemId": "kiyamet-ceket",
     "field": "stats.Büyü Hasarı (Fiziksel)",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Kıyamet Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-kiyamet-ceket-maksimum-kudret",
-    "itemId": "kiyamet-ceket",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Kıyamet Ceket özellik satırları",
+    "locator": "Kıyamet Ceket: iki ayrı Büyü Hasarı (Fiziksel) 150.000 satırı; hesap toplamı 300.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-kiyamet-ceket-buyu-kritik-sansi",
@@ -2137,18 +2119,9 @@
     "itemId": "kiyamet-amplifikatoru",
     "field": "stats.Büyü Hasarı (Fiziksel)",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Kıyamet Amplifikatörü özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-kiyamet-amplifikatoru-maksimum-kudret",
-    "itemId": "kiyamet-amplifikatoru",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Kıyamet Amplifikatörü özellik satırları",
+    "locator": "Kıyamet Amplifikatörü: iki ayrı Büyü Hasarı (Fiziksel) 150.000 satırı; hesap toplamı 300.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-kiyamet-amplifikatoru-buyu-kritik-sansi",
@@ -2326,18 +2299,9 @@
     "itemId": "sifir-kelvin-ceket",
     "field": "stats.Büyü Hasarı (Buz)",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Sıfır Kelvin Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-sifir-kelvin-ceket-maksimum-kudret",
-    "itemId": "sifir-kelvin-ceket",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Sıfır Kelvin Ceket özellik satırları",
+    "locator": "Sıfır Kelvin Ceket: iki ayrı Büyü Hasarı (Buz) 150.000 satırı; hesap toplamı 300.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-sifir-kelvin-ceket-buyu-kritik-sansi",
@@ -2686,18 +2650,9 @@
     "itemId": "sifir-kelvin-amplifikator",
     "field": "stats.Büyü Hasarı (Buz)",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Sıfır Kelvin Amplifikatör özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-sifir-kelvin-amplifikator-maksimum-kudret",
-    "itemId": "sifir-kelvin-amplifikator",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Sıfır Kelvin Amplifikatör özellik satırları",
+    "locator": "Sıfır Kelvin Amplifikatör: iki ayrı Büyü Hasarı (Buz) 150.000 satırı; hesap toplamı 300.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-sifir-kelvin-amplifikator-buyu-kritik-sansi",
@@ -2875,18 +2830,9 @@
     "itemId": "transformator-ceket",
     "field": "stats.Büyü Hasarı (Elektrik)",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Transformatör Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-transformator-ceket-maksimum-kudret",
-    "itemId": "transformator-ceket",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Transformatör Ceket özellik satırları",
+    "locator": "Transformatör Ceket: iki ayrı Büyü Hasarı (Elektrik) 150.000 satırı; hesap toplamı 300.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-transformator-ceket-buyu-kritik-sansi",
@@ -3235,18 +3181,9 @@
     "itemId": "transformator-amplifikator",
     "field": "stats.Büyü Hasarı (Elektrik)",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Transformatör Amplifikatör özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-transformator-amplifikator-maksimum-kudret",
-    "itemId": "transformator-amplifikator",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Transformatör Amplifikatör özellik satırları",
+    "locator": "Transformatör Amplifikatör: iki ayrı Büyü Hasarı (Elektrik) 150.000 satırı; hesap toplamı 300.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-transformator-amplifikator-buyu-kritik-sansi",
@@ -3424,18 +3361,9 @@
     "itemId": "cehennem-ceket",
     "field": "stats.Büyü Hasarı (Ateş)",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Cehennem Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-cehennem-ceket-maksimum-kudret",
-    "itemId": "cehennem-ceket",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Cehennem Ceket özellik satırları",
+    "locator": "Cehennem Ceket: iki ayrı Büyü Hasarı (Ateş) 150.000 satırı; hesap toplamı 300.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-cehennem-ceket-buyu-kritik-sansi",
@@ -3784,18 +3712,9 @@
     "itemId": "cehennem-amplifikator",
     "field": "stats.Büyü Hasarı (Ateş)",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Cehennem Amplifikatör özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-cehennem-amplifikator-maksimum-kudret",
-    "itemId": "cehennem-amplifikator",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Cehennem Amplifikatör özellik satırları",
+    "locator": "Cehennem Amplifikatör: iki ayrı Büyü Hasarı (Ateş) 150.000 satırı; hesap toplamı 300.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-cehennem-amplifikator-buyu-kritik-sansi",
@@ -4513,18 +4432,9 @@
     "itemId": "mevlana-ceket",
     "field": "stats.İyileştirme Büyüleri",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Mevlana Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
-  },
-  {
-    "id": "ev-stat-mevlana-ceket-maksimum-kudret",
-    "itemId": "mevlana-ceket",
-    "field": "stats.Maksimum Kudret",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Mevlana Ceket özellik satırları",
+    "locator": "Mevlana Ceket: iki ayrı İyileştirme Büyüleri 224.000 satırı; hesap toplamı 448.000",
     "status": "single_source",
-    "checkedAt": "2026-08-22"
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-mevlana-ceket-buyu-kritik-sansi",
@@ -4963,9 +4873,9 @@
     "itemId": "mevlana-asa",
     "field": "stats.İyileştirme Büyüleri",
     "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Mevlana Asa özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "locator": "Mevlana Asa: iki ayrı İyileştirme Büyüleri 383.000 satırı; hesap toplamı 766.000",
+    "status": "single_source",
+    "checkedAt": "2026-08-28"
   },
   {
     "id": "ev-stat-mevlana-asa-buyu-kritik-sansi",

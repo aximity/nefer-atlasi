@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M49: Çemberlitaş hesap güvenliği
+
+- [x] 11 çelişkili özellik kaydını kaynak satırlarıyla yeniden denetle
+- [x] Aynı özellikten iki satırı hesapta doğru toplam olarak birleştir
+- [x] Ceket ve amplifikatörlere yanlış bağlanan Maksimum Kudret kayıtlarını kaldır
+- [x] Taş Kanat Ceket'teki yanlış Savunma kaydını kaldır
+- [x] Çözülen toplamlar ve kaldırılan satırlar için otomatik yayın kapısı ekle
+
+Çıkış kapısı: Çelişkili özellik kaydı kalmaz; çift satırlı Çemberlitaş özellikleri bir kez ve doğru toplamla build hesabına girer; eşyada olmayan özellikler yayımlanmaz.
+
 ## Tamamlandı — M48: Tılsım edinimi ve fotoğraf önerisi
 
 - [x] Kaynakta adı eşleşen I. kademe tılsımları sahte reçete üretmeden hazır edinim olarak bağla

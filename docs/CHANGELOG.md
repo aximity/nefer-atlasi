@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+# v0.49.0 — Çemberlitaş Hesap Güvenliği
+
+- Yanlış hesaplama riski taşıyan 11 çelişkili Çemberlitaş özellik kaydı kaynak satırlarıyla yeniden denetlendi; açık çelişki sayısı sıfıra indi.
+- Aynı eşyada iki ayrı satır olarak bulunan özellikler hesap için tek toplamda birleştirildi: 2×150.000 hasar, 2×224.000 iyileştirme, 2×383.000 iyileştirme ve 2×477.000 enerji.
+- Kıyafet ve amplifikatörlerde bulunmadığı hâlde eklenmiş dokuz Maksimum Kudret satırı ile Taş Kanat Ceket'teki yanlış Savunma satırı kaldırıldı.
+- Kıyamet, Sıfır Kelvin, Transformatör ve Cehennem ceket/amplifikatörleri 300.000 ilgili büyü hasarı; Mevlana Ceket 448.000 iyileştirme; Mevlana Asa 766.000 iyileştirme; Taş Kanat Ceket 954.000 enerjiyle hesaplanıyor.
+- Otomatik veri testi çözülen toplamları, kaldırılan yanlış satırları ve açık çelişki sayısını yayın kapısında denetliyor.
+
 # v0.48.0 — Tılsım Edinimi ve Fotoğraf Önerisi
 
 - Gönül kaydı veya KÖ oyuncu bildirimiyle adı ve rengi eşleşen 10 benzersiz I. kademe tılsım girdisi, reçete uydurulmadan hazır edinim kaynağına bağlandı.

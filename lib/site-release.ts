@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.48.0",
+  version: "0.49.0",
   channel: "BETA",
-  milestone: "M48",
+  milestone: "M49",
   releasedAt: "28 Ağustos 2026",
-  title: "Tılsım Edinimi ve Fotoğraf Önerisi",
+  title: "Çemberlitaş Hesap Güvenliği",
   summary:
-    "Kaynaklı I. kademe tılsımlar hazır edinim olarak üretim zincirine bağlandı; fotoğraf taslağı en yakın üretimi stok onayından önce gösteriyor.",
+    "Çift yazılan Çemberlitaş özellikleri doğru toplamla hesaplamaya alındı; eşyada bulunmayan özellik satırları kaldırıldı.",
   changes: [
-    "Gönül kaydı veya KÖ oyuncu bildirimiyle adı ve rengi eşleşen 10 I. kademe tılsım, sahte reçete eklenmeden hazır edinim kaynağına bağlandı.",
-    "Oyuncu bilgisine dayanan hazır tılsımlar üretim planında NPC ve bölgeyi gösteriyor; dükkân görüntüsü gelene kadar doğrulama bekliyor etiketi taşıyor.",
-    "Açık malzeme kaynağı sayısı 78'den 68'e indi; kanıtsız kalan 43 I. kademe tılsım ve 25 temel malzeme tahminsiz bırakıldı.",
-    "Fotoğraftan seçilen ikon ve adet taslağı, stok değiştirilmeden önce en yakın üretimi veya yeni üretilebilir reçete sayısını hesaplıyor.",
-    "Fotoğraf görüntüsü cihazda kalıyor; malzeme seçimi ve stok onayı kullanıcı kontrolünde tutuluyor.",
+    "11 çelişkili Çemberlitaş özellik kaydı kaynak satırlarıyla yeniden denetlendi ve çelişkili kayıt sayısı sıfıra indirildi.",
+    "Aynı eşyada iki kez bulunan 150.000 hasar, 224.000 iyileştirme, 383.000 iyileştirme ve 477.000 enerji satırları hesap toplamı olarak birleştirildi.",
+    "Ceket ve amplifikatörlere yanlışlıkla bağlanan Maksimum Kudret satırları ile Taş Kanat Ceket'teki yanlış Savunma satırı kaldırıldı.",
+    "Build toplamları artık Kıyamet, Sıfır Kelvin, Transformatör, Cehennem, Mevlana ve Taş Kanat parçalarını doğru değerle hesaplıyor.",
+    "Yeni veri kapısı, çözülen 11 toplamı ve kaldırılan 10 yanlış satırı otomatik olarak denetliyor.",
   ],
 } as const;
