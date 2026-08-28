@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+# v0.54.0 — Sığınak Bilgi Kutuları
+
+- 2018 Sığınaklar rehberindeki bağlı oyun içi bilgi kutuları 10 eksik eşya için 29 özellik satırına dönüştürüldü.
+- Işık Hanım, Kenan'ın Gücü, Evocati'nin Koruması, Funditores'in Şifası, Centurion Zehiri, Oksidant, Nucleus, Kıyamet Alevi ve Alternator değerleri tahminsiz kaydedildi.
+- Kıyamet Alevi Kolye'deki iki ayrı 130.000 Ateş Büyü Hasarı satırı hesapta 260.000 toplam olarak korunuyor.
+- Alternatör Kolye ikinci oyun içi görüntüyle çapraz doğrulandı.
+- Motorin ve Niobyum Sığınaklar ortak materyal listesine bağlandı.
+- Özellik açığı 27'den 17'ye, malzeme kaynağı açığı 20'den 18'e, ikinci teyit açığı 12'den 11'e ve toplam Atlas açığı 85'ten 72'ye düştü.
+
 # v0.53.0 — Çemberlitaş Kimlik Teyidi
 
 - Savaşçı, Büyücü ve Şifacı için 67 reçeteli Çemberlitaş şaheseri MaxiGame arşivi ile 2013 tarihli İKV bilgi belgesinde eşleştirildi.

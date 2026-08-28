@@ -23,6 +23,7 @@ const abilityMedia = read("ability-media.json");
 const groupLootItems = read("group-loot-items.json");
 const groupLootEvidence = read("group-loot-evidence.json");
 const cemberlitasEvidence = read("cemberlitas-evidence.json");
+const itemCrossEvidence = read("item-cross-evidence.json");
 const glassesItems = read("glasses-items.json");
 const glassesStats = read("glasses-stats.json");
 const groupDerivedStats = read("group-derived-stats.json");
@@ -102,6 +103,20 @@ test("67 Çemberlitaş reçeteli eşyanın kimliği iki bağımsız arşivde do�
   assert.ok(!cemberlitasEvidence.some((group) => group.itemIds.includes("alternator-kolye")));
 });
 
+test("Alternatör Kolye iki bağımsız oyun içi bilgi kutusuyla doğrulanır", () => {
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  const groups = new Set(itemCrossEvidence.filter((claim) => claim.itemIds.includes("alternator-kolye") && claim.status === "cross_verified").map((claim) => sourceById.get(claim.sourceId)?.independenceGroup));
+  assert.equal(groups.size, 2);
+});
+
+test("Sığınak oyun içi görüntüleri on eksik eşyanın özelliklerini açar", () => {
+  const screenshotRows = groupDerivedStats.filter((row) => row.sourceId === "shiftdelete-siginak-2018");
+  assert.equal(new Set(screenshotRows.map((row) => row.itemId)).size, 10);
+  assert.equal(screenshotRows.length, 29);
+  assert.equal(screenshotRows.find((row) => row.id === "stat-kiyamet-alevi-kolye-ates")?.value, 260000);
+  assert.equal(screenshotRows.find((row) => row.id === "stat-evocatinin-korumasi-kolye-zirh")?.value, 42);
+});
+
 test("üç sınıf için yüzük, kolye ve hesaplanabilir gözlük verisi vardır", () => {
   assert.equal(groupLootItems.length, 50);
   assert.equal(glassesItems.length, 11);
@@ -138,7 +153,7 @@ test("grup eşyalarındaki birebir efsun adları tahminsiz özellik değerine ba
   assert.deepEqual(rowsFor("arsenikli-halit-osmiridyum-runlu-balyoz").map((row) => [row.attribute, row.value]).toSorted(), [["Hasar (Zehir)", 187000], ["Kritik Vuruş İhtimali", 2721]]);
   assert.deepEqual(rowsFor("ibni-sina-cevriye-cibanli-akrep-asa").map((row) => [row.attribute, row.value]).toSorted(), [["Büyü Kritik Şansı", 2721], ["İyileştirme Büyüleri", 140000]]);
   assert.equal(rowsFor("zilfallon-halit-osmiridyum-gumus-dis").find((row) => row.attribute === "Kritik Vuruş İhtimali")?.value, 2721);
-  assert.equal(groupLootItems.filter((item) => !rowsFor(item.id).length).length, 27);
+  assert.equal(groupLootItems.filter((item) => !rowsFor(item.id).length).length, 17);
 });
 
 test("Sığınak, Migrat ve Çemberlitaş ekipmanları üç sınıfta da kapsanır", () => {

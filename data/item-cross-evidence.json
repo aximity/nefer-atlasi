@@ -1,0 +1,16 @@
+[
+  {
+    "sourceId": "player-alternator-kolye-20260823",
+    "itemIds": ["alternator-kolye"],
+    "locator": "Oyun içi eşya bilgi kutusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-28"
+  },
+  {
+    "sourceId": "shiftdelete-siginak-2018",
+    "itemIds": ["alternator-kolye"],
+    "locator": "Büyücü ganimet listesi · Alternator Kolye bağlantılı oyun içi bilgi kutusu",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-28"
+  }
+]

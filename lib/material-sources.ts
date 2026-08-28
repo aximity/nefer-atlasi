@@ -120,6 +120,24 @@ export const creatureDropSources: readonly CreatureDropSource[] = [
     verification: "Kaynaklı kayıt",
     source: "https://oyun-ikv.tr.gg/S.ue.r.ue.m-Notlar%26%23305%3B-%5B-Oe-nemli%5D.htm",
   },
+  {
+    kind: "creature_drop",
+    name: "Motorin",
+    region: "Sığınaklar",
+    enemy: "Sığınaklar bossları",
+    usage: "Sığınaklar rehberinde ortak materyal olarak listelenir",
+    verification: "Kaynaklı kayıt",
+    source: "https://forum.shiftdelete.net/konular/istanbul-kiyamet-vakti-siginaklar.537131/",
+  },
+  {
+    kind: "creature_drop",
+    name: "Niobyum",
+    region: "Sığınaklar",
+    enemy: "Sığınaklar bossları",
+    usage: "Sığınaklar rehberinde ortak materyal olarak listelenir",
+    verification: "Kaynaklı kayıt",
+    source: "https://forum.shiftdelete.net/konular/istanbul-kiyamet-vakti-siginaklar.537131/",
+  },
 ] as const;
 
 const normalize = (value: string) => value.trim().toLocaleLowerCase("tr-TR");

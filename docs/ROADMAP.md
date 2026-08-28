@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M54: Sığınak bilgi kutuları
+
+- [x] Sığınak rehberindeki bağlı oyun içi görüntüleri eşya bazında denetle
+- [x] Okunabilir 10 eşyanın sayısal özelliklerini kaynaklı satırlara dönüştür
+- [x] Çift Ateş Hasarı satırını toplamda bir kez ve doğru değerle kullan
+- [x] Alternatör Kolye'yi ikinci bağımsız oyun içi görüntüyle doğrula
+- [x] Motorin ve Niobyum'u Sığınaklar ortak materyal kaynağına bağla
+
+Çıkış kapısı: 10 eşya için 29 özellik satırı yayımlanır; özellik açığı 17'ye, malzeme kaynağı açığı 18'e, ikinci teyit açığı 11'e ve toplam açık iş 72'ye iner.
+
 ## Tamamlandı — M53: Çemberlitaş kimlik teyidi
 
 - [x] 67 reçeteli Çemberlitaş şaheserini ikinci bağımsız arşivle eşleştir

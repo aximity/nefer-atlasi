@@ -59,6 +59,16 @@ test("Çemberlitaş sürüm notlarındaki üç yaratık ganimeti bölge uydurulm
   }
 });
 
+test("Sığınak rehberindeki ortak materyaller bölge kaynağına bağlanır", () => {
+  for (const name of ["Motorin", "Niobyum"]) {
+    const source = materialSourceFor(name);
+    assert.equal(source?.kind, "creature_drop");
+    assert.equal(source?.region, "Sığınaklar");
+    assert.equal(source?.enemy, "Sığınaklar bossları");
+    assert.equal(source?.verification, "Kaynaklı kayıt");
+  }
+});
+
 test("iksir ara malzemeleri üretim zincirine bağlanır", () => {
   const expected = {
     "Ok Sertleştirici": ["Sarraf", 9, "Obsidyen", 8],
