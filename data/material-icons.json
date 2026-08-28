@@ -238,5 +238,240 @@
     "name": "Turkuaz",
     "path": "/materials/turkuaz.png",
     "sourceId": "ikv-wiki-potion-recipes"
+  },
+  {
+    "name": "Yeşil Elmas",
+    "path": "/materials/yesil-elmas.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Sinek Mantarı",
+    "path": "/materials/sinek-mantari.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Alexandrite",
+    "path": "/materials/alexandrite.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Dört Yapraklı Yonca",
+    "path": "/materials/dort-yaprakli-yonca.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Hidrojen",
+    "path": "/materials/hidrojen.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Niobyum",
+    "path": "/materials/niobyum.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Klorotoksin",
+    "path": "/materials/klorotoksin.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Kadim Hidra Pençesi",
+    "path": "/materials/kadim-hidra-pencesi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Liderlik Sembolü",
+    "path": "/materials/liderlik-sembolu.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Meran Mücevheri",
+    "path": "/materials/meran-mucevheri.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Dev Komodo Dişi",
+    "path": "/materials/dev-komodo-disi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Örümcek Gözü",
+    "path": "/materials/orumcek-gozu.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Likit Kristal",
+    "path": "/materials/likit-kristal.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Latex",
+    "path": "/materials/latex.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Ateş Boyası",
+    "path": "/materials/ates-boyasi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Hydrargyrum",
+    "path": "/materials/hydrargyrum.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "İpek",
+    "path": "/materials/ipek.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Köşk Madalyonu",
+    "path": "/materials/kosk-madalyonu.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Hidra Pençesi",
+    "path": "/materials/hidra-pencesi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Taşkanat Derisi",
+    "path": "/materials/taskanat-derisi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Erg Yongası",
+    "path": "/materials/erg-yongasi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Antimon",
+    "path": "/materials/antimon.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Sürüngen Pulu",
+    "path": "/materials/surungen-pulu.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Kenevir Lifi",
+    "path": "/materials/kenevir-lifi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Galata Sembolü",
+    "path": "/materials/galata-sembolu.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Motorin",
+    "path": "/materials/motorin.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Geyik Derisi",
+    "path": "/materials/geyik-derisi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Mavi Topaz",
+    "path": "/materials/mavi-topaz.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Saf Platin",
+    "path": "/materials/saf-platin.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Çıban Çiçeği",
+    "path": "/materials/ciban-cicegi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "İridyum",
+    "path": "/materials/iridyum.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Saf Gümüş",
+    "path": "/materials/saf-gumus.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Menekşe Elmas",
+    "path": "/materials/menekse-elmas.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Ganoderma",
+    "path": "/materials/ganoderma.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Osmiyum",
+    "path": "/materials/osmiyum.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Kripraz",
+    "path": "/materials/kripraz.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Budaksız Abanoz",
+    "path": "/materials/budaksiz-abanoz.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Akik",
+    "path": "/materials/akik.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Zamk",
+    "path": "/materials/zamk.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Sibiryalı",
+    "path": "/materials/sibiryali.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Saf Krom",
+    "path": "/materials/saf-krom.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Turuncu Safir",
+    "path": "/materials/turuncu-safir.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Şelit",
+    "path": "/materials/selit.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Kızıl Zümrüt",
+    "path": "/materials/kizil-zumrut.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Saf Tungsten",
+    "path": "/materials/saf-tungsten.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Koni Çiçeği",
+    "path": "/materials/koni-cicegi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Yeşil Zümrüt",
+    "path": "/materials/yesil-zumrut.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
   }
 ]
