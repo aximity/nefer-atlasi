@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+# v0.53.0 — Çemberlitaş Kimlik Teyidi
+
+- Savaşçı, Büyücü ve Şifacı için 67 reçeteli Çemberlitaş şaheseri MaxiGame arşivi ile 2013 tarihli İKV bilgi belgesinde eşleştirildi.
+- Her eşyanın ad, sınıf ve yuva alanı iki ayrı kaynak grubuna bağlanarak çapraz doğrulandı.
+- Özellik değerlerinin mevcut kaynak durumu değiştirilmedi; kimlik teyidi sayısal özellik teyidi gibi gösterilmiyor.
+- Reçete arşivinde bulunmayan Alternatör Kolye tek kaynak durumunda bırakıldı.
+- İkinci teyit açığı 79'dan 12'ye, toplam Atlas açığı 152'den 85'e düştü.
+
 # v0.52.0 — Çift Kaynaklı Grup Ganimetleri
 
 - Sığınaklar ve Migrat'taki 50 eşyanın ad, sınıf ve yuva alanları Wiki ile ayrı forum ganimet listesinde eşleştirildi.

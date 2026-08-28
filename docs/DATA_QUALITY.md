@@ -29,4 +29,5 @@
 - Likit Kristal, Klorotoksin ve Sürüngen Pulu için düşüren yaratık açıkça kaynaklandı; aynı metinde bölge verilmediğinden Atlas bölge tahmini yapmıyor.
 - `Fevzi Bey Modeli / Fevzi Bey İcadı`, `Tarshass Menşeili / Tarsharss Modeli` ve benzeri yakın yazımlar aynı efsun sayılmıyor; oyun içi özellik görüntüsü veya açık kaynak satırı bekleniyor.
 - 67 Çemberlitaş şaheser kaydı modele alındı; 28 Ağustos 2026 denetiminde 11 açık sayısal çelişki çözüldü ve eşyada bulunmayan 10 özellik satırı kaldırıldı.
-- Mevcut kayıtların tamamı ikinci bağımsız kaynak bekliyor.
+- Bu 67 reçeteli eşyanın ad, sınıf ve yuva alanları MaxiGame arşivi ile 2013 tarihli İKV bilgi belgesinde çapraz doğrulandı. Bu teyit sayısal özellik alanlarının kaynak durumunu kendiliğinden yükseltmez.
+- Reçete listesinde yer almayan Alternatör Kolye ile 11 gözlük kaydı ikinci bağımsız kaynak bekliyor.

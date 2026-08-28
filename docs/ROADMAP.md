@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M53: Çemberlitaş kimlik teyidi
+
+- [x] 67 reçeteli Çemberlitaş şaheserini ikinci bağımsız arşivle eşleştir
+- [x] Ad, sınıf ve yuva alanlarını eşya bazında çapraz doğrula
+- [x] Özellik değerlerinin kaynak durumunu kimlik teyidinden ayrı tut
+- [x] Kapsam dışındaki Alternatör Kolye'yi tek kaynak olarak koru
+- [x] Kalan 85 açık işi otomatik yayın kapısında say
+
+Çıkış kapısı: 67 reçeteli Çemberlitaş eşyasının kimlik alanları iki bağımsız kaynağa bağlıdır; ikinci teyit açığı 12'ye ve toplam açık iş 85'e iner.
+
 ## Tamamlandı — M52: Çift kaynaklı grup ganimetleri
 
 - [x] Sığınaklar ve Migrat ganimetlerini ikinci bağımsız arşiv listesiyle eşleştir

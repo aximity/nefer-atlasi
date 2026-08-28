@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.52.0",
+  version: "0.53.0",
   channel: "BETA",
-  milestone: "M52",
+  milestone: "M53",
   releasedAt: "28 Ağustos 2026",
-  title: "Çift Kaynaklı Grup Ganimetleri",
+  title: "Çemberlitaş Kimlik Teyidi",
   summary:
-    "Sığınaklar ve Migrat'taki 50 eşya iki bağımsız ganimet listesiyle doğrulandı; üç Çemberlitaş malzemesi yaratık kaynağına bağlandı.",
+    "67 Çemberlitaş şaheserinin ad, sınıf ve yuva alanları iki bağımsız arşivde eşleştirildi; yalnız Alternatör Kolye ikinci kaynak bekliyor.",
   changes: [
-    "50 Sığınaklar/Migrat ganimetinin ad, sınıf ve yuva alanları Wiki ile bağımsız forum arşivinde eşleştirildi.",
-    "Bu 50 eşya tek kaynak durumundan çapraz doğrulanmış duruma yükseldi; ikinci teyit kuyruğu 129'dan 79'a indi.",
-    "Likit Kristal, Klorotoksin ve Sürüngen Pulu açık yaratık adlarına bağlandı; kaynakta yazmayan bölge tahmin edilmedi.",
-    "Açık malzeme kaynağı 23'ten 20'ye, Atlas Tamamlama Merkezi'ndeki toplam açık iş 205'ten 152'ye indi.",
-    "Yayın kapısı 50 eşyanın iki bağımsız kaynak grubunu ve üç yeni yaratık ganimetini denetliyor.",
+    "Savaşçı, Büyücü ve Şifacı için 67 reçeteli Çemberlitaş şaheseri MaxiGame ve 2013 İKV bilgi belgesinde bire bir eşleştirildi.",
+    "Ad, sınıf ve yuva alanları çapraz doğrulanmış duruma yükseldi; özellik değerlerinin mevcut kaynak durumuna dokunulmadı.",
+    "Alternatör Kolye ikinci arşivin reçete kapsamına girmediği için tek kaynak durumunda bırakıldı.",
+    "İkinci teyit kuyruğu 79'dan 12'ye, Atlas Tamamlama Merkezi'ndeki toplam açık iş 152'den 85'e indi.",
+    "Yayın kapısı 67 eşyanın her biri için iki farklı kaynak grubunu ve Alternatör Kolye istisnasını denetliyor.",
   ],
 } as const;

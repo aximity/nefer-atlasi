@@ -1,0 +1,50 @@
+[
+  {
+    "sourceId": "maxigame-cemberlitas-2015",
+    "class": "Savaşçı",
+    "itemIds": ["bicak-sirti-ceket", "bicak-sirti-pantolon", "bicak-sirti-eldiven", "bicak-sirti-ayakkabi", "bicak-sirti-zirh", "bicak-sirti-kilic", "tas-kanat-ceket", "tas-kanat-pantolon", "tas-kanat-eldiven", "tas-kanat-ayakkabi", "tas-kanat-zirh", "tas-kanat-balta", "tas-kanat-tabanca", "hidra-nefesi-ceket", "hidra-nefesi-pantolon", "hidra-nefesi-eldiven", "hidra-nefesi-ayakkabi", "hidra-nefesi-zirh", "hidra-nefesi-cift-bicak"],
+    "locator": "Savaşçı Şaheser Reçeteleri",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-28"
+  },
+  {
+    "sourceId": "scribd-ikv-gerekli-bilgiler-2013",
+    "class": "Savaşçı",
+    "itemIds": ["bicak-sirti-ceket", "bicak-sirti-pantolon", "bicak-sirti-eldiven", "bicak-sirti-ayakkabi", "bicak-sirti-zirh", "bicak-sirti-kilic", "tas-kanat-ceket", "tas-kanat-pantolon", "tas-kanat-eldiven", "tas-kanat-ayakkabi", "tas-kanat-zirh", "tas-kanat-balta", "tas-kanat-tabanca", "hidra-nefesi-ceket", "hidra-nefesi-pantolon", "hidra-nefesi-eldiven", "hidra-nefesi-ayakkabi", "hidra-nefesi-zirh", "hidra-nefesi-cift-bicak"],
+    "locator": "Savaşçı Şaheser Reçeteleri",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-28"
+  },
+  {
+    "sourceId": "maxigame-cemberlitas-2015",
+    "class": "Büyücü",
+    "itemIds": ["kiyamet-ceket", "kiyamet-pantolon", "kiyamet-eldiven", "kiyamet-ayakkabi", "kiyamet-amplifikatoru", "kiyamet-asa", "sifir-kelvin-ceket", "sifir-kelvin-pantolon", "sifir-kelvin-eldiven", "sifir-kelvin-ayakkabi", "sifir-kelvin-amplifikator", "sifir-kelvin-asa", "transformator-ceket", "transformator-pantolon", "transformator-eldiven", "transformator-ayakkabi", "transformator-amplifikator", "transformator-asa", "cehennem-ceket", "cehennem-pantolon", "cehennem-eldiven", "cehennem-ayakkabi", "cehennem-amplifikator", "cehennem-asa"],
+    "locator": "Büyücü Şaheser Reçeteleri",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-28"
+  },
+  {
+    "sourceId": "scribd-ikv-gerekli-bilgiler-2013",
+    "class": "Büyücü",
+    "itemIds": ["kiyamet-ceket", "kiyamet-pantolon", "kiyamet-eldiven", "kiyamet-ayakkabi", "kiyamet-amplifikatoru", "kiyamet-asa", "sifir-kelvin-ceket", "sifir-kelvin-pantolon", "sifir-kelvin-eldiven", "sifir-kelvin-ayakkabi", "sifir-kelvin-amplifikator", "sifir-kelvin-asa", "transformator-ceket", "transformator-pantolon", "transformator-eldiven", "transformator-ayakkabi", "transformator-amplifikator", "transformator-asa", "cehennem-ceket", "cehennem-pantolon", "cehennem-eldiven", "cehennem-ayakkabi", "cehennem-amplifikator", "cehennem-asa"],
+    "locator": "Büyücü Şaheser Reçeteleri",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-28"
+  },
+  {
+    "sourceId": "maxigame-cemberlitas-2015",
+    "class": "Şifacı",
+    "itemIds": ["ruh-doven-ceket", "ruh-doven-pantolon", "ruh-doven-eldiven", "ruh-doven-ayakkabi", "ruh-doven-zirh", "ruh-doven-asa", "mevlana-ceket", "mevlana-pantolon", "mevlana-eldiven", "mevlana-ayakkabi", "mevlana-zirh", "mevlana-asa", "hidroflorik-ceket", "hidroflorik-pantolon", "hidroflorik-eldiven", "hidroflorik-ayakkabi", "hidroflorik-zirh", "hidroflorik-asa", "siyanur-ceket", "siyanur-pantolon", "siyanur-eldiven", "siyanur-ayakkabi", "siyanur-zirh", "siyanur-asa"],
+    "locator": "Şifacı Şaheser Reçeteleri",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-28"
+  },
+  {
+    "sourceId": "scribd-ikv-gerekli-bilgiler-2013",
+    "class": "Şifacı",
+    "itemIds": ["ruh-doven-ceket", "ruh-doven-pantolon", "ruh-doven-eldiven", "ruh-doven-ayakkabi", "ruh-doven-zirh", "ruh-doven-asa", "mevlana-ceket", "mevlana-pantolon", "mevlana-eldiven", "mevlana-ayakkabi", "mevlana-zirh", "mevlana-asa", "hidroflorik-ceket", "hidroflorik-pantolon", "hidroflorik-eldiven", "hidroflorik-ayakkabi", "hidroflorik-zirh", "hidroflorik-asa", "siyanur-ceket", "siyanur-pantolon", "siyanur-eldiven", "siyanur-ayakkabi", "siyanur-zirh", "siyanur-asa"],
+    "locator": "Şifacı Şaheser Reçeteleri",
+    "status": "cross_verified",
+    "checkedAt": "2026-08-28"
+  }
+]

@@ -22,6 +22,7 @@ const abilityVariants = read("ability-variants.json");
 const abilityMedia = read("ability-media.json");
 const groupLootItems = read("group-loot-items.json");
 const groupLootEvidence = read("group-loot-evidence.json");
+const cemberlitasEvidence = read("cemberlitas-evidence.json");
 const glassesItems = read("glasses-items.json");
 const glassesStats = read("glasses-stats.json");
 const groupDerivedStats = read("group-derived-stats.json");
@@ -88,6 +89,17 @@ test("67 parçalık Çemberlitaş çekirdeği korunur; doğrulanmış aksesuarla
     new Set(items.filter((item) => item.id !== "alternator-kolye").map((item) => item.id)),
   );
   assert.ok(items.some((item) => item.id === "alternator-kolye" && item.slot === "Kolye"));
+});
+
+test("67 Çemberlitaş reçeteli eşyanın kimliği iki bağımsız arşivde doğrulanır", () => {
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  const recipeItemIds = new Set(recipes.map((recipe) => recipe.itemId));
+  assert.equal(new Set(cemberlitasEvidence.flatMap((group) => group.itemIds)).size, 67);
+  for (const itemId of recipeItemIds) {
+    const groups = new Set(cemberlitasEvidence.filter((claim) => claim.itemIds.includes(itemId) && claim.status === "cross_verified").map((claim) => sourceById.get(claim.sourceId)?.independenceGroup));
+    assert.equal(groups.size, 2, `${itemId} iki bağımsız Çemberlitaş arşivinde yok`);
+  }
+  assert.ok(!cemberlitasEvidence.some((group) => group.itemIds.includes("alternator-kolye")));
 });
 
 test("üç sınıf için yüzük, kolye ve hesaplanabilir gözlük verisi vardır", () => {
