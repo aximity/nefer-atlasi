@@ -890,20 +890,21 @@ function ItemCard({
   compared: boolean;
 }) {
   const visual = images.find((image) => image.itemId === item.id),
-    appearance = visual ? undefined : appearanceImageFor(item),
+    appearance = visual?.nameAndAppearanceTogether === true ? undefined : appearanceImageFor(item),
     visualFamily = itemVisualFamilyFor(item);
   return (
     <article className={`card ${visual || appearance ? "withArt" : "dataOnly"}`}>
       <button className="cardOpen" onClick={() => onOpen(item)}>
-        {visual && (
-          <div className="art verifiedArt">
+        {visual && !appearance && (
+          <div className={`art verifiedArt ${visual.assetScope === "item_icon" ? "itemIconArt" : ""}`}>
             <Image
               src={visual.url}
-              alt={`${item.name} oyun içi eşya görüntüsü`}
-              width={1200}
-              height={1600}
+              alt={`${item.name} oyun içi ${visual.assetScope === "item_icon" ? "eşya ikonu" : "eşya görüntüsü"}`}
+              width={visual.assetScope === "item_icon" ? 30 : 1200}
+              height={visual.assetScope === "item_icon" ? 30 : 1600}
+              unoptimized={visual.assetScope === "item_icon"}
             />
-            <small>TEKİL EŞYA GÖRSELİ · TEK KAYNAK</small>
+            <small>{visual.assetScope === "item_icon" ? "OYUN İÇİ EŞYA İKONU · 30 × 30" : "TEKİL EŞYA GÖRSELİ · TEK KAYNAK"}</small>
           </div>
         )}
         {appearance && (
@@ -991,7 +992,7 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
     source = sourceFor(claims[0]?.sourceId),
     recipeSource = recipe ? sourceFor(recipe.sourceId) : undefined,
     visual = images.find((image) => image.itemId === item.id),
-    appearance = visual ? undefined : appearanceImageFor(item),
+    appearance = visual?.nameAndAppearanceTogether === true ? undefined : appearanceImageFor(item),
     appearanceSource = appearance ? sourceFor(appearance.sourceId) : undefined,
     visualFamily = itemVisualFamilyFor(item),
     visualFamilyCount = itemFamilySize.get(visualFamily.id) ?? 1,
@@ -1007,14 +1008,16 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
         <button aria-label="Kapat" className="close" onClick={close}>
           ×
         </button>
-        {visual && (
-          <div className="art verifiedArt">
+        {visual && !appearance && (
+          <div className={`art verifiedArt ${visual.assetScope === "item_icon" ? "itemIconArt" : ""}`}>
             <Image
               src={visual.url}
-              alt={`${item.name} oyun içi eşya görüntüsü`}
-              width={1200}
-              height={1600}
+              alt={`${item.name} oyun içi ${visual.assetScope === "item_icon" ? "eşya ikonu" : "eşya görüntüsü"}`}
+              width={visual.assetScope === "item_icon" ? 30 : 1200}
+              height={visual.assetScope === "item_icon" ? 30 : 1600}
+              unoptimized={visual.assetScope === "item_icon"}
             />
+            <small>{visual.assetScope === "item_icon" ? "OYUN İÇİ EŞYA İKONU · 30 × 30" : "TEKİL EŞYA GÖRSELİ · TEK KAYNAK"}</small>
           </div>
         )}
         {appearance && (

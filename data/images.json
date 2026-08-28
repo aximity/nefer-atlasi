@@ -1,3 +1,15 @@
 [
-  {"id":"img-alternator-kolye","itemId":"alternator-kolye","sourceId":"player-alternator-kolye-20260823","url":"/items/alternator-kolye-verified.webp","checkedAt":"2026-08-27","nameAndAppearanceTogether":true}
+  {"id":"img-alternator-kolye","itemId":"alternator-kolye","sourceId":"player-alternator-kolye-20260823","url":"/items/alternator-kolye-verified.webp","checkedAt":"2026-08-27","assetScope":"item_appearance","nameAndAppearanceTogether":true},
+  {"id":"icon-bicak-sirti-kilic","itemId":"bicak-sirti-kilic","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/bicak-sirti-kilic.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-tas-kanat-balta","itemId":"tas-kanat-balta","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/tas-kanat-balta.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-tas-kanat-tabanca","itemId":"tas-kanat-tabanca","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/tas-kanat-tabanca.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-hidra-nefesi-cift-bicak","itemId":"hidra-nefesi-cift-bicak","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/hidra-nefesi-cift-bicak.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-kiyamet-asa","itemId":"kiyamet-asa","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/kiyamet-asa.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-sifir-kelvin-asa","itemId":"sifir-kelvin-asa","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/sifir-kelvin-asa.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-transformator-asa","itemId":"transformator-asa","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/transformator-asa.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-cehennem-asa","itemId":"cehennem-asa","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/cehennem-asa.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-ruh-doven-asa","itemId":"ruh-doven-asa","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/ruh-doven-asa.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-mevlana-asa","itemId":"mevlana-asa","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/mevlana-asa.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-hidroflorik-asa","itemId":"hidroflorik-asa","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/hidroflorik-asa.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false},
+  {"id":"icon-siyanur-asa","itemId":"siyanur-asa","sourceId":"atakan-ikv-recipe-icons-20260828","url":"/items/icons/siyanur-asa.png","checkedAt":"2026-08-28","assetScope":"item_icon","nameAndAppearanceTogether":false}
 ]

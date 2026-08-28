@@ -24,6 +24,7 @@ export interface EvidenceClaim {id:string;itemId:string;field:string;sourceId:st
 export interface Source {id:string;url:string;title:string;type:SourceType;accessedAt:string;independenceGroup:string;authority?:"primary_game_reference";requiresCrossVerification?:boolean}
 export interface Stat {id:string;itemId:string;attribute:string;value:number;unit:string;verificationStatus:VerificationStatus;lastChecked:string}
 export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıflar";level:number|null;slot:Slot;rarity:"Şaheser"|"Doğrulanmadı";appearanceFamily?:string;publicationStatus:VerificationStatus;lastChecked:string;region?:string;boss?:string;acquisition?:string}
+export interface ItemImage {id:string;itemId:string;sourceId:string;url:string;checkedAt:string;assetScope:"item_icon"|"item_appearance";nameAndAppearanceTogether:boolean}
 export interface AppearanceImage {id:string;appearanceFamily:string;class:CharacterClass;label:string;sourceId:string;url:string;focus:string;checkedAt:string;scope:"set_appearance";nameAndSetAppearanceTogether:true}
 export interface Recipe {id:string;itemId:string;method:string;materials:{name:string;quantity:number}[];sourceId:string;verificationStatus:VerificationStatus;lastChecked:string}
 type TalismanBase={id:string;name:string;class:CharacterClass;color:"Kırmızı"|"Mavi";series:string;tier:1|2|3|null;value:number|null;unit:"percent"|"second"|null;effectText:string;requiresBase?:string;status:VerificationStatus;sourceId:string;verificationSourceIds?:string[];lastChecked:string};
@@ -42,7 +43,7 @@ const cemberlitasEvidence:EvidenceClaim[]=cemberlitasEvidenceRows.flatMap(group=
 const itemCrossEvidence:EvidenceClaim[]=itemCrossEvidenceRows.flatMap(group=>group.itemIds.flatMap(itemId=>["name","class","slot"].map(field=>({id:`ev-${itemId}-${field}-${group.sourceId}-cross`,itemId,field,sourceId:group.sourceId,locator:group.locator,status:group.status as VerificationStatus,checkedAt:group.checkedAt}))));
 const glassesEvidence:EvidenceClaim[]=glassesRows.flatMap(item=>["name","class","level","slot"].map(field=>({id:`ev-${item.id}-${field}`,itemId:item.id,field,sourceId:"fandom-glasses",locator:"Gözlükler tablosu",status:"single_source" as const,checkedAt:"2026-08-23"})));
 export const evidence = [...evidenceRows,...cemberlitasEvidence,...itemCrossEvidence,...groupLootEvidence,...glassesEvidence] as EvidenceClaim[];
-export const images = imageRows;
+export const images = imageRows as ItemImage[];
 export const appearanceImages = appearanceImageRows as AppearanceImage[];
 export const talismans = talismanRows as Talisman[];
 export const contexts = contextRows;

@@ -123,7 +123,7 @@ export default function ConnectedAtlas() {
 function ItemAtlasDetail({ node, selectNode, nodeFor }: { node: AtlasNode; selectNode: (node: AtlasNode) => void; nodeFor: (type: AtlasNode["type"], key: string) => AtlasNode | undefined }) {
   const item = node.item!;
   const visual = images.find((image) => image.itemId === item.id);
-  const appearance = visual ? undefined : appearanceImageFor(item);
+  const appearance = visual?.nameAndAppearanceTogether === true ? undefined : appearanceImageFor(item);
   const visualFamily = itemVisualFamilyFor(item);
   const stats = publishableStats(item.id);
   const evidence = itemEvidence(item.id);
@@ -133,7 +133,7 @@ function ItemAtlasDetail({ node, selectNode, nodeFor }: { node: AtlasNode; selec
   const bossNodes = (node.bosses ?? []).map((boss) => graph.bossNodes.find((candidate) => candidate.name === boss && candidate.region === node.region)).filter((boss): boss is AtlasNode => Boolean(boss));
   const regionNode = node.region ? nodeFor("region", node.region.toLocaleLowerCase("tr-TR")) : null;
   return <div className="atlas-item-detail">
-    {visual && <div className="atlas-item-image"><Image src={visual.url} alt={`${item.name} oyun içi görünümü`} width={1200} height={1600}/><span>OYUN İÇİ GÖRSEL · KAYNAK EŞLEŞMELİ</span></div>}
+    {visual && !appearance && <div className={`atlas-item-image ${visual.assetScope === "item_icon" ? "item-icon-reference" : ""}`}><Image src={visual.url} alt={`${item.name} oyun içi ${visual.assetScope === "item_icon" ? "eşya ikonu" : "görünümü"}`} width={visual.assetScope === "item_icon" ? 30 : 1200} height={visual.assetScope === "item_icon" ? 30 : 1600} unoptimized={visual.assetScope === "item_icon"}/><span>{visual.assetScope === "item_icon" ? "OYUN İÇİ EŞYA İKONU · 30 × 30" : "OYUN İÇİ GÖRSEL · KAYNAK EŞLEŞMELİ"}</span></div>}
     {appearance && <div className="atlas-item-image set-reference"><Image src={appearance.url} alt={`${appearance.label} set görünüşü`} width={709} height={1536} unoptimized style={{objectPosition:appearance.focus,width:"100%",height:"100%",objectFit:"cover"}}/><span>SET GÖRÜNÜŞ REFERANSI · TEKİL PARÇA DEĞİL</span></div>}
     <section className="atlas-visual-family"><small>GÖRÜNÜŞ AİLESİ</small><b>{visualFamily.label}</b><p>{visualFamily.scope === "shared_item_type" ? "Bu gövde için tek görsel kullanılır; efsun ve özellikler seçili eşya kaydında ayrı kalır." : visualFamily.note}</p></section>
     <section className="atlas-origin"><header><span>ELDE ETME ZİNCİRİ</span></header><div>{regionNode ? <button onClick={() => selectNode(regionNode)}><small>BÖLGE</small><b>{node.region}</b></button> : <article><small>BÖLGE</small><b>Eşleşme yok</b></article>}<i>→</i>{bossNodes.length ? <article><small>{bossNodes.length > 1 ? "BOSSLAR" : "BOSS"}</small><b>{bossNodes.map((boss) => boss.name).join(" · ")}</b></article> : <article><small>BOSS</small><b>Eşleşme yok</b></article>}<i>→</i><article><small>SONUÇ</small><b>{node.recipe?.method || item.acquisition || "Ganimet kaydı"}</b></article></div></section>

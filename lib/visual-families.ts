@@ -79,7 +79,7 @@ export function coveredItemVisualFamilyIds({
   appearanceImages: { id: string; appearanceFamily: string; class: CharacterClass }[];
 }) {
   const itemById = new Map(items.map((item) => [item.id, item]));
-  const availableAssetIds = new Set([...images.map((image) => image.id), ...appearanceImages.map((image) => image.id)]);
+  const availableAssetIds = new Set([...images.filter((image) => image.nameAndAppearanceTogether === true).map((image) => image.id), ...appearanceImages.map((image) => image.id)]);
   const covered = new Set(itemVisualFamilies.filter((family) => family.assetRef && availableAssetIds.has(family.assetRef)).map((family) => family.id));
   for (const image of images) {
     if (image.nameAndAppearanceTogether !== true) continue;

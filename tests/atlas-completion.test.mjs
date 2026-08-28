@@ -44,6 +44,22 @@ test("aynı gövdeyi paylaşan eşyalar görsel kuyruğunda tek iş olur", () =>
   assert.match(records.find((record) => record.kind === "media")?.subtitle ?? "", /2 eşya/);
 });
 
+test("tekil eşya ikonu tam görünüş ailesini kapatmaz", () => {
+  const iconGraph = {
+    itemNodes: [
+      { id: "item:a", key: "a", type: "item", name: "Örnek Asa", subtitle: "Büyücü · Silah", verificationStatus: "cross_verified", item: { visualFamily: "asa" }, recipe: {}, region: null, boss: null },
+    ],
+    materialNodes: [],
+  };
+  const records = buildAtlasCompletionQueue({
+    graph: iconGraph,
+    images: [{ id: "icon:a", itemId: "a", assetScope: "item_icon", nameAndAppearanceTogether: false }],
+    visualFamilyForItem: () => ({ id: "item:type:asa", label: "Asa" }),
+    statsForItem: () => [{ value: 1 }],
+  });
+  assert.equal(completionSummary(records).media, 1);
+});
+
 test("tılsım ve iksir ortak görselleri eşya kuyruğundan ayrı görünür", () => {
   const records = buildAtlasCompletionQueue({
     graph: { itemNodes: [], materialNodes: [] },
