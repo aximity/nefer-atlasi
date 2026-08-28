@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.45.0",
+  version: "0.46.0",
   channel: "BETA",
-  milestone: "M45",
+  milestone: "M46",
   releasedAt: "28 Ağustos 2026",
-  title: "Ara Malzeme Zinciri",
+  title: "Ortak Üretim ve Görsel Ağı",
   summary:
-    "İksirlerde kullanılan dokuz ara malzeme, meslek seviyesi ve kendi üretim girdileriyle stok planına bağlandı.",
+    "Eşya, tılsım, iksir ve ara malzeme reçeteleri tek üretim ağına; Wiki malzeme ikonları fotoğraflı stok girişine bağlandı.",
   changes: [
-    "Ametist-Lapis, Ok Sertleştirici, üç karışım, KSH, Gök Birleşik, Göz Taşı ve Elmas Asa Kristali üretilebilir hedef oldu.",
-    "Eksik ara malzeme kartı artık meslek, seviye ve alt girdileri doğrudan gösteriyor.",
-    "Açık Pembe Ametist yazım hatası giderildi; reçete kaynağıyla bağlantısı çalışır hâle geldi.",
-    "49 iksir malzemesinin 48'i edinme veya üretim kaynağına bağlandı; yalnız Karbon doğrulanmış kaynak bekliyor.",
-    "İki tılsım ve üç iksir ortak görsel ailesi Tamamlama Merkezi'nde yüksek öncelikli işlere dönüştürüldü.",
+    "67 eşya, 120 tılsım, 246 iksir ve 9 ara malzeme olmak üzere 442 reçete ortak stok ve kullanım ağına geçirildi.",
+    "Reçete kartları ile stok satırları Wiki kaynaklı malzeme ikonlarını gösteriyor; 49 iksir girdisinin 48'i görselle eşleşti.",
+    "Fotoğraflı stok girişi, görsel ikon arama ve dokunarak taslak oluşturma akışına dönüştürüldü.",
+    "Maden ekranı artık yalnız şaheserleri değil, bağlı tılsım, iksir ve ara malzeme üretimlerini de sayıyor.",
+    "Bağlantılı Atlas ara malzemeler ile üretilebilir 53 önceki kademe tılsımı gerçek reçetesine bağladı; kaynağı açık I. kademeler tahmin edilmedi.",
   ],
 } as const;

@@ -1,5 +1,15 @@
 # Değişiklik Günlüğü
 
+# v0.46.0 — Ortak Üretim ve Görsel Ağı
+
+- 67 eşya, 120 tılsım, 246 iksir ve 9 ara malzeme reçetesi tek üretim kataloğunda birleştirildi; stok ve kullanım hesapları toplam 442 reçeteyi okuyor.
+- Wiki reçete görünümündeki 48 doğrulanmış malzeme ikonu reçete kartlarına, stok satırlarına, maden çıktılarına ve üretim eksiklerine eklendi.
+- Fotoğraflı stok girişi, yüklenen çanta görselinin yanında ikon arama ve dokunarak taslak oluşturma akışına dönüştürüldü; görüntü cihazda kalıyor ve stok otomatik değiştirilmeden kullanıcı onayı bekleniyor.
+- Maden üretim ağı yalnız şaheserleri saymak yerine eşya, tılsım, iksir ve ara malzeme kullanımlarını aynı kartta gösteriyor.
+- Bağlantılı Atlas, ara malzemeleri “kaynak yok” saymak yerine meslek/seviye reçetesiyle açıklıyor ve eşya dışındaki üretim hedeflerine çalışan bağlantı veriyor.
+- Üst kademe tılsımlarda girdi olan 106 önceki kademe kaydının üretilebilir 53'ü kendi reçetesine bağlandı; edinme yolu doğrulanmayan 53 birinci kademe tılsım açık bırakıldı.
+- Karbon için güvenilir ikon veya edinme kaynağı bulunmadığından görsel ve kaynak tahmini yapılmadı.
+
 # v0.45.0 — Ara Malzeme Zinciri
 
 - İksirlerde geçen dokuz üretilen ara malzeme meslek, seviye ve alt girdileriyle kaynak sistemine bağlandı.

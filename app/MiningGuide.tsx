@@ -1,33 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import {
   buildRespawnEstimate,
   formatTimerDuration,
   timerState,
 } from "../lib/mining-timer.mjs";
-import { items, recipes, sourceStatusLabel, type Recipe } from "../lib/catalog";
+import { sourceStatusLabel } from "../lib/catalog";
 import {
   gatheringRegionFor,
   gatheringRows,
   type GatheringProfession,
 } from "../lib/gathering-catalog";
 import { creatureDropSources } from "../lib/material-sources";
-import { potionIngredientIndex } from "../lib/potion-index";
+import { materialIconFor } from "../lib/material-icons";
+import { productionUsesForMaterial, type ProductionUse } from "../lib/production-catalog";
 import MarketBoard from "./MarketBoard";
 
 type View = "Sayaçlar" | "Pazar" | "Kaynaklar" | "Gözlemler" | "Artırıcılar";
 type Profession = GatheringProfession;
 type Timer = { id: string; region: string; material: string; startedAt: number; nextCheckAt: number; reminderMinutes: number };
 type Observation = { id: string; region: string; material: string; result: "found" | "empty"; elapsedMinutes: number; observedAt: number };
-type MaterialUse = {
-  itemId: string;
-  itemName: string;
-  itemClass: string;
-  slot: string;
-  quantity: number;
-  recipe: Recipe;
-};
+type MaterialUse = ProductionUse;
 type SelectedMaterial = {
   name: string;
   profession: Profession;
@@ -50,26 +45,9 @@ const aboveCapRows = [
   { profession: "Lokman", chain: "Kardelen → Narin Kardelen → İstanbul Kardeleni", points: 55 },
 ];
 
-const itemById = new Map(items.map((item) => [item.id, item]));
-
 const normalize = (value: string) => value.trim().toLocaleLowerCase("tr-TR");
-
-function usesForMaterial(materialName: string): MaterialUse[] {
-  const wanted = normalize(materialName);
-  return recipes.flatMap((recipe) => {
-    const material = recipe.materials.find((entry) => normalize(entry.name) === wanted);
-    const item = itemById.get(recipe.itemId);
-    if (!material || !item || item.rarity !== "Şaheser") return [];
-    return [{
-      itemId: item.id,
-      itemName: item.name,
-      itemClass: item.class,
-      slot: item.slot,
-      quantity: material.quantity,
-      recipe,
-    }];
-  }).sort((a, b) => a.itemClass.localeCompare(b.itemClass, "tr") || a.itemName.localeCompare(b.itemName, "tr"));
-}
+const usesForMaterial = productionUsesForMaterial;
+const useKindLabel = { item: "Eşya", talisman: "Tılsım", potion: "İksir", material: "Ara malzeme" } as const;
 
 const gatheringOutputs = gatheringRows.flatMap((row) =>
   [row.base, row.second, row.third].filter(Boolean).map((name, index) => ({
@@ -80,7 +58,7 @@ const gatheringOutputs = gatheringRows.flatMap((row) =>
   })),
 );
 const linkedOutputCount = gatheringOutputs.filter((entry) => entry.uses.length > 0).length;
-const linkedMasterpieceCount = new Set(gatheringOutputs.flatMap((entry) => entry.uses.map((usage) => usage.itemId))).size;
+const linkedProductionCount = new Set(gatheringOutputs.flatMap((entry) => entry.uses.map((usage) => usage.itemId))).size;
 
 const sources = {
   officialRegions: "https://www.istanbuloyun.com/Regions.aspx",
@@ -194,11 +172,7 @@ export default function MiningGuide() {
 
   function recipeUsage(row: (typeof gatheringRows)[number]) {
     const names = [row.base, row.second, row.third].filter(Boolean) as string[];
-    const equipmentRows = names.flatMap((name) => usesForMaterial(name));
-    return {
-      equipment: [...new Map(equipmentRows.map((item) => [item.itemId, item])).values()],
-      potions: potionIngredientIndex[row.base] ?? [],
-    };
+    return [...new Map(names.flatMap((name) => usesForMaterial(name)).map((item) => [item.itemId, item])).values()];
   }
 
   function openMaterial(row: (typeof gatheringRows)[number], name: string, output: number) {
@@ -252,18 +226,18 @@ export default function MiningGuide() {
       {view === "Pazar" && <MarketBoard query={query} setQuery={setQuery}/>}
 
       {view === "Kaynaklar" && <div className="mining-panel">
-        <div className="mining-panel-head"><div><span>MADEN ↔ ŞAHESER BAĞLANTILARI</span><h3>Üretim Ağı</h3></div><a href={sources.professions} target="_blank" rel="noreferrer">Ad tablosu ↗</a></div>
+        <div className="mining-panel-head"><div><span>MADEN ↔ TÜM REÇETELER</span><h3>Üretim Ağı</h3></div><a href={sources.professions} target="_blank" rel="noreferrer">Ad tablosu ↗</a></div>
         <div className="production-summary" aria-label="Üretim ağı özeti">
           <article><small>TOPLAYICILIK ÇIKTISI</small><strong>{gatheringOutputs.length}</strong><span>1., 2. ve 3. çıktılar</span></article>
-          <article><small>REÇETEYE BAĞLI</small><strong>{linkedOutputCount}</strong><span>şaheser kullanım kaydı olan</span></article>
-          <article><small>BAĞLI ŞAHESER</small><strong>{linkedMasterpieceCount}</strong><span>maden tarafında erişilebilir</span></article>
+          <article><small>REÇETEYE BAĞLI</small><strong>{linkedOutputCount}</strong><span>üretim kullanım kaydı olan</span></article>
+          <article><small>BAĞLI ÜRETİM</small><strong>{linkedProductionCount}</strong><span>eşya, tılsım, iksir ve ara malzeme</span></article>
         </div>
         <div className="collection-tools">
           <div>{(["Madenci","Sarraf","Lokman"] as Profession[]).map(x=><button key={x} className={profession===x?"active":""} onClick={()=>{setProfession(x);setCollectionRegion("Tümü");}}>{x}</button>)}</div>
           <select aria-label="Bölge filtresi" value={collectionRegion} onChange={(event)=>setCollectionRegion(event.target.value)}><option>Tümü</option><option>Eminönü</option><option>Meteor Bölgesi</option><option>Yeraltı</option><option>Büyük Hol</option><option>Bölge kaydı eksik</option></select>
           <label><span>⌕</span><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Kaynak veya çıktı ara"/></label>
         </div>
-        <p className="schematic-note">Bir çıktıya dokunarak hangi şaheserlerde kullanıldığını, reçetede gereken miktarı ve eşyanın sınıfını gör. Şaheser adıyla aradığında onu üreten maden zincirleri de bulunur. KÖ bölge dağılımında Monazit, Yeşim Taşı ve Çiğdem Büyük Hol altında birlikte gösterilir.</p>
+        <p className="schematic-note">Bir çıktıya dokunarak eşya, tılsım, iksir ve ara malzeme reçetelerinin tamamındaki kullanımını gör. Üretim adıyla aradığında ilgili maden zinciri de bulunur. KÖ bölge dağılımında Monazit, Yeşim Taşı ve Çiğdem Büyük Hol altında birlikte gösterilir.</p>
         <div className="hol-specials creature-loot"><span>YARATIK GANİMETLERİ · MADEN DEĞİL</span>{creatureDropSources.map((item)=><article key={item.name}><b>{item.name}</b><small>{item.region} · {item.enemy} · {item.usage}</small><em>{item.verification}</em>{item.source&&<a href={item.source} target="_blank" rel="noreferrer">Kaynak ↗</a>}<a href={`/?module=atlas&node=${encodeURIComponent(`material:${item.name.toLocaleLowerCase("tr-TR")}`)}#atlas`}>Atlas ↗</a></article>)}</div>
         <div className="catalog-sources"><a href={sources.officialJobs} target="_blank" rel="noreferrer">Resmî meslek tanımları ↗</a><a href={sources.historicalRegions} target="_blank" rel="noreferrer">Bölge ve çıktı rehberi ↗</a><a href={sources.potionRecipes} target="_blank" rel="noreferrer">İksir reçeteleri ↗</a></div>
         <div className="collection-list">{collectionShown.map(item=>{
@@ -274,11 +248,12 @@ export default function MiningGuide() {
             <div className="output-chain">{[item.base,item.second,item.third].filter(Boolean).map((name,index)=>{
               const materialName = String(name);
               const uses = usesForMaterial(materialName);
-              return <span className="output-node-wrap" key={materialName}>{index>0&&<i>→</i>}<button className={`output-node ${uses.length>0?"linked":"unlinked"}`} onClick={()=>openMaterial(item,materialName,index+1)} aria-label={`${materialName} üretim bağlantılarını aç`}><small>{index+1}. ÇIKTI</small><b>{materialName}</b><em>{uses.length>0?`${uses.length} şaheser`:"Kayıt bekliyor"}</em>{uses.length>0&&<span className="output-hover" role="tooltip">{uses.slice(0,3).map((usage)=><span key={usage.itemId}>{usage.itemName} · ×{usage.quantity}</span>)}{uses.length>3&&<span>+{uses.length-3} şaheser daha</span>}</span>}</button></span>;
+              const icon = materialIconFor(materialName);
+              return <span className="output-node-wrap" key={materialName}>{index>0&&<i>→</i>}<button className={`output-node ${uses.length>0?"linked":"unlinked"}`} onClick={()=>openMaterial(item,materialName,index+1)} aria-label={`${materialName} üretim bağlantılarını aç`}>{icon&&<Image src={icon.path} alt="" width={30} height={30}/>}<small>{index+1}. ÇIKTI</small><b>{materialName}</b><em>{uses.length>0?`${uses.length} üretim`:"Kayıt bekliyor"}</em>{uses.length>0&&<span className="output-hover" role="tooltip">{uses.slice(0,3).map((usage)=><span key={`${usage.itemId}-${usage.kind}`}>{usage.itemName} · ×{usage.quantity}</span>)}{uses.length>3&&<span>+{uses.length-3} üretim daha</span>}</span>}</button></span>;
             })}</div>
             <div className="point-pill"><b>{item.points}</b><small>puan</small></div>
             <div className="collection-region"><span>BÖLGE</span><b>{region}</b><small>{region === "Bölge kaydı eksik" ? "Bölge kaydı bulunamadı" : "KÖ bölge dağılımı"}</small></div>
-            <div className="recipe-usage"><span>REÇETE KULLANIMI</span>{usage.equipment.length>0&&<p><b>Şaheser:</b> {usage.equipment.slice(0,4).map((equipment,index)=><span key={equipment.itemId}>{index>0&&" · "}<a href={`/?module=items&item=${equipment.itemId}#items`}>{equipment.itemName}</a></span>)}{usage.equipment.length>4?` · +${usage.equipment.length-4} kayıt`:""}</p>}{usage.potions.length>0&&<p><b>İksir örnekleri:</b> {usage.potions.join(" · ")}</p>}{usage.equipment.length===0&&usage.potions.length===0&&<p>Taranan reçete kataloğunda kullanım kaydı bulunamadı; katkı bekleniyor.</p>}</div>
+            <div className="recipe-usage"><span>REÇETE KULLANIMI</span>{usage.length>0?<p>{usage.slice(0,6).map((entry,index)=><span key={`${entry.itemId}-${entry.kind}`}>{index>0&&" · "}<b>{useKindLabel[entry.kind]}:</b> <a href={entry.href}>{entry.itemName}</a></span>)}{usage.length>6?` · +${usage.length-6} kayıt`:""}</p>:<p>Taranan üretim kataloğunda kullanım kaydı bulunamadı; katkı bekleniyor.</p>}</div>
             <div className="atlas-output-links">{[item.base,item.second,item.third].filter(Boolean).map((name)=><a key={name} href={`/?module=atlas&node=${encodeURIComponent(`material:${String(name).toLocaleLowerCase("tr-TR")}`)}#atlas`}>{name} bağlantıları ↗</a>)}</div>
           </article>;
         })}</div>
@@ -308,14 +283,14 @@ export default function MiningGuide() {
     {selectedMaterial&&<div className="production-backdrop" onMouseDown={(event)=>event.target===event.currentTarget&&setSelectedMaterial(null)}>
       <aside className="production-sheet" role="dialog" aria-modal="true" aria-labelledby="production-sheet-title">
         <button className="production-close" aria-label="Üretim bağlantılarını kapat" onClick={()=>setSelectedMaterial(null)}>×</button>
-        <div className="production-gem" aria-hidden="true">{selectedMaterial.name.slice(0,2)}</div>
+        <div className="production-gem" aria-hidden="true">{materialIconFor(selectedMaterial.name) ? <Image src={materialIconFor(selectedMaterial.name)!.path} alt="" width={52} height={52}/> : selectedMaterial.name.slice(0,2)}</div>
         <small className="production-kicker">{selectedMaterial.profession} · {selectedMaterial.output}. ÇIKTI</small>
         <h3 id="production-sheet-title">{selectedMaterial.name}</h3>
         <p className="production-origin"><b>{selectedMaterial.region}</b><span>{selectedMaterial.base} kaynağı · {selectedMaterial.points} meslek puanı</span></p>
-        <div className="production-metrics"><span><small>ŞAHESER</small><b>{selectedMaterial.uses.length}</b></span><span><small>TOPLAM GEREKSİNİM</small><b>{selectedMaterial.uses.reduce((sum,usage)=>sum+usage.quantity,0)}</b></span></div>
+        <div className="production-metrics"><span><small>ÜRETİM</small><b>{selectedMaterial.uses.length}</b></span><span><small>TOPLAM GEREKSİNİM</small><b>{selectedMaterial.uses.reduce((sum,usage)=>sum+usage.quantity,0)}</b></span></div>
         <div className="production-use-list">
-          <header><span>KULLANILDIĞI ŞAHESERLER</span><small>Mevcut reçete kataloğu</small></header>
-          {selectedMaterial.uses.length===0?<div className="production-empty"><b>Bağlantı kaydı bulunamadı</b><span>Bu, malzemenin hiçbir yerde kullanılmadığı anlamına gelmez; İKV Wiki taraması kuyruğundadır.</span></div>:selectedMaterial.uses.map((usage)=><a key={usage.itemId} href={`/?module=items&item=${usage.itemId}#items`}><span><small>{usage.itemClass} · {usage.slot}</small><strong>{usage.itemName}</strong><em>{sourceStatusLabel(usage.recipe.verificationStatus, [usage.recipe.sourceId])}</em></span><b>×{usage.quantity}</b></a>)}
+          <header><span>KULLANILDIĞI ÜRETİMLER</span><small>Eşya · tılsım · iksir · ara malzeme</small></header>
+          {selectedMaterial.uses.length===0?<div className="production-empty"><b>Bağlantı kaydı bulunamadı</b><span>Bu, malzemenin hiçbir yerde kullanılmadığı anlamına gelmez; İKV Wiki taraması kuyruğundadır.</span></div>:selectedMaterial.uses.map((usage)=><a key={`${usage.itemId}-${usage.kind}`} href={usage.href}><span><small>{useKindLabel[usage.kind]} · {usage.itemClass} · {usage.slot}</small><strong>{usage.itemName}</strong><em>{sourceStatusLabel(usage.recipe.verificationStatus, [usage.recipe.sourceId])}</em></span><b>×{usage.quantity}</b></a>)}
         </div>
         <div className="production-sheet-actions"><a href={`/?module=atlas&node=${encodeURIComponent(`material:${selectedMaterial.name.toLocaleLowerCase("tr-TR")}`)}#atlas`}>Bağlantılı Atlası aç ↗</a><a href={`/?module=mining&view=Kaynaklar&material=${encodeURIComponent(selectedMaterial.name)}#mining`}>Bu madeni filtrele</a></div>
         <p className="production-caveat">Miktarlar İKV Wiki ve mevcut kaynaklı reçete kataloğundan gelir. Wiki’de bulunan oyun verisi için ikinci kaynak aranmaz; KÖ’ye özel değişiklikler ayrıca işaretlenir.</p>

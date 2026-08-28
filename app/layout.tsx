@@ -20,6 +20,7 @@ import "./readability.css";
 import "./analytics.css";
 import "./talisman-production.css";
 import "./minimal-shell.css";
+import "./production-network.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://ikv-esya-rehberi.gdyon.chatgpt.site"),
   title: "Nefer Atlası | KÖ Bilgi, Strateji ve Ekonomi Platformu",

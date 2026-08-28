@@ -42,3 +42,18 @@ test("Çemberlitaş eşyası Gaffar varsayımı yerine yuva kaynağına bağlan�
   assert.equal(graph.bossNodes.find((node) => node.name === "Gaffar Bey").itemIds.includes("ceket"), true);
   assert.equal(graph.regionNodes.find((node) => node.name === "Çemberlitaş").bosses.length, 6);
 });
+
+test("Atlas malzeme kullanımını tılsım ve iksir reçetelerinden de alır", () => {
+  const linkedItems = [...items, { id: "potion-1", name: "Örnek İksir", kind: "potion", class: "Tüm Sınıflar", slot: "İksir" }];
+  const linkedRecipes = [...recipes, { id: "recipe-potion", itemId: "potion-1", sourceId: "wiki", verificationStatus: "single_source", materials: [{ name: "Jadeit", quantity: 7 }] }];
+  const graph = buildAtlasGraph({ items, recipes, linkedItems, linkedRecipes, materialSourceFor: sourceForMaterial });
+  const jadeit = graph.materialNodes.find((node) => node.name === "Jadeit");
+  assert.ok(jadeit.uses.some((use) => use.itemId === "potion-1" && use.itemKind === "potion"));
+  assert.equal(graph.itemNodes.some((node) => node.key === "potion-1"), false);
+});
+
+test("üretilen ara malzeme kaynak yok yerine meslek ve seviye gösterir", () => {
+  const craftedSource = (name) => name === "Karışım" ? { kind: "crafted", profession: "Kimyacı", level: 11, materials: [] } : null;
+  const graph = buildAtlasGraph({ items: [items[0]], recipes: [{ ...recipes[0], materials: [{ name: "Karışım", quantity: 1 }] }], materialSourceFor: craftedSource });
+  assert.equal(graph.materialNodes[0].subtitle, "Kimyacı üretimi · Sv. 11");
+});

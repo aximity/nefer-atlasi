@@ -225,3 +225,13 @@
 - Ürün kararı: Bu kayıtlar yalnız kaynak açıklaması değildir; stok hesabında üretilebilir bağımsız reçete hedefleridir.
 - Yazım denetimi: “Açık Pempe Ametist” kaydı iksir reçetesindeki doğru “Açık Pembe Ametist” yazımıyla hizalandı.
 - Açık nokta: Karbon yalnız Philotheos Modeli reçetesinde doğrulanmıştır; edinme veya ara üretim reçetesi güvenilir biçimde bulunamadığı için konum/meslek tahmini eklenmedi.
+
+# 28 Ağustos 2026 — Ortak malzeme ikonları ve üretim ağı
+
+- Ana veri kaynağı: İKV Wiki İksir Reçeteleri; reçete adları, malzemeler ve adetler oyun doğrusu kabul edilir.
+- Görsel erişim yöntemi: Wiki verisini kaynak gösteren erişilebilir reçete görünümündeki malzeme ikonları ad eşleşmesiyle çıkarıldı; görsel kayıtların kaynak kimliği Wiki reçete kaynağı olarak tutuldu.
+- Sonuç: 49 benzersiz iksir girdisinin 48'i adıyla aynı ikon kaydına bağlandı. Erişilebilir görünümde “Karbon” için güvenilir ad eşleşmesi oluşmadı; ilgisiz “Phalanx Loncası” görseli malzeme sözlüğüne alınmadı.
+- Ürün kararı: Görseller tek bir malzeme sözlüğünden reçete kartı, stok satırı, fotoğraflı giriş, üretim eksikleri ve maden çıktılarına dağıtılır. Aynı maden/bitki için modül bazında ayrı görsel kopyası tutulmaz.
+- Üretim ağı: 67 eşya + 120 tılsım + 246 iksir + 9 ara malzeme = 442 reçete. Maden ve Atlas kullanımları bu tam katalogdan türetilir.
+- Kaynak denetimi: İlk birleşimde kaynaksız görünen 131 girdinin 106'sı önceki kademe tılsımdı. Bunların 53 üretilebilir II. kademe kaydı sınıf, renk, kademe ve kendi reçetesine bağlandı. KÖ edinme yolu doğrulanmayan 53 I. kademe tılsım ile 25 temel malzeme açık kaldı; toplam açık kaynak sayısı 78'dir.
+- Güvenlik ve doğruluk: Fotoğraf cihazda önizlenir; otomatik tanıma iddiası yapılmaz. Kullanıcı ikonla eşleştirip adedi onaylamadan stok değişmez.

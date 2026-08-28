@@ -1,0 +1,36 @@
+.atlas-uses .atlas-use-link {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  background: #0e141a;
+  border: 1px solid #2b3641;
+  border-radius: 9px;
+}
+
+.atlas-use-link span {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.atlas-use-link small {
+  color: #71808c;
+  font-size: 6px;
+}
+
+.atlas-use-link b {
+  overflow: hidden;
+  font-size: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.atlas-use-link strong {
+  color: #e1c488;
+  font-size: 9px;
+}

@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.45.0",
+    date: "28 Ağustos 2026",
+    title: "Ara Malzeme Zinciri",
+    changes: [
+      "Dokuz ara malzeme meslek, seviye ve alt girdileriyle üretime bağlandı.",
+      "49 iksir malzemesinin 48'i edinme veya üretim kaynağıyla eşleşti.",
+      "Karbon için doğrulanmamış kaynak tahmini yapılmadı.",
+    ],
+  },
+  {
     version: "0.44.0",
     date: "28 Ağustos 2026",
     title: "Eksiksiz İksir Atlası",

@@ -15,6 +15,7 @@ import TalismanProductionAtlas from "./TalismanProductionAtlas";
 import RecipeCatalog from "./RecipeCatalog";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   classSlots,
   contexts,
@@ -29,7 +30,6 @@ import {
   itemRecipe,
   itemEvidence,
   sourceFor,
-  statusLabel,
   itemStatusLabel,
   talismanAcquisition,
   type Item,
@@ -175,7 +175,19 @@ export default function Home() {
     [miningRevision, setMiningRevision] = useState(0),
     [notice, setNotice] = useState("");
   const klassRef = useRef(klass);
-  klassRef.current = klass;
+  useEffect(() => { klassRef.current = klass; }, [klass]);
+  const setClass = (next: CharacterClass) => {
+    const p = goalsByClass[next][0],
+      s = goalsByClass[next][1] ?? null;
+    setKlass(next);
+    setPrimary(p);
+    setSecondary(s);
+    setSelection(suggestedSelection(next, p, s));
+    setTalismanId("");
+    setTalismanPath("Tümü");
+    setWrathBase(false);
+    setWrathCriticalBase(0);
+  };
   const applySaved = (p: BuildSnapshot) => {
     setKlass(p.klass);
     setPrimary(p.primary);
@@ -250,7 +262,6 @@ export default function Home() {
       removeEventListener("popstate", hydrate);
     };
   }, []);
-  useEffect(() => { setItemVisibleLimit(24); }, [classFilter, query, slotFilter]);
   useEffect(() => {
     const openSearch = (event: KeyboardEvent) => {
       if (event.key === "/" && !(event.target instanceof HTMLInputElement) && !(event.target instanceof HTMLTextAreaElement)) {
@@ -290,19 +301,7 @@ export default function Home() {
       wrathCriticalBase,
       abilities,
     };
-  const setClass = (next: CharacterClass) => {
-      const p = goalsByClass[next][0],
-        s = goalsByClass[next][1] ?? null;
-      setKlass(next);
-      setPrimary(p);
-      setSecondary(s);
-      setSelection(suggestedSelection(next, p, s));
-      setTalismanId("");
-      setTalismanPath("Tümü");
-      setWrathBase(false);
-      setWrathCriticalBase(0);
-    },
-    share = async () => {
+  const share = async () => {
       try {
         const url = `${location.origin}${location.pathname}?module=builder&build=${encodeBuild(payload)}#builder`;
         await navigator.clipboard.writeText(url);
@@ -466,13 +465,13 @@ export default function Home() {
   return (
     <main>
       <header className="siteHeader">
-        <a className="brand" href="/" aria-label="Nefer Atlası ana sayfa">
+        <Link className="brand" href="/" aria-label="Nefer Atlası ana sayfa">
           <b className="brandMark">N</b>
           <span className="brandName">
             <strong>NEFER ATLASI</strong>
             <small>KÖ BİLGİ PLATFORMU</small>
           </span>
-        </a>
+        </Link>
         <nav className="top-status" aria-label="Açık modül">
           <button className="globalSearchTrigger" type="button" onClick={() => setSearchOpen(true)} aria-label="Atlas genelinde ara">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/></svg>
@@ -647,7 +646,7 @@ export default function Home() {
             <input
               aria-label="Eşya ara"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => { setQuery(e.target.value); setItemVisibleLimit(24); }}
               placeholder="Eşya, sınıf veya yuva…"
             />
             <select
@@ -655,6 +654,7 @@ export default function Home() {
               value={classFilter}
               onChange={(e) => {
                 setClassFilter(e.target.value);
+                setItemVisibleLimit(24);
                 setCompareIds([]);
               }}
             >
@@ -668,6 +668,7 @@ export default function Home() {
               value={slotFilter}
               onChange={(e) => {
                 setSlotFilter(e.target.value);
+                setItemVisibleLimit(24);
                 setCompareIds([]);
               }}
             >

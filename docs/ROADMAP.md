@@ -1,5 +1,16 @@
 # Yol Haritası
 
+## Tamamlandı — M46: Ortak üretim ve görsel ağı
+
+- [x] Eşya, tılsım, iksir ve ara malzeme reçetelerini tek katalogda birleştir
+- [x] Maden çıktılarını dört üretim türünün kullanımına bağla
+- [x] Wiki malzeme ikonlarını reçete, stok, maden ve eksik listelerinde yeniden kullan
+- [x] Fotoğraflı stok girişini ikonla hızlı eşleştirme ve onaylı taslak akışına dönüştür
+- [x] Atlas'ta üretilen ara malzemelerin meslek ve seviye kaynağını göster
+- [x] Üretilebilir önceki kademe tılsım girdilerini kendi reçetesine geri bağla; I. kademe edinme açıklarını ayır
+
+Çıkış kapısı: 442 reçete aynı üretim ağına bağlıdır; üretilebilir 53 önceki kademe tılsım doğru reçeteye döner; iksirlerdeki 49 benzersiz girdinin 48'i kaynaklı ikonla görünür, Karbon tahminsiz açık kayıt olarak kalır.
+
 ## Tamamlandı — M1: Güvenilir veri çekirdeği
 
 - [x] Eşya, kaynak, görsel kanıt ve doğrulama kayıtlarını ayrı veri dosyalarına taşı

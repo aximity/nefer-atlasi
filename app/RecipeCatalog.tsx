@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { publishableItems, recipes, sourceFor, talismans } from "../lib/catalog";
 import { potionRecipeSourcePolicy } from "../lib/potion-index";
 import { potionById, potionRecipes, potionRecipeSourceId } from "../lib/potion-recipes";
 import { talismanRecipes } from "../lib/talisman-recipes";
+import { materialIconFor } from "../lib/material-icons";
 import { itemVisualFamilyFor, potionVisualFamilies, potionVisualFamilyFor, talismanVisualFamilyFor } from "../lib/visual-families";
 
 type RecipeKind = "item" | "talisman" | "potion";
@@ -124,7 +126,7 @@ export default function RecipeCatalog() {
             <div className="recipeBody">
               {visualFamily && <p className="recipeVisualNote"><b>Görünüş ailesi:</b> {visualFamily.label}. {equipment ? "Efsun ve özellikler eşya kaydına aittir." : talisman ? "Sınıf, kademe ve etki tılsım kaydına aittir." : "İksirin etkisi ve seviyesi metin alanında ayrılır."}</p>}
               {talisman && <p className="recipeEffectNote"><b>Etki:</b> {talisman.effectText}</p>}
-              <div className="recipeMaterials">{recipe.materials.map((material) => <span key={material.name}><b>{material.name}</b><strong>×{material.quantity}</strong></span>)}</div>
+              <div className="recipeMaterials">{recipe.materials.map((material) => { const icon = materialIconFor(material.name); return <span key={material.name}>{icon ? <Image src={icon.path} alt="" width={30} height={30}/> : <i aria-hidden="true">{material.name.slice(0, 2)}</i>}<b>{material.name}</b><strong>×{material.quantity}</strong></span>; })}</div>
               <footer>{source && <a href={source.url} target="_blank" rel="noreferrer">Reçete kaynağı ↗</a>}{kind !== "potion" && <Link href={kind === "talisman" ? `/?module=engine&talisman=${recipe.itemId}#engine` : `/?module=items&item=${recipe.itemId}#items`}>{kind === "talisman" ? "Tılsımı aç" : "Eşyayı aç"} →</Link>}<Link href="/uretim#production-planner">Üretim takibi →</Link></footer>
             </div>
           </details>
