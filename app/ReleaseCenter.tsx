@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.61.0",
+    date: "29 Ağustos 2026",
+    title: "Maden Görseli Teslim Güvencesi",
+    changes: [
+      "95 gerçek malzeme ikonu doğrudan sayfa paketine bağlandı.",
+      "Reçete, maden, stok ve fotoğraf akışı aynı gömülü ikon kaynağına geçirildi.",
+      "Yayın sunucusundaki ayrı görsel isteğine bağlı bozuk ikon sorunu kapatıldı.",
+    ],
+  },
+  {
     version: "0.46.0",
     date: "28 Ağustos 2026",
     title: "Ortak Üretim ve Görsel Ağı",

@@ -2,7 +2,7 @@ import { publishableItems, recipes, sourceFor, talismans, type Recipe } from "./
 import { craftedMaterialRecipes, craftedMaterialSources, materialSourceFor } from "./material-sources.ts";
 import { potionRecipes } from "./potion-recipes.ts";
 import { playerReportsFor, vendorMentionsFor } from "./talisman-production.ts";
-import { talismanRecipes } from "./talisman-recipes.ts";
+import { talismanMaterialName, talismanRecipes } from "./talisman-recipes.ts";
 
 export type ProductionKind = "item" | "talisman" | "potion" | "material";
 
@@ -18,7 +18,7 @@ export type ProductionRecipe = Recipe & { name?: string; level?: number; categor
 
 const normalize = (value: string) => value.trim().toLocaleLowerCase("tr-TR");
 const materialItemId = (name: string) => `material-${normalize(name).replace(/[^a-z0-9çğıöşü]+/g, "-")}`;
-const talismanMaterialByName = new Map(talismans.map((row) => [normalize(`${row.name} · ${row.color} tılsım`), row]));
+const talismanMaterialByName = new Map(talismans.map((row) => [normalize(talismanMaterialName(row)), row]));
 
 export const productionItems: ProductionItem[] = [
   ...publishableItems.map((row) => ({ id: row.id, name: row.name, class: row.class, slot: row.slot, kind: "item" as const })),

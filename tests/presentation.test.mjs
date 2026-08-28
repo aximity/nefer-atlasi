@@ -45,7 +45,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.equal(appearanceQueue.length, 11);
   assert.equal(new Set(appearanceQueue.map((row) => `${row.class}|${row.appearanceFamily}`)).size, 11);
   assert.equal(visualFamilies.filter((family) => family.kind === "item").length, 23);
-  assert.equal(visualFamilies.filter((family) => family.kind === "talisman").length, 2);
+  assert.equal(visualFamilies.filter((family) => family.kind === "talisman").length, 6);
   assert.equal(visualFamilies.filter((family) => family.kind === "potion").length, 3);
   assert.match(page, /SET GÖRÜNÜŞ REFERANSI · WIKI/);
   assert.match(page, /TEKİL PARÇA KANITI DEĞİL/);
@@ -70,7 +70,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(talismanAtlas, /ETKİ/);
   assert.match(talismanAtlas, /ELDE ETME/);
   assert.match(talismanAtlas, /ORTAK TILSIM GÖRÜNÜŞÜ/);
-  assert.match(talismanAtlas, /sınıf, kademe ve etki seçili tılsıma aittir/i);
+  assert.match(talismanAtlas, /sınıf ve renk için doğrulanan oyun ikonu.*kademe ve etki seçili tılsıma aittir/i);
   assert.match(talismanAtlas, /Kaynak ve doğrulama ayrıntısı/);
   assert.match(talismanAtlas, /Bu tılsımın reçetesini aç/);
   assert.match(talismanAtlas, /module=recipes&kind=talisman/);

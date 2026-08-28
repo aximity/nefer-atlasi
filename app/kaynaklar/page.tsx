@@ -10,6 +10,7 @@ import {
 } from "../../lib/catalog";
 import { potionRecipeSourceId } from "../../lib/potion-recipes";
 import { talismanRecipes } from "../../lib/talisman-recipes";
+import { talismanProduction, talismanRecipeAcquisitions, talismanRecipeAcquisitionPolicy } from "../../lib/talisman-production";
 import { SITE_RELEASE } from "../../lib/site-release";
 import "../source-directory.css";
 
@@ -38,7 +39,13 @@ const sourceGroups = [
     sourceIds: unique([
       ...talismans.flatMap((row) => [row.sourceId, ...(row.verificationSourceIds ?? [])]),
       ...talismanRecipes.map((row) => row.sourceId),
+      ...talismanProduction.tierRules.flatMap((row) => row.sourceIds),
+      ...talismanProduction.serverReferences.map((row) => row.sourceId),
+      ...talismanRecipeAcquisitions.map((row) => row.sourceId),
       "official-ikv-gonul-vendor",
+      talismanRecipeAcquisitionPolicy.ko.sourceId,
+      talismanRecipeAcquisitionPolicy.drop.sourceId,
+      "phalanx-ikv-talisman-icons-20260829",
     ]),
   },
   {
@@ -51,7 +58,7 @@ const sourceGroups = [
     id: "malzemeler",
     title: "Madenler, materyaller ve meslekler",
     use: "Malzeme adları, Wiki ikonları, toplayıcı/üretici meslek ilişkileri ve ara üretim girdileri.",
-    sourceIds: ["fandom-materials-20260828", "fandom-professions-20260826"],
+    sourceIds: ["fandom-materials-20260828", "fandom-professions-20260826", "official-ikv-arz-lodos-release-2012", "phalanx-ikv-recipe-icons-20260828"],
   },
   {
     id: "gorevler",

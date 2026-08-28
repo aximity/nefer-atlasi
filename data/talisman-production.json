@@ -3,11 +3,11 @@
     {
       "tier": 1,
       "label": "I. Kademe",
-      "acquisition": "Hazır I. kademe veya oyun içi edinim",
+      "acquisition": "Normal İKV'de düşman veya oyun parasıyla edinim",
       "recipeRequired": false,
       "materialsStatus": "awaiting_verification",
-      "note": "I. kademe tılsımlar üst kademe üretiminde girdi olarak kullanılır. KÖ oyuncu bildirimi bazı I. kademe tılsımların Gönül'de satıldığını destekliyor.",
-      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
+      "note": "Resmî geliştirici açıklaması bazı I. kademe tılsımların düşmanlardan düştüğünü, bazılarının oyun parasıyla alınabildiğini doğrular; ad bazında dağılımı açıklamaz. KÖ oyuncu bildirimleri ayrı tutulur.",
+      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans", "official-ikv-talisman-system-2013"]
     },
     {
       "tier": 2,
@@ -15,8 +15,8 @@
       "acquisition": "I. kademe tılsım ve Büyük Hol malzemeleriyle üretilir",
       "recipeRequired": true,
       "materialsStatus": "source_matched",
-      "note": "KÖ reçetelerinin normal İKV ile aynı olduğu kullanıcı tarafından teyit edildi; malzeme ve adetler sınıf reçete tablosuna bağlandı.",
-      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
+      "note": "Resmî açıklamaya göre II. kademe, I. kademe tılsım kullanılarak reçeteyle üretilir. Reçetenin edinim yeri normal İKV ve KÖ için ayrı gösterilir.",
+      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans", "official-ikv-talisman-system-2013"]
     },
     {
       "tier": 3,
@@ -24,8 +24,8 @@
       "acquisition": "II. kademe tılsım ve Büyük Hol malzemeleriyle üretilir",
       "recipeRequired": true,
       "materialsStatus": "source_matched",
-      "note": "KÖ reçetelerinin normal İKV ile aynı olduğu kullanıcı tarafından teyit edildi; malzeme ve adetler sınıf reçete tablosuna bağlandı.",
-      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
+      "note": "Resmî açıklamaya göre III. kademe, II. kademe tılsım kullanılarak reçeteyle üretilir. Reçetenin edinim yeri normal İKV ve KÖ için ayrı gösterilir.",
+      "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans", "official-ikv-talisman-system-2013"]
     },
     {
       "tier": "special",
@@ -67,7 +67,11 @@
     {
       "id": "ko-gonul-bilgi-tilsimlari-10m",
       "server": "Kıyametin Öncüleri",
-      "seriesMatch": "Bilgi",
+      "talismanIds": [
+        "mage-elektrik-bilgisi-red-1",
+        "mage-buz-bilgisi-red-1",
+        "mage-fiziksel-bilgi-red-1"
+      ],
       "itemKind": "Hazır tılsım",
       "claim": "Hazır Bilgi Tılsımları Gönül adlı NPC'de 10 M oyun parasına satılıyor. İkinci bir KÖ oyuncu bildirimi, Büyücü için Elektrik Bilgisi (I), Buz Bilgisi (I) ve Fiziksel Bilgi (I) tılsımlarının Gönül'de bulunduğunu destekliyor; fiyatı ayrıca doğrulamıyor.",
       "npc": "Gönül",
@@ -80,7 +84,10 @@
     {
       "id": "ko-gonul-buyu-bozma-1-ve-kondrit",
       "server": "Kıyametin Öncüleri",
-      "seriesMatch": "Büyü Bozma",
+      "talismanIds": [
+        "mage-buyu-bozma-red-1",
+        "healer-buyu-bozma-blue-1"
+      ],
       "itemKind": "Hazır tılsım",
       "claim": "Büyü Bozma (I) Gönül adlı NPC'de satılıyor. İkinci KÖ oyuncu bildirimi de Büyü Bozma (I) satışını destekliyor ve Gönül'de maden olarak yalnız Kondrit bulunduğunu; Safran, Jade/Jadeit ve diğer madenlerin toplanması gerektiğini söylüyor.",
       "npc": "Gönül",

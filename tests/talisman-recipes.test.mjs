@@ -10,13 +10,20 @@ test("ikinci kademe tılsım reçetesi önceki tılsımı ve kaynak tablosundaki
   assert.ok(recipe);
   assert.equal(recipe.sourceId, "fandom-mage-talisman-recipes");
   assert.deepEqual(quantities(recipe), {
-    "Buz Oku 1 (I) · Mavi tılsım": 3,
+    "Buz Oku 1 (I) · Büyücü · Mavi tılsım": 3,
     Kondrit: 6,
     Jadeit: 8,
     "Peptit Kolorotoksin": 4,
     "Örümcek Salgısı": 4,
     Xenotim: 8,
   });
+  assert.deepEqual(recipe.materials[0], {
+    kind: "talisman",
+    name: "Buz Oku 1 (I) · Büyücü · Mavi tılsım",
+    quantity: 3,
+    talismanId: "mage-buz-oku-1-blue-1",
+  });
+  assert.ok(recipe.materials.slice(1).every((material) => material.kind === "material" && !material.talismanId));
 });
 
 test("özel tılsım reçetesi yüksek adetli malzeme şablonunu korur", () => {

@@ -75,6 +75,7 @@ export type CreatureDropSource = {
   aliases?: readonly string[];
   region: string | null;
   enemy: string;
+  vendor?: string;
   usage: string;
   verification: "Kaynaklı kayıt" | "Oyuncu bilgisi";
   source?: string;
@@ -111,6 +112,16 @@ export const creatureDropSources: readonly CreatureDropSource[] = [
     verification: "Oyuncu bilgisi" as const,
     source: IKV_MARKET,
   })),
+  {
+    kind: "creature_drop",
+    name: "Kondrit",
+    region: null,
+    enemy: "Yaratıklar (tür ve bölge belirtilmiyor)",
+    vendor: "Büyük Hol'deki adı belirtilmeyen OOK",
+    usage: "Tılsım reçetelerinde kullanılır; resmî kayıt hem yaratık düşümünü hem OOK satışını doğrular",
+    verification: "Kaynaklı kayıt",
+    source: "https://web.archive.org/web/20140322002159/http://www.istanbuloyun.com/News.aspx?NewsId=215",
+  },
   {
     kind: "creature_drop",
     name: "Hydrargyrum",

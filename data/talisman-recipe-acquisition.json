@@ -1,0 +1,79 @@
+[
+  {
+    "id": "normal-ikv-clan-banner-chests",
+    "talismanIds": [
+      "warrior-kanatma-red-2",
+      "warrior-kanatma-red-3",
+      "mage-tesla-kuresi-red-2",
+      "mage-tesla-kuresi-red-3",
+      "healer-cagri-red-2",
+      "healer-cagri-red-3"
+    ],
+    "serverScope": "normal_ikv",
+    "status": "exact",
+    "method": "Klan sancağı sandığı",
+    "location": "Klan Sancakları",
+    "detail": "Reçete, klan sancağında bulunan klan sandıklarında listeleniyor; yaratık veya boss drobu olarak belirtilmiyor.",
+    "sourceId": "community-ikv-talisman-update-2013",
+    "lastChecked": "2026-08-29"
+  },
+  {
+    "id": "normal-ikv-mecnun-named-recipes",
+    "talismanIds": [
+      "warrior-hedef-saptirma-red-2",
+      "warrior-hedef-saptirma-red-3",
+      "healer-gazap-2-red-2",
+      "healer-gazap-2-red-3"
+    ],
+    "serverScope": "normal_ikv",
+    "status": "exact",
+    "method": "Mecnun envanteri",
+    "location": "Topkapı",
+    "detail": "Reçete Mecnun'un çantasında adla listeleniyor. Bu kayıt yaratık veya boss drobu değildir.",
+    "sourceId": "community-ikv-talisman-update-2013",
+    "lastChecked": "2026-08-29"
+  },
+  {
+    "id": "normal-ikv-buyuk-hol-named-recipes",
+    "talismanIds": [
+      "warrior-kiskirtma-2-blue-3",
+      "healer-zehirleme-blue-3",
+      "healer-can-kurtaran-red-special"
+    ],
+    "serverScope": "normal_ikv",
+    "status": "exact",
+    "method": "Büyük Hol'de bulunur",
+    "location": "Büyük Hol",
+    "detail": "Bölge ve reçete adı doğrulanıyor; kaynak yaratık, boss, sandık veya satıcıyı ayrıştırmıyor.",
+    "sourceId": "community-ikv-talisman-update-2013",
+    "lastChecked": "2026-08-29"
+  },
+  {
+    "id": "normal-ikv-mecnun-buyu-bozma-2-ambiguous",
+    "talismanIds": [
+      "mage-buyu-bozma-red-2",
+      "healer-buyu-bozma-blue-2"
+    ],
+    "serverScope": "normal_ikv",
+    "status": "ambiguous_name",
+    "method": "Mecnun envanteri · ad eşleşmesi",
+    "location": "Topkapı",
+    "detail": "Kaynak Büyü Bozma (II) reçetesini listeliyor fakat Büyücü Kırmızı ile Şifacı Mavi varyantını ayırmıyor; iki kayıttan biri olabilir.",
+    "sourceId": "community-ikv-talisman-update-2013",
+    "lastChecked": "2026-08-29"
+  },
+  {
+    "id": "normal-ikv-mecnun-buyu-bozma-3-ambiguous",
+    "talismanIds": [
+      "mage-buyu-bozma-red-3",
+      "healer-buyu-bozma-blue-3"
+    ],
+    "serverScope": "normal_ikv",
+    "status": "ambiguous_name",
+    "method": "Mecnun envanteri · ad eşleşmesi",
+    "location": "Topkapı",
+    "detail": "Kaynak Büyü Bozma (III) reçetesini listeliyor fakat Büyücü Kırmızı ile Şifacı Mavi varyantını ayırmıyor; iki kayıttan biri olabilir.",
+    "sourceId": "community-ikv-talisman-update-2013",
+    "lastChecked": "2026-08-29"
+  }
+]

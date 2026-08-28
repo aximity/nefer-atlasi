@@ -5,9 +5,12 @@ import { useEffect, useMemo, useState } from "react";
 import { publishableItems, recipes, talismans } from "../lib/catalog";
 import { potionRecipeSourcePolicy } from "../lib/potion-index";
 import { potionById, potionRecipes } from "../lib/potion-recipes";
-import { talismanRecipes } from "../lib/talisman-recipes";
+import { talismanRecipeFor, talismanRecipes } from "../lib/talisman-recipes";
 import { craftedMaterialRecipes, craftedMaterialSources } from "../lib/material-sources";
 import { materialIconFor } from "../lib/material-icons";
+import { talismanIconFor } from "../lib/talisman-icons";
+import { talismanRecipeMaterialGuideFor } from "../lib/talisman-recipe-guide";
+import { talismanRecipeAcquisitionFor, talismanRecipeAcquisitionPolicy, talismanRecipeAcquisitionStats } from "../lib/talisman-production";
 import { itemVisualFamilyFor, potionVisualFamilies, potionVisualFamilyFor, talismanVisualFamilyFor } from "../lib/visual-families";
 
 type RecipeKind = "item" | "talisman" | "potion";
@@ -117,6 +120,8 @@ export default function RecipeCatalog() {
         const talisman = kind === "talisman" ? talismanById.get(recipe.itemId) : undefined;
         const potion = kind === "potion" ? potionById.get(recipe.itemId) : undefined;
         const item = equipment ?? crafted ?? talisman ?? potion;
+        const talismanRecipe = talisman ? talismanRecipeFor(talisman.id) : null;
+        const recipeAcquisition = talisman ? talismanRecipeAcquisitionFor(talisman.id) : null;
         const visualFamily = equipment ? itemVisualFamilyFor(equipment) : talisman ? talismanVisualFamilyFor(talisman) : potion ? potionVisualFamilyFor(potion.visualCategory) : null;
         const favorite = activeFavorites.includes(recipe.itemId);
         return <article className="recipeRow" key={recipe.id}>
@@ -126,7 +131,26 @@ export default function RecipeCatalog() {
             <div className="recipeBody">
               {visualFamily && <p className="recipeVisualNote"><b>Görünüş ailesi:</b> {visualFamily.label}. {equipment ? "Efsun ve özellikler eşya kaydına aittir." : talisman ? "Sınıf, kademe ve etki tılsım kaydına aittir." : "İksirin etkisi ve seviyesi metin alanında ayrılır."}</p>}
               {talisman && <p className="recipeEffectNote"><b>Etki:</b> {talisman.effectText}</p>}
-              <div className="recipeMaterials">{recipe.materials.map((material) => { const icon = materialIconFor(material.name); return <span key={material.name}>{icon ? <Image unoptimized src={icon.src} alt="" width={30} height={30}/> : <i aria-hidden="true">{material.name.slice(0, 2)}</i>}<b>{material.name}</b><strong>×{material.quantity}</strong></span>; })}</div>
+              <div className="recipeMaterials">{recipe.materials.map((material, index) => {
+                const talismanMaterial = talismanRecipe?.materials[index];
+                const previousTalisman = talismanMaterial?.kind === "talisman" && talismanMaterial.talismanId ? talismanById.get(talismanMaterial.talismanId) : null;
+                const icon = previousTalisman ? talismanIconFor(previousTalisman) : materialIconFor(material.name);
+                const guide = talismanMaterial ? talismanRecipeMaterialGuideFor(talismanMaterial) : null;
+                return <span key={`${material.name}-${index}`}>
+                  {icon ? <Image unoptimized src={icon.src} alt="" width={30} height={30}/> : <i aria-hidden="true">{talismanMaterial ? "?" : material.name.slice(0, 2)}</i>}
+                  <span className="recipeMaterialCopy"><b>{material.name}</b>{guide && <a href={guide.href}><small>{guide.label}</small><em>{guide.detail}</em></a>}</span>
+                  <strong>×{material.quantity}</strong>
+                </span>;
+              })}</div>
+              {talisman && <section className="recipeAcquisition" aria-label="Tılsım reçetesi edinim bilgisi">
+                <header><span><small>REÇETEYİ NEREDEN ALIRIM?</small><b>{recipeAcquisition?.status === "exact" ? "Ad ve kademe eşleşti" : recipeAcquisition?.status === "ambiguous_name" ? "Ad eşleşti, sınıf belirsiz" : "Kesin kaynak bulunamadı"}</b></span><a href="/kaynaklar#tilsimlar">Kaynakları gör →</a></header>
+                <div>
+                  <article className={recipeAcquisition?.status ?? "unknown"}><small>NORMAL İKV</small><b>{recipeAcquisition ? `${recipeAcquisition.method} · ${recipeAcquisition.location}` : "Bu reçetenin kesin kaynağı bilinmiyor"}</b><p>{recipeAcquisition?.detail ?? talismanRecipeAcquisitionPolicy.normalIkv.detail}</p></article>
+                  <article className="pending"><small>KIYAMETİN ÖNCÜLERİ</small><b>{talismanRecipeAcquisitionPolicy.ko.method}</b><p>{talismanRecipeAcquisitionPolicy.ko.detail}</p></article>
+                  <article className="drop"><small>DROP / SANDIK</small><b>{recipeAcquisition?.status === "exact" && recipeAcquisition.method.includes("sandığı") ? recipeAcquisition.method : recipeAcquisition?.status === "exact" && recipeAcquisition.method.includes("Mecnun") ? "Yaratık veya boss drobu değil" : recipeAcquisition?.status === "exact" ? "Alt kaynak türü belirtilmiyor" : talismanRecipeAcquisitionPolicy.drop.method}</b><p>{recipeAcquisition?.status === "exact" ? recipeAcquisition.detail : talismanRecipeAcquisitionPolicy.drop.detail}</p></article>
+                </div>
+                <p>{talismanRecipeAcquisitionStats.recipeCount} reçetede {talismanRecipeAcquisitionStats.exactRecipeCount} kesin kimlik · {talismanRecipeAcquisitionStats.ambiguousClaims} ad-çakışmalı kayıt · {talismanRecipeAcquisitionStats.unknownRecipeCount} kesin kaynağı bilinmeyen reçete. Normal İKV verisi KÖ’ye otomatik taşınmaz.</p>
+              </section>}
               <footer>{kind !== "potion" && <a href={kind === "talisman" ? `/?module=engine&talisman=${recipe.itemId}#engine` : crafted ? `/?module=atlas&node=${encodeURIComponent(`material:${crafted.name.toLocaleLowerCase("tr-TR")}`)}#atlas` : `/?module=items&item=${recipe.itemId}#items`}>{kind === "talisman" ? "Tılsımı aç" : crafted ? "Malzemeyi aç" : "Eşyayı aç"} →</a>}<a href="/uretim#production-planner">Üretim takibi →</a></footer>
             </div>
           </details>

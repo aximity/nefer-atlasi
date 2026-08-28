@@ -4,8 +4,10 @@ import type { Talisman } from "./catalog";
 const talismans = talismanRows as Talisman[];
 
 export interface TalismanRecipeMaterial {
+  kind: "material" | "talisman";
   name: string;
   quantity: number;
+  talismanId?: string;
 }
 
 export interface TalismanRecipe {
@@ -100,6 +102,10 @@ const sourceByClass = {
 
 const keyFor = (row: Talisman) => `${row.class}|${row.series}|${row.color}`;
 
+export function talismanMaterialName(row: Pick<Talisman, "name" | "class" | "color">) {
+  return `${row.name} · ${row.class} · ${row.color} tılsım`;
+}
+
 function previousTierMaterial(row: Talisman) {
   if (row.tier === null || row.tier <= 1) return null;
   const previous = talismans.find((candidate) =>
@@ -108,29 +114,34 @@ function previousTierMaterial(row: Talisman) {
     && candidate.color === row.color
     && candidate.tier === row.tier! - 1,
   );
-  return previous ? `${previous.name} · ${previous.color} tılsım` : null;
+  return previous ? {
+    kind: "talisman" as const,
+    name: talismanMaterialName(previous),
+    quantity: 3,
+    talismanId: previous.id,
+  } : null;
 }
 
 function recipeFor(row: Talisman): TalismanRecipe | null {
   const key = keyFor(row);
   const common = [
-    { name: "Kondrit", quantity: 6 },
-    { name: recipeGemByKey[key], quantity: 8 },
-    { name: "Peptit Kolorotoksin", quantity: 4 },
-    { name: "Örümcek Salgısı", quantity: 4 },
-    { name: "Xenotim", quantity: 8 },
+    { kind: "material" as const, name: "Kondrit", quantity: 6 },
+    { kind: "material" as const, name: recipeGemByKey[key], quantity: 8 },
+    { kind: "material" as const, name: "Peptit Kolorotoksin", quantity: 4 },
+    { kind: "material" as const, name: "Örümcek Salgısı", quantity: 4 },
+    { kind: "material" as const, name: "Xenotim", quantity: 8 },
   ];
   let materials: TalismanRecipeMaterial[] | null = null;
   if (row.tier === 2 || row.tier === 3) {
     const previous = previousTierMaterial(row);
-    if (previous && recipeGemByKey[key]) materials = [{ name: previous, quantity: 3 }, ...common];
+    if (previous && recipeGemByKey[key]) materials = [previous, ...common];
   } else if (row.tier === null && specialGemByKey[key]) {
     materials = [
-      { name: "Kondrit", quantity: 18 },
-      { name: specialGemByKey[key], quantity: 24 },
-      { name: "Peptit Kolorotoksin", quantity: key === "Savaşçı|Defansif Dövüşme 2|Mavi" ? 4 : 12 },
-      { name: "Örümcek Salgısı", quantity: 12 },
-      { name: "Xenotim", quantity: 24 },
+      { kind: "material", name: "Kondrit", quantity: 18 },
+      { kind: "material", name: specialGemByKey[key], quantity: 24 },
+      { kind: "material", name: "Peptit Kolorotoksin", quantity: key === "Savaşçı|Defansif Dövüşme 2|Mavi" ? 4 : 12 },
+      { kind: "material", name: "Örümcek Salgısı", quantity: 12 },
+      { kind: "material", name: "Xenotim", quantity: 24 },
     ];
   }
   if (!materials) return null;

@@ -473,5 +473,40 @@
     "name": "Yeşil Zümrüt",
     "path": "/materials/yesil-zumrut.png",
     "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Gadolinyum",
+    "path": "/materials/gadolinyum.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Jadeit",
+    "path": "/materials/jadeit.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Kondrit",
+    "path": "/materials/kondrit.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Örümcek Salgısı",
+    "path": "/materials/orumcek-salgisi.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Peptit Kolorotoksin",
+    "path": "/materials/peptit-klorotoksin.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Safran",
+    "path": "/materials/safran.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Xenotim",
+    "path": "/materials/xenotim.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
   }
 ]

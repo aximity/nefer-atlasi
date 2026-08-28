@@ -9,7 +9,10 @@ import { buildAtlasCompletionQueue, completionSummary, COMPLETION_KIND_LABELS, f
 import { coveredItemVisualFamilyIds, itemVisualFamilyFor, potionVisualFamilies, talismanVisualFamilies } from "../lib/visual-families";
 
 const graph = buildAtlasGraph({ items: publishableItems, recipes, materialSourceFor });
-const coveredVisualFamilyIds = coveredItemVisualFamilyIds({ items: publishableItems, images, appearanceImages });
+const coveredVisualFamilyIds = new Set([
+  ...coveredItemVisualFamilyIds({ items: publishableItems, images, appearanceImages }),
+  ...talismanVisualFamilies.filter((family) => family.status === "verified" && family.assetRef).map((family) => family.id),
+]);
 const records = buildAtlasCompletionQueue({
   graph,
   images,

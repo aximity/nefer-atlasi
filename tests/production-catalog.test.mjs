@@ -14,16 +14,16 @@ test("ortak üretim kataloğu dört reçete türünü tek ağda toplar", () => {
   assert.ok(productionUsesForMaterial("Ceviz Yaprağı").some((usage) => usage.kind === "potion"));
   assert.ok(productionUsesForMaterial("Ceviz Yaprağı").some((usage) => usage.kind === "material"));
   const previousTierTalismans = productionMaterialNames.filter((name) => name.endsWith(" tılsım"));
-  assert.equal(previousTierTalismans.length, 106);
-  assert.equal(previousTierTalismans.filter((name) => productionMaterialSourceFor(name)?.kind === "talisman_craft").length, 53);
-  assert.equal(previousTierTalismans.filter((name) => productionMaterialSourceFor(name)?.kind === "talisman_acquisition").length, 10);
-  assert.equal(previousTierTalismans.filter((name) => !productionMaterialSourceFor(name)).length, 43);
+  assert.equal(previousTierTalismans.length, 110);
+  assert.equal(previousTierTalismans.filter((name) => productionMaterialSourceFor(name)?.kind === "talisman_craft").length, 55);
+  assert.equal(previousTierTalismans.filter((name) => productionMaterialSourceFor(name)?.kind === "talisman_acquisition").length, 6);
+  assert.equal(previousTierTalismans.filter((name) => !productionMaterialSourceFor(name)).length, 49);
 });
 
 test("Wiki malzeme ikonları tahminsiz ve ölçülebilir kapsama sahiptir", () => {
   const potionMaterials = [...new Set(potionRecipes.flatMap((recipe) => recipe.materials.map((material) => material.name)))];
   const missing = potionMaterials.filter((name) => !materialIconFor(name));
-  assert.equal(materialIcons.length, 95);
+  assert.equal(materialIcons.length, 102);
   assert.deepEqual(missing, ["Karbon"]);
   assert.equal(materialIconFor("Saf Bakır")?.path, "/materials/saf-bakir.png");
   assert.match(materialIconFor("Saf Bakır")?.src ?? "", /^data:image\/png;base64,/);

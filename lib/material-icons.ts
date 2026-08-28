@@ -2,7 +2,6 @@ import materialIconRows from "../data/material-icons.json" with { type: "json" }
 import materialIconInlineRows from "../data/material-icons-inline.json" with { type: "json" };
 
 type MaterialIconRow = { name: string; path: string; sourceId: string };
-type MaterialIcon = MaterialIconRow & { src: string };
 
 const normalize = (value: string) => value.trim().toLocaleLowerCase("tr-TR");
 const inlineByPath = new Map((materialIconInlineRows as { path: string; dataUri: string }[]).map((row) => [row.path, row.dataUri]));

@@ -46,9 +46,9 @@ export function itemVisualFamilyFor(item: Item): VisualFamily {
   return typedFamily ?? fallbackFamily(item);
 }
 
-export function talismanVisualFamilyFor(talisman: Pick<Talisman, "color">): VisualFamily {
-  const family = talismanVisualFamilies.find((row) => row.color === talisman.color);
-  if (!family) throw new Error(`Tılsım görünüş ailesi bulunamadı: ${talisman.color}`);
+export function talismanVisualFamilyFor(talisman: Pick<Talisman, "class" | "color">): VisualFamily {
+  const family = talismanVisualFamilies.find((row) => row.class === talisman.class && row.color === talisman.color);
+  if (!family) throw new Error(`Tılsım görünüş ailesi bulunamadı: ${talisman.class} · ${talisman.color}`);
   return family;
 }
 

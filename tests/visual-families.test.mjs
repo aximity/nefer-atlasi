@@ -34,12 +34,24 @@ test("farklı efsunlu aynı gövde tek görsel ailesini paylaşır", () => {
   assert.equal(itemVisualFamilyFor(twoStaves[0]).scope, "shared_item_type");
 });
 
-test("179 tılsım sınıf ve etkiden bağımsız iki renk görselini paylaşır", () => {
+test("179 tılsım sınıf ve renge göre altı doğrulanmış oyun ikonunu paylaşır", () => {
   assert.equal(talismans.length, 179);
-  assert.deepEqual([...new Set(talismans.map((row) => talismanVisualFamilyFor(row).id))].sort(), ["talisman:blue", "talisman:red"]);
-  const red = talismans.filter((row) => row.color === "Kırmızı");
-  assert.equal(new Set(red.map((row) => talismanVisualFamilyFor(row).id)).size, 1);
-  assert.equal(new Set(red.map((row) => row.class)).size, 3);
+  const expected = [
+    "talisman:buyucu:blue",
+    "talisman:buyucu:red",
+    "talisman:savasci:blue",
+    "talisman:savasci:red",
+    "talisman:sifaci:blue",
+    "talisman:sifaci:red",
+  ];
+  assert.deepEqual([...new Set(talismans.map((row) => talismanVisualFamilyFor(row).id))].sort(), expected);
+  for (const row of talismans) {
+    const family = talismanVisualFamilyFor(row);
+    assert.equal(family.class, row.class);
+    assert.equal(family.color, row.color);
+    assert.equal(family.status, "verified");
+    assert.match(family.assetRef ?? "", /^\/talismans\/.+\.png$/);
+  }
 });
 
 test("iksir rengi ve seviye ölçeği üç açık aile kuralında tutulur", () => {

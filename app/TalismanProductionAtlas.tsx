@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { sourceFor, talismans, type CharacterClass } from "../lib/catalog";
 import { playerReportsFor, talismanProduction, tierRuleFor, vendorMentionsFor } from "../lib/talisman-production";
 import { talismanRecipeFor } from "../lib/talisman-recipes";
+import { talismanIconFor } from "../lib/talisman-icons";
 import { talismanVisualFamilyFor } from "../lib/visual-families";
 
 type TierFilter = "Tümü" | "I" | "II" | "III" | "Özel";
@@ -41,6 +43,12 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "",
   const effectSource = selected ? sourceFor(selected.sourceId) : null;
   const recipe = selected ? talismanRecipeFor(selected.id) : null;
   const visualFamily = selected ? talismanVisualFamilyFor(selected) : null;
+  const talismanIcon = selected ? talismanIconFor(selected) : null;
+  const normalIkvAcquisition = vendorMentions.length > 0
+    ? `Gönül · Büyük Hol. ${vendorMentions[0].scopeNote}`
+    : selected?.tier === 1
+      ? "Bazı I. kademe tılsımlar düşer, bazıları oyun parasıyla alınır; bu adın kesin kaynağı yayımlanmamış."
+      : rule?.note ?? "";
   const chooseClass = (value: CharacterClass) => {
     setSelectedId("");
     onClassChange(value);
@@ -79,21 +87,25 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "",
         <header><span><small>{selected.class} · {selected.color} · {rule.label}</small><h4>{selected.name}</h4></span></header>
 
         <div className={`talismanVisualRule ${selected.color === "Kırmızı" ? "red" : "blue"}`}>
-          <i aria-hidden="true" />
+          {talismanIcon && <Image unoptimized src={talismanIcon.src} alt="" width={32} height={32} />}
           <span><small>ORTAK TILSIM GÖRÜNÜŞÜ</small><b>{visualFamily.label}</b></span>
-          <p>Bu renk için tek gövde görseli kullanılır; sınıf, kademe ve etki seçili tılsıma aittir.</p>
+          <p>Bu sınıf ve renk için doğrulanan oyun ikonu kullanılır; kademe ve etki seçili tılsıma aittir.</p>
         </div>
 
         <div className="talismanFacts">
           <article><small>ETKİ</small><b>{selected.series}</b><p>{selected.effectText}</p></article>
           <article>
             <small>ELDE ETME</small>
-            <b>{playerReport ? `${playerReport.npc} · ${playerReport.priceLabel}` : rule.acquisition}</b>
-            <p>{playerReport ? "KÖ oyuncu bildirimi · oyun içi görüntüyle doğrulama bekliyor." : rule.note}</p>
+            <b>{playerReport ? `KÖ bildirimi · ${playerReport.npc} · ${playerReport.priceLabel}` : vendorMentions.length > 0 ? "Normal İKV · Gönül · Büyük Hol" : rule.acquisition}</b>
+            <p>{playerReport ? "Oyuncu bildirimi; açık dükkân görüntüsüyle doğrulama bekliyor. Normal İKV kaydı aşağıda ayrı gösterilir." : normalIkvAcquisition}</p>
           </article>
         </div>
 
-        <details className="talismanEvidence"><summary>Kaynak ve doğrulama ayrıntısı <i>+</i></summary><div><p>{playerReport ? `${playerReport.claim} Bu bildirim henüz oyun içi görüntü veya bağımsız ikinci kaynakla doğrulanmadı.` : rule.note}</p>{(effectSource || serverReferenceSource || (vendorMentions.length > 0 && vendorSource)) && <a href="/kaynaklar#tilsimlar">Tılsım kaynaklarını kategori içinde gör →</a>}</div></details>
+        <details className="talismanEvidence"><summary>Kaynak ve doğrulama ayrıntısı <i>+</i></summary><div>
+          <p><b>Normal İKV:</b> {normalIkvAcquisition}</p>
+          <p><b>Kıyametin Öncüleri:</b> {playerReport ? `${playerReport.claim} Bu bildirim henüz açık oyun içi görüntüyle doğrulanmadı.` : "Bu tılsım için adlandırılmış NPC veya drop kaydı henüz doğrulanmadı."}</p>
+          {(effectSource || serverReferenceSource || (vendorMentions.length > 0 && vendorSource)) && <a href="/kaynaklar#tilsimlar">Tılsım kaynaklarını kategori içinde gör →</a>}
+        </div></details>
 
         <footer><a className="primaryRecipeLink" href={recipe ? `/?module=recipes&kind=talisman&recipe=${selected.id}#recipes` : "/?module=recipes&kind=talisman#recipes"}>{recipe ? "Bu tılsımın reçetesini aç" : "Tılsım reçetelerine git"} →</a></footer>
       </section>}
