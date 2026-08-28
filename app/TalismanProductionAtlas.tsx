@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { sourceFor, talismans, type CharacterClass, type Talisman } from "../lib/catalog";
-import { playerReportsFor, previousTierFor, talismanProduction, tierRuleFor, vendorMentionsFor } from "../lib/talisman-production";
+import { playerReportsFor, talismanProduction, tierRuleFor, vendorMentionsFor } from "../lib/talisman-production";
+import { talismanRecipeFor } from "../lib/talisman-recipes";
 
 type TierFilter = "Tümü" | "I" | "II" | "III" | "Özel";
 type ColorFilter = "Tümü" | "Kırmızı" | "Mavi";
@@ -51,7 +52,6 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "" 
   }, [classRows, color, query, tier]);
   const selected = classRows.find((row) => row.id === selectedId) ?? visible[0] ?? classRows[0];
   const rule = selected ? tierRuleFor(selected) : null;
-  const previous = selected ? previousTierFor(selected, talismans) : null;
   const vendorMentions = selected ? vendorMentionsFor(selected) : [];
   const playerReport = selected ? playerReportsFor(selected)[0] : undefined;
   const favorite = selected ? favorites.includes(selected.id) : false;
@@ -60,6 +60,8 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "" 
   const serverReference = talismanProduction.serverReferences[0];
   const serverReferenceSource = sourceFor(serverReference.sourceId);
   const effectSource = selected ? sourceFor(selected.sourceId) : null;
+  const recipe = selected ? talismanRecipeFor(selected.id) : null;
+  const recipeSource = recipe ? sourceFor(recipe.sourceId) : null;
 
   const toggleFavorite = (row: Talisman) => setFavorites((current) =>
     current.includes(row.id) ? current.filter((id) => id !== row.id) : [...current, row.id],
@@ -96,17 +98,16 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "" 
             <span className="verificationFlag pending">DOĞRULAMA GEREKİYOR</span>
             <p>{playerReport ? `${playerReport.claim} Bu KÖ oyuncu bildirimi henüz oyun içi görüntü veya bağımsız ikinci kaynakla doğrulanmadı.` : rule.note}</p>
             {serverReferenceSource && <a href={serverReferenceSource.url} target="_blank" rel="noreferrer">KÖ sistem kaynağı ↗</a>}
-            {vendorMentions.length > 0 && vendorSource && <a href={vendorSource.url} target="_blank" rel="noreferrer">Normal İKV karşılaştırması ↗</a>}
+            {vendorMentions.length > 0 && vendorSource && <a href={vendorSource.url} target="_blank" rel="noreferrer">Normal İKV referansı ↗</a>}
           </article>
           <article className="recipeContent">
             <small>REÇETE İÇERİĞİ</small>
-            <b>{previous ? `Normal İKV referansı: ${previous.name}` : "Malzeme ve adetler doğrulanıyor"}</b>
-            <span className="verificationFlag pending">KÖ TEYİDİ BEKLİYOR</span>
-            <p>{previous ? "Bu kademe zinciri normal İKV kaynağından gelir. KÖ reçetesindeki malzemeler, adetler ve reçetenin Gönül'den mi yoksa Hol'den mi edinildiği kesinleşmeden yayımlanmayacak." : "KÖ için reçete gerekip gerekmediği, gereken malzemeler ve adetler henüz çapraz doğrulanmadı."}</p>
+            <b>{recipe ? `${recipe.materials.length} malzeme kalemi` : selected.tier === 1 ? "Üretim reçetesi yok" : "Kaynak tablosunda reçete bulunamadı"}</b>
+            {recipe ? <><span className="verificationFlag single">İKV REÇETESİ · KÖ İLE AYNI</span><div className="talismanMaterialList">{recipe.materials.map((material) => <span key={material.name}><b>{material.name}</b><strong>×{material.quantity}</strong></span>)}</div>{recipeSource && <a href={recipeSource.url} target="_blank" rel="noreferrer">Sınıf reçete tablosu ↗</a>}</> : <p>{selected.tier === 1 ? "I. kademe tılsımlar hazır edinilir ve II. kademe üretiminde kullanılır." : "Bu özel tılsım kaynak tablosunda açık bir reçeteyle eşleşmediği için malzeme uydurulmadı."}</p>}
           </article>
         </div>
 
-        <footer><button type="button" onClick={() => toggleFavorite(selected)}>{favorite ? "Üretim hedefinden çıkar" : "Üretim hedeflerine ekle"}</button><Link href="/farm-operasyonu#production-planner">Üretim Takibi →</Link></footer>
+        <footer><button type="button" onClick={() => toggleFavorite(selected)} disabled={!recipe}>{favorite ? "Üretim hedefinden çıkar" : recipe ? "Üretim hedeflerine ekle" : "Reçete bulunamadı"}</button><Link href="/farm-operasyonu#production-planner">Stok ve üretim takibi →</Link></footer>
       </section>}
     </div>
   </section>;

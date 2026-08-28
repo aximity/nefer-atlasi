@@ -6,6 +6,7 @@ import Link from "next/link";
 import { publishableItems, recipes, sourceFor, talismans } from "../../lib/catalog";
 import { materialSourceFor } from "../../lib/material-sources";
 import { buildProductionPlans, productionSummary } from "../../lib/production-planner.mjs";
+import { talismanRecipes } from "../../lib/talisman-recipes";
 
 type Stock = Record<string, number>;
 type Targets = Record<string, number>;
@@ -30,6 +31,12 @@ const readStored = <T,>(key: string, fallback: T): T => {
 };
 const fmt = (value: number) => new Intl.NumberFormat("tr-TR").format(value);
 const normalizeSearch = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
+const talismanIds = new Set(talismans.map((row) => row.id));
+const plannerItems = [
+  ...publishableItems.map((row) => ({ id: row.id, name: row.name, class: row.class, slot: row.slot })),
+  ...talismans.map((row) => ({ id: row.id, name: row.name, class: row.class, slot: `Tılsım · ${row.color}` })),
+];
+const plannerRecipes = [...recipes, ...talismanRecipes];
 
 function sourceText(materialName: string) {
   const source = materialSourceFor(materialName);
@@ -52,6 +59,9 @@ export default function ProductionPlanner() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<PlanFilter>("Tümü");
   const [photoPreview, setPhotoPreview] = useState("");
+  const [photoMaterial, setPhotoMaterial] = useState("");
+  const [photoQuantity, setPhotoQuantity] = useState("1");
+  const [photoDraft, setPhotoDraft] = useState<Stock>({});
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -71,11 +81,13 @@ export default function ProductionPlanner() {
   useEffect(() => { if (hydrated) localStorage.setItem(keys.talismanGoals, JSON.stringify(talismanGoals)); }, [hydrated, talismanGoals]);
   useEffect(() => () => { if (photoPreview) URL.revokeObjectURL(photoPreview); }, [photoPreview]);
 
-  const itemById = useMemo(() => new Map(publishableItems.map((item) => [item.id, item])), []);
+  const itemById = useMemo(() => new Map(plannerItems.map((item) => [item.id, item])), []);
   const talismanGoalRows = useMemo(() => talismanGoals.map((id) => talismans.find((row) => row.id === id)).filter((row) => Boolean(row)), [talismanGoals]);
-  const materialOptions = useMemo(() => [...new Set(recipes.flatMap((recipe) => recipe.materials.map((row) => row.name)))].sort((a, b) => a.localeCompare(b, "tr")), []);
-  const plans = useMemo(() => buildProductionPlans({ recipes, items: publishableItems, stock, targets }) as ProductionPlan[], [stock, targets]);
-  const summary = useMemo(() => productionSummary(plans, favorites), [favorites, plans]);
+  const materialOptions = useMemo(() => [...new Set(plannerRecipes.flatMap((recipe) => recipe.materials.map((row) => row.name)))].sort((a, b) => a.localeCompare(b, "tr")), []);
+  const plans = useMemo(() => buildProductionPlans({ recipes: plannerRecipes, items: plannerItems, stock, targets }) as ProductionPlan[], [stock, targets]);
+  const favoriteIds = useMemo(() => [...new Set([...favorites, ...talismanGoals])], [favorites, talismanGoals]);
+  const summary = useMemo(() => productionSummary(plans, favoriteIds), [favoriteIds, plans]);
+  const planByItemId = useMemo(() => new Map(plans.map((plan) => [plan.recipe.itemId, plan])), [plans]);
   const visible = useMemo(() => {
     const needle = normalizeSearch(query);
     return plans
@@ -85,20 +97,20 @@ export default function ProductionPlanner() {
         if (!matches) return false;
         if (filter === "Üretilebilir") return plan.status === "ready";
         if (filter === "Yakın") return plan.status === "near";
-        if (filter === "Favoriler") return favorites.includes(plan.recipe.itemId);
+        if (filter === "Favoriler") return favoriteIds.includes(plan.recipe.itemId);
         return true;
       })
-      .sort((a, b) => Number(favorites.includes(b.recipe.itemId)) - Number(favorites.includes(a.recipe.itemId)) || b.completion - a.completion);
-  }, [favorites, filter, itemById, plans, query]);
+      .sort((a, b) => Number(favoriteIds.includes(b.recipe.itemId)) - Number(favoriteIds.includes(a.recipe.itemId)) || b.completion - a.completion);
+  }, [favoriteIds, filter, itemById, plans, query]);
   const unknownMissing = useMemo(() => plans.flatMap((plan) => plan.missing).filter((row) => !materialSourceFor(row.name)).length, [plans]);
   const routePriority = useMemo(() => {
     const regions = new Map<string, number>();
-    plans.filter((plan) => favorites.includes(plan.recipe.itemId)).flatMap((plan) => plan.missing).forEach((row) => {
+    plans.filter((plan) => favoriteIds.includes(plan.recipe.itemId)).flatMap((plan) => plan.missing).forEach((row) => {
       const source = materialSourceFor(row.name);
       if (source) regions.set(source.region, (regions.get(source.region) ?? 0) + row.missing);
     });
     return [...regions.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
-  }, [favorites, plans]);
+  }, [favoriteIds, plans]);
 
   const addStock = () => {
     const amount = Math.max(0, Math.floor(Number(quantity)));
@@ -118,6 +130,27 @@ export default function ProductionPlanner() {
     if (photoPreview) URL.revokeObjectURL(photoPreview);
     setPhotoPreview(file ? URL.createObjectURL(file) : "");
   };
+  const addPhotoDraft = () => {
+    const amount = Math.max(0, Math.floor(Number(photoQuantity)));
+    if (!photoMaterial || !amount) return;
+    setPhotoDraft((current) => ({ ...current, [photoMaterial]: (current[photoMaterial] ?? 0) + amount }));
+    setPhotoQuantity("1");
+  };
+  const confirmPhotoDraft = () => {
+    setStock((current) => {
+      const next = { ...current };
+      for (const [name, amount] of Object.entries(photoDraft)) next[name] = (next[name] ?? 0) + amount;
+      return next;
+    });
+    setPhotoDraft({});
+  };
+  const togglePlanFavorite = (itemId: string) => {
+    if (talismanIds.has(itemId)) {
+      setTalismanGoals((current) => current.includes(itemId) ? current.filter((id) => id !== itemId) : [...current, itemId]);
+    } else {
+      setFavorites((current) => current.includes(itemId) ? current.filter((id) => id !== itemId) : [...current, itemId]);
+    }
+  };
 
   return <section className="productionWorkspace" id="production-planner">
     <header className="productionHead">
@@ -134,14 +167,19 @@ export default function ProductionPlanner() {
       <section className="stockPhoto">
         <header><div><small>02 · FOTOĞRAF REFERANSI</small><h3>Çantayı yanında tut</h3></div></header>
         <label className={photoPreview ? "hasPhoto" : ""}>{photoPreview ? <Image unoptimized fill sizes="(max-width: 1050px) 100vw, 35vw" src={photoPreview} alt="Malzeme girişi için seçilen çanta fotoğrafı"/> : <span><b>Fotoğraf seç veya çek</b><small>Çanta ekranı yalnız bu cihazda önizlenir.</small></span>}<input type="file" accept="image/*" capture="environment" onChange={(event) => choosePhoto(event.target.files?.[0] ?? null)}/></label>
-        <p>Otomatik okuma doğrulanmadan stok değiştirilmez. Fotoğrafa bakıp adetleri manuel onayla; görüntü sunucuya gönderilmez.</p>
+        <p>Fotoğraf otomatik olarak stok değiştirmez. Görselde gördüğün malzeme ve adedi taslağa ekleyip tek seferde onayla; görüntü sunucuya gönderilmez.</p>
+        {photoPreview && <div className="photoDraftEditor"><div><select aria-label="Fotoğraftaki malzeme" value={photoMaterial} onChange={(event) => setPhotoMaterial(event.target.value)}><option value="">Fotoğraftaki malzeme…</option>{materialOptions.map((name) => <option key={name}>{name}</option>)}</select><input aria-label="Fotoğraftaki adet" inputMode="numeric" value={photoQuantity} onChange={(event) => setPhotoQuantity(event.target.value.replace(/\D/g, ""))}/><button type="button" onClick={addPhotoDraft}>Taslağa ekle</button></div><ul>{Object.entries(photoDraft).map(([name, amount]) => <li key={name}><span>{name}</span><b>×{amount}</b><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)))}>×</button></li>)}</ul>{Object.keys(photoDraft).length > 0 && <button type="button" className="confirmPhotoDraft" onClick={confirmPhotoDraft}>Taslağı onayla ve stoka işle</button>}</div>}
       </section>
     </div>
 
     <section className="productionTalismanGoals">
       <header><span><small>TILSIM ÜRETİM HEDEFLERİ</small><h3>Atlas’tan seçilenler</h3></span><b>{talismanGoalRows.length} hedef</b></header>
-      <p>Kesin reçete malzemeleri doğrulanana kadar bu hedefler stoktan düşülmez ve “üretilebilir” sayılmaz.</p>
-      <div>{talismanGoalRows.map((row) => row && <article key={row.id}><span><small>{row.class} · {row.color} · {row.tier === null ? "Özel" : `${row.tier}. kademe`}</small><b>{row.name}</b></span><em>Malzeme doğrulaması bekliyor</em><button type="button" aria-label={`${row.name} tılsım hedefini kaldır`} onClick={() => setTalismanGoals((current) => current.filter((id) => id !== row.id))}>×</button></article>)}{talismanGoalRows.length === 0 && <span className="emptyTalismanGoals">Ana sitedeki Tılsım Üretim Atlası’ndan yıldızla hedef ekleyebilirsin.</span>}</div>
+      <p>Favoriye aldığın tılsımlar stok hesabında öncelik kazanır; eksik malzeme ve en yakın üretim otomatik hesaplanır.</p>
+      <div>{talismanGoalRows.map((row) => {
+        if (!row) return null;
+        const plan = planByItemId.get(row.id);
+        return <article key={row.id}><span><small>{row.class} · {row.color} · {row.tier === null ? "Özel" : `${row.tier}. kademe`}</small><b>{row.name}</b></span><em>{plan ? plan.status === "ready" ? "Üretilebilir" : `%${plan.completion} tamam · ${plan.missing.length} eksik` : "Kaynakta reçete yok"}</em><button type="button" aria-label={`${row.name} tılsım hedefini kaldır`} onClick={() => setTalismanGoals((current) => current.filter((id) => id !== row.id))}>×</button></article>;
+      })}{talismanGoalRows.length === 0 && <span className="emptyTalismanGoals">Ana sitedeki Tılsım Üretim Atlası’ndan yıldızla hedef ekleyebilirsin.</span>}</div>
       <Link href="/?module=engine#engine">Tılsım Üretim Atlası’nı aç →</Link>
     </section>
 
@@ -155,10 +193,10 @@ export default function ProductionPlanner() {
 
     <div className="productionCards">{visible.map((plan) => {
       const item = itemById.get(plan.recipe.itemId);
-      const favorite = favorites.includes(plan.recipe.itemId);
+      const favorite = favoriteIds.includes(plan.recipe.itemId);
       const recipeSource = sourceFor(plan.recipe.sourceId);
       return <article className={`productionCard ${plan.status}`} key={plan.recipe.id}>
-        <header><button type="button" className={favorite ? "favorite on" : "favorite"} aria-label={favorite ? "Favorilerden çıkar" : "Favorilere ekle"} onClick={() => setFavorites((current) => favorite ? current.filter((id) => id !== plan.recipe.itemId) : [...current, plan.recipe.itemId])}>{favorite ? "★" : "☆"}</button><span><small>{item?.class ?? "Sınıf bekliyor"} · {item?.slot ?? "Yuva bekliyor"}</small><h3>{item?.name ?? plan.recipe.itemId}</h3></span><b className={`planStatus ${plan.status}`}>{plan.status === "ready" ? "Üretilebilir" : plan.status === "near" ? "Yakın" : "Eksik"}</b></header>
+        <header><button type="button" className={favorite ? "favorite on" : "favorite"} aria-label={favorite ? "Favorilerden çıkar" : "Favorilere ekle"} onClick={() => togglePlanFavorite(plan.recipe.itemId)}>{favorite ? "★" : "☆"}</button><span><small>{item?.class ?? "Sınıf bekliyor"} · {item?.slot ?? "Yuva bekliyor"}</small><h3>{item?.name ?? plan.recipe.itemId}</h3></span><b className={`planStatus ${plan.status}`}>{plan.status === "ready" ? "Üretilebilir" : plan.status === "near" ? "Yakın" : "Eksik"}</b></header>
         <div className="planControls"><label><span>Hedef</span><input aria-label={`${item?.name ?? plan.recipe.itemId} hedef adedi`} inputMode="numeric" min="1" value={plan.target} onChange={(event) => setTargets((current) => ({ ...current, [plan.recipe.itemId]: Math.max(1, Number(event.target.value) || 1) }))}/></label><label><span>Üretecek kişi</span><input value={owners[plan.recipe.itemId] ?? ""} onChange={(event) => setOwners((current) => ({ ...current, [plan.recipe.itemId]: event.target.value }))} placeholder="İsim / ekip…"/></label><span><small>Stoktan çıkabilecek</small><b>{plan.craftableCount} adet</b></span></div>
         <div className="planProgress"><span><b style={{ width: `${plan.completion}%` }}/></span><em>%{plan.completion}</em></div>
         <div className="materialChecklist">{plan.materials.map((row) => {

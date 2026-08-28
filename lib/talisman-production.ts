@@ -8,7 +8,7 @@ export interface TalismanTierRule {
   label: string;
   acquisition: string;
   recipeRequired: boolean;
-  materialsStatus: "awaiting_verification";
+  materialsStatus: "awaiting_verification" | "source_matched";
   note: string;
   sourceIds: string[];
 }

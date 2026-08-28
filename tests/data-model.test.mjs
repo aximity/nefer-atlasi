@@ -132,7 +132,8 @@ test("tılsım kataloğu her sınıfta iki rengi ve tam kademeli serileri korur"
 test("tılsım üretim atlası kademe zincirini ve kaynaklı NPC kapsamını dürüstçe sınırlar", () => {
   assert.deepEqual(talismanProduction.tierRules.map((rule) => rule.tier), [1, 2, 3, "special"]);
   assert.equal(talismanProduction.tierRules.filter((rule) => rule.recipeRequired).length, 3);
-  assert.ok(talismanProduction.tierRules.every((rule) => rule.materialsStatus === "awaiting_verification"));
+  assert.equal(talismanProduction.tierRules.find((rule) => rule.tier === 1)?.materialsStatus, "awaiting_verification");
+  assert.ok(talismanProduction.tierRules.filter((rule) => rule.tier !== 1).every((rule) => rule.materialsStatus === "source_matched"));
   const vendor = talismanProduction.vendors.find((row) => row.id === "gonul-buyuk-hol");
   assert.equal(vendor?.name, "Gönül");
   assert.equal(vendor?.region, "Büyük Hol");

@@ -3,37 +3,37 @@
     {
       "tier": 1,
       "label": "I. Kademe",
-      "acquisition": "KÖ edinme yolu doğrulanıyor",
+      "acquisition": "Hazır I. kademe veya oyun içi edinim",
       "recipeRequired": false,
       "materialsStatus": "awaiting_verification",
-      "note": "Normal İKV kaynaklarında Büyük Hol bilgisi bulunuyor; Kıyametin Öncüleri için aynı kural doğrulanmadı.",
+      "note": "I. kademe tılsımlar üst kademe üretiminde girdi olarak kullanılır. KÖ oyuncu bildirimi bazı I. kademe tılsımların Gönül'de satıldığını destekliyor.",
       "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
     },
     {
       "tier": 2,
       "label": "II. Kademe",
-      "acquisition": "KÖ reçete kaynağı doğrulanıyor",
+      "acquisition": "I. kademe tılsım ve Büyük Hol malzemeleriyle üretilir",
       "recipeRequired": true,
-      "materialsStatus": "awaiting_verification",
-      "note": "Normal İKV referansında aynı seri ve renkteki I. kademe kullanılır; KÖ reçetesi, malzemeleri ve adetleri doğrulanmadı.",
+      "materialsStatus": "source_matched",
+      "note": "KÖ reçetelerinin normal İKV ile aynı olduğu kullanıcı tarafından teyit edildi; malzeme ve adetler sınıf reçete tablosuna bağlandı.",
       "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
     },
     {
       "tier": 3,
       "label": "III. Kademe",
-      "acquisition": "KÖ reçete kaynağı doğrulanıyor",
+      "acquisition": "II. kademe tılsım ve Büyük Hol malzemeleriyle üretilir",
       "recipeRequired": true,
-      "materialsStatus": "awaiting_verification",
-      "note": "Normal İKV referansında aynı seri ve renkteki II. kademe kullanılır; KÖ reçetesi, malzemeleri ve adetleri doğrulanmadı.",
+      "materialsStatus": "source_matched",
+      "note": "KÖ reçetelerinin normal İKV ile aynı olduğu kullanıcı tarafından teyit edildi; malzeme ve adetler sınıf reçete tablosuna bağlandı.",
       "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
     },
     {
       "tier": "special",
       "label": "Özel",
-      "acquisition": "KÖ reçete kaynağı doğrulanıyor",
+      "acquisition": "Büyük Hol malzemeleriyle doğrudan üretilir",
       "recipeRequired": true,
-      "materialsStatus": "awaiting_verification",
-      "note": "Normal İKV referansında reçeteyle üretilir; KÖ malzemeleri, adetleri ve reçete kaynağı doğrulanmadı.",
+      "materialsStatus": "source_matched",
+      "note": "Kaynak tablosunda açıkça bulunan özel tılsım reçeteleri bağlandı; tabloda bulunmayan özel tılsımlar için reçete üretilmedi.",
       "sourceIds": ["ikv-mage-talismans", "ikv-warrior-talismans", "ikv-healer-talismans"]
     }
   ],
