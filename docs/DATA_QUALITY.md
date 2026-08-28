@@ -13,10 +13,12 @@
 - Set görseli tekil eşya görseli olarak kaydedilmez.
 - Video küçük resmi kanıt değildir.
 - Görsel URL, kaynak türü ve tarih olmadan yayımlanmaz.
+- İKV Wiki görsel kimliği için ana kaynaktır; dosya sayfasındaki lisans ve kullanım bilgisi ayrıca korunur.
 
 ## Açık sorunlar
 
 - İksir Reçeteleri sayfası ana oyun referansı kabul edildi; mevcut 40 ad / 11 malzeme dizininde adetler henüz yapılandırılmış kayda aktarılmadı.
+- Projedeki 22 İKV Wiki kaynağı genel ana kaynak politikasına geçirildi; eksik alanlar ilgili Wiki sayfaları bulunup yapılandırıldıkça tamamlanır.
 
 - Bazı Çemberlitaş arşiv satırlarında aynı özellik iki kez yazılmış görünüyor.
 - Cehennem parçalarında alan adı/değer eşleşmeleri tutarsız olabilir.

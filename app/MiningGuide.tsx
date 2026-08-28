@@ -6,7 +6,7 @@ import {
   formatTimerDuration,
   timerState,
 } from "../lib/mining-timer.mjs";
-import { items, recipes, statusLabel, type Recipe } from "../lib/catalog";
+import { items, recipes, sourceStatusLabel, type Recipe } from "../lib/catalog";
 import {
   gatheringRegionFor,
   gatheringRows,
@@ -316,10 +316,10 @@ export default function MiningGuide() {
         <div className="production-metrics"><span><small>ŞAHESER</small><b>{selectedMaterial.uses.length}</b></span><span><small>TOPLAM GEREKSİNİM</small><b>{selectedMaterial.uses.reduce((sum,usage)=>sum+usage.quantity,0)}</b></span></div>
         <div className="production-use-list">
           <header><span>KULLANILDIĞI ŞAHESERLER</span><small>Mevcut reçete kataloğu</small></header>
-          {selectedMaterial.uses.length===0?<div className="production-empty"><b>Bağlantı kaydı bulunamadı</b><span>Bu, malzemenin hiçbir yerde kullanılmadığı anlamına gelmez; doğrulanmış reçete katkısı bekleniyor.</span></div>:selectedMaterial.uses.map((usage)=><a key={usage.itemId} href={`/?module=items&item=${usage.itemId}#items`}><span><small>{usage.itemClass} · {usage.slot}</small><strong>{usage.itemName}</strong><em>{statusLabel[usage.recipe.verificationStatus]}</em></span><b>×{usage.quantity}</b></a>)}
+          {selectedMaterial.uses.length===0?<div className="production-empty"><b>Bağlantı kaydı bulunamadı</b><span>Bu, malzemenin hiçbir yerde kullanılmadığı anlamına gelmez; İKV Wiki taraması kuyruğundadır.</span></div>:selectedMaterial.uses.map((usage)=><a key={usage.itemId} href={`/?module=items&item=${usage.itemId}#items`}><span><small>{usage.itemClass} · {usage.slot}</small><strong>{usage.itemName}</strong><em>{sourceStatusLabel(usage.recipe.verificationStatus, [usage.recipe.sourceId])}</em></span><b>×{usage.quantity}</b></a>)}
         </div>
         <div className="production-sheet-actions"><a href={`/?module=atlas&node=${encodeURIComponent(`material:${selectedMaterial.name.toLocaleLowerCase("tr-TR")}`)}#atlas`}>Bağlantılı Atlası aç ↗</a><a href={`/?module=mining&view=Kaynaklar&material=${encodeURIComponent(selectedMaterial.name)}#mining`}>Bu madeni filtrele</a></div>
-        <p className="production-caveat">Miktarlar mevcut kaynaklı reçete kataloğundan gelir. Kıyametin Öncüleri sunucusunda değişen reçeteler canlı oyun görüntüsüyle ayrıca doğrulanır.</p>
+        <p className="production-caveat">Miktarlar İKV Wiki ve mevcut kaynaklı reçete kataloğundan gelir. Wiki’de bulunan oyun verisi için ikinci kaynak aranmaz; KÖ’ye özel değişiklikler ayrıca işaretlenir.</p>
       </aside>
     </div>}
   </section>;

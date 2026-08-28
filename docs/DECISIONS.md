@@ -87,3 +87,7 @@ Trafik ölçümü haricî bir izleyici yerine mevcut D1 üzerinde tutulur. Ham I
 ## ADR-022 — İksir reçetelerinde İKV Wiki ana oyun referansıdır
 
 Kullanıcının 28 Ağustos 2026 tarihli açık kaynak kararıyla İKV Wiki'deki İksir Reçeteleri sayfası bu proje için iksir adı, malzeme ve adetlerinde ana oyun referansıdır. Bu kapsamdaki bilgi ikinci bağımsız kaynak beklemeden yayımlanabilir. Kaynakta henüz siteye aktarılmamış alanlar tahmin edilmez; aktarım eksikliği ile kaynak güveni ayrı tutulur.
+
+## ADR-023 — İKV Wiki tüm oyun verilerinde genel birincil kaynaktır
+
+Kullanıcının 28 Ağustos 2026 tarihli genişletilmiş kararıyla İKV Wiki yalnız iksirlerde değil; eşya, efsun, tılsım, reçete, görev, bölge, boss, maden, meslek, yetenek ve görsel kimliğinde ana oyun referansıdır. Wiki'de bulunan bilgi ikinci bağımsız kaynak beklemeden yayımlanır. Oyuncu bildirimi, pazar fiyatı, KÖ'ye özel sunucu değişikliği ve canlı performans ölçümü Wiki kapsamına sokulmaz. Görselin neyi gösterdiği Wiki'den alınabilir; dosya lisansı ve kullanım hakkı ayrıca kaydedilir.

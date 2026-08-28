@@ -177,3 +177,9 @@
 - İKV Wiki İksir Reçeteleri sayfası ana oyun referansı olarak tanımlandı.
 - İksir sekmesindeki çapraz teyit bekleme dili kaldırıldı.
 - Mevcut iksir/malzeme dizini korunurken aktarılmamış adetlerin tam reçete gibi gösterilmesi engellendi.
+# v0.42.0 — Wiki Ana Kaynak Sistemi
+
+- İKV Wiki tüm oyun verileri için genel birincil kaynak yapıldı.
+- Projedeki 22 Wiki kaydı aynı güven politikasına bağlandı.
+- Eşya, Atlas, maden–reçete ve kullanım rehberi etiketleri güncellendi.
+- Wiki dışı oyuncu/pazar/KÖ canlı verileri ve görsel lisansı ayrı tutuldu.

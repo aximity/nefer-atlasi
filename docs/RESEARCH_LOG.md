@@ -198,3 +198,9 @@
 - Kaynak: `fandom-potion-recipes-20260826` — İKV Wiki, İksir Reçeteleri.
 - Kullanıcı kararı: Sayfadaki iksir adı, malzeme ve adetleri oyun doğrusu kabul edilir; çapraz doğrulama aranmaz.
 - Uygulama: Kaynak `primary_game_reference` olarak işaretlendi. Kaynak güveni ile siteye aktarım kapsamı ayrıldı; aktarılmayan adetler tahmin edilmedi.
+# 28 Ağustos 2026 — İKV Wiki genel ana kaynak kararı
+
+- Kapsam: Eşya, efsun, tılsım, reçete, görev, bölge, boss, maden, meslek, yetenek ve görsel kimliği.
+- Kullanıcı kararı: İKV Wiki oyun doğrusu kabul edilir; eksik bilgi için kullanıcının tek tek bağlantı vermesi beklenmez.
+- Uygulama: Projedeki 22 Fandom kaydı çalışma zamanında `primary_game_reference` olarak işaretlenir ve ikinci kaynak şartı aranmaz.
+- Sınır: Pazar fiyatı, oyuncu bildirimi, KÖ’ye özel canlı değişiklik ve görsel kullanım lisansı ayrı kanıt türüdür.

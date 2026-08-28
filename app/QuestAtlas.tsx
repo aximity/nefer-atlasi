@@ -296,8 +296,8 @@ export default function QuestAtlas({ initialQuery = "" }: { initialQuery?: strin
         <div>
           <b>Kaynak ve doğrulama durumu</b>
           <p>
-            Zincir kısıtlamaları ve açıklamalı görev listesi birlikte kullanıldı. Seviye,
-            NPC, hedef ve ön koşullar KÖ içinde ayrıca doğrulanmaya devam eder.
+            Zincir kısıtlamaları ve açıklamalı görev listesi İKV Wiki’den alınır. Seviye,
+            NPC, hedef ve ön koşullar için ikinci kaynak aranmaz; yalnız KÖ’ye özel farklar ayrıca işaretlenir.
           </p>
         </div>
         <nav>

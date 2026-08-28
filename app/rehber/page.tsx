@@ -173,8 +173,9 @@ export default function GuidePage() {
         <div><p>BİLGİYİ NASIL OKUMALIYIM?</p><h2>Her etiket aynı güveni taşımaz.</h2><span>Renk tek başına yeterli değildir; kart üzerindeki kaynak ve kontrol tarihini de aç.</span></div>
         <div className="trustRows">
           <article className="draft"><i>1</i><span><b>Taslak</b><small>Henüz yayımlanabilir bilgi değildir; inceleme veya kanıt bekler.</small></span></article>
-          <article className="single"><i>2</i><span><b>Tek kaynak · teyit bekliyor</b><small>Görülebilir ancak ikinci bağımsız kaynakla doğrulanmamıştır.</small></span></article>
-          <article className="verified"><i>3</i><span><b>Çapraz doğrulandı</b><small>Birbirinden bağımsız en az iki kanıt aynı iddiayı destekler.</small></span></article>
+          <article className="verified"><i>W</i><span><b>İKV Wiki · ana kaynak</b><small>Oyun bilgisi doğrudan yayımlanabilir; ikinci bağımsız kaynak aranmaz.</small></span></article>
+          <article className="single"><i>2</i><span><b>Diğer tek kaynak</b><small>Oyuncu bildirimi, pazar veya Wiki dışı kayıt kendi kanıt sınırıyla gösterilir.</small></span></article>
+          <article className="verified"><i>3</i><span><b>Çapraz doğrulandı</b><small>Wiki dışı iki bağımsız kanıt aynı iddiayı destekler.</small></span></article>
           <article className="conflict"><i>!</i><span><b>Çelişkili</b><small>Kaynaklar uyuşmaz; değer hesaplamaya veya kesin sonuca katılmaz.</small></span></article>
         </div>
       </section>

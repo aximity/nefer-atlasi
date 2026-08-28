@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.41.2",
+    date: "28 Ağustos 2026",
+    title: "İksir Kaynak Kuralı",
+    changes: [
+      "İksir reçetelerinde İKV Wiki ana kaynak kabul edildi.",
+      "İksir sekmesindeki ikinci kaynak teyidi şartı kaldırıldı.",
+      "Aktarılmamış adetlerin tam reçete gibi görünmesi engellendi.",
+    ],
+  },
+  {
     version: "0.41.1",
     date: "28 Ağustos 2026",
     title: "Yönlendirme ve Pazar Onarımı",

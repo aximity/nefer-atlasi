@@ -30,6 +30,7 @@ import {
   itemEvidence,
   sourceFor,
   statusLabel,
+  itemStatusLabel,
   talismanAcquisition,
   type Item,
   type CharacterClass,
@@ -926,7 +927,7 @@ function ItemCard({
           {isSharedItemVisualFamily(visualFamily) && <span className="visualFamilyChip">ORTAK GÖVDE · {visualFamily.label}</span>}
           <span className="cardHint">Kaynak ve ayrıntıyı aç →</span>
           <footer>
-            ● {statusLabel[item.publicationStatus]} · {item.lastChecked}
+            ● {itemStatusLabel(item.id, item.publicationStatus)} · {item.lastChecked}
           </footer>
         </div>
       </button>

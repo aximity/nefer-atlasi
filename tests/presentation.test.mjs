@@ -33,6 +33,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   const abilityMedia = readFileSync(new URL("../app/AbilityMediaShowcase.tsx", import.meta.url), "utf8");
   const contributionCenter = readFileSync(new URL("../app/ContributionCenter.tsx", import.meta.url), "utf8");
   const navigationEvents = readFileSync(new URL("../app/NavigationEvents.tsx", import.meta.url), "utf8");
+  const guide = readFileSync(new URL("../app/rehber/page.tsx", import.meta.url), "utf8");
 
   assert.match(component, /previewFocus/);
   assert.match(component, /--guide-focus/);
@@ -95,4 +96,6 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(navigationEvents, /APP_NAVIGATION_EVENT/);
   assert.match(page, /addEventListener\(APP_NAVIGATION_EVENT, hydrate\)/);
   assert.match(page, /history\.pushState/);
+  assert.match(page, /itemStatusLabel/);
+  assert.match(guide, /İKV Wiki · ana kaynak/);
 });
