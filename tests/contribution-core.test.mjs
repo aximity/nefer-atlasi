@@ -65,6 +65,7 @@ const samples = [
     common,
     details: {
       subject: "Xenotim",
+      tradeDirection: "Satılık",
       listingType: "Gerçekleşen satış",
       quantity: 1,
       currency: "TL",
@@ -92,6 +93,7 @@ test("beş katkı türü yapılandırılmış veriyle doğrulanır", () => {
     assert.equal(result.kind, sample.kind);
     assert.equal(result.details.subject, sample.details.subject);
   }
+  assert.equal(validateContributionPayload(samples[3], { now }).details.tradeDirection, "Satılık");
 });
 
 test("kanıt ve açık beyan olmadan katkı kabul edilmez", () => {

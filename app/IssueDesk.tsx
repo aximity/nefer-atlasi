@@ -126,7 +126,7 @@ export default function IssueDesk() {
                       <a href={source.url} target="_blank" rel="noreferrer" key={source.id}>{source.title} ↗</a>
                     )) : <span>Dış örnek yok; önce KÖ tur verisiyle pilot ölçümü gerekir.</span>}
                   </div>
-                  {issue.id === "group-finding" && <Link className="issueCta" href="/?module=endgame#modules">Mevcut grup panosunu aç →</Link>}
+                  {issue.id === "group-finding" && <Link className="issueCta" href="/?module=endgame&panel=Takvim#endgame">Mevcut grup panosunu aç →</Link>}
                   {issue.id === "low-tier-material-demand" && <Link className="issueCta" href="/?module=economy#modules">Ekonomi döngülerini aç →</Link>}
                 </footer>
               </div>

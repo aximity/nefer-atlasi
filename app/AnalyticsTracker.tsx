@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-
-const EVENT_NAME = "nefer:navigation";
+import { APP_NAVIGATION_EVENT } from "../lib/navigation";
 
 function publicLocation() {
   const url = new URL(location.href);
@@ -49,12 +48,7 @@ export default function AnalyticsTracker() {
         credentials: "same-origin",
       }).catch(() => undefined);
     };
-    const notify = () => window.dispatchEvent(new Event(EVENT_NAME));
-    const pushState = history.pushState.bind(history);
-    const replaceState = history.replaceState.bind(history);
-    history.pushState = (...args) => { pushState(...args); notify(); };
-    history.replaceState = (...args) => { replaceState(...args); notify(); };
-    addEventListener(EVENT_NAME, send);
+    addEventListener(APP_NAVIGATION_EVENT, send);
     addEventListener("popstate", send);
     const focus = () => { focused = true; };
     const blur = () => { focused = false; flushEngagement(); };
@@ -71,9 +65,7 @@ export default function AnalyticsTracker() {
     return () => {
       flushEngagement();
       clearInterval(tick);
-      history.pushState = pushState;
-      history.replaceState = replaceState;
-      removeEventListener(EVENT_NAME, send);
+      removeEventListener(APP_NAVIGATION_EVENT, send);
       removeEventListener("popstate", send);
       removeEventListener("focus", focus);
       removeEventListener("blur", blur);

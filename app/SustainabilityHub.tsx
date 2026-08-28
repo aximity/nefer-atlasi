@@ -42,7 +42,7 @@ export default function SustainabilityHub() {
   const citedSources = new Set(loopRows.flatMap((loop) => loop.sourceIds)).size;
   return <section className="sustainabilityHub" id="sustainability">
     <div className="sustainabilityHero">
-      <div><p>M34 · SÜRDÜRÜLEBİLİR İKV</p><h2>Toplanan değer kazansın.<br/><em>Ekonomi dönmeye devam etsin.</em></h2><span>Bu bölüm mevcut oyun özelliklerini, tasarım önerilerini ve dış kaynaklardan İKV’ye uyarlanan fikirleri birbirine karıştırmadan gösterir.</span><nav><Link href="/?module=economy#economy">Ekonomi atölyesi</Link><Link href="/?module=endgame&panel=Takvim#endgame">Etkinlik takvimi</Link><Link href="/?module=mining#mining">Maden rehberi</Link><Link href="/uretim#production-planner">Üretim takibi</Link></nav></div>
+      <div><p>M34 · SÜRDÜRÜLEBİLİR İKV</p><h2>Toplanan değer kazansın.<br/><em>Ekonomi dönmeye devam etsin.</em></h2><span>Bu bölüm mevcut oyun özelliklerini, tasarım önerilerini ve dış kaynaklardan İKV’ye uyarlanan fikirleri birbirine karıştırmadan gösterir.</span><nav><Link href="/?module=economy#economy">Ekonomi atölyesi</Link><Link href="/?module=endgame&panel=Takvim&community=Planlayıcı#endgame">Etkinlik takvimi</Link><Link href="/?module=mining#mining">Maden rehberi</Link><Link href="/uretim#production-planner">Üretim takibi</Link></nav></div>
       <aside><article><small>ÖNERİ HAVUZU</small><b>{loopRows.length}</b><span>ölçülebilir ekonomi döngüsü</span></article><article><small>İLK PİLOT</small><b>{pilotLoops.length}</b><span>düşük riskli başlangıç</span></article><article><small>KAYNAK AİLESİ</small><b>{citedSources}</b><span>açık atıf zinciri</span></article></aside>
     </div>
 
@@ -53,7 +53,7 @@ export default function SustainabilityHub() {
     </div>
 
     <section className="sustainabilitySection">
-      <header><div><p>ETKİNLİK TAKVİMİ ÖNERİLERİ</p><h3>Tek seferlik ödül değil, tekrar eden amaç.</h3></div><Link href="/?module=endgame&panel=Takvim#endgame">Takvim çalışma alanını aç →</Link></header>
+      <header><div><p>ETKİNLİK TAKVİMİ ÖNERİLERİ</p><h3>Tek seferlik ödül değil, tekrar eden amaç.</h3></div><Link href="/?module=endgame&panel=Takvim&community=Planlayıcı#endgame">Takvim çalışma alanını aç →</Link></header>
       <div className="eventIdeaGrid">{eventIdeas.map((idea) => <article key={idea.title}><small>{idea.cadence} · TASARIM ÖNERİSİ</small><h4>{idea.title}</h4><p>{idea.purpose}</p><span><b>Ölç:</b> {idea.measure}</span></article>)}</div>
       <p className="sustainabilityNotice">Bunlar ilan edilmiş sunucu etkinlikleri değildir. Takvime yalnız tarih ve yetkili duyuru kaynağı doğrulandığında “etkinlik” olarak eklenir.</p>
     </section>

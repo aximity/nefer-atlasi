@@ -32,6 +32,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   const recipeCatalog = readFileSync(new URL("../app/RecipeCatalog.tsx", import.meta.url), "utf8");
   const abilityMedia = readFileSync(new URL("../app/AbilityMediaShowcase.tsx", import.meta.url), "utf8");
   const contributionCenter = readFileSync(new URL("../app/ContributionCenter.tsx", import.meta.url), "utf8");
+  const navigationEvents = readFileSync(new URL("../app/NavigationEvents.tsx", import.meta.url), "utf8");
 
   assert.match(component, /previewFocus/);
   assert.match(component, /--guide-focus/);
@@ -74,7 +75,8 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(talismanAtlas, /Normal İKV referansı/);
   assert.match(recipeCatalog, /label: "Eşya"/);
   assert.match(recipeCatalog, /label: "Tılsım"/);
-  assert.match(recipeCatalog, /label: "İksir"/);
+  assert.match(recipeCatalog, /label: "İksir dizini"/);
+  assert.match(recipeCatalog, /Kısmi malzeme bağlantıları/);
   assert.match(recipeCatalog, /ORTAK İKSİR GÖRÜNÜŞÜ/);
   assert.match(recipeCatalog, /talisman\.effectText/);
   assert.match(recipeCatalog, /<details/);
@@ -85,5 +87,11 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(contributionCenter, /Neyin yanlış veya değişmesi gerekiyor\?/);
   assert.match(contributionCenter, /bu form dosya veya kanıt yüklemez/i);
   assert.match(contributionCenter, /Yorumu gönder/);
+  assert.match(contributionCenter, /Fiyat gözlemini gönder/);
+  assert.match(contributionCenter, /tradeDirection/);
   assert.doesNotMatch(contributionCenter, /Makbuz|Sorgu|Katkı numarası/);
+  assert.match(navigationEvents, /history\.pushState/);
+  assert.match(navigationEvents, /APP_NAVIGATION_EVENT/);
+  assert.match(page, /addEventListener\(APP_NAVIGATION_EVENT, hydrate\)/);
+  assert.match(page, /history\.pushState/);
 });

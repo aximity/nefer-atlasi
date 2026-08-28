@@ -64,7 +64,7 @@ export default function AtlasCompletionCenter() {
       {shown.length ? shown.map((record) => <article key={record.id} data-priority={record.priority}>
         <i>{record.entityType === "item" ? "E" : "M"}</i>
         <div><small>{COMPLETION_KIND_LABELS[record.kind]} · {priorityLabels[record.priority]}</small><h3>{record.name}</h3><span>{record.subtitle}</span><p>{record.detail}</p></div>
-        <nav><Link href={`/?module=atlas&node=${encodeURIComponent(record.entityId)}#atlas`}>Atlas kaydını aç</Link><Link href="/?module=contribute#contribute">Kanıt gönder</Link></nav>
+        <nav><Link href={`/?module=atlas&node=${encodeURIComponent(record.entityId)}#atlas`}>Atlas kaydını aç</Link><Link href="/?module=contribute#contribute">Eksikliği bildir</Link></nav>
       </article>) : <div className="completionEmpty"><b>Bu filtrede açık iş yok.</b><span>Aramayı veya eksik türünü değiştir.</span></div>}
     </div>
     {filtered.length > shown.length && <p className="completionLimit">Liste mobilde gereksiz uzamasın diye ilk 18 kayıt gösteriliyor. Arama ve tür filtresiyle kalan kayda doğrudan ulaşabilirsin.</p>}

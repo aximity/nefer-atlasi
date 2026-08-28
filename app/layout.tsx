@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AnalyticsTracker from "./AnalyticsTracker";
 import AdvertisingConsent from "./AdvertisingConsent";
+import NavigationEvents from "./NavigationEvents";
 import "./globals.css";
 import "./endgame.css";
 import "./mining.css";
@@ -51,6 +52,7 @@ export default function RootLayout({
     <html lang="tr">
       <body>
         {children}
+        <NavigationEvents />
         <AnalyticsTracker />
         <AdvertisingConsent />
       </body>

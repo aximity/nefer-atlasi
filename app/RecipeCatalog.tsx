@@ -15,7 +15,7 @@ const normalize = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
 const categoryRows = [
   { id: "item" as const, label: "Eşya", count: recipes.length, note: "Şaheser ve ekipman" },
   { id: "talisman" as const, label: "Tılsım", count: talismanRecipes.length, note: "II, III ve özel" },
-  { id: "potion" as const, label: "İksir", count: indexedPotionCount, note: "Malzeme kullanım dizini" },
+  { id: "potion" as const, label: "İksir dizini", count: indexedPotionCount, note: "Kısmi malzeme bağlantıları" },
 ];
 
 const readList = (key: string) => {

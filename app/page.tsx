@@ -13,7 +13,7 @@ import SustainabilityHub from "./SustainabilityHub";
 import ReleaseCenter from "./ReleaseCenter";
 import TalismanProductionAtlas from "./TalismanProductionAtlas";
 import RecipeCatalog from "./RecipeCatalog";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import {
   classSlots,
@@ -67,6 +67,7 @@ import {
   itemVisualFamilyFor,
   itemVisualFamilyInventory,
 } from "../lib/visual-families";
+import { APP_NAVIGATION_EVENT, ROUTE_DETAIL_PARAMS } from "../lib/navigation";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n);
 const itemFamilyInventory = itemVisualFamilyInventory(publishableItems);
@@ -169,7 +170,11 @@ export default function Home() {
     [abilitySearchSeed, setAbilitySearchSeed] = useState(""),
     [regionSearchSeed, setRegionSearchSeed] = useState(""),
     [recipeRevision, setRecipeRevision] = useState(0),
+    [atlasRevision, setAtlasRevision] = useState(0),
+    [miningRevision, setMiningRevision] = useState(0),
     [notice, setNotice] = useState("");
+  const klassRef = useRef(klass);
+  klassRef.current = klass;
   const applySaved = (p: BuildSnapshot) => {
     setKlass(p.klass);
     setPrimary(p.primary);
@@ -187,50 +192,62 @@ export default function Home() {
     const hydrate = () => {
       const params = new URLSearchParams(location.search);
       const requestedModule = params.get("module");
-      if (requestedModule && moduleTabs.some((item) => item.id === requestedModule)) {
-        setActiveModule(requestedModule as MainModule);
-      }
+      const nextModule = requestedModule && moduleTabs.some((item) => item.id === requestedModule)
+        ? requestedModule as MainModule
+        : null;
+      setActiveModule(nextModule);
       const requestedItem = params.get("item");
-      if (requestedItem) setDetail(items.find((item) => item.id === requestedItem) ?? null);
+      setDetail(nextModule === "items" && requestedItem ? items.find((item) => item.id === requestedItem) ?? null : null);
       const requestedTalisman = params.get("talisman");
-      if (requestedTalisman) {
+      if (nextModule === "engine" && requestedTalisman) {
         const talisman = talismans.find((item) => item.id === requestedTalisman);
         if (talisman) {
-          setClass(talisman.class);
+          if (klassRef.current !== talisman.class) setClass(talisman.class);
           setTalismanId(talisman.id);
-        }
-      }
+        } else setTalismanId("");
+      } else if (nextModule === "engine") setTalismanId("");
       const requestedQuest = params.get("quest");
-      if (requestedQuest) {
+      if (nextModule === "quests" && requestedQuest) {
         const quest = quests.find((item) => item.id === requestedQuest);
-        if (quest) setQuestSearchSeed(quest.title);
-      }
+        setQuestSearchSeed(quest?.title ?? "");
+      } else if (nextModule === "quests") setQuestSearchSeed("");
       const requestedAbility = params.get("ability");
-      if (requestedAbility) {
+      if (nextModule === "skills" && requestedAbility) {
         const ability = abilityRows.find((item) => item.id === requestedAbility)
           ?? abilityVariantRows.find((item) => item.id === requestedAbility);
         if (ability) {
-          setClass(ability.class as CharacterClass);
+          if (klassRef.current !== ability.class) setClass(ability.class as CharacterClass);
           setAbilitySearchSeed(ability.id);
+        } else setAbilitySearchSeed("");
+      } else if (nextModule === "skills") setAbilitySearchSeed("");
+      const requestedRegion = params.get("region");
+      if (nextModule === "group-regions" && requestedRegion) setRegionSearchSeed(`${requestedRegion}|||${params.get("boss") ?? ""}`);
+      else if (nextModule === "group-regions") setRegionSearchSeed("");
+      const saved = params.get("build");
+      if (nextModule === "builder" && saved) {
+        try {
+          const p = sanitizeBuild(
+            decodeBuild(saved),
+            buildRules,
+          ) as BuildSnapshot | null;
+          if (!p) throw new Error();
+          applySaved(p);
+          setActiveModule("builder");
+        } catch {
+          setNotice("Bağlantıdaki donanım planı geçersiz veya eski sürüm.");
         }
       }
-      const requestedRegion = params.get("region");
-      if (requestedRegion) setRegionSearchSeed(`${requestedRegion}|||${params.get("boss") ?? ""}`);
-      const saved = params.get("build");
-      if (!saved) return;
-      try {
-        const p = sanitizeBuild(
-          decodeBuild(saved),
-          buildRules,
-        ) as BuildSnapshot | null;
-        if (!p) throw new Error();
-        applySaved(p);
-        setActiveModule("builder");
-      } catch {
-        setNotice("Bağlantıdaki donanım planı geçersiz veya eski sürüm.");
-      }
+      let targetId = location.hash.slice(1);
+      try { targetId = decodeURIComponent(targetId); } catch { /* Ignore malformed hashes. */ }
+      if (targetId) requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView()));
     };
     queueMicrotask(hydrate);
+    addEventListener(APP_NAVIGATION_EVENT, hydrate);
+    addEventListener("popstate", hydrate);
+    return () => {
+      removeEventListener(APP_NAVIGATION_EVENT, hydrate);
+      removeEventListener("popstate", hydrate);
+    };
   }, []);
   useEffect(() => { setItemVisibleLimit(24); }, [classFilter, query, slotFilter]);
   useEffect(() => {
@@ -242,6 +259,12 @@ export default function Home() {
       if (event.key === "Escape") {
         setSearchOpen(false);
         setMoreOpen(false);
+        setDetail(null);
+        const url = new URL(location.href);
+        if (url.searchParams.has("item")) {
+          url.searchParams.delete("item");
+          history.replaceState(null, "", url);
+        }
       }
     };
     addEventListener("keydown", openSearch);
@@ -310,23 +333,26 @@ export default function Home() {
   const openModule = (id: MainModule, searchParams?: Record<string, string>) => {
       setActiveModule(id);
       if (id === "recipes") setRecipeRevision((value) => value + 1);
+      if (id === "atlas") setAtlasRevision((value) => value + 1);
+      if (id === "mining") setMiningRevision((value) => value + 1);
       setMoreOpen(false);
       setSearchOpen(false);
       const url = new URL(location.href);
       url.searchParams.set("module", id);
-      ["item", "quest", "ability", "material", "view", "region", "boss", "node", "talisman", "kind", "recipe", "build"].forEach((key) => url.searchParams.delete(key));
+      ROUTE_DETAIL_PARAMS.forEach((key) => url.searchParams.delete(key));
       if (searchParams) {
         Object.entries(searchParams).forEach(([key, value]) => url.searchParams.set(key, value));
       }
-      history.replaceState(null, "", url);
-      requestAnimationFrame(() => document.getElementById("modules")?.scrollIntoView());
+      url.hash = id;
+      if (url.href === location.href) history.replaceState(null, "", url);
+      else history.pushState(null, "", url);
     },
     goHome = () => {
       setActiveModule(null);
       setMoreOpen(false);
       setSearchOpen(false);
-      history.replaceState(null, "", location.pathname);
-      requestAnimationFrame(() => document.getElementById("top")?.scrollIntoView());
+      if (`${location.pathname}${location.search}${location.hash}` === location.pathname) history.replaceState(null, "", location.pathname);
+      else history.pushState(null, "", location.pathname);
     },
     normalizedGlobalQuery = normalizeSearch(globalQuery),
     globalModuleResults = normalizedGlobalQuery
@@ -607,7 +633,7 @@ export default function Home() {
       {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} initialBossName={regionSearchSeed.split("|||")[1]} onOpen={setDetail} />}
       {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}
       {activeModule === "endgame" && <EndgameLab />}
-      {activeModule === "mining" && <MiningGuide />}
+      {activeModule === "mining" && <MiningGuide key={miningRevision} />}
       {activeModule === "economy" && <EconomyWorkshop />}
       {activeModule === "sustainability" && <SustainabilityHub />}
       {activeModule === "skills" && <SkillGuides key={abilitySearchSeed} klass={klass} initialAbilityId={abilitySearchSeed} onClassChange={setClass} />}
@@ -678,7 +704,7 @@ export default function Home() {
           </p>
         )}
       </section>}
-      {activeModule === "atlas" && <ConnectedAtlas />}
+      {activeModule === "atlas" && <ConnectedAtlas key={atlasRevision} />}
       {searchOpen && <div className="globalSearchOverlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setSearchOpen(false)}>
         <section className="globalSearch" role="dialog" aria-modal="true" aria-label="Atlas genelinde ara">
           <header>

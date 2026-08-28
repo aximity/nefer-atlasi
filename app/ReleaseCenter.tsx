@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.41.0",
+    date: "28 Ağustos 2026",
+    title: "Ortak Görünüş Aileleri",
+    changes: [
+      "129 eşya 23 görünüş ailesine bağlandı; ortak gövde görselleri tekrar edilmedi.",
+      "179 tılsım kırmızı ve mavi iki ortak görünüşe indirildi.",
+      "İksirler için renk ve seviyeye bağlı boyut aileleri tanımlandı.",
+    ],
+  },
+  {
     version: "0.40.0",
     date: "28 Ağustos 2026",
     title: "Sade Bilgi Mimarisi",

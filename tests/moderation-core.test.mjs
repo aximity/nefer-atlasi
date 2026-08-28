@@ -78,6 +78,7 @@ test("çelişki, ret ve yayından kaldırma gerekçesiz kaydedilmez", () => {
 
 test("public kart yalnız türün güvenli yapılandırılmış alanlarını içerir", () => {
   const details = safePublishedDetails("market_price", {
+    tradeDirection: "Alınır",
     listingType: "Gerçekleşen satış",
     quantity: 1,
     currency: "TL",
@@ -88,6 +89,7 @@ test("public kart yalnız türün güvenli yapılandırılmış alanlarını iç
     notes: "özel not",
   });
   assert.equal(details.price, 175);
+  assert.equal(details.tradeDirection, "Alınır");
   assert.equal("contact" in details, false);
   assert.equal("sourceUrl" in details, false);
   assert.equal("notes" in details, false);

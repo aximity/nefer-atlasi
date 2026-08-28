@@ -40,6 +40,7 @@ export default function ConnectedAtlas() {
   const [selectedId, setSelectedId] = useState(graph.itemNodes[0]?.id || graph.materialNodes[0]?.id || "");
   const [marketRows, setMarketRows] = useState<PublishedRow[]>([]);
   const [marketState, setMarketState] = useState<"loading" | "ready" | "unavailable">("loading");
+  const [copyStatus, setCopyStatus] = useState<"" | "copied" | "failed">("");
   const selected = graph.nodes.find((node) => node.id === selectedId) || graph.nodes[0];
   const shown = useMemo(() => searchAtlasNodes(graph.nodes, query, type).slice(0, 100) as AtlasNode[], [query, type]);
 
@@ -63,6 +64,7 @@ export default function ConnectedAtlas() {
 
   function selectNode(node: AtlasNode) {
     setSelectedId(node.id);
+    setCopyStatus("");
     const url = new URL(location.href);
     url.searchParams.set("module", "atlas");
     url.searchParams.set("node", node.id);
@@ -76,7 +78,12 @@ export default function ConnectedAtlas() {
   async function copyPath() {
     if (!selected) return;
     const url = `${location.origin}${location.pathname}?module=atlas&node=${encodeURIComponent(selected.id)}#atlas`;
-    await navigator.clipboard.writeText(`${selected.name} · Nefer Atlası\n${url}`);
+    try {
+      await navigator.clipboard.writeText(`${selected.name} · Nefer Atlası\n${url}`);
+      setCopyStatus("copied");
+    } catch {
+      setCopyStatus("failed");
+    }
   }
 
   return <section className="connected-atlas" id="atlas">
@@ -94,13 +101,19 @@ export default function ConnectedAtlas() {
       </aside>
       <main className="atlas-detail">
         {selected && <>
-          <header><div><small>{labels[selected.type].toUpperCase()} · {statusLabel[selected.verificationStatus]}</small><h3>{selected.name}</h3><p>{selected.subtitle}</p></div><button onClick={copyPath}>Bağlantıyı kopyala</button></header>
+          <header><div><small>{labels[selected.type].toUpperCase()} · {statusLabel[selected.verificationStatus]}</small><h3>{selected.name}</h3><p>{selected.subtitle}</p></div><button onClick={copyPath}>{copyStatus === "copied" ? "Kopyalandı ✓" : copyStatus === "failed" ? "Kopyalanamadı" : "Bağlantıyı kopyala"}</button></header>
           {selected.type === "item" && selected.item && <ItemAtlasDetail node={selected} selectNode={selectNode} nodeFor={nodeFor}/>} 
           {selected.type === "material" && <MaterialAtlasDetail node={selected} selectNode={selectNode} nodeFor={nodeFor}/>} 
           {selected.type === "boss" && <BossAtlasDetail node={selected} selectNode={selectNode} nodeFor={nodeFor}/>} 
           {selected.type === "region" && <RegionAtlasDetail node={selected} selectNode={selectNode} nodeFor={nodeFor}/>} 
-          <section className="atlas-market"><header><span>PAZAR BAĞLANTISI</span><Link href={`/?module=mining&view=Pazar&material=${encodeURIComponent(selected.name)}#mining`}>Pazarda aç ↗</Link></header>{marketState === "loading" ? <p>Kayıtlar okunuyor…</p> : market.length ? <div>{market.map((row) => <article key={row.currency}><small>{row.currency} · 7 GÜNLÜK BİRİM MEDYANI</small><b>{priceText(row.sevenDayMedian, row.currency)}</b><span>{row.sevenDayCount} gözlem · {row.evidence.label}</span></article>)}</div> : <p>{marketState === "unavailable" ? "Pazar verisi şu an okunamadı." : "Bu adla çapraz doğrulanmış fiyat kaydı yok; boşluk tahminle doldurulmadı."}</p>}</section>
-          <div className="atlas-actions"><Link href={selected.type === "item" ? `/?module=items&item=${selected.key}#items` : `/?module=mining&view=Kaynaklar&material=${encodeURIComponent(selected.name)}#mining`}>{selected.type === "item" ? "Eşya kartını aç" : "Kaynak rehberinde aç"}</Link><Link href="/uretim#production-planner">Üretim takibi ↗</Link><Link href="/?module=contribute#contribute">Eksik bağlantı bildir ↗</Link></div>
+          {(selected.type === "item" || selected.type === "material") && <section className="atlas-market"><header><span>PAZAR BAĞLANTISI</span><Link href={`/?module=mining&view=Pazar&material=${encodeURIComponent(selected.name)}#mining`}>Pazarda aç ↗</Link></header>{marketState === "loading" ? <p>Kayıtlar okunuyor…</p> : market.length ? <div>{market.map((row) => <article key={row.currency}><small>{row.currency} · 7 GÜNLÜK BİRİM MEDYANI</small><b>{priceText(row.sevenDayMedian, row.currency)}</b><span>{row.sevenDayCount} gözlem · {row.evidence.label}</span></article>)}</div> : <p>{marketState === "unavailable" ? "Pazar verisi şu an okunamadı." : "Bu adla çapraz doğrulanmış fiyat kaydı yok; boşluk tahminle doldurulmadı."}</p>}</section>}
+          <div className="atlas-actions">
+            {selected.type === "item" && <Link href={`/?module=items&item=${selected.key}#items`}>Eşya kartını aç</Link>}
+            {selected.type === "material" && <Link href={`/?module=mining&view=Kaynaklar&material=${encodeURIComponent(selected.name)}#mining`}>Kaynak rehberinde aç</Link>}
+            {selected.type === "boss" && <Link href={`/?module=group-regions&region=${encodeURIComponent(selected.region ?? "")}&boss=${encodeURIComponent(selected.name)}#group-regions`}>Boss ganimetlerini aç</Link>}
+            {selected.type === "region" && <Link href={`/?module=group-regions&region=${encodeURIComponent(selected.name)}#group-regions`}>Bölge ganimetlerini aç</Link>}
+            <Link href="/uretim#production-planner">Üretim takibi ↗</Link><Link href="/?module=contribute#contribute">Eksik bağlantı bildir ↗</Link>
+          </div>
         </>}
       </main>
     </div>

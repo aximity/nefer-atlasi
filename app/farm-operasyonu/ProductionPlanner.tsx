@@ -21,13 +21,27 @@ const keys = {
   owners: "nefer-production-owners-v1",
   talismanGoals: "nefer-talisman-production-favorites-v1",
 };
-const readStored = <T,>(key: string, fallback: T): T => {
+const readStored = (key: string): unknown => {
   try {
     const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) as T : fallback;
+    return value ? JSON.parse(value) : null;
   } catch {
-    return fallback;
+    return null;
   }
+};
+const readStringList = (key: string) => {
+  const value = readStored(key);
+  return Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === "string") : [];
+};
+const readNumberRecord = (key: string) => {
+  const value = readStored(key);
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value).filter((entry): entry is [string, number] => typeof entry[1] === "number" && Number.isFinite(entry[1]) && entry[1] >= 0));
+};
+const readStringRecord = (key: string) => {
+  const value = readStored(key);
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(Object.entries(value).filter((entry): entry is [string, string] => typeof entry[1] === "string"));
 };
 const fmt = (value: number) => new Intl.NumberFormat("tr-TR").format(value);
 const normalizeSearch = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
@@ -67,11 +81,11 @@ export default function ProductionPlanner() {
 
   useEffect(() => {
     queueMicrotask(() => {
-      setStock(readStored(keys.stock, {}));
-      setFavorites(readStored(keys.favorites, []));
-      setTargets(readStored(keys.targets, {}));
-      setOwners(readStored(keys.owners, {}));
-      setTalismanGoals(readStored(keys.talismanGoals, []));
+      setStock(readNumberRecord(keys.stock));
+      setFavorites(readStringList(keys.favorites));
+      setTargets(readNumberRecord(keys.targets));
+      setOwners(readStringRecord(keys.owners));
+      setTalismanGoals(readStringList(keys.talismanGoals));
       setHydrated(true);
     });
   }, []);
