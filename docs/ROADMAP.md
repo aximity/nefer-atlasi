@@ -1,5 +1,16 @@
 # Yol Haritası
 
+## Tamamlandı — M47: Site içi reçete ve kaynak akışı
+
+- [x] Reçete eylemlerini dış Wiki yerine site içindeki ilgili reçeteye yönlendir
+- [x] Tılsım bilgi ve tılsım reçetesi geçişlerini çalışır tam sayfa iç bağlantıya dönüştür
+- [x] Kaynakları içerik türüne göre ayrı ve sade bir dizinde grupla
+- [x] Galeri seçimi ile anlık kamera çekimini iki açık eyleme ayır
+- [x] Fotoğraf sonrası ikon arama ve adet girişini örten dosya alanını sınırlandır
+- [x] Sabit tılsım reçeteleri için gereksiz değişiklik takibini kapat
+
+Çıkış kapısı: Hiçbir “Reçeteyi aç” eylemi kullanıcıyı doğrudan Wiki'ye çıkarmaz; tılsım ve reçete derin bağlantıları ilgili kaydı açar; kaynaklar kategori bazında erişilebilir; iki fotoğraf giriş yolu da bağımsızdır.
+
 ## Tamamlandı — M46: Ortak üretim ve görsel ağı
 
 - [x] Eşya, tılsım, iksir ve ara malzeme reçetelerini tek katalogda birleştir

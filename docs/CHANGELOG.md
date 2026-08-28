@@ -1,5 +1,15 @@
 # Değişiklik Günlüğü
 
+# v0.47.0 — Site İçi Reçete ve Kaynak Akışı
+
+- Üretim kartlarındaki reçete eylemleri dış Wiki sayfası yerine Nefer Atlası'nın eşya, tılsım veya iksir reçetesini açıyor.
+- Tılsım kartından tılsım bilgisine ve tılsım ekranından ilgili reçeteye giden bağlantılar tam sayfa iç geçişe dönüştürülerek çalışmayan durum giderildi.
+- İKV Wiki ve oyun içi kanıt bağlantıları; eşya, tılsım, iksir, materyal, görev ve yetenek kategorileriyle `/kaynaklar` sayfasında toplandı.
+- Reçete ekranındaki dış kaynak düğmeleri kaldırıldı; kaynak dizinine tek, sade geçiş bırakıldı.
+- Fotoğraf girişi “Galeriden seç” ve “Şimdi fotoğraf çek” olarak iki ayrı eyleme bölündü.
+- Fotoğraf yardımcı alanındaki ikon araması ve adet girişini görünmez yapan geniş dosya-input stili sınırlandırıldı.
+- Reçeteler sabit olduğu için haftalık tılsım reçetesi değişiklik takibi kapatıldı.
+
 # v0.46.0 — Ortak Üretim ve Görsel Ağı
 
 - 67 eşya, 120 tılsım, 246 iksir ve 9 ara malzeme reçetesi tek üretim kataloğunda birleştirildi; stok ve kullanım hesapları toplam 442 reçeteyi okuyor.

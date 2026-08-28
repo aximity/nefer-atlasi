@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { publishableItems, recipes, sourceFor, talismans } from "../lib/catalog";
+import { publishableItems, recipes, talismans } from "../lib/catalog";
 import { potionRecipeSourcePolicy } from "../lib/potion-index";
-import { potionById, potionRecipes, potionRecipeSourceId } from "../lib/potion-recipes";
+import { potionById, potionRecipes } from "../lib/potion-recipes";
 import { talismanRecipes } from "../lib/talisman-recipes";
+import { craftedMaterialRecipes, craftedMaterialSources } from "../lib/material-sources";
 import { materialIconFor } from "../lib/material-icons";
 import { itemVisualFamilyFor, potionVisualFamilies, potionVisualFamilyFor, talismanVisualFamilyFor } from "../lib/visual-families";
 
@@ -17,7 +17,7 @@ const potionFavoriteKey = "nefer-potion-production-favorites-v1";
 const normalize = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
 
 const categoryRows = [
-  { id: "item" as const, label: "Eşya", count: recipes.length, note: "Şaheser ve ekipman" },
+  { id: "item" as const, label: "Eşya", count: recipes.length + craftedMaterialRecipes.length, note: "Ekipman ve ara malzeme" },
   { id: "talisman" as const, label: "Tılsım", count: talismanRecipes.length, note: "II, III ve özel" },
   { id: "potion" as const, label: "İksir", count: potionRecipes.length, note: "Tam malzeme ve adet" },
 ];
@@ -60,17 +60,17 @@ export default function RecipeCatalog() {
   useEffect(() => { if (hydrated) localStorage.setItem(potionFavoriteKey, JSON.stringify(potionFavorites)); }, [hydrated, potionFavorites]);
 
   const itemById = useMemo(() => new Map(publishableItems.map((item) => [item.id, item])), []);
+  const craftedById = useMemo(() => new Map(craftedMaterialRecipes.map((recipe, index) => [recipe.itemId, craftedMaterialSources[index]])), []);
   const talismanById = useMemo(() => new Map(talismans.map((item) => [item.id, item])), []);
   const rows = useMemo(() => {
     const needle = normalize(query);
-    const sourceRows = kind === "item" ? recipes : kind === "talisman" ? talismanRecipes : potionRecipes;
+    const sourceRows = kind === "item" ? [...recipes, ...craftedMaterialRecipes] : kind === "talisman" ? talismanRecipes : potionRecipes;
     return sourceRows.filter((recipe) => {
-      const item = kind === "item" ? itemById.get(recipe.itemId) : kind === "talisman" ? talismanById.get(recipe.itemId) : potionById.get(recipe.itemId);
-      const meta = item && "class" in item ? item.class : item && "category" in item ? item.category : "";
+      const item = kind === "item" ? itemById.get(recipe.itemId) ?? craftedById.get(recipe.itemId) : kind === "talisman" ? talismanById.get(recipe.itemId) : potionById.get(recipe.itemId);
+      const meta = item && "class" in item ? item.class : item && "category" in item ? item.category : item && "profession" in item ? `${item.profession} ${item.level}` : "";
       return !needle || normalize(`${item?.name ?? recipe.itemId} ${meta} ${recipe.materials.map((material) => material.name).join(" ")}`).includes(needle);
     });
-  }, [itemById, kind, query, talismanById]);
-  const potionSource = sourceFor(potionRecipeSourceId);
+  }, [craftedById, itemById, kind, query, talismanById]);
   const activeFavorites = kind === "talisman" ? talismanFavorites : kind === "potion" ? potionFavorites : itemFavorites;
   const favoriteRows = favoritesOnly ? rows.filter((recipe) => activeFavorites.includes(recipe.itemId)) : rows;
   const orderedRows = [...favoriteRows].sort((a, b) => Number(b.itemId === expandedId) - Number(a.itemId === expandedId));
@@ -103,7 +103,7 @@ export default function RecipeCatalog() {
     </nav>
 
     {kind === "potion" && <section className="potionIndex potionRecipeIntro">
-      <header><div><small>İKSİR REÇETELERİ</small><h3>Malzeme ve adetler hazır.</h3></div>{potionSource && <a href={potionSource.url} target="_blank" rel="noreferrer">İKV Wiki reçeteleri ↗</a>}</header>
+      <header><div><small>İKSİR REÇETELERİ</small><h3>Malzeme ve adetler hazır.</h3></div><a href="/kaynaklar#iksirler">İksir kaynaklarını gör →</a></header>
       <p><b>{potionRecipeSourcePolicy.label}.</b> {potionRecipes.length} iksir reçetesi seviye, tür, malzeme ve adetleriyle üretim hesabına bağlandı.</p>
       <div className="potionVisualLegend" aria-label="İksir görünüş aileleri">
         {potionVisualFamilies.map((family) => <article className={family.category ?? "support"} key={family.id}><i aria-hidden="true"/><span><small>ORTAK İKSİR GÖRÜNÜŞÜ</small><b>{family.label} · {family.color}</b><em>{family.sizeRule}</em></span></article>)}
@@ -113,21 +113,21 @@ export default function RecipeCatalog() {
       <div className="recipeCount"><p>{favoriteRows.length} reçete · ayrıntı için karta tıkla</p><button type="button" className={favoritesOnly ? "active" : ""} onClick={() => { setFavoritesOnly((value) => !value); setVisibleLimit(18); }}>★ Favorilerim</button></div>
       {visibleRows.map((recipe) => {
         const equipment = kind === "item" ? itemById.get(recipe.itemId) : undefined;
+        const crafted = kind === "item" ? craftedById.get(recipe.itemId) : undefined;
         const talisman = kind === "talisman" ? talismanById.get(recipe.itemId) : undefined;
         const potion = kind === "potion" ? potionById.get(recipe.itemId) : undefined;
-        const item = equipment ?? talisman ?? potion;
+        const item = equipment ?? crafted ?? talisman ?? potion;
         const visualFamily = equipment ? itemVisualFamilyFor(equipment) : talisman ? talismanVisualFamilyFor(talisman) : potion ? potionVisualFamilyFor(potion.visualCategory) : null;
         const favorite = activeFavorites.includes(recipe.itemId);
-        const source = sourceFor(recipe.sourceId);
         return <article className="recipeRow" key={recipe.id}>
           <button type="button" className={favorite ? "recipeFavorite active" : "recipeFavorite"} onClick={() => toggleFavorite(recipe.itemId)} aria-label={favorite ? `${item?.name ?? recipe.itemId} favorilerden çıkar` : `${item?.name ?? recipe.itemId} favorilere ekle`}>{favorite ? "★" : "☆"}</button>
           <details open={expandedId === recipe.itemId} onToggle={(event) => setExpandedId(event.currentTarget.open ? recipe.itemId : expandedId === recipe.itemId ? "" : expandedId)}>
-            <summary><span><small>{potion ? `Sv. ${potion.level} · ${potion.category}` : `${item && "class" in item ? item.class : "Sınıf yok"} · ${equipment?.slot ?? talisman?.color ?? (kind === "item" ? "Eşya" : "Tılsım")}`}</small><b>{item?.name ?? recipe.itemId}</b></span><em>{recipe.materials.length} malzeme</em><i>+</i></summary>
+            <summary><span><small>{potion ? `Sv. ${potion.level} · ${potion.category}` : crafted ? `${crafted.profession} · Sv. ${crafted.level} · Ara malzeme` : `${item && "class" in item ? item.class : "Sınıf yok"} · ${equipment?.slot ?? talisman?.color ?? (kind === "item" ? "Eşya" : "Tılsım")}`}</small><b>{item?.name ?? recipe.itemId}</b></span><em>{recipe.materials.length} malzeme</em><i>+</i></summary>
             <div className="recipeBody">
               {visualFamily && <p className="recipeVisualNote"><b>Görünüş ailesi:</b> {visualFamily.label}. {equipment ? "Efsun ve özellikler eşya kaydına aittir." : talisman ? "Sınıf, kademe ve etki tılsım kaydına aittir." : "İksirin etkisi ve seviyesi metin alanında ayrılır."}</p>}
               {talisman && <p className="recipeEffectNote"><b>Etki:</b> {talisman.effectText}</p>}
               <div className="recipeMaterials">{recipe.materials.map((material) => { const icon = materialIconFor(material.name); return <span key={material.name}>{icon ? <Image src={icon.path} alt="" width={30} height={30}/> : <i aria-hidden="true">{material.name.slice(0, 2)}</i>}<b>{material.name}</b><strong>×{material.quantity}</strong></span>; })}</div>
-              <footer>{source && <a href={source.url} target="_blank" rel="noreferrer">Reçete kaynağı ↗</a>}{kind !== "potion" && <Link href={kind === "talisman" ? `/?module=engine&talisman=${recipe.itemId}#engine` : `/?module=items&item=${recipe.itemId}#items`}>{kind === "talisman" ? "Tılsımı aç" : "Eşyayı aç"} →</Link>}<Link href="/uretim#production-planner">Üretim takibi →</Link></footer>
+              <footer>{kind !== "potion" && <a href={kind === "talisman" ? `/?module=engine&talisman=${recipe.itemId}#engine` : crafted ? `/?module=atlas&node=${encodeURIComponent(`material:${crafted.name.toLocaleLowerCase("tr-TR")}`)}#atlas` : `/?module=items&item=${recipe.itemId}#items`}>{kind === "talisman" ? "Tılsımı aç" : crafted ? "Malzemeyi aç" : "Eşyayı aç"} →</a>}<a href="/uretim#production-planner">Üretim takibi →</a></footer>
             </div>
           </details>
         </article>;
@@ -135,5 +135,6 @@ export default function RecipeCatalog() {
       {favoriteRows.length === 0 && <p className="recipeEmpty">Bu seçimle eşleşen reçete yok.</p>}
       {visibleRows.length < favoriteRows.length && <button className="recipeMore" type="button" onClick={() => setVisibleLimit((value) => value + 18)}>18 reçete daha göster <span>{favoriteRows.length - visibleRows.length} kaldı</span></button>}
     </div>
+    <aside className="recipeSourceShortcut"><span><small>KAYNAK DİZİNİ</small><b>Reçeteler burada, dış bağlantılar ayrı.</b><p>Eşya, tılsım, iksir ve malzeme bilgilerinin hangi İKV Wiki sayfasından alındığını kategori bazında görebilirsin.</p></span><a href="/kaynaklar">Kaynakları aç →</a></aside>
   </section>;
 }

@@ -742,7 +742,7 @@ export default function Home() {
           <span>Bağımsız Kıyametin Öncüleri topluluk projesi · resmî değildir.</span>
         </div>
         <p>Kaynak yoksa kesin bilgi yok. Ayrıntı ve doğrulama, yalnız ilgili kaydı açtığında gösterilir.</p>
-        <details className="footerDetails"><summary>Bağlantılar ve yönetim <i>+</i></summary><div className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/uretim">Üretim Takibi</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Editör: Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a><a href="/istatistik/giris">Yönetici Girişi</a><ReleaseCenter inline /></div></details>
+        <details className="footerDetails"><summary>Bağlantılar ve yönetim <i>+</i></summary><div className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/uretim">Üretim Takibi</a><a href="/kaynaklar">Kaynaklar</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Editör: Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a><a href="/istatistik/giris">Yönetici Girişi</a><ReleaseCenter inline /></div></details>
       </footer>
       {detail && <ItemModal item={detail} close={() => {
         setDetail(null);
@@ -1092,25 +1092,7 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
             </>
           )}
         </dl>
-        {source && (
-          <a
-            className="sourceLink"
-            href={source.url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {source.title} ↗
-          </a>
-        )}
-        {recipeSource && recipeSource.id !== source?.id && (
-          <a className="sourceLink secondary" href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı · {recipeSource.title} ↗</a>
-        )}
-        {lootSource && lootSource.id !== source?.id && (
-          <a className="sourceLink secondary" href={lootSource.url} target="_blank" rel="noreferrer">Ganimet kaynağı · {lootSource.title} ↗</a>
-        )}
-        {appearanceSource && appearanceSource.id !== source?.id && (
-          <a className="sourceLink secondary" href={appearanceSource.url} target="_blank" rel="noreferrer">Set görünüş kaynağı · {appearanceSource.title} ↗</a>
-        )}
+        {(source || recipeSource || lootSource || appearanceSource) && <Link className="sourceLink" href="/kaynaklar#esyalar">Eşya, reçete ve görünüş kaynaklarını gör →</Link>}
         <a className="sourceLink secondary" href={`/?module=atlas&node=${encodeURIComponent(`item:${item.id}`)}#atlas`}>Eşyanın bağlantılı atlasını aç ↗</a>
       </article>
     </div>

@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.46.0",
+    date: "28 Ağustos 2026",
+    title: "Ortak Üretim ve Görsel Ağı",
+    changes: [
+      "442 reçete ortak stok ve kullanım ağına geçirildi.",
+      "48 Wiki malzeme ikonu reçete, stok, maden ve eksik listelerine bağlandı.",
+      "Üretilebilir 53 önceki kademe tılsım kendi reçetesine geri bağlandı.",
+    ],
+  },
+  {
     version: "0.45.0",
     date: "28 Ağustos 2026",
     title: "Ara Malzeme Zinciri",

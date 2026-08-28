@@ -35,12 +35,13 @@ test("Nefer Atlası sade arama-öncelikli ana sayfayı oluşturur", async () => 
   assert.doesNotMatch(html, /Sekiz yuvayı sen doldur/);
   assert.doesNotMatch(html, /Nucleus Yüzük/);
   assert.doesNotMatch(html, /Nefer Atlası ne yapar\?/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.46\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.47\.0/);
   assert.match(html, /Atlas genelinde ara/);
   assert.match(html, /Atlas’ta ara/);
   assert.doesNotMatch(html, /raw_game_value/);
   assert.match(html, /href="\/rehber"/);
   assert.match(html, /href="\/uretim"/);
+  assert.match(html, /href="\/kaynaklar"/);
   assert.match(html, /Bağlantılar ve yönetim/);
   assert.match(html, /href="https:\/\/kiyametoyun\.net\/"/);
 });
@@ -57,7 +58,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Kullanım Rehberi \| Nefer Atlası/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.46\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.47\.0/);
   assert.match(html, /Yetenek puanlarımı dağıtmak istiyorum/);
   assert.match(html, /NEDEN KULLANMALIYIM\?/);
   assert.match(html, /Bir eşyanın gerçek bilgisini arıyorum/);
@@ -90,8 +91,30 @@ test("herkese açık üretim takibi stok ve fotoğraf akışını oluşturur", a
   assert.match(html, /En yakın üretimi gör\./);
   assert.match(html, /M34 · ÜRETİM TAKİP MASASI/);
   assert.match(html, /Fotoğraf otomatik olarak stok değiştirmez/);
+  assert.match(html, /Galeriden seç/);
+  assert.match(html, /Şimdi fotoğraf çek/);
   assert.match(html, /module=recipes/);
   assert.doesNotMatch(html, /Yönetici erişimi gerekli/);
+});
+
+test("kategori bazlı kaynak dizini İKV Wiki bağlarını ayrı sayfada gösterir", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("sources-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const response = await worker.fetch(
+    new Request("http://localhost/kaynaklar", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Kaynaklar \| Nefer Atlası/);
+  assert.match(html, /Neyi, nereden aldık\?/);
+  assert.match(html, /Eşyalar ve eşya reçeteleri/);
+  assert.match(html, /Tılsımlar ve tılsım reçeteleri/);
+  assert.match(html, /İksirler/);
+  assert.match(html, /Madenler, materyaller ve meslekler/);
+  assert.match(html, /İKV Wiki/);
 });
 
 test("gizlilik ve özel istatistik girişi ChatGPT hesabı istemeden açılır", async () => {

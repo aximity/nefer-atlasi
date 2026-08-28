@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { sourceFor, talismans, type CharacterClass } from "../lib/catalog";
 import { playerReportsFor, talismanProduction, tierRuleFor, vendorMentionsFor } from "../lib/talisman-production";
@@ -94,9 +93,9 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "",
           </article>
         </div>
 
-        <details className="talismanEvidence"><summary>Kaynak ve doğrulama ayrıntısı <i>+</i></summary><div><p>{playerReport ? `${playerReport.claim} Bu bildirim henüz oyun içi görüntü veya bağımsız ikinci kaynakla doğrulanmadı.` : rule.note}</p>{effectSource && <a href={effectSource.url} target="_blank" rel="noreferrer">Etki kaynağı ↗</a>}{serverReferenceSource && <a href={serverReferenceSource.url} target="_blank" rel="noreferrer">KÖ sistem kaynağı ↗</a>}{vendorMentions.length > 0 && vendorSource && <a href={vendorSource.url} target="_blank" rel="noreferrer">Normal İKV referansı ↗</a>}</div></details>
+        <details className="talismanEvidence"><summary>Kaynak ve doğrulama ayrıntısı <i>+</i></summary><div><p>{playerReport ? `${playerReport.claim} Bu bildirim henüz oyun içi görüntü veya bağımsız ikinci kaynakla doğrulanmadı.` : rule.note}</p>{(effectSource || serverReferenceSource || (vendorMentions.length > 0 && vendorSource)) && <a href="/kaynaklar#tilsimlar">Tılsım kaynaklarını kategori içinde gör →</a>}</div></details>
 
-        <footer><Link className="primaryRecipeLink" href={recipe ? `/?module=recipes&kind=talisman&recipe=${selected.id}#recipes` : "/?module=recipes&kind=talisman#recipes"}>{recipe ? "Bu tılsımın reçetesini aç" : "Tılsım reçetelerine git"} →</Link></footer>
+        <footer><a className="primaryRecipeLink" href={recipe ? `/?module=recipes&kind=talisman&recipe=${selected.id}#recipes` : "/?module=recipes&kind=talisman#recipes"}>{recipe ? "Bu tılsımın reçetesini aç" : "Tılsım reçetelerine git"} →</a></footer>
       </section>}
     </div>
   </section>;

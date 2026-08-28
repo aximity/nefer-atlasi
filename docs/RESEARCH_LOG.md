@@ -1,5 +1,11 @@
 # Araştırma Günlüğü
 
+## 2026-08-28 — Kaynak dizini ve sabit reçete politikası
+
+- İKV Wiki bağlantıları reçete eylemlerinden ayrılarak eşya, tılsım, iksir, materyal, görev ve oyun içi kanıt kategorilerinde tek dizine taşındı.
+- Reçete kartları ve üretim takibi dış kaynağa değil, Nefer Atlası içindeki ilgili reçete kaydına yönlendirildi.
+- Tılsım ve iksir reçeteleri sabit oyun verisi kabul edildi; haftalık değişiklik takibine ürün ihtiyacı olmadığı kararlaştırıldı.
+
 ## 2026-08-27 — Üretim planı, sürdürülebilirlik ve görsel kapsam sınırı
 
 - Reçete planlayıcısı mevcut 67 reçete kaydını ve kullanıcı tarafından elle onaylanan stok miktarlarını kullanır; fotoğraf yalnız cihaz içi görsel referanstır, otomatik okuma yapılmaz.

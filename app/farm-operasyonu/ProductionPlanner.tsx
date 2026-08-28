@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { sourceFor, talismans } from "../../lib/catalog";
+import { talismans } from "../../lib/catalog";
 import { buildProductionPlans, productionSummary } from "../../lib/production-planner.mjs";
 import { potionRecipes } from "../../lib/potion-recipes";
 import { materialIconFor } from "../../lib/material-icons";
@@ -213,7 +213,11 @@ export default function ProductionPlanner() {
       </section>
       <section className="stockPhoto">
         <header><div><small>02 · FOTOĞRAF REFERANSI</small><h3>Çantayı yanında tut</h3></div></header>
-        <label className={photoPreview ? "hasPhoto" : ""}>{photoPreview ? <Image unoptimized fill sizes="(max-width: 1050px) 100vw, 35vw" src={photoPreview} alt="Malzeme girişi için seçilen çanta fotoğrafı"/> : <span><b>Fotoğraf seç veya çek</b><small>Çanta ekranı yalnız bu cihazda önizlenir.</small></span>}<input type="file" accept="image/*" capture="environment" onChange={(event) => choosePhoto(event.target.files?.[0] ?? null)}/></label>
+        <div className={photoPreview ? "photoStage hasPhoto" : "photoStage"}>{photoPreview ? <Image unoptimized fill sizes="(max-width: 1050px) 100vw, 35vw" src={photoPreview} alt="Malzeme girişi için seçilen çanta fotoğrafı"/> : <span><b>Çanta görüntüsü</b><small>Galeriden seç veya kamerayla şimdi çek.</small></span>}</div>
+        <div className="photoInputActions">
+          <label><span>Galeriden seç</span><input className="photoFileInput" type="file" accept="image/*" aria-label="Galeriden çanta fotoğrafı seç" onChange={(event) => choosePhoto(event.target.files?.[0] ?? null)}/></label>
+          <label><span>Şimdi fotoğraf çek</span><input className="photoFileInput" type="file" accept="image/*" capture="environment" aria-label="Kamerayla çanta fotoğrafı çek" onChange={(event) => choosePhoto(event.target.files?.[0] ?? null)}/></label>
+        </div>
         <p>Fotoğraf otomatik olarak stok değiştirmez. Görseldeki ikona en çok benzeyen malzemeyi seçip adedi onayla; görüntü yalnız bu cihazda kalır.</p>
         {photoPreview && <div className="photoVisualPicker"><label><span>İkon veya malzeme ara</span><input value={photoQuery} onChange={(event) => setPhotoQuery(event.target.value)} placeholder="Örn. Jadeit, Saf Bakır…"/></label><div>{photoMatches.map((name) => { const icon = materialIconFor(name); return <button type="button" className={photoMaterial === name ? "selected" : ""} onClick={() => setPhotoMaterial(name)} key={name}>{icon ? <Image src={icon.path} alt="" width={34} height={34}/> : <i aria-hidden="true">{name.slice(0, 2)}</i>}<span>{name}</span></button>; })}</div></div>}
         {photoPreview && <div className="photoDraftEditor"><div><strong>{photoMaterial || "Önce bir ikon seç"}</strong><input aria-label="Fotoğraftaki adet" inputMode="numeric" value={photoQuantity} onChange={(event) => setPhotoQuantity(event.target.value.replace(/\D/g, ""))}/><button type="button" disabled={!photoMaterial} onClick={addPhotoDraft}>Taslağa ekle</button></div><ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); return <li key={name}>{icon && <Image src={icon.path} alt="" width={24} height={24}/>}<span>{name}</span><b>×{amount}</b><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)))}>×</button></li>; })}</ul>{Object.keys(photoDraft).length > 0 && <button type="button" className="confirmPhotoDraft" onClick={confirmPhotoDraft}>Taslağı onayla ve stoka işle</button>}</div>}
@@ -253,7 +257,7 @@ export default function ProductionPlanner() {
     <div className="productionCards">{visibleRows.map((plan) => {
       const item = itemById.get(plan.recipe.itemId);
       const favorite = favoriteIds.includes(plan.recipe.itemId);
-      const recipeSource = sourceFor(plan.recipe.sourceId);
+      const recipeKind = talismanIds.has(plan.recipe.itemId) ? "talisman" : potionIds.has(plan.recipe.itemId) ? "potion" : "item";
       return <article className={`productionCard ${plan.status}`} key={plan.recipe.id}>
         <header><button type="button" className={favorite ? "favorite on" : "favorite"} aria-label={favorite ? "Favorilerden çıkar" : "Favorilere ekle"} onClick={() => togglePlanFavorite(plan.recipe.itemId)}>{favorite ? "★" : "☆"}</button><span><small>{item?.class ?? "Sınıf bekliyor"} · {item?.slot ?? "Yuva bekliyor"}</small><h3>{item?.name ?? plan.recipe.itemId}</h3></span><b className={`planStatus ${plan.status}`}>{plan.status === "ready" ? "Üretilebilir" : plan.status === "near" ? "Yakın" : "Eksik"}</b></header>
         <div className="planControls"><label><span>Hedef</span><input aria-label={`${item?.name ?? plan.recipe.itemId} hedef adedi`} inputMode="numeric" min="1" value={plan.target} onChange={(event) => setTargets((current) => ({ ...current, [plan.recipe.itemId]: Math.max(1, Number(event.target.value) || 1) }))}/></label><label><span>Üretecek kişi</span><input value={owners[plan.recipe.itemId] ?? ""} onChange={(event) => setOwners((current) => ({ ...current, [plan.recipe.itemId]: event.target.value }))} placeholder="İsim / ekip…"/></label><span><small>Stoktan çıkabilecek</small><b>{plan.craftableCount} adet</b></span></div>
@@ -263,7 +267,7 @@ export default function ProductionPlanner() {
           const icon = materialIconFor(row.name);
           return <details className={row.missing ? "missing" : "covered"} key={row.name}><summary>{icon ? <Image src={icon.path} alt="" width={30} height={30}/> : <i>{row.missing ? "−" : "✓"}</i>}<span><b>{row.name}</b><small>{fmt(row.owned)} / {fmt(row.required)} elde</small></span><strong>{row.missing ? `${fmt(row.missing)} eksik` : "tamam"}</strong></summary>{row.missing > 0 && <p className={origin.known ? "known" : "unknown"}><b>{origin.label}</b><span>{origin.detail}</span></p>}</details>;
         })}</div>
-        <footer><span>{owners[plan.recipe.itemId] ? `Sorumlu: ${owners[plan.recipe.itemId]}` : "Sorumlu atanmadı"}</span>{recipeSource ? <a href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı ↗</a> : <span>Kaynak bekliyor</span>}</footer>
+        <footer><span>{owners[plan.recipe.itemId] ? `Sorumlu: ${owners[plan.recipe.itemId]}` : "Sorumlu atanmadı"}</span><a href={`/?module=recipes&kind=${recipeKind}&recipe=${plan.recipe.itemId}#recipes`}>Reçeteyi sitede aç →</a></footer>
       </article>;
     })}{visible.length === 0 && <div className="productionEmpty">Bu filtrede reçete yok. Stok, arama veya favori seçimini değiştir.</div>}{visibleRows.length < visible.length && <button className="productionMore" type="button" onClick={() => setVisibleLimit((value) => value + 12)}>12 reçete daha göster <span>{visible.length - visibleRows.length} kaldı</span></button>}</div>
   </section>;

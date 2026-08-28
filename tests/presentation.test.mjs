@@ -30,6 +30,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   const releaseCenter = readFileSync(new URL("../app/ReleaseCenter.tsx", import.meta.url), "utf8");
   const talismanAtlas = readFileSync(new URL("../app/TalismanProductionAtlas.tsx", import.meta.url), "utf8");
   const recipeCatalog = readFileSync(new URL("../app/RecipeCatalog.tsx", import.meta.url), "utf8");
+  const sourceDirectory = readFileSync(new URL("../app/kaynaklar/page.tsx", import.meta.url), "utf8");
   const abilityMedia = readFileSync(new URL("../app/AbilityMediaShowcase.tsx", import.meta.url), "utf8");
   const contributionCenter = readFileSync(new URL("../app/ContributionCenter.tsx", import.meta.url), "utf8");
   const navigationEvents = readFileSync(new URL("../app/NavigationEvents.tsx", import.meta.url), "utf8");
@@ -74,7 +75,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(talismanAtlas, /Bu tılsımın reçetesini aç/);
   assert.match(talismanAtlas, /module=recipes&kind=talisman/);
   assert.doesNotMatch(talismanAtlas, /REÇETE İÇERİĞİ/);
-  assert.match(talismanAtlas, /Normal İKV referansı/);
+  assert.match(talismanAtlas, /Tılsım kaynaklarını kategori içinde gör/);
   assert.match(recipeCatalog, /label: "Eşya"/);
   assert.match(recipeCatalog, /label: "Tılsım"/);
   assert.match(recipeCatalog, /label: "İksir"/);
@@ -85,6 +86,16 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(recipeCatalog, /talisman\.effectText/);
   assert.match(recipeCatalog, /<details/);
   assert.match(recipeCatalog, /\/uretim#production-planner/);
+  assert.match(recipeCatalog, /\/kaynaklar/);
+  assert.doesNotMatch(recipeCatalog, /Reçete kaynağı/);
+  assert.match(recipeCatalog, /module=engine&talisman=/);
+  assert.match(productionPlanner, /Galeriden seç/);
+  assert.match(productionPlanner, /Şimdi fotoğraf çek/);
+  assert.match(productionPlanner, /capture="environment"/);
+  assert.match(productionPlanner, /Reçeteyi sitede aç/);
+  assert.doesNotMatch(productionPlanner, /Reçete kaynağı/);
+  for (const category of ["Eşyalar ve eşya reçeteleri", "Tılsımlar ve tılsım reçeteleri", "İksirler", "Madenler, materyaller ve meslekler", "Görevler", "Yetenekler ve oyun içi kanıtlar"]) assert.match(sourceDirectory, new RegExp(category));
+  assert.match(sourceDirectory, /Reçete ve bilgi sayfaları Nefer Atlası içinde açılır/);
   assert.match(abilityMedia, /entry\.sources\.length > 0/);
   assert.match(abilityMedia, /if \(media\.length === 0\) return null/);
   assert.doesNotMatch(abilityMedia, /MEDYA YUVASI/);
