@@ -27,6 +27,17 @@ test("tamamlama kuyruğu tür ve Türkçe aramayla süzülür", () => {
   assert.equal(filterCompletionRecords(records, { query: "çelişkili" })[0].name, "Çelişkili Ceket");
 });
 
+test("kısmi materyal referansı açığı kapatmadan kuyruk ayrıntısını zenginleştirir", () => {
+  const records = buildAtlasCompletionQueue({
+    graph,
+    statsForItem: () => [],
+    referenceForMaterial: (name) => name === "Bilinmeyen Parça" ? { label: "Katalog kaydı", note: "Yöntem ayrıştırılmıyor." } : null,
+  });
+  const materialRecord = records.find((record) => record.kind === "material_source");
+  assert.match(materialRecord?.detail ?? "", /Katalog kaydı/);
+  assert.equal(completionSummary(records).materialSources, 1);
+});
+
 test("aynı gövdeyi paylaşan eşyalar görsel kuyruğunda tek iş olur", () => {
   const sharedGraph = {
     itemNodes: [

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { appearanceImages, images, publishableItems, publishableStats, recipes } from "../lib/catalog";
-import { materialSourceFor } from "../lib/material-sources";
+import { materialReferenceFor, materialSourceFor } from "../lib/material-sources";
 import { buildAtlasGraph } from "../lib/atlas-graph.mjs";
 import { buildAtlasCompletionQueue, completionSummary, COMPLETION_KIND_LABELS, filterCompletionRecords } from "../lib/atlas-completion.mjs";
 import { coveredItemVisualFamilyIds, itemVisualFamilyFor, potionVisualFamilies, talismanVisualFamilies } from "../lib/visual-families";
@@ -17,6 +17,7 @@ const records = buildAtlasCompletionQueue({
   additionalVisualFamilies: [...talismanVisualFamilies, ...potionVisualFamilies],
   visualFamilyForItem: itemVisualFamilyFor,
   statsForItem: publishableStats,
+  referenceForMaterial: materialReferenceFor,
 });
 const summary = completionSummary(records);
 const filters = [

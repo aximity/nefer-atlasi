@@ -2,6 +2,38 @@ import { gatheringSourceFor } from "./gathering-catalog.ts";
 
 export type ProducerProfession = "Kimyacı" | "Sarraf" | "Silahtar" | "Zırhçı";
 
+export type MaterialReference = {
+  name: string;
+  label: string;
+  note: string;
+  source: string;
+};
+
+const CEMBERLITAS_RELEASE_NOTES = "https://oyun-ikv.tr.gg/S.ue.r.ue.m-Notlar%26%23305%3B-%5B-Oe-nemli%5D.htm";
+const LEGACY_MATERIAL_CATALOG = "https://ikvblog.wordpress.com/2010/09/20/ikvnin-tum-madenleri-ve-saflari/";
+const KARAKOY_GUIDE = "https://www.scribd.com/document/790954361/Karakoy-Hakknda";
+
+export const materialReferences: readonly MaterialReference[] = [
+  ...["Hidrojen", "Erg Yongası", "Ateş Boyası", "Köşk Madalyonu", "Galata Sembolü"].map((name) => ({
+    name,
+    label: "Resmî yeni materyal kaydı",
+    note: "Çemberlitaş sürüm notunda yeni materyal olarak listeleniyor; aynı kayıt edinim yöntemini açıklamıyor.",
+    source: CEMBERLITAS_RELEASE_NOTES,
+  })),
+  ...["Meran Mücevheri", "Örümcek Gözü"].map((name) => ({
+    name,
+    label: "Eski katalog sınıflandırması",
+    note: "Eski katalog bunu görev sonucu verilen, görevde kullanılan veya üretilebilen materyaller grubunda gösteriyor; hangi yöntemin geçerli olduğunu ayırmıyor.",
+    source: LEGACY_MATERIAL_CATALOG,
+  })),
+  ...["Geyik Derisi", "Kenevir Lifi", "Latex"].map((name) => ({
+    name,
+    label: "Eski katalog sınıflandırması",
+    note: "Eski katalog bunu deriler grubunda gösteriyor; düşman, görev, bölge veya üretim yöntemi belirtmiyor.",
+    source: LEGACY_MATERIAL_CATALOG,
+  })),
+] as const;
+
 export type CraftedMaterialSource = {
   kind: "crafted";
   name: string;
@@ -69,6 +101,15 @@ export const questRewardMaterialSources: readonly QuestRewardMaterialSource[] = 
 ] as const;
 
 export const creatureDropSources: readonly CreatureDropSource[] = [
+  {
+    kind: "creature_drop",
+    name: "Hydrargyrum",
+    region: "Migrat",
+    enemy: "Junon",
+    usage: "Çemberlitaş şaheser reçetelerinde kullanılır",
+    verification: "Kaynaklı kayıt",
+    source: KARAKOY_GUIDE,
+  },
   {
     kind: "creature_drop",
     name: "Xenotim",
@@ -197,4 +238,9 @@ export function materialSourceFor(materialName: string) {
   const questReward = questRewardMaterialSourceFor(materialName);
   if (questReward) return questReward;
   return craftedMaterialSourceFor(materialName);
+}
+
+export function materialReferenceFor(materialName: string) {
+  const wanted = normalize(materialName);
+  return materialReferences.find((entry) => normalize(entry.name) === wanted) ?? null;
 }

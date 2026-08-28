@@ -4,7 +4,7 @@ import {
   gatheringRows,
   gatheringSourceFor,
 } from "../lib/gathering-catalog.ts";
-import { materialSourceFor } from "../lib/material-sources.ts";
+import { materialReferenceFor, materialSourceFor } from "../lib/material-sources.ts";
 
 test("Büyük Hol üç toplayıcı mesleğinin 45 puanlık kaynaklarını kapsar", () => {
   for (const [material, profession] of [["Monazit", "Madenci"], ["Yeşim Taşı", "Sarraf"], ["Çiğdem", "Lokman"]]) {
@@ -67,6 +67,22 @@ test("Sığınak rehberindeki ortak materyaller bölge kaynağına bağlanır", 
     assert.equal(source?.enemy, "Sığınaklar bossları");
     assert.equal(source?.verification, "Kaynaklı kayıt");
   }
+});
+
+test("Hydrargyrum Junon ganimetine bağlanır", () => {
+  const source = materialSourceFor("Hydrargyrum");
+  assert.equal(source?.kind, "creature_drop");
+  assert.equal(source?.enemy, "Junon");
+  assert.equal(source?.region, "Migrat");
+  assert.equal(source?.verification, "Kaynaklı kayıt");
+});
+
+test("kısmi materyal sınıflandırması edinim kaynağı gibi yayımlanmaz", () => {
+  for (const name of ["Hidrojen", "Erg Yongası", "Ateş Boyası", "Köşk Madalyonu", "Galata Sembolü", "Meran Mücevheri", "Örümcek Gözü", "Geyik Derisi", "Kenevir Lifi", "Latex"]) {
+    assert.equal(materialSourceFor(name), null);
+    assert.ok(materialReferenceFor(name));
+  }
+  assert.equal(materialReferenceFor("Antimon"), null);
 });
 
 test("görev ganimetleri görev adı, seviye ve adetle bağlanır", () => {
