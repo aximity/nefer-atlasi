@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.60.0",
+  version: "0.61.0",
   channel: "BETA",
-  milestone: "M60",
-  releasedAt: "28 Ağustos 2026",
-  title: "Boss Ganimeti Sınıflandırması",
+  milestone: "M61",
+  releasedAt: "29 Ağustos 2026",
+  title: "Maden Görseli Teslim Güvencesi",
   summary:
-    "Sekiz Çemberlitaş malzemesi canlı topluluk kataloğundaki Boss Droplar kategorisine bağlandı; kesin boss ve bölge ikinci teyide ayrıldı.",
+    "Maden ve malzeme ikonları yayın sunucusundaki ayrı dosya isteğine bağlı kalmadan, özgün oyun görseli korunarak sayfaya gömüldü.",
   changes: [
-    "Antimon, Ateş Boyası, Erg Yongası, Galata Sembolü, Hidrojen ve Köşk Madalyonu genel boss ganimeti olarak eşleşti.",
-    "Meran Mücevheri ile Örümcek Gözü aynı canlı katalog sınıflandırmasına bağlandı.",
-    "Kaynak boss ve bölgeyi ayırmadığı için atlas kartı bunu açıkça söylüyor; kesin düşman adı yazılmıyor.",
-    "Sekiz kayıt için ikinci kanıt işi açıldı; topluluk sınıflandırması kesin doğrulama gibi sunulmuyor.",
+    "95 gerçek malzeme ikonu doğrudan sayfa paketine bağlandı; bozuk görsel isteği ortadan kaldırıldı.",
+    "Reçeteler, maden rehberi, stok girişi ve fotoğraf taslağı aynı güvenli ikon kaynağını kullanıyor.",
+    "Özgün dosya yolu ve kaynak kimliği korunuyor; görseller yeniden üretilmedi veya değiştirilmedi.",
+    "İkon teslimi için otomatik test eklendi.",
   ],
 } as const;

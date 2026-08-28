@@ -26,6 +26,7 @@ test("Wiki malzeme ikonları tahminsiz ve ölçülebilir kapsama sahiptir", () =
   assert.equal(materialIcons.length, 95);
   assert.deepEqual(missing, ["Karbon"]);
   assert.equal(materialIconFor("Saf Bakır")?.path, "/materials/saf-bakir.png");
+  assert.match(materialIconFor("Saf Bakır")?.src ?? "", /^data:image\/png;base64,/);
 });
 
 test("ana eşya reçetelerindeki her malzeme gerçek bir ikona sahiptir", () => {

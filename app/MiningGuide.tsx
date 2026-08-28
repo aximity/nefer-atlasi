@@ -249,7 +249,7 @@ export default function MiningGuide() {
               const materialName = String(name);
               const uses = usesForMaterial(materialName);
               const icon = materialIconFor(materialName);
-              return <span className="output-node-wrap" key={materialName}>{index>0&&<i>→</i>}<button className={`output-node ${uses.length>0?"linked":"unlinked"}`} onClick={()=>openMaterial(item,materialName,index+1)} aria-label={`${materialName} üretim bağlantılarını aç`}>{icon&&<Image src={icon.path} alt="" width={30} height={30}/>}<small>{index+1}. ÇIKTI</small><b>{materialName}</b><em>{uses.length>0?`${uses.length} üretim`:"Kayıt bekliyor"}</em>{uses.length>0&&<span className="output-hover" role="tooltip">{uses.slice(0,3).map((usage)=><span key={`${usage.itemId}-${usage.kind}`}>{usage.itemName} · ×{usage.quantity}</span>)}{uses.length>3&&<span>+{uses.length-3} üretim daha</span>}</span>}</button></span>;
+              return <span className="output-node-wrap" key={materialName}>{index>0&&<i>→</i>}<button className={`output-node ${uses.length>0?"linked":"unlinked"}`} onClick={()=>openMaterial(item,materialName,index+1)} aria-label={`${materialName} üretim bağlantılarını aç`}>{icon&&<Image unoptimized src={icon.src} alt="" width={30} height={30}/>}<small>{index+1}. ÇIKTI</small><b>{materialName}</b><em>{uses.length>0?`${uses.length} üretim`:"Kayıt bekliyor"}</em>{uses.length>0&&<span className="output-hover" role="tooltip">{uses.slice(0,3).map((usage)=><span key={`${usage.itemId}-${usage.kind}`}>{usage.itemName} · ×{usage.quantity}</span>)}{uses.length>3&&<span>+{uses.length-3} üretim daha</span>}</span>}</button></span>;
             })}</div>
             <div className="point-pill"><b>{item.points}</b><small>puan</small></div>
             <div className="collection-region"><span>BÖLGE</span><b>{region}</b><small>{region === "Bölge kaydı eksik" ? "Bölge kaydı bulunamadı" : "KÖ bölge dağılımı"}</small></div>
@@ -283,7 +283,7 @@ export default function MiningGuide() {
     {selectedMaterial&&<div className="production-backdrop" onMouseDown={(event)=>event.target===event.currentTarget&&setSelectedMaterial(null)}>
       <aside className="production-sheet" role="dialog" aria-modal="true" aria-labelledby="production-sheet-title">
         <button className="production-close" aria-label="Üretim bağlantılarını kapat" onClick={()=>setSelectedMaterial(null)}>×</button>
-        <div className="production-gem" aria-hidden="true">{materialIconFor(selectedMaterial.name) ? <Image src={materialIconFor(selectedMaterial.name)!.path} alt="" width={52} height={52}/> : selectedMaterial.name.slice(0,2)}</div>
+        <div className="production-gem" aria-hidden="true">{materialIconFor(selectedMaterial.name) ? <Image unoptimized src={materialIconFor(selectedMaterial.name)!.src} alt="" width={52} height={52}/> : selectedMaterial.name.slice(0,2)}</div>
         <small className="production-kicker">{selectedMaterial.profession} · {selectedMaterial.output}. ÇIKTI</small>
         <h3 id="production-sheet-title">{selectedMaterial.name}</h3>
         <p className="production-origin"><b>{selectedMaterial.region}</b><span>{selectedMaterial.base} kaynağı · {selectedMaterial.points} meslek puanı</span></p>

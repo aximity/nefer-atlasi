@@ -126,7 +126,7 @@ export default function RecipeCatalog() {
             <div className="recipeBody">
               {visualFamily && <p className="recipeVisualNote"><b>Görünüş ailesi:</b> {visualFamily.label}. {equipment ? "Efsun ve özellikler eşya kaydına aittir." : talisman ? "Sınıf, kademe ve etki tılsım kaydına aittir." : "İksirin etkisi ve seviyesi metin alanında ayrılır."}</p>}
               {talisman && <p className="recipeEffectNote"><b>Etki:</b> {talisman.effectText}</p>}
-              <div className="recipeMaterials">{recipe.materials.map((material) => { const icon = materialIconFor(material.name); return <span key={material.name}>{icon ? <Image src={icon.path} alt="" width={30} height={30}/> : <i aria-hidden="true">{material.name.slice(0, 2)}</i>}<b>{material.name}</b><strong>×{material.quantity}</strong></span>; })}</div>
+              <div className="recipeMaterials">{recipe.materials.map((material) => { const icon = materialIconFor(material.name); return <span key={material.name}>{icon ? <Image unoptimized src={icon.src} alt="" width={30} height={30}/> : <i aria-hidden="true">{material.name.slice(0, 2)}</i>}<b>{material.name}</b><strong>×{material.quantity}</strong></span>; })}</div>
               <footer>{kind !== "potion" && <a href={kind === "talisman" ? `/?module=engine&talisman=${recipe.itemId}#engine` : crafted ? `/?module=atlas&node=${encodeURIComponent(`material:${crafted.name.toLocaleLowerCase("tr-TR")}`)}#atlas` : `/?module=items&item=${recipe.itemId}#items`}>{kind === "talisman" ? "Tılsımı aç" : crafted ? "Malzemeyi aç" : "Eşyayı aç"} →</a>}<a href="/uretim#production-planner">Üretim takibi →</a></footer>
             </div>
           </details>
