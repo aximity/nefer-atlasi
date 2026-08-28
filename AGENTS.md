@@ -12,6 +12,8 @@ Bu depo için önce `docs/PROJECT_OS.md`, ardından aktif işin bağlı olduğu 
 - Ortak HTML etiketlerine geniş kapsamlı stil verme; sayfa ve bileşen sınıflarını hedefle.
 - Mobilde uzun Türkçe metin, boş giriş, 360 px ekran ve dokunma alanlarını kabul koşullarına ekle.
 - Veri değişikliğinde `npm run validate:data`, davranış değişikliğinde ilgili otomatik testleri çalıştır.
+- Bir istek tek modülü adlandırsa bile etkisini katalog, reçete, Atlas, maden/toplayıcılık, stok/üretim, genel arama, Proje Durumu ve yayın testlerinde denetle. Aynı veri veya görsel açığı bulunan bağlı yüzeyleri kullanıcı tekrar söylemeden birlikte ele al; kapsam dışı kalanları canlı açık listesine ekle.
+- Her yayımlanabilir ilerlemede `SITE_RELEASE` sürümünü ve değişikliklerini güncelle. Proje Durumu sayaçlarını arayüzde sabitleme; katalog ve denetim verisinden türet.
 - Kullanıcı çalışmasını silen geri alma komutları kullanma. Küçük değişiklik ve açık geri dönüş noktaları oluştur.
 - Tamamlanan işte `CHANGELOG.md`; kalıcı karar değiştiyse `DECISIONS.md`; yeni kanıtta `RESEARCH_LOG.md` güncellenir.
 

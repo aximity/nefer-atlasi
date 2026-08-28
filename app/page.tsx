@@ -19,8 +19,6 @@ import Link from "next/link";
 import {
   classSlots,
   contexts,
-  images,
-  appearanceImageFor,
   items,
   publishableItems,
   recipes,
@@ -60,7 +58,7 @@ import {
   cemberlitasLootSourceIdFor,
   isCemberlitasRecipe,
 } from "../lib/group-region-loot.mjs";
-import { creatureDropSources } from "../lib/material-sources";
+import { craftedMaterialRecipes, craftedMaterialSources, creatureDropSources } from "../lib/material-sources";
 import { talismanRecipes } from "../lib/talisman-recipes";
 import { potionRecipes } from "../lib/potion-recipes";
 import {
@@ -68,6 +66,7 @@ import {
   itemVisualFamilyFor,
   itemVisualFamilyInventory,
 } from "../lib/visual-families";
+import { itemVisualAssetFor } from "../lib/item-visuals";
 import { APP_NAVIGATION_EVENT, ROUTE_DETAIL_PARAMS } from "../lib/navigation";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n);
@@ -88,7 +87,7 @@ const moduleTabs = [
   { id: "economy", label: "Ekonomi", summary: "Maden, çöp ve para döngülerini incele.", keywords: "döngü pazar para çöp üretim" },
   { id: "sustainability", label: "Sürdürülebilirlik", summary: "Ekonomi, etkinlik ve kaynak uyarlamalarını izle.", keywords: "sürdürülebilirlik ekonomi etkinlik takvim maden para kaynak" },
   { id: "issues", label: "Sorunlar", summary: "Oyun sorunlarını ve çözüm önerilerini gör.", keywords: "şikayet öneri lag bağlantı" },
-  { id: "health", label: "Gelişim", summary: "Projenin veri ve kalite durumunu izle.", keywords: "durum kapsam kalite" },
+  { id: "health", label: "Proje durumu", summary: "Son sürümü, görsel kapsamı ve açık işleri izle.", keywords: "durum gelişim kapsam kalite görsel eksik" },
   { id: "contribute", label: "Geri bildirim", summary: "Yanlış veya eksik bilgiyi metinle bildir.", keywords: "yorum düzelt geri bildirim" },
 ] as const;
 type MainModule = (typeof moduleTabs)[number]["id"];
@@ -376,6 +375,10 @@ export default function Home() {
           ...recipes.map((recipe) => {
             const item = publishableItems.find((row) => row.id === recipe.itemId);
             return { id: recipe.itemId, kind: "item" as const, name: item?.name ?? recipe.itemId, description: `${item?.class ?? ""} · Eşya · ${recipe.materials.length} malzeme`, search: recipe.materials.map((material) => material.name).join(" ") };
+          }),
+          ...craftedMaterialRecipes.map((recipe, index) => {
+            const item = craftedMaterialSources[index];
+            return { id: recipe.itemId, kind: "item" as const, name: item?.name ?? recipe.itemId, description: `${item?.profession ?? ""} · Ara malzeme · ${recipe.materials.length} girdi`, search: recipe.materials.map((material) => material.name).join(" ") };
           }),
           ...talismanRecipes.map((recipe) => {
             const item = talismans.find((row) => row.id === recipe.itemId);
@@ -889,35 +892,23 @@ function ItemCard({
   onCompare: (item: Item) => void;
   compared: boolean;
 }) {
-  const visual = images.find((image) => image.itemId === item.id),
-    appearance = visual?.nameAndAppearanceTogether === true ? undefined : appearanceImageFor(item),
-    visualFamily = itemVisualFamilyFor(item);
+  const visual = itemVisualAssetFor(item),
+    visualFamily = itemVisualFamilyFor(item),
+    appearanceLike = visual?.kind === "set_appearance" || visual?.kind === "shared_item_type";
   return (
-    <article className={`card ${visual || appearance ? "withArt" : "dataOnly"}`}>
+    <article className={`card ${visual ? "withArt" : "dataOnly"}`}>
       <button className="cardOpen" onClick={() => onOpen(item)}>
-        {visual && !appearance && (
-          <div className={`art verifiedArt ${visual.assetScope === "item_icon" ? "itemIconArt" : ""}`}>
+        {visual && (
+          <div className={`art ${appearanceLike ? "appearanceArt" : "verifiedArt"} ${visual.kind === "item_icon" ? "itemIconArt" : ""}`}>
             <Image
               src={visual.url}
-              alt={`${item.name} oyun içi ${visual.assetScope === "item_icon" ? "eşya ikonu" : "eşya görüntüsü"}`}
-              width={visual.assetScope === "item_icon" ? 30 : 1200}
-              height={visual.assetScope === "item_icon" ? 30 : 1600}
-              unoptimized={visual.assetScope === "item_icon"}
+              alt={visual.alt}
+              width={visual.width}
+              height={visual.height}
+              unoptimized={visual.unoptimized}
+              style={visual.focus ? { objectPosition: visual.focus, width: "100%", height: "100%", objectFit: "cover" } : undefined}
             />
-            <small>{visual.assetScope === "item_icon" ? "OYUN İÇİ EŞYA İKONU · 30 × 30" : "TEKİL EŞYA GÖRSELİ · TEK KAYNAK"}</small>
-          </div>
-        )}
-        {appearance && (
-          <div className="art appearanceArt">
-            <Image
-              src={appearance.url}
-              alt={`${appearance.label} set görünüşü`}
-              width={709}
-              height={1536}
-              unoptimized
-              style={{ objectPosition: appearance.focus, width: "100%", height: "100%", objectFit: "cover" }}
-            />
-            <small>SET GÖRÜNÜŞ REFERANSI · WIKI</small>
+            <small>{visual.label}</small>
           </div>
         )}
         <div className="copy">
@@ -991,9 +982,8 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
     claims = itemEvidence(item.id),
     source = sourceFor(claims[0]?.sourceId),
     recipeSource = recipe ? sourceFor(recipe.sourceId) : undefined,
-    visual = images.find((image) => image.itemId === item.id),
-    appearance = visual?.nameAndAppearanceTogether === true ? undefined : appearanceImageFor(item),
-    appearanceSource = appearance ? sourceFor(appearance.sourceId) : undefined,
+    visual = itemVisualAssetFor(item),
+    visualSource = visual ? sourceFor(visual.sourceId) : undefined,
     visualFamily = itemVisualFamilyFor(item),
     visualFamilyCount = itemFamilySize.get(visualFamily.id) ?? 1,
     cemberlitasOrigin = isCemberlitasRecipe(recipe),
@@ -1008,29 +998,17 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
         <button aria-label="Kapat" className="close" onClick={close}>
           ×
         </button>
-        {visual && !appearance && (
-          <div className={`art verifiedArt ${visual.assetScope === "item_icon" ? "itemIconArt" : ""}`}>
+        {visual && (
+          <div className={`art ${visual.kind === "set_appearance" || visual.kind === "shared_item_type" ? "appearanceArt modalAppearanceArt" : "verifiedArt"} ${visual.kind === "item_icon" ? "itemIconArt" : ""}`}>
             <Image
               src={visual.url}
-              alt={`${item.name} oyun içi ${visual.assetScope === "item_icon" ? "eşya ikonu" : "eşya görüntüsü"}`}
-              width={visual.assetScope === "item_icon" ? 30 : 1200}
-              height={visual.assetScope === "item_icon" ? 30 : 1600}
-              unoptimized={visual.assetScope === "item_icon"}
+              alt={visual.alt}
+              width={visual.width}
+              height={visual.height}
+              unoptimized={visual.unoptimized}
+              style={visual.focus ? { objectPosition: visual.focus, width: "100%", height: "100%", objectFit: "cover" } : undefined}
             />
-            <small>{visual.assetScope === "item_icon" ? "OYUN İÇİ EŞYA İKONU · 30 × 30" : "TEKİL EŞYA GÖRSELİ · TEK KAYNAK"}</small>
-          </div>
-        )}
-        {appearance && (
-          <div className="art appearanceArt modalAppearanceArt">
-            <Image
-              src={appearance.url}
-              alt={`${appearance.label} set görünüşü`}
-              width={709}
-              height={1536}
-              unoptimized
-              style={{ objectPosition: appearance.focus, width: "100%", height: "100%", objectFit: "cover" }}
-            />
-            <small>SET GÖRÜNÜŞ REFERANSI · TEKİL PARÇA KANITI DEĞİL</small>
+            <small>{visual.label}</small>
           </div>
         )}
         <p className="eyebrow">
@@ -1048,10 +1026,10 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
               <dd>Bu görünüş {visualFamily.label} gövdesini temsil eder; efsun, seviye ve özellikler seçili eşya kaydına aittir.</dd>
             </div>
           )}
-          {appearance && (
+          {visual && !visual.exactItem && (
             <div>
               <dt>Görsel kapsamı</dt>
-              <dd>{appearance.label} setinin genel görünüşü; bu eşyanın tekil simgesi veya tooltip kanıtı değildir.</dd>
+              <dd>{visual.family.label} ortak görünüşü; bu eşyanın tekil simgesi veya tooltip kanıtı değildir.</dd>
             </div>
           )}
           <div>
@@ -1095,7 +1073,7 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
             </>
           )}
         </dl>
-        {(source || recipeSource || lootSource || appearanceSource) && <Link className="sourceLink" href="/kaynaklar#esyalar">Eşya, reçete ve görünüş kaynaklarını gör →</Link>}
+        {(source || recipeSource || lootSource || visualSource) && <Link className="sourceLink" href="/kaynaklar#esyalar">Eşya, reçete ve görünüş kaynaklarını gör →</Link>}
         <a className="sourceLink secondary" href={`/?module=atlas&node=${encodeURIComponent(`item:${item.id}`)}#atlas`}>Eşyanın bağlantılı atlasını aç ↗</a>
       </article>
     </div>

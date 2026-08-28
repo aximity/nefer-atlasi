@@ -1,6 +1,7 @@
 import productionRows from "../data/talisman-production.json" with { type: "json" };
 import recipeAcquisitionRows from "../data/talisman-recipe-acquisition.json" with { type: "json" };
 import type { Talisman } from "./catalog";
+import { talismanRecipes } from "./talisman-recipes.ts";
 
 export type TalismanTierKey = 1 | 2 | 3 | "special";
 
@@ -101,14 +102,19 @@ export function talismanRecipeAcquisitionFor(talismanId: string) {
   return talismanRecipeAcquisitions.find((row) => row.talismanIds.includes(talismanId)) ?? null;
 }
 
-const exactRecipeAcquisitionCount = new Set(talismanRecipeAcquisitions.filter((row) => row.status === "exact").flatMap((row) => row.talismanIds)).size;
+const recipeIds = new Set(talismanRecipes.map((recipe) => recipe.itemId));
+const exactRecipeAcquisitionIds = new Set(talismanRecipeAcquisitions.filter((row) => row.status === "exact").flatMap((row) => row.talismanIds).filter((id) => recipeIds.has(id)));
+const ambiguousRecipeAcquisitionIds = new Set(talismanRecipeAcquisitions.filter((row) => row.status === "ambiguous_name").flatMap((row) => row.talismanIds).filter((id) => recipeIds.has(id)));
+const acquisitionRowRecipeIds = new Set(talismanRecipeAcquisitions.flatMap((row) => row.talismanIds).filter((id) => recipeIds.has(id)));
 const ambiguousRecipeAcquisitionClaims = talismanRecipeAcquisitions.filter((row) => row.status === "ambiguous_name").length;
 
 export const talismanRecipeAcquisitionStats = {
-  recipeCount: 120,
-  exactRecipeCount: exactRecipeAcquisitionCount,
+  recipeCount: talismanRecipes.length,
+  exactRecipeCount: exactRecipeAcquisitionIds.size,
   ambiguousClaims: ambiguousRecipeAcquisitionClaims,
-  unknownRecipeCount: 120 - exactRecipeAcquisitionCount - ambiguousRecipeAcquisitionClaims,
+  ambiguousRecipeCount: ambiguousRecipeAcquisitionIds.size,
+  withoutAcquisitionCount: talismanRecipes.length - acquisitionRowRecipeIds.size,
+  withoutExactSourceCount: talismanRecipes.length - exactRecipeAcquisitionIds.size,
 } as const;
 
 export const talismanRecipeAcquisitionPolicy = {

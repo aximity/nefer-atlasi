@@ -1,5 +1,16 @@
 # Yol Haritası
 
+## Tamamlandı — M63: Canlı proje durumu ve sistemik denetim
+
+- [x] Son sürüm ve yapılan işleri Proje Durumu ekranında `SITE_RELEASE` kaydından otomatik göster
+- [x] Maden, reçete, eşya, tılsım, iksir ve yetenek görsellerini aynı canlı kapsam haritasında ölç
+- [x] Bir ikon veya veri değişikliğini katalog, reçete, maden, üretim, arama ve yayın kapısında birlikte denetle
+- [x] Tılsım reçete ediniminde claim sayısı ile etkilenen reçete sayısını birbirinden ayır
+- [x] Ortak eşya görünüşünü kart, ayrıntı ve Atlas'ta tek çözücüyle yayımla
+- [x] Kaynaksız dört özel tılsım formülünü sahte reçete üretmeden açık bırak
+
+Çıkış kapısı: Proje durumu her sürüm ve veri değişiminde canlı katalogdan yeniden hesaplanır; görsel kapsam 8/32 aile, 102/105 reçete malzemesi ve 66/81 toplayıcılık çıktısı olarak görünür; 172 işlev/veri testi ve tam yayın derlemesi geçer.
+
 ## Tamamlandı — M54: Sığınak bilgi kutuları
 
 - [x] Sığınak rehberindeki bağlı oyun içi görüntüleri eşya bazında denetle

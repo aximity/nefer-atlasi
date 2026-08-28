@@ -35,7 +35,7 @@ test("Nefer Atlası sade arama-öncelikli ana sayfayı oluşturur", async () => 
   assert.doesNotMatch(html, /Sekiz yuvayı sen doldur/);
   assert.doesNotMatch(html, /Nucleus Yüzük/);
   assert.doesNotMatch(html, /Nefer Atlası ne yapar\?/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.62\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.63\.0/);
   assert.match(html, /Atlas genelinde ara/);
   assert.match(html, /Atlas’ta ara/);
   assert.doesNotMatch(html, /raw_game_value/);
@@ -58,7 +58,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Kullanım Rehberi \| Nefer Atlası/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.62\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.63\.0/);
   assert.match(html, /Yetenek puanlarımı dağıtmak istiyorum/);
   assert.match(html, /NEDEN KULLANMALIYIM\?/);
   assert.match(html, /Bir eşyanın gerçek bilgisini arıyorum/);
@@ -70,7 +70,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.match(html, /https:\/\/kiyametoyun\.net\/siralama/);
   assert.match(html, /Giriş gerektiren mağaza ve hesap alanları/);
   assert.match(html, /On beş araç, tek atlas/);
-  for (const moduleName of ["Donanım", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Reçeteler", "Atlas", "Endgame", "Maden", "Döngü", "Yetenek", "Sorunlar", "Gelişim", "Geri bildirim", "Sürdürülebilirlik"]) {
+  for (const moduleName of ["Donanım", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Reçeteler", "Atlas", "Endgame", "Maden", "Döngü", "Yetenek", "Sorunlar", "Proje durumu", "Geri bildirim", "Sürdürülebilirlik"]) {
     assert.match(html, new RegExp(`>${moduleName}<`));
   }
 });

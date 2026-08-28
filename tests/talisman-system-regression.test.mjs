@@ -119,6 +119,9 @@ test("reçete edinim politikası normal İKV, KÖ ve drop iddialarını birbirin
   assert.equal(talismanRecipeAcquisitionStats.recipeCount, 120);
   assert.equal(talismanRecipeAcquisitionStats.exactRecipeCount, 13);
   assert.equal(talismanRecipeAcquisitionStats.ambiguousClaims, 2);
+  assert.equal(talismanRecipeAcquisitionStats.ambiguousRecipeCount, 4);
+  assert.equal(talismanRecipeAcquisitionStats.withoutAcquisitionCount, 103);
+  assert.equal(talismanRecipeAcquisitionStats.withoutExactSourceCount, 107);
   assert.equal(talismanRecipeAcquisitionPolicy.normalIkv.sourceId, "community-ikv-talisman-update-2013");
   assert.equal(talismanRecipeAcquisitionPolicy.ko.sourceId, "kiyametin-onculeri-guide");
   assert.equal(talismanRecipeAcquisitionPolicy.drop.sourceId, "official-ikv-jobs-2013");

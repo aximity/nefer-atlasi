@@ -19,6 +19,7 @@ test("bilinmeyen teknik alan adları okunabilir metne dönüşür", () => {
 test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => {
   const component = readFileSync(new URL("../app/SkillGuides.tsx", import.meta.url), "utf8");
   const page = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const itemVisuals = readFileSync(new URL("../lib/item-visuals.ts", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../app/skills.css", import.meta.url), "utf8");
   const images = JSON.parse(readFileSync(new URL("../data/images.json", import.meta.url), "utf8"));
   const appearanceImages = JSON.parse(readFileSync(new URL("../data/appearance-images.json", import.meta.url), "utf8"));
@@ -47,8 +48,8 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.equal(visualFamilies.filter((family) => family.kind === "item").length, 23);
   assert.equal(visualFamilies.filter((family) => family.kind === "talisman").length, 6);
   assert.equal(visualFamilies.filter((family) => family.kind === "potion").length, 3);
-  assert.match(page, /SET GÖRÜNÜŞ REFERANSI · WIKI/);
-  assert.match(page, /TEKİL PARÇA KANITI DEĞİL/);
+  assert.match(itemVisuals, /SET GÖRÜNÜŞ REFERANSI · TEKİL PARÇA DEĞİL/);
+  assert.match(itemVisuals, /ORTAK.*GÖVDESİ · EFSUN AYRI/);
   assert.match(page, /Tekrarsız görsel sistemi/);
   assert.match(page, /ORTAK GÖVDE/);
   assert.match(page, /efsun, seviye ve özellikler seçili eşya kaydına aittir/i);

@@ -6,6 +6,17 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.62.0",
+    date: "29 Ağustos 2026",
+    title: "Tılsım Reçete ve Edinim Haritası",
+    changes: [
+      "710 tılsım reçetesi girdisinin tamamı 7 gerçek malzeme ve 6 sınıf/renk tılsım ikonuna bağlandı.",
+      "110 önceki kademe tılsım görünen ad yerine kesin kimlikle bağlandı; aynı adlı sınıf varyantlarının birleşmesi önlendi.",
+      "13 reçetenin kesin normal İKV kaynağı bulundu; iki ad-çakışmalı iddianın dört aday reçeteyi etkilediği ayrıştırıldı.",
+      "KÖ oyuncu bildirimlerinin II–III. kademelere sızması engellendi; normal İKV, KÖ ve reçete drobu ayrı kanıt alanlarında gösterildi.",
+    ],
+  },
+  {
     version: "0.61.0",
     date: "29 Ağustos 2026",
     title: "Maden Görseli Teslim Güvencesi",

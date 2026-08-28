@@ -2,17 +2,42 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { appearanceImages, images, publishableItems, publishableStats, recipes } from "../lib/catalog";
-import { materialReferenceFor, materialSourceFor } from "../lib/material-sources";
+import { appearanceImages, images, itemEvidence, publishableItems, publishableStats, recipes, sourceFor, talismans } from "../lib/catalog";
+import { materialReferenceFor } from "../lib/material-sources";
+import { productionItems, productionMaterialSourceFor, productionRecipes } from "../lib/production-catalog";
+import { potionRecipes } from "../lib/potion-recipes";
 import { buildAtlasGraph } from "../lib/atlas-graph.mjs";
 import { buildAtlasCompletionQueue, completionSummary, COMPLETION_KIND_LABELS, filterCompletionRecords } from "../lib/atlas-completion.mjs";
-import { coveredItemVisualFamilyIds, itemVisualFamilyFor, potionVisualFamilies, talismanVisualFamilies } from "../lib/visual-families";
+import { coveredItemVisualFamilyIds, itemVisualFamilyFor, potionVisualFamilies, potionVisualFamilyFor, talismanVisualFamilies, talismanVisualFamilyFor } from "../lib/visual-families";
+import { SITE_RELEASE } from "../lib/site-release";
 
-const graph = buildAtlasGraph({ items: publishableItems, recipes, materialSourceFor });
+const graph = buildAtlasGraph({
+  items: publishableItems,
+  recipes,
+  linkedItems: productionItems,
+  linkedRecipes: productionRecipes,
+  materialSourceFor: productionMaterialSourceFor,
+});
+const itemNeedsSecondVerification = (item: (typeof publishableItems)[number]) =>
+  !["name", "class", "slot"].every((field) =>
+    itemEvidence(item.id, field).some((claim) =>
+      claim.status === "cross_verified"
+      || sourceFor(claim.sourceId)?.requiresCrossVerification === false,
+    ),
+  );
 const coveredVisualFamilyIds = new Set([
   ...coveredItemVisualFamilyIds({ items: publishableItems, images, appearanceImages }),
   ...talismanVisualFamilies.filter((family) => family.status === "verified" && family.assetRef).map((family) => family.id),
 ]);
+const visualFamilyRecordCounts = new Map<string, number>();
+for (const talisman of talismans) {
+  const familyId = talismanVisualFamilyFor(talisman).id;
+  visualFamilyRecordCounts.set(familyId, (visualFamilyRecordCounts.get(familyId) ?? 0) + 1);
+}
+for (const recipe of potionRecipes) {
+  const familyId = potionVisualFamilyFor(recipe.visualCategory).id;
+  visualFamilyRecordCounts.set(familyId, (visualFamilyRecordCounts.get(familyId) ?? 0) + 1);
+}
 const records = buildAtlasCompletionQueue({
   graph,
   images,
@@ -21,6 +46,8 @@ const records = buildAtlasCompletionQueue({
   visualFamilyForItem: itemVisualFamilyFor,
   statsForItem: publishableStats,
   referenceForMaterial: materialReferenceFor,
+  needsVerificationForItem: itemNeedsSecondVerification,
+  visualFamilyRecordCount: (family: { id: string }) => visualFamilyRecordCounts.get(family.id) ?? null,
 });
 const summary = completionSummary(records);
 const filters = [
@@ -47,12 +74,12 @@ export default function AtlasCompletionCenter() {
 
   return <div className="completionCenter">
     <div className="completionHero">
-      <div><p>M19 · ATLAS TAMAMLAMA MERKEZİ</p><h2>Eksikliği görünür yap.<br/><em>Doğru kanıtı topla.</em></h2></div>
+      <div><p>{SITE_RELEASE.milestone} · ATLAS TAMAMLAMA MERKEZİ</p><h2>Eksikliği görünür yap.<br/><em>Doğru kanıtı topla.</em></h2></div>
       <p>Bu masa eksik bölgeyi veya kaynağı tahmin etmez. Her açık bağlantıyı, neden eksik olduğunu ve hangi kanıtla kapanacağını ayrı iş olarak gösterir.</p>
     </div>
 
     <div className="completionStats">
-      <article className="critical"><small>ÇELİŞKİ</small><b>{summary.critical}</b><span>hesaptan uzak tutuluyor</span></article>
+      <article className="critical"><small>ÇELİŞKİ</small><b>{summary.conflicts}</b><span>hesaptan uzak tutuluyor</span></article>
       <article><small>ELDE ETME</small><b>{summary.acquisition}</b><span>bağlantı bekliyor</span></article>
       <article><small>MALZEME</small><b>{summary.materialSources}</b><span>kaynak eşleşmesi yok</span></article>
       <article><small>GÖRSEL AİLESİ</small><b>{summary.media}</b><span>tek ortak görsel bekliyor</span></article>
@@ -64,7 +91,7 @@ export default function AtlasCompletionCenter() {
       <label><span>⌕</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Eşya veya malzeme ara"/></label>
     </div>
 
-    <div className="completionResultHead"><span>{filtered.length} açık iş</span><b>İlk 18 kayıt gösteriliyor</b></div>
+    <div className="completionResultHead"><span>{filtered.length} açık iş</span><b>{filtered.length > 18 ? "İlk 18 kayıt gösteriliyor" : "Tüm kayıtlar gösteriliyor"}</b></div>
     <div className="completionList">
       {shown.length ? shown.map((record) => <article key={record.id} data-priority={record.priority}>
         <i>{record.entityType === "item" ? "E" : record.entityType === "visual" ? "G" : "M"}</i>

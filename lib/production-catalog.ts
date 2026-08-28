@@ -99,6 +99,23 @@ export function productionMaterialSourceFor(materialName: string) {
   const playerReport = playerReportsFor(talisman)[0];
   const vendor = vendorMentionsFor(talisman)[0];
   if (!playerReport && !vendor) return null;
+  if (!playerReport && vendor) {
+    return {
+      kind: "talisman_acquisition" as const,
+      name: materialName,
+      talismanId: talisman.id,
+      class: talisman.class,
+      color: talisman.color,
+      tier: talisman.tier,
+      npc: vendor.name,
+      region: vendor.region,
+      priceLabel: "Fiyat kaynakta belirtilmiyor",
+      serverScope: "normal_ikv" as const,
+      verification: "Kaynaklı kayıt" as const,
+      evidenceNeeded: null,
+      source: sourceFor(vendor.sourceId)?.url ?? null,
+    };
+  }
   return {
     kind: "talisman_acquisition" as const,
     name: materialName,
@@ -109,6 +126,7 @@ export function productionMaterialSourceFor(materialName: string) {
     npc: playerReport?.npc ?? vendor?.name ?? "Gönül",
     region: vendor?.region ?? "Büyük Hol",
     priceLabel: playerReport?.priceLabel ?? "Fiyat doğrulanıyor",
+    serverScope: vendor ? "normal_ikv_and_ko_report" as const : "kiyametin_onculeri_report" as const,
     verification: "KÖ oyuncu bildirimi · dükkân görüntüsü bekliyor" as const,
     evidenceNeeded: playerReport?.evidenceNeeded ?? "Gönül dükkânında tılsım adını ve fiyatını gösteren KÖ oyun içi görüntüsü.",
     source: vendor ? sourceFor(vendor.sourceId)?.url ?? null : null,

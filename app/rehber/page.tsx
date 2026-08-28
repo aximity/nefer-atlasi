@@ -34,7 +34,7 @@ const modules = [
   ["10", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
   ["11", "Döngü", "Çöp eşya, maden ve oyun parasını tüketen kozmetik, iksir ve sözleşme önerilerini filtrele; para çıkışı senaryosu kur.", "/?module=economy#modules"],
   ["12", "Sorunlar", "Teknik bildirimlerle anonim ekonomi gözlemlerini; çıkarım, çözüm adımı ve başarı ölçüsünden ayrı kesinlikte incele.", "/?module=issues#modules"],
-  ["13", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
+  ["13", "Proje durumu", "Canlı sürümü, görsel kapsam haritasını ve eksik bağlantı kuyruğunu aç; hangi işin önce gerektiğini gör.", "/?module=health#modules"],
   ["14", "Geri bildirim", "Yanlış veya eksik bilgiyi konu ve kısa açıklamayla bildir; bu form dosya yüklemez.", "/?module=contribute#modules"],
   ["15", "Sürdürülebilirlik", "Ekonomi döngülerini, etkinlik önerilerini, maden kullanımını ve dış kaynakların İKV'ye nasıl uyarlandığını birlikte incele.", "/?module=sustainability#modules"],
 ] as const;

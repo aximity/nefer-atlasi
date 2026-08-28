@@ -8,15 +8,23 @@ import {
   publishableItems,
   publishableStats,
   recipes,
+  sourceFor,
   sources,
   stats,
-} from "./catalog";
+  talismans,
+} from "./catalog.ts";
+import abilityDetailRows from "../data/ability-details.json" with { type: "json" };
+import abilityMediaRows from "../data/ability-media.json" with { type: "json" };
+import abilityVariantRows from "../data/ability-variants.json" with { type: "json" };
+import { potionRecipes } from "./potion-recipes.ts";
+import { SITE_RELEASE } from "./site-release.ts";
+import { talismanRecipes } from "./talisman-recipes.ts";
 import {
   coveredItemVisualFamilyIds,
   itemVisualFamilyInventory,
   potionVisualFamilies,
   talismanVisualFamilies,
-} from "./visual-families";
+} from "./visual-families.ts";
 
 export type HealthState = "Güçlü" | "Gelişiyor" | "Veri bekliyor";
 
@@ -47,6 +55,19 @@ const coveredItemFamilies = coveredItemVisualFamilyIds({
   images,
   appearanceImages,
 });
+const coveredTalismanFamilies = talismanVisualFamilies.filter(
+  (family) => family.status === "verified" && Boolean(family.assetRef),
+);
+const coveredPotionFamilies = potionVisualFamilies.filter(
+  (family) => family.status === "verified" && Boolean(family.assetRef),
+);
+const claimPassesTrustPolicy = (claim: (typeof evidence)[number]) =>
+  claim.status === "cross_verified"
+  || sourceFor(claim.sourceId)?.requiresCrossVerification === false;
+const itemPassesTrustPolicy = (itemId: string) =>
+  ["name", "class", "slot"].every((field) =>
+    itemEvidence(itemId, field).some(claimPassesTrustPolicy),
+  );
 const integrityChecks = [
   itemIds.size === items.length,
   sourceIds.size === sources.length,
@@ -77,25 +98,32 @@ const auditRecords = [
   ...sources.map((source) => source.accessedAt),
   ...images.map((image) => image.checkedAt),
   ...appearanceImages.map((image) => image.checkedAt),
-].filter(Boolean);
-const latestAuditMs = Math.max(...auditRecords.map((date) => Date.parse(date)));
+  ...talismans.map((talisman) => talisman.lastChecked),
+  ...talismanRecipes.map((recipe) => recipe.lastChecked),
+  ...potionRecipes.map((recipe) => recipe.lastChecked),
+  ...abilityDetailRows.map((detail) => detail.lastChecked),
+  ...abilityVariantRows.map((variant) => variant.lastChecked),
+  ...abilityMediaRows.map((media) => media.checkedAt),
+].filter((date): date is string => typeof date === "string" && date.length > 0);
+const latestAuditMs = Date.parse(SITE_RELEASE.releasedOn);
 const freshnessWindowMs = 30 * 24 * 60 * 60 * 1000;
 const freshRecords = auditRecords.filter(
-  (date) => latestAuditMs - Date.parse(date) <= freshnessWindowMs,
+  (date) => {
+    const age = latestAuditMs - Date.parse(date);
+    return age >= 0 && age <= freshnessWindowMs;
+  },
 ).length;
 
 const rawMetrics = [
   {
     id: "evidence" as const,
-    label: "Çapraz doğrulanmış eşya",
+    label: "Güven politikasını geçen eşya",
     shortLabel: "Kanıt",
-    value: publishableItems.filter((item) =>
-      itemEvidence(item.id).some((claim) => claim.status === "cross_verified"),
-    ).length,
+    value: publishableItems.filter((item) => itemPassesTrustPolicy(item.id)).length,
     total: publishableItems.length,
     weight: 25,
-    detail: "En az bir alanı iki bağımsız kaynak grubuyla doğrulanan kayıtlar.",
-    action: "İkinci bağımsız kaynak veya eşya adını da gösteren oyun içi kanıt ekle.",
+    detail: "Ad, sınıf ve yuva alanlarının her biri ya çapraz doğrulanmış ya da ikinci teyit istemeyen İKV ana kaynağına bağlıdır.",
+    action: "Eksik temel alanı bağımsız kaynakla doğrula veya İKV ana kaynak kaydına bağla.",
   },
   {
     id: "stats" as const,
@@ -120,14 +148,17 @@ const rawMetrics = [
     ).length,
     total: publishableItems.length,
     weight: 15,
-    detail: "Reçete, düşme yeri/boss veya açık elde etme yöntemi bulunan kayıtlar.",
+    detail: "Eşyanın üretim formülü, düşme yeri/boss veya açık elde etme yöntemi bulunan kayıtlar. Reçete kâğıdının nereden alındığı ayrı ölçülür.",
     action: "Eksik kayıtlara bölge, boss ya da reçete kaynağı bağla.",
   },
   {
     id: "media" as const,
     label: "Görsel ailesi kapsamı",
     shortLabel: "Medya",
-    value: itemFamilyInventory.filter(({ family }) => coveredItemFamilies.has(family.id)).length,
+    value:
+      itemFamilyInventory.filter(({ family }) => coveredItemFamilies.has(family.id)).length
+      + coveredTalismanFamilies.length
+      + coveredPotionFamilies.length,
     total: itemFamilyInventory.length + talismanVisualFamilies.length + potionVisualFamilies.length,
     weight: 20,
     detail: "Eşya, tılsım ve iksirlerde aynı gövdeyi paylaşan kayıtlar tek görünüş ailesi sayılır; efsun ve değerler görselden ayrı tutulur.",
@@ -150,7 +181,7 @@ const rawMetrics = [
     value: freshRecords,
     total: auditRecords.length,
     weight: 5,
-    detail: "Eşya, özellik, reçete, kanıt, kaynak ve görsellerin en yeni denetime göre 30 günlük penceresi.",
+    detail: "Eşya, özellik, reçete, tılsım, yetenek, kanıt, kaynak ve görsellerin canlı sürüm tarihine göre 30 günlük penceresi.",
     action: "Eski kayıtları öncelik sırasıyla yeniden kontrol et.",
   },
 ];

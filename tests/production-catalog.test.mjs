@@ -36,3 +36,11 @@ test("ana eşya reçetelerindeki her malzeme gerçek bir ikona sahiptir", () => 
   assert.equal(materialIconFor("Akik")?.path, "/materials/akik.png");
   assert.equal(materialIconFor("Taşkanat Derisi")?.path, "/materials/taskanat-derisi.png");
 });
+
+test("442 reçetenin gerçek malzeme ikonları tüm dört katalogda birlikte denetlenir", () => {
+  const materialNames = [...new Set(productionRecipes.flatMap((recipe) => recipe.materials
+    .filter((material) => !("kind" in material && material.kind === "talisman"))
+    .map((material) => material.name)))].sort((a, b) => a.localeCompare(b, "tr"));
+  assert.equal(materialNames.length, 105);
+  assert.deepEqual(materialNames.filter((name) => !materialIconFor(name)), ["Açık Mavi Lapis", "Elmas", "Karbon"]);
+});

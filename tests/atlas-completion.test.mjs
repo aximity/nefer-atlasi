@@ -16,6 +16,7 @@ test("tamamlama kuyruğu eksikleri uydurmadan ayrı işlere böler", () => {
   const records = buildAtlasCompletionQueue({ graph, images: [], statsForItem: () => [] });
   const summary = completionSummary(records);
   assert.equal(summary.critical, 1);
+  assert.equal(summary.conflicts, 1);
   assert.equal(summary.acquisition, 1);
   assert.equal(summary.materialSources, 1);
   assert.ok(records.some((record) => record.kind === "media" && record.name === "Eksik Asa"));
@@ -84,6 +85,18 @@ test("tılsım ve iksir ortak görselleri eşya kuyruğundan ayrı görünür", 
   assert.match(records.find((record) => record.name === "Can iksiri")?.detail ?? "", /Seviyeyle boyut/);
 });
 
+test("ortak görsel kartı yalnız kendi ailesindeki kayıt sayısını gösterir", () => {
+  const records = buildAtlasCompletionQueue({
+    graph: { itemNodes: [], materialNodes: [] },
+    additionalVisualFamilies: [
+      { id: "potion:health", kind: "potion", label: "Can iksiri", note: "Kırmızı şişe." },
+    ],
+    visualFamilyRecordCount: () => 10,
+  });
+  assert.match(records[0].subtitle, /^10 iksir/);
+  assert.doesNotMatch(records[0].subtitle, /246/);
+});
+
 test("oyuncu bildirimiyle eşleşen hazır tılsım kaynak boşluğu değil doğrulama işi olur", () => {
   const records = buildAtlasCompletionQueue({
     graph: {
@@ -125,4 +138,19 @@ test("canlı boss kategorisi kaynak açığını kapatır ama ikinci teyit işi 
   assert.equal(completionSummary(records).materialSources, 0);
   assert.equal(completionSummary(records).verification, 1);
   assert.match(records[0].detail, /Boss Droplar/);
+});
+
+test("ana kaynak politikası ikinci teyit işini callback ile kapatır", () => {
+  const trustedGraph = {
+    itemNodes: [{ id: "item:wiki", key: "wiki", type: "item", name: "Wiki Eşyası", subtitle: "Tüm Sınıflar · Gözlük", verificationStatus: "single_source", item: {}, recipe: {}, region: null, boss: null }],
+    materialNodes: [],
+  };
+  const records = buildAtlasCompletionQueue({
+    graph: trustedGraph,
+    statsForItem: () => [{ value: 1 }],
+    coveredVisualFamilyIds: ["item:wiki"],
+    visualFamilyForItem: () => ({ id: "item:wiki", label: "Wiki Eşyası" }),
+    needsVerificationForItem: () => false,
+  });
+  assert.equal(completionSummary(records).verification, 0);
 });

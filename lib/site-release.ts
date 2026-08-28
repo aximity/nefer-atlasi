@@ -1,15 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.62.0",
+  version: "0.63.0",
   channel: "BETA",
-  milestone: "M62",
+  milestone: "M63",
+  releasedOn: "2026-08-29",
   releasedAt: "29 Ağustos 2026",
-  title: "Tılsım Reçete ve Edinim Haritası",
+  title: "Canlı Proje Durumu ve Görsel Harita",
   summary:
-    "Tılsım reçeteleri sınıf ve renk kimliğiyle yeniden bağlandı; gerçek oyun ikonları, malzeme kaynakları ve doğrulanabilen reçete edinim yerleri aynı kartta toplandı.",
+    "Son sürüm, tamamlanan işler, görsel kapsam ve çapraz modül açıkları artık Proje Durumu ekranında doğrudan canlı veriden hesaplanıyor.",
   changes: [
-    "710 tılsım reçetesi girdisinin tamamı 7 gerçek malzeme ve 6 sınıf/renk tılsım ikonuna bağlandı.",
-    "110 önceki kademe tılsım görünen ad yerine kesin kimlikle bağlandı; aynı adlı sınıf varyantlarının birleşmesi önlendi.",
-    "13 reçetenin kesin normal İKV kaynağı, 2 ad-çakışmalı kayıt ve 105 doğrulanmamış edinim kaydı birbirinden ayrıldı.",
-    "KÖ oyuncu bildirimlerinin II–III. kademelere sızması engellendi; normal İKV, KÖ ve reçete drobu ayrı kanıt alanlarında gösterildi.",
+    "Görsel harita; maden, reçete malzemesi, eşya ikonu, görünüş ailesi, tılsım, iksir ve yetenek medyasını sekiz otomatik kapsam başlığında birleştirdi.",
+    "Medya sağlık hesabı düzeltildi: altı doğrulanmış tılsım ailesi artık paya katılıyor ve gerçek kapsam 8/32 gösteriliyor.",
+    "Tılsım reçete edinim sayımı düzeltildi: 13 kesin, 4 belirsiz aday, 103 satırsız ve kesin kaynağı bilinmeyen 107 reçete ayrı ölçülüyor.",
+    "Ortak eşya görünüşü kart, ayrıntı ve Atlas'ta tek çözücüye bağlandı; 48 malzeme ikonundaki kırık kaynak kimliği ve ara malzeme arama açığı kapatıldı.",
   ],
 } as const;

@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+## v0.63.0 — Canlı Proje Durumu ve Görsel Harita
+
+- Proje Durumu ekranına canlı sürüm kartı, sekiz başlıklı görsel envanteri ve kalıcı çapraz modül denetim standardı eklendi.
+- Görsel aile kapsamı tılsım ikonlarını da doğru sayacak biçimde 8/32 olarak düzeltildi; 102/105 reçete malzemesi, 66/81 toplayıcılık çıktısı ve diğer görsel açıklar veriden türetiliyor.
+- Tılsım reçete edinimi 13 kesin, dört belirsiz aday, 103 satırsız ve 107 kesin kaynağı bilinmeyen reçete olarak ayrıştırıldı.
+- Kart, ayrıntı ve Atlas için ortak eşya görsel çözücüsü kuruldu; kolye ailesi bütün bağlı kayıtlarda görünür oldu ve Bıçak Sırtı kılıç ikonu set görselinin altında kalmıyor.
+- 48 malzeme ikonundaki kırık kaynak kimliği düzeltildi; 1.440 çalışma zamanı kanıtının tamamı yayın doğrulamasına katıldı ve dokuz ara malzeme genel aramaya eklendi.
+- Kaynak tablosunda formülü bulunmayan dört özel tılsım reçetesi uydurulmadan canlı açık olarak gösteriliyor.
+
 # v0.54.0 — Sığınak Bilgi Kutuları
 
 - 2018 Sığınaklar rehberindeki bağlı oyun içi bilgi kutuları 10 eksik eşya için 29 özellik satırına dönüştürüldü.

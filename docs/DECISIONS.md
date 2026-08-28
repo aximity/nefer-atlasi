@@ -91,3 +91,7 @@ Kullanıcının 28 Ağustos 2026 tarihli açık kaynak kararıyla İKV Wiki'deki
 ## ADR-023 — İKV Wiki tüm oyun verilerinde genel birincil kaynaktır
 
 Kullanıcının 28 Ağustos 2026 tarihli genişletilmiş kararıyla İKV Wiki yalnız iksirlerde değil; eşya, efsun, tılsım, reçete, görev, bölge, boss, maden, meslek, yetenek ve görsel kimliğinde ana oyun referansıdır. Wiki'de bulunan bilgi ikinci bağımsız kaynak beklemeden yayımlanır. Oyuncu bildirimi, pazar fiyatı, KÖ'ye özel sunucu değişikliği ve canlı performans ölçümü Wiki kapsamına sokulmaz. Görselin neyi gösterdiği Wiki'den alınabilir; dosya lisansı ve kullanım hakkı ayrıca kaydedilir.
+
+## ADR-024 — İstek modüler, denetim sistemiktir
+
+Kullanıcı bir tılsım, reçete, eşya veya maden değişikliği istediğinde iş yalnız adı geçen ekranda tamamlanmış sayılmaz. Aynı kimlik, kaynak veya görsel; katalog, reçete, Atlas, maden/toplayıcılık, stok/üretim, arama, Proje Durumu ve yayın kapılarında birlikte denetlenir. Bağlı açıklar güvenilir kanıtla kapanabiliyorsa aynı çalışma kapsamında kapatılır; kanıt veya kullanım hakkı yoksa tahmin edilmeden canlı açık listesinde gösterilir. Her yayımlanabilir ilerleme `SITE_RELEASE` üzerinden Proje Durumu'na yansır ve sayaçlar sabit metin yerine veri kümelerinden türetilir.
