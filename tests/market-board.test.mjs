@@ -46,7 +46,19 @@ test("alım teklifi ile satılık fiyatını ayırır ve anonim kaynak ağırlı
   const [ask] = summarizeMarket(rows, { currency: "TL", direction: "Satılık", now });
   const [bid] = summarizeMarket(rows, { currency: "TL", direction: "Alınır", now });
   assert.equal(ask.sevenDayMedian, 300);
+  assert.equal(ask.sevenDayMin, 300);
+  assert.equal(ask.sevenDayMax, 300);
   assert.equal(ask.sevenDayCount, 2);
   assert.equal(bid.sevenDayMedian, 150);
   assert.equal(bid.sevenDayCount, 3);
+});
+
+test("pazar özeti günlük gözlenen fiyat aralığını birim fiyat olarak korur", () => {
+  const now = new Date("2026-08-28T18:00:00Z").getTime();
+  const [summary] = summarizeMarket([
+    row("1", "Xenotim", "2026-08-27", { quantity: 2, currency: "TL", price: 400, priceMin: 360, priceMax: 500, listingType: "İlan", tradeDirection: "Satılık" }),
+  ], { currency: "TL", direction: "Satılık", now });
+  assert.equal(summary.sevenDayMedian, 200);
+  assert.equal(summary.sevenDayMin, 180);
+  assert.equal(summary.sevenDayMax, 250);
 });

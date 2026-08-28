@@ -1,178 +1,18 @@
 {
   "metadata": {
     "sourceLabel": "Kıyametin Öncüleri · İstanbul (Ticaret) WhatsApp arşivi",
-    "coverageStart": "2026-08-19",
-    "coverageEnd": "2026-08-26",
-    "messageCount": 3307,
-    "tradeMessageCount": 397,
-    "pricedMessageCount": 38,
+    "coverageStart": "2026-08-21",
+    "coverageEnd": "2026-08-28",
+    "messageCount": 2719,
+    "tradeMessageCount": 372,
+    "pricedMessageCount": 41,
     "priceObservationCount": 28,
     "privacy": "Kişi adları, telefon numaraları, sohbet metinleri ve iletişim bilgileri yayımlanmaz.",
     "methodology": "Aynı kişinin aynı gün aynı ürün ve yöndeki tekrarları tek sinyal sayılır; fiyatlar günlük ve anonim medyan olarak tutulur."
   },
   "priceObservations": [
     {
-      "id": "wa-002",
-      "type": "market_price",
-      "subject": "Salgı",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-19",
-      "sourceCount": 1,
-      "details": {
-        "quantity": 1,
-        "currency": "TL",
-        "price": 70,
-        "priceMin": 70,
-        "priceMax": 70,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 1,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
-      "id": "wa-003",
-      "type": "market_price",
-      "subject": "Salgı",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-19",
-      "sourceCount": 1,
-      "details": {
-        "quantity": 1,
-        "currency": "Oyun parası",
-        "price": 500,
-        "priceMin": 500,
-        "priceMax": 500,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 1,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
       "id": "wa-001",
-      "type": "market_price",
-      "subject": "Xenotim",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-19",
-      "sourceCount": 1,
-      "details": {
-        "quantity": 1,
-        "currency": "Oyun parası",
-        "price": 2500,
-        "priceMin": 2500,
-        "priceMax": 2500,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 1,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
-      "id": "wa-004",
-      "type": "market_price",
-      "subject": "Xenotim",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-19",
-      "sourceCount": 1,
-      "details": {
-        "quantity": 1,
-        "currency": "TL",
-        "price": 350,
-        "priceMin": 350,
-        "priceMax": 350,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 1,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
-      "id": "wa-007",
-      "type": "market_price",
-      "subject": "Ganoderma",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-20",
-      "sourceCount": 1,
-      "details": {
-        "quantity": 1,
-        "currency": "Oyun parası",
-        "price": 1500,
-        "priceMin": 1500,
-        "priceMax": 1500,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 1,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
-      "id": "wa-006",
-      "type": "market_price",
-      "subject": "Jadeit",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-20",
-      "sourceCount": 2,
-      "details": {
-        "quantity": 1,
-        "currency": "TL",
-        "price": 400,
-        "priceMin": 400,
-        "priceMax": 400,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 2,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
-      "id": "wa-008",
-      "type": "market_price",
-      "subject": "Peptit Kolorotoksin",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-20",
-      "sourceCount": 2,
-      "details": {
-        "quantity": 1,
-        "currency": "Oyun parası",
-        "price": 833.33,
-        "priceMin": 666.67,
-        "priceMax": 1000,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 2,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
-      "id": "wa-005",
-      "type": "market_price",
-      "subject": "Xenotim",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-20",
-      "sourceCount": 1,
-      "details": {
-        "quantity": 1,
-        "currency": "TL",
-        "price": 325,
-        "priceMin": 300,
-        "priceMax": 350,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 2,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
-      "id": "wa-010",
       "type": "market_price",
       "subject": "Ganoderma",
       "server": "Kıyametin Öncüleri",
@@ -192,27 +32,7 @@
       }
     },
     {
-      "id": "wa-009",
-      "type": "market_price",
-      "subject": "Safran",
-      "server": "Kıyametin Öncüleri",
-      "observedAt": "2026-08-21",
-      "sourceCount": 1,
-      "details": {
-        "quantity": 1,
-        "currency": "Oyun parası",
-        "price": 1500,
-        "priceMin": 1500,
-        "priceMax": 1500,
-        "listingType": "İlan",
-        "tradeDirection": "Satılık",
-        "channel": "WhatsApp ticaret grubu",
-        "messageCount": 1,
-        "importScope": "single_channel_anonymized_daily_aggregate"
-      }
-    },
-    {
-      "id": "wa-011",
+      "id": "wa-002",
       "type": "market_price",
       "subject": "Xenotim",
       "server": "Kıyametin Öncüleri",
@@ -232,7 +52,7 @@
       }
     },
     {
-      "id": "wa-015",
+      "id": "wa-006",
       "type": "market_price",
       "subject": "Hidrojen",
       "server": "Kıyametin Öncüleri",
@@ -252,7 +72,7 @@
       }
     },
     {
-      "id": "wa-013",
+      "id": "wa-004",
       "type": "market_price",
       "subject": "Jadeit",
       "server": "Kıyametin Öncüleri",
@@ -272,7 +92,7 @@
       }
     },
     {
-      "id": "wa-014",
+      "id": "wa-005",
       "type": "market_price",
       "subject": "Jadeit",
       "server": "Kıyametin Öncüleri",
@@ -292,7 +112,7 @@
       }
     },
     {
-      "id": "wa-012",
+      "id": "wa-003",
       "type": "market_price",
       "subject": "Xenotim",
       "server": "Kıyametin Öncüleri",
@@ -312,7 +132,7 @@
       }
     },
     {
-      "id": "wa-019",
+      "id": "wa-010",
       "type": "market_price",
       "subject": "Erg Kalıntısı",
       "server": "Kıyametin Öncüleri",
@@ -332,7 +152,7 @@
       }
     },
     {
-      "id": "wa-018",
+      "id": "wa-009",
       "type": "market_price",
       "subject": "Erg Tozu",
       "server": "Kıyametin Öncüleri",
@@ -352,7 +172,7 @@
       }
     },
     {
-      "id": "wa-017",
+      "id": "wa-008",
       "type": "market_price",
       "subject": "Jadeit",
       "server": "Kıyametin Öncüleri",
@@ -372,7 +192,7 @@
       }
     },
     {
-      "id": "wa-016",
+      "id": "wa-007",
       "type": "market_price",
       "subject": "Xenotim",
       "server": "Kıyametin Öncüleri",
@@ -392,7 +212,7 @@
       }
     },
     {
-      "id": "wa-020",
+      "id": "wa-011",
       "type": "market_price",
       "subject": "Xenotim",
       "server": "Kıyametin Öncüleri",
@@ -412,7 +232,7 @@
       }
     },
     {
-      "id": "wa-021",
+      "id": "wa-012",
       "type": "market_price",
       "subject": "Reçine",
       "server": "Kıyametin Öncüleri",
@@ -432,7 +252,7 @@
       }
     },
     {
-      "id": "wa-022",
+      "id": "wa-013",
       "type": "market_price",
       "subject": "Xenotim",
       "server": "Kıyametin Öncüleri",
@@ -452,7 +272,7 @@
       }
     },
     {
-      "id": "wa-025",
+      "id": "wa-016",
       "type": "market_price",
       "subject": "Hidrojen",
       "server": "Kıyametin Öncüleri",
@@ -472,7 +292,7 @@
       }
     },
     {
-      "id": "wa-026",
+      "id": "wa-017",
       "type": "market_price",
       "subject": "Jadeit",
       "server": "Kıyametin Öncüleri",
@@ -492,7 +312,7 @@
       }
     },
     {
-      "id": "wa-023",
+      "id": "wa-014",
       "type": "market_price",
       "subject": "Peptit Kolorotoksin",
       "server": "Kıyametin Öncüleri",
@@ -512,7 +332,7 @@
       }
     },
     {
-      "id": "wa-027",
+      "id": "wa-018",
       "type": "market_price",
       "subject": "Reçine",
       "server": "Kıyametin Öncüleri",
@@ -532,7 +352,7 @@
       }
     },
     {
-      "id": "wa-024",
+      "id": "wa-015",
       "type": "market_price",
       "subject": "Salgı",
       "server": "Kıyametin Öncüleri",
@@ -552,7 +372,27 @@
       }
     },
     {
-      "id": "wa-028",
+      "id": "wa-020",
+      "type": "market_price",
+      "subject": "Jadeit",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-26",
+      "sourceCount": 1,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 450,
+        "priceMin": 450,
+        "priceMax": 450,
+        "listingType": "İlan",
+        "tradeDirection": "Satılık",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 1,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
+    },
+    {
+      "id": "wa-019",
       "type": "market_price",
       "subject": "Xenotim",
       "server": "Kıyametin Öncüleri",
@@ -570,152 +410,312 @@
         "messageCount": 2,
         "importScope": "single_channel_anonymized_daily_aggregate"
       }
+    },
+    {
+      "id": "wa-028",
+      "type": "market_price",
+      "subject": "Jadeit",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-27",
+      "sourceCount": 1,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 50,
+        "priceMin": 50,
+        "priceMax": 50,
+        "listingType": "İlan",
+        "tradeDirection": "Satılık",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 1,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
+    },
+    {
+      "id": "wa-023",
+      "type": "market_price",
+      "subject": "Peptit Kolorotoksin",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-27",
+      "sourceCount": 1,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 30,
+        "priceMin": 30,
+        "priceMax": 30,
+        "listingType": "İlan",
+        "tradeDirection": "Alınır",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 1,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
+    },
+    {
+      "id": "wa-026",
+      "type": "market_price",
+      "subject": "Peptit Kolorotoksin",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-27",
+      "sourceCount": 1,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 47.5,
+        "priceMin": 45,
+        "priceMax": 50,
+        "listingType": "İlan",
+        "tradeDirection": "Satılık",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 2,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
+    },
+    {
+      "id": "wa-025",
+      "type": "market_price",
+      "subject": "Safran",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-27",
+      "sourceCount": 1,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 100,
+        "priceMin": 100,
+        "priceMax": 100,
+        "listingType": "İlan",
+        "tradeDirection": "Alınır",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 1,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
+    },
+    {
+      "id": "wa-024",
+      "type": "market_price",
+      "subject": "Salgı",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-27",
+      "sourceCount": 2,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 35,
+        "priceMin": 30,
+        "priceMax": 40,
+        "listingType": "İlan",
+        "tradeDirection": "Alınır",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 2,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
+    },
+    {
+      "id": "wa-027",
+      "type": "market_price",
+      "subject": "Salgı",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-27",
+      "sourceCount": 1,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 47.5,
+        "priceMin": 45,
+        "priceMax": 50,
+        "listingType": "İlan",
+        "tradeDirection": "Satılık",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 2,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
+    },
+    {
+      "id": "wa-021",
+      "type": "market_price",
+      "subject": "Xenotim",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-27",
+      "sourceCount": 4,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 100,
+        "priceMin": 1,
+        "priceMax": 250,
+        "listingType": "İlan",
+        "tradeDirection": "Satılık",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 4,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
+    },
+    {
+      "id": "wa-022",
+      "type": "market_price",
+      "subject": "Xenotim",
+      "server": "Kıyametin Öncüleri",
+      "observedAt": "2026-08-27",
+      "sourceCount": 1,
+      "details": {
+        "quantity": 1,
+        "currency": "TL",
+        "price": 150,
+        "priceMin": 150,
+        "priceMax": 150,
+        "listingType": "İlan",
+        "tradeDirection": "Alınır",
+        "channel": "WhatsApp ticaret grubu",
+        "messageCount": 1,
+        "importScope": "single_channel_anonymized_daily_aggregate"
+      }
     }
   ],
   "signals": [
     {
-      "subject": "Jadeit",
-      "buySignals": 42,
-      "sellSignals": 24,
-      "activeDays": 8,
-      "independentParticipants": 39,
-      "lastSeenAt": "2026-08-26"
-    },
-    {
       "subject": "Xenotim",
-      "buySignals": 20,
-      "sellSignals": 42,
+      "buySignals": 14,
+      "sellSignals": 44,
       "activeDays": 8,
-      "independentParticipants": 37,
-      "lastSeenAt": "2026-08-26"
+      "independentParticipants": 31,
+      "lastSeenAt": "2026-08-28"
     },
     {
-      "subject": "Peptit Kolorotoksin",
-      "buySignals": 4,
-      "sellSignals": 43,
+      "subject": "Jadeit",
+      "buySignals": 35,
+      "sellSignals": 22,
       "activeDays": 8,
-      "independentParticipants": 30,
-      "lastSeenAt": "2026-08-26"
-    },
-    {
-      "subject": "Salgı",
-      "buySignals": 6,
-      "sellSignals": 37,
-      "activeDays": 8,
-      "independentParticipants": 26,
-      "lastSeenAt": "2026-08-26"
+      "independentParticipants": 32,
+      "lastSeenAt": "2026-08-28"
     },
     {
       "subject": "Erg Tozu",
       "buySignals": 15,
-      "sellSignals": 20,
-      "activeDays": 4,
-      "independentParticipants": 23,
-      "lastSeenAt": "2026-08-25"
+      "sellSignals": 24,
+      "activeDays": 6,
+      "independentParticipants": 25,
+      "lastSeenAt": "2026-08-27"
+    },
+    {
+      "subject": "Peptit Kolorotoksin",
+      "buySignals": 8,
+      "sellSignals": 28,
+      "activeDays": 7,
+      "independentParticipants": 24,
+      "lastSeenAt": "2026-08-27"
     },
     {
       "subject": "Malahit Taşı",
-      "buySignals": 24,
-      "sellSignals": 3,
-      "activeDays": 6,
-      "independentParticipants": 15,
-      "lastSeenAt": "2026-08-26"
+      "buySignals": 31,
+      "sellSignals": 5,
+      "activeDays": 7,
+      "independentParticipants": 19,
+      "lastSeenAt": "2026-08-28"
     },
     {
-      "subject": "Safran",
-      "buySignals": 14,
-      "sellSignals": 9,
+      "subject": "Salgı",
+      "buySignals": 10,
+      "sellSignals": 22,
       "activeDays": 7,
-      "independentParticipants": 16,
-      "lastSeenAt": "2026-08-25"
+      "independentParticipants": 23,
+      "lastSeenAt": "2026-08-27"
     },
     {
       "subject": "Reçine",
-      "buySignals": 4,
+      "buySignals": 5,
       "sellSignals": 17,
       "activeDays": 6,
-      "independentParticipants": 16,
-      "lastSeenAt": "2026-08-26"
+      "independentParticipants": 15,
+      "lastSeenAt": "2026-08-27"
     },
     {
       "subject": "Erg Kalıntısı",
       "buySignals": 2,
-      "sellSignals": 15,
-      "activeDays": 3,
+      "sellSignals": 16,
+      "activeDays": 4,
       "independentParticipants": 13,
-      "lastSeenAt": "2026-08-25"
+      "lastSeenAt": "2026-08-26"
+    },
+    {
+      "subject": "Safran",
+      "buySignals": 10,
+      "sellSignals": 7,
+      "activeDays": 8,
+      "independentParticipants": 14,
+      "lastSeenAt": "2026-08-28"
     },
     {
       "subject": "Hidrojen",
-      "buySignals": 6,
-      "sellSignals": 7,
+      "buySignals": 4,
+      "sellSignals": 9,
       "activeDays": 7,
-      "independentParticipants": 10,
-      "lastSeenAt": "2026-08-25"
+      "independentParticipants": 9,
+      "lastSeenAt": "2026-08-28"
     },
     {
       "subject": "Ganoderma",
       "buySignals": 0,
-      "sellSignals": 10,
+      "sellSignals": 9,
       "activeDays": 6,
       "independentParticipants": 6,
-      "lastSeenAt": "2026-08-26"
+      "lastSeenAt": "2026-08-27"
+    },
+    {
+      "subject": "Mavi Topaz",
+      "buySignals": 0,
+      "sellSignals": 6,
+      "activeDays": 5,
+      "independentParticipants": 4,
+      "lastSeenAt": "2026-08-27"
+    },
+    {
+      "subject": "İridyum",
+      "buySignals": 1,
+      "sellSignals": 5,
+      "activeDays": 4,
+      "independentParticipants": 3,
+      "lastSeenAt": "2026-08-27"
+    },
+    {
+      "subject": "Menekşe Elmas",
+      "buySignals": 1,
+      "sellSignals": 5,
+      "activeDays": 4,
+      "independentParticipants": 5,
+      "lastSeenAt": "2026-08-27"
     },
     {
       "subject": "Dört Yapraklı Yonca",
       "buySignals": 1,
-      "sellSignals": 6,
+      "sellSignals": 5,
       "activeDays": 5,
-      "independentParticipants": 4,
-      "lastSeenAt": "2026-08-26"
+      "independentParticipants": 3,
+      "lastSeenAt": "2026-08-27"
     },
     {
       "subject": "Akik",
       "buySignals": 1,
       "sellSignals": 4,
-      "activeDays": 4,
-      "independentParticipants": 4,
-      "lastSeenAt": "2026-08-24"
-    },
-    {
-      "subject": "İridyum",
-      "buySignals": 1,
-      "sellSignals": 4,
-      "activeDays": 4,
-      "independentParticipants": 3,
-      "lastSeenAt": "2026-08-26"
-    },
-    {
-      "subject": "Mavi Topaz",
-      "buySignals": 0,
-      "sellSignals": 5,
-      "activeDays": 5,
-      "independentParticipants": 4,
-      "lastSeenAt": "2026-08-26"
-    },
-    {
-      "subject": "Menekşe Elmas",
-      "buySignals": 1,
-      "sellSignals": 4,
       "activeDays": 3,
-      "independentParticipants": 4,
-      "lastSeenAt": "2026-08-24"
-    },
-    {
-      "subject": "Kondrit",
-      "buySignals": 1,
-      "sellSignals": 2,
-      "activeDays": 3,
-      "independentParticipants": 2,
-      "lastSeenAt": "2026-08-24"
+      "independentParticipants": 5,
+      "lastSeenAt": "2026-08-27"
     },
     {
       "subject": "Klorotoksin",
       "buySignals": 2,
-      "sellSignals": 1,
-      "activeDays": 3,
+      "sellSignals": 2,
+      "activeDays": 4,
       "independentParticipants": 3,
-      "lastSeenAt": "2026-08-26"
+      "lastSeenAt": "2026-08-27"
+    },
+    {
+      "subject": "Kondrit",
+      "buySignals": 0,
+      "sellSignals": 2,
+      "activeDays": 2,
+      "independentParticipants": 1,
+      "lastSeenAt": "2026-08-24"
     }
   ]
 }

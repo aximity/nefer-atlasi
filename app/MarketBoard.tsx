@@ -30,6 +30,15 @@ function shortDate(value: string) {
   return `${day}.${month}.${year}`;
 }
 
+function signalBalance(buy: number, sell: number) {
+  const total = buy + sell;
+  if (!total) return "Sinyal yok";
+  const gap = (buy - sell) / total;
+  if (gap >= 0.2) return "Talep ağır basıyor";
+  if (gap <= -0.2) return "Arz ağır basıyor";
+  return "Dengeli görünüm";
+}
+
 export default function MarketBoard({ query, setQuery }: { query: string; setQuery: (value: string) => void }) {
   const [rows, setRows] = useState<PublishedRow[]>(archiveRows);
   const [liveCount, setLiveCount] = useState(0);
@@ -103,7 +112,7 @@ export default function MarketBoard({ query, setQuery }: { query: string; setQue
     {summaries.length > 0 ? <div className="market-summary-grid">{summaries.map((row) => <article key={`${row.subject}-${row.currency}`} className={`evidence-${row.evidence.level}`}>
       <header><span><small>{row.currency} · {direction === "Tümü" ? "KARMA YÖN" : direction.toLocaleUpperCase("tr-TR")}</small><h4>{row.subject}</h4></span><b>{row.evidence.label}</b></header>
       <div className="market-price-main"><small>{archiveWindow ? "ARŞİVİN SON 7 GÜNÜ" : "7 GÜNLÜK MEDYAN"} · BİRİM</small><strong>{price(row.sevenDayMedian, currency)}</strong><span>{row.sevenDayCount} kaynak ağırlıklı gözlem</span></div>
-      <dl><div><dt>30 gün</dt><dd>{price(row.thirtyDayMedian, currency)}</dd></div><div><dt>Gözlem</dt><dd>{row.totalCount}</dd></div><div><dt>Satış / ilan</dt><dd>{row.saleCount} / {row.listingCount}</dd></div><div><dt>Son gözlem</dt><dd>{shortDate(row.latestAt)}</dd></div></dl>
+      <dl><div><dt>Gözlenen aralık</dt><dd>{price(row.sevenDayMin, currency)} – {price(row.sevenDayMax, currency)}</dd></div><div><dt>Gözlem</dt><dd>{row.totalCount}</dd></div><div><dt>Satış / ilan</dt><dd>{row.saleCount} / {row.listingCount}</dd></div><div><dt>Son gözlem</dt><dd>{shortDate(row.latestAt)}</dd></div></dl>
       <footer>{row.evidence.nextAt ? `Sonraki güven seviyesi için ${Math.max(0, row.evidence.nextAt - (row.thirtyDayCount || row.totalCount))} bağımsız destek daha gerekli.` : "Yine de tek başına kesin piyasa fiyatı değildir."}</footer>
     </article>)}</div>
       : <><div className="market-board-empty"><i>◇</i><b>Bu filtrede fiyat kesiti yok</b><span>Fiyatı tahminle doldurmuyoruz. Arz-talep sinyali aşağıda görülebilir; medyan için açık para birimli kayıt gerekir.</span><Link href="/?module=contribute&kind=market_price#contribute">Yeni gözlem gönder ↗</Link></div>
@@ -115,7 +124,7 @@ export default function MarketBoard({ query, setQuery }: { query: string; setQue
         const total = row.buySignals + row.sellSignals;
         const buyPercent = total ? Math.round(row.buySignals / total * 100) : 0;
         const sellPercent = total ? 100 - buyPercent : 0;
-        return <article key={row.subject}><span><b>{row.subject}</b><small>{row.activeDays} aktif gün · {row.independentParticipants} anonim katılımcı</small></span><div className="signal-bars"><i className="buy" style={{ width: `${row.buySignals / maxSignal * 100}%` }}/><i className="sell" style={{ width: `${row.sellSignals / maxSignal * 100}%` }}/></div><dl><div><dt>Alınır</dt><dd>{row.buySignals} · %{buyPercent}</dd></div><div><dt>Satılık</dt><dd>{row.sellSignals} · %{sellPercent}</dd></div><div><dt>Toplam</dt><dd>{total}</dd></div></dl></article>;
+        return <article key={row.subject} data-balance={buyPercent >= 60 ? "demand" : sellPercent >= 60 ? "supply" : "even"}><span><b>{row.subject}</b><small>{row.activeDays} aktif gün · {row.independentParticipants} anonim katılımcı</small><em>{signalBalance(row.buySignals, row.sellSignals)}</em></span><div className="signal-bars"><i className="buy" style={{ width: `${row.buySignals / maxSignal * 100}%` }}/><i className="sell" style={{ width: `${row.sellSignals / maxSignal * 100}%` }}/></div><dl><div><dt>Alınır</dt><dd>{row.buySignals} · %{buyPercent}</dd></div><div><dt>Satılık</dt><dd>{row.sellSignals} · %{sellPercent}</dd></div><div><dt>Toplam</dt><dd>{total}</dd></div></dl></article>;
       })}</div>
     </section>
 

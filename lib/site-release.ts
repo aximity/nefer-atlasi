@@ -1,14 +1,14 @@
 export const SITE_RELEASE = {
-  version: "0.37.1",
+  version: "0.38.0",
   channel: "BETA",
-  milestone: "M37",
-  releasedAt: "27 Ağustos 2026",
-  title: "Yönetici Erişimi ve Gönül Teyidi",
+  milestone: "M38",
+  releasedAt: "28 Ağustos 2026",
+  title: "Pazar Nabzı Güncellemesi",
   summary:
-    "Yönetici girişi site içinde görünür hâle getirildi; Gönül envanterine ilişkin ikinci KÖ oyuncu bildirimi kesin bilgiye dönüştürülmeden mevcut Tılsım kaydına bağlandı.",
+    "WhatsApp ticaret arşivi 28 Ağustos'a kadar yenilendi; alış-satış sinyalleri, anonim fiyat kesitleri ve gözlenen fiyat aralıkları pazar ekranına işlendi.",
   changes: [
-    "Masaüstü üst çubuğuna ve sayfa altına Yönetici Girişi bağlantısı eklendi.",
-    "Elektrik Bilgisi (I), Buz Bilgisi (I), Fiziksel Bilgi (I) ve Büyü Bozma (I) için ikinci KÖ oyuncu bildirimi mevcut kayda bağlandı.",
-    "Gönül'de maden olarak yalnız Kondrit satıldığı; Safran, Jade/Jadeit ve diğerlerinin toplanması gerektiği bildirimi doğrulama bekliyor olarak işaretlendi.",
+    "2.719 mesajdan 372 anonim ticaret sinyali ve 28 günlük fiyat kesiti çıkarıldı.",
+    "Alınır ve satılık ilanlar ayrı sayıldı; ürün bazında talep, arz veya dengeli görünüm etiketi eklendi.",
+    "Fiyat kartlarında medyanın yanında gözlenen en düşük–en yüksek aralık gösterilmeye başlandı.",
   ],
 } as const;
