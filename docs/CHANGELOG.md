@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+# v0.48.0 — Tılsım Edinimi ve Fotoğraf Önerisi
+
+- Gönül kaydı veya KÖ oyuncu bildirimiyle adı ve rengi eşleşen 10 benzersiz I. kademe tılsım girdisi, reçete uydurulmadan hazır edinim kaynağına bağlandı.
+- Oyuncu bilgisine dayanan edinimler üretim planı ve Bağlantılı Atlas'ta NPC, bölge, fiyat durumu ve gereken görsel kanıtla gösteriliyor.
+- Açık malzeme kaynağı sayısı 78'den 68'e indi; kanıtsız kalan 43 I. kademe tılsım ve 25 temel malzeme tahminsiz açık kayıt olarak korundu.
+- Fotoğraf panelindeki ikon/adet taslağı, stoku değiştirmeden önce en yakın üretimi veya yeni üretilebilir reçete sayısını gösteriyor.
+- Fotoğraf otomatik stok değiştirmiyor; görüntü cihazda, son onay kullanıcıda kalıyor.
+
 # v0.47.0 — Site İçi Reçete ve Kaynak Akışı
 
 - Üretim kartlarındaki reçete eylemleri dış Wiki sayfası yerine Nefer Atlası'nın eşya, tılsım veya iksir reçetesini açıyor.

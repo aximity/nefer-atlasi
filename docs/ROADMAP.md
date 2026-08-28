@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M48: Tılsım edinimi ve fotoğraf önerisi
+
+- [x] Kaynakta adı eşleşen I. kademe tılsımları sahte reçete üretmeden hazır edinim olarak bağla
+- [x] Oyuncu bildirimi ile doğrulanmış kaydı üretim ve Atlas ekranlarında ayır
+- [x] Kanıtsız I. kademe tılsımları açık kaynak olarak koru
+- [x] Fotoğraf taslağındaki ikon ve adetlerle en yakın üretimi stok onayından önce hesapla
+- [x] Yeni stokla üretilebilir olacak reçete sayısını fotoğraf panelinde göster
+
+Çıkış kapısı: Kaynaklı I. kademe tılsım girdileri üretim zincirini kesmez; oyuncu bildirimi kesin bilgi gibi gösterilmez; fotoğraf taslağı onaylanmadan en yakın üretim görülebilir.
+
 ## Tamamlandı — M47: Site içi reçete ve kaynak akışı
 
 - [x] Reçete eylemlerini dış Wiki yerine site içindeki ilgili reçeteye yönlendir

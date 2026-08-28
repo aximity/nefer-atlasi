@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.47.0",
+  version: "0.48.0",
   channel: "BETA",
-  milestone: "M47",
+  milestone: "M48",
   releasedAt: "28 Ağustos 2026",
-  title: "Site İçi Reçete ve Kaynak Akışı",
+  title: "Tılsım Edinimi ve Fotoğraf Önerisi",
   summary:
-    "Reçeteler site içinde açılıyor, İKV Wiki bağlantıları kategori bazlı kaynak dizininde tutuluyor; galeri ve anlık kamera girişi ayrıldı.",
+    "Kaynaklı I. kademe tılsımlar hazır edinim olarak üretim zincirine bağlandı; fotoğraf taslağı en yakın üretimi stok onayından önce gösteriyor.",
   changes: [
-    "Üretim kartlarındaki Reçeteyi aç eylemi dış Wiki yerine Nefer Atlası'ndaki ilgili eşya, tılsım veya iksir reçetesine gidiyor.",
-    "Tılsımı aç ve Bu tılsımın reçetesini aç geçişleri tam sayfa iç bağlantıyla güvenilir hâle getirildi.",
-    "İKV Wiki ve oyun içi kanıtlar; eşya, tılsım, iksir, materyal, görev ve yetenek kategorileriyle Kaynaklar sayfasında toplandı.",
-    "Fotoğraf girişi Galeriden seç ve Şimdi fotoğraf çek olarak ayrıldı; ikon arama ve adet alanlarını örten eski dosya alanı düzeltildi.",
-    "Sabit reçeteler için haftalık tılsım reçetesi takibi kapatıldı.",
+    "Gönül kaydı veya KÖ oyuncu bildirimiyle adı ve rengi eşleşen 10 I. kademe tılsım, sahte reçete eklenmeden hazır edinim kaynağına bağlandı.",
+    "Oyuncu bilgisine dayanan hazır tılsımlar üretim planında NPC ve bölgeyi gösteriyor; dükkân görüntüsü gelene kadar doğrulama bekliyor etiketi taşıyor.",
+    "Açık malzeme kaynağı sayısı 78'den 68'e indi; kanıtsız kalan 43 I. kademe tılsım ve 25 temel malzeme tahminsiz bırakıldı.",
+    "Fotoğraftan seçilen ikon ve adet taslağı, stok değiştirilmeden önce en yakın üretimi veya yeni üretilebilir reçete sayısını hesaplıyor.",
+    "Fotoğraf görüntüsü cihazda kalıyor; malzeme seçimi ve stok onayı kullanıcı kontrolünde tutuluyor.",
   ],
 } as const;

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { talismans } from "../../lib/catalog";
-import { buildProductionPlans, productionSummary } from "../../lib/production-planner.mjs";
+import { buildProductionPlans, productionDraftImpact, productionSummary } from "../../lib/production-planner.mjs";
 import { potionRecipes } from "../../lib/potion-recipes";
 import { materialIconFor } from "../../lib/material-icons";
 import { productionItemById, productionItems, productionMaterialNames, productionMaterialSourceFor, productionRecipes } from "../../lib/production-catalog";
@@ -137,6 +137,14 @@ export default function ProductionPlanner() {
   const favoriteIds = useMemo(() => [...new Set([...favorites, ...talismanGoals, ...potionGoals])], [favorites, potionGoals, talismanGoals]);
   const summary = useMemo(() => productionSummary(plans, favoriteIds), [favoriteIds, plans]);
   const planByItemId = useMemo(() => new Map(plans.map((plan) => [plan.recipe.itemId, plan])), [plans]);
+  const photoImpact = useMemo(() => Object.keys(photoDraft).length ? productionDraftImpact({
+    recipes: productionRecipes,
+    items: productionItems,
+    stock,
+    draft: photoDraft,
+    targets,
+    favoriteIds,
+  }) : null, [favoriteIds, photoDraft, stock, targets]);
   const visible = useMemo(() => {
     const needle = normalizeSearch(query);
     return plans
@@ -164,6 +172,9 @@ export default function ProductionPlanner() {
   }, [favoriteIds, plans]);
   const visibleRows = visible.slice(0, visibleLimit);
   const closestPlan = Object.keys(stock).length > 0 ? summary.closest : null;
+  const photoRecommendation = photoImpact?.recommended ?? null;
+  const photoRecommendationItem = photoRecommendation ? itemById.get(photoRecommendation.recipe.itemId) : null;
+  const photoRecommendationKind = photoRecommendation ? talismanIds.has(photoRecommendation.recipe.itemId) ? "talisman" : potionIds.has(photoRecommendation.recipe.itemId) ? "potion" : "item" : "item";
 
   const addStock = () => {
     const amount = Math.max(0, Math.floor(Number(quantity)));
@@ -228,7 +239,7 @@ export default function ProductionPlanner() {
         </div>
         <p>Fotoğraf otomatik olarak stok değiştirmez. Görseldeki ikona en çok benzeyen malzemeyi seçip adedi onayla; görüntü yalnız bu cihazda kalır.</p>
         {photoPreview && <div className="photoVisualPicker"><label><span>İkon veya malzeme ara</span><input value={photoQuery} onChange={(event) => setPhotoQuery(event.target.value)} placeholder="Örn. Jadeit, Saf Bakır…"/></label><div>{photoMatches.map((name) => { const icon = materialIconFor(name); return <button type="button" className={photoMaterial === name ? "selected" : ""} onClick={() => setPhotoMaterial(name)} key={name}>{icon ? <Image src={icon.path} alt="" width={34} height={34}/> : <i aria-hidden="true">{name.slice(0, 2)}</i>}<span>{name}</span></button>; })}</div></div>}
-        {photoPreview && <div className="photoDraftEditor"><div><strong>{photoMaterial || "Önce bir ikon seç"}</strong><input aria-label="Fotoğraftaki adet" inputMode="numeric" value={photoQuantity} onChange={(event) => setPhotoQuantity(event.target.value.replace(/\D/g, ""))}/><button type="button" disabled={!photoMaterial} onClick={addPhotoDraft}>Taslağa ekle</button></div><ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); return <li key={name}>{icon && <Image src={icon.path} alt="" width={24} height={24}/>}<span>{name}</span><b>×{amount}</b><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)))}>×</button></li>; })}</ul>{Object.keys(photoDraft).length > 0 && <button type="button" className="confirmPhotoDraft" onClick={confirmPhotoDraft}>Taslağı onayla ve stoka işle</button>}</div>}
+        {photoPreview && <div className="photoDraftEditor"><div><strong>{photoMaterial || "Önce bir ikon seç"}</strong><input aria-label="Fotoğraftaki adet" inputMode="numeric" value={photoQuantity} onChange={(event) => setPhotoQuantity(event.target.value.replace(/\D/g, ""))}/><button type="button" disabled={!photoMaterial} onClick={addPhotoDraft}>Taslağa ekle</button></div><ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); return <li key={name}>{icon && <Image src={icon.path} alt="" width={24} height={24}/>}<span>{name}</span><b>×{amount}</b><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)))}>×</button></li>; })}</ul>{photoRecommendation && <aside className="photoRecommendation"><small>TASLAĞA GÖRE EN YAKIN ÜRETİM</small><b>{photoRecommendationItem?.name ?? photoRecommendation.recipe.itemId}</b><span>{photoImpact?.newlyReadyCount ? `${photoImpact.newlyReadyCount} reçete yeni stokla üretilebilir olacak.` : `%${photoRecommendation.completion} tamam · ${photoRecommendation.missing.length} eksik malzeme kalacak.`}</span><a href={`/?module=recipes&kind=${photoRecommendationKind}&recipe=${photoRecommendation.recipe.itemId}#recipes`}>Reçeteyi sitede aç →</a></aside>}{Object.keys(photoDraft).length > 0 && <button type="button" className="confirmPhotoDraft" onClick={confirmPhotoDraft}>Taslağı onayla ve stoka işle</button>}</div>}
       </section>
     </div>
 

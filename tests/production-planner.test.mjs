@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildProductionPlans, normalizeProductionStock, productionSummary } from "../lib/production-planner.mjs";
+import { buildProductionPlans, normalizeProductionStock, productionDraftImpact, productionSummary } from "../lib/production-planner.mjs";
 
 const recipes = [{ id: "r1", itemId: "asa", materials: [{ name: "Saf Altın", quantity: 2 }, { name: "Zamk", quantity: 3 }] }];
 const items = [{ id: "asa", name: "Transformatör Asa" }];
@@ -22,4 +22,17 @@ test("geçersiz stok değerlerini plan dışında bırakır ve favoriye öncelik
   assert.deepEqual(normalizeProductionStock({ Zamk: -1, "Saf Altın": "4", "": 9 }), { "Saf Altın": 4 });
   const plans = buildProductionPlans({ recipes: [...recipes, { id: "r2", itemId: "ceket", materials: [{ name: "İpek", quantity: 10 }] }], items, stock: { "Saf Altın": 1 } });
   assert.equal(productionSummary(plans, ["asa"]).closest?.recipe.itemId, "asa");
+});
+
+test("fotoğraf taslağı stoku değiştirmeden en yakın üretimi hesaplar", () => {
+  const impact = productionDraftImpact({
+    recipes,
+    items,
+    stock: { "Saf Altın": 2 },
+    draft: { Zamk: 3 },
+  });
+  assert.equal(impact.recommended?.recipe.itemId, "asa");
+  assert.equal(impact.recommended?.status, "ready");
+  assert.equal(impact.newlyReadyCount, 1);
+  assert.deepEqual(impact.mergedStock, { "Saf Altın": 2, Zamk: 3 });
 });
