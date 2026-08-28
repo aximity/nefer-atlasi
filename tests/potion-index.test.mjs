@@ -23,13 +23,14 @@ test("iksir malzeme dizini tam reçete kümesinden türetilir", () => {
 test("İKV Wiki kaynaklarının tamamı genel ana oyun referansıdır", () => {
   const sources = sourceRows.map(applyPrimaryGameSourcePolicy);
   const wikiSources = sources.filter((source) => source.type === "fandom");
-  assert.equal(wikiSources.length, 22);
+  assert.equal(wikiSources.length, 23);
   assert.ok(wikiSources.every((source) => source.authority === "primary_game_reference"));
   assert.ok(wikiSources.every((source) => source.requiresCrossVerification === false));
   assert.ok(isPrimaryGameSource(sources.find((source) => source.id === "fandom-all-enchants")));
   assert.equal(policyStatusLabel("single_source", [sources.find((source) => source.id === "fandom-all-enchants")]), "İKV Wiki · ana kaynak");
   assert.equal(policyStatusLabel("single_source", [sources.find((source) => source.id === "maxigame-cemberlitas-2015")]), "Tek kaynak · teyit bekliyor");
   assert.equal(sources.find((source) => source.id === potionRecipeSourceId)?.authority, "primary_game_reference");
+  assert.equal(sources.find((source) => source.id === "fandom-materials-20260828")?.authority, "primary_game_reference");
 });
 
 test("İKV Wiki iksir reçeteleri tam malzeme ve adetlerle üretime hazırdır", () => {

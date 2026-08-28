@@ -6,7 +6,7 @@ import { appearanceImages, images, publishableItems, publishableStats, recipes }
 import { materialSourceFor } from "../lib/material-sources";
 import { buildAtlasGraph } from "../lib/atlas-graph.mjs";
 import { buildAtlasCompletionQueue, completionSummary, COMPLETION_KIND_LABELS, filterCompletionRecords } from "../lib/atlas-completion.mjs";
-import { coveredItemVisualFamilyIds, itemVisualFamilyFor } from "../lib/visual-families";
+import { coveredItemVisualFamilyIds, itemVisualFamilyFor, potionVisualFamilies, talismanVisualFamilies } from "../lib/visual-families";
 
 const graph = buildAtlasGraph({ items: publishableItems, recipes, materialSourceFor });
 const coveredVisualFamilyIds = coveredItemVisualFamilyIds({ items: publishableItems, images, appearanceImages });
@@ -14,6 +14,7 @@ const records = buildAtlasCompletionQueue({
   graph,
   images,
   coveredVisualFamilyIds,
+  additionalVisualFamilies: [...talismanVisualFamilies, ...potionVisualFamilies],
   visualFamilyForItem: itemVisualFamilyFor,
   statsForItem: publishableStats,
 });
@@ -62,9 +63,9 @@ export default function AtlasCompletionCenter() {
     <div className="completionResultHead"><span>{filtered.length} açık iş</span><b>İlk 18 kayıt gösteriliyor</b></div>
     <div className="completionList">
       {shown.length ? shown.map((record) => <article key={record.id} data-priority={record.priority}>
-        <i>{record.entityType === "item" ? "E" : "M"}</i>
+        <i>{record.entityType === "item" ? "E" : record.entityType === "visual" ? "G" : "M"}</i>
         <div><small>{COMPLETION_KIND_LABELS[record.kind]} · {priorityLabels[record.priority]}</small><h3>{record.name}</h3><span>{record.subtitle}</span><p>{record.detail}</p></div>
-        <nav><Link href={`/?module=atlas&node=${encodeURIComponent(record.entityId)}#atlas`}>Atlas kaydını aç</Link><Link href="/?module=contribute#contribute">Eksikliği bildir</Link></nav>
+        <nav><Link href={record.href ?? `/?module=atlas&node=${encodeURIComponent(record.entityId)}#atlas`}>{record.entityType === "visual" ? "İlgili kataloğu aç" : "Atlas kaydını aç"}</Link><Link href="/?module=contribute#contribute">Eksikliği bildir</Link></nav>
       </article>) : <div className="completionEmpty"><b>Bu filtrede açık iş yok.</b><span>Aramayı veya eksik türünü değiştir.</span></div>}
     </div>
     {filtered.length > shown.length && <p className="completionLimit">Liste mobilde gereksiz uzamasın diye ilk 18 kayıt gösteriliyor. Arama ve tür filtresiyle kalan kayda doğrudan ulaşabilirsin.</p>}

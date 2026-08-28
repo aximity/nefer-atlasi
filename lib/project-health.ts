@@ -14,6 +14,8 @@ import {
 import {
   coveredItemVisualFamilyIds,
   itemVisualFamilyInventory,
+  potionVisualFamilies,
+  talismanVisualFamilies,
 } from "./visual-families";
 
 export type HealthState = "Güçlü" | "Gelişiyor" | "Veri bekliyor";
@@ -126,10 +128,10 @@ const rawMetrics = [
     label: "Görsel ailesi kapsamı",
     shortLabel: "Medya",
     value: itemFamilyInventory.filter(({ family }) => coveredItemFamilies.has(family.id)).length,
-    total: itemFamilyInventory.length,
+    total: itemFamilyInventory.length + talismanVisualFamilies.length + potionVisualFamilies.length,
     weight: 20,
-    detail: "Aynı gövdeyi paylaşan eşyalar tek görünüş ailesi olarak sayılır; efsun ve değerler görselden ayrı tutulur.",
-    action: "Her eşya yerine yalnız eksik gövde ailesi için bir doğrulanmış oyun içi görsel topla.",
+    detail: "Eşya, tılsım ve iksirlerde aynı gövdeyi paylaşan kayıtlar tek görünüş ailesi sayılır; efsun ve değerler görselden ayrı tutulur.",
+    action: "Her kayıt yerine yalnız eksik eşya gövdesi veya tılsım/iksir renk ailesi için bir doğrulanmış oyun içi görsel topla.",
   },
   {
     id: "integrity" as const,

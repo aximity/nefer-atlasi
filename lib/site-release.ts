@@ -1,15 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.44.0",
+  version: "0.45.0",
   channel: "BETA",
-  milestone: "M44",
+  milestone: "M45",
   releasedAt: "28 Ağustos 2026",
-  title: "Eksiksiz İksir Atlası",
+  title: "Ara Malzeme Zinciri",
   summary:
-    "İKV Wiki'den derlenen 28 kategorideki 246 iksir reçetesi tüm malzeme satırlarıyla kataloğa, aramaya ve üretim takibine bağlandı.",
+    "İksirlerde kullanılan dokuz ara malzeme, meslek seviyesi ve kendi üretim girdileriyle stok planına bağlandı.",
   changes: [
-    "Önceki 79 kayıtlık kısmi aktarım 246 reçetelik tam kategori kapsamına çıkarıldı.",
-    "Atlanan üçüncü ve sonraki malzeme satırları reçete ve stok hesabına eklendi.",
-    "Doğrudan hasar, büyü hasarı ve direnç iksirlerinin düşük seviye serileri tamamlandı.",
-    "İksir favorileri üretim ekranında ayrı hedef listesi olarak görünür hâle getirildi.",
+    "Ametist-Lapis, Ok Sertleştirici, üç karışım, KSH, Gök Birleşik, Göz Taşı ve Elmas Asa Kristali üretilebilir hedef oldu.",
+    "Eksik ara malzeme kartı artık meslek, seviye ve alt girdileri doğrudan gösteriyor.",
+    "Açık Pembe Ametist yazım hatası giderildi; reçete kaynağıyla bağlantısı çalışır hâle geldi.",
+    "49 iksir malzemesinin 48'i edinme veya üretim kaynağına bağlandı; yalnız Karbon doğrulanmış kaynak bekliyor.",
+    "İki tılsım ve üç iksir ortak görsel ailesi Tamamlama Merkezi'nde yüksek öncelikli işlere dönüştürüldü.",
   ],
 } as const;

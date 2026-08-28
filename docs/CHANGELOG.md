@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+# v0.45.0 — Ara Malzeme Zinciri
+
+- İksirlerde geçen dokuz üretilen ara malzeme meslek, seviye ve alt girdileriyle kaynak sistemine bağlandı.
+- Ara malzemeler üretim takip ekranında bağımsız hedef olarak aranabilir ve favorilenebilir hâle geldi.
+- Eksik ara malzeme açıldığında gerekli temel maden/bitkiler doğrudan gösteriliyor.
+- “Açık Pempe Ametist” yazım hatası “Açık Pembe Ametist” olarak düzeltildi ve eşleşmeyen kaynak kaydı onarıldı.
+- 49 benzersiz iksir girdisinin 48'i kaynaklıdır; doğrulanmış edinme/üretim kaydı bulunamayan Karbon için tahmin üretilmedi.
+- İki tılsım ve üç iksir ortak görsel ailesi, eşya görsellerinden ayrı ve yüksek öncelikli tamamlama işleri olarak görünür hâle getirildi.
+
 ## 2026-08-27 — Yenilikler düğmesi ve hızlı tanıtım
 
 - Ekranın köşesine okunmamış sürümü “Yeni” işaretiyle belirten kalıcı Yenilikler düğmesi eklendi.

@@ -44,3 +44,31 @@ test("yaratık ganimetleri toplayıcılık çıktısı gibi gösterilmez", () =>
     assert.equal(source?.enemy, enemy);
   }
 });
+
+test("iksir ara malzemeleri üretim zincirine bağlanır", () => {
+  const expected = {
+    "Ok Sertleştirici": ["Sarraf", 9, "Obsidyen", 8],
+    "Bahçe Karışımı": ["Kimyacı", 11, "Ceviz Yaprağı", 6],
+    "Sema Karışımı": ["Kimyacı", 15, "Ökse Otu", 6],
+    "Ametist-Lapis": ["Sarraf", 17, "Ametist", 2],
+    "Elmas Asa Kristali": ["Sarraf", 25, "Elmas", 5],
+    "Sinek Karışımı": ["Kimyacı", 32, "Mantar", 3],
+    KSH: ["Kimyacı", 36, "Isırgan Otu", 10],
+    "Gök Birleşik": ["Silahtar", 36, "Altın", 10],
+    "Göz Taşı": ["Zırhçı", 36, "Kan Taşı", 10],
+  };
+  for (const [name, [profession, level, material, quantity]] of Object.entries(expected)) {
+    const source = materialSourceFor(name);
+    assert.equal(source?.kind, "crafted");
+    assert.equal(source?.profession, profession);
+    assert.equal(source?.level, level);
+    assert.deepEqual(source?.materials[0], { name: material, quantity });
+  }
+});
+
+test("Açık Pembe Ametist doğru yazımla Ametist kaynağına döner", () => {
+  const source = materialSourceFor("Açık Pembe Ametist");
+  assert.equal(source?.kind, "gathering");
+  assert.equal(source?.base, "Ametist");
+  assert.equal(source?.output, 2);
+});

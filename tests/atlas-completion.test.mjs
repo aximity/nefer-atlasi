@@ -43,3 +43,16 @@ test("aynı gövdeyi paylaşan eşyalar görsel kuyruğunda tek iş olur", () =>
   assert.equal(completionSummary(records).media, 1);
   assert.match(records.find((record) => record.kind === "media")?.subtitle ?? "", /2 eşya/);
 });
+
+test("tılsım ve iksir ortak görselleri eşya kuyruğundan ayrı görünür", () => {
+  const records = buildAtlasCompletionQueue({
+    graph: { itemNodes: [], materialNodes: [] },
+    additionalVisualFamilies: [
+      { id: "talisman:red", kind: "talisman", label: "Kırmızı tılsım", note: "Ortak gövde." },
+      { id: "potion:health", kind: "potion", label: "Can iksiri", note: "Kırmızı şişe.", sizeRule: "Seviyeyle boyut değişir." },
+    ],
+  });
+  assert.equal(completionSummary(records).media, 2);
+  assert.ok(records.every((record) => record.priority === "high" && record.entityType === "visual"));
+  assert.match(records.find((record) => record.name === "Can iksiri")?.detail ?? "", /Seviyeyle boyut/);
+});

@@ -283,7 +283,6 @@ export default function MiningGuide() {
           </article>;
         })}</div>
         <div className="cap-warning"><div><small>49 ÜSTÜ REFERANS</small><h4>Aktif KÖ farm listesine alınmadı</h4></div><ul>{aboveCapRows.filter(x=>x.profession===profession).map(x=><li key={x.chain}><span>{x.chain}</span><b>{x.points} puan</b></li>)}</ul></div>
-        <p className="source-typo-note">Kaynak tablosundaki “Açık Pempe Ametist” yazımı aynen korunmuştur; oyun içi ekran görüntüsüyle doğru yazım teyit edilene kadar düzeltilmiş gibi gösterilmez.</p>
       </div>}
 
       {view === "Gözlemler" && <div className="mining-panel">

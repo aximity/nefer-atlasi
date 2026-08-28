@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { publishableItems, recipes, sourceFor, talismans } from "../../lib/catalog";
-import { materialSourceFor } from "../../lib/material-sources";
+import { craftedMaterialRecipes, craftedMaterialSources, materialSourceFor } from "../../lib/material-sources";
 import { buildProductionPlans, productionSummary } from "../../lib/production-planner.mjs";
 import { talismanRecipes } from "../../lib/talisman-recipes";
 import { potionRecipes } from "../../lib/potion-recipes";
@@ -53,8 +53,9 @@ const plannerItems = [
   ...publishableItems.map((row) => ({ id: row.id, name: row.name, class: row.class, slot: row.slot })),
   ...talismans.map((row) => ({ id: row.id, name: row.name, class: row.class, slot: `Tılsım · ${row.color}` })),
   ...potionRecipes.map((row) => ({ id: row.itemId, name: row.name, class: "Tüm Sınıflar" as const, slot: `İksir · Sv. ${row.level} · ${row.category}` })),
+  ...craftedMaterialSources.map((row) => ({ id: `material-${row.name.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9çğıöşü]+/g, "-")}`, name: row.name, class: "Tüm Sınıflar" as const, slot: `Ara malzeme · ${row.profession} · Sv. ${row.level}` })),
 ];
-const plannerRecipes = [...recipes, ...talismanRecipes, ...potionRecipes];
+const plannerRecipes = [...recipes, ...talismanRecipes, ...potionRecipes, ...craftedMaterialRecipes];
 
 function sourceText(materialName: string) {
   const source = materialSourceFor(materialName);
@@ -63,7 +64,18 @@ function sourceText(materialName: string) {
     const output = source.output === 1 ? "ana ürün" : source.output === 2 ? "ikinci ürün" : "nadir ürün";
     return { label: `${source.region} · ${source.profession}`, detail: `${source.base} kaynağından ${output}; ${source.points} meslek puanı eşiği.`, known: true };
   }
+  if (source.kind === "crafted") {
+    return {
+      label: `${source.profession} üretimi · Sv. ${source.level}`,
+      detail: `Gerekli: ${source.materials.map((row) => `${row.name} ×${row.quantity}`).join(" + ")}.`,
+      known: true,
+    };
+  }
   return { label: `${source.region} · ${source.enemy}`, detail: `${source.verification}. ${source.usage}`, known: true };
+}
+
+function sourceArea(source: NonNullable<ReturnType<typeof materialSourceFor>>) {
+  return source.kind === "crafted" ? `${source.profession} tezgâhı` : source.region;
 }
 
 export default function ProductionPlanner() {
@@ -130,7 +142,10 @@ export default function ProductionPlanner() {
     const regions = new Map<string, number>();
     plans.filter((plan) => favoriteIds.includes(plan.recipe.itemId)).flatMap((plan) => plan.missing).forEach((row) => {
       const source = materialSourceFor(row.name);
-      if (source) regions.set(source.region, (regions.get(source.region) ?? 0) + row.missing);
+      if (source) {
+        const area = sourceArea(source);
+        regions.set(area, (regions.get(area) ?? 0) + row.missing);
+      }
     });
     return [...regions.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
   }, [favoriteIds, plans]);
@@ -223,7 +238,7 @@ export default function ProductionPlanner() {
 
     <section className="productionAdvice">
       <div><small>SIRADAKİ EN YAKIN HEDEF</small><b>{closestPlan ? itemById.get(closestPlan.recipe.itemId)?.name ?? closestPlan.recipe.itemId : summary.ready ? "Seçili reçeteler üretime hazır" : "Stok girdikçe öneri oluşacak"}</b><span>{closestPlan ? `%${closestPlan.completion} tamam · ${closestPlan.missing.length} eksik malzeme` : "Favoriler varsa önce onlar değerlendirilir."}</span></div>
-      <div><small>SAHA ÖNERİSİ</small><b>{routePriority ? `${routePriority} rotasını değerlendir` : "Önce favori reçete seç"}</b><span>{routePriority ? "Favori hedeflerdeki kaynaklı eksikler bu bölgede yoğunlaşıyor." : "Rota önerisi yalnız kaynak eşleşmesi olan favori eksiklerden çıkar."}</span></div>
+      <div><small>SONRAKİ ADIM</small><b>{routePriority ? `${routePriority} öncelikli` : "Önce favori reçete seç"}</b><span>{routePriority ? "Favori hedeflerdeki kaynaklı eksikler bu rota veya üretim tezgâhında yoğunlaşıyor." : "Öneri yalnız kaynak eşleşmesi olan favori eksiklerden çıkar."}</span></div>
       <div><small>DOĞRULAMA KURALI</small><b>Tahmin yok</b><span>Kaynağı bilinmeyen malzeme açıkça işaretlenir; oyuncu bilgisi kaynaklı kayıttan ayrılır.</span></div>
     </section>
 

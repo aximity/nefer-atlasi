@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.44.0",
+    date: "28 Ağustos 2026",
+    title: "Eksiksiz İksir Atlası",
+    changes: [
+      "28 kategorideki 246 iksir reçetesinin tamamı aktarıldı.",
+      "581 malzeme/adet satırı stok hesabına bağlandı.",
+      "Arama, favori ve üretim takibi aynı tam veri kümesine geçirildi.",
+    ],
+  },
+  {
     version: "0.43.0",
     date: "28 Ağustos 2026",
     title: "Tam İksir Üretimi",

@@ -27,7 +27,7 @@ export const gatheringRows: GatheringRow[] = [
   { profession: "Sarraf", base: "Kan Taşı", points: 5 },
   { profession: "Sarraf", base: "Açık Mavi Lapis", second: "Koyu Mavi Lapis", points: 8 },
   { profession: "Sarraf", base: "Turkuaz", points: 10 },
-  { profession: "Sarraf", base: "Ametist", second: "Açık Pempe Ametist", third: "Sibiryalı", points: 15 },
+  { profession: "Sarraf", base: "Ametist", second: "Açık Pembe Ametist", third: "Sibiryalı", points: 15 },
   { profession: "Sarraf", base: "Kalsedon", second: "Kripraz", third: "Akik", points: 21 },
   { profession: "Sarraf", base: "Elmas", second: "Yeşil Elmas", third: "Menekşe Elmas", points: 23 },
   { profession: "Sarraf", base: "Mavi Safir", second: "Turuncu Safir", points: 33 },

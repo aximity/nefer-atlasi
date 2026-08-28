@@ -227,6 +227,17 @@
 
 Çıkış kapısı: Katalog, arama ve üretim takibi aynı 246 reçetelik veri kümesini kullanır; atlanan ek malzeme satırı kalmaz.
 
+## Tamamlandı — M45: Ara malzeme üretim zinciri
+
+- [x] İksir reçetelerindeki dokuz üretilen ara malzemeyi meslek ve seviyeye bağla
+- [x] Ara malzeme alt girdilerini üretim planında göster
+- [x] Ara malzemeleri stoktan üretilebilir bağımsız hedeflere dönüştür
+- [x] Açık Pembe Ametist yazım ve kaynak eşleşmesini düzelt
+- [x] Kaynağı doğrulanamayan Karbon'u açık veri kuyruğunda tut
+- [x] İki tılsım ve üç iksir ortak görünüşünü yüksek öncelikli görsel kuyruğuna ekle
+
+Çıkış kapısı: Bilinen ara malzemeler atomik eksik gibi görünmez; oyuncu gerekli alt girdiyi ve üretim mesleğini aynı kartta görür, bilinmeyen kaynak için tahmin yapılmaz.
+
 ## Sıradaki — M33: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir

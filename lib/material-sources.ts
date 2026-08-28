@@ -1,5 +1,41 @@
 import { gatheringSourceFor } from "./gathering-catalog.ts";
 
+export type ProducerProfession = "Kimyacı" | "Sarraf" | "Silahtar" | "Zırhçı";
+
+export type CraftedMaterialSource = {
+  kind: "crafted";
+  name: string;
+  profession: ProducerProfession;
+  level: number;
+  materials: readonly { name: string; quantity: number }[];
+  verification: "Kaynaklı kayıt";
+  source: string;
+};
+
+const MATERIALS_WIKI = "https://istanbulkiyametvakti.fandom.com/tr/wiki/Materyaller";
+
+export const craftedMaterialSources: readonly CraftedMaterialSource[] = [
+  { kind: "crafted", name: "Ok Sertleştirici", profession: "Sarraf", level: 9, materials: [{ name: "Obsidyen", quantity: 8 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+  { kind: "crafted", name: "Bahçe Karışımı", profession: "Kimyacı", level: 11, materials: [{ name: "Ceviz Yaprağı", quantity: 6 }, { name: "Isırgan Otu", quantity: 4 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+  { kind: "crafted", name: "Sema Karışımı", profession: "Kimyacı", level: 15, materials: [{ name: "Ökse Otu", quantity: 6 }, { name: "Adaçayı Yaprağı", quantity: 4 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+  { kind: "crafted", name: "Ametist-Lapis", profession: "Sarraf", level: 17, materials: [{ name: "Ametist", quantity: 2 }, { name: "Açık Mavi Lapis", quantity: 6 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+  { kind: "crafted", name: "Elmas Asa Kristali", profession: "Sarraf", level: 25, materials: [{ name: "Elmas", quantity: 5 }, { name: "Kuvars", quantity: 6 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+  { kind: "crafted", name: "Sinek Karışımı", profession: "Kimyacı", level: 32, materials: [{ name: "Mantar", quantity: 3 }, { name: "Civan Perçemi", quantity: 4 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+  { kind: "crafted", name: "KSH", profession: "Kimyacı", level: 36, materials: [{ name: "Isırgan Otu", quantity: 10 }, { name: "Koni Yaprağı", quantity: 10 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+  { kind: "crafted", name: "Gök Birleşik", profession: "Silahtar", level: 36, materials: [{ name: "Altın", quantity: 10 }, { name: "Obsidyen", quantity: 10 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+  { kind: "crafted", name: "Göz Taşı", profession: "Zırhçı", level: 36, materials: [{ name: "Kan Taşı", quantity: 10 }, { name: "Kalsedon", quantity: 10 }], verification: "Kaynaklı kayıt", source: MATERIALS_WIKI },
+] as const;
+
+export const craftedMaterialRecipes = craftedMaterialSources.map((entry) => ({
+  id: `recipe-material-${entry.name.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9çğıöşü]+/g, "-")}`,
+  itemId: `material-${entry.name.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9çğıöşü]+/g, "-")}`,
+  method: `${entry.profession} üretimi · Seviye ${entry.level}`,
+  materials: entry.materials.map((material) => ({ ...material })),
+  sourceId: "fandom-materials-20260828",
+  verificationStatus: "single_source" as const,
+  lastChecked: "2026-08-28",
+}));
+
 export type CreatureDropSource = {
   kind: "creature_drop";
   name: string;
@@ -68,8 +104,15 @@ export function creatureDropSourceFor(materialName: string) {
   ) ?? null;
 }
 
+export function craftedMaterialSourceFor(materialName: string) {
+  const wanted = normalize(materialName);
+  return craftedMaterialSources.find((entry) => normalize(entry.name) === wanted) ?? null;
+}
+
 export function materialSourceFor(materialName: string) {
   const gathering = gatheringSourceFor(materialName);
   if (gathering) return { kind: "gathering" as const, ...gathering };
-  return creatureDropSourceFor(materialName);
+  const creatureDrop = creatureDropSourceFor(materialName);
+  if (creatureDrop) return creatureDrop;
+  return craftedMaterialSourceFor(materialName);
 }

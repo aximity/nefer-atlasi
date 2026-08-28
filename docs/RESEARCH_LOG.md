@@ -217,3 +217,11 @@
 - Sonuç: 246 tekil üretim kaydı, 49 benzersiz malzeme ve toplam 581 malzeme/adet satırı.
 - Düzeltme: Önceki 79 kayıtlık aktarımda eksik kalan düşük seviye hasar/direnç serileri ile üçüncü ve sonraki malzemeler eklendi.
 - Ürün bağlantısı: Genel arama, reçete kataloğu, favoriler, üretim hedefleri ve stoktan üretilebilirlik hesabı aynı tam veri kümesini kullanır.
+
+# 28 Ağustos 2026 — İksir ara malzeme zinciri
+
+- İKV Wiki materyal yapısı temel alınarak dokuz ara üretim kaydı meslek, seviye ve alt girdileriyle modellendi.
+- Kapsam: Ametist-Lapis, Ok Sertleştirici, Bahçe Karışımı, Sema Karışımı, Sinek Karışımı, KSH, Gök Birleşik, Göz Taşı ve Elmas Asa Kristali.
+- Ürün kararı: Bu kayıtlar yalnız kaynak açıklaması değildir; stok hesabında üretilebilir bağımsız reçete hedefleridir.
+- Yazım denetimi: “Açık Pempe Ametist” kaydı iksir reçetesindeki doğru “Açık Pembe Ametist” yazımıyla hizalandı.
+- Açık nokta: Karbon yalnız Philotheos Modeli reçetesinde doğrulanmıştır; edinme veya ara üretim reçetesi güvenilir biçimde bulunamadığı için konum/meslek tahmini eklenmedi.
