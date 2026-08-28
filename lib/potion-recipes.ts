@@ -1,0 +1,111 @@
+export type PotionVisualCategory = "health" | "power" | "support";
+
+type PotionSeed = readonly [level: number, name: string, category: string, visual: PotionVisualCategory, materials: readonly (readonly [string, number])[]];
+
+const seeds: PotionSeed[] = [
+  [1,"Kedi İyileştiren","Enerji Artırıcı","health",[["Ceviz Yaprağı",1],["Meşe Odunu",1]]],
+  [5,"Koç İyileştiren","Enerji Artırıcı","health",[["Isırgan Otu",2],["Ökse Otu",2]]],
+  [10,"Cin İyileştiren","Enerji Artırıcı","health",[["Ceviz Yaprağı",4],["Nikel",2]]],
+  [15,"Kurt İyileştiren","Enerji Artırıcı","health",[["Ökse Otu",4],["Sema Karışımı",1]]],
+  [20,"Aygır İyileştiren","Enerji Artırıcı","health",[["Koni Yaprağı",5],["Civan Perçemi",5]]],
+  [25,"Manda İyileştiren","Enerji Artırıcı","health",[["Adaçayı Yaprağı",6],["Civan Perçemi",6]]],
+  [30,"Aslan İyileştiren","Enerji Artırıcı","health",[["Mantar",7],["Mavi Safir",7]]],
+  [35,"Ayı İyileştiren","Enerji Artırıcı","health",[["KSH",1],["Saf Kalay",1]]],
+  [40,"Fil İyileştiren","Enerji Artırıcı","health",[["Abanoz Odunu",9],["Kuvars",9]]],
+  [45,"Dinozor İyileştiren","Enerji Artırıcı","health",[["Çıban Otu",10],["Krizoberil",10]]],
+
+  [1,"Kuzu Kudretlendiren","Kudret Artırıcı","power",[["Meşe Odunu",2]]],
+  [5,"Fare Kudretlendiren","Kudret Artırıcı","power",[["Isırgan Otu",2],["Ökse Otu",2]]],
+  [10,"Tilki Kudretlendiren","Kudret Artırıcı","power",[["Turkuaz",3],["Adaçayı Yaprağı",3]]],
+  [15,"Sansar Kudretlendiren","Kudret Artırıcı","power",[["Ametist-Lapis",4],["Ökse Otu",4]]],
+  [20,"Yunus Kudretlendiren","Kudret Artırıcı","power",[["Koni Yaprağı",6],["Ok Sertleştirici",1]]],
+  [25,"Kuzgun Kudretlendiren","Kudret Artırıcı","power",[["Altın",6],["Adaçayı Yaprağı",6]]],
+  [30,"Kangal Kudretlendiren","Kudret Artırıcı","power",[["Sinek Karışımı",1],["Ceviz",1]]],
+  [35,"Goril Kudretlendiren","Kudret Artırıcı","power",[["Gök Birleşik",1],["Saf Bakır",1]]],
+  [40,"Anka Kudretlendiren","Kudret Artırıcı","power",[["Civan Perçemi",9],["Krizoberil",9]]],
+  [45,"Ejderha Kudretlendiren","Kudret Artırıcı","power",[["Ökse Otu",10],["Topaz",10]]],
+
+  [30,"Maginot Modeli","Savunma Artırıcı","support",[["Mantar",6],["Ok Sertleştirici",1]]],
+  [35,"Conk Usulü","Savunma Artırıcı","support",[["Beril",1],["Ametist",5]]],
+  [40,"Estergon Usulü","Savunma Artırıcı","support",[["Ökse Otu",9],["Topaz",9]]],
+  [45,"Plevne Emsali","Savunma Artırıcı","support",[["Civan Perçemi",10],["Turkuaz",10]]],
+  [30,"Jandarma Ali Modeli","Saldırı Artırıcı","support",[["Ceviz",1],["Sinek Karışımı",1]]],
+  [35,"Dış Şehir Modeli","Saldırı Artırıcı","support",[["Beril",8],["Civan Perçemi",8]]],
+  [40,"Tora Tora Misali","Saldırı Artırıcı","support",[["Krizoberil",9],["Gümüş",9]]],
+  [45,"Ardenneler Misali","Saldırı Artırıcı","support",[["Çıban Otu",10],["Altın",10]]],
+  [40,"Karacin Modeli","Zırh Artırıcı","support",[["Abanoz Odunu",9],["Krizoberil",9]]],
+  [45,"Solucan Modeli","Zırh Artırıcı","support",[["Çıban Otu",10],["Kan Taşı",10]]],
+  [40,"Philotheos Modeli","Kritik Vuruş Artırıcı","support",[["Karbon",1],["Abanoz Odunu",12]]],
+  [45,"Halit Girmenç İcadı","Kritik Vuruş Artırıcı","support",[["Çıban Otu",10],["Topaz",10]]],
+  [30,"Büyü Kritik Artırıcı","Büyü Kritik Artırıcı","support",[["Sinek Karışımı",1],["Saf Kalay",1]]],
+  [35,"Merlin Modeli","Büyü Kritik Artırıcı","support",[["Budaksız Meşe",1],["Göz Taşı",1]]],
+  [40,"Ruh Çalan Emsali","Büyü Kritik Artırıcı","support",[["Çıban Otu",10]]],
+  [45,"Cevriye Sultan Modeli","Büyü Kritik Artırıcı","support",[["Çıban Otu",10],["Gümüş",10]]],
+
+  [10,"Örs Kütleli","Maksimum Hasar Artırıcı","support",[["Nikel",3],["Adaçayı Yaprağı",3]]],
+  [15,"Adalı Emsali","Maksimum Hasar Artırıcı","support",[["Ametist-Lapis",4],["Ökse Otu",4]]],
+  [20,"Çarşı Sokağı Usulü","Maksimum Hasar Artırıcı","support",[["Kalsedon",5],["Gümüş",5]]],
+  [25,"Meteor Tipi","Maksimum Hasar Artırıcı","support",[["Koni Yaprağı",6],["Turkuaz",6]]],
+  [30,"Eski ve Arkadaşları İcadı","Maksimum Hasar Artırıcı","support",[["Sinek Karışımı",1],["Koni Yaprağı",7]]],
+  [35,"Alman Modeli","Maksimum Hasar Artırıcı","support",[["Beril",8],["Civan Perçemi",8]]],
+  [40,"Urban İcadı","Maksimum Hasar Artırıcı","support",[["Çıban Otu",9],["Krizoberil",9]]],
+  [45,"Yücelen Ekolü","Maksimum Hasar Artırıcı","support",[["Isırgan Otu",10],["Ok Sertleştirici",10]]],
+
+  [40,"Kan Çalan Modeli","Büyü Hasarı · Fiziksel","support",[["Meşe Odunu",9],["Topaz",9]]],
+  [45,"Fevzi Bey Modeli","Büyü Hasarı · Fiziksel","support",[["Çıban Otu",10],["Kuvars",10]]],
+  [40,"Doğru Akım Destekli","Büyü Hasarı · Elektrik","support",[["Isırgan Otu",9],["Turkuaz",9]]],
+  [45,"Azat Efendi İcadı","Büyü Hasarı · Elektrik","support",[["Çıban Otu",10],["Krizoberil",10]]],
+  [40,"Nitrojen Tipi","Büyü Hasarı · Buz","support",[["Ökse Otu",9],["Krizoberil",9]]],
+  [45,"Bilge Kağan Modeli","Büyü Hasarı · Buz","support",[["Demir",10],["Civan Perçemi",10]]],
+  [40,"Antik Mısır Tarzı","Büyü Hasarı · Ateş","support",[["Civan Perçemi",9],["Turkuaz",9]]],
+  [45,"Tarshass Menşeili","Büyü Hasarı · Ateş","support",[["Abanoz Odunu",10],["Krizoberil",10]]],
+  [40,"Joker Emsali","Büyü Hasarı · Asit","support",[["Ok Sertleştirici",9],["Meşe Odunu",9]]],
+  [45,"Hayyan İcadı","Büyü Hasarı · Asit","support",[["Abanoz Odunu",10],["Topaz",10]]],
+  [40,"Borgia Modeli","Büyü Hasarı · Zehir","support",[["Ametist-Lapis",9],["Isırgan Otu",9]]],
+  [45,"Paracelsus İcadı","Büyü Hasarı · Zehir","support",[["Topaz",10],["Altın",10]]],
+
+  [40,"Bardini İcadı","Direnç · Elektrik","support",[["Isırgan Otu",9],["Topaz",9]]],
+  [45,"Shen Kuo İcadı","Direnç · Elektrik","support",[["Çıban Otu",10],["Topaz",10]]],
+  [40,"Kemikkafa Tipi","Direnç · Buz","support",[["Çıban Otu",9],["Kan Taşı",9]]],
+  [45,"Karakürk Emsali","Direnç · Buz","support",[["Abanoz Odunu",10],["Demir",10]]],
+  [40,"Amyant Tipi","Direnç · Ateş","support",[["Ökse Otu",9],["Kuvars",9]]],
+  [45,"Aramit Tipi","Direnç · Ateş","support",[["Civan Perçemi",10],["Turkuaz",10]]],
+  [40,"Granit Emsali","Direnç · Asit","support",[["Meşe Odunu",9],["Ametist-Lapis",9]]],
+  [45,"Vahşi Emsali","Direnç · Asit","support",[["Civan Perçemi",10],["Krizoberil",10]]],
+  [40,"Garr Tipi","Direnç · Zehir","support",[["Civan Perçemi",9],["Turkuaz",9]]],
+  [45,"Vadi Kobrası Emsali","Direnç · Zehir","support",[["Isırgan Otu",10],["Kuvars",10]]],
+
+  [30,"Derin Göl Emsali","Maksimum Kudret Artırıcı","support",[["Sinek Karışımı",1],["Ceviz",1]]],
+  [35,"Dipsiz Kuyu Emsali","Maksimum Kudret Artırıcı","support",[["Gök Birleşik",1],["Saf Bakır",1]]],
+  [30,"Düşük Kudret Artırıcı","Maksimum Kudret Artırıcı","support",[["Saf Bakır",1],["Ceviz",1]]],
+  [35,"Mebrure Hanım İcadı","Maksimum Kudret Artırıcı","support",[["Saf Bakır",1],["Gök Birleşik",1]]],
+  [30,"Serçe Emsali","Maksimum Enerji Artırıcı","support",[["Mantar",7],["Mavi Safir",7]]],
+  [35,"Işık Havuzu Emsali","Maksimum Enerji Artırıcı","support",[["KSH",1],["Saf Kalay",1]]],
+  [30,"Düşük Enerji Artırıcı","Maksimum Enerji Artırıcı","support",[["Ceviz",1],["Mantar",7]]],
+  [35,"Keçi Boynuzu Modeli","Maksimum Enerji Artırıcı","support",[["Gök Birleşik",1],["Saf Bakır",1]]],
+  [30,"İyileştirme Artırıcı","İyileştirme Artırıcı","support",[["Mantar",7],["Mavi Safir",7]]],
+  [35,"Nefes Emsali","İyileştirme Artırıcı","support",[["Beril",1],["Ametist",5]]],
+  [40,"Mağara Şamanı Modeli","İyileştirme Artırıcı","support",[["Civan Perçemi",9]]],
+  [45,"İbn-i Sina Modeli","İyileştirme Artırıcı","support",[["Ökse Otu",10],["Gümüş",10]]],
+  [35,"Antilop Emsali","Hareket Hızı Artırıcı","support",[["Saf Bakır",1],["Budaksız Meşe",1]]],
+];
+
+const slug = (value: string) => value.toLocaleLowerCase("tr-TR").normalize("NFD").replace(/\p{Diacritic}/gu, "").replace(/ı/g,"i").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+export const potionRecipeSourceId = "fandom-potion-recipes-20260826";
+export const potionRecipes = seeds.map(([level,name,category,visual,materials]) => ({
+  id: `recipe-potion-${slug(name)}`,
+  itemId: `potion-${slug(name)}`,
+  name: `${name} İksir`,
+  level,
+  category,
+  visualCategory: visual,
+  method: "İksir üretimi" as const,
+  materials: materials.map(([materialName,quantity]) => ({ name: materialName, quantity })),
+  sourceId: potionRecipeSourceId,
+  verificationStatus: "single_source" as const,
+  lastChecked: "2026-08-28",
+}));
+
+export type PotionRecipe = (typeof potionRecipes)[number];
+export const potionById = new Map(potionRecipes.map((recipe) => [recipe.itemId, recipe]));

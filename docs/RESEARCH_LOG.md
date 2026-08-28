@@ -204,3 +204,8 @@
 - Kullanıcı kararı: İKV Wiki oyun doğrusu kabul edilir; eksik bilgi için kullanıcının tek tek bağlantı vermesi beklenmez.
 - Uygulama: Projedeki 22 Fandom kaydı çalışma zamanında `primary_game_reference` olarak işaretlenir ve ikinci kaynak şartı aranmaz.
 - Sınır: Pazar fiyatı, oyuncu bildirimi, KÖ’ye özel canlı değişiklik ve görsel kullanım lisansı ayrı kanıt türüdür.
+# 28 Ağustos 2026 — Tam iksir reçetesi aktarımı
+
+- Kaynak: `fandom-potion-recipes-20260826` — İKV Wiki İksir Reçeteleri.
+- Kapsam: 79 reçete; seviye, iksir türü, malzeme adı ve adet.
+- Ürün bağlantısı: Reçete kataloğu, favoriler, ortak görünüş aileleri ve üretim stok hesabı.

@@ -7,6 +7,7 @@ import { publishableItems, recipes, sourceFor, talismans } from "../../lib/catal
 import { materialSourceFor } from "../../lib/material-sources";
 import { buildProductionPlans, productionSummary } from "../../lib/production-planner.mjs";
 import { talismanRecipes } from "../../lib/talisman-recipes";
+import { potionRecipes } from "../../lib/potion-recipes";
 
 type Stock = Record<string, number>;
 type Targets = Record<string, number>;
@@ -20,6 +21,7 @@ const keys = {
   targets: "nefer-production-targets-v1",
   owners: "nefer-production-owners-v1",
   talismanGoals: "nefer-talisman-production-favorites-v1",
+  potionGoals: "nefer-potion-production-favorites-v1",
 };
 const readStored = (key: string): unknown => {
   try {
@@ -46,11 +48,13 @@ const readStringRecord = (key: string) => {
 const fmt = (value: number) => new Intl.NumberFormat("tr-TR").format(value);
 const normalizeSearch = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
 const talismanIds = new Set(talismans.map((row) => row.id));
+const potionIds = new Set(potionRecipes.map((row) => row.itemId));
 const plannerItems = [
   ...publishableItems.map((row) => ({ id: row.id, name: row.name, class: row.class, slot: row.slot })),
   ...talismans.map((row) => ({ id: row.id, name: row.name, class: row.class, slot: `Tılsım · ${row.color}` })),
+  ...potionRecipes.map((row) => ({ id: row.itemId, name: row.name, class: "Tüm Sınıflar" as const, slot: `İksir · Sv. ${row.level} · ${row.category}` })),
 ];
-const plannerRecipes = [...recipes, ...talismanRecipes];
+const plannerRecipes = [...recipes, ...talismanRecipes, ...potionRecipes];
 
 function sourceText(materialName: string) {
   const source = materialSourceFor(materialName);
@@ -68,6 +72,7 @@ export default function ProductionPlanner() {
   const [targets, setTargets] = useState<Targets>({});
   const [owners, setOwners] = useState<Owners>({});
   const [talismanGoals, setTalismanGoals] = useState<string[]>([]);
+  const [potionGoals, setPotionGoals] = useState<string[]>([]);
   const [material, setMaterial] = useState("");
   const [quantity, setQuantity] = useState("1");
   const [query, setQuery] = useState("");
@@ -86,6 +91,7 @@ export default function ProductionPlanner() {
       setTargets(readNumberRecord(keys.targets));
       setOwners(readStringRecord(keys.owners));
       setTalismanGoals(readStringList(keys.talismanGoals));
+      setPotionGoals(readStringList(keys.potionGoals));
       setHydrated(true);
     });
   }, []);
@@ -94,6 +100,7 @@ export default function ProductionPlanner() {
   useEffect(() => { if (hydrated) localStorage.setItem(keys.targets, JSON.stringify(targets)); }, [hydrated, targets]);
   useEffect(() => { if (hydrated) localStorage.setItem(keys.owners, JSON.stringify(owners)); }, [hydrated, owners]);
   useEffect(() => { if (hydrated) localStorage.setItem(keys.talismanGoals, JSON.stringify(talismanGoals)); }, [hydrated, talismanGoals]);
+  useEffect(() => { if (hydrated) localStorage.setItem(keys.potionGoals, JSON.stringify(potionGoals)); }, [hydrated, potionGoals]);
   useEffect(() => () => { if (photoPreview) URL.revokeObjectURL(photoPreview); }, [photoPreview]);
   useEffect(() => { setVisibleLimit(12); }, [filter, query]);
 
@@ -101,7 +108,7 @@ export default function ProductionPlanner() {
   const talismanGoalRows = useMemo(() => talismanGoals.map((id) => talismans.find((row) => row.id === id)).filter((row) => Boolean(row)), [talismanGoals]);
   const materialOptions = useMemo(() => [...new Set(plannerRecipes.flatMap((recipe) => recipe.materials.map((row) => row.name)))].sort((a, b) => a.localeCompare(b, "tr")), []);
   const plans = useMemo(() => buildProductionPlans({ recipes: plannerRecipes, items: plannerItems, stock, targets }) as ProductionPlan[], [stock, targets]);
-  const favoriteIds = useMemo(() => [...new Set([...favorites, ...talismanGoals])], [favorites, talismanGoals]);
+  const favoriteIds = useMemo(() => [...new Set([...favorites, ...talismanGoals, ...potionGoals])], [favorites, potionGoals, talismanGoals]);
   const summary = useMemo(() => productionSummary(plans, favoriteIds), [favoriteIds, plans]);
   const planByItemId = useMemo(() => new Map(plans.map((plan) => [plan.recipe.itemId, plan])), [plans]);
   const visible = useMemo(() => {
@@ -164,6 +171,8 @@ export default function ProductionPlanner() {
   const togglePlanFavorite = (itemId: string) => {
     if (talismanIds.has(itemId)) {
       setTalismanGoals((current) => current.includes(itemId) ? current.filter((id) => id !== itemId) : [...current, itemId]);
+    } else if (potionIds.has(itemId)) {
+      setPotionGoals((current) => current.includes(itemId) ? current.filter((id) => id !== itemId) : [...current, itemId]);
     } else {
       setFavorites((current) => current.includes(itemId) ? current.filter((id) => id !== itemId) : [...current, itemId]);
     }

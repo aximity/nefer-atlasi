@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.42.0",
+    date: "28 Ağustos 2026",
+    title: "Wiki Ana Kaynak Sistemi",
+    changes: [
+      "İKV Wiki tüm oyun verilerinde genel ana kaynak yapıldı.",
+      "Projede bağlı 22 Wiki kaydı aynı güven politikasına geçirildi.",
+      "Wiki dışı pazar ve oyuncu verileri ayrı tutuldu.",
+    ],
+  },
+  {
     version: "0.41.2",
     date: "28 Ağustos 2026",
     title: "İksir Kaynak Kuralı",

@@ -55,6 +55,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(productionPlanner, /Favorilere ekle/);
   assert.match(productionPlanner, /Üretecek kişi/);
   assert.match(productionPlanner, /Tahmin yürütülmedi/);
+  assert.match(productionPlanner, /potionGoals/);
   assert.match(sustainability, /KAYNAK → İKV UYARLAMASI/);
   assert.match(page, /Sürdürülebilirlik/);
   assert.match(page, /ReleaseCenter/);
@@ -77,8 +78,9 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(recipeCatalog, /label: "Eşya"/);
   assert.match(recipeCatalog, /label: "Tılsım"/);
   assert.match(recipeCatalog, /label: "İksir"/);
-  assert.match(recipeCatalog, /ikinci kaynak teyidi aranmaz/);
-  assert.match(recipeCatalog, /İKV Wiki ana kaynağı/);
+  assert.match(recipeCatalog, /potionRecipeSourcePolicy\.label/);
+  assert.match(recipeCatalog, /potionRecipes\.length/);
+  assert.match(recipeCatalog, /Tam malzeme ve adet/);
   assert.match(recipeCatalog, /ORTAK İKSİR GÖRÜNÜŞÜ/);
   assert.match(recipeCatalog, /talisman\.effectText/);
   assert.match(recipeCatalog, /<details/);

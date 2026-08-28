@@ -17,7 +17,7 @@
 
 ## Açık sorunlar
 
-- İksir Reçeteleri sayfası ana oyun referansı kabul edildi; mevcut 40 ad / 11 malzeme dizininde adetler henüz yapılandırılmış kayda aktarılmadı.
+- İksir Reçeteleri sayfasındaki 79 üretim kaydı seviye, tür, malzeme ve adetleriyle yapılandırıldı.
 - Projedeki 22 İKV Wiki kaynağı genel ana kaynak politikasına geçirildi; eksik alanlar ilgili Wiki sayfaları bulunup yapılandırıldıkça tamamlanır.
 
 - Bazı Çemberlitaş arşiv satırlarında aynı özellik iki kez yazılmış görünüyor.

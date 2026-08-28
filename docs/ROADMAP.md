@@ -209,6 +209,15 @@
 
 Çıkış kapısı: Ziyaretçi rehber sayfasına gitmeden arama, karar ve planlama değerini anlar; tanıtım ana görevi engellemez ve tekrar gösterim kullanıcının kontrolündedir.
 
+## Tamamlandı — M43: Tam iksir üretimi
+
+- [x] İKV Wiki'deki 79 iksir reçetesini malzeme ve adetleriyle yapılandır
+- [x] Reçete kataloğunda iksirleri aranabilir, açılır kartlara dönüştür
+- [x] İksir favorilerini üretim planına ve cihazdaki stok hesabına bağla
+- [x] Üretilebilir adet ile eksik malzemeyi reçete bazında hesapla
+
+Çıkış kapısı: İksirler yalnız ad dizini değildir; Wiki reçetesi, favori, stok ve üretim hedefi aynı akışta çalışır.
+
 ## Sıradaki — M33: Sorun kanıtı ve ölçüm pilotu
 
 - [ ] P0 bağlantı/gecikme kayıtları için anonim tanı makbuzu sözleşmesini kesinleştir

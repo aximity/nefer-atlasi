@@ -183,3 +183,9 @@
 - Projedeki 22 Wiki kaydı aynı güven politikasına bağlandı.
 - Eşya, Atlas, maden–reçete ve kullanım rehberi etiketleri güncellendi.
 - Wiki dışı oyuncu/pazar/KÖ canlı verileri ve görsel lisansı ayrı tutuldu.
+# v0.43.0 — Tam İksir Üretimi
+
+- 79 iksir reçetesi seviye, tür, malzeme ve adetleriyle yapılandırıldı.
+- İksir dizini gerçek açılır reçete kartlarına dönüştürüldü.
+- İksir favorileri üretim takibi ve stok hesabına bağlandı.
+- Can, kudret ve destek görsel aileleri korundu.
