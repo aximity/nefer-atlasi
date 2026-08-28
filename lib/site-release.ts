@@ -1,15 +1,15 @@
 export const SITE_RELEASE = {
-  version: "0.59.0",
+  version: "0.60.0",
   channel: "BETA",
-  milestone: "M59",
+  milestone: "M60",
   releasedAt: "28 Ağustos 2026",
-  title: "Malzeme Kanıt Haritası",
+  title: "Boss Ganimeti Sınıflandırması",
   summary:
-    "Hydrargyrum Junon ganimetine bağlandı; on açık malzemenin doğrulanmış sınıflandırması edinim yöntemiyle karıştırılmadan gösterildi.",
+    "Sekiz Çemberlitaş malzemesi canlı topluluk kataloğundaki Boss Droplar kategorisine bağlandı; kesin boss ve bölge ikinci teyide ayrıldı.",
   changes: [
-    "Hydrargyrum, kaynakta aynı sırada verilen Junon ve Migrat bağlantısıyla yaratık ganimeti olarak üretim zincirine girdi.",
-    "Beş yeni Çemberlitaş materyalinin resmî sürüm notu kaydı atlas kartlarına eklendi.",
-    "Meran Mücevheri, Örümcek Gözü, Geyik Derisi, Kenevir Lifi ve Latex için eski katalog sınıflandırması gösteriliyor.",
-    "Kısmi sınıflandırmalar bölge, boss veya meslek kanıtı sayılmıyor; açık edinim işleri kapanmadan korunuyor.",
+    "Antimon, Ateş Boyası, Erg Yongası, Galata Sembolü, Hidrojen ve Köşk Madalyonu genel boss ganimeti olarak eşleşti.",
+    "Meran Mücevheri ile Örümcek Gözü aynı canlı katalog sınıflandırmasına bağlandı.",
+    "Kaynak boss ve bölgeyi ayırmadığı için atlas kartı bunu açıkça söylüyor; kesin düşman adı yazılmıyor.",
+    "Sekiz kayıt için ikinci kanıt işi açıldı; topluluk sınıflandırması kesin doğrulama gibi sunulmuyor.",
   ],
 } as const;

@@ -78,11 +78,17 @@ test("Hydrargyrum Junon ganimetine bağlanır", () => {
 });
 
 test("kısmi materyal sınıflandırması edinim kaynağı gibi yayımlanmaz", () => {
-  for (const name of ["Hidrojen", "Erg Yongası", "Ateş Boyası", "Köşk Madalyonu", "Galata Sembolü", "Meran Mücevheri", "Örümcek Gözü", "Geyik Derisi", "Kenevir Lifi", "Latex"]) {
+  for (const name of ["Geyik Derisi", "Kenevir Lifi", "Latex"]) {
     assert.equal(materialSourceFor(name), null);
     assert.ok(materialReferenceFor(name));
   }
-  assert.equal(materialReferenceFor("Antimon"), null);
+  for (const name of ["Antimon", "Ateş Boyası", "Erg Yongası", "Galata Sembolü", "Hidrojen", "Köşk Madalyonu", "Meran Mücevheri", "Örümcek Gözü"]) {
+    const source = materialSourceFor(name);
+    assert.equal(source?.kind, "creature_drop");
+    assert.equal(source?.enemy, "Bosslar (platform ayrıştırmıyor)");
+    assert.equal(source?.region, null);
+    assert.equal(source?.verification, "Oyuncu bilgisi");
+  }
 });
 
 test("görev ganimetleri görev adı, seviye ve adetle bağlanır", () => {

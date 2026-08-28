@@ -108,3 +108,21 @@ test("oyuncu bildirimiyle eşleşen hazır tılsım kaynak boşluğu değil doğ
   assert.equal(summary.verification, 1);
   assert.equal(records[0].priority, "high");
 });
+
+test("canlı boss kategorisi kaynak açığını kapatır ama ikinci teyit işi açar", () => {
+  const records = buildAtlasCompletionQueue({
+    graph: {
+      itemNodes: [],
+      materialNodes: [{
+        id: "material:antimon",
+        key: "antimon",
+        name: "Antimon",
+        uses: [{ itemId: "asa" }],
+        source: { kind: "creature_drop", verification: "Oyuncu bilgisi", source: "https://example.test", enemy: "Bosslar" },
+      }],
+    },
+  });
+  assert.equal(completionSummary(records).materialSources, 0);
+  assert.equal(completionSummary(records).verification, 1);
+  assert.match(records[0].detail, /Boss Droplar/);
+});

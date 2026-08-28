@@ -12,6 +12,7 @@ export type MaterialReference = {
 const CEMBERLITAS_RELEASE_NOTES = "https://oyun-ikv.tr.gg/S.ue.r.ue.m-Notlar%26%23305%3B-%5B-Oe-nemli%5D.htm";
 const LEGACY_MATERIAL_CATALOG = "https://ikvblog.wordpress.com/2010/09/20/ikvnin-tum-madenleri-ve-saflari/";
 const KARAKOY_GUIDE = "https://www.scribd.com/document/790954361/Karakoy-Hakknda";
+const IKV_MARKET = "https://ikvpazar.com/";
 
 export const materialReferences: readonly MaterialReference[] = [
   ...["Hidrojen", "Erg Yongası", "Ateş Boyası", "Köşk Madalyonu", "Galata Sembolü"].map((name) => ({
@@ -101,6 +102,15 @@ export const questRewardMaterialSources: readonly QuestRewardMaterialSource[] = 
 ] as const;
 
 export const creatureDropSources: readonly CreatureDropSource[] = [
+  ...["Antimon", "Ateş Boyası", "Erg Yongası", "Galata Sembolü", "Hidrojen", "Köşk Madalyonu", "Meran Mücevheri", "Örümcek Gözü"].map((name) => ({
+    kind: "creature_drop" as const,
+    name,
+    region: null,
+    enemy: "Bosslar (platform ayrıştırmıyor)",
+    usage: "Çemberlitaş şaheser reçetelerinde kullanılır; kesin boss ve bölge ikinci kaynak bekliyor",
+    verification: "Oyuncu bilgisi" as const,
+    source: IKV_MARKET,
+  })),
   {
     kind: "creature_drop",
     name: "Hydrargyrum",
