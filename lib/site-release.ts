@@ -1,14 +1,14 @@
 export const SITE_RELEASE = {
-  version: "0.39.0",
+  version: "0.40.0",
   channel: "BETA",
-  milestone: "M39",
+  milestone: "M40",
   releasedAt: "28 Ağustos 2026",
-  title: "Tılsım Üretim Asistanı",
+  title: "Sade Bilgi Mimarisi",
   summary:
-    "Büyücü, Savaşçı ve Şifacı tılsım reçeteleri üretim planlayıcısına bağlandı; favoriler, stok durumu ve en yakın üretim tek ekranda buluştu.",
+    "Ana ekran arama ve dört hızlı işe indirildi; tılsım bilgisi, reçete kataloğu ve üretim takibi birbirinden ayrılarak yalnız ihtiyaç olduğunda açılır hâle getirildi.",
   changes: [
-    "Üç sınıfın kaynakta listelenen II, III ve özel tılsım reçeteleri malzeme adetleriyle atlas kartlarına eklendi.",
-    "Tılsım favorileri ortak stok hesabına katıldı; üretilebilir ve en yakın hedefler eksik malzemeye göre sıralanıyor.",
-    "Çanta fotoğrafını cihazda referans tutup görülen malzemeleri taslakta toplama ve manuel onayla stoka işleme akışı eklendi.",
+    "Büyük açılış alanı ve düz modül kalabalığı kaldırıldı; arama, dört hızlı bölüm ve gruplu menü bırakıldı.",
+    "Reçeteler; Eşya, Tılsım ve doğrulama durumu açıkça belirtilen İksir dizini olarak ayrı kataloğa taşındı.",
+    "Boş yetenek medya yuvaları ile kaynaksız fiyat vitrini gizlendi; üretim takibi herkese açık, cihazda kalan ayrı akış oldu.",
   ],
 } as const;

@@ -22,20 +22,21 @@ export const metadata: Metadata = {
 };
 
 const modules = [
-  ["01", "Donanım", "Sınıf, hedef ve oyun türünü seç; sekiz ekipman yuvasını doldur, toplamları gör ve planını paylaş.", "/?module=builder#modules"],
+  ["01", "Donanım", "Sınıf ve hedef seç; sekiz ekipman yuvasını doldur, toplamları gör ve planını paylaş.", "/?module=builder#modules"],
   ["02", "Yetenek", "Sınıf ve seviyeni seç; açılan yeteneklere 0–15 puan dağıt, etkin eşikleri gör, planını kaydet veya paylaş.", "/?module=skills#modules"],
-  ["03", "Tılsım", "Bağlı yeteneği, kademeyi, elde etme yolunu ve hesaplanabilen önce/sonra etkisini incele; bu ekran puan dağıtmaz.", "/?module=engine#modules"],
+  ["03", "Tılsım", "Sınıfını seç; tılsımın etkisini ve elde etme yolunu incele, reçetesini ayrı katalogda aç.", "/?module=engine#modules"],
   ["04", "Bölgeler", "Sığınak, Migrat ve Çemberlitaş gibi grup bölgelerinde sınıfa göre düşen eşyaları incele.", "/?module=group-regions#modules"],
   ["05", "Görevler", "Seviyeni ve sınıfını seç; 101 kaynaklı görevde son tamamladığın adımı işleyip zincirin kaldığı yeri, NPC'yi ve ödülü bul.", "/?module=quests#modules"],
   ["06", "Eşyalar", "Sınıf ve yuva filtresiyle eşyayı bul; aynı yuvadan iki eşyayı yan yana karşılaştır.", "/?module=items#modules"],
-  ["07", "Atlas", "Eşya, boss, reçete, malzeme, bölge ve pazar bağlantılarını tek zincir üzerinde izle.", "/?module=atlas#modules"],
-  ["08", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
-  ["09", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
-  ["10", "Döngü", "Çöp eşya, maden ve oyun parasını tüketen kozmetik, iksir ve sözleşme önerilerini filtrele; para çıkışı senaryosu kur.", "/?module=economy#modules"],
-  ["11", "Sorunlar", "Teknik bildirimlerle anonim ekonomi gözlemlerini; çıkarım, çözüm adımı ve başarı ölçüsünden ayrı kesinlikte incele.", "/?module=issues#modules"],
-  ["12", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
-  ["13", "Katkı", "Eşya, maden, pazar veya yetenek kanıtı gönder; makbuz koduyla inceleme durumunu takip et.", "/?module=contribute#modules"],
-  ["14", "Sürdürülebilirlik", "Ekonomi döngülerini, etkinlik önerilerini, maden kullanımını ve dış kaynakların İKV'ye nasıl uyarlandığını birlikte incele.", "/?module=sustainability#modules"],
+  ["07", "Reçeteler", "Eşya, tılsım veya iksir türünü seç; malzemeleri yalnız ilgili reçeteyi açtığında gör ve favoriyi üretim takibine gönder.", "/?module=recipes#recipes"],
+  ["08", "Atlas", "Eşya, boss, reçete, malzeme, bölge ve pazar bağlantılarını tek zincir üzerinde izle.", "/?module=atlas#modules"],
+  ["09", "Endgame", "Oyun sistemlerini, darboğazları, güçlü ve geliştirilmesi gereken alanları kaynaklarıyla değerlendir.", "/?module=endgame#modules"],
+  ["10", "Maden", "Kontrol sayacı başlat; boş ve başarılı kontrollerden kişisel süre aralığını oluştur.", "/?module=mining#modules"],
+  ["11", "Döngü", "Çöp eşya, maden ve oyun parasını tüketen kozmetik, iksir ve sözleşme önerilerini filtrele; para çıkışı senaryosu kur.", "/?module=economy#modules"],
+  ["12", "Sorunlar", "Teknik bildirimlerle anonim ekonomi gözlemlerini; çıkarım, çözüm adımı ve başarı ölçüsünden ayrı kesinlikte incele.", "/?module=issues#modules"],
+  ["13", "Gelişim", "Sağlık puanını ve eksik bağlantı kuyruğunu aç; hangi eşya veya malzeme kanıtının önce gerektiğini gör.", "/?module=health#modules"],
+  ["14", "Geri bildirim", "Yanlış veya eksik bilgiyi konu ve kısa açıklamayla bildir; bu form dosya yüklemez.", "/?module=contribute#modules"],
+  ["15", "Sürdürülebilirlik", "Ekonomi döngülerini, etkinlik önerilerini, maden kullanımını ve dış kaynakların İKV'ye nasıl uyarlandığını birlikte incele.", "/?module=sustainability#modules"],
 ] as const;
 
 const journeys = [
@@ -56,7 +57,7 @@ const journeys = [
   {
     number: "02",
     title: "Karakterim için build kurmak istiyorum",
-    steps: ["Sınıfını ve ana hedefini seç.", "PvE, PvP, Farm veya Grup Bölgesi bağlamını belirle.", "Sekiz yuvayı doldur; eksik ve çelişkili alan uyarılarını kontrol et.", "Bağlantıyı kopyalayarak buildi arkadaşınla paylaş."],
+    steps: ["Sınıfını ve ana hedefini seç.", "Sekiz yuvayı doldur; eksik ve çelişkili alan uyarılarını kontrol et.", "Öneriyi başlangıç noktası olarak kullan; kaynaksız özellikleri kesin değer sayma.", "Bağlantıyı kopyalayarak buildi arkadaşınla paylaş."],
     href: "/?module=builder#modules",
     action: "Build planlayıcıyı aç",
   },
@@ -91,9 +92,9 @@ const journeys = [
   {
     number: "07",
     title: "Eksik veya yanlış bilgiyi düzeltmek istiyorum",
-    steps: ["Katkı türünü seç.", "Gözlem tarihini ve sunucuyu yaz.", "Ekran görüntüsü veya kaynak bağlantısını ekle.", "Gönderim makbuzunu sakla; bilgi doğrudan yayımlanmaz, önce incelenir."],
+    steps: ["Geri bildirim bölümünü aç.", "Kısa ve ayırt edilebilir bir konu yaz.", "Neyin yanlış veya eksik olduğunu açıklayıp yorumu gönder.", "Dosya veya kanıt gerekiyorsa açıklamada bunun ayrıca istenmesi gerektiğini belirt."],
     href: "/?module=contribute#modules",
-    action: "Katkı merkezini aç",
+    action: "Geri bildirim bölümünü aç",
   },
 ];
 
@@ -179,12 +180,12 @@ export default function GuidePage() {
       </section>
 
       <section className="guideModules">
-        <header><div><p>MODÜL HARİTASI</p><h2>On dört araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
+        <header><div><p>MODÜL HARİTASI</p><h2>On beş araç, tek atlas</h2></div><span>{publishableItems.length} kaynaklı eşya kaydıyla büyüyor</span></header>
         <div>{modules.map(([number,title,description,href])=><Link href={href} key={title}><small>{number}</small><span><b>{title}</b><em>{description}</em></span><i>↗</i></Link>)}</div>
       </section>
 
       <section className="guideAccess">
-        <article><small>BAĞLANTIYLA ERİŞİM</small><h3>Ana atlas ve katkı merkezi</h3><p>Bağlantıya sahip herkes atlası görüntüleyebilir. Düzenleme ve yayımlama yetkisi yalnızca site sahibindedir.</p><Link href="/">Ana siteye dön</Link></article>
+        <article><small>BAĞLANTIYLA ERİŞİM</small><h3>Ana atlas ve geri bildirim</h3><p>Bağlantıya sahip herkes atlası görüntüleyebilir. Düzenleme ve yayımlama yetkisi yalnızca site sahibindedir.</p><Link href="/">Ana siteye dön</Link></article>
         <article><small>YÖNETİM SINIRI</small><h3>Farm Operasyonu ve inceleme masası</h3><p>Kişisel farm kayıtları, gönderi inceleme ve moderasyon işlemleri yetkilendirilmiş yönetim akışında kalır.</p><span>Genel erişim, yönetim yetkisi vermez.</span></article>
       </section>
 

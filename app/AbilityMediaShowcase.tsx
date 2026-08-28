@@ -34,14 +34,9 @@ const classTone: Record<string, string> = {
   Şifacı: "healer",
 };
 
-const classMark: Record<string, string> = {
-  Savaşçı: "SV",
-  Büyücü: "BY",
-  Şifacı: "ŞF",
-};
-
 export default function AbilityMediaShowcase() {
-  const media = mediaRows as AbilityMedia[];
+  const media = (mediaRows as AbilityMedia[]).filter((entry) => entry.sources.length > 0);
+  if (media.length === 0) return null;
 
   return (
     <section className="ability-media" aria-labelledby="ability-media-title">
@@ -59,32 +54,23 @@ export default function AbilityMediaShowcase() {
         {media.map((entry) => {
           const ability = abilityRows.find((row) => row.id === entry.abilityId);
           if (!ability) return null;
-          const hasVideo = entry.sources.length > 0;
           return (
             <article
               className={`ability-media-card ${classTone[ability.class] ?? ""}`}
               key={entry.id}
             >
               <div className="ability-media-frame">
-                {hasVideo ? (
-                  <video
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster={entry.poster ?? undefined}
-                  >
-                    {entry.sources.map((source) => (
-                      <source key={source.src} src={source.src} type={source.type} />
-                    ))}
-                    Tarayıcın bu video biçimini desteklemiyor.
-                  </video>
-                ) : (
-                  <div className="ability-media-placeholder">
-                    <i>{classMark[ability.class]}</i>
-                    <span>MEDYA YUVASI</span>
-                    <b>Oyun içi kayıt bekleniyor</b>
-                  </div>
-                )}
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster={entry.poster ?? undefined}
+                >
+                  {entry.sources.map((source) => (
+                    <source key={source.src} src={source.src} type={source.type} />
+                  ))}
+                  Tarayıcın bu video biçimini desteklemiyor.
+                </video>
                 <span className={`ability-media-status ${entry.status}`}>
                   {statusText[entry.status]}
                 </span>

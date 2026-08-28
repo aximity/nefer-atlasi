@@ -13,6 +13,7 @@ import {
   type GatheringProfession,
 } from "../lib/gathering-catalog";
 import { creatureDropSources } from "../lib/material-sources";
+import { potionIngredientIndex } from "../lib/potion-index";
 import MarketBoard from "./MarketBoard";
 
 type View = "Sayaçlar" | "Pazar" | "Kaynaklar" | "Gözlemler" | "Artırıcılar";
@@ -48,20 +49,6 @@ const aboveCapRows = [
   { profession: "Lokman", chain: "Papatya → Anthemis → Sevgi Çiçeği", points: 50 },
   { profession: "Lokman", chain: "Kardelen → Narin Kardelen → İstanbul Kardeleni", points: 55 },
 ];
-
-const potionExamples: Record<string, string[]> = {
-  "Meşe Odunu": ["Kedi İyileştiren", "Zırh Artırıcı", "Buz Hasarı Veren", "Zehir Hasarı Artırıcı"],
-  "Ceviz Yaprağı": ["Kedi İyileştiren", "Kritik Artırıcı", "Elektrik Hasarı Artırıcı", "Asit Direnci Artırıcı"],
-  "Isırgan Otu": ["Koç İyileştiren", "İğne Deliği Misali", "Kutup Esintili", "Plastik Emsali"],
-  "Ökse Otu": ["Koç İyileştiren", "Fareadam Menşeili", "Çekiç Başlı", "Erciyes Modeli"],
-  "Adaçayı Yaprağı": ["Eski Köprü Usulü", "Horoz Gagası Misali", "Çamlıca Menşeili", "Bakırköy Usulü"],
-  "Koni Yaprağı": ["Aygır İyileştiren", "Epe Ucu Misali", "Faraday Modeli", "Oğuz Bey İcadı"],
-  "Civan Perçemi": ["Aygır İyileştiren", "Yılan Isırığı Emsali", "Vatoz Emsali", "Şimal Usulü"],
-  Mantar: ["Timsah Derisi Emsali", "Karayel Etkili", "Toprak Modeli", "Aktar Şevket İcadı"],
-  "Şerbetçi Otu": ["Demirci Dilek Modeli", "Buz Kristali Modeli", "Derviş Hasan Usulü", "Beygir Emsali"],
-  "Abanoz Odunu": ["Fil İyileştiren", "Karacin Modeli", "Karakürk Emsali"],
-  "Çıban Otu": ["Solucan Modeli", "Halit Girmenç İcadı", "Ruh Çalan Emsali", "Nötron Yıldızı Emsali"],
-};
 
 const itemById = new Map(items.map((item) => [item.id, item]));
 
@@ -210,7 +197,7 @@ export default function MiningGuide() {
     const equipmentRows = names.flatMap((name) => usesForMaterial(name));
     return {
       equipment: [...new Map(equipmentRows.map((item) => [item.itemId, item])).values()],
-      potions: potionExamples[row.base] ?? [],
+      potions: potionIngredientIndex[row.base] ?? [],
     };
   }
 
@@ -230,16 +217,10 @@ export default function MiningGuide() {
     <div className="mining-hero">
       <div className="mining-kicker"><span>YENİ MODÜL</span> KAYNAK &amp; PAZAR TAKİBİ</div>
       <div className="mining-title">
-        <div><h2>Çıkış rastgele.<br/><em>Süren ölçülebilir.</em></h2><p>Sabit nokta vaadi vermeden kontrol zamanını takip et, boş ve başarılı kontrolleri kaydet, yeniden çıkış aralığını gerçek gözlemlerle öğren.</p><a className="farm-ops-link" href="/farm-operasyonu">Saha Operasyonunu aç <span>↗</span></a></div>
+        <div><h2>Çıkış rastgele.<br/><em>Süren ölçülebilir.</em></h2><p>Sabit nokta vaadi vermeden kontrol zamanını takip et, boş ve başarılı kontrolleri kaydet, yeniden çıkış aralığını gerçek gözlemlerle öğren.</p><a className="farm-ops-link" href="/uretim#production-planner">Üretim takibini aç <span>↗</span></a></div>
         <div className="ore-orbit" aria-hidden="true"><span/><i>Jd</i><small>JADEİT</small></div>
       </div>
-      <div className="market-pulse">
-        <div><small>TAKİPTEKİ MALZEME</small><strong>Xenotim</strong></div>
-        <div><small>İLK ÇIKIŞ GÖZLEMİ</small><strong>≈ 400 TL</strong></div>
-        <div><small>AĞUSTOS 2026 GÖZLEMİ</small><strong>150–200 TL</strong></div>
-        <div className="pulse-down"><small>YÖN</small><strong>↓ Arz baskısı</strong></div>
-      </div>
-      <p className="market-disclaimer">Fiyatlar satıcı ilanı değildir. Reel para alanı yalnızca tarihli kullanıcı piyasa gözlemlerini arşivler; güvenli veya resmî ticaret garantisi vermez.</p>
+      <button className="marketPulseOpen" type="button" onClick={() => setView("Pazar")}><span><small>PAZAR VERİSİ</small><strong>Tarihli gözlemleri aç</strong></span><i>Fiyat, para birimi ve güven düzeyi birlikte gösterilir →</i></button>
     </div>
 
     <div className="mining-shell">

@@ -102,9 +102,9 @@ export default function ContributionCenter() {
     <section className="contributionCenter" id="contribute">
       <div className="simpleContribution">
         <header>
-          <p className="eyebrow">KATKI</p>
+          <p className="eyebrow">GERİ BİLDİRİM</p>
           <h2>Bir şey yanlışsa söyle.</h2>
-          <p>Neyin yanlış olduğunu veya neyin değişmesi gerektiğini yaz. İnceleyip düzeltelim.</p>
+          <p>Konu ve kısa açıklama yaz. Bu form dosya veya kanıt yüklemez; bildirimi inceleyip gerekli düzeltmeyi yaparız.</p>
         </header>
 
         {sent ? (

@@ -58,6 +58,7 @@ export default function ProductionPlanner() {
   const [quantity, setQuantity] = useState("1");
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<PlanFilter>("Tümü");
+  const [visibleLimit, setVisibleLimit] = useState(12);
   const [photoPreview, setPhotoPreview] = useState("");
   const [photoMaterial, setPhotoMaterial] = useState("");
   const [photoQuantity, setPhotoQuantity] = useState("1");
@@ -80,6 +81,7 @@ export default function ProductionPlanner() {
   useEffect(() => { if (hydrated) localStorage.setItem(keys.owners, JSON.stringify(owners)); }, [hydrated, owners]);
   useEffect(() => { if (hydrated) localStorage.setItem(keys.talismanGoals, JSON.stringify(talismanGoals)); }, [hydrated, talismanGoals]);
   useEffect(() => () => { if (photoPreview) URL.revokeObjectURL(photoPreview); }, [photoPreview]);
+  useEffect(() => { setVisibleLimit(12); }, [filter, query]);
 
   const itemById = useMemo(() => new Map(plannerItems.map((item) => [item.id, item])), []);
   const talismanGoalRows = useMemo(() => talismanGoals.map((id) => talismans.find((row) => row.id === id)).filter((row) => Boolean(row)), [talismanGoals]);
@@ -102,7 +104,6 @@ export default function ProductionPlanner() {
       })
       .sort((a, b) => Number(favoriteIds.includes(b.recipe.itemId)) - Number(favoriteIds.includes(a.recipe.itemId)) || b.completion - a.completion);
   }, [favoriteIds, filter, itemById, plans, query]);
-  const unknownMissing = useMemo(() => plans.flatMap((plan) => plan.missing).filter((row) => !materialSourceFor(row.name)).length, [plans]);
   const routePriority = useMemo(() => {
     const regions = new Map<string, number>();
     plans.filter((plan) => favoriteIds.includes(plan.recipe.itemId)).flatMap((plan) => plan.missing).forEach((row) => {
@@ -111,6 +112,8 @@ export default function ProductionPlanner() {
     });
     return [...regions.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null;
   }, [favoriteIds, plans]);
+  const visibleRows = visible.slice(0, visibleLimit);
+  const closestPlan = Object.keys(stock).length > 0 ? summary.closest : null;
 
   const addStock = () => {
     const amount = Math.max(0, Math.floor(Number(quantity)));
@@ -155,7 +158,7 @@ export default function ProductionPlanner() {
   return <section className="productionWorkspace" id="production-planner">
     <header className="productionHead">
       <div><p>M34 · ÜRETİM TAKİP MASASI</p><h2>Stoktan reçeteye, eksikten rotaya.</h2><span>Favori üretimi seç; eldeki malzemeyi gir; eksik miktarı, edinme kaynağını ve sorumlu kişiyi tek yerde izle.</span></div>
-      <div className="productionHeadStats"><article><small>ÜRETİLEBİLİR</small><b>{summary.ready}</b><span>reçete</span></article><article><small>FAVORİ</small><b>{summary.favorites}</b><span>hedef</span></article><article><small>KAYNAĞI EKSİK</small><b>{unknownMissing}</b><span>malzeme satırı</span></article></div>
+      <div className="productionHeadStats"><article><small>ÜRETİLEBİLİR</small><b>{summary.ready}</b><span>reçete</span></article><article><small>FAVORİ</small><b>{summary.favorites}</b><span>hedef</span></article><article><small>STOK</small><b>{Object.keys(stock).length}</b><span>malzeme türü</span></article></div>
     </header>
 
     <div className="productionInputGrid">
@@ -173,25 +176,25 @@ export default function ProductionPlanner() {
     </div>
 
     <section className="productionTalismanGoals">
-      <header><span><small>TILSIM ÜRETİM HEDEFLERİ</small><h3>Atlas’tan seçilenler</h3></span><b>{talismanGoalRows.length} hedef</b></header>
+      <header><span><small>TILSIM ÜRETİM HEDEFLERİ</small><h3>Reçetelerden seçilenler</h3></span><b>{talismanGoalRows.length} hedef</b></header>
       <p>Favoriye aldığın tılsımlar stok hesabında öncelik kazanır; eksik malzeme ve en yakın üretim otomatik hesaplanır.</p>
       <div>{talismanGoalRows.map((row) => {
         if (!row) return null;
         const plan = planByItemId.get(row.id);
         return <article key={row.id}><span><small>{row.class} · {row.color} · {row.tier === null ? "Özel" : `${row.tier}. kademe`}</small><b>{row.name}</b></span><em>{plan ? plan.status === "ready" ? "Üretilebilir" : `%${plan.completion} tamam · ${plan.missing.length} eksik` : "Kaynakta reçete yok"}</em><button type="button" aria-label={`${row.name} tılsım hedefini kaldır`} onClick={() => setTalismanGoals((current) => current.filter((id) => id !== row.id))}>×</button></article>;
-      })}{talismanGoalRows.length === 0 && <span className="emptyTalismanGoals">Ana sitedeki Tılsım Üretim Atlası’ndan yıldızla hedef ekleyebilirsin.</span>}</div>
-      <Link href="/?module=engine#engine">Tılsım Üretim Atlası’nı aç →</Link>
+      })}{talismanGoalRows.length === 0 && <span className="emptyTalismanGoals">Reçeteler kataloğunda bir tılsımı yıldızlayarak hedef ekleyebilirsin.</span>}</div>
+      <Link href="/?module=recipes&kind=talisman#recipes">Tılsım reçetelerini aç →</Link>
     </section>
 
     <section className="productionAdvice">
-      <div><small>SIRADAKİ EN YAKIN HEDEF</small><b>{summary.closest ? itemById.get(summary.closest.recipe.itemId)?.name ?? summary.closest.recipe.itemId : summary.ready ? "Seçili reçeteler üretime hazır" : "Stok girdikçe öneri oluşacak"}</b><span>{summary.closest ? `%${summary.closest.completion} tamam · ${summary.closest.missing.length} eksik malzeme` : "Favoriler varsa önce onlar değerlendirilir."}</span></div>
+      <div><small>SIRADAKİ EN YAKIN HEDEF</small><b>{closestPlan ? itemById.get(closestPlan.recipe.itemId)?.name ?? closestPlan.recipe.itemId : summary.ready ? "Seçili reçeteler üretime hazır" : "Stok girdikçe öneri oluşacak"}</b><span>{closestPlan ? `%${closestPlan.completion} tamam · ${closestPlan.missing.length} eksik malzeme` : "Favoriler varsa önce onlar değerlendirilir."}</span></div>
       <div><small>SAHA ÖNERİSİ</small><b>{routePriority ? `${routePriority} rotasını değerlendir` : "Önce favori reçete seç"}</b><span>{routePriority ? "Favori hedeflerdeki kaynaklı eksikler bu bölgede yoğunlaşıyor." : "Rota önerisi yalnız kaynak eşleşmesi olan favori eksiklerden çıkar."}</span></div>
       <div><small>DOĞRULAMA KURALI</small><b>Tahmin yok</b><span>Kaynağı bilinmeyen malzeme açıkça işaretlenir; oyuncu bilgisi kaynaklı kayıttan ayrılır.</span></div>
     </section>
 
-    <div className="productionToolbar"><div>{(["Tümü", "Üretilebilir", "Yakın", "Favoriler"] as PlanFilter[]).map((name) => <button type="button" className={filter === name ? "on" : ""} onClick={() => setFilter(name)} key={name}>{name}</button>)}</div><input aria-label="Reçete veya malzeme ara" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Reçete veya malzeme ara…"/><span>{visible.length} reçete</span></div>
+    <div className="productionToolbar"><div>{(["Tümü", "Üretilebilir", "Yakın", "Favoriler"] as PlanFilter[]).map((name) => <button type="button" className={filter === name ? "on" : ""} onClick={() => setFilter(name)} key={name}>{name}</button>)}</div><input aria-label="Reçete veya malzeme ara" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Reçete veya malzeme ara…"/><span>{visibleRows.length}/{visible.length} reçete</span></div>
 
-    <div className="productionCards">{visible.map((plan) => {
+    <div className="productionCards">{visibleRows.map((plan) => {
       const item = itemById.get(plan.recipe.itemId);
       const favorite = favoriteIds.includes(plan.recipe.itemId);
       const recipeSource = sourceFor(plan.recipe.sourceId);
@@ -205,6 +208,6 @@ export default function ProductionPlanner() {
         })}</div>
         <footer><span>{owners[plan.recipe.itemId] ? `Sorumlu: ${owners[plan.recipe.itemId]}` : "Sorumlu atanmadı"}</span>{recipeSource ? <a href={recipeSource.url} target="_blank" rel="noreferrer">Reçete kaynağı ↗</a> : <span>Kaynak bekliyor</span>}</footer>
       </article>;
-    })}{visible.length === 0 && <div className="productionEmpty">Bu filtrede reçete yok. Stok, arama veya favori seçimini değiştir.</div>}</div>
+    })}{visible.length === 0 && <div className="productionEmpty">Bu filtrede reçete yok. Stok, arama veya favori seçimini değiştir.</div>}{visibleRows.length < visible.length && <button className="productionMore" type="button" onClick={() => setVisibleLimit((value) => value + 12)}>12 reçete daha göster <span>{visible.length - visibleRows.length} kaldı</span></button>}</div>
   </section>;
 }

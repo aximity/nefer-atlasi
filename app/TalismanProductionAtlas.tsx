@@ -2,43 +2,23 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { sourceFor, talismans, type CharacterClass, type Talisman } from "../lib/catalog";
+import { sourceFor, talismans, type CharacterClass } from "../lib/catalog";
 import { playerReportsFor, talismanProduction, tierRuleFor, vendorMentionsFor } from "../lib/talisman-production";
 import { talismanRecipeFor } from "../lib/talisman-recipes";
 
 type TierFilter = "Tümü" | "I" | "II" | "III" | "Özel";
 type ColorFilter = "Tümü" | "Kırmızı" | "Mavi";
-const favoriteKey = "nefer-talisman-production-favorites-v1";
 const normalize = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
-const readFavorites = () => {
-  try {
-    const value = localStorage.getItem(favoriteKey);
-    return value ? JSON.parse(value) as string[] : [];
-  } catch {
-    return [];
-  }
-};
 
-export default function TalismanProductionAtlas({ klass, initialTalismanId = "" }: { klass: CharacterClass; initialTalismanId?: string }) {
+export default function TalismanProductionAtlas({ klass, initialTalismanId = "", onClassChange }: { klass: CharacterClass; initialTalismanId?: string; onClassChange: (klass: CharacterClass) => void }) {
   const [query, setQuery] = useState("");
   const [tier, setTier] = useState<TierFilter>("Tümü");
   const [color, setColor] = useState<ColorFilter>("Tümü");
   const [selectedId, setSelectedId] = useState(initialTalismanId);
-  const [favorites, setFavorites] = useState<string[]>([]);
-  const [hydrated, setHydrated] = useState(false);
 
-  useEffect(() => {
-    queueMicrotask(() => {
-      setFavorites(readFavorites());
-      setHydrated(true);
-    });
-  }, []);
   useEffect(() => {
     if (initialTalismanId) queueMicrotask(() => setSelectedId(initialTalismanId));
   }, [initialTalismanId]);
-  useEffect(() => {
-    if (hydrated) localStorage.setItem(favoriteKey, JSON.stringify(favorites));
-  }, [favorites, hydrated]);
 
   const classRows = useMemo(() => talismans.filter((row) => row.class === klass), [klass]);
   const visible = useMemo(() => {
@@ -50,64 +30,65 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "" 
         && (tier === "Tümü" || tierLabel === tier);
     });
   }, [classRows, color, query, tier]);
-  const selected = classRows.find((row) => row.id === selectedId) ?? visible[0] ?? classRows[0];
+  const selected = visible.find((row) => row.id === selectedId) ?? visible[0];
   const rule = selected ? tierRuleFor(selected) : null;
   const vendorMentions = selected ? vendorMentionsFor(selected) : [];
   const playerReport = selected ? playerReportsFor(selected)[0] : undefined;
-  const favorite = selected ? favorites.includes(selected.id) : false;
   const vendor = talismanProduction.vendors[0];
   const vendorSource = sourceFor(vendor.sourceId);
   const serverReference = talismanProduction.serverReferences[0];
   const serverReferenceSource = sourceFor(serverReference.sourceId);
   const effectSource = selected ? sourceFor(selected.sourceId) : null;
   const recipe = selected ? talismanRecipeFor(selected.id) : null;
-  const recipeSource = recipe ? sourceFor(recipe.sourceId) : null;
-
-  const toggleFavorite = (row: Talisman) => setFavorites((current) =>
-    current.includes(row.id) ? current.filter((id) => id !== row.id) : [...current, row.id],
-  );
+  const chooseClass = (value: CharacterClass) => {
+    setSelectedId("");
+    onClassChange(value);
+    const url = new URL(location.href);
+    url.searchParams.delete("talisman");
+    history.replaceState(null, "", url);
+  };
+  const chooseTalisman = (value: string) => {
+    setSelectedId(value);
+    const url = new URL(location.href);
+    url.searchParams.set("talisman", value);
+    history.replaceState(null, "", url);
+  };
 
   return <section className="talismanProduction" aria-labelledby="talisman-production-title">
     <header className="talismanProductionHead">
-      <div><small>SADE TILSIM ATLASI</small><h3 id="talisman-production-title">Tılsımını seç, gerekeni gör.</h3><p>Kullanım amacı, edinme yolu ve üretim reçetesi. Hepsi bu.</p></div>
+      <div><small>TILSIM ATLASI</small><h3 id="talisman-production-title">Tılsımını seç.</h3><p>Bu ekranda yalnız etki ve edinme bilgisi var. Reçete ayrıntısı ayrı katalogda açılır.</p></div>
     </header>
 
     <div className="talismanAtlasGrid">
       <section className="talismanPicker">
         <header><span><small>TILSIM SEÇ</small><h4>{klass}</h4></span><b>{visible.length} kayıt</b></header>
+        <div className="talismanClassFilter" aria-label="Tılsım sınıfı">{(["Savaşçı", "Büyücü", "Şifacı"] as CharacterClass[]).map((value) => <button type="button" className={klass === value ? "on" : ""} onClick={() => chooseClass(value)} key={value}>{value}</button>)}</div>
         <input aria-label="Tılsım ara" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tılsım adı ara…" />
-        <div className="talismanFilters">
+        <details className="talismanFilterDisclosure"><summary>Renk ve kademe filtreleri <i>+</i></summary><div className="talismanFilters">
           <div>{(["Tümü", "Kırmızı", "Mavi"] as ColorFilter[]).map((value) => <button type="button" className={color === value ? "on" : ""} onClick={() => setColor(value)} key={value}>{value}</button>)}</div>
           <div>{(["Tümü", "I", "II", "III", "Özel"] as TierFilter[]).map((value) => <button type="button" className={tier === value ? "on" : ""} onClick={() => setTier(value)} key={value}>{value}</button>)}</div>
-        </div>
-        <select aria-label="Tılsım seç" value={selected?.id ?? ""} onChange={(event) => setSelectedId(event.target.value)}>
-          {visible.map((row) => <option value={row.id} key={row.id}>{favorites.includes(row.id) ? "★ " : ""}{row.name} · {row.color}</option>)}
-        </select>
+        </div></details>
+        {visible.length > 0 && <select aria-label="Tılsım seç" value={selected?.id ?? ""} onChange={(event) => chooseTalisman(event.target.value)}>
+          {visible.map((row) => <option value={row.id} key={row.id}>{row.name} · {row.color}</option>)}
+        </select>}
         {visible.length === 0 && <p className="talismanEmpty">Bu filtrede tılsım yok.</p>}
       </section>
 
       {selected && rule && <section className="talismanRecipeCard">
-        <header><button type="button" className={favorite ? "favorite on" : "favorite"} onClick={() => toggleFavorite(selected)} aria-label={favorite ? "Üretim hedeflerinden çıkar" : "Üretim hedeflerine ekle"}>{favorite ? "★" : "☆"}</button><span><small>{selected.class} · {selected.color} · {rule.label}</small><h4>{selected.name}</h4></span></header>
+        <header><span><small>{selected.class} · {selected.color} · {rule.label}</small><h4>{selected.name}</h4></span></header>
 
         <div className="talismanFacts">
-          <article><small>NEDİR?</small><b>Tılsım</b><p>Karaktere takılarak belirli bir oyun etkisini güçlendiren özel eşyadır.</p></article>
-          <article><small>NE İŞE YARAR?</small><b>{selected.series}</b><p>{selected.effectText}</p>{effectSource && <a href={effectSource.url} target="_blank" rel="noreferrer">Etki kaynağı ↗</a>}</article>
+          <article><small>ETKİ</small><b>{selected.series}</b><p>{selected.effectText}</p></article>
           <article>
-            <small>NEREDEN ELDE EDİLİR?</small>
+            <small>ELDE ETME</small>
             <b>{playerReport ? `${playerReport.npc} · ${playerReport.priceLabel}` : rule.acquisition}</b>
-            <span className="verificationFlag pending">DOĞRULAMA GEREKİYOR</span>
-            <p>{playerReport ? `${playerReport.claim} Bu KÖ oyuncu bildirimi henüz oyun içi görüntü veya bağımsız ikinci kaynakla doğrulanmadı.` : rule.note}</p>
-            {serverReferenceSource && <a href={serverReferenceSource.url} target="_blank" rel="noreferrer">KÖ sistem kaynağı ↗</a>}
-            {vendorMentions.length > 0 && vendorSource && <a href={vendorSource.url} target="_blank" rel="noreferrer">Normal İKV referansı ↗</a>}
-          </article>
-          <article className="recipeContent">
-            <small>REÇETE İÇERİĞİ</small>
-            <b>{recipe ? `${recipe.materials.length} malzeme kalemi` : selected.tier === 1 ? "Üretim reçetesi yok" : "Kaynak tablosunda reçete bulunamadı"}</b>
-            {recipe ? <><span className="verificationFlag single">İKV REÇETESİ · KÖ İLE AYNI</span><div className="talismanMaterialList">{recipe.materials.map((material) => <span key={material.name}><b>{material.name}</b><strong>×{material.quantity}</strong></span>)}</div>{recipeSource && <a href={recipeSource.url} target="_blank" rel="noreferrer">Sınıf reçete tablosu ↗</a>}</> : <p>{selected.tier === 1 ? "I. kademe tılsımlar hazır edinilir ve II. kademe üretiminde kullanılır." : "Bu özel tılsım kaynak tablosunda açık bir reçeteyle eşleşmediği için malzeme uydurulmadı."}</p>}
+            <p>{playerReport ? "KÖ oyuncu bildirimi · oyun içi görüntüyle doğrulama bekliyor." : rule.note}</p>
           </article>
         </div>
 
-        <footer><button type="button" onClick={() => toggleFavorite(selected)} disabled={!recipe}>{favorite ? "Üretim hedefinden çıkar" : recipe ? "Üretim hedeflerine ekle" : "Reçete bulunamadı"}</button><Link href="/farm-operasyonu#production-planner">Stok ve üretim takibi →</Link></footer>
+        <details className="talismanEvidence"><summary>Kaynak ve doğrulama ayrıntısı <i>+</i></summary><div><p>{playerReport ? `${playerReport.claim} Bu bildirim henüz oyun içi görüntü veya bağımsız ikinci kaynakla doğrulanmadı.` : rule.note}</p>{effectSource && <a href={effectSource.url} target="_blank" rel="noreferrer">Etki kaynağı ↗</a>}{serverReferenceSource && <a href={serverReferenceSource.url} target="_blank" rel="noreferrer">KÖ sistem kaynağı ↗</a>}{vendorMentions.length > 0 && vendorSource && <a href={vendorSource.url} target="_blank" rel="noreferrer">Normal İKV referansı ↗</a>}</div></details>
+
+        <footer><Link className="primaryRecipeLink" href={recipe ? `/?module=recipes&kind=talisman&recipe=${selected.id}#recipes` : "/?module=recipes&kind=talisman#recipes"}>{recipe ? "Bu tılsımın reçetesini aç" : "Tılsım reçetelerine git"} →</Link></footer>
       </section>}
     </div>
   </section>;

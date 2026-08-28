@@ -42,7 +42,7 @@ export default function SustainabilityHub() {
   const citedSources = new Set(loopRows.flatMap((loop) => loop.sourceIds)).size;
   return <section className="sustainabilityHub" id="sustainability">
     <div className="sustainabilityHero">
-      <div><p>M34 · SÜRDÜRÜLEBİLİR İKV</p><h2>Toplanan değer kazansın.<br/><em>Ekonomi dönmeye devam etsin.</em></h2><span>Bu bölüm mevcut oyun özelliklerini, tasarım önerilerini ve dış kaynaklardan İKV’ye uyarlanan fikirleri birbirine karıştırmadan gösterir.</span><nav><Link href="/?module=economy#economy">Ekonomi atölyesi</Link><Link href="/?module=endgame&panel=Takvim#endgame">Etkinlik takvimi</Link><Link href="/?module=mining#mining">Maden rehberi</Link><Link href="/farm-operasyonu#production-planner">Üretim takibi</Link></nav></div>
+      <div><p>M34 · SÜRDÜRÜLEBİLİR İKV</p><h2>Toplanan değer kazansın.<br/><em>Ekonomi dönmeye devam etsin.</em></h2><span>Bu bölüm mevcut oyun özelliklerini, tasarım önerilerini ve dış kaynaklardan İKV’ye uyarlanan fikirleri birbirine karıştırmadan gösterir.</span><nav><Link href="/?module=economy#economy">Ekonomi atölyesi</Link><Link href="/?module=endgame&panel=Takvim#endgame">Etkinlik takvimi</Link><Link href="/?module=mining#mining">Maden rehberi</Link><Link href="/uretim#production-planner">Üretim takibi</Link></nav></div>
       <aside><article><small>ÖNERİ HAVUZU</small><b>{loopRows.length}</b><span>ölçülebilir ekonomi döngüsü</span></article><article><small>İLK PİLOT</small><b>{pilotLoops.length}</b><span>düşük riskli başlangıç</span></article><article><small>KAYNAK AİLESİ</small><b>{citedSources}</b><span>açık atıf zinciri</span></article></aside>
     </div>
 
@@ -71,6 +71,6 @@ export default function SustainabilityHub() {
       </div>
     </section>
 
-    <div className="sustainabilityAction"><span><small>SAHADA UYGULA</small><b>Favori reçeteyi seç, stok gir, eksik rotayı çıkar.</b><p>Üretim Takip Masası; reçete hedefi, fotoğraf referansı, manuel stok, eksik kaynak ve sorumlu kişi takibini birleştirir.</p></span><Link href="/farm-operasyonu#production-planner">Saha Operasyonu’na geç</Link></div>
+    <div className="sustainabilityAction"><span><small>SAHADA UYGULA</small><b>Favori reçeteyi seç, stok gir, eksik rotayı çıkar.</b><p>Üretim Takip Masası; reçete hedefi, fotoğraf referansı, manuel stok, eksik kaynak ve sorumlu kişi takibini birleştirir.</p></span><Link href="/uretim#production-planner">Üretim takibine geç</Link></div>
   </section>;
 }

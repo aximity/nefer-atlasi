@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.39.0",
+    date: "28 Ağustos 2026",
+    title: "Tılsım Üretim Asistanı",
+    changes: [
+      "Üç sınıfın kaynakta listelenen tılsım reçeteleri üretim hesabına bağlandı.",
+      "Tılsım favorileri ortak stok hesabına katıldı.",
+      "Fotoğraftan bakarak manuel stok taslağı oluşturma akışı eklendi.",
+    ],
+  },
+  {
     version: "0.37.0",
     date: "27 Ağustos 2026",
     title: "Piyasa ve Kullanım Nabzı",
@@ -79,7 +89,7 @@ const previousReleases = [
 const introKey = "nefer-intro-seen-v1";
 const releaseKey = "nefer-release-seen";
 
-export default function ReleaseCenter() {
+export default function ReleaseCenter({ inline = false }: { inline?: boolean }) {
   const [updatesOpen, setUpdatesOpen] = useState(false);
   const [introOpen, setIntroOpen] = useState(false);
   const [hasNew, setHasNew] = useState(false);
@@ -87,7 +97,6 @@ export default function ReleaseCenter() {
   useEffect(() => {
     queueMicrotask(() => {
       setHasNew(localStorage.getItem(releaseKey) !== SITE_RELEASE.version);
-      if (!localStorage.getItem(introKey)) setIntroOpen(true);
     });
   }, []);
   useEffect(() => {
@@ -116,7 +125,7 @@ export default function ReleaseCenter() {
   };
 
   return <>
-    <button className="releaseButton" type="button" onClick={openUpdates} aria-label={`Yenilikleri aç${hasNew ? "; okunmamış güncelleme var" : ""}`}>
+    <button className={inline ? "releaseButton inline" : "releaseButton"} type="button" onClick={openUpdates} aria-label={`Yenilikleri aç${hasNew ? "; okunmamış güncelleme var" : ""}`}>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg>
       <span>Yenilikler</span>
       {hasNew && <i>Yeni</i>}

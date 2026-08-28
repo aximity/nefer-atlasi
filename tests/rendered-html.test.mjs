@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", async () => {
+test("Nefer Atlası sade arama-öncelikli ana sayfayı oluşturur", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -28,28 +28,20 @@ test("Nefer Atlası kabuğunu ve varsayılan donanım modülünü oluşturur", a
   );
   const html = await response.text();
   assert.match(html, /Nefer Atlası \| KÖ Bilgi, Strateji ve Ekonomi Platformu/);
-  assert.match(html, /M2 · DONANIM PLANLAYICI/);
-  for (const slot of ["Gözlük", "Ceket", "Eldiven", "Pantolon", "Ayakkabı", "Yüzük", "Kolye", "Silah"]) {
-    assert.match(html, new RegExp(slot));
-  }
-  assert.match(html, /KÖ BİLGİ · STRATEJİ · EKONOMİ PLATFORMU/);
-  assert.match(html, /Sekiz yuvayı sen doldur/);
-  assert.match(html, /Çelişkili özellikler hesap dışı/);
-  assert.doesNotMatch(html, /DOĞRULANMIŞ GÖRSEL YOK/);
-  assert.match(html, /M2\.5 Buz Şarjlı-\(Mor\)/);
-  assert.match(html, /Nucleus Yüzük/);
-  assert.match(html, /Alternatör Kolye/);
-  assert.match(html, /Kıyamet Ceket/);
-  for (const tab of ["Donanım", "Yetenek", "Görevler", "Sürdürülebilirlik", "Tümü"]) {
-    assert.match(html, new RegExp(`<span>${tab}</span>`));
-  }
-  assert.doesNotMatch(html, /M3 · TILSIM VE YETENEK HESAPLAYICI/);
-  assert.match(html, /129<\/strong><span>kaynaklı eşya kaydı/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.39\.0/);
+  assert.match(html, /Ne arıyorsun\?/);
+  assert.match(html, /Önce bilgiyi seç/);
+  for (const shortcut of ["Eşyalar", "Tılsım", "Reçeteler", "Görevler"]) assert.match(html, new RegExp(`>${shortcut}<`));
+  assert.doesNotMatch(html, /M2 · DONANIM PLANLAYICI/);
+  assert.doesNotMatch(html, /Sekiz yuvayı sen doldur/);
+  assert.doesNotMatch(html, /Nucleus Yüzük/);
+  assert.doesNotMatch(html, /Nefer Atlası ne yapar\?/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.40\.0/);
   assert.match(html, /Atlas genelinde ara/);
   assert.match(html, /Atlas’ta ara/);
   assert.doesNotMatch(html, /raw_game_value/);
   assert.match(html, /href="\/rehber"/);
+  assert.match(html, /href="\/uretim"/);
+  assert.match(html, /Bağlantılar ve yönetim/);
   assert.match(html, /href="https:\/\/kiyametoyun\.net\/"/);
 });
 
@@ -65,7 +57,7 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Kullanım Rehberi \| Nefer Atlası/);
-  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.39\.0/);
+  assert.match(html, /BETA(?:<!-- -->)? v(?:<!-- -->)?0\.40\.0/);
   assert.match(html, /Yetenek puanlarımı dağıtmak istiyorum/);
   assert.match(html, /NEDEN KULLANMALIYIM\?/);
   assert.match(html, /Bir eşyanın gerçek bilgisini arıyorum/);
@@ -76,9 +68,30 @@ test("bağlantıyla erişilen rehber, kullanım akışlarını ve güven sözlü
   assert.match(html, /GÜNCEL SUNUCU PORTALI/);
   assert.match(html, /https:\/\/kiyametoyun\.net\/siralama/);
   assert.match(html, /Giriş gerektiren mağaza ve hesap alanları/);
-  for (const moduleName of ["Donanım", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Atlas", "Endgame", "Maden", "Döngü", "Yetenek", "Sorunlar", "Gelişim", "Katkı", "Sürdürülebilirlik"]) {
+  assert.match(html, /On beş araç, tek atlas/);
+  for (const moduleName of ["Donanım", "Tılsım", "Bölgeler", "Görevler", "Eşyalar", "Reçeteler", "Atlas", "Endgame", "Maden", "Döngü", "Yetenek", "Sorunlar", "Gelişim", "Geri bildirim", "Sürdürülebilirlik"]) {
     assert.match(html, new RegExp(`>${moduleName}<`));
   }
+});
+
+test("herkese açık üretim takibi stok ve fotoğraf akışını oluşturur", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("production-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const response = await worker.fetch(
+    new Request("http://localhost/uretim", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Üretim Takibi \| Nefer Atlası/);
+  assert.match(html, /Stok gir\./);
+  assert.match(html, /En yakın üretimi gör\./);
+  assert.match(html, /M34 · ÜRETİM TAKİP MASASI/);
+  assert.match(html, /Fotoğraf otomatik olarak stok değiştirmez/);
+  assert.match(html, /module=recipes/);
+  assert.doesNotMatch(html, /Yönetici erişimi gerekli/);
 });
 
 test("gizlilik ve özel istatistik girişi ChatGPT hesabı istemeden açılır", async () => {

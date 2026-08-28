@@ -33,7 +33,8 @@ test("özel istatistik alanı açıkça yönetici girişi olarak sunulur", async
   assert.match(login, /Yönetici Girişi/);
   assert.match(login, /Yönetici erişim anahtarınla/);
   assert.doesNotMatch(login, /şifremi göster|anahtarı göster/i);
-  assert.match(home, /href="\/istatistik\/giris">Yönetici<\/a>/);
+  assert.doesNotMatch(home, /href="\/istatistik\/giris">Yönetici<\/a>/);
+  assert.match(home, /Bağlantılar ve yönetim/);
   assert.match(home, /href="\/istatistik\/giris">Yönetici Girişi<\/a>/);
 });
 

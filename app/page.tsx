@@ -12,6 +12,7 @@ import EconomyWorkshop from "./EconomyWorkshop";
 import SustainabilityHub from "./SustainabilityHub";
 import ReleaseCenter from "./ReleaseCenter";
 import TalismanProductionAtlas from "./TalismanProductionAtlas";
+import RecipeCatalog from "./RecipeCatalog";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import {
@@ -21,6 +22,7 @@ import {
   appearanceImageFor,
   items,
   publishableItems,
+  recipes,
   talismans,
   itemStats,
   publishableStats,
@@ -32,7 +34,6 @@ import {
   type Item,
   type CharacterClass,
 } from "../lib/catalog";
-import { materialSourceFor } from "../lib/material-sources";
 import {
   buildTotals,
   compatibleItems,
@@ -59,6 +60,8 @@ import {
   isCemberlitasRecipe,
 } from "../lib/group-region-loot.mjs";
 import { creatureDropSources } from "../lib/material-sources";
+import { talismanRecipes } from "../lib/talisman-recipes";
+import { potionIngredientIndex } from "../lib/potion-index";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n),
   familyNames: Record<string, string> = {
@@ -79,6 +82,7 @@ const moduleTabs = [
   { id: "builder", label: "Donanım", summary: "Eşya seç, toplam özelliklerini gör.", keywords: "build set zırh silah" },
   { id: "skills", label: "Yetenek", summary: "Seviyene göre yetenek puanı dağıt.", keywords: "skill simülasyon puan" },
   { id: "engine", label: "Tılsım", summary: "Tılsım etkisini ve edinme yolunu incele.", keywords: "kademe reçete büyük hol" },
+  { id: "recipes", label: "Reçeteler", summary: "Eşya, tılsım ve iksir reçetelerini ayır.", keywords: "tarif üretim malzeme iksir" },
   { id: "group-regions", label: "Bölgeler", summary: "Boss ve bölge ganimetlerini gör.", keywords: "gaffar semiha stuart çemberlitaş migrat sığınak" },
   { id: "quests", label: "Görevler", summary: "Seviyene uygun görev zincirini bul.", keywords: "npc ödül görev zinciri" },
   { id: "items", label: "Eşyalar", summary: "Eşya kataloğunda ara ve karşılaştır.", keywords: "item drop ganimet" },
@@ -89,10 +93,10 @@ const moduleTabs = [
   { id: "sustainability", label: "Sürdürülebilirlik", summary: "Ekonomi, etkinlik ve kaynak uyarlamalarını izle.", keywords: "sürdürülebilirlik ekonomi etkinlik takvim maden para kaynak" },
   { id: "issues", label: "Sorunlar", summary: "Oyun sorunlarını ve çözüm önerilerini gör.", keywords: "şikayet öneri lag bağlantı" },
   { id: "health", label: "Gelişim", summary: "Projenin veri ve kalite durumunu izle.", keywords: "durum kapsam kalite" },
-  { id: "contribute", label: "Katkı", summary: "Yeni bilgi ve kanıt gönder.", keywords: "ekle düzelt kanıt görsel" },
+  { id: "contribute", label: "Geri bildirim", summary: "Yanlış veya eksik bilgiyi metinle bildir.", keywords: "yorum düzelt geri bildirim" },
 ] as const;
 type MainModule = (typeof moduleTabs)[number]["id"];
-const searchFilters = ["Tümü", "Bölümler", "Eşyalar", "Görevler", "Yetenekler", "Madenler", "Bölgeler", "Tılsımlar"] as const;
+const searchFilters = ["Tümü", "Bölümler", "Eşyalar", "Reçeteler", "Görevler", "Yetenekler", "Madenler", "Bölgeler", "Tılsımlar"] as const;
 type SearchFilter = (typeof searchFilters)[number];
 const normalizeSearch = (value: string) => value
   .normalize("NFD")
@@ -105,7 +109,12 @@ const matchesSearch = (haystack: string, query: string) => {
   const normalizedHaystack = normalizeSearch(haystack);
   return words.every((word) => normalizedHaystack.includes(word));
 };
-const primaryModuleIds: MainModule[] = ["builder", "skills", "quests", "sustainability"];
+const quickModuleIds: MainModule[] = ["items", "engine", "recipes", "quests"];
+const moduleGroups: { label: string; note: string; ids: MainModule[] }[] = [
+  { label: "Bilgi", note: "Aradığın kaydı bul", ids: ["items", "engine", "recipes", "quests", "skills", "group-regions"] },
+  { label: "Araçlar", note: "Planla ve karşılaştır", ids: ["builder", "atlas", "mining", "endgame"] },
+  { label: "Proje", note: "Arka plan ve katkı", ids: ["economy", "sustainability", "issues", "health", "contribute"] },
+];
 interface BuildSnapshot {
   v: number;
   klass: CharacterClass;
@@ -154,9 +163,10 @@ export default function Home() {
     [query, setQuery] = useState(""),
     [classFilter, setClassFilter] = useState("Tümü"),
     [slotFilter, setSlotFilter] = useState("Tümü"),
+    [itemVisibleLimit, setItemVisibleLimit] = useState(24),
     [compareIds, setCompareIds] = useState<string[]>([]),
     [detail, setDetail] = useState<Item | null>(null),
-    [activeModule, setActiveModule] = useState<MainModule>("builder"),
+    [activeModule, setActiveModule] = useState<MainModule | null>(null),
     [moreOpen, setMoreOpen] = useState(false),
     [searchOpen, setSearchOpen] = useState(false),
     [globalQuery, setGlobalQuery] = useState(""),
@@ -164,6 +174,7 @@ export default function Home() {
     [questSearchSeed, setQuestSearchSeed] = useState(""),
     [abilitySearchSeed, setAbilitySearchSeed] = useState(""),
     [regionSearchSeed, setRegionSearchSeed] = useState(""),
+    [recipeRevision, setRecipeRevision] = useState(0),
     [notice, setNotice] = useState("");
   const applySaved = (p: BuildSnapshot) => {
     setKlass(p.klass);
@@ -187,6 +198,30 @@ export default function Home() {
       }
       const requestedItem = params.get("item");
       if (requestedItem) setDetail(items.find((item) => item.id === requestedItem) ?? null);
+      const requestedTalisman = params.get("talisman");
+      if (requestedTalisman) {
+        const talisman = talismans.find((item) => item.id === requestedTalisman);
+        if (talisman) {
+          setClass(talisman.class);
+          setTalismanId(talisman.id);
+        }
+      }
+      const requestedQuest = params.get("quest");
+      if (requestedQuest) {
+        const quest = quests.find((item) => item.id === requestedQuest);
+        if (quest) setQuestSearchSeed(quest.title);
+      }
+      const requestedAbility = params.get("ability");
+      if (requestedAbility) {
+        const ability = abilityRows.find((item) => item.id === requestedAbility)
+          ?? abilityVariantRows.find((item) => item.id === requestedAbility);
+        if (ability) {
+          setClass(ability.class as CharacterClass);
+          setAbilitySearchSeed(ability.id);
+        }
+      }
+      const requestedRegion = params.get("region");
+      if (requestedRegion) setRegionSearchSeed(`${requestedRegion}|||${params.get("boss") ?? ""}`);
       const saved = params.get("build");
       if (!saved) return;
       try {
@@ -196,12 +231,14 @@ export default function Home() {
         ) as BuildSnapshot | null;
         if (!p) throw new Error();
         applySaved(p);
+        setActiveModule("builder");
       } catch {
         setNotice("Bağlantıdaki donanım planı geçersiz veya eski sürüm.");
       }
     };
     queueMicrotask(hydrate);
   }, []);
+  useEffect(() => { setItemVisibleLimit(24); }, [classFilter, query, slotFilter]);
   useEffect(() => {
     const openSearch = (event: KeyboardEvent) => {
       if (event.key === "/" && !(event.target instanceof HTMLInputElement) && !(event.target instanceof HTMLTextAreaElement)) {
@@ -249,7 +286,7 @@ export default function Home() {
     },
     share = async () => {
       try {
-        const url = `${location.origin}${location.pathname}?build=${encodeBuild(payload)}`;
+        const url = `${location.origin}${location.pathname}?module=builder&build=${encodeBuild(payload)}#builder`;
         await navigator.clipboard.writeText(url);
         history.replaceState(null, "", url);
         setNotice("Donanım planı bağlantısı kopyalandı.");
@@ -278,21 +315,29 @@ export default function Home() {
     };
   const openModule = (id: MainModule, searchParams?: Record<string, string>) => {
       setActiveModule(id);
+      if (id === "recipes") setRecipeRevision((value) => value + 1);
       setMoreOpen(false);
       setSearchOpen(false);
       const url = new URL(location.href);
       url.searchParams.set("module", id);
+      ["item", "quest", "ability", "material", "view", "region", "boss", "node", "talisman", "kind", "recipe", "build"].forEach((key) => url.searchParams.delete(key));
       if (searchParams) {
-        ["item", "quest", "ability", "material", "view", "region", "boss", "node", "talisman"].forEach((key) => url.searchParams.delete(key));
         Object.entries(searchParams).forEach(([key, value]) => url.searchParams.set(key, value));
       }
       history.replaceState(null, "", url);
       requestAnimationFrame(() => document.getElementById("modules")?.scrollIntoView());
     },
+    goHome = () => {
+      setActiveModule(null);
+      setMoreOpen(false);
+      setSearchOpen(false);
+      history.replaceState(null, "", location.pathname);
+      requestAnimationFrame(() => document.getElementById("top")?.scrollIntoView());
+    },
     normalizedGlobalQuery = normalizeSearch(globalQuery),
     globalModuleResults = normalizedGlobalQuery
       ? moduleTabs.filter((item) => matchesSearch(`${item.label} ${item.summary} ${item.keywords}`, globalQuery)).slice(0, 8)
-      : moduleTabs.filter((item) => primaryModuleIds.includes(item.id)),
+      : moduleTabs.filter((item) => quickModuleIds.includes(item.id)),
     globalItemResults = normalizedGlobalQuery
       ? publishableItems.filter((item) => {
           const recipe = itemRecipe(item.id);
@@ -305,6 +350,25 @@ export default function Home() {
       : [],
     globalTalismanResults = normalizedGlobalQuery
       ? talismans.filter((item) => matchesSearch(`${item.name} ${item.class} ${item.color} ${item.series} ${item.effectText} ${talismanAcquisition(item)}`, globalQuery)).slice(0, 8)
+      : [],
+    globalRecipeResults = normalizedGlobalQuery
+      ? [
+          ...recipes.map((recipe) => {
+            const item = publishableItems.find((row) => row.id === recipe.itemId);
+            return { id: recipe.itemId, kind: "item" as const, name: item?.name ?? recipe.itemId, description: `${item?.class ?? ""} · Eşya · ${recipe.materials.length} malzeme`, search: recipe.materials.map((material) => material.name).join(" ") };
+          }),
+          ...talismanRecipes.map((recipe) => {
+            const item = talismans.find((row) => row.id === recipe.itemId);
+            return { id: recipe.itemId, kind: "talisman" as const, name: item?.name ?? recipe.itemId, description: `${item?.class ?? ""} · Tılsım · ${recipe.materials.length} malzeme`, search: recipe.materials.map((material) => material.name).join(" ") };
+          }),
+          ...Object.entries(potionIngredientIndex).map(([ingredient, names]) => ({
+            id: ingredient,
+            kind: "potion" as const,
+            name: `${ingredient} kullanılan iksirler`,
+            description: `İksir dizini · ${names.length} bağlantı`,
+            search: names.join(" "),
+          })),
+        ].filter((item) => matchesSearch(`${item.name} ${item.description} ${item.search}`, globalQuery)).slice(0, 8)
       : [],
     globalQuestResults = normalizedGlobalQuery
       ? quests.filter((item) => matchesSearch([
@@ -348,6 +412,7 @@ export default function Home() {
     globalResultCount =
       (categoryVisible("Bölümler") ? globalModuleResults.length : 0) +
       (categoryVisible("Eşyalar") ? globalItemResults.length : 0) +
+      (categoryVisible("Reçeteler") ? globalRecipeResults.length : 0) +
       (categoryVisible("Görevler") ? globalQuestResults.length : 0) +
       (categoryVisible("Yetenekler") ? globalAbilityResults.length : 0) +
       (categoryVisible("Madenler") ? globalMaterialResults.length : 0) +
@@ -362,6 +427,7 @@ export default function Home() {
         (classFilter === "Tümü" || i.class === classFilter) &&
         (slotFilter === "Tümü" || i.slot === slotFilter),
     ),
+    visibleItems = filtered.slice(0, itemVisibleLimit),
     compareItems = compareIds
       .map((id) => items.find((i) => i.id === id))
       .filter((item): item is Item => Boolean(item)),
@@ -379,7 +445,7 @@ export default function Home() {
   return (
     <main>
       <header className="siteHeader">
-        <a className="brand" href="#top" aria-label="Nefer Atlası ana sayfa">
+        <a className="brand" href="/" aria-label="Nefer Atlası ana sayfa">
           <b className="brandMark">N</b>
           <span className="brandName">
             <strong>NEFER ATLASI</strong>
@@ -387,75 +453,25 @@ export default function Home() {
           </span>
         </a>
         <nav className="top-status" aria-label="Açık modül">
-          <span>{moduleTabs.find((item) => item.id === activeModule)?.label}</span>
           <button className="globalSearchTrigger" type="button" onClick={() => setSearchOpen(true)} aria-label="Atlas genelinde ara">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/></svg>
             <b>Atlas’ta ara</b>
             <small aria-hidden="true">/</small>
           </button>
-          <a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a>
-          <a href="/rehber">Rehber</a>
-          <a href="/istatistik/giris">Yönetici</a>
-          <i>{SITE_RELEASE.channel} v{SITE_RELEASE.version}</i>
+          <button className="siteMenuTrigger" type="button" aria-expanded={moreOpen} onClick={() => setMoreOpen((value) => !value)}>Menü <i aria-hidden="true">{moreOpen ? "×" : "+"}</i></button>
         </nav>
       </header>
-      <section className="hero" id="top">
-        <div>
-          <p className="eyebrow">KÖ BİLGİ · STRATEJİ · EKONOMİ PLATFORMU</p>
-          <h1>
-            Bilgiyi doğrula.
-            <br />
-            <em>Stratejini kur.</em>
-          </h1>
-          <p>
-            Eşyaları, buildleri, yetenekleri, bölgeleri, madenleri ve pazar
-            verisini aynı kaynak zincirinde incele; karşılaşmaya hazırlan.
-          </p>
-          <div className="heroActions">
-            <a href="/rehber">Nasıl kullanılır?</a>
-            <button onClick={() => document.getElementById("modules")?.scrollIntoView()}>Modülleri aç</button>
-          </div>
-        </div>
-        <aside>
-          <small>GENİŞLEYEN KÖ KATALOĞU</small>
-          <strong>{publishableItems.length}</strong>
-          <span>kaynaklı eşya kaydı</span>
-          <p>
-            Çemberlitaş setleri · Sığınak ve Migrat takıları · sınıfa özel
-            yuvalar
-          </p>
-        </aside>
-      </section>
-      <AdSlot placement="home_top" />
-      <nav className="moduleTabs" id="modules" aria-label="Nefer Atlası ana bölümleri">
-        <div className="modulePrimary" role="tablist">
-        {moduleTabs.filter((item) => primaryModuleIds.includes(item.id)).map((item) => (
-          <button
-            key={item.id}
-            role="tab"
-            aria-selected={activeModule === item.id}
-            className={activeModule === item.id ? "active" : ""}
-            onClick={() => openModule(item.id)}
-          >
-            <span>{item.label}</span>
-          </button>
-        ))}
-        </div>
-        <div className="moduleMore">
-          <button type="button" className={!primaryModuleIds.includes(activeModule) ? "active" : ""} aria-expanded={moreOpen} onClick={() => setMoreOpen((value) => !value)}>
-            <span>{primaryModuleIds.includes(activeModule) ? "Tümü" : moduleTabs.find((item) => item.id === activeModule)?.label}</span>
-            <small aria-hidden="true">{moreOpen ? "×" : "+"}</small>
-          </button>
-          {moreOpen && <div className="moduleMenu">
-            <header><b>Tüm bölümler</b><span>Aradığın aracı seç</span></header>
-            {moduleTabs.filter((item) => !primaryModuleIds.includes(item.id)).map((item) => (
-              <button type="button" key={item.id} className={activeModule === item.id ? "active" : ""} onClick={() => openModule(item.id)}>
-                <span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i>
-              </button>
-            ))}
-          </div>}
-        </div>
-      </nav>
+      {moreOpen && <div className="siteMenuOverlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setMoreOpen(false)}><aside className="siteMenu" role="dialog" aria-modal="true" aria-label="Site menüsü"><header><span><small>NEFER ATLASI</small><h2>Tüm bölümler</h2></span><button type="button" onClick={() => setMoreOpen(false)} aria-label="Menüyü kapat">×</button></header><div>{moduleGroups.map((group) => <section key={group.label}><header><b>{group.label}</b><small>{group.note}</small></header>{group.ids.map((id) => { const item = moduleTabs.find((row) => row.id === id); return item && <button type="button" key={id} className={activeModule === id ? "active" : ""} onClick={() => openModule(id)}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>; })}</section>)}</div><footer><a href="/uretim">Üretim takibi</a><a href="/rehber">Kullanım rehberi</a><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a></footer></aside></div>}
+
+      {activeModule === null ? <>
+        <section className="homeGateway" id="top">
+          <div><small>KÖ BİLGİ PLATFORMU</small><h1>Ne arıyorsun?</h1><p>Önce bilgiyi seç. Ayrıntılar yalnız açtığında görünür.</p></div>
+          <button className="gatewaySearch" type="button" onClick={() => setSearchOpen(true)}><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/></svg><span><b>Atlas’ta ara</b><small>Eşya, tılsım, reçete, görev, maden veya boss</small></span><kbd>/</kbd></button>
+          <nav className="gatewayChoices" id="modules" aria-label="Hızlı bölümler">{quickModuleIds.map((id) => { const item = moduleTabs.find((row) => row.id === id)!; return <button type="button" onClick={() => openModule(id)} key={id}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>; })}</nav>
+          <button className="gatewayMore" type="button" onClick={() => setMoreOpen(true)}>Diğer araçları ve proje bölümlerini aç</button>
+        </section>
+        <AdSlot placement="home_top" />
+      </> : <nav className="moduleContext" id="modules" aria-label="Açık bölüm"><button type="button" onClick={goHome}>← Ana sayfa</button><b>{moduleTabs.find((item) => item.id === activeModule)?.label}</b><button type="button" onClick={() => setMoreOpen(true)}>Diğer bölümler</button></nav>}
       {activeModule === "builder" && <section className="builder" id="builder">
         <Title eyebrow="M2 · DONANIM PLANLAYICI" title="Sekiz yuvayı sen doldur">
           <div className="actions">
@@ -589,11 +605,12 @@ export default function Home() {
           eyebrow="TILSIM REHBERİ"
           title="Ne işe yarar, nereden elde edilir?"
         >
-          <span className="count">{talismans.length} tılsım · kullanım, edinme ve reçete bilgisi</span>
+          <span className="count">{talismans.length} tılsım · etki ve edinme bilgisi</span>
         </Title>
-        <TalismanProductionAtlas klass={klass} initialTalismanId={talismanId} />
+        <TalismanProductionAtlas klass={klass} initialTalismanId={talismanId} onClassChange={setClass} />
       </section>}
-      {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} onOpen={setDetail} />}
+      {activeModule === "recipes" && <RecipeCatalog key={recipeRevision} />}
+      {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} initialBossName={regionSearchSeed.split("|||")[1]} onOpen={setDetail} />}
       {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide />}
@@ -640,23 +657,16 @@ export default function Home() {
             </select>
           </div>
         </Title>
-        <p className="catalogAudit">
-          <b>Doğrulama notu:</b> “Tek kaynak” etiketi kesin bilgi anlamına gelmez.
-          Bu kayıtlar ikinci bağımsız kaynak veya aynı eşya adını gösteren oyun içi
-          ekran görüntüsü gelene kadar teyit bekler; çelişkili değerler hesaplara alınmaz.
-          Çemberlitaş adları resmî eşya listeleriyle, Sığınaklar ve Migrat adları sınıf
-          ganimet tablolarıyla karşılaştırıldı. “Farabi Modeli Farabi Modeli” gibi tekrarlar
-          kaynakta çift efsunu ifade ettiği için otomatik olarak silinmez.
-        </p>
+        <details className="catalogAuditDisclosure"><summary>Doğrulama notunu aç <i>+</i></summary><p><b>“Tek kaynak” etiketi kesin bilgi anlamına gelmez.</b> Bu kayıtlar ikinci bağımsız kaynak veya aynı eşya adını gösteren oyun içi ekran görüntüsü gelene kadar teyit bekler; çelişkili değerler hesaplara alınmaz. Çemberlitaş adları resmî eşya listeleriyle, Sığınaklar ve Migrat adları sınıf ganimet tablolarıyla karşılaştırıldı. “Farabi Modeli Farabi Modeli” gibi tekrarlar kaynakta çift efsunu ifade ettiği için otomatik olarak silinmez.</p></details>
         <p className="resultCount">
-          {filtered.length} eşya gösteriliyor · Aynı sınıf ve yuvadan iki eşyayı
+          {visibleItems.length}/{filtered.length} eşya gösteriliyor · Aynı sınıf ve yuvadan iki eşyayı
           karşılaştırabilirsin.
         </p>
         {compareItems.length > 0 && (
           <ComparePanel items={compareItems} clear={() => setCompareIds([])} />
         )}
         <div className="cards">
-          {filtered.map((item) => (
+          {visibleItems.map((item) => (
             <ItemCard
               item={item}
               compared={compareIds.includes(item.id)}
@@ -666,6 +676,7 @@ export default function Home() {
             />
           ))}
         </div>
+        {visibleItems.length < filtered.length && <button className="catalogMore" type="button" onClick={() => setItemVisibleLimit((value) => value + 24)}>24 eşya daha göster <span>{filtered.length - visibleItems.length} kaldı</span></button>}
         {filtered.length === 0 && (
           <p className="emptyResult">
             Bu filtrelerle eşleşen kaynaklı eşya yok.
@@ -689,6 +700,7 @@ export default function Home() {
           <div className="globalSearchResults">
             {categoryVisible("Bölümler") && globalModuleResults.length > 0 && <section><h3>Bölümler</h3>{globalModuleResults.map((item) => <button type="button" key={item.id} onClick={() => openModule(item.id)}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>)}</section>}
             {categoryVisible("Eşyalar") && globalItemResults.length > 0 && <section><h3>Eşyalar</h3>{globalItemResults.map((item) => <button type="button" key={item.id} onClick={() => { setQuery(item.name); setClassFilter(item.class === "Tüm Sınıflar" ? "Tümü" : item.class); setSlotFilter(item.slot); setDetail(item); openModule("items", { item: item.id }); }}><span><b>{item.name}</b><small>{item.class} · {item.slot}{item.boss ? ` · ${item.boss}` : ""}</small></span><i>↗</i></button>)}</section>}
+            {categoryVisible("Reçeteler") && globalRecipeResults.length > 0 && <section><h3>Reçeteler</h3>{globalRecipeResults.map((item) => <button type="button" key={`${item.kind}-${item.id}`} onClick={() => openModule("recipes", { kind: item.kind, recipe: item.id })}><span><b>{item.name}</b><small>{item.description}</small></span><i>→</i></button>)}</section>}
             {categoryVisible("Görevler") && globalQuestResults.length > 0 && <section><h3>Görevler</h3>{globalQuestResults.map((item) => <button type="button" key={item.id} onClick={() => { setQuestSearchSeed(item.title); openModule("quests", { quest: item.id }); }}><span><b>{item.title}</b><small>Sv. {item.level} · {item.giver} · {item.location}</small></span><i>→</i></button>)}</section>}
             {categoryVisible("Yetenekler") && globalAbilityResults.length > 0 && <section><h3>Yetenekler</h3>{globalAbilityResults.map((item) => <button type="button" key={item.id} onClick={() => { setClass(item.class as CharacterClass); setAbilitySearchSeed(item.focusId); openModule("skills", { ability: item.id }); }}><span><b>{item.name}</b><small>{item.class} · Sv. {item.level} · {item.description}</small></span><i>→</i></button>)}</section>}
             {categoryVisible("Madenler") && globalMaterialResults.length > 0 && <section><h3>Maden ve materyaller</h3>{globalMaterialResults.map((item) => <button type="button" key={item.id} onClick={() => item.target === "mining" ? openModule("mining", { view: "Kaynaklar", material: item.name }) : openModule("atlas", { node: `material:${item.name.toLocaleLowerCase("tr-TR")}` })}><span><b>{item.name}</b><small>{item.description}</small></span><i>→</i></button>)}</section>}
@@ -699,21 +711,22 @@ export default function Home() {
           <footer><span><kbd>/</kbd> ile aç</span><span><kbd>Esc</kbd> ile kapat</span></footer>
         </section>
       </div>}
-      <AdSlot placement="home_inline" />
+      {activeModule !== null && <AdSlot placement="home_inline" />}
       <footer className="siteFooter">
         <div>
           <b>NEFER ATLASI</b>
           <span>{SITE_RELEASE.channel} v{SITE_RELEASE.version} · {SITE_RELEASE.releasedAt}</span>
           <span>Bağımsız Kıyametin Öncüleri topluluk projesi · resmî değildir.</span>
         </div>
-        <p>
-          Kaynak yoksa kesin bilgi yok. Tek kaynak teyit bekler; çelişki saklanmaz;
-          eşya adıyla görünüşü aynı kanıtta değilse görsel bağlanmaz.
-        </p>
-        <span className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a><a href="/istatistik/giris">Yönetici Girişi</a></span>
+        <p>Kaynak yoksa kesin bilgi yok. Ayrıntı ve doğrulama, yalnız ilgili kaydı açtığında gösterilir.</p>
+        <details className="footerDetails"><summary>Bağlantılar ve yönetim <i>+</i></summary><div className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/uretim">Üretim Takibi</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Editör: Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a><a href="/istatistik/giris">Yönetici Girişi</a><ReleaseCenter inline /></div></details>
       </footer>
-      <ReleaseCenter />
-      {detail && <ItemModal item={detail} close={() => setDetail(null)} />}
+      {detail && <ItemModal item={detail} close={() => {
+        setDetail(null);
+        const url = new URL(location.href);
+        url.searchParams.delete("item");
+        history.replaceState(null, "", url);
+      }} />}
     </main>
   );
 }
@@ -741,7 +754,7 @@ function Totals({ totals }: { totals: Record<string, number> }) {
     </div>
   );
 }
-function GroupRegions({ onOpen, initialRegionName = "" }: { onOpen: (item: Item) => void; initialRegionName?: string }) {
+function GroupRegions({ onOpen, initialRegionName = "", initialBossName = "" }: { onOpen: (item: Item) => void; initialRegionName?: string; initialBossName?: string }) {
   const cemberlitasLoot = publishableItems
       .filter(
         (item) => isCemberlitasRecipe(itemRecipe(item.id)),
@@ -806,10 +819,11 @@ function GroupRegions({ onOpen, initialRegionName = "" }: { onOpen: (item: Item)
         ))}
       </div>
       <div className="bossLootGrid">
-        {activeRegion.bossGroups.map((boss, bossIndex) => {
+        {[...activeRegion.bossGroups].sort((a, b) => Number(b.name === initialBossName || b.lootBosses.includes(initialBossName)) - Number(a.name === initialBossName || a.lootBosses.includes(initialBossName))).map((boss, bossIndex) => {
           const drops = visible.filter((item) => item.bosses.some((itemBoss) => boss.lootBosses.includes(itemBoss)));
+          const focused = boss.name === initialBossName || boss.lootBosses.includes(initialBossName);
           return (
-            <article className="bossLoot" key={boss.name}>
+            <article className={focused ? "bossLoot focused" : "bossLoot"} key={boss.name}>
               <header>
                 <div className="bossMark">{String(bossIndex + 1).padStart(2, "0")}</div>
                 <div>
@@ -852,14 +866,8 @@ function ItemCard({
   onCompare: (item: Item) => void;
   compared: boolean;
 }) {
-  const all = itemStats(item.id),
-    usable = publishableStats(item.id),
-    hasConflict = all.some((s) => s.verificationStatus === "conflicted"),
-    visual = images.find((image) => image.itemId === item.id),
-    appearance = visual ? undefined : appearanceImageFor(item),
-    recipe = itemRecipe(item.id),
-    cemberlitasOrigin = isCemberlitasRecipe(recipe),
-    cemberlitasBosses = cemberlitasOrigin ? cemberlitasBossesFor(item) : [];
+  const visual = images.find((image) => image.itemId === item.id),
+    appearance = visual ? undefined : appearanceImageFor(item);
   return (
     <article className={`card ${visual || appearance ? "withArt" : "dataOnly"}`}>
       <button className="cardOpen" onClick={() => onOpen(item)}>
@@ -893,42 +901,7 @@ function ItemCard({
             <b>{item.rarity.toUpperCase()}</b>
           </p>
           <h3>{item.name}</h3>
-          {usable.length > 0 ? (
-            <>
-              <div className="tooltip">
-                {usable.map((s) => (
-                  <span key={s.id}>
-                    ◆ {s.attribute}: {fmt(s.value)}
-                  </span>
-                ))}
-                {hasConflict && (
-                  <span className="conflict">
-                    ⚠ Çelişkili özellikler hesap dışı
-                  </span>
-                )}
-              </div>
-              {item.acquisition && (
-                <div className="acquisition">{item.acquisition}</div>
-              )}
-              {item.region && (
-                <div className="acquisition">
-                  Düşme yeri: {item.region} · {item.boss}
-                </div>
-              )}
-              {!item.region && cemberlitasOrigin && (
-                <div className="acquisition">Ganimet/üretim: Çemberlitaş · {cemberlitasBosses.join(", ")} · {recipe.materials.length} malzeme</div>
-              )}
-            </>
-          ) : (
-            <div className="lootFact">
-              <b>
-                {item.region} · {item.boss}
-              </b>
-              <span>
-                Tek kaynakta ganimet olarak listeleniyor; efsun değerleri henüz kaynaklanmadı.
-              </span>
-            </div>
-          )}
+          <span className="cardHint">Kaynak ve ayrıntıyı aç →</span>
           <footer>
             ● {statusLabel[item.publicationStatus]} · {item.lastChecked}
           </footer>
@@ -974,15 +947,10 @@ function ComparePanel({
         {attributes.map((attribute) => (
           <div className="compareRow" key={attribute}>
             <span>{attribute}</span>
-            {compared.map((item) => (
-              <strong key={item.id}>
-                {fmt(
-                  publishableStats(item.id)
-                    .filter((s) => s.attribute === attribute)
-                    .reduce((sum, s) => sum + s.value, 0),
-                )}
-              </strong>
-            ))}
+            {compared.map((item) => {
+              const matching = publishableStats(item.id).filter((stat) => stat.attribute === attribute);
+              return <strong key={item.id}>{matching.length ? fmt(matching.reduce((sum, stat) => sum + stat.value, 0)) : "—"}</strong>;
+            })}
           </div>
         ))}
       </div>
@@ -992,6 +960,8 @@ function ComparePanel({
 }
 function ItemModal({ item, close }: { item: Item; close: () => void }) {
   const recipe = itemRecipe(item.id),
+    usable = publishableStats(item.id),
+    hasConflict = itemStats(item.id).some((stat) => stat.verificationStatus === "conflicted"),
     claims = itemEvidence(item.id),
     source = sourceFor(claims[0]?.sourceId),
     recipeSource = recipe ? sourceFor(recipe.sourceId) : undefined,
@@ -1056,6 +1026,10 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
             <dt>Kanıt kapsamı</dt>
             <dd>{claims.length} alan bazlı kayıt</dd>
           </div>
+          {usable.length > 0 && <div>
+            <dt>Özellikler</dt>
+            <dd className="modalStats">{usable.map((stat) => <span key={stat.id}>◆ {stat.attribute}: {fmt(stat.value)}</span>)}{hasConflict && <em>⚠ Çelişkili özellikler hesap dışı</em>}</dd>
+          </div>}
           {item.level && (
             <div>
               <dt>Seviye</dt>
@@ -1083,21 +1057,8 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
                 <dd>{recipe.method}</dd>
               </div>
               <div>
-                <dt>Malzemeler</dt>
-                <dd className="recipeMaterialList">
-                  {recipe.materials.map((material) => {
-                    const materialSource = materialSourceFor(material.name);
-                    return <span key={material.name}>
-                      <b>{material.name} ×{material.quantity}</b>
-                      {materialSource?.kind === "gathering"
-                        ? <small>{materialSource.profession} · {materialSource.base} kaynağının {materialSource.output}. çıktısı · {materialSource.region} · <a href={`/?module=mining&view=Kaynaklar&material=${encodeURIComponent(material.name)}#mining`}>Üretim Ağında aç ↗</a></small>
-                        : materialSource?.kind === "creature_drop"
-                          ? <small>{materialSource.region} · {materialSource.enemy} ganimeti · {materialSource.verification} · <a href={`/?module=mining&view=Kaynaklar&material=${encodeURIComponent(material.name)}#mining`}>Üretim Ağında aç ↗</a></small>
-                          : <small>Kaynak eşleşmesi henüz yok</small>}
-                      <a href={`/?module=atlas&node=${encodeURIComponent(`material:${material.name.toLocaleLowerCase("tr-TR")}`)}#atlas`}>bağlantılı atlas ↗</a>
-                    </span>;
-                  })}
-                </dd>
+                <dt>Reçete</dt>
+                <dd><a className="modalRecipeLink" href={`/?module=recipes&kind=item&recipe=${item.id}#recipes`}>{recipe.materials.length} malzemeli reçeteyi aç →</a></dd>
               </div>
             </>
           )}
