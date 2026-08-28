@@ -84,10 +84,11 @@ export default function ProjectScorecard() {
       <details className="healthMethod">
         <summary>Puan nasıl hesaplanıyor?</summary>
         <p>
-          Kanıt %25, özellik %20, elde etme %15, doğrulanmış medya %20,
+          Kanıt %25, özellik %20, elde etme %15, görünüş ailesi kapsamı %20,
           bütünlük %15 ve güncellik %5 ağırlık taşır. 75–100 “Güçlü”, 45–74
-          “Gelişiyor”, 0–44 “Veri bekliyor” olarak gösterilir. Medya puanı yalnız
-          eşya adı ve görünüşü aynı kanıtta yer aldığında artar.
+          “Gelişiyor”, 0–44 “Veri bekliyor” olarak gösterilir. Medya puanı eşya
+          başına değil, aynı gövdeyi paylaşan görünüş ailesi başına artar; efsun
+          ve değerler görselden ayrı tutulur.
         </p>
       </details>
       </>}

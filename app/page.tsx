@@ -62,21 +62,15 @@ import {
 import { creatureDropSources } from "../lib/material-sources";
 import { talismanRecipes } from "../lib/talisman-recipes";
 import { potionIngredientIndex } from "../lib/potion-index";
+import {
+  isSharedItemVisualFamily,
+  itemVisualFamilyFor,
+  itemVisualFamilyInventory,
+} from "../lib/visual-families";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
-  fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n),
-  familyNames: Record<string, string> = {
-    "bicak-sirti": "Bıçak Sırtı",
-    "tas-kanat": "Taş Kanat",
-    "hidra-nefesi": "Hidra Nefesi",
-    kiyamet: "Kıyamet",
-    "sifir-kelvin": "Sıfır Kelvin",
-    transformator: "Transformatör",
-    cehennem: "Cehennem",
-    "ruh-doven": "Ruh Döven",
-    mevlana: "Mevlana",
-    hidroflorik: "Hidroflorik",
-    siyanur: "Siyanür",
-  };
+  fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n);
+const itemFamilyInventory = itemVisualFamilyInventory(publishableItems);
+const itemFamilySize = new Map(itemFamilyInventory.map(({ family, items: familyItems }) => [family.id, familyItems.length]));
 type AbilityKey = "main" | "support" | "defense";
 const moduleTabs = [
   { id: "builder", label: "Donanım", summary: "Eşya seç, toplam özelliklerini gör.", keywords: "build set zırh silah" },
@@ -658,6 +652,7 @@ export default function Home() {
           </div>
         </Title>
         <details className="catalogAuditDisclosure"><summary>Doğrulama notunu aç <i>+</i></summary><p><b>“Tek kaynak” etiketi kesin bilgi anlamına gelmez.</b> Bu kayıtlar ikinci bağımsız kaynak veya aynı eşya adını gösteren oyun içi ekran görüntüsü gelene kadar teyit bekler; çelişkili değerler hesaplara alınmaz. Çemberlitaş adları resmî eşya listeleriyle, Sığınaklar ve Migrat adları sınıf ganimet tablolarıyla karşılaştırıldı. “Farabi Modeli Farabi Modeli” gibi tekrarlar kaynakta çift efsunu ifade ettiği için otomatik olarak silinmez.</p></details>
+        <p className="visualFamilyPolicy"><b>Tekrarsız görsel sistemi:</b> {publishableItems.length} eşya, {itemFamilyInventory.length} görünüş ailesine bağlandı. Her gövde için bir görsel yeterli; efsun ve özellikler eşya kaydında ayrı kalır.</p>
         <p className="resultCount">
           {visibleItems.length}/{filtered.length} eşya gösteriliyor · Aynı sınıf ve yuvadan iki eşyayı
           karşılaştırabilirsin.
@@ -867,7 +862,8 @@ function ItemCard({
   compared: boolean;
 }) {
   const visual = images.find((image) => image.itemId === item.id),
-    appearance = visual ? undefined : appearanceImageFor(item);
+    appearance = visual ? undefined : appearanceImageFor(item),
+    visualFamily = itemVisualFamilyFor(item);
   return (
     <article className={`card ${visual || appearance ? "withArt" : "dataOnly"}`}>
       <button className="cardOpen" onClick={() => onOpen(item)}>
@@ -879,7 +875,7 @@ function ItemCard({
               width={1200}
               height={1600}
             />
-            <small>OYUN İÇİ GÖRSEL · TEK KAYNAK</small>
+            <small>TEKİL EŞYA GÖRSELİ · TEK KAYNAK</small>
           </div>
         )}
         {appearance && (
@@ -901,6 +897,7 @@ function ItemCard({
             <b>{item.rarity.toUpperCase()}</b>
           </p>
           <h3>{item.name}</h3>
+          {isSharedItemVisualFamily(visualFamily) && <span className="visualFamilyChip">ORTAK GÖVDE · {visualFamily.label}</span>}
           <span className="cardHint">Kaynak ve ayrıntıyı aç →</span>
           <footer>
             ● {statusLabel[item.publicationStatus]} · {item.lastChecked}
@@ -968,6 +965,8 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
     visual = images.find((image) => image.itemId === item.id),
     appearance = visual ? undefined : appearanceImageFor(item),
     appearanceSource = appearance ? sourceFor(appearance.sourceId) : undefined,
+    visualFamily = itemVisualFamilyFor(item),
+    visualFamilyCount = itemFamilySize.get(visualFamily.id) ?? 1,
     cemberlitasOrigin = isCemberlitasRecipe(recipe),
     cemberlitasBosses = cemberlitasOrigin ? cemberlitasBossesFor(item) : [],
     lootSource = cemberlitasOrigin ? sourceFor(cemberlitasLootSourceIdFor(item) ?? "") : undefined;
@@ -1008,12 +1007,14 @@ function ItemModal({ item, close }: { item: Item; close: () => void }) {
         </p>
         <h2>{item.name}</h2>
         <dl>
-          {item.appearanceFamily && (
+          <div>
+            <dt>Görünüş ailesi</dt>
+            <dd>{visualFamily.label} · {visualFamilyCount} kayıt</dd>
+          </div>
+          {isSharedItemVisualFamily(visualFamily) && (
             <div>
-              <dt>Görünüş ailesi</dt>
-              <dd>
-                {familyNames[item.appearanceFamily] ?? item.appearanceFamily}
-              </dd>
+              <dt>Ortak gövde kuralı</dt>
+              <dd>Bu görünüş {visualFamily.label} gövdesini temsil eder; efsun, seviye ve özellikler seçili eşya kaydına aittir.</dd>
             </div>
           )}
           {appearance && (

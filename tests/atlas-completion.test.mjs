@@ -27,3 +27,19 @@ test("tamamlama kuyruğu tür ve Türkçe aramayla süzülür", () => {
   assert.equal(filterCompletionRecords(records, { query: "çelişkili" })[0].name, "Çelişkili Ceket");
 });
 
+test("aynı gövdeyi paylaşan eşyalar görsel kuyruğunda tek iş olur", () => {
+  const sharedGraph = {
+    itemNodes: [
+      { id: "item:a", key: "a", type: "item", name: "Birinci Balyoz", subtitle: "Savaşçı · Silah", verificationStatus: "cross_verified", item: { visualFamily: "balyoz" }, recipe: {}, region: null, boss: null },
+      { id: "item:b", key: "b", type: "item", name: "İkinci Balyoz", subtitle: "Savaşçı · Silah", verificationStatus: "cross_verified", item: { visualFamily: "balyoz" }, recipe: {}, region: null, boss: null },
+    ],
+    materialNodes: [],
+  };
+  const records = buildAtlasCompletionQueue({
+    graph: sharedGraph,
+    visualFamilyForItem: () => ({ id: "item:type:balyoz", label: "Balyoz" }),
+    statsForItem: () => [{ value: 1 }],
+  });
+  assert.equal(completionSummary(records).media, 1);
+  assert.match(records.find((record) => record.kind === "media")?.subtitle ?? "", /2 eşya/);
+});

@@ -11,6 +11,10 @@ import {
   sources,
   stats,
 } from "./catalog";
+import {
+  coveredItemVisualFamilyIds,
+  itemVisualFamilyInventory,
+} from "./visual-families";
 
 export type HealthState = "Güçlü" | "Gelişiyor" | "Veri bekliyor";
 
@@ -35,6 +39,12 @@ export const healthState = (value: number): HealthState =>
 
 const itemIds = new Set(items.map((item) => item.id));
 const sourceIds = new Set(sources.map((source) => source.id));
+const itemFamilyInventory = itemVisualFamilyInventory(publishableItems);
+const coveredItemFamilies = coveredItemVisualFamilyIds({
+  items: publishableItems,
+  images,
+  appearanceImages,
+});
 const integrityChecks = [
   itemIds.size === items.length,
   sourceIds.size === sources.length,
@@ -46,6 +56,7 @@ const integrityChecks = [
     (asset) => itemIds.has(asset.itemId) && sourceIds.has(asset.sourceId),
   ),
   appearanceImages.every((asset) => sourceIds.has(asset.sourceId)),
+  itemFamilyInventory.every(({ items: familyItems }) => familyItems.length > 0),
   publishableItems.every((item) =>
     ["name", "class", "slot"].every((field) =>
       itemEvidence(item.id, field).some(
@@ -112,18 +123,13 @@ const rawMetrics = [
   },
   {
     id: "media" as const,
-    label: "Doğrulanmış görsel",
+    label: "Görsel ailesi kapsamı",
     shortLabel: "Medya",
-    value: publishableItems.filter((item) =>
-      images.some(
-        (asset) =>
-          asset.itemId === item.id && asset.nameAndAppearanceTogether === true,
-      ),
-    ).length,
-    total: publishableItems.length,
+    value: itemFamilyInventory.filter(({ family }) => coveredItemFamilies.has(family.id)).length,
+    total: itemFamilyInventory.length,
     weight: 20,
-    detail: "Eşya adı ile görünüşü aynı kanıtta görülen ve tek eşyaya bağlı medya.",
-    action: "Aynı görseli çoğaltma; ad + görünüşü birlikte gösteren özgün kayıt topla.",
+    detail: "Aynı gövdeyi paylaşan eşyalar tek görünüş ailesi olarak sayılır; efsun ve değerler görselden ayrı tutulur.",
+    action: "Her eşya yerine yalnız eksik gövde ailesi için bir doğrulanmış oyun içi görsel topla.",
   },
   {
     id: "integrity" as const,

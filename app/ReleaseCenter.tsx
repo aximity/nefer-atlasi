@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.40.0",
+    date: "28 Ağustos 2026",
+    title: "Sade Bilgi Mimarisi",
+    changes: [
+      "Ana ekran arama ve dört hızlı işe indirildi.",
+      "Tılsım bilgisi, reçete kataloğu ve üretim takibi birbirinden ayrıldı.",
+      "Boş medya yuvaları ve kaynaksız fiyat vitrini görünür akıştan kaldırıldı.",
+    ],
+  },
+  {
     version: "0.39.0",
     date: "28 Ağustos 2026",
     title: "Tılsım Üretim Asistanı",

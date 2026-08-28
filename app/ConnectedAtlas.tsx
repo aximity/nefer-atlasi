@@ -8,6 +8,7 @@ import { appearanceImageFor, images, itemEvidence, publishableItems, publishable
 import { materialSourceFor } from "../lib/material-sources";
 import { summarizeMarket } from "../lib/market-board.mjs";
 import { displayUnit } from "../lib/presentation.mjs";
+import { itemVisualFamilyFor } from "../lib/visual-families";
 
 type NodeType = "all" | "item" | "material" | "boss" | "region";
 type PublishedRow = { id: string; type: string; subject: string; server: string; observedAt: string; sourceCount: number; details: Record<string, unknown> };
@@ -110,6 +111,7 @@ function ItemAtlasDetail({ node, selectNode, nodeFor }: { node: AtlasNode; selec
   const item = node.item!;
   const visual = images.find((image) => image.itemId === item.id);
   const appearance = visual ? undefined : appearanceImageFor(item);
+  const visualFamily = itemVisualFamilyFor(item);
   const stats = publishableStats(item.id);
   const evidence = itemEvidence(item.id);
   const itemSource = sourceFor(evidence[0]?.sourceId);
@@ -120,6 +122,7 @@ function ItemAtlasDetail({ node, selectNode, nodeFor }: { node: AtlasNode; selec
   return <div className="atlas-item-detail">
     {visual && <div className="atlas-item-image"><Image src={visual.url} alt={`${item.name} oyun içi görünümü`} width={1200} height={1600}/><span>OYUN İÇİ GÖRSEL · KAYNAK EŞLEŞMELİ</span></div>}
     {appearance && <div className="atlas-item-image set-reference"><Image src={appearance.url} alt={`${appearance.label} set görünüşü`} width={709} height={1536} unoptimized style={{objectPosition:appearance.focus,width:"100%",height:"100%",objectFit:"cover"}}/><span>SET GÖRÜNÜŞ REFERANSI · TEKİL PARÇA DEĞİL</span></div>}
+    <section className="atlas-visual-family"><small>GÖRÜNÜŞ AİLESİ</small><b>{visualFamily.label}</b><p>{visualFamily.scope === "shared_item_type" ? "Bu gövde için tek görsel kullanılır; efsun ve özellikler seçili eşya kaydında ayrı kalır." : visualFamily.note}</p></section>
     <section className="atlas-origin"><header><span>ELDE ETME ZİNCİRİ</span></header><div>{regionNode ? <button onClick={() => selectNode(regionNode)}><small>BÖLGE</small><b>{node.region}</b></button> : <article><small>BÖLGE</small><b>Eşleşme yok</b></article>}<i>→</i>{bossNodes.length ? <article><small>{bossNodes.length > 1 ? "BOSSLAR" : "BOSS"}</small><b>{bossNodes.map((boss) => boss.name).join(" · ")}</b></article> : <article><small>BOSS</small><b>Eşleşme yok</b></article>}<i>→</i><article><small>SONUÇ</small><b>{node.recipe?.method || item.acquisition || "Ganimet kaydı"}</b></article></div></section>
     {stats.length > 0 && <section className="atlas-stats"><header><span>OYUN İÇİ ÖZELLİKLER</span></header><div>{stats.map((stat) => <article key={stat.id}><span>{stat.attribute}</span><b>{fmt(stat.value)}{displayUnit(stat.unit) ? ` ${displayUnit(stat.unit)}` : ""}</b></article>)}</div></section>}
     {node.recipe ? <section className="atlas-recipe"><header><span>REÇETE · {node.recipe.materials.length} MALZEME</span><b>{node.recipe.verificationStatus === "cross_verified" ? "Çapraz doğrulandı" : "Tek kaynak"}</b></header><div>{node.recipe.materials.map((material) => { const materialNode = nodeFor("material", material.name.toLocaleLowerCase("tr-TR")); return <button key={material.name} onClick={() => materialNode && selectNode(materialNode)} disabled={!materialNode}><span><small>{materialNode?.region || "Kaynak eşleşmesi yok"}</small><b>{material.name}</b></span><strong>×{material.quantity}</strong></button>; })}</div></section> : <p className="atlas-empty-link">Bu eşya için reçete bağlantısı yok.</p>}

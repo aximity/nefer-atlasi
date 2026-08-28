@@ -26,8 +26,21 @@ const glassesStats = read("glasses-stats.json");
 const groupDerivedStats = read("group-derived-stats.json");
 const issues = read("issues.json");
 const economyLoops = read("economy-loops.json");
+const visualFamilies = read("visual-families.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
+
+test("ortak görünüş aileleri kapsamı ve doğrulama durumunu açık taşır", () => {
+  assert.equal(visualFamilies.length, 28);
+  assert.equal(new Set(visualFamilies.map((family) => family.id)).size, visualFamilies.length);
+  assert.equal(visualFamilies.filter((family) => family.kind === "item").length, 23);
+  assert.deepEqual(visualFamilies.filter((family) => family.kind === "talisman").map((family) => family.color).sort(), ["Kırmızı", "Mavi"]);
+  assert.deepEqual(visualFamilies.filter((family) => family.kind === "potion").map((family) => family.color), ["Kırmızı", "Mavi", "Turkuaz"]);
+  for (const family of visualFamilies) {
+    assert.ok(family.label && family.note && family.scope && family.status);
+    assert.ok(["set_appearance", "shared_item_type", "shared_talisman_type", "shared_potion_type"].includes(family.scope));
+  }
+});
 
 test("sekiz ekonomi döngüsü gerçek tüketim, para çıkışı ve güç kilidi tanımlar", () => {
   assert.equal(economyLoops.length, 8);

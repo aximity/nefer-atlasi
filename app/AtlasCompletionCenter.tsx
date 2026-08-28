@@ -2,13 +2,21 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { images, publishableItems, publishableStats, recipes } from "../lib/catalog";
+import { appearanceImages, images, publishableItems, publishableStats, recipes } from "../lib/catalog";
 import { materialSourceFor } from "../lib/material-sources";
 import { buildAtlasGraph } from "../lib/atlas-graph.mjs";
 import { buildAtlasCompletionQueue, completionSummary, COMPLETION_KIND_LABELS, filterCompletionRecords } from "../lib/atlas-completion.mjs";
+import { coveredItemVisualFamilyIds, itemVisualFamilyFor } from "../lib/visual-families";
 
 const graph = buildAtlasGraph({ items: publishableItems, recipes, materialSourceFor });
-const records = buildAtlasCompletionQueue({ graph, images, statsForItem: publishableStats });
+const coveredVisualFamilyIds = coveredItemVisualFamilyIds({ items: publishableItems, images, appearanceImages });
+const records = buildAtlasCompletionQueue({
+  graph,
+  images,
+  coveredVisualFamilyIds,
+  visualFamilyForItem: itemVisualFamilyFor,
+  statsForItem: publishableStats,
+});
 const summary = completionSummary(records);
 const filters = [
   ["all", "Tümü"],
@@ -42,7 +50,7 @@ export default function AtlasCompletionCenter() {
       <article className="critical"><small>ÇELİŞKİ</small><b>{summary.critical}</b><span>hesaptan uzak tutuluyor</span></article>
       <article><small>ELDE ETME</small><b>{summary.acquisition}</b><span>bağlantı bekliyor</span></article>
       <article><small>MALZEME</small><b>{summary.materialSources}</b><span>kaynak eşleşmesi yok</span></article>
-      <article><small>GÖRSEL</small><b>{summary.media}</b><span>özgün kanıt bekliyor</span></article>
+      <article><small>GÖRSEL AİLESİ</small><b>{summary.media}</b><span>tek ortak görsel bekliyor</span></article>
       <article><small>İKİNCİ TEYİT</small><b>{summary.verification}</b><span>tek kaynaklı kayıt</span></article>
     </div>
 
@@ -62,4 +70,3 @@ export default function AtlasCompletionCenter() {
     {filtered.length > shown.length && <p className="completionLimit">Liste mobilde gereksiz uzamasın diye ilk 18 kayıt gösteriliyor. Arama ve tür filtresiyle kalan kayda doğrudan ulaşabilirsin.</p>}
   </div>;
 }
-

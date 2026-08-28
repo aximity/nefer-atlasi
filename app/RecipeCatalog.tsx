@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { publishableItems, recipes, sourceFor, talismans } from "../lib/catalog";
 import { indexedPotionCount, potionIngredientIndex, potionRecipeSourceId } from "../lib/potion-index";
 import { talismanRecipes } from "../lib/talisman-recipes";
+import { itemVisualFamilyFor, potionVisualFamilies, talismanVisualFamilyFor } from "../lib/visual-families";
 
 type RecipeKind = "item" | "talisman" | "potion";
 const itemFavoriteKey = "nefer-production-favorites-v1";
@@ -51,7 +52,6 @@ export default function RecipeCatalog() {
   }, []);
   useEffect(() => { if (hydrated) localStorage.setItem(itemFavoriteKey, JSON.stringify(itemFavorites)); }, [hydrated, itemFavorites]);
   useEffect(() => { if (hydrated) localStorage.setItem(talismanFavoriteKey, JSON.stringify(talismanFavorites)); }, [hydrated, talismanFavorites]);
-  useEffect(() => { setVisibleLimit(18); }, [favoritesOnly, kind, query]);
 
   const itemById = useMemo(() => new Map(publishableItems.map((item) => [item.id, item])), []);
   const talismanById = useMemo(() => new Map(talismans.map((item) => [item.id, item])), []);
@@ -75,6 +75,7 @@ export default function RecipeCatalog() {
     setQuery("");
     setExpandedId("");
     setFavoritesOnly(false);
+    setVisibleLimit(18);
     const url = new URL(location.href);
     url.searchParams.set("kind", next);
     url.searchParams.delete("recipe");
@@ -88,7 +89,7 @@ export default function RecipeCatalog() {
   return <section className="recipeCatalog" id="recipes" aria-labelledby="recipe-title">
     <header className="recipeHead">
       <div><small>REÇETE KATALOĞU</small><h2 id="recipe-title">Önce türü seç.</h2><p>Yalnız seçtiğin reçete açılır; malzeme listeleri ilk ekranda yığılmaz.</p></div>
-      <label><span>Reçete veya malzeme ara</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Örn. Kondrit, Kıyamet Asa…" /></label>
+      <label><span>Reçete veya malzeme ara</span><input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleLimit(18); }} placeholder="Örn. Kondrit, Kıyamet Asa…" /></label>
     </header>
 
     <nav className="recipeKinds" aria-label="Reçete türü">
@@ -98,14 +99,18 @@ export default function RecipeCatalog() {
     {kind === "potion" ? <section className="potionIndex">
       <header><div><small>İKSİR KULLANIM DİZİNİ</small><h3>Malzemeden iksire git.</h3></div>{potionSource && <a href={potionSource.url} target="_blank" rel="noreferrer">Tam kaynak tablosu ↗</a>}</header>
       <p>Bu bölüm kaynakta ilişkilendirilen iksir adlarını gösterir. Eksiksiz malzeme ve adet tablosu henüz site içine doğrulanmadığı için yarım reçete kartı yayımlanmaz.</p>
+      <div className="potionVisualLegend" aria-label="İksir görünüş aileleri">
+        {potionVisualFamilies.map((family) => <article className={family.category ?? "support"} key={family.id}><i aria-hidden="true"/><span><small>ORTAK İKSİR GÖRÜNÜŞÜ</small><b>{family.label} · {family.color}</b><em>{family.sizeRule}</em></span></article>)}
+      </div>
       <div>{potionRows.map(([ingredient, names]) => <details key={ingredient}><summary><span><b>{ingredient}</b><small>{names.length} iksir bağlantısı</small></span><i>+</i></summary><ul>{names.map((name) => <li key={name}>{name}</li>)}</ul></details>)}</div>
       {potionRows.length === 0 && <p className="recipeEmpty">Bu aramayla eşleşen iksir bağlantısı yok.</p>}
     </section> : <div className="recipeList">
-      <div className="recipeCount"><p>{favoriteRows.length} reçete · ayrıntı için karta tıkla</p><button type="button" className={favoritesOnly ? "active" : ""} onClick={() => setFavoritesOnly((value) => !value)}>★ Favorilerim</button></div>
+      <div className="recipeCount"><p>{favoriteRows.length} reçete · ayrıntı için karta tıkla</p><button type="button" className={favoritesOnly ? "active" : ""} onClick={() => { setFavoritesOnly((value) => !value); setVisibleLimit(18); }}>★ Favorilerim</button></div>
       {visibleRows.map((recipe) => {
         const equipment = kind === "item" ? itemById.get(recipe.itemId) : undefined;
         const talisman = kind === "talisman" ? talismanById.get(recipe.itemId) : undefined;
         const item = equipment ?? talisman;
+        const visualFamily = equipment ? itemVisualFamilyFor(equipment) : talisman ? talismanVisualFamilyFor(talisman) : null;
         const favorite = activeFavorites.includes(recipe.itemId);
         const source = sourceFor(recipe.sourceId);
         return <article className="recipeRow" key={recipe.id}>
@@ -113,6 +118,8 @@ export default function RecipeCatalog() {
           <details open={expandedId === recipe.itemId} onToggle={(event) => setExpandedId(event.currentTarget.open ? recipe.itemId : expandedId === recipe.itemId ? "" : expandedId)}>
             <summary><span><small>{item?.class ?? "Sınıf yok"} · {equipment?.slot ?? talisman?.color ?? (kind === "item" ? "Eşya" : "Tılsım")}</small><b>{item?.name ?? recipe.itemId}</b></span><em>{recipe.materials.length} malzeme</em><i>+</i></summary>
             <div className="recipeBody">
+              {visualFamily && <p className="recipeVisualNote"><b>Görünüş ailesi:</b> {visualFamily.label}. {equipment ? "Efsun ve özellikler eşya kaydına aittir." : "Sınıf, kademe ve etki tılsım kaydına aittir."}</p>}
+              {talisman && <p className="recipeEffectNote"><b>Etki:</b> {talisman.effectText}</p>}
               <div className="recipeMaterials">{recipe.materials.map((material) => <span key={material.name}><b>{material.name}</b><strong>×{material.quantity}</strong></span>)}</div>
               <footer>{source && <a href={source.url} target="_blank" rel="noreferrer">Reçete kaynağı ↗</a>}<Link href={kind === "talisman" ? `/?module=engine&talisman=${recipe.itemId}#engine` : `/?module=items&item=${recipe.itemId}#items`}>{kind === "talisman" ? "Tılsımı aç" : "Eşyayı aç"} →</Link><Link href="/uretim#production-planner">Üretim takibi →</Link></footer>
             </div>

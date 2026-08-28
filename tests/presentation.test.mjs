@@ -23,6 +23,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   const images = JSON.parse(readFileSync(new URL("../data/images.json", import.meta.url), "utf8"));
   const appearanceImages = JSON.parse(readFileSync(new URL("../data/appearance-images.json", import.meta.url), "utf8"));
   const appearanceQueue = JSON.parse(readFileSync(new URL("../data/appearance-media-queue.json", import.meta.url), "utf8"));
+  const visualFamilies = JSON.parse(readFileSync(new URL("../data/visual-families.json", import.meta.url), "utf8"));
   const farmOperations = readFileSync(new URL("../app/farm-operasyonu/FarmOperations.tsx", import.meta.url), "utf8");
   const productionPlanner = readFileSync(new URL("../app/farm-operasyonu/ProductionPlanner.tsx", import.meta.url), "utf8");
   const sustainability = readFileSync(new URL("../app/SustainabilityHub.tsx", import.meta.url), "utf8");
@@ -40,8 +41,14 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.equal(appearanceImages.find((image) => image.appearanceFamily === "bicak-sirti")?.scope, "set_appearance");
   assert.equal(appearanceQueue.length, 11);
   assert.equal(new Set(appearanceQueue.map((row) => `${row.class}|${row.appearanceFamily}`)).size, 11);
+  assert.equal(visualFamilies.filter((family) => family.kind === "item").length, 23);
+  assert.equal(visualFamilies.filter((family) => family.kind === "talisman").length, 2);
+  assert.equal(visualFamilies.filter((family) => family.kind === "potion").length, 3);
   assert.match(page, /SET GÖRÜNÜŞ REFERANSI · WIKI/);
   assert.match(page, /TEKİL PARÇA KANITI DEĞİL/);
+  assert.match(page, /Tekrarsız görsel sistemi/);
+  assert.match(page, /ORTAK GÖVDE/);
+  assert.match(page, /efsun, seviye ve özellikler seçili eşya kaydına aittir/i);
   assert.match(farmOperations, /"Üretim"/);
   assert.match(productionPlanner, /Favorilere ekle/);
   assert.match(productionPlanner, /Üretecek kişi/);
@@ -58,6 +65,8 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.doesNotMatch(page, /function TalismanResult/);
   assert.match(talismanAtlas, /ETKİ/);
   assert.match(talismanAtlas, /ELDE ETME/);
+  assert.match(talismanAtlas, /ORTAK TILSIM GÖRÜNÜŞÜ/);
+  assert.match(talismanAtlas, /sınıf, kademe ve etki seçili tılsıma aittir/i);
   assert.match(talismanAtlas, /Kaynak ve doğrulama ayrıntısı/);
   assert.match(talismanAtlas, /Bu tılsımın reçetesini aç/);
   assert.match(talismanAtlas, /module=recipes&kind=talisman/);
@@ -66,6 +75,8 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(recipeCatalog, /label: "Eşya"/);
   assert.match(recipeCatalog, /label: "Tılsım"/);
   assert.match(recipeCatalog, /label: "İksir"/);
+  assert.match(recipeCatalog, /ORTAK İKSİR GÖRÜNÜŞÜ/);
+  assert.match(recipeCatalog, /talisman\.effectText/);
   assert.match(recipeCatalog, /<details/);
   assert.match(recipeCatalog, /\/uretim#production-planner/);
   assert.match(abilityMedia, /entry\.sources\.length > 0/);

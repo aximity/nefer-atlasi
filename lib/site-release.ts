@@ -1,14 +1,14 @@
 export const SITE_RELEASE = {
-  version: "0.40.0",
+  version: "0.41.0",
   channel: "BETA",
-  milestone: "M40",
+  milestone: "M41",
   releasedAt: "28 Ağustos 2026",
-  title: "Sade Bilgi Mimarisi",
+  title: "Ortak Görünüş Aileleri",
   summary:
-    "Ana ekran arama ve dört hızlı işe indirildi; tılsım bilgisi, reçete kataloğu ve üretim takibi birbirinden ayrılarak yalnız ihtiyaç olduğunda açılır hâle getirildi.",
+    "Eşya, tılsım ve iksir görselleri kayıt başına tekrarlanmak yerine ortak gövde, renk ve boyut kurallarıyla sadeleştirildi.",
   changes: [
-    "Büyük açılış alanı ve düz modül kalabalığı kaldırıldı; arama, dört hızlı bölüm ve gruplu menü bırakıldı.",
-    "Reçeteler; Eşya, Tılsım ve doğrulama durumu açıkça belirtilen İksir dizini olarak ayrı kataloğa taşındı.",
-    "Boş yetenek medya yuvaları ile kaynaksız fiyat vitrini gizlendi; üretim takibi herkese açık, cihazda kalan ayrı akış oldu.",
+    "129 eşya 23 görünüş ailesine bağlandı; eksik görsel kuyruğu artık her eşyayı değil ortak gövdeyi bir kez sayıyor.",
+    "179 tılsım kırmızı ve mavi iki ortak görünüşe indirildi; sınıf, kademe ve etki ayrı bilgi katmanları olarak korundu.",
+    "İksirler için kırmızı can, mavi kudret ve turkuaz direnç/özellik aileleri ile seviyeye bağlı boyut kuralı tanımlandı.",
   ],
 } as const;

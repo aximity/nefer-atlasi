@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { sourceFor, talismans, type CharacterClass } from "../lib/catalog";
 import { playerReportsFor, talismanProduction, tierRuleFor, vendorMentionsFor } from "../lib/talisman-production";
 import { talismanRecipeFor } from "../lib/talisman-recipes";
+import { talismanVisualFamilyFor } from "../lib/visual-families";
 
 type TierFilter = "Tümü" | "I" | "II" | "III" | "Özel";
 type ColorFilter = "Tümü" | "Kırmızı" | "Mavi";
@@ -40,6 +41,7 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "",
   const serverReferenceSource = sourceFor(serverReference.sourceId);
   const effectSource = selected ? sourceFor(selected.sourceId) : null;
   const recipe = selected ? talismanRecipeFor(selected.id) : null;
+  const visualFamily = selected ? talismanVisualFamilyFor(selected) : null;
   const chooseClass = (value: CharacterClass) => {
     setSelectedId("");
     onClassChange(value);
@@ -74,8 +76,14 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "",
         {visible.length === 0 && <p className="talismanEmpty">Bu filtrede tılsım yok.</p>}
       </section>
 
-      {selected && rule && <section className="talismanRecipeCard">
+      {selected && rule && visualFamily && <section className="talismanRecipeCard">
         <header><span><small>{selected.class} · {selected.color} · {rule.label}</small><h4>{selected.name}</h4></span></header>
+
+        <div className={`talismanVisualRule ${selected.color === "Kırmızı" ? "red" : "blue"}`}>
+          <i aria-hidden="true" />
+          <span><small>ORTAK TILSIM GÖRÜNÜŞÜ</small><b>{visualFamily.label}</b></span>
+          <p>Bu renk için tek gövde görseli kullanılır; sınıf, kademe ve etki seçili tılsıma aittir.</p>
+        </div>
 
         <div className="talismanFacts">
           <article><small>ETKİ</small><b>{selected.series}</b><p>{selected.effectText}</p></article>
