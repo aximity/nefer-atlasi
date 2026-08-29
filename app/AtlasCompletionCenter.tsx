@@ -7,7 +7,7 @@ import { materialReferenceFor } from "../lib/material-sources";
 import { productionItems, productionMaterialSourceFor, productionRecipes } from "../lib/production-catalog";
 import { potionRecipes } from "../lib/potion-recipes";
 import { buildAtlasGraph } from "../lib/atlas-graph.mjs";
-import { buildAtlasCompletionQueue, completionSummary, COMPLETION_KIND_LABELS, filterCompletionRecords } from "../lib/atlas-completion.mjs";
+import { buildAtlasCompletionQueue, completionContributionHref, completionSummary, COMPLETION_KIND_LABELS, filterCompletionRecords } from "../lib/atlas-completion.mjs";
 import { coveredItemVisualFamilyIds, itemVisualFamilyFor, potionVisualFamilies, potionVisualFamilyFor, talismanVisualFamilies, talismanVisualFamilyFor } from "../lib/visual-families";
 import { SITE_RELEASE } from "../lib/site-release";
 
@@ -96,7 +96,7 @@ export default function AtlasCompletionCenter() {
       {shown.length ? shown.map((record) => <article key={record.id} data-priority={record.priority}>
         <i>{record.entityType === "item" ? "E" : record.entityType === "visual" ? "G" : "M"}</i>
         <div><small>{COMPLETION_KIND_LABELS[record.kind]} · {priorityLabels[record.priority]}</small><h3>{record.name}</h3><span>{record.subtitle}</span><p>{record.detail}</p></div>
-        <nav><Link href={record.href ?? `/?module=atlas&node=${encodeURIComponent(record.entityId)}#atlas`}>{record.entityType === "visual" ? "İlgili kataloğu aç" : "Atlas kaydını aç"}</Link><Link href="/?module=contribute#contribute">Eksikliği bildir</Link></nav>
+        <nav><Link href={record.href ?? `/?module=atlas&node=${encodeURIComponent(record.entityId)}#atlas`}>{record.entityType === "visual" ? "İlgili kataloğu aç" : "Atlas kaydını aç"}</Link><Link href={completionContributionHref(record)}>Kanıtı gönder</Link></nav>
       </article>) : <div className="completionEmpty"><b>Bu filtrede açık iş yok.</b><span>Aramayı veya eksik türünü değiştir.</span></div>}
     </div>
     {filtered.length > shown.length && <p className="completionLimit">Liste mobilde gereksiz uzamasın diye ilk 18 kayıt gösteriliyor. Arama ve tür filtresiyle kalan kayda doğrudan ulaşabilirsin.</p>}

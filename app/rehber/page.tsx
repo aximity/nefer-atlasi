@@ -92,7 +92,7 @@ const journeys = [
   {
     number: "07",
     title: "Eksik veya yanlış bilgiyi düzeltmek istiyorum",
-    steps: ["Geri bildirim bölümünü aç.", "Kısa ve ayırt edilebilir bir konu yaz.", "Neyin yanlış veya eksik olduğunu açıklayıp yorumu gönder.", "Dosya veya kanıt gerekiyorsa açıklamada bunun ayrıca istenmesi gerektiğini belirt."],
+    steps: ["Geri bildirim bölümünü aç.", "Kısa ve ayırt edilebilir bir konu yaz.", "Neyin yanlış veya eksik olduğunu açıkla.", "Varsa oyun içi ekran görüntüsünü ekleyip yorumu gönder."],
     href: "/?module=contribute#modules",
     action: "Geri bildirim bölümünü aç",
   },

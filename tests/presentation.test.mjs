@@ -101,7 +101,9 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(abilityMedia, /if \(media\.length === 0\) return null/);
   assert.doesNotMatch(abilityMedia, /MEDYA YUVASI/);
   assert.match(contributionCenter, /Neyin yanlış veya değişmesi gerekiyor\?/);
-  assert.match(contributionCenter, /bu form dosya veya kanıt yüklemez/i);
+  assert.match(contributionCenter, /Oyun içi kanıt/);
+  assert.match(contributionCenter, /query\.get\("subject"\)/);
+  assert.match(contributionCenter, /if \(evidenceFile\) body\.set\("file", evidenceFile\)/);
   assert.match(contributionCenter, /Yorumu gönder/);
   assert.match(contributionCenter, /Fiyat gözlemini gönder/);
   assert.match(contributionCenter, /tradeDirection/);

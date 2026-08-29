@@ -132,6 +132,10 @@ test("dosya imzası MIME beyanıyla eşleşir ve tür sınırı uygulanır", () 
     sniffEvidenceFile(png, "image/png", "item_evidence").mediaKind,
     "image",
   );
+  assert.equal(
+    sniffEvidenceFile(png, "image/png", "site_feedback").mimeType,
+    "image/png",
+  );
   const mp4 = Uint8Array.from([0, 0, 0, 20, 0x66, 0x74, 0x79, 0x70, 0, 0, 0, 0]);
   assert.equal(
     sniffEvidenceFile(mp4, "video/mp4", "ability_media").mimeType,

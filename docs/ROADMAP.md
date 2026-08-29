@@ -1,5 +1,25 @@
 # Yol Haritası
 
+## Tamamlandı — M65: Kanıt görevleri ve akıllı bildirim
+
+- [x] Her Atlas açığını konu ve kanıt gereksinimi doldurulmuş katkı formuna bağla
+- [x] Görsel kanıt görevlerinde ad ve görünüşün birlikte okunması şartını açıkla
+- [x] Geri bildirim formuna güvenli oyun içi ekran görüntüsü yüklemesi ekle
+- [x] Kanıtı otomatik yayımlamadan özel inceleme kuyruğunda tut
+- [x] İksir görsel ailesinin bozuk katalog derin bağlantısını düzelt
+
+Çıkış kapısı: Tamamlama Merkezi'ndeki her kayıt tek dokunuşla bağlamını koruyan katkı formuna gider; isteğe bağlı görsel 5 MB sınırı ve içerik imzası denetimiyle kabul edilir; hiçbir katkı doğrulanmadan atlas verisini değiştirmez.
+
+## Tamamlandı — M64: Fotoğraftan üretim adayları
+
+- [x] Fotoğraf akışını görsel, ikon/adet, üretim adayı ve stok onayı adımlarına ayır
+- [x] Taslak ile mevcut stoku birleştirerek en yakın üç ila beş üretim adayını sırala
+- [x] Tamamlanma yüzdesi ile eksik malzeme türlerini aday kartlarında göster
+- [x] Her adayı site içindeki doğru eşya, tılsım veya iksir reçetesine bağla
+- [x] Kullanıcı onayı olmadan stok değiştirme
+
+Çıkış kapısı: Fotoğraf taslağı mevcut stoku değiştirmeden en yakın üretimleri gösterir; kullanıcı adayı ve eksikleri inceleyip stok girişini ayrıca onaylar.
+
 ## Tamamlandı — M63: Canlı proje durumu ve sistemik denetim
 
 - [x] Son sürüm ve yapılan işleri Proje Durumu ekranında `SITE_RELEASE` kaydından otomatik göster

@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.64.0",
+    date: "29 Ağustos 2026",
+    title: "Fotoğraftan Üretim Adayları",
+    changes: [
+      "Fotoğraf akışı görsel, ikon/adet, üretim adayı ve stok onayı olarak dört adıma ayrıldı.",
+      "Taslak stok mevcut stokla birleşerek en yakın üç ila beş üretim adayını sıralıyor.",
+      "Adaylar tamamlanma yüzdesi, eksik malzemeler ve site içi reçete bağlantısıyla gösteriliyor.",
+    ],
+  },
+  {
     version: "0.62.0",
     date: "29 Ağustos 2026",
     title: "Tılsım Reçete ve Edinim Haritası",

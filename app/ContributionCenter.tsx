@@ -65,7 +65,8 @@ export default function ContributionCenter() {
         localStorage.setItem(CLIENT_KEY, token);
       }
       setClientToken(token);
-      const requestedMode = new URLSearchParams(location.search).get("kind") === "market_price" ? "market_price" : "site_feedback";
+      const query = new URLSearchParams(location.search);
+      const requestedMode = query.get("kind") === "market_price" ? "market_price" : "site_feedback";
       setMode(requestedMode);
       const draft = localStorage.getItem(requestedMode === "market_price" ? MARKET_DRAFT_KEY : DRAFT_KEY);
       if (draft && requestedMode === "site_feedback") {
@@ -94,6 +95,12 @@ export default function ContributionCenter() {
         } catch {
           localStorage.removeItem(MARKET_DRAFT_KEY);
         }
+      }
+      if (requestedMode === "site_feedback") {
+        const requestedSubject = query.get("subject")?.trim().slice(0, 120);
+        const requestedComment = query.get("comment")?.trim().slice(0, 2000);
+        if (requestedSubject) setSubject(requestedSubject);
+        if (requestedComment) setComment(requestedComment);
       }
       setHydrated(true);
     });
@@ -153,7 +160,7 @@ export default function ContributionCenter() {
           settledPrice: marketSettledPrice,
         } : { subject, comment },
       }));
-      if (mode === "market_price" && evidenceFile) body.set("file", evidenceFile);
+      if (evidenceFile) body.set("file", evidenceFile);
       const response = await fetch("/api/contributions", { method: "POST", body });
       const result = (await response.json()) as { error?: string };
       if (!response.ok) throw new Error(result.error || "Yorum gönderilemedi.");
@@ -182,7 +189,7 @@ export default function ContributionCenter() {
         <header>
           <p className="eyebrow">{mode === "market_price" ? "PAZAR GÖZLEMİ" : "GERİ BİLDİRİM"}</p>
           <h2>{mode === "market_price" ? "Gördüğün fiyatı kaydet." : "Bir şey yanlışsa söyle."}</h2>
-          <p>{mode === "market_price" ? "Alınır ve satılık yönünü, ilanla gerçekleşen satışı ve TL ile oyun parasını birbirine karıştırmadan kaydet. Kayıt incelenmeden pazar medyanına girmez." : "Konu ve kısa açıklama yaz. Bu form dosya veya kanıt yüklemez; bildirimi inceleyip gerekli düzeltmeyi yaparız."}</p>
+          <p>{mode === "market_price" ? "Alınır ve satılık yönünü, ilanla gerçekleşen satışı ve TL ile oyun parasını birbirine karıştırmadan kaydet. Kayıt incelenmeden pazar medyanına girmez." : "Konu ve kısa açıklama yaz. Varsa oyun içi ekran görüntüsünü ekle; kayıt doğrulanmadan atlas verisine girmez."}</p>
         </header>
 
         {sent ? (
@@ -210,6 +217,8 @@ export default function ContributionCenter() {
             </> : <>
               <label><span>Konu</span><input value={subject} onChange={(event) => { setSubject(event.target.value); setError(""); }} maxLength={120} placeholder="Örn. Bilgi Tılsımı fiyatı" required /></label>
               <label><span>Neyin yanlış veya değişmesi gerekiyor?</span><textarea value={comment} onChange={(event) => { setComment(event.target.value); setError(""); }} maxLength={2000} placeholder="Kısaca yazman yeterli…" required /></label>
+              <label><span>Oyun içi kanıt (isteğe bağlı · PNG, JPG veya WebP · en çok 5 MB)</span><input type="file" accept="image/png,image/jpeg,image/webp" onChange={(event) => { setEvidenceFile(event.target.files?.[0] ?? null); setError(""); }} /></label>
+              <p className="marketEvidenceNote">Görselde özel sohbet veya kişisel bilgi varsa yüklemeden önce kırp. Dosya yalnız inceleme kuyruğuna gider.</p>
             </>}
             <label className="honeypot" aria-hidden="true">
               Website

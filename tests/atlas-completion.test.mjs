@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { buildAtlasCompletionQueue, completionSummary, filterCompletionRecords } from "../lib/atlas-completion.mjs";
+import { buildAtlasCompletionQueue, completionContributionHref, completionSummary, filterCompletionRecords } from "../lib/atlas-completion.mjs";
 
 const graph = {
   itemNodes: [
@@ -83,6 +83,20 @@ test("tılsım ve iksir ortak görselleri eşya kuyruğundan ayrı görünür", 
   assert.equal(completionSummary(records).media, 2);
   assert.ok(records.every((record) => record.priority === "high" && record.entityType === "visual"));
   assert.match(records.find((record) => record.name === "Can iksiri")?.detail ?? "", /Seviyeyle boyut/);
+  assert.equal(records.find((record) => record.name === "Can iksiri")?.href, "/?module=recipes&kind=potion#recipes");
+});
+
+test("açık iş bağlantısı katkı formunu gereken kanıtla doldurur", () => {
+  const href = completionContributionHref({
+    kind: "media",
+    name: "Can iksiri",
+    subtitle: "179 iksir · bu ortak görsel ailesi",
+    detail: "Kırmızı şişe ailesi için görsel bekleniyor.",
+  });
+  const url = new URL(href, "https://atlas.test");
+  assert.equal(url.searchParams.get("module"), "contribute");
+  assert.equal(url.searchParams.get("subject"), "Kanıt görevi · Can iksiri");
+  assert.match(url.searchParams.get("comment") ?? "", /ad ile görünüşün.*birlikte/i);
 });
 
 test("ortak görsel kartı yalnız kendi ailesindeki kayıt sayısını gösterir", () => {

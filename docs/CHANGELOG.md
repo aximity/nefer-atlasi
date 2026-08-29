@@ -1,5 +1,19 @@
 # Değişiklik Günlüğü
 
+## v0.65.0 — Kanıt Görevleri ve Akıllı Bildirim
+
+- Atlas Tamamlama Merkezi'ndeki her açık iş, konu ve gereken kanıt açıklaması doldurulmuş katkı formuna bağlandı.
+- Görsel açıkları için ad ile görünüşün aynı oyun içi görüntüde bulunması şartı görev metnine eklendi; kırpılmış ikon tek başına yeterli sayılmıyor.
+- Site geri bildirim formuna isteğe bağlı, en çok 5 MB PNG, JPG veya WebP oyun içi kanıt yükleme eklendi.
+- Dosyalar atlası otomatik değiştirmeden özel inceleme kuyruğuna gidiyor; kişisel bilgi kırpma uyarısı gösteriliyor.
+- İksir ortak görsel kartlarının ilgili kataloğa gidişindeki `type`/`kind` parametre hatası düzeltildi.
+
+## v0.64.0 — Fotoğraftan Üretim Adayları
+
+- Çanta fotoğrafındaki doğrulanmış malzeme taslağı mevcut stokla birleşerek en yakın üç ila beş üretim adayını sıralıyor.
+- Fotoğraf akışı görsel ekleme, ikon/adet seçimi, üretim adayı ve stok onayı olarak dört açık adıma ayrıldı.
+- Adaylarda tamamlanma yüzdesi, eksik malzemeler ve site içi reçete bağlantısı gösteriliyor; stok yalnız kullanıcı onayıyla değişiyor.
+
 ## v0.63.0 — Canlı Proje Durumu ve Görsel Harita
 
 - Proje Durumu ekranına canlı sürüm kartı, sekiz başlıklı görsel envanteri ve kalıcı çapraz modül denetim standardı eklendi.
