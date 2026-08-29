@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.65.0",
+  version: "0.66.0",
   channel: "BETA",
-  milestone: "M65",
+  milestone: "M66",
   releasedOn: "2026-08-29",
   releasedAt: "29 Ağustos 2026",
-  title: "Kanıt Görevleri ve Akıllı Bildirim",
+  title: "Fotoğraftan Otomatik Çanta Okuma",
   summary:
-    "Atlas Tamamlama Merkezi'ndeki her açık iş artık kanıt gereksinimi doldurulmuş katkı formuna ve güvenli görsel yüklemeye bağlanıyor.",
+    "Çanta fotoğrafı artık cihazda analiz edilerek malzeme ikonlarını ve okunabilen adetleri onaylanabilir stok taslağına dönüştürüyor.",
   changes: [
-    "Her açık iş konu, mevcut eksik ve gereken kanıt türüyle katkı formunu otomatik dolduruyor.",
-    "Site geri bildirimine isteğe bağlı, en çok 5 MB PNG, JPG veya WebP oyun içi kanıt yükleme eklendi.",
-    "Yüklenen kanıt atlas verisini otomatik değiştirmiyor; özel inceleme kuyruğunda doğrulama bekliyor.",
-    "İksir görsel ailesi kartlarındaki bozuk reçete parametresi düzeltilerek ilgili iksir kataloğuna bağlandı.",
+    "Fotoğraf yüklenir yüklenmez çanta ızgarası ve doğrulanmış malzeme ikonları cihaz içinde otomatik karşılaştırılıyor.",
+    "Tanınan malzeme ve adetler güven oranı, adet uyarısı ve düzenlenebilir onay listesiyle gösteriliyor.",
+    "Manuel ikon kataloğu ana adım olmaktan çıkarıldı; yalnız eksik veya yanlış sonucu düzeltmek için açılıyor.",
+    "Onaylanan stoktan en yakın üç ila beş eşya, tılsım veya iksir üretim adayı hesaplanıyor.",
   ],
 } as const;

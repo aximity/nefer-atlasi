@@ -93,6 +93,10 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(productionPlanner, /Galeriden seç/);
   assert.match(productionPlanner, /Şimdi fotoğraf çek/);
   assert.match(productionPlanner, /capture="environment"/);
+  assert.match(productionPlanner, /recognizeInventoryPhoto/);
+  assert.match(productionPlanner, /Çanta analiz ediliyor/);
+  assert.match(productionPlanner, /malzemeyi onayla ve stoka işle/);
+  assert.match(productionPlanner, /Sonuç eksik veya yanlışsa düzelt/);
   assert.match(productionPlanner, /Reçeteyi sitede aç/);
   assert.doesNotMatch(productionPlanner, /Reçete kaynağı/);
   for (const category of ["Eşyalar ve eşya reçeteleri", "Tılsımlar ve tılsım reçeteleri", "İksirler", "Madenler, materyaller ve meslekler", "Görevler", "Yetenekler ve oyun içi kanıtlar"]) assert.match(sourceDirectory, new RegExp(category));

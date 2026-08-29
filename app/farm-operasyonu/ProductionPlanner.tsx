@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { talismans } from "../../lib/catalog";
 import { buildProductionPlans, productionDraftImpact, productionSummary } from "../../lib/production-planner.mjs";
 import { potionRecipes } from "../../lib/potion-recipes";
-import { materialIconFor } from "../../lib/material-icons";
+import { materialIconFor, materialIcons } from "../../lib/material-icons";
+import { recognizeInventoryPhoto } from "../../lib/photo-inventory-recognition";
 import { productionItemById, productionItems, productionMaterialNames, productionMaterialSourceFor, productionRecipes } from "../../lib/production-catalog";
 
 type Stock = Record<string, number>;
@@ -14,6 +15,7 @@ type Targets = Record<string, number>;
 type Owners = Record<string, string>;
 type PlanFilter = "Tümü" | "Üretilebilir" | "Yakın" | "Favoriler";
 type ProductionPlan = ReturnType<typeof buildProductionPlans>[number];
+type PhotoAnalysisState = "idle" | "analyzing" | "review" | "confirmed" | "error";
 
 const keys = {
   stock: "nefer-production-stock-v1",
@@ -49,6 +51,8 @@ const fmt = (value: number) => new Intl.NumberFormat("tr-TR").format(value);
 const normalizeSearch = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
 const talismanIds = new Set(talismans.map((row) => row.id));
 const potionIds = new Set(potionRecipes.map((row) => row.itemId));
+const productionMaterialNameSet = new Set(productionMaterialNames);
+const photoIconReferences = materialIcons.filter((icon) => productionMaterialNameSet.has(icon.name)).map((icon) => ({ name: icon.name, src: icon.src }));
 function sourceText(materialName: string) {
   const source = productionMaterialSourceFor(materialName);
   if (!source) return { label: "Kaynak eşleşmesi bekliyor", detail: "Tahmin yürütülmedi; katkı kanıtıyla doğrulanmalı.", known: false };
@@ -112,7 +116,16 @@ export default function ProductionPlanner() {
   const [photoQuery, setPhotoQuery] = useState("");
   const [photoQuantity, setPhotoQuantity] = useState("1");
   const [photoDraft, setPhotoDraft] = useState<Stock>({});
+  const [photoFile, setPhotoFile] = useState<File | null>(null);
+  const [photoAnalysisState, setPhotoAnalysisState] = useState<PhotoAnalysisState>("idle");
+  const [photoAnalysisError, setPhotoAnalysisError] = useState("");
+  const [photoWarnings, setPhotoWarnings] = useState<string[]>([]);
+  const [photoConfidence, setPhotoConfidence] = useState<Record<string, number>>({});
+  const [quantityReview, setQuantityReview] = useState<string[]>([]);
+  const [confirmedPhotoRecommendations, setConfirmedPhotoRecommendations] = useState<ProductionPlan[]>([]);
+  const [confirmedNewlyReady, setConfirmedNewlyReady] = useState(0);
   const [hydrated, setHydrated] = useState(false);
+  const photoAnalysisRun = useRef(0);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -197,9 +210,38 @@ export default function ProductionPlanner() {
       return updated;
     });
   };
+  const analyzePhoto = async (file: File) => {
+    const run = ++photoAnalysisRun.current;
+    setPhotoAnalysisState("analyzing");
+    setPhotoAnalysisError("");
+    setPhotoWarnings([]);
+    setPhotoDraft({});
+    setConfirmedPhotoRecommendations([]);
+    setConfirmedNewlyReady(0);
+    try {
+      const result = await recognizeInventoryPhoto(file, photoIconReferences);
+      if (run !== photoAnalysisRun.current) return;
+      setPhotoDraft(Object.fromEntries(result.items.map((item) => [item.name, item.quantity])));
+      setPhotoConfidence(Object.fromEntries(result.items.map((item) => [item.name, item.confidence])));
+      setQuantityReview(result.items.filter((item) => item.quantityNeedsReview).map((item) => item.name));
+      setPhotoWarnings(result.warnings);
+      setPhotoAnalysisState("review");
+    } catch (reason) {
+      if (run !== photoAnalysisRun.current) return;
+      setPhotoAnalysisError(reason instanceof Error ? reason.message : "Fotoğraf analiz edilemedi.");
+      setPhotoAnalysisState("error");
+    }
+  };
   const choosePhoto = (file: File | null) => {
     if (photoPreview) URL.revokeObjectURL(photoPreview);
     setPhotoPreview(file ? URL.createObjectURL(file) : "");
+    setPhotoFile(file);
+    setPhotoAnalysisState(file ? "analyzing" : "idle");
+    setPhotoAnalysisError("");
+    setPhotoWarnings([]);
+    setPhotoConfidence({});
+    setQuantityReview([]);
+    if (file) void analyzePhoto(file);
   };
   const addPhotoDraft = () => {
     const amount = Math.max(0, Math.floor(Number(photoQuantity)));
@@ -208,12 +250,19 @@ export default function ProductionPlanner() {
     setPhotoQuantity("1");
   };
   const confirmPhotoDraft = () => {
+    setConfirmedPhotoRecommendations(photoRecommendations);
+    setConfirmedNewlyReady(photoImpact?.newlyReadyCount ?? 0);
     setStock((current) => {
       const next = { ...current };
       for (const [name, amount] of Object.entries(photoDraft)) next[name] = (next[name] ?? 0) + amount;
       return next;
     });
     setPhotoDraft({});
+    setPhotoAnalysisState("confirmed");
+  };
+  const setPhotoDraftQuantity = (name: string, next: number) => {
+    setPhotoDraft((current) => ({ ...current, [name]: Math.max(1, Math.floor(next) || 1) }));
+    setQuantityReview((current) => current.filter((entry) => entry !== name));
   };
   const togglePlanFavorite = (itemId: string) => {
     if (talismanIds.has(itemId)) {
@@ -233,21 +282,33 @@ export default function ProductionPlanner() {
 
     <div className="productionInputGrid">
       <section className="stockEditor">
-        <header><div><small>01 · ENVANTER</small><h3>Malzeme girişi</h3></div><span>{Object.keys(stock).length} tür</span></header>
+        <header><div><small>01 · ALTERNATİF</small><h3>Fotoğrafsız giriş</h3></div><span>{Object.keys(stock).length} tür</span></header>
         <div className="stockAdd"><label><span>Malzeme</span><select value={material} onChange={(event) => setMaterial(event.target.value)}><option value="">Seç…</option>{materialOptions.map((name) => <option key={name}>{name}</option>)}</select></label><label><span>Adet</span><input inputMode="numeric" min="1" value={quantity} onChange={(event) => setQuantity(event.target.value.replace(/\D/g, ""))}/></label><button type="button" onClick={addStock}>Stoka ekle</button></div>
         <div className="stockRows">{Object.entries(stock).sort(([a], [b]) => a.localeCompare(b, "tr")).map(([name, amount]) => { const icon = materialIconFor(name); return <label key={name}>{icon ? <Image unoptimized src={icon.src} alt="" width={28} height={28}/> : <i aria-hidden="true">{name.slice(0, 2)}</i>}<span>{name}</span><input aria-label={`${name} adedi`} inputMode="numeric" value={amount} onChange={(event) => setStockQuantity(name, Number(event.target.value))}/><button type="button" aria-label={`${name} stoktan çıkar`} onClick={() => setStockQuantity(name, 0)}>×</button></label>; })}{Object.keys(stock).length === 0 && <p>Henüz stok girilmedi. Reçeteler eksik miktar üzerinden listeleniyor.</p>}</div>
       </section>
       <section className="stockPhoto">
-        <header><div><small>02 · FOTOĞRAF REFERANSI</small><h3>Çantayı yanında tut</h3></div></header>
-        <ol className="photoSteps"><li><b>1</b><span>Fotoğrafı ekle</span></li><li><b>2</b><span>İkon ve adedi seç</span></li><li><b>3</b><span>3–5 üretim adayını gör</span></li><li><b>4</b><span>Stoku onayla</span></li></ol>
-        <div className={photoPreview ? "photoStage hasPhoto" : "photoStage"}>{photoPreview ? <Image unoptimized fill sizes="(max-width: 1050px) 100vw, 35vw" src={photoPreview} alt="Malzeme girişi için seçilen çanta fotoğrafı"/> : <span><b>Çanta görüntüsü</b><small>Galeriden seç veya kamerayla şimdi çek.</small></span>}</div>
+        <header><div><small>02 · OTOMATİK FOTOĞRAF ANALİZİ</small><h3>Çantayı okut</h3></div></header>
+        <ol className="photoSteps"><li><b>1</b><span>Fotoğrafı ekle</span></li><li><b>2</b><span>Otomatik analiz</span></li><li><b>3</b><span>Sonucu onayla</span></li><li><b>4</b><span>Önerileri gör</span></li></ol>
+        <div className={photoPreview ? "photoStage hasPhoto" : "photoStage"}>
+          {photoPreview ? <Image unoptimized fill sizes="(max-width: 1050px) 100vw, 35vw" src={photoPreview} alt="Analiz edilen çanta fotoğrafı"/> : <span><b>Çanta görüntüsü</b><small>Galeriden seç veya kamerayla şimdi çek.</small></span>}
+          {photoAnalysisState === "analyzing" && <span className="photoAnalysisBadge"><i/>Çanta analiz ediliyor…</span>}
+        </div>
         <div className="photoInputActions">
           <label><span>Galeriden seç</span><input className="photoFileInput" type="file" accept="image/*" aria-label="Galeriden çanta fotoğrafı seç" onChange={(event) => choosePhoto(event.target.files?.[0] ?? null)}/></label>
           <label><span>Şimdi fotoğraf çek</span><input className="photoFileInput" type="file" accept="image/*" capture="environment" aria-label="Kamerayla çanta fotoğrafı çek" onChange={(event) => choosePhoto(event.target.files?.[0] ?? null)}/></label>
         </div>
-        <p>Fotoğraf otomatik olarak stok değiştirmez. Görselde gördüğün malzemeleri ve adetlerini taslağa ekle; Atlas mevcut stokla birleştirip en yakın üretimleri hesaplar. Görüntü yalnız bu cihazda kalır.</p>
-        {photoPreview && <div className="photoVisualPicker"><label><span>İkon veya malzeme ara</span><input value={photoQuery} onChange={(event) => setPhotoQuery(event.target.value)} placeholder="Örn. Jadeit, Saf Bakır…"/></label><div>{photoMatches.map((name) => { const icon = materialIconFor(name); return <button type="button" className={photoMaterial === name ? "selected" : ""} onClick={() => setPhotoMaterial(name)} key={name}>{icon ? <Image unoptimized src={icon.src} alt="" width={34} height={34}/> : <i aria-hidden="true">{name.slice(0, 2)}</i>}<span>{name}</span></button>; })}</div></div>}
-        {photoPreview && <div className="photoDraftEditor"><div><strong>{photoMaterial || "Önce bir ikon seç"}</strong><input aria-label="Fotoğraftaki adet" inputMode="numeric" value={photoQuantity} onChange={(event) => setPhotoQuantity(event.target.value.replace(/\D/g, ""))}/><button type="button" disabled={!photoMaterial} onClick={addPhotoDraft}>Taslağa ekle</button></div><ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); return <li key={name}>{icon && <Image unoptimized src={icon.src} alt="" width={24} height={24}/>}<span>{name}</span><b>×{amount}</b><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)))}>×</button></li>; })}</ul>{photoRecommendations.length > 0 && <aside className="photoRecommendations"><header><span><small>TASLAĞA GÖRE</small><b>En yakın {photoRecommendations.length} üretim</b></span>{photoImpact?.newlyReadyCount ? <em>{photoImpact.newlyReadyCount} yeni hazır</em> : <em>%50+ önce</em>}</header><div>{photoRecommendations.map((plan, index) => { const item = itemById.get(plan.recipe.itemId); const missingPreview = plan.missing.slice(0, 2).map((row) => `${row.name} ×${row.missing}`).join(" · "); return <article key={plan.recipe.itemId}><i>{index + 1}</i><span><b>{item?.name ?? plan.recipe.itemId}</b><small>{plan.status === "ready" ? "Şimdi üretilebilir" : `%${plan.completion} tamam · ${plan.missing.length} tür eksik`}</small>{missingPreview && <em>Eksik: {missingPreview}{plan.missing.length > 2 ? " …" : ""}</em>}</span><a href={`/?module=recipes&kind=${recipeKindFor(plan.recipe.itemId)}&recipe=${plan.recipe.itemId}#recipes`} aria-label={`${item?.name ?? plan.recipe.itemId} reçetesini sitede aç`}>Reçete →</a></article>; })}</div></aside>}{Object.keys(photoDraft).length > 0 && <button type="button" className="confirmPhotoDraft" onClick={confirmPhotoDraft}>Taslağı onayla ve stoka işle</button>}</div>}
+        <p>Fotoğraf bu cihazda analiz edilir; ikonlar katalogla eşleştirilir ve okunabilen adetler taslağa yazılır. Stok yalnız sen sonucu onayladığında değişir.</p>
+        {photoAnalysisState === "analyzing" && <div className="photoAnalysisStatus" role="status"><i/><span><b>İkon ve adetler aranıyor</b><small>Çanta ızgarası ile {photoIconReferences.length} doğrulanmış malzeme ikonu karşılaştırılıyor.</small></span></div>}
+        {photoAnalysisState === "error" && <div className="photoAnalysisError" role="alert"><span><b>Fotoğraf okunamadı</b><small>{photoAnalysisError}</small></span><button type="button" disabled={!photoFile} onClick={() => { if (photoFile) void analyzePhoto(photoFile); }}>Tekrar analiz et</button></div>}
+        {photoAnalysisState === "review" && <div className="photoDraftEditor photoReview">
+          <header><span><small>ANALİZ SONUCU</small><b>{Object.keys(photoDraft).length} malzeme bulundu</b></span><em>Onay bekliyor</em></header>
+          <ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); const needsReview = quantityReview.includes(name); return <li key={name}>{icon && <Image unoptimized src={icon.src} alt="" width={30} height={30}/>}<span><b>{name}</b><small>%{photoConfidence[name] ?? 0} ikon eşleşmesi{needsReview ? " · adedi kontrol et" : " · adet okundu"}</small></span><input aria-label={`${name} analiz edilen adedi`} inputMode="numeric" min="1" value={amount} onChange={(event) => setPhotoDraftQuantity(name, Number(event.target.value))}/><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)))}>×</button></li>; })}</ul>
+          {photoWarnings.map((warning) => <p className="photoAnalysisWarning" key={warning}>{warning}</p>)}
+          <details className="photoCorrection"><summary>Sonuç eksik veya yanlışsa düzelt <i>+</i></summary><div className="photoVisualPicker"><label><span>Malzeme ara</span><input value={photoQuery} onChange={(event) => setPhotoQuery(event.target.value)} placeholder="Örn. Jadeit, Saf Bakır…"/></label><div>{photoMatches.map((name) => { const icon = materialIconFor(name); return <button type="button" className={photoMaterial === name ? "selected" : ""} onClick={() => setPhotoMaterial(name)} key={name}>{icon ? <Image unoptimized src={icon.src} alt="" width={34} height={34}/> : <i aria-hidden="true">{name.slice(0, 2)}</i>}<span>{name}</span></button>; })}</div><section><strong>{photoMaterial || "Bir malzeme seç"}</strong><input aria-label="Düzeltme adedi" inputMode="numeric" value={photoQuantity} onChange={(event) => setPhotoQuantity(event.target.value.replace(/\D/g, ""))}/><button type="button" disabled={!photoMaterial} onClick={addPhotoDraft}>Sonuca ekle</button></section></div></details>
+          {Object.keys(photoDraft).length > 0 && <button type="button" className="confirmPhotoDraft" onClick={confirmPhotoDraft}>{Object.keys(photoDraft).length} malzemeyi onayla ve stoka işle</button>}
+        </div>}
+        {photoAnalysisState === "confirmed" && <div className="photoConfirmed" role="status"><span><i>✓</i><b>Fotoğraf sonucu stoka işlendi.</b><small>Yeni fotoğraf seçersen önceki stok korunur; yalnız yeni onaylanan adetler eklenir.</small></span></div>}
+        {photoAnalysisState === "confirmed" && confirmedPhotoRecommendations.length > 0 && <aside className="photoRecommendations"><header><span><small>ONAYLANAN FOTOĞRAFA GÖRE</small><b>En yakın {confirmedPhotoRecommendations.length} üretim</b></span>{confirmedNewlyReady ? <em>{confirmedNewlyReady} yeni hazır</em> : <em>%50+ önce</em>}</header><div>{confirmedPhotoRecommendations.map((plan, index) => { const item = itemById.get(plan.recipe.itemId); const missingPreview = plan.missing.slice(0, 2).map((row) => `${row.name} ×${row.missing}`).join(" · "); return <article key={plan.recipe.itemId}><i>{index + 1}</i><span><b>{item?.name ?? plan.recipe.itemId}</b><small>{plan.status === "ready" ? "Şimdi üretilebilir" : `%${plan.completion} tamam · ${plan.missing.length} tür eksik`}</small>{missingPreview && <em>Eksik: {missingPreview}{plan.missing.length > 2 ? " …" : ""}</em>}</span><a href={`/?module=recipes&kind=${recipeKindFor(plan.recipe.itemId)}&recipe=${plan.recipe.itemId}#recipes`} aria-label={`${item?.name ?? plan.recipe.itemId} reçetesini sitede aç`}>Reçete →</a></article>; })}</div></aside>}
       </section>
     </div>
 

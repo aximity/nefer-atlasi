@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+## v0.66.0 — Fotoğraftan Otomatik Çanta Okuma
+
+- Çanta fotoğrafı yüklenir yüklenmez cihaz içinde analiz ediliyor; envanter ızgarası ve katalogdaki doğrulanmış malzeme ikonları otomatik karşılaştırılıyor.
+- Tanınan ikonlar ve okunabilen adetler güven oranıyla birlikte düzenlenebilir onay listesine dönüşüyor.
+- Adedi okunamayan malzemeler açıkça kontrol istiyor; düşük güvenli yuvalar yanlış stok üretmek yerine taslak dışında bırakılıyor.
+- Manuel ikon seçimi fotoğrafın zorunlu ikinci adımı olmaktan çıkarıldı; yalnız analiz sonucunu düzeltmek için açılan yedek alana taşındı.
+- Stok sadece kullanıcı onayından sonra değişiyor ve onaylanan fotoğrafa göre en yakın üç ila beş üretim adayı gösteriliyor.
+
 ## v0.65.0 — Kanıt Görevleri ve Akıllı Bildirim
 
 - Atlas Tamamlama Merkezi'ndeki her açık iş, konu ve gereken kanıt açıklaması doldurulmuş katkı formuna bağlandı.

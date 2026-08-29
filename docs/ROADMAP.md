@@ -1,5 +1,16 @@
 # Yol Haritası
 
+## Tamamlandı — M66: Fotoğraftan otomatik çanta okuma
+
+- [x] Yüklenen görselde çanta ızgarasını cihaz içinde bul
+- [x] Dolu yuvaları doğrulanmış malzeme ikonlarıyla otomatik karşılaştır
+- [x] Okunabilen adetleri taslağa geçir; belirsiz adetleri açıkça kontrol isteğiyle işaretle
+- [x] Tanınan malzemeleri düzenlenebilir onay ekranında göster
+- [x] Manuel ikon seçimini yalnız düzeltme/yedek akışına taşı
+- [x] Stoku yalnız onaydan sonra değiştir ve üç ila beş üretim adayı hesapla
+
+Çıkış kapısı: Fotoğraf yükleyen kullanıcı malzemeleri baştan tek tek seçmez; sistem otomatik taslak üretir, düşük güvenli eşleşmeleri kesin bilgi gibi işlemez ve stok değişikliği için açık onay ister.
+
 ## Tamamlandı — M65: Kanıt görevleri ve akıllı bildirim
 
 - [x] Her Atlas açığını konu ve kanıt gereksinimi doldurulmuş katkı formuna bağla

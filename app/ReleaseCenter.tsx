@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.65.0",
+    date: "29 Ağustos 2026",
+    title: "Kanıt Görevleri ve Akıllı Bildirim",
+    changes: [
+      "Atlas açıkları, gereken kanıt açıklaması doldurulmuş katkı formuna bağlandı.",
+      "Geri bildirim formuna özel inceleme kuyruğuna giden oyun içi görsel yüklemesi eklendi.",
+      "İksir ortak görsel kartlarının katalog derin bağlantısı düzeltildi.",
+    ],
+  },
+  {
     version: "0.64.0",
     date: "29 Ağustos 2026",
     title: "Fotoğraftan Üretim Adayları",
