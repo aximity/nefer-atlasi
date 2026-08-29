@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.66.2 — İkon ve Adet Güvenlik Düzeltmesi
+
+- Hücrenin merkezindeki ikon çekirdeği, sarı adet yazısı ve ızgara kenarlarından ayrı karşılaştırılıyor.
+- Küçük hizalama farkları için dokuz merkez kaydırması deneniyor; yalnız açık ara en iyi ve yeterince güçlü eşleşme taslağa giriyor.
+- Önceki sürümde `%45` ile gösterilen belirsiz eşleşmeler artık malzeme adı olarak sunulmuyor.
+- Adet okuyucu yalnız hücrenin sol üst köşesindeki saf rakamı kabul ediyor; ikon, araç ipucu ve çevre metnindeki rakamları reddediyor.
+
 ## v0.66.1 — Net Fotoğraf Izgara Algılama Düzeltmesi
 
 - Yumuşak veya kesintili ızgara çizgileri artık yalnız renk eşiğiyle değil, tekrarlanan hücre aralığıyla da bulunuyor.

@@ -1,5 +1,5 @@
 export const SITE_RELEASE = {
-  version: "0.66.1",
+  version: "0.66.2",
   channel: "BETA",
   milestone: "M66",
   releasedOn: "2026-08-29",
@@ -8,6 +8,8 @@ export const SITE_RELEASE = {
   summary:
     "Çanta fotoğrafı artık cihazda analiz edilerek malzeme ikonlarını ve okunabilen adetleri onaylanabilir stok taslağına dönüştürüyor.",
   changes: [
+    "Zayıf veya birbirine yakın ikon eşleşmeleri artık malzeme adı olarak onay taslağına alınmıyor.",
+    "Adet okuyucu yalnız hücrenin sol üstündeki saf rakam alanını kabul ediyor; ikon ve araç ipucu rakamlarını dışarıda bırakıyor.",
     "Net ekran görüntülerindeki yumuşak, kesintili veya kısmen örtülü çanta çizgileri hücre ritmine göre de algılanıyor.",
     "Fotoğraf yüklenir yüklenmez çanta ızgarası ve doğrulanmış malzeme ikonları cihaz içinde otomatik karşılaştırılıyor.",
     "Tanınan malzeme ve adetler güven oranı, adet uyarısı ve düzenlenebilir onay listesiyle gösteriliyor.",

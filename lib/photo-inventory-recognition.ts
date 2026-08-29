@@ -223,19 +223,31 @@ function detectGrid(canvas: HTMLCanvasElement): Grid | null {
   return gridShapeIsPlausible(rhythmGrid) ? rhythmGrid : null;
 }
 
-function signatureFor(context: CanvasRenderingContext2D, source: CanvasImageSource, sourceWidth: number, sourceHeight: number): Signature {
+function signatureFor(
+  context: CanvasRenderingContext2D,
+  source: CanvasImageSource,
+  sourceWidth: number,
+  sourceHeight: number,
+  offsetX = 0,
+  offsetY = 0,
+): Signature {
   const size = 14;
   context.clearRect(0, 0, size, size);
-  const insetX = sourceWidth * 0.08;
-  const insetY = sourceHeight * 0.08;
-  context.drawImage(source, insetX, insetY, sourceWidth - insetX * 2, sourceHeight - insetY * 2, 0, 0, size, size);
+  const insetX = sourceWidth * 0.12;
+  const insetY = sourceHeight * 0.12;
+  const cropWidth = sourceWidth - insetX * 2;
+  const cropHeight = sourceHeight - insetY * 2;
+  context.drawImage(source, insetX + sourceWidth * offsetX, insetY + sourceHeight * offsetY, cropWidth, cropHeight, 0, 0, size, size);
   const pixels = context.getImageData(0, 0, size, size).data;
   const signature: number[] = [];
   for (let y = 0; y < size; y += 1) {
     for (let x = 0; x < size; x += 1) {
       const dx = (x + 0.5 - size / 2) / (size / 2);
       const dy = (y + 0.5 - size / 2) / (size / 2);
-      if (dx * dx + dy * dy > 0.94) continue;
+      // Quantity text sits over the icon's upper-left rim. Compare only the
+      // stable circular core so yellow digits and grid borders cannot become
+      // part of the material fingerprint.
+      if (dx * dx + dy * dy > 0.52) continue;
       const offset = (y * size + x) * 4;
       const red = pixels[offset] / 255;
       const green = pixels[offset + 1] / 255;
@@ -287,14 +299,25 @@ async function detectQuantities(canvas: HTMLCanvasElement, grid: Grid) {
   try {
     const detections = await new Detector().detect(canvas);
     for (const detection of detections) {
-      const amount = Number(String(detection.rawValue ?? "").replace(/\D/g, ""));
+      const raw = String(detection.rawValue ?? "").trim();
+      if (!/^\d{1,4}$/.test(raw)) continue;
+      const amount = Number(raw);
       const box = detection.boundingBox;
       if (!box || !Number.isInteger(amount) || amount < 1 || amount > 9999) continue;
       const centerX = box.x + box.width / 2;
       const centerY = box.y + box.height / 2;
       const column = grid.xs.findIndex((line, index) => index < grid.xs.length - 1 && centerX >= line && centerX <= grid.xs[index + 1]);
       const row = grid.ys.findIndex((line, index) => index < grid.ys.length - 1 && centerY >= line && centerY <= grid.ys[index + 1]);
-      if (column >= 0 && row >= 0) quantities.set(`${column}:${row}`, amount);
+      if (column < 0 || row < 0) continue;
+      const left = grid.xs[column];
+      const top = grid.ys[row];
+      const width = grid.xs[column + 1] - left;
+      const height = grid.ys[row + 1] - top;
+      // Inventory amounts are printed in the upper-left corner. Reject digits
+      // from icons, tooltips and the rest of the game UI.
+      if (centerX > left + width * 0.48 || centerY > top + height * 0.42) continue;
+      if (box.width > width * 0.48 || box.height > height * 0.42) continue;
+      quantities.set(`${column}:${row}`, amount);
     }
   } catch {
     return new Map<string, number>();
@@ -361,15 +384,22 @@ export async function recognizeInventoryPhoto(file: File, references: PhotoIconR
       cellContext.drawImage(canvas, x, y, width, height, 0, 0, width, height);
       if (!cellHasIcon(cellContext, width, height)) continue;
       detectedSlots += 1;
-      const signature = signatureFor(signatureContext, cell, width, height);
+      const signatures = [-0.06, 0, 0.06].flatMap((offsetY) =>
+        [-0.06, 0, 0.06].map((offsetX) => signatureFor(signatureContext, cell, width, height, offsetX, offsetY)),
+      );
       const matches = loadedReferences
-        .map((reference) => ({ reference, distance: signatureDistance(signature, reference.signature) }))
+        .map((reference) => ({
+          reference,
+          distance: Math.min(...signatures.map((signature) => signatureDistance(signature, reference.signature))),
+        }))
         .sort((left, right) => left.distance - right.distance);
       const best = matches[0];
       const second = matches[1];
-      if (!best || best.distance > 0.255) continue;
+      if (!best || !second || best.distance > 0.2) continue;
       const gap = (second?.distance ?? 0.5) - best.distance;
-      const confidence = Math.round(clamp((0.28 - best.distance) * 3.1 + gap * 2.2, 0.45, 0.98) * 100);
+      if (gap < 0.015 || second.distance < best.distance * 1.08) continue;
+      const confidence = Math.round(clamp((0.22 - best.distance) * 4.2 + gap * 3.2, 0, 0.98) * 100);
+      if (confidence < 58) continue;
       const quantity = quantities.get(`${column}:${row}`) ?? 1;
       recognized.push({ name: best.reference.name, quantity, confidence, quantityNeedsReview: !quantities.has(`${column}:${row}`) });
     }
@@ -387,7 +417,7 @@ export async function recognizeInventoryPhoto(file: File, references: PhotoIconR
     });
   }
   const items = [...merged.values()].sort((left, right) => right.confidence - left.confidence || left.name.localeCompare(right.name, "tr"));
-  if (!items.length) throw new Error("Izgarayı gördüm ancak güvenle eşleşen malzeme bulamadım. Daha yakın ve net bir görüntüyle tekrar dene.");
+  if (!items.length) throw new Error("Izgarayı gördüm ancak ikonları birbirinden yeterli güvenle ayıramadım. Yanlış malzeme önermemek için onay taslağı oluşturmadım.");
   const warnings: string[] = [];
   if (items.some((item) => item.quantityNeedsReview)) warnings.push("Bazı adetler görüntüden okunamadı; 1 olarak işaretlenenleri onaylamadan önce kontrol et.");
   if (detectedSlots > items.length) warnings.push(`${detectedSlots - items.length} dolu yuva düşük güven nedeniyle taslağa eklenmedi.`);

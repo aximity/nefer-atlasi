@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.66.1",
+    date: "29 Ağustos 2026",
+    title: "Net Fotoğraf Izgara Algılama Düzeltmesi",
+    changes: [
+      "Yumuşak ve kısmen örtülü çanta çizgileri hücre ritmine göre de algılanıyor.",
+      "İkon parlamalarının oluşturduğu fazladan çizgiler ızgara dizisini bozmuyor.",
+    ],
+  },
+  {
     version: "0.66.0",
     date: "29 Ağustos 2026",
     title: "Fotoğraftan Otomatik Çanta Okuma",
