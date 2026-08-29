@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.66.2",
+    date: "29 Ağustos 2026",
+    title: "İkon ve Adet Güvenlik Düzeltmesi",
+    changes: [
+      "Belirsiz ikonlar yanlış adla onay taslağına alınmıyor.",
+      "Adet yalnız hücrenin sol üstündeki rakam alanından okunuyor.",
+    ],
+  },
+  {
     version: "0.66.1",
     date: "29 Ağustos 2026",
     title: "Net Fotoğraf Izgara Algılama Düzeltmesi",

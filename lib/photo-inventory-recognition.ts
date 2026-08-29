@@ -14,6 +14,7 @@ export type InventoryRecognitionResult = {
 type LineRun = { positions: number[]; score: number };
 type Grid = { xs: number[]; ys: number[] };
 type Signature = number[];
+type LoadedReference = PhotoIconReference & { signature: Signature };
 type TextDetection = { rawValue?: string; boundingBox?: DOMRectReadOnly };
 type TextDetectorLike = { detect(source: CanvasImageSource): Promise<TextDetection[]> };
 type TextDetectorConstructor = new () => TextDetectorLike;
@@ -186,6 +187,79 @@ function gridShapeIsPlausible(grid: Grid) {
   return ratio >= 0.62 && ratio <= 1.62;
 }
 
+function axisAlignmentCandidates(positions: number[], limit: number) {
+  const gaps = positions.slice(1).map((position, index) => position - positions[index]);
+  const average = gaps.reduce((sum, gap) => sum + gap, 0) / Math.max(1, gaps.length);
+  const candidates = [-0.5, -0.25, 0, 0.25, 0.5]
+    .map((fraction) => positions.map((position) => Math.round(position + average * fraction)))
+    .filter((axis) => axis[0] >= 0 && axis[axis.length - 1] <= limit);
+  const centerBoundaries = [
+    Math.round(positions[0] - average / 2),
+    ...positions.slice(1).map((position, index) => Math.round((positions[index] + position) / 2)),
+    Math.round(positions[positions.length - 1] + average / 2),
+  ];
+  if (centerBoundaries[0] >= 0 && centerBoundaries[centerBoundaries.length - 1] <= limit) candidates.push(centerBoundaries);
+  return candidates.filter((axis, index) => candidates.findIndex((candidate) => candidate.join(":") === axis.join(":")) === index);
+}
+
+function gridAlignmentScore(
+  canvas: HTMLCanvasElement,
+  grid: Grid,
+  signatureContext: CanvasRenderingContext2D,
+  references: LoadedReference[],
+) {
+  let score = 0;
+  let compared = 0;
+  for (let row = 0; row < grid.ys.length - 1; row += 1) {
+    for (let column = 0; column < grid.xs.length - 1; column += 1) {
+      const x = grid.xs[column];
+      const y = grid.ys[row];
+      const width = grid.xs[column + 1] - x;
+      const height = grid.ys[row + 1] - y;
+      if (width < 8 || height < 8) continue;
+      const cell = document.createElement("canvas");
+      cell.width = width;
+      cell.height = height;
+      const cellContext = cell.getContext("2d", { willReadFrequently: true });
+      if (!cellContext) continue;
+      cellContext.drawImage(canvas, x, y, width, height, 0, 0, width, height);
+      if (!cellHasIcon(cellContext, width, height)) continue;
+      const signature = signatureFor(signatureContext, cell, width, height);
+      const distances = references.map((reference) => signatureDistance(signature, reference.signature)).sort((left, right) => left - right);
+      if (distances.length < 2) continue;
+      const best = distances[0];
+      const gap = distances[1] - best;
+      score += Math.max(0, 0.25 - best) + Math.max(0, gap) * 1.8;
+      compared += 1;
+    }
+  }
+  return compared ? score / Math.sqrt(compared) : 0;
+}
+
+function alignGrid(
+  canvas: HTMLCanvasElement,
+  detected: Grid,
+  signatureContext: CanvasRenderingContext2D,
+  references: LoadedReference[],
+) {
+  const xCandidates = axisAlignmentCandidates(detected.xs, canvas.width);
+  const yCandidates = axisAlignmentCandidates(detected.ys, canvas.height);
+  let best = detected;
+  let bestScore = Number.NEGATIVE_INFINITY;
+  for (const xs of xCandidates) {
+    for (const ys of yCandidates) {
+      const candidate = { xs, ys };
+      if (!gridShapeIsPlausible(candidate)) continue;
+      const score = gridAlignmentScore(canvas, candidate, signatureContext, references);
+      if (score > bestScore) {
+        best = candidate;
+        bestScore = score;
+      }
+    }
+  }
+  return best;
+}
+
 function detectGrid(canvas: HTMLCanvasElement): Grid | null {
   const context = canvas.getContext("2d", { willReadFrequently: true });
   if (!context) return null;
@@ -348,8 +422,8 @@ export async function recognizeInventoryPhoto(file: File, references: PhotoIconR
   context.drawImage(source, 0, 0, canvas.width, canvas.height);
   if (source instanceof ImageBitmap) source.close();
   if (sourceUrl) URL.revokeObjectURL(sourceUrl);
-  const grid = detectGrid(canvas);
-  if (!grid) throw new Error("Görüntü net, ancak çanta düzenini güvenle ayıramadım. Fotoğrafı değiştirmene gerek yok; bu örneğin ızgara biçimi için algılama desteği gerekiyor.");
+  const detectedGrid = detectGrid(canvas);
+  if (!detectedGrid) throw new Error("Görüntü net, ancak çanta düzenini güvenle ayıramadım. Fotoğrafı değiştirmene gerek yok; bu örneğin ızgara biçimi için algılama desteği gerekiyor.");
 
   const signatureCanvas = document.createElement("canvas");
   signatureCanvas.width = 14;
@@ -363,9 +437,10 @@ export async function recognizeInventoryPhoto(file: File, references: PhotoIconR
     } catch {
       return null;
     }
-  }))).filter((reference): reference is PhotoIconReference & { signature: Signature } => Boolean(reference));
+  }))).filter((reference): reference is LoadedReference => Boolean(reference));
   if (!loadedReferences.length) throw new Error("Malzeme ikon kataloğu yüklenemedi.");
 
+  const grid = alignGrid(canvas, detectedGrid, signatureContext, loadedReferences);
   const quantities = await detectQuantities(canvas, grid);
   const recognized: RecognizedInventoryItem[] = [];
   let detectedSlots = 0;

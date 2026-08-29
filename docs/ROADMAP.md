@@ -2,6 +2,7 @@
 
 ## Tamamlandı — M66: Fotoğraftan otomatik çanta okuma
 
+- v0.66.3: Izgara çizgisi ile ikon merkezi karıştığında katalog eşleşme kalitesine göre otomatik hücre hizalama seçiliyor.
 - v0.66.2: Belirsiz ikon adlarının ve hücre dışı rakamların onay taslağına girmesi engellendi; ikon çekirdeği hizalama toleransıyla karşılaştırılıyor.
 - v0.66.1: Gerçek telefon ekran görüntüsündeki yumuşak, parlama içeren ve kısmen örtülü ızgara için hücre ritmi tabanlı algılama eklendi.
 

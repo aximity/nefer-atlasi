@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.66.3 — Otomatik Hücre Hizalama
+
+- Izgara algılayıcısının bulduğu düzen için hücre sınırı ve ikon merkezi olasılıkları ayrı ayrı deneniyor.
+- Beş yatay ve beş dikey faz kaydırması, katalog ikonlarıyla oluşan toplam eşleşme kalitesine göre karşılaştırılıyor.
+- Komşu ikonların yarısını aynı hücreye alan hatalı kırpım yerine en temiz ikon çekirdeğini veren hizalama seçiliyor.
+- Güven eşiği korunuyor; hizalama iyileşse bile belirsiz ikonlar yanlış adla yayımlanmıyor.
+
 ## v0.66.2 — İkon ve Adet Güvenlik Düzeltmesi
 
 - Hücrenin merkezindeki ikon çekirdeği, sarı adet yazısı ve ızgara kenarlarından ayrı karşılaştırılıyor.
