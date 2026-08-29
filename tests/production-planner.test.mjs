@@ -34,5 +34,21 @@ test("fotoğraf taslağı stoku değiştirmeden en yakın üretimi hesaplar", ()
   assert.equal(impact.recommended?.recipe.itemId, "asa");
   assert.equal(impact.recommended?.status, "ready");
   assert.equal(impact.newlyReadyCount, 1);
+  assert.equal(impact.recommendations[0]?.recipe.itemId, "asa");
   assert.deepEqual(impact.mergedStock, { "Saf Altın": 2, Zamk: 3 });
+});
+
+test("fotoğraf taslağı üç ila beş anlamlı üretim adayını sıralar", () => {
+  const candidateRecipes = [
+    ...recipes,
+    { id: "r2", itemId: "ceket", materials: [{ name: "Zamk", quantity: 4 }] },
+    { id: "r3", itemId: "yuzuk", materials: [{ name: "Zamk", quantity: 5 }] },
+    { id: "r4", itemId: "kolye", materials: [{ name: "Zamk", quantity: 6 }] },
+    { id: "r5", itemId: "pantolon", materials: [{ name: "Zamk", quantity: 7 }] },
+    { id: "r6", itemId: "eldiven", materials: [{ name: "Bambaşka", quantity: 1 }] },
+  ];
+  const impact = productionDraftImpact({ recipes: candidateRecipes, items, stock: { "Saf Altın": 2 }, draft: { Zamk: 3 }, favoriteIds: ["kolye"] });
+  assert.ok(impact.recommendations.length >= 3 && impact.recommendations.length <= 5);
+  assert.equal(impact.recommendations[0].recipe.itemId, "asa");
+  assert.ok(impact.recommendations.every((plan) => plan.completion > 0));
 });

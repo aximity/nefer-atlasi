@@ -293,3 +293,10 @@
 - Doğrudan hasar, büyü hasarı ve direnç serilerinin düşük seviyeleri eklendi.
 - Malzeme dizini 49 benzersiz malzemeyi tam reçete kümesinden otomatik üretir hâle getirildi.
 - İksir favorileri üretim ekranında ayrı ve kaldırılabilir hedef listesine bağlandı.
+# v0.64.0 — Fotoğraftan Üretim Adayları
+
+- Çanta fotoğrafı akışı dört anlaşılır adıma ayrıldı.
+- Doğrulanan fotoğraf taslağı mevcut stokla birleşerek en yakın 3–5 üretim adayını hesaplıyor.
+- Yüzde 50 ve üzerindeki adaylar, yeni üretilebilir reçeteler ve favoriler öncelikli sıralanıyor.
+- Her adayda tamamlanma oranı, eksik malzeme özeti ve site içi reçete bağlantısı gösteriliyor.
+- Fotoğraf ve taslak otomatik stok değiştirmiyor; stok yalnız kullanıcı onayıyla güncelleniyor.
