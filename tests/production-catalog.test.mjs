@@ -20,11 +20,11 @@ test("ortak üretim kataloğu dört reçete türünü tek ağda toplar", () => {
   assert.equal(previousTierTalismans.filter((name) => !productionMaterialSourceFor(name)).length, 49);
 });
 
-test("Wiki malzeme ikonları tahminsiz ve ölçülebilir kapsama sahiptir", () => {
+test("kaynaklı malzeme ikonları tahminsiz ve ölçülebilir kapsama sahiptir", () => {
   const potionMaterials = [...new Set(potionRecipes.flatMap((recipe) => recipe.materials.map((material) => material.name)))];
   const missing = potionMaterials.filter((name) => !materialIconFor(name));
-  assert.equal(materialIcons.length, 102);
-  assert.deepEqual(missing, ["Karbon"]);
+  assert.equal(materialIcons.length, 105);
+  assert.deepEqual(missing, []);
   assert.equal(materialIconFor("Saf Bakır")?.path, "/materials/saf-bakir.png");
   assert.match(materialIconFor("Saf Bakır")?.src ?? "", /^data:image\/png;base64,/);
 });
@@ -42,5 +42,5 @@ test("442 reçetenin gerçek malzeme ikonları tüm dört katalogda birlikte den
     .filter((material) => !("kind" in material && material.kind === "talisman"))
     .map((material) => material.name)))].sort((a, b) => a.localeCompare(b, "tr"));
   assert.equal(materialNames.length, 105);
-  assert.deepEqual(materialNames.filter((name) => !materialIconFor(name)), ["Açık Mavi Lapis", "Elmas", "Karbon"]);
+  assert.deepEqual(materialNames.filter((name) => !materialIconFor(name)), ["Açık Mavi Lapis", "Elmas"]);
 });

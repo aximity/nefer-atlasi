@@ -1,13 +1,18 @@
 export const SITE_RELEASE = {
-  version: "0.68.1",
+  version: "0.68.2",
   channel: "BETA",
-  milestone: "M68.1",
+  milestone: "M68.2",
   releasedOn: "2026-08-29",
   releasedAt: "29 Ağustos 2026",
-  title: "Güvenli Adet Onayı",
+  title: "Odaklı Menü ve Kaynaklı Görseller",
   summary:
-    "Sarı etiketli adetler artık okuyucu tahminiyle otomatik stoka girmez; kullanıcı doğruladıktan sonra tüm üretim türlerinin azami adedi hesaplanır.",
+    "Bütün araçlar korunurken menü üç odak grubuna ayrıldı; Bakır, Kalay ve Karbon doğrulanmış oyun ikonlarıyla ortak görsel ağına eklendi.",
   changes: [
+    "Menü Bilgi, Araçlar ve Proje gruplarına ayrıldı; aynı anda yalnız seçilen grup gösteriliyor.",
+    "On beş modülün tamamı yerinde, genel aramada ve açıklamalı menüde erişilebilir kaldı.",
+    "Bakır, Kalay ve Karbon ikonları Phalanx İKV Reçete Rehberi'ndeki gerçek oyun varlıklarından doğrulandı.",
+    "Malzeme görsel kapsamı 103/105'e, maden ve toplayıcılık kapsamı 68/81'e yükseldi.",
+    "Genel giysi simgeleri özgün set görünüşü sayılmadı; yanıltıcı görsel kapsamı üretilmedi.",
     "Sarı adet etiketi bulunan her yığın güvenli moda alındı; hiçbir OCR sonucu kullanıcı doğrulaması olmadan stok veya üretim hesabına girmiyor.",
     "Okuyucunun bulduğu sayı kesin değer yerine düzenlenebilir adet önerisi olarak gösteriliyor.",
     "Etiketsiz tekli yuvalar 1 kalıyor; etiketli fakat okunamayan yuvalar boş ve zorunlu onaylı kalıyor.",

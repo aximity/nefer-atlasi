@@ -110,6 +110,7 @@ const moduleGroups: { label: string; note: string; ids: MainModule[] }[] = [
   { label: "Araçlar", note: "Planla ve karşılaştır", ids: ["builder", "atlas", "mining", "endgame"] },
   { label: "Proje", note: "Arka plan ve katkı", ids: ["economy", "sustainability", "issues", "health", "contribute"] },
 ];
+type ModuleGroupLabel = "Bilgi" | "Araçlar" | "Proje";
 interface BuildSnapshot {
   v: number;
   klass: CharacterClass;
@@ -163,6 +164,7 @@ export default function Home() {
     [detail, setDetail] = useState<Item | null>(null),
     [activeModule, setActiveModule] = useState<MainModule | null>(null),
     [moreOpen, setMoreOpen] = useState(false),
+    [menuGroup, setMenuGroup] = useState<ModuleGroupLabel>("Bilgi"),
     [searchOpen, setSearchOpen] = useState(false),
     [globalQuery, setGlobalQuery] = useState(""),
     [searchFilter, setSearchFilter] = useState<SearchFilter>("Tümü"),
@@ -329,7 +331,14 @@ export default function Home() {
         setNotice("Kayıtlı donanım planı geçersiz veya eski sürüm.");
       }
     };
-  const openModule = (id: MainModule, searchParams?: Record<string, string>) => {
+  const openSiteMenu = () => {
+      const activeGroup = activeModule
+        ? moduleGroups.find((group) => group.ids.includes(activeModule))
+        : null;
+      setMenuGroup(activeGroup?.label ?? "Bilgi");
+      setMoreOpen(true);
+    },
+    openModule = (id: MainModule, searchParams?: Record<string, string>) => {
       setActiveModule(id);
       if (id === "recipes") setRecipeRevision((value) => value + 1);
       if (id === "atlas") setAtlasRevision((value) => value + 1);
@@ -481,20 +490,20 @@ export default function Home() {
             <b>Atlas’ta ara</b>
             <small aria-hidden="true">/</small>
           </button>
-          <button className="siteMenuTrigger" type="button" aria-expanded={moreOpen} onClick={() => setMoreOpen((value) => !value)}>Menü <i aria-hidden="true">{moreOpen ? "×" : "+"}</i></button>
+          <button className="siteMenuTrigger" type="button" aria-expanded={moreOpen} onClick={() => moreOpen ? setMoreOpen(false) : openSiteMenu()}>Menü <i aria-hidden="true">{moreOpen ? "×" : "+"}</i></button>
         </nav>
       </header>
-      {moreOpen && <div className="siteMenuOverlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setMoreOpen(false)}><aside className="siteMenu" role="dialog" aria-modal="true" aria-label="Site menüsü"><header><span><small>NEFER ATLASI</small><h2>Tüm bölümler</h2></span><button type="button" onClick={() => setMoreOpen(false)} aria-label="Menüyü kapat">×</button></header><div>{moduleGroups.map((group) => <section key={group.label}><header><b>{group.label}</b><small>{group.note}</small></header>{group.ids.map((id) => { const item = moduleTabs.find((row) => row.id === id); return item && <button type="button" key={id} className={activeModule === id ? "active" : ""} onClick={() => openModule(id)}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>; })}</section>)}</div><footer><a href="/uretim">Üretim takibi</a><a href="/rehber">Kullanım rehberi</a><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a></footer></aside></div>}
+      {moreOpen && <div className="siteMenuOverlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setMoreOpen(false)}><aside className="siteMenu" role="dialog" aria-modal="true" aria-label="Site menüsü"><header><span><small>NEFER ATLASI</small><h2>Bölümler</h2></span><button type="button" onClick={() => setMoreOpen(false)} aria-label="Menüyü kapat">×</button></header><nav className="siteMenuGroups" aria-label="Bölüm grupları">{moduleGroups.map((group) => <button type="button" key={group.label} className={menuGroup === group.label ? "active" : ""} aria-pressed={menuGroup === group.label} onClick={() => setMenuGroup(group.label)}><span>{group.label}</span><small>{group.ids.length}</small></button>)}</nav><div className="siteMenuPanel">{moduleGroups.filter((group) => group.label === menuGroup).map((group) => <section key={group.label}><header><b>{group.label}</b><small>{group.note} · {group.ids.length} bölüm</small></header>{group.ids.map((id) => { const item = moduleTabs.find((row) => row.id === id); return item && <button type="button" key={id} className={activeModule === id ? "active" : ""} onClick={() => openModule(id)}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>; })}</section>)}</div><footer><a href="/uretim">Üretim takibi</a><a href="/rehber">Kullanım rehberi</a><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Oyuna git ↗</a></footer></aside></div>}
 
       {activeModule === null ? <>
         <section className="homeGateway" id="top">
           <div><small>KÖ BİLGİ PLATFORMU</small><h1>Ne arıyorsun?</h1><p>Önce bilgiyi seç. Ayrıntılar yalnız açtığında görünür.</p></div>
           <button className="gatewaySearch" type="button" onClick={() => setSearchOpen(true)}><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/></svg><span><b>Atlas’ta ara</b><small>Eşya, tılsım, reçete, görev, maden veya boss</small></span><kbd>/</kbd></button>
           <nav className="gatewayChoices" id="modules" aria-label="Hızlı bölümler">{quickModuleIds.map((id) => { const item = moduleTabs.find((row) => row.id === id)!; return <button type="button" onClick={() => openModule(id)} key={id}><span><b>{item.label}</b><small>{item.summary}</small></span><i>→</i></button>; })}</nav>
-          <button className="gatewayMore" type="button" onClick={() => setMoreOpen(true)}>Diğer araçları ve proje bölümlerini aç</button>
+          <button className="gatewayMore" type="button" onClick={openSiteMenu}>Diğer araçları ve proje bölümlerini aç</button>
         </section>
         <AdSlot placement="home_top" />
-      </> : <nav className="moduleContext" id="modules" aria-label="Açık bölüm"><button type="button" onClick={goHome}>← Ana sayfa</button><b>{moduleTabs.find((item) => item.id === activeModule)?.label}</b><button type="button" onClick={() => setMoreOpen(true)}>Diğer bölümler</button></nav>}
+      </> : <nav className="moduleContext" id="modules" aria-label="Açık bölüm"><button type="button" onClick={goHome}>← Ana sayfa</button><b>{moduleTabs.find((item) => item.id === activeModule)?.label}</b><button type="button" onClick={openSiteMenu}>Diğer bölümler</button></nav>}
       {activeModule === "builder" && <section className="builder" id="builder">
         <Title eyebrow="M2 · DONANIM PLANLAYICI" title="Sekiz yuvayı sen doldur">
           <div className="actions">

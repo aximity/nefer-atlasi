@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.68.1",
+    date: "29 Ağustos 2026",
+    title: "Güvenli Adet Onayı",
+    changes: [
+      "Sarı etiketli adetler kullanıcı doğrulaması olmadan stok veya üretim hesabına girmiyor.",
+      "Etiketsiz tekli yuvalar 1 kalırken okunamayan etiketli miktarlar açık onaya bırakılıyor.",
+    ],
+  },
+  {
     version: "0.68.0",
     date: "29 Ağustos 2026",
     title: "Fotoğraftan Gerçek Üretim Hesabı",

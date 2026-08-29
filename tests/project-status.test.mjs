@@ -22,8 +22,8 @@ test("canlı görsel haritası sekiz kapsamı veriden türetir", () => {
   assert.deepEqual(
     projectVisualCoverage.map((row) => [row.id, row.value, row.total]),
     [
-      ["gathering_icons", 66, 81],
-      ["recipe_material_icons", 102, 105],
+      ["gathering_icons", 68, 81],
+      ["recipe_material_icons", 103, 105],
       ["item_recipe_icons", 12, 67],
       ["item_appearances", 2, 23],
       ["talisman_icons", 6, 6],
@@ -32,10 +32,10 @@ test("canlı görsel haritası sekiz kapsamı veriden türetir", () => {
       ["ability_media", 0, 3],
     ],
   );
-  assert.deepEqual(byId.get("recipe_material_icons")?.missing, ["Açık Mavi Lapis", "Elmas", "Karbon"]);
+  assert.deepEqual(byId.get("recipe_material_icons")?.missing, ["Açık Mavi Lapis", "Elmas"]);
   assert.deepEqual(projectCrossModuleVisualGaps, ["Açık Mavi Lapis", "Elmas"]);
   assert.equal(projectVisualPriorities[0].id, "potion_bottles");
-  assert.deepEqual(projectVisualTotals, { verifiedAssets: 167, openAssetTasks: 98, completedAreas: 2, areas: 8 });
+  assert.deepEqual(projectVisualTotals, { verifiedAssets: 170, openAssetTasks: 95, completedAreas: 2, areas: 8 });
 });
 
 test("genel durum reçete claimi ile etkilenen reçete sayısını karıştırmaz", () => {
@@ -80,14 +80,14 @@ test("malzeme ikonlarının kaynak kimliği katalogda gerçekten bulunur", () =>
   const icons = JSON.parse(readFileSync(new URL("../data/material-icons.json", import.meta.url), "utf8"));
   const sources = JSON.parse(readFileSync(new URL("../data/sources.json", import.meta.url), "utf8"));
   const sourceIds = new Set(sources.map((source) => source.id));
-  assert.equal(icons.length, 102);
+  assert.equal(icons.length, 105);
   assert.ok(icons.every((icon) => sourceIds.has(icon.sourceId)));
   assert.equal(icons.filter((icon) => icon.sourceId === "fandom-potion-recipes-20260826").length, 48);
 });
 
 test("proje durumu sürüm ve çapraz denetim standardını yayımlar", () => {
-  assert.equal(SITE_RELEASE.version, "0.68.1");
-  assert.equal(SITE_RELEASE.milestone, "M68.1");
+  assert.equal(SITE_RELEASE.version, "0.68.2");
+  assert.equal(SITE_RELEASE.milestone, "M68.2");
   assert.equal(SITE_RELEASE.releasedOn, "2026-08-29");
   assert.deepEqual(projectSystemicAuditAreas.map((area) => area.id), ["catalog", "recipe", "gathering", "planner", "search", "tests"]);
   const scorecard = readFileSync(new URL("../app/ProjectScorecard.tsx", import.meta.url), "utf8");

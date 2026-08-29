@@ -60,6 +60,11 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(productionPlanner, /potionGoals/);
   assert.match(sustainability, /KAYNAK → İKV UYARLAMASI/);
   assert.match(page, /Sürdürülebilirlik/);
+  assert.match(page, /Bölüm grupları/);
+  assert.match(page, /moduleGroups\.filter/);
+  assert.match(page, /Bilgi/);
+  assert.match(page, /Araçlar/);
+  assert.match(page, /Proje/);
   assert.match(page, /ReleaseCenter/);
   assert.match(releaseCenter, /Nefer Atlası ne yapar\?/);
   assert.match(releaseCenter, /Yenilikler/);

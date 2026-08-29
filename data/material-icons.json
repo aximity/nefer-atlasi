@@ -508,5 +508,20 @@
     "name": "Xenotim",
     "path": "/materials/xenotim.png",
     "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Bakır",
+    "path": "/materials/bakir.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Kalay",
+    "path": "/materials/kalay.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
+  },
+  {
+    "name": "Karbon",
+    "path": "/materials/karbon.png",
+    "sourceId": "phalanx-ikv-recipe-icons-20260828"
   }
 ]

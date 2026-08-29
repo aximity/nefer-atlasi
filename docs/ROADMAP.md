@@ -1,5 +1,14 @@
 # Yol Haritası
 
+## Tamamlandı — M68.2: Odaklı menü ve kaynaklı görseller
+
+- [x] On beş modülü silmeden Bilgi, Araçlar ve Proje gruplarına ayır
+- [x] Aynı anda yalnız seçilen grubu göster; bütün modülleri genel aramada koru
+- [x] Bakır, Kalay ve Karbon için gerçek oyun ikonlarını ortak görsel ağına ekle
+- [x] Genel giysi ikonlarını özgün set görünüşü gibi saymayan kaynak kalite kapısını belgele
+
+Çıkış kapısı: Yeni kullanıcı aynı anda en fazla altı bölüm görür; hiçbir modül kaybolmaz ve eklenen her görsel adıyla birebir eşleşen doğrulanmış varlıktır.
+
 ## Tamamlandı — M68.1: Güvenli adet onayı
 
 - [x] Sarı etiketli hiçbir adedi otomatik stok değeri kabul etme

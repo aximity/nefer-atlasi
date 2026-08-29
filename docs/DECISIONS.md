@@ -103,3 +103,7 @@ Fotoğraf analizi aşama, yüzde ve geçen süreyi görünür kılar; yoğun hes
 ## ADR-026 — Adet OCR'ı kalite kapısına kadar yalnız öneridir
 
 Sarı etiketli bir yuvada OCR'ın okuduğu sayı, güven puanı yüksek görünse bile otomatik stok değeri değildir. Kullanıcı sayıyı açıkça doğrulayana kadar yuva üretim ve stok hesabına girmez; etiketsiz tekli yuva 1 sayılır. Otomatik kabul ancak perspektif-normalize gerçek oyun görüntülerinden ayrılmış test kümesinde en az %99 etiket varlığı, en az %97 kesin adet doğruluğu ve %0,5'in altında yanlış otomatik kabul oranı birlikte sağlandıktan sonra ayrıca değerlendirilebilir. Aynı rakam şablonlarından üretilen sentetik testler bu kapının kanıtı sayılmaz.
+
+## ADR-027 — Genel simge özgün eşya görünüşü sayılmaz
+
+Bir kaynak birden çok zırh seti veya eşyada aynı “ceket”, “pantolon”, “ayakkabı” gibi genel simgeyi kullanıyorsa bu dosya yalnız paylaşılan tür görseli olabilir; özgün eşya ikonu ya da set görünüşü kapsamını kapatmaz. Görsel adı, oyundaki kayıt ve görünüş birebir doğrulanmadan kapsam sayacı artırılmaz. Böylece görsel zenginliği puanı, kullanıcıyı yanlış eşya görünüşüyle yanıltma pahasına yükseltilmez.

@@ -62,7 +62,7 @@ test("110 önceki kademe girdisi görünen adla değil exact tılsım kimliğiyl
 });
 
 test("710 reçete girdisinin tamamı gerçek malzeme veya sınıf-renk tılsım ikonuna çözülür", () => {
-  assert.equal(materialIcons.length, 102);
+  assert.equal(materialIcons.length, 105);
   assert.equal(talismanVisualFamilies.length, 6);
   assert.equal(talismanIcons.length, 6);
   assert.equal(new Set(talismanIcons.map((row) => row.familyId)).size, 6);

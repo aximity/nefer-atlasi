@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+## v0.68.2 — Odaklı Menü ve Kaynaklı Görseller
+
+- Menü Bilgi, Araçlar ve Proje olmak üzere üç odağa ayrıldı; aynı anda yalnız seçilen grup gösteriliyor.
+- On beş modülün tamamı korunarak genel arama ve bölüm menüsündeki erişimleri sürdürüldü.
+- Bakır, Kalay ve Karbon gerçek oyun ikonları ortak malzeme sözlüğüne eklendi.
+- Reçete malzeme ikon kapsamı 103/105'e, maden ve toplayıcılık kapsamı 68/81'e yükseldi.
+- Kaynak sitelerindeki genel giysi simgeleri özgün set veya eşya görünüşü sayılmadı.
+
 ## v0.68.1 — Güvenli Adet Onayı
 
 - Sarı etiketli adetlerin tamamı, OCR güven puanından bağımsız olarak açık kullanıcı onayına alındı.
