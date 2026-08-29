@@ -1,5 +1,21 @@
 # Değişiklik Günlüğü
 
+## v0.68.0 — Fotoğraftan Gerçek Üretim Hesabı
+
+- Tarayıcının metin okuyucusuna bağlı olmayan sarı adet etiketi okuyucusu eklendi.
+- Fotoğraf taslağında üretilebilir azami adet, stok onayından önce gösteriliyor.
+- İksir, tılsım, eşya, silah ve ara malzeme reçeteleri aynı hesapta taranıyor.
+- Düşük güvenli adetler 1 sayılmak yerine kullanıcı onayına bırakılıyor.
+
+## v0.67.0 — Süre Sınırlı Fotoğraf Analizi
+
+- Fotoğraf analizinde aşama adı, ilerleme yüzdesi ve geçen saniye görünür hâle getirildi.
+- İkon karşılaştırma döngüsü satırlar arasında tarayıcıya kontrol veriyor; mobil arayüz uzun hesap sırasında donmuş görünmüyor.
+- Doğrulanmış referans ikon imzaları aynı oturumdaki sonraki analizler için önbelleğe alındı.
+- Analiz 18 saniyede güvenli biçimde duruyor; kullanıcı aynı fotoğrafı tekrar deneyebiliyor.
+- Güven eşiğinin hemen altındaki makul ikonlar artık kaybolmuyor; “aday” olarak onay ekranına geliyor ve isim doğrulanmadan stoka işlenemiyor.
+- Zayıf eşleşmeler malzeme adı uydurmadan taslak dışında kalmaya devam ediyor.
+
 ## v0.66.3 — Otomatik Hücre Hizalama
 
 - Izgara algılayıcısının bulduğu düzen için hücre sınırı ve ikon merkezi olasılıkları ayrı ayrı deneniyor.

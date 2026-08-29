@@ -1,5 +1,21 @@
 # Yol Haritası
 
+## Tamamlandı — M68: Fotoğraftan gerçek üretim hesabı
+
+- [x] Cihazdan bağımsız sarı adet etiketi okuyucusu.
+- [x] Tüm reçete türlerinde azami üretilebilir adet hesabı.
+- [x] Stok onayı öncesi üretim özeti.
+
+## Tamamlandı — M67: Süre sınırlı fotoğraf analizi
+
+- [x] Analiz aşamasını, ilerleme yüzdesini ve geçen süreyi göster
+- [x] Yoğun ikon karşılaştırmasını arayüzü kilitlemeyen parçalara böl
+- [x] Referans ikon imzalarını sonraki denemeler için önbelleğe al
+- [x] Analizi 18 saniyede güvenli biçimde durdur ve tekrar deneme sun
+- [x] Makul düşük güvenli adayları açık isim onayıyla taslağa taşı
+
+Çıkış kapısı: Kullanıcı fotoğraf analizinin nerede olduğunu görür; işlem süresiz beklemez; düşük güvenli isimler açık onay olmadan stoka işlenmez.
+
 ## Tamamlandı — M66: Fotoğraftan otomatik çanta okuma
 
 - v0.66.3: Izgara çizgisi ile ikon merkezi karıştığında katalog eşleşme kalitesine göre otomatik hücre hizalama seçiliyor.

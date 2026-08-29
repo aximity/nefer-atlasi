@@ -6,6 +6,33 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.67.0",
+    date: "29 Ağustos 2026",
+    title: "Süre Sınırlı Fotoğraf Analizi",
+    changes: [
+      "Analiz aşaması, yüzdesi ve geçen süre gösterildi.",
+      "Düşük güvenli ikonlar açık isim onayına taşındı.",
+    ],
+  },
+  {
+    version: "0.66.5",
+    date: "29 Ağustos 2026",
+    title: "Yanlış Adet Güvenlik Düzeltmesi",
+    changes: [
+      "Sarı adet etiketi okunamadığında miktar sessizce 1 kabul edilmiyor.",
+      "Eksik adet tamamlanmadan fotoğraf taslağı stoka işlenmiyor.",
+    ],
+  },
+  {
+    version: "0.66.4",
+    date: "29 Ağustos 2026",
+    title: "Gerçek Fotoğraf Izgara Düzeltmesi",
+    changes: [
+      "Telefonla çekilmiş banka fotoğrafında doğru 8×8 sınırlar bulundu.",
+      "Yarım hücre kayması ve parlak ikonların sahte ızgara sayılması engellendi.",
+    ],
+  },
+  {
     version: "0.66.3",
     date: "29 Ağustos 2026",
     title: "Fotoğraftan Otomatik Çanta Okuma",

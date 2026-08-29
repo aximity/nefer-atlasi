@@ -52,3 +52,14 @@ test("fotoğraf taslağı üç ila beş anlamlı üretim adayını sıralar", ()
   assert.equal(impact.recommendations[0].recipe.itemId, "asa");
   assert.ok(impact.recommendations.every((plan) => plan.completion > 0));
 });
+
+test("fotoğraf stoku iksir, tılsım ve eşya reçetelerinde üretilebilir adedi birlikte hesaplar", () => {
+  const mixedRecipes = [
+    { id: "potion", itemId: "iksir", materials: [{ name: "Saf Bakır", quantity: 2 }] },
+    { id: "talisman", itemId: "tilsim", materials: [{ name: "Saf Bakır", quantity: 3 }] },
+    { id: "weapon", itemId: "silah", materials: [{ name: "Saf Bakır", quantity: 4 }] },
+  ];
+  const mixedItems = mixedRecipes.map((recipe) => ({ id: recipe.itemId, name: recipe.itemId }));
+  const impact = productionDraftImpact({ recipes: mixedRecipes, items: mixedItems, draft: { "Saf Bakır": 12 } });
+  assert.deepEqual(impact.recommendations.map((plan) => [plan.recipe.itemId, plan.craftableCount]), [["iksir", 6], ["silah", 3], ["tilsim", 4]]);
+});

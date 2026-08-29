@@ -95,3 +95,7 @@ Kullanıcının 28 Ağustos 2026 tarihli genişletilmiş kararıyla İKV Wiki ya
 ## ADR-024 — İstek modüler, denetim sistemiktir
 
 Kullanıcı bir tılsım, reçete, eşya veya maden değişikliği istediğinde iş yalnız adı geçen ekranda tamamlanmış sayılmaz. Aynı kimlik, kaynak veya görsel; katalog, reçete, Atlas, maden/toplayıcılık, stok/üretim, arama, Proje Durumu ve yayın kapılarında birlikte denetlenir. Bağlı açıklar güvenilir kanıtla kapanabiliyorsa aynı çalışma kapsamında kapatılır; kanıt veya kullanım hakkı yoksa tahmin edilmeden canlı açık listesinde gösterilir. Her yayımlanabilir ilerleme `SITE_RELEASE` üzerinden Proje Durumu'na yansır ve sayaçlar sabit metin yerine veri kümelerinden türetilir.
+
+## ADR-025 — Fotoğraf analizi süreli ve açıklanabilirdir
+
+Fotoğraf analizi aşama, yüzde ve geçen süreyi görünür kılar; yoğun hesap sırasında tarayıcıya düzenli olarak kontrol verir ve 18 saniyede güvenli biçimde sonlanır. Referans ikon imzaları aynı oturumda yeniden kullanılabilir. Güçlü eşleşmeler doğrudan düzenlenebilir taslağa, makul fakat düşük güvenli eşleşmeler “aday” olarak açık isim onayına gider; zayıf eşleşmeler ad uydurmadan dışarıda kalır. Aday ismi ve bilinmeyen adet tamamlanmadan stok değişmez.

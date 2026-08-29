@@ -94,7 +94,9 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(productionPlanner, /Şimdi fotoğraf çek/);
   assert.match(productionPlanner, /capture="environment"/);
   assert.match(productionPlanner, /recognizeInventoryPhoto/);
-  assert.match(productionPlanner, /Çanta analiz ediliyor/);
+  assert.match(productionPlanner, /Çanta ızgarası bulunuyor/);
+  assert.match(productionPlanner, /PHOTO_ANALYSIS_TIMEOUT_MS = 18_000/);
+  assert.match(productionPlanner, /aday ismi onayla/);
   assert.match(productionPlanner, /malzemeyi onayla ve stoka işle/);
   assert.match(productionPlanner, /Sonuç eksik veya yanlışsa düzelt/);
   assert.match(productionPlanner, /Reçeteyi sitede aç/);

@@ -7,7 +7,7 @@ import { talismans } from "../../lib/catalog";
 import { buildProductionPlans, productionDraftImpact, productionSummary } from "../../lib/production-planner.mjs";
 import { potionRecipes } from "../../lib/potion-recipes";
 import { materialIconFor, materialIcons } from "../../lib/material-icons";
-import { recognizeInventoryPhoto } from "../../lib/photo-inventory-recognition";
+import { recognizeInventoryPhoto, type PhotoRecognitionPhase } from "../../lib/photo-inventory-recognition";
 import { productionItemById, productionItems, productionMaterialNames, productionMaterialSourceFor, productionRecipes } from "../../lib/production-catalog";
 
 type Stock = Record<string, number>;
@@ -16,6 +16,15 @@ type Owners = Record<string, string>;
 type PlanFilter = "Tümü" | "Üretilebilir" | "Yakın" | "Favoriler";
 type ProductionPlan = ReturnType<typeof buildProductionPlans>[number];
 type PhotoAnalysisState = "idle" | "analyzing" | "review" | "confirmed" | "error";
+const PHOTO_ANALYSIS_TIMEOUT_MS = 18_000;
+const photoPhaseLabels: Record<PhotoRecognitionPhase, string> = {
+  prepare: "Fotoğraf hazırlanıyor",
+  grid: "Çanta ızgarası bulunuyor",
+  catalog: "İkon kataloğu hazırlanıyor",
+  quantities: "Adetler okunuyor",
+  matching: "Malzeme ikonları eşleştiriliyor",
+  finalize: "Onay taslağı hazırlanıyor",
+};
 
 const keys = {
   stock: "nefer-production-stock-v1",
@@ -122,10 +131,15 @@ export default function ProductionPlanner() {
   const [photoWarnings, setPhotoWarnings] = useState<string[]>([]);
   const [photoConfidence, setPhotoConfidence] = useState<Record<string, number>>({});
   const [quantityReview, setQuantityReview] = useState<string[]>([]);
+  const [nameReview, setNameReview] = useState<string[]>([]);
+  const [photoAnalysisPhase, setPhotoAnalysisPhase] = useState<PhotoRecognitionPhase>("prepare");
+  const [photoAnalysisProgress, setPhotoAnalysisProgress] = useState(0);
+  const [photoAnalysisSeconds, setPhotoAnalysisSeconds] = useState(0);
   const [confirmedPhotoRecommendations, setConfirmedPhotoRecommendations] = useState<ProductionPlan[]>([]);
   const [confirmedNewlyReady, setConfirmedNewlyReady] = useState(0);
   const [hydrated, setHydrated] = useState(false);
   const photoAnalysisRun = useRef(0);
+  const photoAnalysisController = useRef<AbortController | null>(null);
 
   useEffect(() => {
     queueMicrotask(() => {
@@ -145,6 +159,7 @@ export default function ProductionPlanner() {
   useEffect(() => { if (hydrated) localStorage.setItem(keys.talismanGoals, JSON.stringify(talismanGoals)); }, [hydrated, talismanGoals]);
   useEffect(() => { if (hydrated) localStorage.setItem(keys.potionGoals, JSON.stringify(potionGoals)); }, [hydrated, potionGoals]);
   useEffect(() => () => { if (photoPreview) URL.revokeObjectURL(photoPreview); }, [photoPreview]);
+  useEffect(() => () => photoAnalysisController.current?.abort(), []);
 
   const itemById = productionItemById;
   const talismanGoalRows = useMemo(() => talismanGoals.map((id) => talismans.find((row) => row.id === id)).filter((row) => Boolean(row)), [talismanGoals]);
@@ -194,7 +209,10 @@ export default function ProductionPlanner() {
   const visibleRows = visible.slice(0, visibleLimit);
   const closestPlan = Object.keys(stock).length > 0 ? summary.closest : null;
   const photoRecommendations = photoImpact?.recommendations ?? [];
+  const unresolvedPhotoAmounts = Object.entries(photoDraft).filter(([name, amount]) => amount < 1 || quantityReview.includes(name));
+  const unresolvedPhotoNames = Object.keys(photoDraft).filter((name) => nameReview.includes(name));
   const recipeKindFor = (itemId: string) => talismanIds.has(itemId) ? "talisman" : potionIds.has(itemId) ? "potion" : "item";
+  const recipeKindLabelFor = (itemId: string) => talismanIds.has(itemId) ? "Tılsım" : potionIds.has(itemId) ? "İksir" : productionItemById.get(itemId)?.kind === "material" ? "Ara malzeme" : "Eşya / silah";
 
   const addStock = () => {
     const amount = Math.max(0, Math.floor(Number(quantity)));
@@ -212,24 +230,49 @@ export default function ProductionPlanner() {
   };
   const analyzePhoto = async (file: File) => {
     const run = ++photoAnalysisRun.current;
+    photoAnalysisController.current?.abort();
+    const controller = new AbortController();
+    photoAnalysisController.current = controller;
+    const startedAt = Date.now();
+    const timeout = setTimeout(() => controller.abort(), PHOTO_ANALYSIS_TIMEOUT_MS);
+    const elapsed = setInterval(() => {
+      if (run === photoAnalysisRun.current) setPhotoAnalysisSeconds(Math.floor((Date.now() - startedAt) / 1000));
+    }, 1000);
     setPhotoAnalysisState("analyzing");
+    setPhotoAnalysisPhase("prepare");
+    setPhotoAnalysisProgress(0);
+    setPhotoAnalysisSeconds(0);
     setPhotoAnalysisError("");
     setPhotoWarnings([]);
     setPhotoDraft({});
     setConfirmedPhotoRecommendations([]);
     setConfirmedNewlyReady(0);
     try {
-      const result = await recognizeInventoryPhoto(file, photoIconReferences);
+      const result = await recognizeInventoryPhoto(file, photoIconReferences, {
+        signal: controller.signal,
+        onProgress: ({ phase, percent }) => {
+          if (run !== photoAnalysisRun.current) return;
+          setPhotoAnalysisPhase(phase);
+          setPhotoAnalysisProgress(percent);
+        },
+      });
       if (run !== photoAnalysisRun.current) return;
       setPhotoDraft(Object.fromEntries(result.items.map((item) => [item.name, item.quantity])));
       setPhotoConfidence(Object.fromEntries(result.items.map((item) => [item.name, item.confidence])));
       setQuantityReview(result.items.filter((item) => item.quantityNeedsReview).map((item) => item.name));
+      setNameReview(result.items.filter((item) => item.nameNeedsReview).map((item) => item.name));
       setPhotoWarnings(result.warnings);
       setPhotoAnalysisState("review");
     } catch (reason) {
       if (run !== photoAnalysisRun.current) return;
-      setPhotoAnalysisError(reason instanceof Error ? reason.message : "Fotoğraf analiz edilemedi.");
+      setPhotoAnalysisError(controller.signal.aborted
+        ? "Analiz 18 saniyede tamamlanamadığı için durduruldu. Aynı fotoğrafı tekrar deneyebilir veya sonucu elle düzeltebilirsin."
+        : reason instanceof Error ? reason.message : "Fotoğraf analiz edilemedi.");
       setPhotoAnalysisState("error");
+    } finally {
+      clearTimeout(timeout);
+      clearInterval(elapsed);
+      if (photoAnalysisController.current === controller) photoAnalysisController.current = null;
     }
   };
   const choosePhoto = (file: File | null) => {
@@ -241,12 +284,14 @@ export default function ProductionPlanner() {
     setPhotoWarnings([]);
     setPhotoConfidence({});
     setQuantityReview([]);
+    setNameReview([]);
     if (file) void analyzePhoto(file);
   };
   const addPhotoDraft = () => {
     const amount = Math.max(0, Math.floor(Number(photoQuantity)));
     if (!photoMaterial || !amount) return;
     setPhotoDraft((current) => ({ ...current, [photoMaterial]: (current[photoMaterial] ?? 0) + amount }));
+    setNameReview((current) => current.filter((entry) => entry !== photoMaterial));
     setPhotoQuantity("1");
   };
   const confirmPhotoDraft = () => {
@@ -260,9 +305,15 @@ export default function ProductionPlanner() {
     setPhotoDraft({});
     setPhotoAnalysisState("confirmed");
   };
-  const setPhotoDraftQuantity = (name: string, next: number) => {
-    setPhotoDraft((current) => ({ ...current, [name]: Math.max(1, Math.floor(next) || 1) }));
+  const setPhotoDraftQuantity = (name: string, raw: string) => {
+    const next = Math.max(0, Math.floor(Number(raw)) || 0);
+    setPhotoDraft((current) => ({ ...current, [name]: next }));
+    setQuantityReview((current) => next > 0 ? current.filter((entry) => entry !== name) : current.includes(name) ? current : [...current, name]);
+  };
+  const removePhotoDraft = (name: string) => {
+    setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)));
     setQuantityReview((current) => current.filter((entry) => entry !== name));
+    setNameReview((current) => current.filter((entry) => entry !== name));
   };
   const togglePlanFavorite = (itemId: string) => {
     if (talismanIds.has(itemId)) {
@@ -272,6 +323,14 @@ export default function ProductionPlanner() {
     } else {
       setFavorites((current) => current.includes(itemId) ? current.filter((id) => id !== itemId) : [...current, itemId]);
     }
+  };
+  const renderPhotoRecommendations = (rows: ProductionPlan[], mode: "draft" | "confirmed", newlyReadyCount: number) => {
+    if (!rows.length) return null;
+    const craftableRecipes = rows.filter((plan) => plan.craftableCount > 0).length;
+    return <aside className={`photoRecommendations ${mode === "draft" ? "draft" : ""}`}>
+      <header><span><small>{mode === "draft" ? "ONAY ÖNCESİ ÜRETİM HESABI" : "ONAYLANAN FOTOĞRAFA GÖRE"}</small><b>{craftableRecipes ? `${craftableRecipes} üretim hazır` : `En yakın ${rows.length} üretim`}</b></span>{newlyReadyCount ? <em>{newlyReadyCount} yeni hazır</em> : <em>tüm reçete türleri</em>}</header>
+      <div>{rows.map((plan, index) => { const item = itemById.get(plan.recipe.itemId); const missingPreview = plan.missing.slice(0, 2).map((row) => `${row.name} ×${row.missing}`).join(" · "); return <article key={plan.recipe.itemId}><i>{index + 1}</i><span><b>{item?.name ?? plan.recipe.itemId}</b><small>{recipeKindLabelFor(plan.recipe.itemId)} · {plan.craftableCount > 0 ? `${fmt(plan.craftableCount)} adet üretilebilir` : `%${plan.completion} tamam · ${plan.missing.length} tür eksik`}</small>{missingPreview && <em>Eksik: {missingPreview}{plan.missing.length > 2 ? " …" : ""}</em>}</span><a href={`/?module=recipes&kind=${recipeKindFor(plan.recipe.itemId)}&recipe=${plan.recipe.itemId}#recipes`} aria-label={`${item?.name ?? plan.recipe.itemId} reçetesini sitede aç`}>Reçete →</a></article>; })}</div>
+    </aside>;
   };
 
   return <section className="productionWorkspace" id="production-planner">
@@ -291,24 +350,25 @@ export default function ProductionPlanner() {
         <ol className="photoSteps"><li><b>1</b><span>Fotoğrafı ekle</span></li><li><b>2</b><span>Otomatik analiz</span></li><li><b>3</b><span>Sonucu onayla</span></li><li><b>4</b><span>Önerileri gör</span></li></ol>
         <div className={photoPreview ? "photoStage hasPhoto" : "photoStage"}>
           {photoPreview ? <Image unoptimized fill sizes="(max-width: 1050px) 100vw, 35vw" src={photoPreview} alt="Analiz edilen çanta fotoğrafı"/> : <span><b>Çanta görüntüsü</b><small>Galeriden seç veya kamerayla şimdi çek.</small></span>}
-          {photoAnalysisState === "analyzing" && <span className="photoAnalysisBadge"><i/>Çanta analiz ediliyor…</span>}
+          {photoAnalysisState === "analyzing" && <span className="photoAnalysisBadge"><i/>{photoPhaseLabels[photoAnalysisPhase]}</span>}
         </div>
         <div className="photoInputActions">
           <label><span>Galeriden seç</span><input className="photoFileInput" type="file" accept="image/*" aria-label="Galeriden çanta fotoğrafı seç" onChange={(event) => choosePhoto(event.target.files?.[0] ?? null)}/></label>
           <label><span>Şimdi fotoğraf çek</span><input className="photoFileInput" type="file" accept="image/*" capture="environment" aria-label="Kamerayla çanta fotoğrafı çek" onChange={(event) => choosePhoto(event.target.files?.[0] ?? null)}/></label>
         </div>
         <p>Fotoğraf bu cihazda analiz edilir; ikonlar katalogla eşleştirilir ve okunabilen adetler taslağa yazılır. Stok yalnız sen sonucu onayladığında değişir.</p>
-        {photoAnalysisState === "analyzing" && <div className="photoAnalysisStatus" role="status"><i/><span><b>İkon ve adetler aranıyor</b><small>Çanta ızgarası ile {photoIconReferences.length} doğrulanmış malzeme ikonu karşılaştırılıyor.</small></span></div>}
+        {photoAnalysisState === "analyzing" && <div className="photoAnalysisStatus" role="status"><i/><span><b>{photoPhaseLabels[photoAnalysisPhase]} · %{photoAnalysisProgress}</b><small>{photoAnalysisSeconds} sn · En fazla 18 saniye. Arayüz bu sırada kullanılabilir.</small><span className="photoProgressTrack" aria-hidden="true"><b style={{ width: `${photoAnalysisProgress}%` }}/></span></span></div>}
         {photoAnalysisState === "error" && <div className="photoAnalysisError" role="alert"><span><b>Fotoğraf okunamadı</b><small>{photoAnalysisError}</small></span><button type="button" disabled={!photoFile} onClick={() => { if (photoFile) void analyzePhoto(photoFile); }}>Tekrar analiz et</button></div>}
         {photoAnalysisState === "review" && <div className="photoDraftEditor photoReview">
           <header><span><small>ANALİZ SONUCU</small><b>{Object.keys(photoDraft).length} malzeme bulundu</b></span><em>Onay bekliyor</em></header>
-          <ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); const needsReview = quantityReview.includes(name); return <li key={name}>{icon && <Image unoptimized src={icon.src} alt="" width={30} height={30}/>}<span><b>{name}</b><small>%{photoConfidence[name] ?? 0} ikon eşleşmesi{needsReview ? " · adedi kontrol et" : " · adet okundu"}</small></span><input aria-label={`${name} analiz edilen adedi`} inputMode="numeric" min="1" value={amount} onChange={(event) => setPhotoDraftQuantity(name, Number(event.target.value))}/><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)))}>×</button></li>; })}</ul>
+          <ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); const needsQuantityReview = quantityReview.includes(name) || amount < 1; const needsNameReview = nameReview.includes(name); return <li className={needsNameReview ? "needsNameReview" : ""} key={name}>{icon && <Image unoptimized src={icon.src} alt="" width={30} height={30}/>}<span><b>{needsNameReview ? `Aday: ${name}` : name}</b><small>%{photoConfidence[name] ?? 0} ikon eşleşmesi{needsNameReview ? " · isim onayı gerekli" : needsQuantityReview ? " · adet okunamadı" : " · adet okundu"}</small>{needsNameReview && <button className="confirmCandidateName" type="button" onClick={() => setNameReview((current) => current.filter((entry) => entry !== name))}>İsim doğru</button>}</span><input aria-label={`${name} analiz edilen adedi`} inputMode="numeric" min="1" placeholder="Adet" value={amount || ""} onChange={(event) => setPhotoDraftQuantity(name, event.target.value.replace(/\D/g, ""))}/><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => removePhotoDraft(name)}>×</button></li>; })}</ul>
           {photoWarnings.map((warning) => <p className="photoAnalysisWarning" key={warning}>{warning}</p>)}
+          {unresolvedPhotoAmounts.length === 0 && unresolvedPhotoNames.length === 0 ? renderPhotoRecommendations(photoRecommendations, "draft", photoImpact?.newlyReadyCount ?? 0) : <p className="photoRecipePending">Üretilebilir adet hesabı için önce belirsiz isim ve adetleri onayla. Hesap iksir, tılsım, eşya, silah ve ara malzeme reçetelerinin tamamını tarayacak.</p>}
           <details className="photoCorrection"><summary>Sonuç eksik veya yanlışsa düzelt <i>+</i></summary><div className="photoVisualPicker"><label><span>Malzeme ara</span><input value={photoQuery} onChange={(event) => setPhotoQuery(event.target.value)} placeholder="Örn. Jadeit, Saf Bakır…"/></label><div>{photoMatches.map((name) => { const icon = materialIconFor(name); return <button type="button" className={photoMaterial === name ? "selected" : ""} onClick={() => setPhotoMaterial(name)} key={name}>{icon ? <Image unoptimized src={icon.src} alt="" width={34} height={34}/> : <i aria-hidden="true">{name.slice(0, 2)}</i>}<span>{name}</span></button>; })}</div><section><strong>{photoMaterial || "Bir malzeme seç"}</strong><input aria-label="Düzeltme adedi" inputMode="numeric" value={photoQuantity} onChange={(event) => setPhotoQuantity(event.target.value.replace(/\D/g, ""))}/><button type="button" disabled={!photoMaterial} onClick={addPhotoDraft}>Sonuca ekle</button></section></div></details>
-          {Object.keys(photoDraft).length > 0 && <button type="button" className="confirmPhotoDraft" onClick={confirmPhotoDraft}>{Object.keys(photoDraft).length} malzemeyi onayla ve stoka işle</button>}
+          {Object.keys(photoDraft).length > 0 && <button type="button" className="confirmPhotoDraft" disabled={unresolvedPhotoAmounts.length > 0 || unresolvedPhotoNames.length > 0} onClick={confirmPhotoDraft}>{unresolvedPhotoNames.length ? `${unresolvedPhotoNames.length} aday ismi onayla` : unresolvedPhotoAmounts.length ? `${unresolvedPhotoAmounts.length} eksik adedi tamamla` : `${Object.keys(photoDraft).length} malzemeyi onayla ve stoka işle`}</button>}
         </div>}
         {photoAnalysisState === "confirmed" && <div className="photoConfirmed" role="status"><span><i>✓</i><b>Fotoğraf sonucu stoka işlendi.</b><small>Yeni fotoğraf seçersen önceki stok korunur; yalnız yeni onaylanan adetler eklenir.</small></span></div>}
-        {photoAnalysisState === "confirmed" && confirmedPhotoRecommendations.length > 0 && <aside className="photoRecommendations"><header><span><small>ONAYLANAN FOTOĞRAFA GÖRE</small><b>En yakın {confirmedPhotoRecommendations.length} üretim</b></span>{confirmedNewlyReady ? <em>{confirmedNewlyReady} yeni hazır</em> : <em>%50+ önce</em>}</header><div>{confirmedPhotoRecommendations.map((plan, index) => { const item = itemById.get(plan.recipe.itemId); const missingPreview = plan.missing.slice(0, 2).map((row) => `${row.name} ×${row.missing}`).join(" · "); return <article key={plan.recipe.itemId}><i>{index + 1}</i><span><b>{item?.name ?? plan.recipe.itemId}</b><small>{plan.status === "ready" ? "Şimdi üretilebilir" : `%${plan.completion} tamam · ${plan.missing.length} tür eksik`}</small>{missingPreview && <em>Eksik: {missingPreview}{plan.missing.length > 2 ? " …" : ""}</em>}</span><a href={`/?module=recipes&kind=${recipeKindFor(plan.recipe.itemId)}&recipe=${plan.recipe.itemId}#recipes`} aria-label={`${item?.name ?? plan.recipe.itemId} reçetesini sitede aç`}>Reçete →</a></article>; })}</div></aside>}
+        {photoAnalysisState === "confirmed" && renderPhotoRecommendations(confirmedPhotoRecommendations, "confirmed", confirmedNewlyReady)}
       </section>
     </div>
 
