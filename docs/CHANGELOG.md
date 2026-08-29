@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.66.1 — Net Fotoğraf Izgara Algılama Düzeltmesi
+
+- Yumuşak veya kesintili ızgara çizgileri artık yalnız renk eşiğiyle değil, tekrarlanan hücre aralığıyla da bulunuyor.
+- İkon parlamalarının oluşturduğu fazladan çizgiler düzenli ızgara dizisini bozsa bile envanter alanı ayrıştırılıyor.
+- Kısmen araç ipucuyla örtülen hücreler tüm fotoğrafın reddedilmesine neden olmuyor; yalnız güvenli eşleşmeler onay taslağına alınıyor.
+- Bazı tarayıcılarda doğrudan görüntü çözme başarısız olursa güvenli görsel yükleme yolu devreye giriyor.
+
 ## v0.66.0 — Fotoğraftan Otomatik Çanta Okuma
 
 - Çanta fotoğrafı yüklenir yüklenmez cihaz içinde analiz ediliyor; envanter ızgarası ve katalogdaki doğrulanmış malzeme ikonları otomatik karşılaştırılıyor.

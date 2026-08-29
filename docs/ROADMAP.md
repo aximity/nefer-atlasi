@@ -2,6 +2,8 @@
 
 ## Tamamlandı — M66: Fotoğraftan otomatik çanta okuma
 
+- v0.66.1: Gerçek telefon ekran görüntüsündeki yumuşak, parlama içeren ve kısmen örtülü ızgara için hücre ritmi tabanlı algılama eklendi.
+
 - [x] Yüklenen görselde çanta ızgarasını cihaz içinde bul
 - [x] Dolu yuvaları doğrulanmış malzeme ikonlarıyla otomatik karşılaştır
 - [x] Okunabilen adetleri taslağa geçir; belirsiz adetleri açıkça kontrol isteğiyle işaretle

@@ -36,7 +36,7 @@ function cyanPixel(red: number, green: number, blue: number) {
 function clusteredPeaks(scores: number[]) {
   const sorted = [...scores].sort((a, b) => a - b);
   const high = sorted[Math.floor(sorted.length * 0.965)] ?? 0;
-  const threshold = Math.max(5, high * 0.72);
+  const threshold = Math.max(4, high * 0.45);
   const peaks: { position: number; score: number }[] = [];
   let start = -1;
   let weighted = 0;
@@ -58,22 +58,132 @@ function clusteredPeaks(scores: number[]) {
 }
 
 function regularLineRun(scores: number[], minimumLines: number): LineRun | null {
-  const peaks = clusteredPeaks(scores);
+  const allPeaks = clusteredPeaks(scores);
+  const peaks = (allPeaks.length > 90 ? [...allPeaks].sort((left, right) => right.score - left.score).slice(0, 90) : allPeaks)
+    .sort((left, right) => left.position - right.position);
   let best: LineRun | null = null;
-  for (let start = 0; start < peaks.length; start += 1) {
-    for (let end = start + minimumLines - 1; end < peaks.length; end += 1) {
-      const selected = peaks.slice(start, end + 1);
-      const gaps = selected.slice(1).map((peak, index) => peak.position - selected[index].position);
-      if (gaps.some((gap) => gap < 9 || gap > 90)) break;
-      const average = gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length;
-      const deviation = Math.sqrt(gaps.reduce((sum, gap) => sum + (gap - average) ** 2, 0) / gaps.length);
-      if (deviation / average > 0.22) continue;
-      const lineStrength = selected.reduce((sum, peak) => sum + peak.score, 0) / selected.length;
-      const score = selected.length * lineStrength * (1 - deviation / average);
-      if (!best || score > best.score) best = { positions: selected.map((peak) => peak.position), score };
+  const nearestPeak = (expected: number) => {
+    let low = 0;
+    let high = peaks.length - 1;
+    while (low <= high) {
+      const middle = (low + high) >> 1;
+      if (peaks[middle].position < expected) low = middle + 1;
+      else high = middle - 1;
+    }
+    const candidates = [peaks[low], peaks[low - 1]].filter((peak): peak is (typeof peaks)[number] => Boolean(peak));
+    return candidates.reduce<{ peak: (typeof peaks)[number] | null; distance: number }>((current, peak) => {
+      const distance = Math.abs(peak.position - expected);
+      return distance < current.distance ? { peak, distance } : current;
+    }, { peak: null, distance: Number.POSITIVE_INFINITY });
+  };
+  const evaluate = (positions: number[], strength: number, residual: number) => {
+    if (positions.length < minimumLines) return;
+    const gaps = positions.slice(1).map((position, index) => position - positions[index]);
+    const average = gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length;
+    if (average < 9 || average > 90) return;
+    const deviation = Math.sqrt(gaps.reduce((sum, gap) => sum + (gap - average) ** 2, 0) / gaps.length);
+    if (deviation / average > 0.24) return;
+    const score = positions.length * strength * (1 - deviation / average) / (1 + residual);
+    if (!best || score > best.score) best = { positions, score };
+  };
+
+  // Grid lines can contain extra highlights from circular icons. Fit a regular
+  // sequence through all peaks instead of requiring the useful peaks to be
+  // adjacent in the projection list.
+  for (let leftIndex = 0; leftIndex < peaks.length; leftIndex += 1) {
+    for (let rightIndex = leftIndex + 1; rightIndex < peaks.length; rightIndex += 1) {
+      const span = peaks[rightIndex].position - peaks[leftIndex].position;
+      for (let steps = 1; steps <= Math.min(12, Math.floor(span / 9)); steps += 1) {
+        const period = span / steps;
+        if (period < 9 || period > 90) continue;
+        const tolerance = Math.max(2, period * 0.16);
+        let run: typeof peaks = [];
+        const commit = () => {
+          if (run.length >= minimumLines) {
+            const positions = run.map((peak) => peak.position);
+            const strength = run.reduce((sum, peak) => sum + peak.score, 0) / run.length;
+            const residual = run.reduce((sum, peak, index) => sum + Math.abs((positions[0] + index * period) - peak.position), 0) / run.length;
+            evaluate(positions, strength, residual);
+          }
+          run = [];
+        };
+        const firstStep = Math.floor((0 - peaks[leftIndex].position) / period) - 1;
+        const lastStep = Math.ceil((scores.length - peaks[leftIndex].position) / period) + 1;
+        for (let step = firstStep; step <= lastStep; step += 1) {
+          const expected = peaks[leftIndex].position + step * period;
+          const nearest = nearestPeak(expected);
+          if (nearest.peak && nearest.distance <= tolerance && !run.some((peak) => peak.position === nearest.peak?.position)) run.push(nearest.peak);
+          else commit();
+        }
+        commit();
+      }
     }
   }
   return best;
+}
+
+function edgeProjections(pixels: Uint8ClampedArray, width: number, height: number) {
+  const columns = Array.from({ length: width }, () => 0);
+  const rows = Array.from({ length: height }, () => 0);
+  const light = (offset: number) => pixels[offset] * 0.299 + pixels[offset + 1] * 0.587 + pixels[offset + 2] * 0.114;
+  for (let y = 2; y < height - 2; y += 2) {
+    for (let x = 2; x < width - 2; x += 2) {
+      const offset = (y * width + x) * 4;
+      const horizontal = Math.abs(light(offset + 8) - light(offset - 8));
+      const vertical = Math.abs(light(offset + width * 8) - light(offset - width * 8));
+      if (horizontal > 18) columns[x] += horizontal;
+      if (vertical > 18) rows[y] += vertical;
+    }
+  }
+  for (let index = 1; index < columns.length; index += 2) columns[index] = (columns[index - 1] + (columns[index + 1] ?? columns[index - 1])) / 2;
+  for (let index = 1; index < rows.length; index += 2) rows[index] = (rows[index - 1] + (rows[index + 1] ?? rows[index - 1])) / 2;
+  return { columns, rows };
+}
+
+function periodicLineRun(scores: number[], minimumLines: number): LineRun | null {
+  const sorted = [...scores].sort((a, b) => a - b);
+  const baseline = sorted[Math.floor(sorted.length * 0.55)] ?? 0;
+  const strong = sorted[Math.floor(sorted.length * 0.88)] ?? baseline;
+  let best: LineRun | null = null;
+  const localPeak = (position: number) => {
+    let peak = { position, score: scores[position] ?? 0 };
+    for (let offset = -3; offset <= 3; offset += 1) {
+      const candidate = position + offset;
+      if ((scores[candidate] ?? 0) > peak.score) peak = { position: candidate, score: scores[candidate] };
+    }
+    return peak;
+  };
+
+  // Screenshots often soften or cover individual separators, while the cell
+  // spacing remains highly regular. Search the projection directly for that
+  // repeated rhythm so one weak line (or a tooltip) cannot reject the photo.
+  for (let period = 18; period <= 90; period += 1) {
+    for (let phase = 0; phase < period; phase += 1) {
+      const sequence: { position: number; score: number }[] = [];
+      for (let position = phase; position < scores.length; position += period) sequence.push(localPeak(position));
+      for (let start = 0; start <= sequence.length - minimumLines; start += 1) {
+        for (let length = minimumLines; length <= Math.min(12, sequence.length - start); length += 1) {
+          const window = sequence.slice(start, start + length);
+          if (new Set(window.map((entry) => entry.position)).size !== window.length) continue;
+          const strongCount = window.filter((entry) => entry.score >= strong).length;
+          if (strongCount < Math.ceil(length * 0.45)) continue;
+          const average = window.reduce((sum, entry) => sum + Math.max(0, entry.score - baseline), 0) / length;
+          const score = average * length * (strongCount / length) ** 2;
+          if (!best || score > best.score) best = { positions: window.map((entry) => entry.position), score };
+        }
+      }
+    }
+  }
+  return best;
+}
+
+function gridShapeIsPlausible(grid: Grid) {
+  const xGaps = grid.xs.slice(1).map((position, index) => position - grid.xs[index]);
+  const yGaps = grid.ys.slice(1).map((position, index) => position - grid.ys[index]);
+  const averageX = xGaps.reduce((sum, gap) => sum + gap, 0) / Math.max(1, xGaps.length);
+  const averageY = yGaps.reduce((sum, gap) => sum + gap, 0) / Math.max(1, yGaps.length);
+  const ratio = averageX / Math.max(1, averageY);
+  return ratio >= 0.62 && ratio <= 1.62;
 }
 
 function detectGrid(canvas: HTMLCanvasElement): Grid | null {
@@ -95,8 +205,22 @@ function detectGrid(canvas: HTMLCanvasElement): Grid | null {
   for (let index = 1; index < rows.length; index += 2) rows[index] = (rows[index - 1] + (rows[index + 1] ?? rows[index - 1])) / 2;
   const xRun = regularLineRun(columns, 6);
   const yRun = regularLineRun(rows, 5);
-  if (!xRun || !yRun) return null;
-  return { xs: xRun.positions, ys: yRun.positions };
+  if (xRun && yRun) {
+    const cyanGrid = { xs: xRun.positions, ys: yRun.positions };
+    if (gridShapeIsPlausible(cyanGrid)) return cyanGrid;
+  }
+  const edges = edgeProjections(pixels, width, height);
+  const edgeXRun = regularLineRun(edges.columns, 6);
+  const edgeYRun = regularLineRun(edges.rows, 5);
+  if (edgeXRun && edgeYRun) {
+    const edgeGrid = { xs: edgeXRun.positions, ys: edgeYRun.positions };
+    if (gridShapeIsPlausible(edgeGrid)) return edgeGrid;
+  }
+  const rhythmXRun = periodicLineRun(edges.columns, 6);
+  const rhythmYRun = periodicLineRun(edges.rows, 5);
+  if (!rhythmXRun || !rhythmYRun) return null;
+  const rhythmGrid = { xs: rhythmXRun.positions, ys: rhythmYRun.positions };
+  return gridShapeIsPlausible(rhythmGrid) ? rhythmGrid : null;
 }
 
 function signatureFor(context: CanvasRenderingContext2D, source: CanvasImageSource, sourceWidth: number, sourceHeight: number): Signature {
@@ -181,18 +305,28 @@ async function detectQuantities(canvas: HTMLCanvasElement, grid: Grid) {
 export async function recognizeInventoryPhoto(file: File, references: PhotoIconReference[]): Promise<InventoryRecognitionResult> {
   if (!file.type.startsWith("image/")) throw new Error("PNG, JPG veya WebP biçiminde bir çanta görüntüsü seç.");
   if (file.size > 12 * 1024 * 1024) throw new Error("Fotoğraf 12 MB sınırını aşıyor.");
-  const bitmap = await createImageBitmap(file);
+  let source: ImageBitmap | HTMLImageElement;
+  let sourceUrl = "";
+  try {
+    source = await createImageBitmap(file);
+  } catch {
+    sourceUrl = URL.createObjectURL(file);
+    source = await loadImage(sourceUrl);
+  }
   const maximum = 1400;
-  const scale = Math.min(1, maximum / Math.max(bitmap.width, bitmap.height));
+  const sourceWidth = source instanceof ImageBitmap ? source.width : source.naturalWidth;
+  const sourceHeight = source instanceof ImageBitmap ? source.height : source.naturalHeight;
+  const scale = Math.min(1, maximum / Math.max(sourceWidth, sourceHeight));
   const canvas = document.createElement("canvas");
-  canvas.width = Math.max(1, Math.round(bitmap.width * scale));
-  canvas.height = Math.max(1, Math.round(bitmap.height * scale));
+  canvas.width = Math.max(1, Math.round(sourceWidth * scale));
+  canvas.height = Math.max(1, Math.round(sourceHeight * scale));
   const context = canvas.getContext("2d", { willReadFrequently: true });
   if (!context) throw new Error("Bu tarayıcı fotoğraf analizini başlatamadı.");
-  context.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-  bitmap.close();
+  context.drawImage(source, 0, 0, canvas.width, canvas.height);
+  if (source instanceof ImageBitmap) source.close();
+  if (sourceUrl) URL.revokeObjectURL(sourceUrl);
   const grid = detectGrid(canvas);
-  if (!grid) throw new Error("Çanta ızgarasını bulamadım. Envanter açıkken ekranı mümkün olduğunca düz ve net çekip tekrar dene.");
+  if (!grid) throw new Error("Görüntü net, ancak çanta düzenini güvenle ayıramadım. Fotoğrafı değiştirmene gerek yok; bu örneğin ızgara biçimi için algılama desteği gerekiyor.");
 
   const signatureCanvas = document.createElement("canvas");
   signatureCanvas.width = 14;

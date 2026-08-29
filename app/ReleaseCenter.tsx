@@ -6,6 +6,16 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.66.0",
+    date: "29 Ağustos 2026",
+    title: "Fotoğraftan Otomatik Çanta Okuma",
+    changes: [
+      "Fotoğraftaki çanta ızgarası ve doğrulanmış malzeme ikonları cihaz içinde otomatik karşılaştırılıyor.",
+      "Tanınan sonuçlar stok değişmeden önce düzenlenebilir bir onay listesine geliyor.",
+      "Manuel ikon kataloğu yalnız analiz sonucunu düzeltmek için kullanılıyor.",
+    ],
+  },
+  {
     version: "0.65.0",
     date: "29 Ağustos 2026",
     title: "Kanıt Görevleri ve Akıllı Bildirim",
