@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.68.0",
+    date: "29 Ağustos 2026",
+    title: "Fotoğraftan Gerçek Üretim Hesabı",
+    changes: [
+      "Sarı adet etiketleri için cihaz içi yedek okuyucu eklendi.",
+      "Fotoğraf taslağı tüm reçete türlerinde üretilebilir azami adedi gösterdi.",
+    ],
+  },
+  {
     version: "0.67.0",
     date: "29 Ağustos 2026",
     title: "Süre Sınırlı Fotoğraf Analizi",

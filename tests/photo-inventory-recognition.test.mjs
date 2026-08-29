@@ -74,5 +74,27 @@ test("reads a yellow two-digit stack without relying on the browser TextDetector
       }
     }
   });
-  assert.equal(photoRecognitionTestInternals.quantityFromPixels(pixels, width, height)?.quantity, 20);
+  const candidate = photoRecognitionTestInternals.quantityFromPixels(pixels, width, height);
+  assert.equal(candidate?.quantity, 20);
+  assert.deepEqual(photoRecognitionTestInternals.safeQuantityResolution(true, undefined, candidate), {
+    quantity: 0,
+    quantityCandidate: 20,
+    quantityConfidence: candidate?.confidence,
+    quantityNeedsReview: true,
+  });
+});
+
+test("safe mode never sends a yellow stack label directly to stock", () => {
+  assert.deepEqual(photoRecognitionTestInternals.safeQuantityResolution(true, 33), {
+    quantity: 0,
+    quantityCandidate: 33,
+    quantityConfidence: 1,
+    quantityNeedsReview: true,
+  });
+  assert.deepEqual(photoRecognitionTestInternals.safeQuantityResolution(false), {
+    quantity: 1,
+    quantityCandidate: null,
+    quantityConfidence: null,
+    quantityNeedsReview: false,
+  });
 });

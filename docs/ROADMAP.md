@@ -1,5 +1,24 @@
 # Yol Haritası
 
+## Tamamlandı — M68.1: Güvenli adet onayı
+
+- [x] Sarı etiketli hiçbir adedi otomatik stok değeri kabul etme
+- [x] Okuyucu sonucunu yalnız düzenlenebilir öneri olarak göster
+- [x] Adet onaylanmadan bütün üretim türlerinin hesabını ve stok işlemesini engelle
+- [x] Etiketsiz tekli yuvaları güvenli biçimde 1 olarak koru
+
+Çıkış kapısı: OCR yanıldığında yanlış adet kullanıcı onayı olmadan stoka veya reçete hesabına giremez.
+
+## Planlandı — M69: Oyun-özel adet tanıma sistemi
+
+- [ ] Perspektif ve ızgara normalizasyonunu adet okuyucudan önce uygula
+- [ ] Farklı cihaz, çözünürlük ve arayüz ölçeğinden gerçek etiket kırpımlarıyla sürümlü veri kümesi oluştur
+- [ ] Yalnız 0–9 rakamlarını ve etiket varlığını çözen cihaz içi model eğit
+- [ ] Güven puanlarını gerçek doğrulama verisiyle kalibre et ve gölge modda ölç
+- [ ] Kesin adet doğruluğu ve yanlış otomatik kabul eşikleri karşılanmadan güvenli modu kaldırma
+
+Çıkış kapısı: Ayrı test kümesinde etiket varlığı en az %99, kesin adet doğruluğu en az %97 ve yanlış otomatik kabul oranı %0,5'in altında ölçülür.
+
 ## Tamamlandı — M68: Fotoğraftan gerçek üretim hesabı
 
 - [x] Cihazdan bağımsız sarı adet etiketi okuyucusu.

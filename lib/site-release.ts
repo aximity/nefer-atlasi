@@ -1,13 +1,17 @@
 export const SITE_RELEASE = {
-  version: "0.68.0",
+  version: "0.68.1",
   channel: "BETA",
-  milestone: "M68",
+  milestone: "M68.1",
   releasedOn: "2026-08-29",
   releasedAt: "29 Ağustos 2026",
-  title: "Fotoğraftan Gerçek Üretim Hesabı",
+  title: "Güvenli Adet Onayı",
   summary:
-    "Çanta fotoğrafındaki adetler cihazdan bağımsız yedek okuyucuyla çözülüyor; onaylanan stok tüm reçete türlerinde kaç adet üretilebildiğini hesaplıyor.",
+    "Sarı etiketli adetler artık okuyucu tahminiyle otomatik stoka girmez; kullanıcı doğruladıktan sonra tüm üretim türlerinin azami adedi hesaplanır.",
   changes: [
+    "Sarı adet etiketi bulunan her yığın güvenli moda alındı; hiçbir OCR sonucu kullanıcı doğrulaması olmadan stok veya üretim hesabına girmiyor.",
+    "Okuyucunun bulduğu sayı kesin değer yerine düzenlenebilir adet önerisi olarak gösteriliyor.",
+    "Etiketsiz tekli yuvalar 1 kalıyor; etiketli fakat okunamayan yuvalar boş ve zorunlu onaylı kalıyor.",
+    "Yanlış adet onaylanmadan iksir, tılsım, eşya, silah ve ara malzeme üretim sonuçlarına taşınamıyor.",
     "Tarayıcının deneysel metin okuyucusu bulunmadığında sarı oyun içi adet etiketlerini cihaz içinde çözen yedek rakam okuyucu eklendi.",
     "Sarı adet etiketi bulunan bir yuva artık otomatik olarak 1 sayılmıyor; okunamayan veya düşük güvenli miktar açık onaya bırakılıyor.",
     "Fotoğraf taslağı iksir, tılsım, eşya, silah ve ara malzeme reçetelerinin tamamında aynı anda hesaplanıyor.",

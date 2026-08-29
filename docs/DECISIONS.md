@@ -99,3 +99,7 @@ Kullanıcı bir tılsım, reçete, eşya veya maden değişikliği istediğinde 
 ## ADR-025 — Fotoğraf analizi süreli ve açıklanabilirdir
 
 Fotoğraf analizi aşama, yüzde ve geçen süreyi görünür kılar; yoğun hesap sırasında tarayıcıya düzenli olarak kontrol verir ve 18 saniyede güvenli biçimde sonlanır. Referans ikon imzaları aynı oturumda yeniden kullanılabilir. Güçlü eşleşmeler doğrudan düzenlenebilir taslağa, makul fakat düşük güvenli eşleşmeler “aday” olarak açık isim onayına gider; zayıf eşleşmeler ad uydurmadan dışarıda kalır. Aday ismi ve bilinmeyen adet tamamlanmadan stok değişmez.
+
+## ADR-026 — Adet OCR'ı kalite kapısına kadar yalnız öneridir
+
+Sarı etiketli bir yuvada OCR'ın okuduğu sayı, güven puanı yüksek görünse bile otomatik stok değeri değildir. Kullanıcı sayıyı açıkça doğrulayana kadar yuva üretim ve stok hesabına girmez; etiketsiz tekli yuva 1 sayılır. Otomatik kabul ancak perspektif-normalize gerçek oyun görüntülerinden ayrılmış test kümesinde en az %99 etiket varlığı, en az %97 kesin adet doğruluğu ve %0,5'in altında yanlış otomatik kabul oranı birlikte sağlandıktan sonra ayrıca değerlendirilebilir. Aynı rakam şablonlarından üretilen sentetik testler bu kapının kanıtı sayılmaz.

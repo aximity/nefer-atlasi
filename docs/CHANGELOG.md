@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.68.1 — Güvenli Adet Onayı
+
+- Sarı etiketli adetlerin tamamı, OCR güven puanından bağımsız olarak açık kullanıcı onayına alındı.
+- Okunan sayı stok değeri değil, tek dokunuşla kullanılabilen düzenlenebilir öneri oldu.
+- Etiketsiz tekli yuvalar 1 sayılmaya devam ederken etiketli ve okunamayan yuvalar boş bırakılıyor.
+- Doğrulanmamış adetlerin iksir, tılsım, eşya, silah veya ara malzeme üretim hesabına girmesi engellendi.
+
 ## v0.68.0 — Fotoğraftan Gerçek Üretim Hesabı
 
 - Tarayıcının metin okuyucusuna bağlı olmayan sarı adet etiketi okuyucusu eklendi.

@@ -130,6 +130,7 @@ export default function ProductionPlanner() {
   const [photoAnalysisError, setPhotoAnalysisError] = useState("");
   const [photoWarnings, setPhotoWarnings] = useState<string[]>([]);
   const [photoConfidence, setPhotoConfidence] = useState<Record<string, number>>({});
+  const [photoQuantityCandidates, setPhotoQuantityCandidates] = useState<Record<string, number>>({});
   const [quantityReview, setQuantityReview] = useState<string[]>([]);
   const [nameReview, setNameReview] = useState<string[]>([]);
   const [photoAnalysisPhase, setPhotoAnalysisPhase] = useState<PhotoRecognitionPhase>("prepare");
@@ -245,6 +246,7 @@ export default function ProductionPlanner() {
     setPhotoAnalysisError("");
     setPhotoWarnings([]);
     setPhotoDraft({});
+    setPhotoQuantityCandidates({});
     setConfirmedPhotoRecommendations([]);
     setConfirmedNewlyReady(0);
     try {
@@ -259,6 +261,7 @@ export default function ProductionPlanner() {
       if (run !== photoAnalysisRun.current) return;
       setPhotoDraft(Object.fromEntries(result.items.map((item) => [item.name, item.quantity])));
       setPhotoConfidence(Object.fromEntries(result.items.map((item) => [item.name, item.confidence])));
+      setPhotoQuantityCandidates(Object.fromEntries(result.items.filter((item) => item.quantityCandidate !== null).map((item) => [item.name, item.quantityCandidate as number])));
       setQuantityReview(result.items.filter((item) => item.quantityNeedsReview).map((item) => item.name));
       setNameReview(result.items.filter((item) => item.nameNeedsReview).map((item) => item.name));
       setPhotoWarnings(result.warnings);
@@ -283,6 +286,7 @@ export default function ProductionPlanner() {
     setPhotoAnalysisError("");
     setPhotoWarnings([]);
     setPhotoConfidence({});
+    setPhotoQuantityCandidates({});
     setQuantityReview([]);
     setNameReview([]);
     if (file) void analyzePhoto(file);
@@ -291,6 +295,7 @@ export default function ProductionPlanner() {
     const amount = Math.max(0, Math.floor(Number(photoQuantity)));
     if (!photoMaterial || !amount) return;
     setPhotoDraft((current) => ({ ...current, [photoMaterial]: (current[photoMaterial] ?? 0) + amount }));
+    setPhotoQuantityCandidates((current) => Object.fromEntries(Object.entries(current).filter(([name]) => name !== photoMaterial)));
     setNameReview((current) => current.filter((entry) => entry !== photoMaterial));
     setPhotoQuantity("1");
   };
@@ -303,17 +308,20 @@ export default function ProductionPlanner() {
       return next;
     });
     setPhotoDraft({});
+    setPhotoQuantityCandidates({});
     setPhotoAnalysisState("confirmed");
   };
   const setPhotoDraftQuantity = (name: string, raw: string) => {
     const next = Math.max(0, Math.floor(Number(raw)) || 0);
     setPhotoDraft((current) => ({ ...current, [name]: next }));
     setQuantityReview((current) => next > 0 ? current.filter((entry) => entry !== name) : current.includes(name) ? current : [...current, name]);
+    if (next > 0) setPhotoQuantityCandidates((current) => Object.fromEntries(Object.entries(current).filter(([entry]) => entry !== name)));
   };
   const removePhotoDraft = (name: string) => {
     setPhotoDraft((current) => Object.fromEntries(Object.entries(current).filter(([key]) => key !== name)));
     setQuantityReview((current) => current.filter((entry) => entry !== name));
     setNameReview((current) => current.filter((entry) => entry !== name));
+    setPhotoQuantityCandidates((current) => Object.fromEntries(Object.entries(current).filter(([entry]) => entry !== name)));
   };
   const togglePlanFavorite = (itemId: string) => {
     if (talismanIds.has(itemId)) {
@@ -361,7 +369,7 @@ export default function ProductionPlanner() {
         {photoAnalysisState === "error" && <div className="photoAnalysisError" role="alert"><span><b>Fotoğraf okunamadı</b><small>{photoAnalysisError}</small></span><button type="button" disabled={!photoFile} onClick={() => { if (photoFile) void analyzePhoto(photoFile); }}>Tekrar analiz et</button></div>}
         {photoAnalysisState === "review" && <div className="photoDraftEditor photoReview">
           <header><span><small>ANALİZ SONUCU</small><b>{Object.keys(photoDraft).length} malzeme bulundu</b></span><em>Onay bekliyor</em></header>
-          <ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); const needsQuantityReview = quantityReview.includes(name) || amount < 1; const needsNameReview = nameReview.includes(name); return <li className={needsNameReview ? "needsNameReview" : ""} key={name}>{icon && <Image unoptimized src={icon.src} alt="" width={30} height={30}/>}<span><b>{needsNameReview ? `Aday: ${name}` : name}</b><small>%{photoConfidence[name] ?? 0} ikon eşleşmesi{needsNameReview ? " · isim onayı gerekli" : needsQuantityReview ? " · adet okunamadı" : " · adet okundu"}</small>{needsNameReview && <button className="confirmCandidateName" type="button" onClick={() => setNameReview((current) => current.filter((entry) => entry !== name))}>İsim doğru</button>}</span><input aria-label={`${name} analiz edilen adedi`} inputMode="numeric" min="1" placeholder="Adet" value={amount || ""} onChange={(event) => setPhotoDraftQuantity(name, event.target.value.replace(/\D/g, ""))}/><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => removePhotoDraft(name)}>×</button></li>; })}</ul>
+          <ul>{Object.entries(photoDraft).map(([name, amount]) => { const icon = materialIconFor(name); const needsQuantityReview = quantityReview.includes(name) || amount < 1; const needsNameReview = nameReview.includes(name); const quantityCandidate = photoQuantityCandidates[name]; return <li className={needsNameReview ? "needsNameReview" : needsQuantityReview ? "needsQuantityReview" : ""} key={name}>{icon && <Image unoptimized src={icon.src} alt="" width={30} height={30}/>}<span><b>{needsNameReview ? `Aday: ${name}` : name}</b><small>%{photoConfidence[name] ?? 0} ikon eşleşmesi{needsNameReview ? " · isim onayı gerekli" : needsQuantityReview ? quantityCandidate ? ` · adet önerisi ${quantityCandidate}, doğrula` : " · adet doğrulaması gerekli" : " · adet onaylandı"}</small>{needsNameReview && <button className="confirmCandidateName" type="button" onClick={() => setNameReview((current) => current.filter((entry) => entry !== name))}>İsim doğru</button>}{needsQuantityReview && quantityCandidate && <button className="useQuantityCandidate" type="button" onClick={() => setPhotoDraftQuantity(name, String(quantityCandidate))}>Öneriyi kullan: {quantityCandidate}</button>}</span><input aria-label={`${name} analiz edilen adedi`} inputMode="numeric" min="1" placeholder={quantityCandidate ? `Öneri ${quantityCandidate}` : "Adet"} value={amount || ""} onChange={(event) => setPhotoDraftQuantity(name, event.target.value.replace(/\D/g, ""))}/><button type="button" aria-label={`${name} fotoğraf taslağından çıkar`} onClick={() => removePhotoDraft(name)}>×</button></li>; })}</ul>
           {photoWarnings.map((warning) => <p className="photoAnalysisWarning" key={warning}>{warning}</p>)}
           {unresolvedPhotoAmounts.length === 0 && unresolvedPhotoNames.length === 0 ? renderPhotoRecommendations(photoRecommendations, "draft", photoImpact?.newlyReadyCount ?? 0) : <p className="photoRecipePending">Üretilebilir adet hesabı için önce belirsiz isim ve adetleri onayla. Hesap iksir, tılsım, eşya, silah ve ara malzeme reçetelerinin tamamını tarayacak.</p>}
           <details className="photoCorrection"><summary>Sonuç eksik veya yanlışsa düzelt <i>+</i></summary><div className="photoVisualPicker"><label><span>Malzeme ara</span><input value={photoQuery} onChange={(event) => setPhotoQuery(event.target.value)} placeholder="Örn. Jadeit, Saf Bakır…"/></label><div>{photoMatches.map((name) => { const icon = materialIconFor(name); return <button type="button" className={photoMaterial === name ? "selected" : ""} onClick={() => setPhotoMaterial(name)} key={name}>{icon ? <Image unoptimized src={icon.src} alt="" width={34} height={34}/> : <i aria-hidden="true">{name.slice(0, 2)}</i>}<span>{name}</span></button>; })}</div><section><strong>{photoMaterial || "Bir malzeme seç"}</strong><input aria-label="Düzeltme adedi" inputMode="numeric" value={photoQuantity} onChange={(event) => setPhotoQuantity(event.target.value.replace(/\D/g, ""))}/><button type="button" disabled={!photoMaterial} onClick={addPhotoDraft}>Sonuca ekle</button></section></div></details>

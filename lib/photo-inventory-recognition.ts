@@ -2,6 +2,8 @@ export type PhotoIconReference = { name: string; src: string };
 export type RecognizedInventoryItem = {
   name: string;
   quantity: number;
+  quantityCandidate: number | null;
+  quantityConfidence: number | null;
   confidence: number;
   quantityNeedsReview: boolean;
   nameNeedsReview: boolean;
@@ -263,7 +265,7 @@ function gridFromProjections(columns: number[], rows: number[], edgeColumns: num
   return gridShapeIsPlausible(cyanGrid) ? cyanGrid : null;
 }
 
-export const photoRecognitionTestInternals = { extendAxis, gridFromProjections, quantityMarkFromPixels, quantityFromPixels, recognitionCandidateStatus };
+export const photoRecognitionTestInternals = { extendAxis, gridFromProjections, quantityMarkFromPixels, quantityFromPixels, safeQuantityResolution, recognitionCandidateStatus };
 
 function detectGrid(canvas: HTMLCanvasElement): Grid | null {
   const context = canvas.getContext("2d", { willReadFrequently: true });
@@ -373,6 +375,23 @@ function quantityMarkFromPixels(pixels: Uint8ClampedArray, width: number, height
 }
 
 type QuantityRead = { quantity: number; confidence: number };
+type SafeQuantityResolution = {
+  quantity: number;
+  quantityCandidate: number | null;
+  quantityConfidence: number | null;
+  quantityNeedsReview: boolean;
+};
+
+function safeQuantityResolution(quantityMark: boolean, nativeQuantity?: number, localQuantity: QuantityRead | null = null): SafeQuantityResolution {
+  if (!quantityMark) return { quantity: 1, quantityCandidate: null, quantityConfidence: null, quantityNeedsReview: false };
+  const candidate = nativeQuantity ?? localQuantity?.quantity;
+  return {
+    quantity: 0,
+    quantityCandidate: Number.isInteger(candidate) && Number(candidate) > 1 ? Number(candidate) : null,
+    quantityConfidence: nativeQuantity !== undefined ? 1 : localQuantity?.confidence ?? null,
+    quantityNeedsReview: true,
+  };
+}
 const quantityDigitTemplates: Record<string, readonly string[]> = {
   "0": ["1e01f8ffeffeffffffffffffffffffffffffffffffffeffeffcff0bc0180", "0201f81fc7fe7ffffffffffffdf7df7df7ff7ff3ff7feffeff88f0070000"],
   "1": ["0001801e0fe0fe0fe0fe07e07fc1fc7fc1fc7fc1fc7ffffffff7ff7ff040", "0000601e01e07f8ff87f81fc1fc1fc1fc1fc1fc1ff1ff1ff7ff7ff7ff1f8"],
@@ -668,12 +687,11 @@ export async function recognizeInventoryPhoto(file: File, references: PhotoIconR
       const nativeQuantity = quantities.get(`${column}:${row}`);
       const quantityMark = cellHasQuantityMark(cellContext, width, height);
       const localQuantity = nativeQuantity === undefined && quantityMark ? fallbackQuantity(cellContext, width, height) : null;
-      const detectedQuantity = nativeQuantity ?? localQuantity?.quantity;
-      const quantityNeedsReview = quantityMark && (detectedQuantity === undefined || (localQuantity?.confidence ?? 1) < 0.42);
-      // İKV one-item stacks have no yellow amount label. A visible yellow label
-      // that OCR could not read is unknown, never an invented quantity of one.
-      const quantity = detectedQuantity ?? (quantityMark ? 0 : 1);
-      recognized.push({ name: best.reference.name, quantity, confidence, quantityNeedsReview, nameNeedsReview: candidateStatus === "review" });
+      const resolvedQuantity = safeQuantityResolution(quantityMark, nativeQuantity, localQuantity);
+      // Güvenli mod: sarı etiketli her yığın açık kullanıcı doğrulaması ister.
+      // Okuyucu değeri yalnız aday olarak taşır; doğrulanmadan stok veya reçete
+      // hesabına girmez. Etiketsiz tekli yuva güvenle 1 sayılır.
+      recognized.push({ name: best.reference.name, ...resolvedQuantity, confidence, nameNeedsReview: candidateStatus === "review" });
     }
   }
 
@@ -681,20 +699,27 @@ export async function recognizeInventoryPhoto(file: File, references: PhotoIconR
   for (const item of recognized) {
     const current = merged.get(item.name);
     if (!current) merged.set(item.name, item);
-    else merged.set(item.name, {
-      ...current,
-      quantity: current.quantityNeedsReview || item.quantityNeedsReview ? 0 : current.quantity + item.quantity,
-      confidence: Math.min(current.confidence, item.confidence),
-      quantityNeedsReview: current.quantityNeedsReview || item.quantityNeedsReview,
-      nameNeedsReview: current.nameNeedsReview || item.nameNeedsReview,
-    });
+    else {
+      const quantityNeedsReview = current.quantityNeedsReview || item.quantityNeedsReview;
+      const currentCandidate = current.quantityNeedsReview ? current.quantityCandidate : current.quantity;
+      const itemCandidate = item.quantityNeedsReview ? item.quantityCandidate : item.quantity;
+      merged.set(item.name, {
+        ...current,
+        quantity: quantityNeedsReview ? 0 : current.quantity + item.quantity,
+        quantityCandidate: quantityNeedsReview && currentCandidate !== null && itemCandidate !== null ? currentCandidate + itemCandidate : null,
+        quantityConfidence: quantityNeedsReview ? Math.min(current.quantityConfidence ?? 1, item.quantityConfidence ?? 1) : null,
+        confidence: Math.min(current.confidence, item.confidence),
+        quantityNeedsReview,
+        nameNeedsReview: current.nameNeedsReview || item.nameNeedsReview,
+      });
+    }
   }
   progress("finalize", 96);
   const items = [...merged.values()].sort((left, right) => right.confidence - left.confidence || left.name.localeCompare(right.name, "tr"));
   if (!items.length) throw new Error("Izgarayı gördüm ancak ikonları birbirinden yeterli güvenle ayıramadım. Yanlış malzeme önermemek için onay taslağı oluşturmadım.");
   const warnings: string[] = [];
   if (items.some((item) => item.nameNeedsReview)) warnings.push("Bazı ikonlar düşük güvenli aday olarak gösterildi; adını onaylamadan stoka işlenemez.");
-  if (items.some((item) => item.quantityNeedsReview)) warnings.push("Bazı adetler bu tarayıcıda güvenle okunamadı; yanlış stok oluşturmamak için boş bırakıldı.");
+  if (items.some((item) => item.quantityNeedsReview)) warnings.push("Güvenli mod açık: sarı etiketli adetler doğrulanmadan stoka veya üretim hesabına alınmaz; varsa okuyucu tahmini yalnız öneri olarak gösterilir.");
   if (detectedSlots > items.length) warnings.push(`${detectedSlots - items.length} dolu yuva düşük güven nedeniyle taslağa eklenmedi.`);
   progress("finalize", 100);
   return { items, detectedSlots, warnings };
