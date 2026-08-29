@@ -86,7 +86,7 @@ test("malzeme ikonlarının kaynak kimliği katalogda gerçekten bulunur", () =>
 });
 
 test("proje durumu sürüm ve çapraz denetim standardını yayımlar", () => {
-  assert.equal(SITE_RELEASE.version, "0.66.3");
+  assert.equal(SITE_RELEASE.version, "0.66.4");
   assert.equal(SITE_RELEASE.milestone, "M66");
   assert.equal(SITE_RELEASE.releasedOn, "2026-08-29");
   assert.deepEqual(projectSystemicAuditAreas.map((area) => area.id), ["catalog", "recipe", "gathering", "planner", "search", "tests"]);

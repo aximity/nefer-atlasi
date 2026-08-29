@@ -178,6 +178,40 @@ function periodicLineRun(scores: number[], minimumLines: number): LineRun | null
   return best;
 }
 
+function localProjectionPeak(scores: number[], position: number, tolerance = 3) {
+  let peak = { position, score: scores[position] ?? 0 };
+  for (let offset = -tolerance; offset <= tolerance; offset += 1) {
+    const candidate = position + offset;
+    if (candidate < 0 || candidate >= scores.length) continue;
+    if ((scores[candidate] ?? 0) > peak.score) peak = { position: candidate, score: scores[candidate] };
+  }
+  return peak;
+}
+
+function extendAxis(positions: number[], scores: number[]) {
+  if (positions.length < 2) return positions;
+  const ordered = [...positions].sort((left, right) => left - right);
+  const initialStrengths = ordered
+    .map((position) => localProjectionPeak(scores, position).score)
+    .sort((left, right) => left - right);
+  const initialMedian = initialStrengths[Math.floor(initialStrengths.length / 2)] ?? 0;
+  while (ordered.length > 2 && localProjectionPeak(scores, ordered[0]).score < initialMedian * 0.55) ordered.shift();
+  while (ordered.length > 2 && localProjectionPeak(scores, ordered[ordered.length - 1]).score < initialMedian * 0.55) ordered.pop();
+  const gaps = ordered.slice(1).map((position, index) => position - ordered[index]);
+  const period = gaps.reduce((sum, gap) => sum + gap, 0) / gaps.length;
+  const strengths = ordered
+    .map((position) => localProjectionPeak(scores, position).score)
+    .sort((left, right) => left - right);
+  const medianStrength = strengths[Math.floor(strengths.length / 2)] ?? 0;
+  const minimumStrength = medianStrength * 0.55;
+  const extended = [...ordered];
+  const before = localProjectionPeak(scores, Math.round(ordered[0] - period));
+  if (before.position >= 0 && before.score >= minimumStrength) extended.unshift(before.position);
+  const after = localProjectionPeak(scores, Math.round(ordered[ordered.length - 1] + period));
+  if (after.position < scores.length && after.score >= minimumStrength) extended.push(after.position);
+  return extended;
+}
+
 function gridShapeIsPlausible(grid: Grid) {
   const xGaps = grid.xs.slice(1).map((position, index) => position - grid.xs[index]);
   const yGaps = grid.ys.slice(1).map((position, index) => position - grid.ys[index]);
@@ -187,78 +221,30 @@ function gridShapeIsPlausible(grid: Grid) {
   return ratio >= 0.62 && ratio <= 1.62;
 }
 
-function axisAlignmentCandidates(positions: number[], limit: number) {
-  const gaps = positions.slice(1).map((position, index) => position - positions[index]);
-  const average = gaps.reduce((sum, gap) => sum + gap, 0) / Math.max(1, gaps.length);
-  const candidates = [-0.5, -0.25, 0, 0.25, 0.5]
-    .map((fraction) => positions.map((position) => Math.round(position + average * fraction)))
-    .filter((axis) => axis[0] >= 0 && axis[axis.length - 1] <= limit);
-  const centerBoundaries = [
-    Math.round(positions[0] - average / 2),
-    ...positions.slice(1).map((position, index) => Math.round((positions[index] + position) / 2)),
-    Math.round(positions[positions.length - 1] + average / 2),
-  ];
-  if (centerBoundaries[0] >= 0 && centerBoundaries[centerBoundaries.length - 1] <= limit) candidates.push(centerBoundaries);
-  return candidates.filter((axis, index) => candidates.findIndex((candidate) => candidate.join(":") === axis.join(":")) === index);
+function gridFromProjections(columns: number[], rows: number[], edgeColumns: number[], edgeRows: number[]): Grid | null {
+  const rhythmXRun = periodicLineRun(edgeColumns, 6);
+  const rhythmYRun = periodicLineRun(edgeRows, 5);
+  if (rhythmXRun && rhythmYRun) {
+    const rhythmGrid = {
+      xs: extendAxis(rhythmXRun.positions, edgeColumns),
+      ys: extendAxis(rhythmYRun.positions, edgeRows),
+    };
+    if (gridShapeIsPlausible(rhythmGrid)) return rhythmGrid;
+  }
+  const edgeXRun = regularLineRun(edgeColumns, 6);
+  const edgeYRun = regularLineRun(edgeRows, 5);
+  if (edgeXRun && edgeYRun) {
+    const edgeGrid = { xs: edgeXRun.positions, ys: edgeYRun.positions };
+    if (gridShapeIsPlausible(edgeGrid)) return edgeGrid;
+  }
+  const xRun = regularLineRun(columns, 6);
+  const yRun = regularLineRun(rows, 5);
+  if (!xRun || !yRun) return null;
+  const cyanGrid = { xs: xRun.positions, ys: yRun.positions };
+  return gridShapeIsPlausible(cyanGrid) ? cyanGrid : null;
 }
 
-function gridAlignmentScore(
-  canvas: HTMLCanvasElement,
-  grid: Grid,
-  signatureContext: CanvasRenderingContext2D,
-  references: LoadedReference[],
-) {
-  let score = 0;
-  let compared = 0;
-  for (let row = 0; row < grid.ys.length - 1; row += 1) {
-    for (let column = 0; column < grid.xs.length - 1; column += 1) {
-      const x = grid.xs[column];
-      const y = grid.ys[row];
-      const width = grid.xs[column + 1] - x;
-      const height = grid.ys[row + 1] - y;
-      if (width < 8 || height < 8) continue;
-      const cell = document.createElement("canvas");
-      cell.width = width;
-      cell.height = height;
-      const cellContext = cell.getContext("2d", { willReadFrequently: true });
-      if (!cellContext) continue;
-      cellContext.drawImage(canvas, x, y, width, height, 0, 0, width, height);
-      if (!cellHasIcon(cellContext, width, height)) continue;
-      const signature = signatureFor(signatureContext, cell, width, height);
-      const distances = references.map((reference) => signatureDistance(signature, reference.signature)).sort((left, right) => left - right);
-      if (distances.length < 2) continue;
-      const best = distances[0];
-      const gap = distances[1] - best;
-      score += Math.max(0, 0.25 - best) + Math.max(0, gap) * 1.8;
-      compared += 1;
-    }
-  }
-  return compared ? score / Math.sqrt(compared) : 0;
-}
-
-function alignGrid(
-  canvas: HTMLCanvasElement,
-  detected: Grid,
-  signatureContext: CanvasRenderingContext2D,
-  references: LoadedReference[],
-) {
-  const xCandidates = axisAlignmentCandidates(detected.xs, canvas.width);
-  const yCandidates = axisAlignmentCandidates(detected.ys, canvas.height);
-  let best = detected;
-  let bestScore = Number.NEGATIVE_INFINITY;
-  for (const xs of xCandidates) {
-    for (const ys of yCandidates) {
-      const candidate = { xs, ys };
-      if (!gridShapeIsPlausible(candidate)) continue;
-      const score = gridAlignmentScore(canvas, candidate, signatureContext, references);
-      if (score > bestScore) {
-        best = candidate;
-        bestScore = score;
-      }
-    }
-  }
-  return best;
-}
+export const photoRecognitionTestInternals = { extendAxis, gridFromProjections };
 
 function detectGrid(canvas: HTMLCanvasElement): Grid | null {
   const context = canvas.getContext("2d", { willReadFrequently: true });
@@ -277,24 +263,8 @@ function detectGrid(canvas: HTMLCanvasElement): Grid | null {
   }
   for (let index = 1; index < columns.length; index += 2) columns[index] = (columns[index - 1] + (columns[index + 1] ?? columns[index - 1])) / 2;
   for (let index = 1; index < rows.length; index += 2) rows[index] = (rows[index - 1] + (rows[index + 1] ?? rows[index - 1])) / 2;
-  const xRun = regularLineRun(columns, 6);
-  const yRun = regularLineRun(rows, 5);
-  if (xRun && yRun) {
-    const cyanGrid = { xs: xRun.positions, ys: yRun.positions };
-    if (gridShapeIsPlausible(cyanGrid)) return cyanGrid;
-  }
   const edges = edgeProjections(pixels, width, height);
-  const edgeXRun = regularLineRun(edges.columns, 6);
-  const edgeYRun = regularLineRun(edges.rows, 5);
-  if (edgeXRun && edgeYRun) {
-    const edgeGrid = { xs: edgeXRun.positions, ys: edgeYRun.positions };
-    if (gridShapeIsPlausible(edgeGrid)) return edgeGrid;
-  }
-  const rhythmXRun = periodicLineRun(edges.columns, 6);
-  const rhythmYRun = periodicLineRun(edges.rows, 5);
-  if (!rhythmXRun || !rhythmYRun) return null;
-  const rhythmGrid = { xs: rhythmXRun.positions, ys: rhythmYRun.positions };
-  return gridShapeIsPlausible(rhythmGrid) ? rhythmGrid : null;
+  return gridFromProjections(columns, rows, edges.columns, edges.rows);
 }
 
 function signatureFor(
@@ -440,7 +410,7 @@ export async function recognizeInventoryPhoto(file: File, references: PhotoIconR
   }))).filter((reference): reference is LoadedReference => Boolean(reference));
   if (!loadedReferences.length) throw new Error("Malzeme ikon kataloğu yüklenemedi.");
 
-  const grid = alignGrid(canvas, detectedGrid, signatureContext, loadedReferences);
+  const grid = detectedGrid;
   const quantities = await detectQuantities(canvas, grid);
   const recognized: RecognizedInventoryItem[] = [];
   let detectedSlots = 0;
@@ -470,10 +440,14 @@ export async function recognizeInventoryPhoto(file: File, references: PhotoIconR
         .sort((left, right) => left.distance - right.distance);
       const best = matches[0];
       const second = matches[1];
-      if (!best || !second || best.distance > 0.2) continue;
+      if (!best || !second || best.distance > 0.18) continue;
       const gap = (second?.distance ?? 0.5) - best.distance;
-      if (gap < 0.015 || second.distance < best.distance * 1.08) continue;
-      const confidence = Math.round(clamp((0.22 - best.distance) * 4.2 + gap * 3.2, 0, 0.98) * 100);
+      const relativeGap = gap / Math.max(0.001, best.distance);
+      // Monitor photos shift hue and brightness, so absolute distance alone is
+      // pessimistic. Admit only candidates that also beat the runner-up by a
+      // material margin; visually shared metal/gem families remain excluded.
+      if (gap < 0.024 || relativeGap < 0.14) continue;
+      const confidence = Math.round(clamp(0.45 + (0.19 - best.distance) * 1.5 + gap * 5 + relativeGap * 0.25, 0, 0.94) * 100);
       if (confidence < 58) continue;
       const quantity = quantities.get(`${column}:${row}`) ?? 1;
       recognized.push({ name: best.reference.name, quantity, confidence, quantityNeedsReview: !quantities.has(`${column}:${row}`) });

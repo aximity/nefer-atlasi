@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.66.3",
+    date: "29 Ağustos 2026",
+    title: "Fotoğraftan Otomatik Çanta Okuma",
+    changes: [
+      "Izgara çizgileri katalog eşleşme kalitesiyle hizalanıyordu.",
+      "Belirsiz ikon ve adet sonuçları güven eşiğinde tutuluyordu.",
+    ],
+  },
+  {
     version: "0.66.2",
     date: "29 Ağustos 2026",
     title: "İkon ve Adet Güvenlik Düzeltmesi",
