@@ -873,6 +873,31 @@
   text-decoration: none;
 }
 
+.upgrade-sequence {
+  margin: 14px 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  overflow: hidden;
+  background: #111014;
+  border: 1px solid #332e36;
+  border-radius: 15px;
+}
+
+.upgrade-sequence a {
+  min-width: 0;
+  padding: 12px 10px;
+  display: grid;
+  gap: 5px;
+  color: #a39ca6;
+  border-right: 1px solid #302b33;
+  text-decoration: none;
+}
+
+.upgrade-sequence a:last-child { border-right: 0; }
+.upgrade-sequence a:hover { color: #eee5e0; background: #1a161c; }
+.upgrade-sequence b { color: #d2805d; font: 800 8px monospace; }
+.upgrade-sequence span { overflow: hidden; font-size: 9px; font-weight: 800; text-overflow: ellipsis; white-space: nowrap; }
+
 .upgrade-rule {
   margin: 14px 0;
   padding: 17px 20px;
@@ -957,6 +982,61 @@
 .upgrade-known p {
   margin-top: 6px;
   color: #b7afb9;
+}
+
+.upgrade-observations {
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+.upgrade-observations > div {
+  padding: 10px 11px;
+  background: #111014;
+  border: 1px solid #2d2930;
+  border-left: 3px solid #6f6872;
+  border-radius: 5px 10px 10px 5px;
+}
+
+.upgrade-observations > div.public { border-left-color: #8f77b5; }
+.upgrade-observations > div.market { border-left-color: #5c9b7d; }
+.upgrade-observations > div.community { border-left-color: #c58a60; }
+.upgrade-observations > div.warning,
+.upgrade-observations > div.conflict { border-left-color: #b65f50; }
+
+.upgrade-observations small,
+.upgrade-safe-actions > small {
+  color: #827a85;
+  font: 800 8px monospace;
+  letter-spacing: 0.09em;
+}
+
+.upgrade-observations p {
+  margin: 5px 0 0;
+  color: #aaa2ad;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.upgrade-safe-actions {
+  margin-top: 11px;
+  padding: 13px;
+  background: rgba(48, 74, 61, 0.2);
+  border: 1px solid #294839;
+  border-radius: 11px;
+}
+
+.upgrade-safe-actions ol {
+  margin: 9px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+
+.upgrade-safe-actions li {
+  color: #aebcb4;
+  font-size: 9px;
+  line-height: 1.5;
 }
 
 .upgrade-status details {
@@ -1540,6 +1620,16 @@
     overflow-x: auto;
     padding-bottom: 8px;
     scroll-snap-type: x mandatory;
+  }
+
+  .upgrade-sequence {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .upgrade-sequence a:nth-child(3) { border-right: 0; }
+
+  .upgrade-sequence a:nth-child(-n + 3) {
+    border-bottom: 1px solid #302b33;
   }
 
   .upgrade-focus article {

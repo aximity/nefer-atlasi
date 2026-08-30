@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M68.5: Sıralı yükseltme dosyaları
+
+- [x] Altı başlığı kullanıcının istediği + basma → Kozmik → Dönüşüm → Gökmeran → Gök Tapınağı → Malahit sırasında işle
+- [x] +1 için bildirilen malzeme, ücret ve başarısızlık sonucunu sabit reçete veya oran iddiasından ayır
+- [x] Kozmik üretim, Dönüşüm Taşı işlevi, Gökmeran erişimi ve Gök Tapınağı ön gösterimlerini kaynak türüne göre sınıflandır
+- [x] Her başlığa üç kısa kanıt bulgusu, iki güvenli hareket ve kesin kapatma ekranlarını ekle
+- [x] Malahit pazar varlığı ile yükseltme kullanım bildirimini ayrı güven düzeyinde tut
+
+Çıkış kapısı: Altı dosya aynı sıralı akışta somut bulgu ve güven sınırıyla kullanılabilir; hiçbir tek deneme, ilan, video başlığı veya sohbet ifadesi kesin tarif, oran, görev ödülü ya da düşüş kaynağına dönüşmez.
+
 ## Tamamlandı — M68.4: Yüksek etkili yükseltme karar merkezi
 
 - [x] + basma ve Kozmik Yükseltme'yi maliyet ve tekrar etkisine göre P0 yap

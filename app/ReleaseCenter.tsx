@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.68.4",
+    date: "30 Ağustos 2026",
+    title: "Yükseltme Karar Merkezi",
+    changes: [
+      "+ basma, Kozmik Yükseltme ve dört bağlı KÖ başlığı tek karar ekranında toplandı.",
+      "Her konu kesin bilgi, açık alan ve gereken kanıt ayrımıyla yayımlandı.",
+    ],
+  },
+  {
     version: "0.68.3",
     date: "30 Ağustos 2026",
     title: "Çakışmasız Ticaret Arşivi",

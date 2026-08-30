@@ -1,5 +1,9 @@
 # Karar Kaydı
 
+## ADR-030 — Açık dosya da güvenli bir sonraki hareket vermelidir
+
+Bir KÖ ilerleme başlığı tam doğrulanamasa bile yalnız “veri bekleniyor” kartına indirgenmez. Kaynak sınırlı bulgular kendi güven düzeyiyle gösterilir; oyuncunun bugün güvenle yapabileceği hareket ile kesin kapanış için gereken ekran kanıtı ayrı yazılır. Bu hareket, bilinmeyen oran veya tarifi tahmin edemez ve başlığı tamamlandı saymaz.
+
 ## ADR-001 — Eksik veride dürüst boş durum
 
 Doğrulanmayan yuvada başka eşya veya görsel yerine “Veri / görsel doğrulanıyor” gösterilir.

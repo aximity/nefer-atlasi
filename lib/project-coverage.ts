@@ -301,6 +301,7 @@ export const projectLiveFacts = {
   missingSpecialTalismanRecipes,
   progressionGapCount: progressionGapRows.length,
   p0ProgressionGapCount: progressionGapRows.filter((row) => row.priority === "P0").length,
+  progressionObservationCount: progressionGapRows.flatMap((row) => row.observations).length,
   conflictedProgressionGaps: progressionGapRows.filter((row) => row.status === "conflicted").map((row) => row.label),
 } as const;
 

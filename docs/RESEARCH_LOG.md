@@ -207,6 +207,16 @@
 - Kapsam ayrımı: 2015 normal İKV Silah Yükseltme arşivi yalnız karşılaştırma kaynağıdır; KÖ koşul ve maliyetlerine taşınmadı.
 - Kaynaklar: https://www.youtube.com/watch?v=Ftp91qW3C_Y, https://www.youtube.com/post/UgkxexFW_xlV9b3w_2CSgr-SdQwn6sVHqUTW, https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-silah-yukseltme-rehberi.240296/
 
+## 2026-08-30 — Altı ilerleme dosyasının sıralı ikinci taraması
+
+- + basma: 28 Ağustos anonim konuşmasında tek +1 denemesi için 50 Kömürleşmiş Reçine, 5 Erg Kalıntısı, 5 Erg Tozu, 1 Malahit Taşı ve 1 milyon oyun parası bildirildi. Deneme başarısız; silahın korunduğu ve girdilerin tüketildiği söylendi. Oyun ekranı bulunmadığı için formül veya oran değildir.
+- Kozmik Yükseltme: Kozmik Kıyamet Asa üretimi açık oyuncu videosuyla görünür; çok günlük kozmik ilanları kullanımın sürdüğünü destekler. İkisi de kesin tarif vermez.
+- Dönüşüm Taşı: Çemberlitaş silahını kozmik silaha çevirme ve bir dönüşüm için 50 Kömürleşmiş Reçine isteme bildirimleri ayrı tek-kanal gözlemleridir.
+- Gökmeran: Üçüncü gong yanındaki anıt taşı yol tarifi bulundu. Reçine verdiği ve yaklaşık üç reçine aldığı ifadeleri çelişiyor; İflis bağlantısı açık kalıyor. Etkinliğin varlığı ayrıca oyuncu videosuyla destekleniyor.
+- Gök Tapınağı: Harita videosu ve görev metni kesiti için iki ayrı topluluk ön gösterimi bulundu; tam zincir yayımlanmadı.
+- Malahit: Dokuz aktif günde 41 alım ve 9 satım sinyali var; tek başarısız +1 denemesinde bir adet tüketildiği bildiriliyor. Pazar ve mekanik kanıtı ayrı tutuldu.
+- Kaynaklar: anonim 21–30 Ağustos ticaret dışa aktarımı; https://www.youtube.com/watch?v=Ftp91qW3C_Y; https://www.youtube.com/watch?v=d7bijwOrJ5I; https://www.youtube.com/post/UgkxqwgG6rIhxPCvtcb9XcxoJIHC5sbWmXa4; https://www.youtube.com/post/UgkxexFW_xlV9b3w_2CSgr-SdQwn6sVHqUTW
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı

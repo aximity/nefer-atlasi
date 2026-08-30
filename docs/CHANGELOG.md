@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+## v0.68.5 — Sıralı Yükseltme Dosyaları
+
+- Altı KÖ başlığı + basma, Kozmik Yükseltme, Dönüşüm Taşı, Gökmeran, Gök Tapınağı ve Malahit sırasında bağlandı.
+- +1 için bildirilen malzeme, ücret ve başarısızlık sonucu tek deneme kaydı olarak eklendi; reçete veya oran sayılmadı.
+- Dönüşüm Taşı'nın bildirilen işlevi ve 50 Kömürleşmiş Reçine ifadesi ayrı güven sınırıyla gösterildi.
+- Gökmeran giriş ipucu, reçine çelişkisi ve Gök Tapınağı'nın iki ön gösterimi görünür hâle geldi.
+- Her dosyaya üç kanıt bulgusu, iki güvenli hareket ve kesin kapatma için gereken ekranlar eklendi.
+- Malahit'in canlı pazar sinyali ile +1 kullanım bildirimi birbirine karıştırılmadı.
+
 ## v0.68.4 — Yükseltme Karar Merkezi
 
 - Endgame içine + basma ve Kozmik Yükseltme odaklı yeni karar paneli eklendi.

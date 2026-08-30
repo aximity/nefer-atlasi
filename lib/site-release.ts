@@ -1,18 +1,18 @@
 export const SITE_RELEASE = {
-  version: "0.68.4",
+  version: "0.68.5",
   channel: "BETA",
-  milestone: "M68.4",
+  milestone: "M68.5",
   releasedOn: "2026-08-30",
   releasedAt: "30 Ağustos 2026",
-  title: "Yükseltme Karar Merkezi",
+  title: "Sıralı Yükseltme Dosyaları",
   summary:
-    "+ basma, Kozmik Yükseltme ve bağlı KÖ içerikleri önem, kanıt durumu ve kapatma gereksinimleriyle tek güvenli akışta toplandı.",
+    "+ basmadan Malahit'e uzanan altı KÖ başlığı, gerçek bulgu, güven sınırı ve güvenli sonraki hareketiyle sırayla işlendi.",
   changes: [
-    "+ basma ve Kozmik Yükseltme, yüksek maliyet ve tekrar sıklığı nedeniyle P0 aktif iş olarak öne alındı.",
-    "Dönüşüm Taşı, Malahit Taşı ve Gökmeran aynı yükseltme bağımlılık zincirinde ayrı kanıt görevlerine bağlandı.",
-    "Malahit pazar sinyali sabit metin yerine 21–30 Ağustos anonim ticaret arşivinden canlı hesaplanıyor.",
-    "Gökmeran'ın reçine ilişkisi çelişkili; Gök Tapınağı görev zinciri tam metin yayımlanana kadar açık tutuluyor.",
-    "Normal İKV'nin 2015 yükseltme sistemi KÖ için mekanik kanıt sayılmıyor.",
-    "Her pahalı yükseltme kaydı için önce, onay ve sonuç görüntülerinden oluşan üç aşamalı kanıt kapısı eklendi.",
+    "+1 için bildirilen 50 Reçine, 5 Erg Kalıntısı, 5 Erg Tozu, 1 Malahit ve 1 milyon ücret tek başarısız deneme olarak kaydedildi.",
+    "Kozmik üretimin varlığı, formül ve oran iddiasından ayrıldı; Dönüşüm Taşı için bildirilen işlev ve 50 Reçine kaydı ayrı tutuldu.",
+    "Gökmeran giriş ipucu ile reçine çelişkisi, Gök Tapınağı harita ve görev ön gösterimleri kendi güven sınırlarıyla yayımlandı.",
+    "Malahit'in pazar sinyali canlı arşivden hesaplanırken +1 kullanımı yalnız oyuncu bildirimi olarak etiketlendi.",
+    "Altı dosyanın her birine şimdi güvenle yapılabilecek iki hareket ve kesin kapatma kanıtı eklendi.",
+    "Normal İKV yükseltme sistemi KÖ için mekanik kanıt sayılmamaya devam ediyor.",
   ],
 } as const;

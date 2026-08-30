@@ -6,9 +6,11 @@ import marketArchive from "../data/market-whatsapp.json";
 
 const kozmikVideo = "https://www.youtube.com/watch?v=Ftp91qW3C_Y";
 const gokTempleTeaser = "https://www.youtube.com/post/UgkxexFW_xlV9b3w_2CSgr-SdQwn6sVHqUTW";
+const gokTempleMapTeaser = "https://www.youtube.com/post/UgkxqwgG6rIhxPCvtcb9XcxoJIHC5sbWmXa4";
+const gokmeranVideo = "https://www.youtube.com/watch?v=d7bijwOrJ5I";
 const legacyUpgradeGuide = "https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-silah-yukseltme-rehberi.240296/";
 
-const focusOrder = ["plus-basma", "kozmik-yukseltme", "donusum-tasi", "malahit", "gokmeran", "gok-tapinagi-gorevleri"];
+const focusOrder = ["plus-basma", "kozmik-yukseltme", "donusum-tasi", "gokmeran", "gok-tapinagi-gorevleri", "malahit"];
 const orderedGaps = focusOrder.map((id) => progressionGaps.find((row) => row.id === id)).filter(Boolean);
 const malahitSignal = marketArchive.signals.find((row) => row.subject === "Malahit Taşı");
 
@@ -53,6 +55,15 @@ export default function UpgradeGuide() {
         </article>
       </div>
 
+      <nav className="upgrade-sequence" aria-label="Yükseltme araştırma sırası">
+        {orderedGaps.map((row) => row && (
+          <a href={`#upgrade-${row.id}`} key={row.id}>
+            <b>{String(row.step).padStart(2, "0")}</b>
+            <span>{row.label}</span>
+          </a>
+        ))}
+      </nav>
+
       <div className="upgrade-rule">
         <b>KÖ / normal İKV ayrımı</b>
         <p>
@@ -64,9 +75,9 @@ export default function UpgradeGuide() {
 
       <div className="upgrade-status-grid">
         {orderedGaps.map((row) => row && (
-          <article key={row.id} className={`upgrade-status ${row.status}`}>
+          <article key={row.id} id={`upgrade-${row.id}`} className={`upgrade-status ${row.status}`}>
             <header>
-              <span>{row.priority}</span>
+              <span>{String(row.step).padStart(2, "0")} · {row.priority}</span>
               <b>{row.statusLabel}</b>
             </header>
             <h4>{row.label}</h4>
@@ -77,6 +88,20 @@ export default function UpgradeGuide() {
                 ? `${marketArchive.metadata.coverageStart.slice(8)}–${marketArchive.metadata.coverageEnd.slice(8)} Ağustos anonim ticaret arşivinde ${malahitSignal.activeDays} aktif gün, ${malahitSignal.buySignals} alım ve ${malahitSignal.sellSignals} satım sinyali var. Bu, edinme yolu veya kullanım formülü değildir.`
                 : row.known}</p>
             </div>
+            <div className="upgrade-observations" aria-label={`${row.label} kanıt özeti`}>
+              {row.observations.map((observation) => (
+                <div className={observation.level} key={`${row.id}-${observation.label}`}>
+                  <small>{observation.label}</small>
+                  <p>{row.id === "malahit" && observation.label === "Pazar sinyali" && malahitSignal
+                    ? `${malahitSignal.activeDays} aktif gün · ${malahitSignal.buySignals} alım · ${malahitSignal.sellSignals} satım sinyali`
+                    : observation.detail}</p>
+                </div>
+              ))}
+            </div>
+            <section className="upgrade-safe-actions">
+              <small>ŞİMDİ GÜVENLE NE YAPILABİLİR?</small>
+              <ol>{row.safeActions.map((item) => <li key={item}>{item}</li>)}</ol>
+            </section>
             <details>
               <summary>Açık alanlar ve gereken kanıt</summary>
               <div className="upgrade-details">
@@ -92,7 +117,9 @@ export default function UpgradeGuide() {
             </details>
             <footer>
               {row.id === "kozmik-yukseltme" && <a href={kozmikVideo} target="_blank" rel="noreferrer">Video kaydı ↗</a>}
-              {row.id === "gok-tapinagi-gorevleri" && <a href={gokTempleTeaser} target="_blank" rel="noreferrer">Görev kesiti duyurusu ↗</a>}
+              {row.id === "gokmeran" && <a href={gokmeranVideo} target="_blank" rel="noreferrer">Gökmeran video kaydı ↗</a>}
+              {row.id === "gok-tapinagi-gorevleri" && <a href={gokTempleMapTeaser} target="_blank" rel="noreferrer">Harita ön gösterimi ↗</a>}
+              {row.id === "gok-tapinagi-gorevleri" && <a href={gokTempleTeaser} target="_blank" rel="noreferrer">Görev kesiti ↗</a>}
               <Link href={contributionUrl(row.label)}>Kanıt gönder ↗</Link>
             </footer>
           </article>

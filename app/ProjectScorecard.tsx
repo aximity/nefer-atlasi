@@ -78,8 +78,8 @@ export default function ProjectScorecard() {
           <span>Üretim kuralı reçete gerektiriyor ancak kaynak tablosunda formül yok: {projectLiveFacts.missingSpecialTalismanRecipes.join(" · ")}. Sahte reçete üretilmedi.</span>
         </aside>}
         {projectLiveFacts.progressionGapCount > 0 && <aside className="liveCaveat">
-          <b>{projectLiveFacts.progressionGapCount} KÖ ilerleme başlığı açık · {projectLiveFacts.p0ProgressionGapCount} P0</b>
-          <span>+ basma, Kozmik Yükseltme ve Gök Tapınağı yüksek etkili sırada. Çelişkili kayıt: {projectLiveFacts.conflictedProgressionGaps.join(" · ") || "yok"}. <Link href="/?module=endgame&panel=Y%C3%BCkseltme#endgame">Yükseltme merkezini aç →</Link></span>
+          <b>{projectLiveFacts.progressionGapCount} KÖ başlığı · {projectLiveFacts.progressionObservationCount} kaynak sınırlı bulgu · {projectLiveFacts.p0ProgressionGapCount} P0</b>
+          <span>Altı konu kullanıcının istediği sırada işlendi; kesinleşmeyen alanlar açık kaldı. Çelişkili kayıt: {projectLiveFacts.conflictedProgressionGaps.join(" · ") || "yok"}. <Link href="/?module=endgame&panel=Y%C3%BCkseltme#endgame">Yükseltme merkezini aç →</Link></span>
         </aside>}
 
         <div className="healthMetricGrid">

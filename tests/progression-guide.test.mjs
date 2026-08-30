@@ -10,10 +10,11 @@ test("KÖ yükseltme merkezi altı eksik alanı öncelikli ve tahminsiz tutar", 
     "plus-basma",
     "kozmik-yukseltme",
     "donusum-tasi",
-    "malahit",
     "gokmeran",
     "gok-tapinagi-gorevleri",
+    "malahit",
   ]);
+  assert.deepEqual(progression.map((row) => row.step), [1, 2, 3, 4, 5, 6]);
   assert.deepEqual(progression.filter((row) => row.priority === "P0").map((row) => row.id), [
     "plus-basma",
     "kozmik-yukseltme",
@@ -23,6 +24,10 @@ test("KÖ yükseltme merkezi altı eksik alanı öncelikli ve tahminsiz tutar", 
   assert.ok(progression.every((row) => row.evidenceNeeded.length >= 3));
   assert.equal(progression.find((row) => row.id === "gokmeran")?.status, "conflicted");
   assert.equal(progression.find((row) => row.id === "gok-tapinagi-gorevleri")?.status, "release_pending");
+  assert.equal(progression.find((row) => row.id === "plus-basma")?.status, "community_report");
+  assert.match(progression.find((row) => row.id === "plus-basma")?.known ?? "", /50 Kömürleşmiş Reçine/);
+  assert.ok(progression.every((row) => row.observations.length >= 3));
+  assert.ok(progression.every((row) => row.safeActions.length >= 2));
 });
 
 test("Malahit yükseltme rehberindeki pazar varlığını canlı arşivden alır", () => {
@@ -38,4 +43,6 @@ test("arayüz normal İKV yükseltmesini KÖ kanıtı saymaz", () => {
   assert.match(source, /normal İKV Silah Yükseltme rehberi yalnız karşılaştırma kaynağıdır/);
   assert.match(source, /Kıyametin Öncüleri için koşul, ücret veya bağlanma kanıtı sayılmaz/);
   assert.ok(progression.find((row) => row.id === "plus-basma")?.evidenceNeeded.includes("Başarılı ve başarısız deneme sonucu"));
+  assert.match(source, /upgrade-sequence/);
+  assert.match(source, /ŞİMDİ GÜVENLE NE YAPILABİLİR/);
 });

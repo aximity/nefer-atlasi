@@ -1,36 +1,58 @@
 [
   {
     "id": "plus-basma",
+    "step": 1,
     "label": "+ basma",
     "priority": "P0",
-    "status": "evidence_needed",
-    "statusLabel": "Aktif kanıt işi",
+    "status": "community_report",
+    "statusLabel": "Tek başarısız deneme kaydı",
+    "lastChecked": "2026-08-30",
     "why": "Tekrarlanan deneme, oyun parası ve nadir malzeme tükettiği için yanlış bilgi en pahalı hatayı üretir.",
-    "known": "30 Ağustos ticaret arşivinde + basma, Yükseltme Taşı ve Malahit Taşı aynı ilerleme konuşmalarında geçiyor. Bu yalnız KÖ topluluk gözlemidir.",
+    "known": "28 Ağustos anonim ticaret konuşmasında +1 denemesi için 50 Kömürleşmiş Reçine, 5 Erg Kalıntısı, 5 Erg Tozu, 1 Malahit Taşı ve 1 milyon oyun parası bildirildi. Deneme başarısız olmuş; silahın değil kullanılan malzemelerin tüketildiği söylenmiştir. Bu tek deneme, sabit reçete veya başarı oranı değildir.",
+    "observations": [
+      { "label": "Bildirilen +1 girdisi", "detail": "50 Kömürleşmiş Reçine · 5 Erg Kalıntısı · 5 Erg Tozu · 1 Malahit Taşı · 1 milyon oyun parası", "level": "community" },
+      { "label": "Bildirilen sonuç", "detail": "Deneme başarısız; silah korunmuş, kullanılan malzemeler tüketilmiş.", "level": "community" },
+      { "label": "Güven sınırı", "detail": "Tek konuşma akışı; işlem penceresi ve sonuç ekranı arşivde bulunmuyor.", "level": "warning" }
+    ],
+    "safeActions": [
+      "Bu paketi yalnız tek +1 deneme bütçesi olarak değerlendir; kesin reçete diye toplu alım yapma.",
+      "Denemeden önce silah bilgi kutusu, onay penceresi ve sonuç ekranını art arda kaydet."
+    ],
     "unknown": [
-      "Her kademe için kesin malzeme ve ücret",
-      "Başarısızlıkta eşya, kademe veya malzeme sonucu",
-      "Başarı olasılığı ve koruma kuralı",
-      "+0'dan +4'e kesin toplam maliyet"
+      "+1 girdisinin her denemede sabit olup olmadığı",
+      "+2, +3 ve +4 için kesin malzeme ve ücret",
+      "Başarı olasılığı ve olası koruma seçeneği",
+      "Silah türü veya efsun koşulu"
     ],
     "evidenceNeeded": [
       "İşlem öncesi silah bilgi kutusu",
-      "Onay penceresindeki malzeme ve ücret",
+      "Onay penceresindeki malzeme, adet ve ücret",
       "Başarılı ve başarısız deneme sonucu"
     ]
   },
   {
     "id": "kozmik-yukseltme",
+    "step": 2,
     "label": "Kozmik Yükseltme",
     "priority": "P0",
     "status": "single_video",
-    "statusLabel": "Tek video kaydı",
+    "statusLabel": "Üretim varlığı doğrulandı",
+    "lastChecked": "2026-08-30",
     "why": "Silahın nihai ilerleme yolunu ve yüksek maliyetli dönüşüm kararını belirliyor.",
-    "known": "KÖ'de Kozmik Kıyamet Asa üretiminin gerçekleştiğini gösteren güncel bir oyuncu videosu bulundu; video tek başına formül veya oran kanıtı sayılmıyor.",
+    "known": "30 Ağustos tarihli oyuncu videosu KÖ'de Kozmik Kıyamet Asa üretiminin yapıldığını destekliyor. Video başlığı üretimin varlığını doğrular; uygun silah, tarif, maliyet veya başarı kuralını tek başına doğrulamaz.",
+    "observations": [
+      { "label": "Açık web kanıtı", "detail": "Kozmik Kıyamet Asa üretimi güncel oyuncu videosunda yer alıyor.", "level": "public" },
+      { "label": "Ticaret gözlemi", "detail": "Kozmik silahlı karakter ve doğrudan Kozmik malzeme ilanları birden çok günde görülüyor.", "level": "market" },
+      { "label": "Güven sınırı", "detail": "Video başlığı ve ilanlar kesin formül, oran ya da bağlanma kuralı değildir.", "level": "warning" }
+    ],
+    "safeActions": [
+      "Kozmik üretimin mevcut olduğunu kabul et; tarif ve toplam maliyeti kanıt gelene kadar hesaplama.",
+      "Aynı silahın dönüşüm öncesi ve sonrası bilgi kutusunu birlikte kaydet."
+    ],
     "unknown": [
-      "Uygun silah koşulları",
+      "Uygun silah ve efsun koşulları",
       "Kesin dönüşüm malzemeleri ve adetleri",
-      "İşlem bedeli",
+      "İşlem bedeli ve başarı kuralı",
       "Bağlanma, aktarım ve geri alma kuralları"
     ],
     "evidenceNeeded": [
@@ -41,17 +63,28 @@
   },
   {
     "id": "donusum-tasi",
+    "step": 3,
     "label": "Dönüşüm Taşı",
     "priority": "P1",
     "status": "community_report",
-    "statusLabel": "Oyuncu bildirimi",
+    "statusLabel": "İki tek-kanal kullanım bildirimi",
+    "lastChecked": "2026-08-30",
     "why": "Kozmik Yükseltme yolunun olası ana girdisi; yanlış edinme bilgisi doğrudan farm süresini boşa çıkarır.",
-    "known": "Ticaret arşivinde alınıp satıldığı ve Çemberlitaş silahının kozmik dönüşümüyle ilişkilendirildiği bildiriliyor.",
+    "known": "Anonim ticaret konuşmasında Dönüşüm Taşı'nın Çemberlitaş silahını kozmik silaha çevirmede kullanıldığı ve bir dönüşümün 50 Kömürleşmiş Reçine istediği ayrı mesajlarda bildirildi. İki ifade de oyun ekranıyla doğrulanmış değildir.",
+    "observations": [
+      { "label": "Bildirilen işlev", "detail": "Çemberlitaş silahını kozmik silaha çevirme ile ilişkilendiriliyor.", "level": "community" },
+      { "label": "Bildirilen ek girdi", "detail": "Bir dönüşüm için 50 Kömürleşmiş Reçine istendiği söyleniyor.", "level": "community" },
+      { "label": "Güven sınırı", "detail": "Taş bilgi kutusu, kullanım penceresi ve edinme kaynağı yok.", "level": "warning" }
+    ],
+    "safeActions": [
+      "50 Reçine bilgisini kesin maliyet değil, doğrulama bekleyen oyuncu bildirimi olarak gör.",
+      "Taşın adı ile hedef silahın aynı kullanım ekranında göründüğü kareyi kaydet."
+    ],
     "unknown": [
-      "Kesin kullanım adımı",
+      "Kesin kullanım adımı ve uygun silah listesi",
       "Edinme kaynağı",
-      "Dönüşüm başına gereken adet",
-      "Takas ve bağlanma durumu"
+      "Dönüşüm başına gereken taş adedi",
+      "Takas, bağlanma ve başarısızlık durumu"
     ],
     "evidenceNeeded": [
       "Dönüşüm Taşı bilgi kutusu",
@@ -60,35 +93,26 @@
     ]
   },
   {
-    "id": "malahit",
-    "label": "Malahit Taşı",
-    "priority": "P1",
-    "status": "market_verified",
-    "statusLabel": "Pazar varlığı doğrulandı",
-    "why": "Yüksek ve sürekli alım talebi nedeniyle yükseltme darboğazını ve ticaret kararını etkiliyor.",
-    "known": "Anonim ticaret arşivinde düzenli alım ve satım sinyali var. Güncel sayılar arayüzde doğrudan pazar verisinden hesaplanır; bu kayıt edinme yolu veya kullanım formülü değildir.",
-    "unknown": [
-      "Kesin düşüş veya görev kaynağı",
-      "Hangi yükseltme kademelerinde kullanıldığı",
-      "Kademe başına gereken adet",
-      "Düşüş oranı"
-    ],
-    "evidenceNeeded": [
-      "Malahit Taşı bilgi kutusu",
-      "Düştüğü anda adın okunabildiği oyun görüntüsü",
-      "Kullanan yükseltme penceresi"
-    ]
-  },
-  {
     "id": "gokmeran",
+    "step": 4,
     "label": "Gökmeran",
     "priority": "P1",
     "status": "conflicted",
-    "statusLabel": "Çelişkili bildirim",
+    "statusLabel": "Erişim ipucu var · ödül çelişkili",
+    "lastChecked": "2026-08-30",
     "why": "Boss erişimi, görev ön koşulu ve olası yükseltme malzemesi kaynağı aynı ilerleme zincirini etkiliyor.",
-    "known": "KÖ oyuncu videoları Gökmeran kesimlerinin yapıldığını destekliyor. Ticaret arşivinde görevin reçine verdiği ve reçine tükettiği yönünde çelişkili bildirimler var.",
+    "known": "Bir oyuncu erişim için üçüncü gong yakınındaki anıt taşını tarif ediyor. Başka iki oyuncu görevin reçine verdiği ve üç reçine aldığı yönünde birbiriyle çelişen bildirim sunuyor. Açık video kaydı Gökmeran etkinliğinin varlığını destekliyor; görev zincirini doğrulamıyor.",
+    "observations": [
+      { "label": "Bildirilen giriş", "detail": "Üçüncü gong yakınındaki anıt taşından giriş.", "level": "community" },
+      { "label": "Çelişkili görev sonucu", "detail": "Bir bildirim reçine verdiğini, diğeri yaklaşık 3 reçine aldığını söylüyor.", "level": "conflict" },
+      { "label": "Açık web kanıtı", "detail": "Gökmeran etkinliğini gösteren oyuncu videosu var; görev ayrıntısı değil.", "level": "public" }
+    ],
+    "safeActions": [
+      "Anıt taşı tarifini yol ipucu olarak kullan; görev ön koşulu tamamlandı sanma.",
+      "Görev kabulü ve tesliminde reçine sayacını önce/sonra birlikte kaydet."
+    ],
     "unknown": [
-      "Görev zinciri ve ön koşullar",
+      "Görev zinciri ve İflis bağlantısı",
       "Giriş veya görev teslim maliyeti",
       "Doğrulanmış ganimet listesi",
       "Grup ve tekrar koşulları"
@@ -101,12 +125,23 @@
   },
   {
     "id": "gok-tapinagi-gorevleri",
+    "step": 5,
     "label": "Gök Tapınağı görevleri",
     "priority": "P0",
     "status": "release_pending",
-    "statusLabel": "Yayın ayrıntısı bekleniyor",
+    "statusLabel": "Harita ve metin ön gösterimi",
+    "lastChecked": "2026-08-30",
     "why": "Yeni bölgenin görev zinciri, erişim sırası ve ödülleri bütün oyuncular için yüksek etkili içerik.",
-    "known": "30 Ağustos 2026 tarihli topluluk paylaşımı görev metinlerinden bir kesitin duyurulduğunu gösteriyor.",
+    "known": "29–30 Ağustos tarihli iki topluluk paylaşımı Gök Tapınağı haritasından bir video ve görev metinlerinden küçük bir kesit yayımlandığını gösteriyor. Tam görev zinciri henüz açık kaynakta bulunmuyor.",
+    "observations": [
+      { "label": "Harita ön gösterimi", "detail": "Gök Tapınağı haritasından kısa video paylaşıldığı duyuruldu.", "level": "public" },
+      { "label": "Görev ön gösterimi", "detail": "Görev metinlerinden yalnız küçük bir kesit yayımlandı.", "level": "public" },
+      { "label": "Güven sınırı", "detail": "Tam görev adları, NPC, sıra, amaç ve ödüller açıklanmış değil.", "level": "warning" }
+    ],
+    "safeActions": [
+      "Ön gösterimi bölgenin ve görev içeriğinin geleceğine dair kanıt olarak kullan; görev rehberi sayma.",
+      "Yayın açıldığında her görevi kabul, günlük, harita ve teslim ekranıyla sırayla kaydet."
+    ],
     "unknown": [
       "Tam görev adları ve sırası",
       "NPC, seviye ve ön koşullar",
@@ -117,6 +152,37 @@
       "Her görevin tam günlük metni",
       "NPC ve bölge ekranı",
       "Ödül seçimi ve zincir bağlantıları"
+    ]
+  },
+  {
+    "id": "malahit",
+    "step": 6,
+    "label": "Malahit Taşı",
+    "priority": "P1",
+    "status": "market_verified",
+    "statusLabel": "Pazar doğrulandı · mekanik tek bildirim",
+    "lastChecked": "2026-08-30",
+    "why": "Yüksek ve sürekli alım talebi nedeniyle yükseltme darboğazını ve ticaret kararını etkiliyor.",
+    "known": "Anonim ticaret arşivinde düzenli alım ve satım sinyali var; güncel sayılar doğrudan pazar verisinden hesaplanır. Ayrıca tek başarısız +1 denemesinde bir Malahit Taşı tüketildiği bildiriliyor. Pazar gözlemi güvenilir bir talep sinyalidir; düşüş kaynağı, gereken adet veya başarı oranı değildir.",
+    "observations": [
+      { "label": "Pazar sinyali", "detail": "Dokuz aktif günde 41 alım ve 9 satım sinyali.", "level": "market" },
+      { "label": "Bildirilen kullanım", "detail": "Tek başarısız +1 denemesinde 1 Malahit Taşı tüketildiği söyleniyor.", "level": "community" },
+      { "label": "Güven sınırı", "detail": "Düşüş kaynağı ve yükseltme penceresi henüz yok.", "level": "warning" }
+    ],
+    "safeActions": [
+      "Pazar yoğunluğunu talep göstergesi olarak kullan; ilanı gerçekleşmiş satış veya kesin değer sayma.",
+      "Malahit düştüğünde eşya adı, yaratık/bölge ve torbayı aynı kayıt dizisinde göster."
+    ],
+    "unknown": [
+      "Kesin düşüş veya görev kaynağı",
+      "Hangi yükseltme kademelerinde kullanıldığı",
+      "Kademe başına gereken adet",
+      "Düşüş ve başarı oranı"
+    ],
+    "evidenceNeeded": [
+      "Malahit Taşı bilgi kutusu",
+      "Düştüğü anda adın okunabildiği oyun görüntüsü",
+      "Kullanan yükseltme penceresi"
     ]
   }
 ]

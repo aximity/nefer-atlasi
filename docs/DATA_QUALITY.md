@@ -17,6 +17,10 @@
 
 ## Açık sorunlar
 
+- 28 Ağustos anonim konuşmasında +1 için 50 Kömürleşmiş Reçine, 5 Erg Kalıntısı, 5 Erg Tozu, 1 Malahit Taşı ve 1 milyon oyun parasıyla başarısız deneme bildirildi. Silahın korunduğu, girdilerin tüketildiği söylense de işlem ve sonuç ekranı olmadığı için kayıt yalnız tek deneme gözlemidir.
+- Dönüşüm Taşı için Çemberlitaş silahını kozmik silaha çevirme ve bir dönüşümde 50 Kömürleşmiş Reçine isteme bildirimleri vardır. Bunlar farklı anonim mesajlardır; tek bir doğrulanmış reçete gibi birleştirilmez.
+- Gökmeran'a üçüncü gong yakınındaki anıt taşından girildiği yol tarifi yalnız oyuncu bildirimidir. İflis görevi bağlantısı yanıtsız, reçine ödülü/tüketimi ise çelişkilidir.
+- Gök Tapınağı için harita videosu ve görev metni kesiti ön gösterimleri vardır; yayımlanmış tam görev zinciri yoktur.
 - KÖ + basma ve Kozmik Yükseltme için kesin kademe maliyeti, başarı olasılığı, başarısızlık sonucu ve bağlanma kuralı oyun içi tam ekran kanıtı bekliyor. Ticaret sohbetindeki sayı ve hesaplar topluluk bildirimi olarak kalır; rehber hesabına girmez.
 - Dönüşüm Taşı'nın Çemberlitaş silahını kozmik silaha çevirdiği bildirimi tek kanaldır; taşın bilgi kutusu, kullanım penceresi ve edinme kaynağı birlikte doğrulanmalıdır.
 - Malahit Taşı'nın pazar varlığı ve talep yönü anonim ticaret arşivinde ölçülür. Bu sinyal, taşın düşüş kaynağı, yükseltme rolü, gereken adet veya oranını kanıtlamaz.
