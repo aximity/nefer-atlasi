@@ -3,8 +3,18 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SITE_RELEASE } from "../lib/site-release";
+import serverUpdate from "../data/server-updates.json";
 
 const previousReleases = [
+  {
+    version: "0.68.6",
+    date: "30 Ağustos 2026",
+    title: "Çalışan Gök Tapınağı Kaynağı",
+    changes: [
+      "Gök Tapınağı harita ön gösterimi gerçek YouTube video adresine bağlandı.",
+      "Mobilde açılmayan Topluluk gönderisi kaldırıldı; tam görev metni doğrulama bekliyor.",
+    ],
+  },
   {
     version: "0.68.5",
     date: "30 Ağustos 2026",
@@ -394,6 +404,15 @@ export default function ReleaseCenter({ inline = false }: { inline?: boolean }) 
     {updatesOpen && <div className="releaseOverlay" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && setUpdatesOpen(false)}>
       <aside className="releasePanel" role="dialog" aria-modal="true" aria-labelledby="release-title">
         <header><span><small>DEĞİŞİKLİK MERKEZİ</small><h2 id="release-title">Son yenilikler</h2></span><button type="button" onClick={() => setUpdatesOpen(false)} aria-label="Yenilikleri kapat">×</button></header>
+        <section className="serverUpdate">
+          <div className="serverUpdateHead"><span><small>OYUN GÜNCELLEMESİ · TEK KAYNAK</small><h3>{serverUpdate.title}</h3></span><b>KÖ</b></div>
+          <p>{serverUpdate.scopeNote}</p>
+          <div className="serverUpdateSections">{serverUpdate.sections.map((section) => <details key={section.id} open={section.id === "mining"} className={section.status === "conflicted" ? "conflicted" : ""}>
+            <summary><span><b>{section.title}</b><small>{section.status === "reported_fixed" ? "Düzeltildiği bildirildi" : section.status === "conflicted" ? "Son not çelişkili" : "Geçici uyarı"}</small></span><i>+</i></summary>
+            <ul>{section.items.map((item) => <li key={item}>{item}</li>)}</ul>
+            {"conflict" in section && section.conflict && <div className="serverUpdateConflict"><small>ÇELİŞKİ KAYDI</small><p>{section.conflict.earlier}</p><p>{section.conflict.later}</p><b>{section.conflict.decision}</b></div>}
+          </details>)}</div>
+        </section>
         <section className="currentRelease"><div><small>{SITE_RELEASE.releasedAt} · {SITE_RELEASE.channel}</small><b>v{SITE_RELEASE.version}</b></div><h3>{SITE_RELEASE.title}</h3><p>{SITE_RELEASE.summary}</p><ul>{SITE_RELEASE.changes.map((change) => <li key={change}>{change}</li>)}</ul></section>
         <div className="releaseHistory">{previousReleases.map((release) => <details key={release.version}><summary><span><small>{release.date}</small><b>v{release.version} · {release.title}</b></span><i>+</i></summary><ul>{release.changes.map((change) => <li key={change}>{change}</li>)}</ul></details>)}</div>
         <footer><button type="button" onClick={replayIntro}>Kısa tanıtımı tekrar göster</button><Link href="/rehber">Tüm kullanım rehberi →</Link></footer>

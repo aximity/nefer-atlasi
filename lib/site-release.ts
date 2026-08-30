@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.68.6",
+  version: "0.68.7",
   channel: "BETA",
-  milestone: "M68.6",
+  milestone: "M68.7",
   releasedOn: "2026-08-30",
   releasedAt: "30 Ağustos 2026",
-  title: "Çalışan Gök Tapınağı Kaynağı",
+  title: "30 Ağustos KÖ Güncellemesi",
   summary:
-    "Mobilde açılmayan Gök Tapınağı Topluluk gönderileri temizlendi; harita ön gösterimi doğrudan video bağlantısına taşındı.",
+    "PvP, Anka, Saklı Irklar ve giriş düzeltmeleri arşivlendi; maden notundaki sonradan gelen çelişki ilgili rehbere işlendi.",
   changes: [
-    "Gök Tapınağı harita ön gösterimi Topluluk gönderisi yerine gerçek YouTube video adresine bağlandı.",
-    "Mobilde kullanılamayan görev-metni gönderisi kaynak ve arayüz bağlantılarından kaldırıldı.",
-    "Görev metni kesiti çalışan yeni kaynak bulunana kadar doğrulama bekliyor olarak açık tutuldu.",
-    "Kaynak sağlığı testi Gök Tapınağı kartında /post/ biçimli kırık bağlantıların yeniden yayımlanmasını engelliyor.",
+    "30 Ağustos sunucu notu oyun güncellemesi olarak Yenilikler paneline eklendi.",
+    "Anka'nın hasar bağışıklığı, bonuslarla eş hız ve 5 saniyelik yetişme ışınlanması ilgili değerlendirmeye taşındı.",
+    "Saklı Irklar yeniden giriş kuralı ile launcher bileti düzeltmesinin kapsam sınırları korundu.",
+    "Madenler için son 'yoksa görünmez' bildirimi öne çıkarıldı; önceki notla çelişki gizlenmedi.",
   ],
 } as const;

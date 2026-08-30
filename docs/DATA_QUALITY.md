@@ -1,5 +1,11 @@
 # Veri Kalitesi
 
+## 30 Ağustos KÖ güncelleme notu
+
+- PvP, Anka, Saklı Irklar ve giriş düzeltmeleri kullanıcı tarafından iletilen tek bir sunucu notuna dayanır. Site bunları “düzeltildiği bildirildi” diliyle yayımlar; bağımsız test veya ikinci kaynak teyidi saymaz.
+- Madenlerde 11:11 notu tükenmiş düğümün yeni yerinde görünür kalacağını, 13:35 düzeltmesi ise maden yoksa görünmeyeceğini söylüyor. Son bildirim kullanıcı eylemi için öne çıkarılır; önceki ifade ve çelişki silinmez.
+- “Saldırı şu an durmuş durumda” ifadesi yalnız notun yayımlandığı ana aittir; canlı hizmet durumu veya gelecekte kesintisiz erişim garantisi değildir.
+
 | Durum | Arayüz | Kullanım |
 |---|---|---|
 | Taslak | Gösterilmez | Kaynak taraması sürüyor |

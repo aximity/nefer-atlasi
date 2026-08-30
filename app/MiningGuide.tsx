@@ -194,6 +194,11 @@ export default function MiningGuide() {
         <div><h2>Çıkış rastgele.<br/><em>Süren ölçülebilir.</em></h2><p>Sabit nokta vaadi vermeden kontrol zamanını takip et, boş ve başarılı kontrolleri kaydet, yeniden çıkış aralığını gerçek gözlemlerle öğren.</p><a className="farm-ops-link" href="/uretim#production-planner">Üretim takibini aç <span>↗</span></a></div>
         <div className="ore-orbit" aria-hidden="true"><span/><i>Jd</i><small>JADEİT</small></div>
       </div>
+      <aside className="mining-live-correction" aria-label="30 Ağustos maden güncellemesi">
+        <div><small>30 AĞUSTOS · SON BİLDİRİM</small><strong>Maden varsa görünür ve çekilebilir; yoksa görünmez.</strong></div>
+        <p>Önceki “tükenmiş animasyonda görünür kalır” notuyla çeliştiği için bu bilgi tek kaynaklı düzeltme olarak tutuluyor. Sayaç, görünür tükenmiş düğüm varsaymıyor.</p>
+        <span>ÇELİŞKİ AÇIK</span>
+      </aside>
       <button className="marketPulseOpen" type="button" onClick={() => setView("Pazar")}><span><small>PAZAR VERİSİ</small><strong>Tarihli gözlemleri aç</strong></span><i>Fiyat, para birimi ve güven düzeyi birlikte gösterilir →</i></button>
     </div>
 

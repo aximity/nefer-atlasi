@@ -123,3 +123,7 @@ WhatsApp dışa aktarımları birbiriyle örtüşebilir. İçe aktarma mesajlar�
 ## ADR-029 — Pahalı yükseltme önce süreç kanıtıyla yayımlanır
 
 KÖ'ye özel + basma, Kozmik Yükseltme ve dönüşüm işlemlerinde sohbet sayısı, test sunucusu denemesi veya normal İKV arşivi kesin mekanik kanıt değildir. Bir kademe veya dönüşüm kaydı; işlem öncesi eşya bilgi kutusu, malzeme/adet/ücret içeren onay penceresi ve başarılı ya da başarısız sonuç ekranı birlikte görülmeden hesaplayıcıya girmez. Malahit talep sinyali yalnız pazar gözlemidir; kullanım ve edinme iddiasına çevrilmez. Çelişkili Gökmeran görev bildirimi ile henüz tam yayımlanmayan Gök Tapınağı görevleri açık tutulur.
+
+## ADR-030 — Son düzeltme önceki çelişkili notu silmez
+
+KÖ sunucu notunun daha sonraki bir mesajı önceki ifadeyi düzeltiyorsa, kullanıcı eylemini yönlendiren kısa metin son bildirime göre güncellenir; önceki metin ve aradaki çelişki kanıt kaydından silinmez. 30 Ağustos maden notunda “tükenmiş görünür kalır” ve “maden yoksa görünmez” ifadeleri bu nedenle birlikte tutulur. İkinci kaynak veya oyun içi gözlem gelene kadar kayıt `conflicted`, bütün güncelleme paketi `single_source` kalır.

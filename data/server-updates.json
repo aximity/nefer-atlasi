@@ -1,0 +1,72 @@
+{
+  "id": "ko-hotfix-2026-08-30",
+  "title": "30 Ağustos KÖ düzeltmeleri",
+  "publishedAt": "2026-08-30",
+  "publishedLabel": "30 Ağustos 2026",
+  "sourceLabel": "Kullanıcı tarafından iletilen KÖ güncelleme notu",
+  "sourceType": "user_supplied_patch_note",
+  "verificationStatus": "single_source",
+  "scopeNote": "Sunucu güncelleme notu olarak yayımlanır; bağımsız oyun içi test veya ikinci kaynak teyidi değildir.",
+  "sections": [
+    {
+      "id": "pvp",
+      "title": "PvP",
+      "status": "reported_fixed",
+      "items": [
+        "Hayattayken atılan büyü mermisi, oyuncu ölse bile yolunu tamamlayıp hedefe hasar veriyor.",
+        "Öldükten sonra yeni yetenek atılamıyor; değişiklik yalnız önceden atılmış mermiyi kapsıyor.",
+        "Düello turları arasında bekleme süreleri ile ekrandaki çubuklar birlikte sıfırlanıyor."
+      ]
+    },
+    {
+      "id": "anka",
+      "title": "Torba Toplayan Anka",
+      "status": "reported_fixed",
+      "items": [
+        "Alan hasarı veren yetenekler ve boss saldırıları Anka'ya işlemiyor.",
+        "Anka, ekipman ve iksir bonusları dâhil oyuncunun güncel hızıyla hareket ediyor.",
+        "Engel, dar geçit veya ışınlanma yüzünden 5 saniye yetişemezse oyuncunun yanına ışınlanıyor."
+      ]
+    },
+    {
+      "id": "mining",
+      "title": "Madenler",
+      "status": "conflicted",
+      "items": [
+        "Son bildirime göre maden varsa görünür ve çekilebilir; yoksa görünmez."
+      ],
+      "conflict": {
+        "earlier": "İlk not, tükenmiş madenin yeni yerinde tükenmiş animasyonuyla görünür kalacağını söylüyordu.",
+        "later": "Daha sonraki düzeltme, maden yoksa görünmediğini söyledi.",
+        "decision": "Son bildirim arayüzde öne çıkarıldı; iki ifade arasındaki çelişki oyun içi gözlem gelene kadar açık tutuluyor."
+      }
+    },
+    {
+      "id": "regions",
+      "title": "Bölgeler",
+      "status": "reported_fixed",
+      "items": [
+        "Büyük Hol'ün Saklı Irklar alanında çıkış yapan oyuncu, sonraki girişinde klanının diriliş noktasında açılıyor.",
+        "Kural yalnız çıkış ve tekrar giriş akışını etkiliyor; bölgede oynayan veya dövüşen oyuncuyu dışarı atmıyor."
+      ]
+    },
+    {
+      "id": "connection",
+      "title": "Giriş sorunu",
+      "status": "reported_fixed",
+      "items": [
+        "Bağlantı seli sırasında koruma sisteminin yeni veya IP'si değişmiş oyuncuları kilitleyen tanıma döngüsünün giderildiği bildirildi.",
+        "Launcher'dan bilet alan bağlantı artık tanınmış sayılıyor; giriş ekranında takılma ve hatalı 'Yasaklandınız' uyarısı bu kapsamda ele alındı.",
+        "Notta saldırının yayın anında durmuş olduğu belirtildi; bu ifade canlı hizmet durumu garantisi değildir."
+      ]
+    },
+    {
+      "id": "update-warning",
+      "title": "Güncelleme sırası uyarısı",
+      "status": "temporary_notice",
+      "items": [
+        "Güncelleme sırasında Büyük Hol'ün Saklı Irklar alanında çevrimdışı olanlar, ilk girişlerinde diriliş noktasında açılacak."
+      ]
+    }
+  ]
+}

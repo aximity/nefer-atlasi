@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M68.7: 30 Ağustos KÖ güncellemesi
+
+- [x] PvP mermi ve düello bekleme süresi düzeltmelerini kapsam sınırıyla yayımla
+- [x] Anka'nın hasar bağışıklığı, bonuslarla eş hız ve 5 saniyelik ışınlanma davranışını ilgili değerlendirmeye bağla
+- [x] Saklı Irklar yeniden giriş kuralı ile launcher bileti düzeltmesini arşivle
+- [x] İlk maden notu ile daha sonraki düzeltme arasındaki çelişkiyi saklamadan son bildirimi ilgili rehberde öne çıkar
+- [x] Tüm paketi tek kaynaklı kullanıcı iletisi olarak etiketle ve veri kapısına bağla
+
+Çıkış kapısı: Güncelleme notunun altı bölümü veri olarak doğrulanır; maden çelişkisi açıkça görünür ve “saldırı durdu” ifadesi canlı hizmet garantisine dönüştürülmez.
+
 ## Tamamlandı — M68.6: Gök Tapınağı kaynak sağlığı düzeltmesi
 
 - [x] Mobilde hata veren iki YouTube Topluluk gönderisini kaynak ve arayüzden kaldır

@@ -239,6 +239,15 @@
 - [ ] Kozmik Yükseltme ve Dönüşüm Taşı tam malzeme penceresi
 - [ ] Gökmeran görev metni, erişim koşulu ve doğrulanmış ganimet listesi
 - [ ] Gök Tapınağı tam görev adları, sıra, NPC, amaç ve ödül ekranları
+
+# 30 Ağustos 2026 — KÖ düzeltme notu
+
+- Kaynak: Kullanıcı tarafından iletilen 11:11 güncelleme notu ve aynı konuşmadaki 13:35 maden düzeltmesi; bağımsız bağlantı veya oyun içi test bulunmadı.
+- PvP: Hayattayken atılan merminin ölümden sonra da hedefine ulaştığı, ölümden sonra yeni yetenek atılamadığı ve düello turu arayüz sürelerinin sunucuyla birlikte sıfırlandığı bildirildi.
+- Anka: Alan/boss hasarına bağışıklık, oyuncunun bonuslu hızıyla eşleşme ve 5 saniye yetişemediğinde ışınlanma bildirildi.
+- Bölge ve giriş: Saklı Irklar'da çıkış yapanın diriliş noktasında açılması ile launcher biletinin koruma sisteminde tanınması kayda alındı.
+- Maden çelişkisi: İlk not görünür tükenmiş düğüm davranışını, sonraki düzeltme “varsa görünür, yoksa görünmez” davranışını söylüyor. Son bildirim arayüzde önde; kesin doğrulama bekleniyor.
+- Zaman sınırı: Bağlantı saldırısının durmuş olduğu ifadesi yalnız notun yayın anını anlatır.
 # 28 Ağustos 2026 — İksir reçetesi kaynak kararı
 
 - Kaynak: `fandom-potion-recipes-20260826` — İKV Wiki, İksir Reçeteleri.

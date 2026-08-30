@@ -590,7 +590,7 @@ export default function EndgameLab() {
               <span className="scope-off">KARAKÖY YOK</span>
             </div>
             <p>
-              Sunucu kapsamı kaynaklıdır. Anka değerlendirmesi oyuncu gözlemidir;
+              Sunucu kapsamı kaynaklıdır. Anka düzeltmeleri 30 Ağustos notundan gelir;
               rol ve ürün önerileri doğrulanması gereken tasarım hipotezleridir.
             </p>
           </div>
@@ -603,7 +603,7 @@ export default function EndgameLab() {
           </div>
           <div>
             <small>ANKA</small>
-            <b>Oyuncu gözlemi</b>
+            <b>30 Ağustos notu</b>
           </div>
           <div>
             <small>ROL MATRİSİ</small>
@@ -867,18 +867,18 @@ export default function EndgameLab() {
             <div className="anka-review">
               <div className="anka-mark">A</div>
               <div>
-                <small>MEVCUT YARDIMCI · OYUNCU GÖZLEMİ</small>
-                <h3>Anka doğru temel, tamamlanmamış değer.</h3>
+                <small>30 AĞUSTOS SUNUCU NOTU · TEK KAYNAK</small>
+                <h3>Anka&apos;nın üç temel sorununun giderildiği bildirildi.</h3>
                 <p>
-                  Otomatik toplama manuel tıklamayı azaltır. Ücretli değer,
-                  filtreden malzeme düzenine kadar tüm farm zincirini kısaltırsa
-                  oluşur.
+                  Alan hasarı ve boss saldırılarından etkilenmiyor; bonuslar dâhil
+                  oyuncu hızını eşliyor; 5 saniye yetişemezse yanına ışınlanıyor.
+                  Filtre ve dolu çanta uyarısı ayrı geliştirme önerileri olarak kalıyor.
                 </p>
               </div>
               <div className="anka-verdict">
                 <small>KARAR</small>
-                <b>GEREKLİ QoL</b>
-                <span>Tek başına paket değil</span>
+                <b>TEMEL DÜZELTİLDİ</b>
+                <span>Gelişim alanı sürüyor</span>
               </div>
             </div>
             <div className="qol-principle">

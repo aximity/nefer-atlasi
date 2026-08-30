@@ -1,5 +1,13 @@
 # Değişiklik Günlüğü
 
+## v0.68.7 — 30 Ağustos KÖ Güncellemesi
+
+- PvP, Torba Toplayan Anka, Saklı Irklar ve giriş sorunu düzeltmeleri ayrı bir oyun güncellemesi kaydıyla Yenilikler paneline eklendi.
+- Hayattayken atılan mermi ile ölümden sonra yetenek atma arasındaki kapsam farkı korundu.
+- Anka'nın üç bildirilen düzeltmesi Premium değerlendirmesine taşındı; filtre ve dolu çanta uyarısı ayrı öneri olarak bırakıldı.
+- Madenlerde ilk “tükenmiş görünür kalır” notu ile sonraki “yoksa görünmez” düzeltmesi çelişkili kayıt olarak tutuldu; son bildirim Maden ekranında öne çıkarıldı.
+- Sunucu notunun tek kullanıcı iletisi olduğu ve bağımsız doğrulama sayılmadığı veri/test kapısına bağlandı.
+
 ## v0.68.6 — Çalışan Gök Tapınağı Kaynağı
 
 - Mobilde hata veren iki YouTube Topluluk gönderisi arayüz ve kaynak dizininden kaldırıldı.
