@@ -107,3 +107,7 @@ Sarı etiketli bir yuvada OCR'ın okuduğu sayı, güven puanı yüksek görüns
 ## ADR-027 — Genel simge özgün eşya görünüşü sayılmaz
 
 Bir kaynak birden çok zırh seti veya eşyada aynı “ceket”, “pantolon”, “ayakkabı” gibi genel simgeyi kullanıyorsa bu dosya yalnız paylaşılan tür görseli olabilir; özgün eşya ikonu ya da set görünüşü kapsamını kapatmaz. Görsel adı, oyundaki kayıt ve görünüş birebir doğrulanmadan kapsam sayacı artırılmaz. Böylece görsel zenginliği puanı, kullanıcıyı yanlış eşya görünüşüyle yanıltma pahasına yükseltilmez.
+
+## ADR-028 — Ticaret arşivi günlük ve çakışmasız ilerler
+
+WhatsApp dışa aktarımları birbiriyle örtüşebilir. İçe aktarma mesajları yalnız geçici işlem sırasında tekilleştirir; projede ad, telefon, yazar kimliği veya ham sohbet tutmaz. Kalıcı veri tarih–ürün–yön–para birimi düzeyinde anonim agregadır. Aynı tarih için yeni dışa aktarım daha az mesaj içeriyorsa mevcut daha dolu gün korunur; eşit veya daha doluysa gün bütünüyle yenilenir. Aynı kişinin aynı gün aynı ürün ve yöndeki tekrarları tek sinyal, fiyat değişikliklerinde son ilan tek kaynak sayılır. Bu arşiv tek kanal ilan gözlemidir; gerçekleşen satış veya doğrulanmış piyasa fiyatı değildir.

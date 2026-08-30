@@ -1,5 +1,13 @@
 # Araştırma Günlüğü
 
+## 2026-08-30 — Ticaret arşivi güncellemesi
+
+- Kaynak: Kullanıcının paylaştığı “Kıyametin Öncüleri · İstanbul (Ticaret)” WhatsApp dışa aktarımı; 23–30 Ağustos kapsamı.
+- Birleşim: 21–28 Ağustos önceki arşiviyle çakışan mesajlar tarih, saat, gönderen ve içerik imzası üzerinden geçici bellekte tekilleştirildi; ham mesajlar proje verisine yazılmadı.
+- Sonuç: 21–30 Ağustos arasında 3.946 tekil mesaj, 451 anonim günlük alış–satış sinyali, 108 fiyatlı günlük kaynak kaydı, 79 ürün/yön/para birimi fiyat kesiti ve 19 ürün.
+- Düzeltme: Türkçe “den/dan/ten/tan” ve “akçeden” kalıpları fiyat olarak tanındı; çok ürünlü satırlarda fiyatlar sıra ve komşuluk grubuna göre bağlandı. “Xenotim 250 TL” içindeki 250 artık adet sayılmıyor; Salgı fiyatı Jadeit'e taşınmıyor.
+- Sınır: Bunlar tek WhatsApp kanalındaki ilan beklentileridir; gerçekleşen satış, sunucu geneli fiyatı veya çapraz doğrulanmış piyasa değeri değildir.
+
 ## 2026-08-28 — Kaynak dizini ve sabit reçete politikası
 
 - İKV Wiki bağlantıları reçete eylemlerinden ayrılarak eşya, tılsım, iksir, materyal, görev ve oyun içi kanıt kategorilerinde tek dizine taşındı.

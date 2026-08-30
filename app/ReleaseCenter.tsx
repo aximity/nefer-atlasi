@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.68.2",
+    date: "29 Ağustos 2026",
+    title: "Odaklı Menü ve Kaynaklı Görseller",
+    changes: [
+      "On beş modül silinmeden Bilgi, Araçlar ve Proje gruplarına ayrıldı.",
+      "Bakır, Kalay ve Karbon doğrulanmış oyun ikonlarıyla ortak görsel ağına eklendi.",
+    ],
+  },
+  {
     version: "0.68.1",
     date: "29 Ağustos 2026",
     title: "Güvenli Adet Onayı",

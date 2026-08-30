@@ -17,6 +17,9 @@
 
 ## Açık sorunlar
 
+- Ticaret arşivi 21–30 Ağustos'taki tek WhatsApp kanalını gösterir. Fiyatlar ilan medyanıdır; gerçekleşen satış ve sunucu geneli piyasa değeri olarak kullanılmaz.
+- Artımlı içe aktarma aynı tarihin daha çok mesajlı kopyasını korur; ham ad, telefon, bağlantı ve sohbet metni hiçbir yayın verisine yazılmaz.
+
 - İksir Reçeteleri kapsamındaki 28 kategori ve 246 üretim kaydı, 581 malzeme satırıyla yapılandırıldı.
 - Projedeki 22 İKV Wiki kaynağı genel ana kaynak politikasına geçirildi; eksik alanlar ilgili Wiki sayfaları bulunup yapılandırıldıkça tamamlanır.
 

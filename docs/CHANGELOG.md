@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+## v0.68.3 — Çakışmasız Ticaret Arşivi
+
+- Ticaret arşivi 21–30 Ağustos 2026 aralığına genişletildi: 3.946 tekil mesaj, 451 anonim sinyal, 79 günlük fiyat kesiti ve 19 ürün.
+- 23–28 Ağustos'ta örtüşen iki WhatsApp dışa aktarımı mesaj düzeyinde tekilleştirildi; eski günler kaybolmadan yeni günler eklendi.
+- “200'den”, “akçeden”, “tane” ve paket fiyatı kalıpları ayrıştırıldı; aynı satırdaki bir fiyatın yakındaki yanlış ürüne yazılması engellendi.
+- Kömürleşmiş Reçine, Reçine'den; Erg Kalıntısı da genel “kalıntı” yazımından güvenli biçimde ayrıldı.
+- Günlük mesaj, sinyal, fiyat ve anonim kaynak toplamları ham sohbet veya kişi kimliği saklanmadan kalıcı agregalara dönüştürüldü.
+- Sonraki dışa aktarımlarda aynı günün daha eksik kopyası mevcut daha dolu günü ezmiyor.
+
 ## v0.68.2 — Odaklı Menü ve Kaynaklı Görseller
 
 - Menü Bilgi, Araçlar ve Proje olmak üzere üç odağa ayrıldı; aynı anda yalnız seçilen grup gösteriliyor.

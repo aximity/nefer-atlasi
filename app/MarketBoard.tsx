@@ -124,7 +124,7 @@ export default function MarketBoard({ query, setQuery }: { query: string; setQue
         const total = row.buySignals + row.sellSignals;
         const buyPercent = total ? Math.round(row.buySignals / total * 100) : 0;
         const sellPercent = total ? 100 - buyPercent : 0;
-        return <article key={row.subject} data-balance={buyPercent >= 60 ? "demand" : sellPercent >= 60 ? "supply" : "even"}><span><b>{row.subject}</b><small>{row.activeDays} aktif gün · {row.independentParticipants} anonim katılımcı</small><em>{signalBalance(row.buySignals, row.sellSignals)}</em></span><div className="signal-bars"><i className="buy" style={{ width: `${row.buySignals / maxSignal * 100}%` }}/><i className="sell" style={{ width: `${row.sellSignals / maxSignal * 100}%` }}/></div><dl><div><dt>Alınır</dt><dd>{row.buySignals} · %{buyPercent}</dd></div><div><dt>Satılık</dt><dd>{row.sellSignals} · %{sellPercent}</dd></div><div><dt>Toplam</dt><dd>{total}</dd></div></dl></article>;
+        return <article key={row.subject} data-balance={buyPercent >= 60 ? "demand" : sellPercent >= 60 ? "supply" : "even"}><span><b>{row.subject}</b><small>{row.activeDays} aktif gün · {row.dailyParticipantSignals} anonim günlük kaynak</small><em>{signalBalance(row.buySignals, row.sellSignals)}</em></span><div className="signal-bars"><i className="buy" style={{ width: `${row.buySignals / maxSignal * 100}%` }}/><i className="sell" style={{ width: `${row.sellSignals / maxSignal * 100}%` }}/></div><dl><div><dt>Alınır</dt><dd>{row.buySignals} · %{buyPercent}</dd></div><div><dt>Satılık</dt><dd>{row.sellSignals} · %{sellPercent}</dd></div><div><dt>Toplam</dt><dd>{total}</dd></div></dl></article>;
       })}</div>
     </section>
 

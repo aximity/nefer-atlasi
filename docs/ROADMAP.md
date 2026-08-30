@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M14.1: Çakışmasız ticaret arşivi
+
+- [x] 21–30 Ağustos dışa aktarımlarını ham sohbeti saklamadan birleştir
+- [x] Örtüşen mesajları ve aynı kişinin günlük tekrarlarını tekilleştir
+- [x] Türkçe “den/dan/ten/tan” fiyat kalıplarını ve çok ürünlü ilanları doğru ürüne bağla
+- [x] Günlük anonim agregaları gelecekteki artımlı güncellemelere hazırla
+- [x] Ad, telefon, bağlantı ve sohbet metninin yayın verisine sızmadığını otomatik denetle
+
+Çıkış kapısı: 21–30 Ağustos kapsamı veri kaybetmeden korunur; çakışma sayıları şişirmez, yanlış ürün–fiyat ve adet–fiyat eşleşmeleri yayın testinde engellenir.
+
 ## Tamamlandı — M68.2: Odaklı menü ve kaynaklı görseller
 
 - [x] On beş modülü silmeden Bilgi, Araçlar ve Proje gruplarına ayır
