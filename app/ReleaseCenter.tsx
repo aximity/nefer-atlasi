@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.68.3",
+    date: "30 Ağustos 2026",
+    title: "Çakışmasız Ticaret Arşivi",
+    changes: [
+      "21–30 Ağustos ticaret dışa aktarımları örtüşen mesajları şişirmeden birleştirildi.",
+      "Fiyat–adet ve çok ürünlü ilan ayrıştırması kişisel veri taşımadan güvenli hâle getirildi.",
+    ],
+  },
+  {
     version: "0.68.2",
     date: "29 Ağustos 2026",
     title: "Odaklı Menü ve Kaynaklı Görseller",

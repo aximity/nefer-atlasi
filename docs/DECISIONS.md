@@ -111,3 +111,7 @@ Bir kaynak birden çok zırh seti veya eşyada aynı “ceket”, “pantolon”
 ## ADR-028 — Ticaret arşivi günlük ve çakışmasız ilerler
 
 WhatsApp dışa aktarımları birbiriyle örtüşebilir. İçe aktarma mesajları yalnız geçici işlem sırasında tekilleştirir; projede ad, telefon, yazar kimliği veya ham sohbet tutmaz. Kalıcı veri tarih–ürün–yön–para birimi düzeyinde anonim agregadır. Aynı tarih için yeni dışa aktarım daha az mesaj içeriyorsa mevcut daha dolu gün korunur; eşit veya daha doluysa gün bütünüyle yenilenir. Aynı kişinin aynı gün aynı ürün ve yöndeki tekrarları tek sinyal, fiyat değişikliklerinde son ilan tek kaynak sayılır. Bu arşiv tek kanal ilan gözlemidir; gerçekleşen satış veya doğrulanmış piyasa fiyatı değildir.
+
+## ADR-029 — Pahalı yükseltme önce süreç kanıtıyla yayımlanır
+
+KÖ'ye özel + basma, Kozmik Yükseltme ve dönüşüm işlemlerinde sohbet sayısı, test sunucusu denemesi veya normal İKV arşivi kesin mekanik kanıt değildir. Bir kademe veya dönüşüm kaydı; işlem öncesi eşya bilgi kutusu, malzeme/adet/ücret içeren onay penceresi ve başarılı ya da başarısız sonuç ekranı birlikte görülmeden hesaplayıcıya girmez. Malahit talep sinyali yalnız pazar gözlemidir; kullanım ve edinme iddiasına çevrilmez. Çelişkili Gökmeran görev bildirimi ile henüz tam yayımlanmayan Gök Tapınağı görevleri açık tutulur.

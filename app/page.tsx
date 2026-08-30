@@ -82,7 +82,7 @@ const moduleTabs = [
   { id: "quests", label: "Görevler", summary: "Seviyene uygun görev zincirini bul.", keywords: "npc ödül görev zinciri" },
   { id: "items", label: "Eşyalar", summary: "Eşya kataloğunda ara ve karşılaştır.", keywords: "item drop ganimet" },
   { id: "atlas", label: "Atlas", summary: "Eşya, reçete, boss ve malzeme bağlarını izle.", keywords: "bağlantı kaynak tarif" },
-  { id: "endgame", label: "Endgame", summary: "Son oyun hazırlığını ve stratejiyi incele.", keywords: "grup bölgesi strateji" },
+  { id: "endgame", label: "Endgame", summary: "Yükseltme ve son oyun hazırlığını incele.", keywords: "grup bölgesi strateji yükseltme + basma kozmik dönüşüm taşı malahit gökmeran gök tapınağı" },
   { id: "mining", label: "Maden", summary: "Maden kaynaklarını ve kullanım alanlarını bul.", keywords: "madenci sarraf lokman cevher" },
   { id: "economy", label: "Ekonomi", summary: "Maden, çöp ve para döngülerini incele.", keywords: "döngü pazar para çöp üretim" },
   { id: "sustainability", label: "Sürdürülebilirlik", summary: "Ekonomi, etkinlik ve kaynak uyarlamalarını izle.", keywords: "sürdürülebilirlik ekonomi etkinlik takvim maden para kaynak" },

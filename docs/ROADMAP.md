@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M68.4: Yüksek etkili yükseltme karar merkezi
+
+- [x] + basma ve Kozmik Yükseltme'yi maliyet ve tekrar etkisine göre P0 yap
+- [x] Dönüşüm Taşı, Malahit Taşı ve Gökmeran'ı aynı bağımlılık zincirinde göster
+- [x] Gökmeran reçine çelişkisini ve Gök Tapınağı görev yayın açığını kesin bilgiden ayır
+- [x] Normal İKV yükseltme arşivini KÖ mekaniğiyle karıştırmayan kapsam uyarısı ekle
+- [x] Her kayıt için eksik alanları, gereken ekran kanıtlarını ve hazır katkı bağlantısını yayımla
+
+Çıkış kapısı: Altı yüksek etkili açık tek ekranda önem ve kanıt durumuyla görünür; Malahit pazar sinyali canlı arşivden türetilir ve hiçbir ücret, oran, görev veya edinme yolu kaynak olmadan kesin bilgiye dönüşmez.
+
 ## Tamamlandı — M14.1: Çakışmasız ticaret arşivi
 
 - [x] 21–30 Ağustos dışa aktarımlarını ham sohbeti saklamadan birleştir

@@ -3,6 +3,7 @@ import abilityMediaRows from "../data/ability-media.json" with { type: "json" };
 import abilityVariantRows from "../data/ability-variants.json" with { type: "json" };
 import abilityRows from "../data/abilities.json" with { type: "json" };
 import materialIconRows from "../data/material-icons.json" with { type: "json" };
+import progressionGapRows from "../data/progression-gaps.json" with { type: "json" };
 import {
   appearanceImages,
   images,
@@ -298,6 +299,9 @@ export const projectLiveFacts = {
   talismanRecipesWithoutExactSource: talismanRecipeAcquisitionStats.withoutExactSourceCount,
   missingSpecialTalismanRecipeCount: missingSpecialTalismanRecipes.length,
   missingSpecialTalismanRecipes,
+  progressionGapCount: progressionGapRows.length,
+  p0ProgressionGapCount: progressionGapRows.filter((row) => row.priority === "P0").length,
+  conflictedProgressionGaps: progressionGapRows.filter((row) => row.status === "conflicted").map((row) => row.label),
 } as const;
 
 export const projectSystemicAuditAreas = [

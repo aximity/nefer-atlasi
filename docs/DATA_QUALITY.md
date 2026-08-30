@@ -17,6 +17,12 @@
 
 ## Açık sorunlar
 
+- KÖ + basma ve Kozmik Yükseltme için kesin kademe maliyeti, başarı olasılığı, başarısızlık sonucu ve bağlanma kuralı oyun içi tam ekran kanıtı bekliyor. Ticaret sohbetindeki sayı ve hesaplar topluluk bildirimi olarak kalır; rehber hesabına girmez.
+- Dönüşüm Taşı'nın Çemberlitaş silahını kozmik silaha çevirdiği bildirimi tek kanaldır; taşın bilgi kutusu, kullanım penceresi ve edinme kaynağı birlikte doğrulanmalıdır.
+- Malahit Taşı'nın pazar varlığı ve talep yönü anonim ticaret arşivinde ölçülür. Bu sinyal, taşın düşüş kaynağı, yükseltme rolü, gereken adet veya oranını kanıtlamaz.
+- Gökmeran görevlerinin reçine verdiği ve reçine tükettiği yönünde çelişkili bildirimler vardır. Tam görev metni ile teslim ekranı gelmeden iki iddia da kesinleştirilmez.
+- Gök Tapınağı için görev metni kesiti duyurulmuştur; tam görev adları, sıra, NPC, ön koşul, amaç ve ödül alanları yayımlanmadan Görev Atlası'na kayıt eklenmez.
+
 - Ticaret arşivi 21–30 Ağustos'taki tek WhatsApp kanalını gösterir. Fiyatlar ilan medyanıdır; gerçekleşen satış ve sunucu geneli piyasa değeri olarak kullanılmaz.
 - Artımlı içe aktarma aynı tarihin daha çok mesajlı kopyasını korur; ham ad, telefon, bağlantı ve sohbet metni hiçbir yayın verisine yazılmaz.
 

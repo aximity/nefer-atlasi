@@ -53,6 +53,9 @@ test("genel durum reçete claimi ile etkilenen reçete sayısını karıştırma
   assert.equal(projectLiveFacts.nonTalismanRecipesWithoutAcquisition, 322);
   assert.equal(projectLiveFacts.missingSpecialTalismanRecipeCount, 4);
   assert.equal(projectLiveFacts.missingSpecialTalismanRecipes.length, 4);
+  assert.equal(projectLiveFacts.progressionGapCount, 6);
+  assert.equal(projectLiveFacts.p0ProgressionGapCount, 3);
+  assert.deepEqual(projectLiveFacts.conflictedProgressionGaps, ["Gökmeran"]);
 });
 
 test("sağlık puanı tılsım ailelerini ve İKV ana kaynak politikasını sayar", () => {
@@ -86,8 +89,8 @@ test("malzeme ikonlarının kaynak kimliği katalogda gerçekten bulunur", () =>
 });
 
 test("proje durumu sürüm ve çapraz denetim standardını yayımlar", () => {
-  assert.equal(SITE_RELEASE.version, "0.68.3");
-  assert.equal(SITE_RELEASE.milestone, "M14.1");
+  assert.equal(SITE_RELEASE.version, "0.68.4");
+  assert.equal(SITE_RELEASE.milestone, "M68.4");
   assert.equal(SITE_RELEASE.releasedOn, "2026-08-30");
   assert.deepEqual(projectSystemicAuditAreas.map((area) => area.id), ["catalog", "recipe", "gathering", "planner", "search", "tests"]);
   const scorecard = readFileSync(new URL("../app/ProjectScorecard.tsx", import.meta.url), "utf8");

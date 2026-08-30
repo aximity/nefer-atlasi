@@ -1,18 +1,18 @@
 export const SITE_RELEASE = {
-  version: "0.68.3",
+  version: "0.68.4",
   channel: "BETA",
-  milestone: "M14.1",
+  milestone: "M68.4",
   releasedOn: "2026-08-30",
   releasedAt: "30 Ağustos 2026",
-  title: "Çakışmasız Ticaret Arşivi",
+  title: "Yükseltme Karar Merkezi",
   summary:
-    "WhatsApp ticaret arşivi 30 Ağustos'a uzatıldı; örtüşen dışa aktarımlar tekilleştirildi ve fiyat–adet eşleştirmesi daha güvenli hâle getirildi.",
+    "+ basma, Kozmik Yükseltme ve bağlı KÖ içerikleri önem, kanıt durumu ve kapatma gereksinimleriyle tek güvenli akışta toplandı.",
   changes: [
-    "21–30 Ağustos aralığındaki 3.946 tekil mesajdan 451 anonim alış–satış sinyali çıkarıldı.",
-    "Örtüşen eski ve yeni WhatsApp dışa aktarımları mesaj ve günlük kaynak düzeyinde tekilleştirildi.",
-    "79 günlük fiyat kesiti, alınır–satılık ve TL–Akçe ayrımı korunarak yayımlandı.",
-    "‘200'den’, ‘akçeden’ ve çok ürünlü ilanlarda fiyatın doğru ürüne bağlanması iyileştirildi.",
-    "İlan adedinin fiyatı yanlışlıkla bölmesi ve yakındaki başka ürünün fiyatının taşınması engellendi.",
-    "Ad, telefon ve ham sohbet saklanmadan günlük anonim agregalar gelecekteki artımlı güncellemelere hazırlandı.",
+    "+ basma ve Kozmik Yükseltme, yüksek maliyet ve tekrar sıklığı nedeniyle P0 aktif iş olarak öne alındı.",
+    "Dönüşüm Taşı, Malahit Taşı ve Gökmeran aynı yükseltme bağımlılık zincirinde ayrı kanıt görevlerine bağlandı.",
+    "Malahit pazar sinyali sabit metin yerine 21–30 Ağustos anonim ticaret arşivinden canlı hesaplanıyor.",
+    "Gökmeran'ın reçine ilişkisi çelişkili; Gök Tapınağı görev zinciri tam metin yayımlanana kadar açık tutuluyor.",
+    "Normal İKV'nin 2015 yükseltme sistemi KÖ için mekanik kanıt sayılmıyor.",
+    "Her pahalı yükseltme kaydı için önce, onay ve sonuç görüntülerinden oluşan üç aşamalı kanıt kapısı eklendi.",
   ],
 } as const;

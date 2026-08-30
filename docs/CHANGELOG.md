@@ -1,5 +1,14 @@
 # Değişiklik Günlüğü
 
+## v0.68.4 — Yükseltme Karar Merkezi
+
+- Endgame içine + basma ve Kozmik Yükseltme odaklı yeni karar paneli eklendi.
+- Dönüşüm Taşı, Malahit Taşı, Gökmeran ve Gök Tapınağı görevleri önem ve kanıt durumuyla aynı sıraya bağlandı.
+- Malahit'in anonim alım/satım ve aktif gün sayıları ticaret arşivinden canlı türetiliyor.
+- Gökmeran reçine bildirimi çelişkili, Gök Tapınağı görev zinciri ise yayın ayrıntısı bekliyor olarak işaretlendi.
+- Normal İKV Silah Yükseltme arşivinin KÖ için mekanik kanıt olmadığı görünür biçimde ayrıldı.
+- Her kayıt önce, onay ve sonuç görüntülerinden oluşan kapatma kanıtına ve hazır geri bildirim bağlantısına bağlandı.
+
 ## v0.68.3 — Çakışmasız Ticaret Arşivi
 
 - Ticaret arşivi 21–30 Ağustos 2026 aralığına genişletildi: 3.946 tekil mesaj, 451 anonim sinyal, 79 günlük fiyat kesiti ve 19 ürün.

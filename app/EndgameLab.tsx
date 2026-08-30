@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import CommunityEvents from "./CommunityEvents";
 import GuildLogistics from "./GuildLogistics";
+import UpgradeGuide from "./UpgradeGuide";
 
-type Panel = "Durum" | "Sorunlar" | "Takvim" | "Lonca" | "Pazar" | "Roller" | "Veri" | "Premium" | "Yol haritası";
+type Panel = "Durum" | "Yükseltme" | "Sorunlar" | "Takvim" | "Lonca" | "Pazar" | "Roller" | "Veri" | "Premium" | "Yol haritası";
 type IssueId = "repeat" | "group" | "economy" | "anka" | "client";
 
 const sourceLinks = {
@@ -561,7 +562,7 @@ export default function EndgameLab() {
   useEffect(() => {
     const initialize = window.setTimeout(() => {
       const requested = new URLSearchParams(window.location.search).get("panel");
-      if (requested === "Takvim" || requested === "Lonca") setPanel(requested);
+      if (requested === "Takvim" || requested === "Lonca" || requested === "Yükseltme") setPanel(requested);
     }, 0);
     return () => window.clearTimeout(initialize);
   }, []);
@@ -615,7 +616,7 @@ export default function EndgameLab() {
         </div>
 
         <nav className="eg-tabs" role="tablist" aria-label="Endgame raporu bölümleri">
-          {(["Durum", "Sorunlar", "Takvim", "Lonca", "Pazar", "Roller", "Veri", "Premium", "Yol haritası"] as Panel[]).map(
+          {(["Durum", "Yükseltme", "Sorunlar", "Takvim", "Lonca", "Pazar", "Roller", "Veri", "Premium", "Yol haritası"] as Panel[]).map(
             (item) => (
               <button
                 key={item}
@@ -664,6 +665,8 @@ export default function EndgameLab() {
             </div>
           </div>
         )}
+
+        {panel === "Yükseltme" && <UpgradeGuide />}
 
         {panel === "Sorunlar" && (
           <div className="eg-panel problems-panel">

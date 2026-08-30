@@ -77,6 +77,10 @@ export default function ProjectScorecard() {
           <b>{projectLiveFacts.missingSpecialTalismanRecipeCount} özel tılsım formülü açık</b>
           <span>Üretim kuralı reçete gerektiriyor ancak kaynak tablosunda formül yok: {projectLiveFacts.missingSpecialTalismanRecipes.join(" · ")}. Sahte reçete üretilmedi.</span>
         </aside>}
+        {projectLiveFacts.progressionGapCount > 0 && <aside className="liveCaveat">
+          <b>{projectLiveFacts.progressionGapCount} KÖ ilerleme başlığı açık · {projectLiveFacts.p0ProgressionGapCount} P0</b>
+          <span>+ basma, Kozmik Yükseltme ve Gök Tapınağı yüksek etkili sırada. Çelişkili kayıt: {projectLiveFacts.conflictedProgressionGaps.join(" · ") || "yok"}. <Link href="/?module=endgame&panel=Y%C3%BCkseltme#endgame">Yükseltme merkezini aç →</Link></span>
+        </aside>}
 
         <div className="healthMetricGrid">
           {projectHealthMetrics.map((metric) => (

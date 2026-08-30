@@ -196,6 +196,17 @@
 - Kuyruk: 11 görünüş ailesi ve 67 çekirdek Çemberlitaş eşyası kapsama alındı. Bıçak Sırtı `set_reference_only`; diğer aileler dosya sayfası, başlık eşleşmesi ve lisans denetimi bekliyor.
 - Erişim sınırı: Bu çalışma ortamındaki tarayıcı Fandom sayfasını güvenlik politikası nedeniyle açamadı. Kullanıcı görüntüsü dışındaki dosyalar doğrudan alınmadı; Büyücü ve Şifacı sayfa yolları yayımlanabilir kaynak olarak işaretlenmedi.
 
+## 2026-08-30 — KÖ yükseltme ve yeni içerik kanıt denetimi
+
+- Kapsam: Gökmeran, Malahit Taşı, Dönüşüm Taşı, Kozmik Yükseltme, + basma ve Gök Tapınağı görevleri.
+- Ticaret arşivi bulgusu: Malahit Taşı dokuz aktif günde 41 alım ve 9 satım sinyali üretmiştir. Bu kayıt yalnız pazar ilgisini destekler; düşüş, formül veya başarı oranı değildir.
+- Tek kanal bildirimleri: + basma için Yükseltme Taşı ve Malahit kullanımı; Dönüşüm Taşı'nın Çemberlitaş silahını kozmik silaha çevirmesi; kademe başına ücret ve malzeme hesapları. Oyun ekranı olmadığı için kesin rehbere alınmadı.
+- Çelişki: Gökmeran erişim görevinin reçine verdiği ve reçine tükettiği yönünde birbirini dışlayan iki bildirim vardır. Görev metni ve teslim sonucu beklenir.
+- Açık web kanıtı: Güncel oyuncu videosu KÖ'de Kozmik Kıyamet Asa üretiminin gerçekleştiğini destekler; video başlığı formül, oran ve maliyet kanıtı sayılmaz.
+- Yayın bekleyen içerik: 30 Ağustos tarihli Gök Tapınağı paylaşımı görev metninden yalnız bir kesit bulunduğunu gösterir. Tam görev zinciri olmadan Görev Atlası kaydı oluşturulmadı.
+- Kapsam ayrımı: 2015 normal İKV Silah Yükseltme arşivi yalnız karşılaştırma kaynağıdır; KÖ koşul ve maliyetlerine taşınmadı.
+- Kaynaklar: https://www.youtube.com/watch?v=Ftp91qW3C_Y, https://www.youtube.com/post/UgkxexFW_xlV9b3w_2CSgr-SdQwn6sVHqUTW, https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-silah-yukseltme-rehberi.240296/
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı
@@ -207,6 +218,10 @@
 - [ ] TurkMMO Çemberlitaş arşiviyle satır karşılaştırması
 - [ ] Fandom Büyücü ve Şifacı Çemberlitaş eşya sayfalarının gerçek adreslerini ve dosya kaynak izlerini doğrula
 - [ ] Adı ve görünüşü aynı karede bulunan video kanıtları
+- [ ] + basma için önce / onay / sonuç üçlü ekran kanıtı
+- [ ] Kozmik Yükseltme ve Dönüşüm Taşı tam malzeme penceresi
+- [ ] Gökmeran görev metni, erişim koşulu ve doğrulanmış ganimet listesi
+- [ ] Gök Tapınağı tam görev adları, sıra, NPC, amaç ve ödül ekranları
 # 28 Ağustos 2026 — İksir reçetesi kaynak kararı
 
 - Kaynak: `fandom-potion-recipes-20260826` — İKV Wiki, İksir Reçeteleri.
