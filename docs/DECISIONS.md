@@ -1,5 +1,9 @@
 # Karar Kaydı
 
+## ADR-031 — Açılmayan kaynak kanıt kapsamına girmez
+
+Arama dizininde başlığı veya özeti görülen bir bağlantı, kullanıcı cihazında içerik açılmıyorsa canlı kaynak sayılmaz. Aynı içeriğin çalışan doğrudan adresi bulunursa ona geçilir; bulunamazsa buton ve kaynak kaydı kaldırılır, iddia doğrulama bekleyen duruma düşürülür. Kırık bağlantı yalnız “kaynak var” görünümü vermek için korunmaz.
+
 ## ADR-030 — Açık dosya da güvenli bir sonraki hareket vermelidir
 
 Bir KÖ ilerleme başlığı tam doğrulanamasa bile yalnız “veri bekleniyor” kartına indirgenmez. Kaynak sınırlı bulgular kendi güven düzeyiyle gösterilir; oyuncunun bugün güvenle yapabileceği hareket ile kesin kapanış için gereken ekran kanıtı ayrı yazılır. Bu hareket, bilinmeyen oran veya tarifi tahmin edemez ve başlığı tamamlandı saymaz.

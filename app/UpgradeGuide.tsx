@@ -5,8 +5,7 @@ import progressionGaps from "../data/progression-gaps.json";
 import marketArchive from "../data/market-whatsapp.json";
 
 const kozmikVideo = "https://www.youtube.com/watch?v=Ftp91qW3C_Y";
-const gokTempleTeaser = "https://www.youtube.com/post/UgkxexFW_xlV9b3w_2CSgr-SdQwn6sVHqUTW";
-const gokTempleMapTeaser = "https://www.youtube.com/post/UgkxqwgG6rIhxPCvtcb9XcxoJIHC5sbWmXa4";
+const gokTempleMapVideo = "https://www.youtube.com/watch?v=RCHUEepMjjg";
 const gokmeranVideo = "https://www.youtube.com/watch?v=d7bijwOrJ5I";
 const legacyUpgradeGuide = "https://www.maxigamerz.com/konu/istanbul-kiyamet-vakti-ikv-silah-yukseltme-rehberi.240296/";
 
@@ -118,8 +117,7 @@ export default function UpgradeGuide() {
             <footer>
               {row.id === "kozmik-yukseltme" && <a href={kozmikVideo} target="_blank" rel="noreferrer">Video kaydı ↗</a>}
               {row.id === "gokmeran" && <a href={gokmeranVideo} target="_blank" rel="noreferrer">Gökmeran video kaydı ↗</a>}
-              {row.id === "gok-tapinagi-gorevleri" && <a href={gokTempleMapTeaser} target="_blank" rel="noreferrer">Harita ön gösterimi ↗</a>}
-              {row.id === "gok-tapinagi-gorevleri" && <a href={gokTempleTeaser} target="_blank" rel="noreferrer">Görev kesiti ↗</a>}
+              {row.id === "gok-tapinagi-gorevleri" && <a href={gokTempleMapVideo} target="_blank" rel="noreferrer">Harita videosunu aç ↗</a>}
               <Link href={contributionUrl(row.label)}>Kanıt gönder ↗</Link>
             </footer>
           </article>

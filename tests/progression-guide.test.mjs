@@ -4,6 +4,7 @@ import test from "node:test";
 
 const progression = JSON.parse(readFileSync(new URL("../data/progression-gaps.json", import.meta.url), "utf8"));
 const market = JSON.parse(readFileSync(new URL("../data/market-whatsapp.json", import.meta.url), "utf8"));
+const sources = JSON.parse(readFileSync(new URL("../data/sources.json", import.meta.url), "utf8"));
 
 test("KÖ yükseltme merkezi altı eksik alanı öncelikli ve tahminsiz tutar", () => {
   assert.deepEqual(progression.map((row) => row.id), [
@@ -45,4 +46,8 @@ test("arayüz normal İKV yükseltmesini KÖ kanıtı saymaz", () => {
   assert.ok(progression.find((row) => row.id === "plus-basma")?.evidenceNeeded.includes("Başarılı ve başarısız deneme sonucu"));
   assert.match(source, /upgrade-sequence/);
   assert.match(source, /ŞİMDİ GÜVENLE NE YAPILABİLİR/);
+  assert.match(source, /youtube\.com\/watch\?v=RCHUEepMjjg/);
+  assert.doesNotMatch(source, /youtube\.com\/post\//);
+  assert.equal(sources.find((row) => row.id === "youtube-ko-sky-temple-map-teaser-20260829")?.url, "https://www.youtube.com/watch?v=RCHUEepMjjg");
+  assert.ok(!sources.some((row) => row.id === "youtube-ko-sky-temple-quest-teaser-20260830"));
 });

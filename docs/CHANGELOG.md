@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.68.6 — Çalışan Gök Tapınağı Kaynağı
+
+- Mobilde hata veren iki YouTube Topluluk gönderisi arayüz ve kaynak dizininden kaldırıldı.
+- Harita ön gösterimi gönderinin içindeki doğrudan YouTube video adresine bağlandı.
+- Erişilemeyen görev-metni kesiti çalışan kaynak gibi gösterilmiyor; tam görev zinciri açık kalıyor.
+- Gök Tapınağı kartında `/post/` bağlantılarının yeniden yayımlanmasını engelleyen otomatik test eklendi.
+
 ## v0.68.5 — Sıralı Yükseltme Dosyaları
 
 - Altı KÖ başlığı + basma, Kozmik Yükseltme, Dönüşüm Taşı, Gökmeran, Gök Tapınağı ve Malahit sırasında bağlandı.

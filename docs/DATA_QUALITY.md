@@ -17,6 +17,7 @@
 
 ## Açık sorunlar
 
+- Gök Tapınağı görev-metni kesiti için bulunan YouTube Topluluk gönderisi 30 Ağustos'ta mobilde “sayfa kullanılamıyor” hatası verdiği için kaynak kapsamından çıkarıldı. Harita ön gösterimi gönderideki doğrudan video adresiyle değiştirildi; tam görev metni hâlâ bekleniyor.
 - 28 Ağustos anonim konuşmasında +1 için 50 Kömürleşmiş Reçine, 5 Erg Kalıntısı, 5 Erg Tozu, 1 Malahit Taşı ve 1 milyon oyun parasıyla başarısız deneme bildirildi. Silahın korunduğu, girdilerin tüketildiği söylense de işlem ve sonuç ekranı olmadığı için kayıt yalnız tek deneme gözlemidir.
 - Dönüşüm Taşı için Çemberlitaş silahını kozmik silaha çevirme ve bir dönüşümde 50 Kömürleşmiş Reçine isteme bildirimleri vardır. Bunlar farklı anonim mesajlardır; tek bir doğrulanmış reçete gibi birleştirilmez.
 - Gökmeran'a üçüncü gong yakınındaki anıt taşından girildiği yol tarifi yalnız oyuncu bildirimidir. İflis görevi bağlantısı yanıtsız, reçine ödülü/tüketimi ise çelişkilidir.

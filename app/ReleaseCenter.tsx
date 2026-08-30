@@ -6,6 +6,15 @@ import { SITE_RELEASE } from "../lib/site-release";
 
 const previousReleases = [
   {
+    version: "0.68.5",
+    date: "30 Ağustos 2026",
+    title: "Sıralı Yükseltme Dosyaları",
+    changes: [
+      "Altı KÖ ilerleme dosyası istenen sırada bulgu, güven sınırı ve güvenli hareketleriyle işlendi.",
+      "+1 deneme kaydı, Gökmeran çelişkisi ve Malahit pazar sinyali kesin mekaniklerden ayrıldı.",
+    ],
+  },
+  {
     version: "0.68.4",
     date: "30 Ağustos 2026",
     title: "Yükseltme Karar Merkezi",

@@ -129,13 +129,13 @@
     "label": "Gök Tapınağı görevleri",
     "priority": "P0",
     "status": "release_pending",
-    "statusLabel": "Harita ve metin ön gösterimi",
+    "statusLabel": "Harita videosu var · görev kaynağı bekleniyor",
     "lastChecked": "2026-08-30",
     "why": "Yeni bölgenin görev zinciri, erişim sırası ve ödülleri bütün oyuncular için yüksek etkili içerik.",
-    "known": "29–30 Ağustos tarihli iki topluluk paylaşımı Gök Tapınağı haritasından bir video ve görev metinlerinden küçük bir kesit yayımlandığını gösteriyor. Tam görev zinciri henüz açık kaynakta bulunmuyor.",
+    "known": "Gök Tapınağı harita ön gösteriminin doğrudan video bağlantısı bulundu. Görev metni kesitine ait Topluluk gönderisi mobilde kullanılamıyor; bu nedenle çalışan kaynak sayılmıyor. Tam görev zinciri henüz açık kaynakta bulunmuyor.",
     "observations": [
-      { "label": "Harita ön gösterimi", "detail": "Gök Tapınağı haritasından kısa video paylaşıldığı duyuruldu.", "level": "public" },
-      { "label": "Görev ön gösterimi", "detail": "Görev metinlerinden yalnız küçük bir kesit yayımlandı.", "level": "public" },
+      { "label": "Harita ön gösterimi", "detail": "Gök Tapınağı haritasının doğrudan video bağlantısı mevcut.", "level": "public" },
+      { "label": "Erişilemeyen kayıt", "detail": "Görev metni kesiti gönderisi açılmadığı için kaynak kapsamından çıkarıldı.", "level": "warning" },
       { "label": "Güven sınırı", "detail": "Tam görev adları, NPC, sıra, amaç ve ödüller açıklanmış değil.", "level": "warning" }
     ],
     "safeActions": [

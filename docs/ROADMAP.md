@@ -1,5 +1,14 @@
 # Yol Haritası
 
+## Tamamlandı — M68.6: Gök Tapınağı kaynak sağlığı düzeltmesi
+
+- [x] Mobilde hata veren iki YouTube Topluluk gönderisini kaynak ve arayüzden kaldır
+- [x] Harita paylaşımının içindeki gerçek videoyu doğrudan çalışan video adresine bağla
+- [x] Erişilemeyen görev-metni kesitini doğrulanmış kaynak sayma
+- [x] Gök Tapınağı kartında `/post/` biçimli bağlantının yeniden yayımlanmasını testle engelle
+
+Çıkış kapısı: Gök Tapınağı kartındaki tek dış kaynak doğrudan video adresidir; erişilemeyen Topluluk gönderisi kaynak kapsamını artırmaz ve kullanıcıya kırık buton olarak sunulmaz.
+
 ## Tamamlandı — M68.5: Sıralı yükseltme dosyaları
 
 - [x] Altı başlığı kullanıcının istediği + basma → Kozmik → Dönüşüm → Gökmeran → Gök Tapınağı → Malahit sırasında işle

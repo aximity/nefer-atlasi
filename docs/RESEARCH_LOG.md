@@ -217,6 +217,13 @@
 - Malahit: Dokuz aktif günde 41 alım ve 9 satım sinyali var; tek başarısız +1 denemesinde bir adet tüketildiği bildiriliyor. Pazar ve mekanik kanıtı ayrı tutuldu.
 - Kaynaklar: anonim 21–30 Ağustos ticaret dışa aktarımı; https://www.youtube.com/watch?v=Ftp91qW3C_Y; https://www.youtube.com/watch?v=d7bijwOrJ5I; https://www.youtube.com/post/UgkxqwgG6rIhxPCvtcb9XcxoJIHC5sbWmXa4; https://www.youtube.com/post/UgkxexFW_xlV9b3w_2CSgr-SdQwn6sVHqUTW
 
+## 2026-08-30 — Gök Tapınağı bağlantı düzeltmesi
+
+- Kullanıcı ekran görüntüsü iki YouTube Topluluk gönderisinin mobilde “sayfa kullanılamıyor” hatası verdiğini doğruladı.
+- Harita gönderisinin arama dizini özetindeki gerçek kısa video kimliği `RCHUEepMjjg` olarak bulundu; arayüz doğrudan `watch?v=RCHUEepMjjg` adresine taşındı.
+- Görev-metni kesiti gönderisi için çalışan doğrudan içerik adresi bulunamadı. Kırık bağlantı ve kaynak kaydı kaldırıldı; görev metni açık araştırma olarak kaldı.
+- Güven sonucu: harita videosu tek açık kaynak; tam görev zinciri, NPC, ön koşul, amaç ve ödül alanları doğrulanmış değildir.
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı
