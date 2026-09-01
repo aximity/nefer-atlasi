@@ -1,0 +1,13 @@
+[
+  {
+    "id": "blue-wrath-healing-availability",
+    "subjectId": "healer-gazap-blue-special",
+    "condition": "Mavi Gazap tılsımı takılıyken Gazap kullanımı",
+    "effect": "İyileştirme yeteneğinin kullanılabilirliği",
+    "value": 50,
+    "unit": "percent",
+    "sourceId": "ikv-healer-talismans",
+    "status": "single_source",
+    "lastChecked": "2026-09-01"
+  }
+]

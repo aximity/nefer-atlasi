@@ -34,3 +34,10 @@ Kaynak sırası: İKV Fandom → resmî İKV kaynakları → bağımsız forum/a
 - Gözlük, yüzük ve kolye kayıtları henüz doğrulanmadı.
 - 67 Çemberlitaş şaheser kaydı modele alındı; gerçek duplicate katkılar `contributionGroup`, sıralı `contributionIndex`, evidence bağlantısı ve confidence ile korunuyor.
 - Mevcut kayıtların tamamı ikinci bağımsız kaynak bekliyor.
+
+## Kaynaklandırılmış foundation modelleri
+
+- Item upgrade kayıtları canonical base statı değiştirmez; her contribution `baseStatId`, `baseValue` ve yalnız kaynakta yayımlanan `upgradedValue` ile ayrı tutulur. Global çarpan türetilmez.
+- Materyal edinimleri düşman dropu ile meslek/toplayıcılık ilişkisini ayrı `acquisitionType` değerleriyle taşır ve tek kaynaklı kayıtlar `single_source` kalır.
+- Genel tılsım edinim kuralındaki `some` kapsamı kesin NPC, tılsım veya düşman listesine genişletilemez.
+- `USER_GAME_EVIDENCE` claim'i kullanıcı tarafından sağlanan tooltip satırını canonical alana bağlayabilir; binary artifact repository'de yoksa kaynak kaydı bunu açıkça belirtmelidir ve sahte dosya yolu üretilemez.

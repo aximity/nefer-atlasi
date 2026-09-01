@@ -1,0 +1,29 @@
+[
+  {
+    "id": "talisman-tier-1-some-purchasable",
+    "scope": "some",
+    "tiers": [1],
+    "acquisitionType": "currency_purchase",
+    "sourceId": "fandom-talisman-system",
+    "status": "single_source",
+    "lastChecked": "2026-09-01"
+  },
+  {
+    "id": "talisman-tier-1-some-enemy-drops",
+    "scope": "some",
+    "tiers": [1],
+    "acquisitionType": "enemy_drop",
+    "sourceId": "fandom-talisman-system",
+    "status": "single_source",
+    "lastChecked": "2026-09-01"
+  },
+  {
+    "id": "talisman-tier-2-3-recipe-crafted",
+    "scope": "all",
+    "tiers": [2, 3],
+    "acquisitionType": "recipe_crafting",
+    "sourceId": "fandom-talisman-system",
+    "status": "single_source",
+    "lastChecked": "2026-09-01"
+  }
+]

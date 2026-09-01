@@ -1646,7 +1646,7 @@
     "lastChecked": "2026-09-01",
     "contributionGroup": "mevlana-asa-iyilestirme-buyuleri",
     "contributionIndex": 1,
-    "evidenceIds": ["ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-fandom", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-official", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-forum"],
+    "evidenceIds": ["ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-fandom", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-official", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-forum", "ev-stat-mevlana-asa-iyilestirme-buyuleri-user"],
     "confidence": "high"
   },
   {
@@ -1659,7 +1659,7 @@
     "lastChecked": "2026-09-01",
     "contributionGroup": "mevlana-asa-iyilestirme-buyuleri",
     "contributionIndex": 2,
-    "evidenceIds": ["ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-fandom", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-official", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-forum"],
+    "evidenceIds": ["ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-fandom", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-official", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-forum", "ev-stat-mevlana-asa-iyilestirme-buyuleri-user"],
     "confidence": "high"
   },
   {
@@ -1669,7 +1669,8 @@
     "value": 4354,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "evidenceIds": ["ev-stat-mevlana-asa-buyu-kritik-sansi", "ev-stat-mevlana-asa-buyu-kritik-sansi-user"]
   },
   {
     "id": "stat-mevlana-asa-kudret-rejenerasyonu",
@@ -1678,7 +1679,8 @@
     "value": 75000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "evidenceIds": ["ev-stat-mevlana-asa-kudret-rejenerasyonu", "ev-stat-mevlana-asa-kudret-rejenerasyonu-user"]
   },
   {
     "id": "stat-hidroflorik-ceket-buyu-hasari-asit",

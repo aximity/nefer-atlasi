@@ -1,0 +1,43 @@
+[
+  {
+    "id": "upgrade-mevlana-asa",
+    "itemId": "mevlana-asa",
+    "baseState": "base",
+    "upgradedState": "upgraded",
+    "sourceId": "official-healer-weapon-upgrades",
+    "status": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributions": [
+      {
+        "baseStatId": "stat-mevlana-asa-iyilestirme-buyuleri",
+        "attribute": "İyileştirme Büyüleri",
+        "contributionIndex": 1,
+        "baseValue": 383000,
+        "upgradedValue": 766000,
+        "unit": "raw_game_value"
+      },
+      {
+        "baseStatId": "stat-mevlana-asa-iyilestirme-buyuleri-contribution-2",
+        "attribute": "İyileştirme Büyüleri",
+        "contributionIndex": 2,
+        "baseValue": 383000,
+        "upgradedValue": 766000,
+        "unit": "raw_game_value"
+      },
+      {
+        "baseStatId": "stat-mevlana-asa-buyu-kritik-sansi",
+        "attribute": "Büyü Kritik Şansı",
+        "baseValue": 4354,
+        "upgradedValue": 5000,
+        "unit": "raw_game_value"
+      },
+      {
+        "baseStatId": "stat-mevlana-asa-kudret-rejenerasyonu",
+        "attribute": "Kudret Rejenerasyonu",
+        "baseValue": 75000,
+        "upgradedValue": 75000,
+        "unit": "raw_game_value"
+      }
+    ]
+  }
+]

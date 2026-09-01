@@ -1,0 +1,44 @@
+[
+  {
+    "id": "acquisition-xenotim-sakli-tur",
+    "material": "Xenotim",
+    "acquisitionType": "enemy_drop",
+    "region": "Büyük Hol",
+    "sourceEntity": "Saklı Tür",
+    "sourceId": "fandom-materials",
+    "status": "single_source",
+    "lastChecked": "2026-09-01"
+  },
+  {
+    "id": "acquisition-peptit-klorotoksin-akrep",
+    "material": "Peptit Klorotoksin",
+    "acquisitionType": "enemy_drop",
+    "region": "Büyük Hol",
+    "sourceEntity": "Akrep",
+    "sourceId": "fandom-materials",
+    "status": "single_source",
+    "lastChecked": "2026-09-01"
+  },
+  {
+    "id": "acquisition-orumcek-salgisi-orumcek",
+    "material": "Örümcek Salgısı",
+    "acquisitionType": "enemy_drop",
+    "region": "Büyük Hol",
+    "sourceEntity": "Örümcek",
+    "sourceId": "fandom-materials",
+    "status": "single_source",
+    "lastChecked": "2026-09-01"
+  },
+  {
+    "id": "acquisition-safran-cigdem-lokman",
+    "material": "Safran",
+    "acquisitionType": "profession_gathering",
+    "profession": "Lokman",
+    "sourceEntity": "Çiğdem",
+    "sourceTier": 2,
+    "requiredProfessionPoints": 45,
+    "sourceId": "fandom-gathering",
+    "status": "single_source",
+    "lastChecked": "2026-09-01"
+  }
+]

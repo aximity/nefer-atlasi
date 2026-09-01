@@ -68,8 +68,22 @@
 - Veri kararı: İki katkı keyfi birleştirilmeden ayrı canonical stat satırlarında tutulur. Taş Kanat Ceket için kaynaksız Savunma 13.760 ile sekiz Büyücü ceket/amplifikatör ve Mevlana Ceket için kaynaksız Maksimum Kudret 220.000 türetmeleri kaldırılır.
 - Güven: Mevlana Ceket `medium`; diğer 10 eşya `high`. Kaynakların bağımsızlığı kesin olmadığı için hiçbir REC-024 statı `cross_verified` yapılmaz.
 
+## 2026-09-01 — Data Foundation Audit 2
+
+- Kullanıcı oyun içi kanıtı: Mevlana Asa tooltipinde iki ayrı İyileştirme Büyüleri `383.000`, Büyü Kritik Şansı `4.354` ve Kudret Rejenerasyonu `75.000`; canonical base statlarla birebir uyumlu. Binary görsel repository'ye aktarılmadığı için kaynak kaydında `artifactStored: false` tutuldu.
+- Resmî yükseltme kaynağı: iki ayrı iyileştirme katkısı `383 → 766`, kritik `4.354 → 5.000`, rejenerasyon `75 → 75`. Genel `×2` kuralı çıkarılmadı.
+- Fandom edinimleri: Xenotim → Büyük Hol/Saklı Tür; Peptit Klorotoksin → Büyük Hol/Akrep; Örümcek Salgısı → Büyük Hol/Örümcek; Safran → Lokman/Çiğdem. Hepsi `single_source`.
+- Tılsım sistemi: bazı I. kademe tılsımlar satın alınabilir, bazıları düşebilir; II/III. kademeler reçeteyle üretilir. “Bazıları” kapsamından kesin NPC veya drop listesi türetilmedi.
+- Resmî Mavi Gazap kaydı yalnız İyileştirme yeteneğinin `%50` kullanılabilirliğini destekler; Cankurtaran'a genellenmedi.
+
 ## Araştırma kuyruğu
 
+- [ ] Mecnun NPC'nin Topkapı konumu ve sattığı kesin tılsım reçetesi listesi
+- [ ] Satın alınamayan tılsım reçetelerinin kesin düşman/drop listesi
+- [ ] Fandom'daki `Saklı Tür` ile oyuncuların kullandığı `Saklı Irk/Irklar` adlarının canonical eşleşmesi
+- [ ] Silah yükseltmelerinde bütün efsunlara uygulanabilecek genel bir çarpan olup olmadığı; Mevlana Asa kaydı genelleştirilmez
+- [ ] Gazap ile Cankurtaran arasındaki kesin kullanım kısıtı
+- [ ] Yetenek kullanımından sonra yaklaşık 1 saniyelik global bekleme iddiası
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı
 - [ ] NotebookLM strateji çıktısındaki kaynaksız “%40 verim”, “%30 grup hızı” ve “%15 hata payı” iddialarını birincil kaynakla doğrula
 - [ ] Çemberlitaş eşya adı ile gerçek görünüşü aynı karede gösteren görsel kanıtları topla; mevcut NotebookLM çıktısı ana eşyalar için görseli “Yok” olarak işaretliyor

@@ -20,6 +20,10 @@ const groupLootItems = read("group-loot-items.json");
 const glassesItems = read("glasses-items.json");
 const glassesStats = read("glasses-stats.json");
 const groupDerivedStats = read("group-derived-stats.json");
+const itemUpgrades = read("item-upgrades.json");
+const materialAcquisitions = read("material-acquisitions.json");
+const talismanAcquisitionRules = read("talisman-acquisition-rules.json");
+const gameplayRules = read("gameplay-rules.json");
 
 const publishableStatuses = new Set(["single_source", "cross_verified"]);
 
@@ -143,6 +147,48 @@ test("REC-024 aynı-stat katkıları ayrı canonical satır ve provenance ile ko
   assert.equal(stats.some((stat) => stat.id === "stat-tas-kanat-ceket-savunma"), false);
   assert.equal(stats.some((stat) => /(?:ceket|amplifikatoru?)-maksimum-kudret$/.test(stat.id) && ["kiyamet","sifir-kelvin","transformator","cehennem"].some((family) => stat.id.includes(family))), false);
   assert.equal(stats.some((stat) => stat.id === "stat-mevlana-ceket-maksimum-kudret"), false);
+});
+
+test("Mevlana Asa kullanıcı tooltipi canonical base statları ayrı provenance ile destekler", () => {
+  const claims = evidence.filter((claim) => claim.sourceId === "user-mevlana-asa-tooltip-20260901");
+  assert.equal(claims.length, 3);
+  assert.ok(claims.every((claim) => claim.evidenceType === "USER_GAME_EVIDENCE"));
+  const source = sources.find((row) => row.id === "user-mevlana-asa-tooltip-20260901");
+  assert.equal(source.type, "user_game_evidence");
+  assert.equal(source.artifactStored, false);
+  assert.deepEqual(
+    stats.filter((stat) => stat.itemId === "mevlana-asa").map((stat) => [stat.attribute, stat.value]),
+    [["İyileştirme Büyüleri",383000],["İyileştirme Büyüleri",383000],["Büyü Kritik Şansı",4354],["Kudret Rejenerasyonu",75000]],
+  );
+});
+
+test("Mevlana Asa yükseltmesi base contributionları değiştirmeden kaynak değerlerini eşler", () => {
+  assert.equal(itemUpgrades.length, 1);
+  const upgrade = itemUpgrades[0];
+  assert.equal(upgrade.itemId, "mevlana-asa");
+  assert.equal(upgrade.baseState, "base");
+  assert.equal(upgrade.upgradedState, "upgraded");
+  assert.deepEqual(upgrade.contributions.map((row) => [row.baseValue,row.upgradedValue]), [[383000,766000],[383000,766000],[4354,5000],[75000,75000]]);
+  assert.ok(upgrade.contributions.every((row) => stats.some((stat) => stat.id === row.baseStatId && stat.value === row.baseValue)));
+});
+
+test("materyal edinimleri yalnız kaynaklandırılmış düşman ve meslek ilişkilerini taşır", () => {
+  assert.deepEqual(materialAcquisitions.map((row) => row.id).sort(), ["acquisition-orumcek-salgisi-orumcek","acquisition-peptit-klorotoksin-akrep","acquisition-safran-cigdem-lokman","acquisition-xenotim-sakli-tur"]);
+  assert.ok(materialAcquisitions.every((row) => row.status === "single_source"));
+  const saffron = materialAcquisitions.find((row) => row.material === "Safran");
+  assert.equal(saffron.profession, "Lokman");
+  assert.equal(saffron.sourceEntity, "Çiğdem");
+  assert.ok(!materialAcquisitions.some((row) => row.profession === "Madenci" && row.material === "Safran"));
+});
+
+test("tılsım edinim kuralları belirsiz I. kademe kapsamından NPC veya drop listesi türetmez", () => {
+  assert.deepEqual(talismanAcquisitionRules.map((row) => [row.scope,row.tiers,row.acquisitionType]), [["some",[1],"currency_purchase"],["some",[1],"enemy_drop"],["all",[2,3],"recipe_crafting"]]);
+  assert.ok(talismanAcquisitionRules.every((row) => row.status === "single_source" && row.npcId === undefined && row.enemyIds === undefined));
+});
+
+test("Mavi Gazap iyileştirme kuralı resmî kaynağa bağlı ve Cankurtaran'a genellenmez", () => {
+  assert.deepEqual(gameplayRules, [{id:"blue-wrath-healing-availability",subjectId:"healer-gazap-blue-special",condition:"Mavi Gazap tılsımı takılıyken Gazap kullanımı",effect:"İyileştirme yeteneğinin kullanılabilirliği",value:50,unit:"percent",sourceId:"ikv-healer-talismans",status:"single_source",lastChecked:"2026-09-01"}]);
+  assert.ok(!gameplayRules.some((rule) => /Cankurtaran/i.test(rule.effect)));
 });
 
 test("reçeteler pozitif miktarlı parça satırlarına ve bir kaynağa bağlıdır", () => {

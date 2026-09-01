@@ -43,14 +43,14 @@ Son güncelleme: 2026-09-01
 | Kontrol | Sonuç | Gerçek çıktı |
 |---|---|---|
 | `npm ci` | PASS | Kurulum tamamlandı; `@esbuild-kit/esm-loader` için deprecated transitive dependency uyarısı verdi. |
-| `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 reçete, 907 kanıt, 179 tılsım, 167 ham efsun satırı, 45 yetenek. |
+| `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 reçete, 910 kanıt, 179 tılsım, 167 ham efsun satırı, 45 yetenek, 1 yükseltme, 4 materyal edinimi, 3 tılsım edinim kuralı ve 1 oyun mekaniği kuralı. |
 | `npm run lint` | PASS | ESLint hata üretmedi. |
-| `npm run test:unit` | PASS | 33/33 geçti; 0 fail, 0 skipped. |
+| `npm run test:unit` | PASS | 38/38 geçti; 0 fail, 0 skipped. |
 | `npm run build` | PASS | Vinext'in beş build aşaması tamamlandı. `/` rotası için statik sınıflandırma uyarısı var. |
 | Rendered HTML testi | PASS | 1/1 geçti. |
-| `npm test` birleşik kapısı | PASS | Validator, 33 unit test, build ve 1 rendered test birlikte geçti. |
+| `npm test` birleşik kapısı | PASS | Validator, 38 unit test, build ve 1 rendered test birlikte geçti. |
 
-Toplam bağımsız test: **34**. Bu sayı 33 unit + 1 rendered-HTML testinden oluşur.
+Toplam bağımsız test: **39**. Bu sayı 38 unit + 1 rendered-HTML testinden oluşur.
 
 ## Working Modules
 
@@ -70,6 +70,7 @@ Toplam bağımsız test: **34**. Bu sayı 33 unit + 1 rendered-HTML testinden ol
 - Kaynaklar: item/evidence akışına bağlıdır; ayrı kaynak tarayıcısı yoktur.
 - Efsun çözümleyici: resolver ve testleri vardır; `EnchantAnalyzer` ana kullanıcı akışına bağlı değildir.
 - Stat değer altyapısı: canonical ham sayıları korur, desteklenen storage scale sözleşmesini doğrular ve aynı attribute içindeki uyumsuz/bilinmeyen scale değerlerini build ile tılsım hesabından güvenli biçimde dışlar. Exact `scaled_1000` / `scaled_10000` display dönüşümü henüz doğrulanmamıştır.
+- Veri foundation: Mevlana Asa için base/upgraded state ayrımı, dört kaynaklandırılmış materyal edinimi, kapsamı genellenmeyen üç tılsım edinim kuralı ve resmî Mavi Gazap/İyileştirme kuralı modellenmiştir; henüz ayrı kullanıcı arayüzüne bağlı değildir.
 
 ## Not Found in Current Code
 
@@ -88,8 +89,10 @@ Toplam bağımsız test: **34**. Bu sayı 33 unit + 1 rendered-HTML testinden ol
 - 237 özellik/stat: tamamı `SINGLE_SOURCE`; 11 aynı-stat çifti 22 ayrı canonical katkı satırı olarak korunuyor.
 - 67 reçete: tamamı `SINGLE_SOURCE`.
 - 179 tılsım: tamamı `SINGLE_SOURCE`.
-- 907 evidence: 772 `SINGLE_SOURCE`, 134 `VERIFIED`/`cross_verified`, 1 `UNKNOWN`/`draft`.
+- 910 evidence: 775 `SINGLE_SOURCE`, 134 `VERIFIED`/`cross_verified`, 1 `UNKNOWN`/`draft`; bunların 3'ü Mevlana Asa için `USER_GAME_EVIDENCE` claim'idir.
 - 45 yetenek: 44 `VERIFIED`/`cross_verified`, 1 `SINGLE_SOURCE`.
+- 1 kaynaklandırılmış item upgrade kaydı: Mevlana Asa için 4 base → upgraded contribution; genel `×2` formülü yoktur.
+- 4 `SINGLE_SOURCE` materyal edinimi, 3 `SINGLE_SOURCE` genel tılsım edinim kuralı ve 1 `SINGLE_SOURCE` gameplay kuralı.
 - Duplicate ID: 0.
 - Orphan ilişki: 0.
 - Eksik eşya ID: 0.
@@ -109,7 +112,7 @@ Toplam bağımsız test: **34**. Bu sayı 33 unit + 1 rendered-HTML testinden ol
 - REC-024 çözüldü: 11 eşyanın duplicate stat katkıları kaynak satırı bazında korunuyor; kanıtsız Savunma/Maksimum Kudret türetmeleri canonical veriden çıkarıldı. Mevlana Ceket kanıt güveni `medium`, diğer 10 kayıt `high` olarak tutuluyor.
 - Veri kümesinin büyük bölümü yalnız tek kaynağa dayanıyor.
 - REC-030 ile görünür başlıklar, README, aktif metadata ve package/lockfile kimliği `Nefer Atlası` altında hizalandı. Doğrulanmış production domain olmadığı için metadata içinde domain yayınlanmıyor.
-- CI workflow'u yerelde doğrulandı; GitHub-hosted ilk çalışma sonucu henüz oluşmadı.
+- GitHub-hosted CI ilk `main` çalışmasını başarıyla tamamladı; branch protection ayarı repository yönetim işi olarak ayrıdır.
 
 ## Known P2 Issues
 

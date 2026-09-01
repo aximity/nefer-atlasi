@@ -4,6 +4,8 @@ Bu dosya yalnız mevcut Git geçmişi veya çalışma ağacındaki gerçek deği
 
 ## [Unreleased]
 
+- Mevlana Asa kullanıcı tooltipi `USER_GAME_EVIDENCE` provenance ile canonical base statlara bağlandı; kaynaklandırılmış base/upgraded state modeli genel çarpan türetmeden dört upgrade contribution'ını koruyor.
+- Xenotim, Peptit Klorotoksin, Örümcek Salgısı ve Safran için `SINGLE_SOURCE` edinim kayıtları; kapsamı genellenmeyen tılsım edinim kuralları ve resmî Mavi Gazap/İyileştirme `%50` kuralı validator/testlerle eklendi.
 - `main` push ve pull request'lerde Node.js 22, temiz `npm ci`, lint ve birleşik veri/test/build/rendered-HTML kapısını çalıştıran GitHub Actions CI workflow'u eklendi.
 - REC-030 tamamlandı: görünür ürün adı, README, page metadata ve Open Graph metinleri `Nefer Atlası` altında hizalandı; package/lockfile `nefer-atlasi` yapıldı ve doğrulanmamış eski ChatGPT Sites domaini aktif metadata'dan kaldırıldı.
 - REC-024 kapsamındaki 11 conflicted eşya web kanıtıyla çözüldü: kaynakta ayrı satırlar halinde bulunan aynı-stat katkıları provenance ile korundu, kanıtsız Savunma/Maksimum Kudret türetmeleri kaldırıldı ve uyumlu katkıların hesap toplamları validator/testlerle güvenceye alındı.
