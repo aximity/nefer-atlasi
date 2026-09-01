@@ -4,6 +4,7 @@ Bu dosya yalnız mevcut Git geçmişi veya çalışma ağacındaki gerçek deği
 
 ## [Unreleased]
 
+- `main` push ve pull request'lerde Node.js 22, temiz `npm ci`, lint ve birleşik veri/test/build/rendered-HTML kapısını çalıştıran GitHub Actions CI workflow'u eklendi.
 - REC-030 tamamlandı: görünür ürün adı, README, page metadata ve Open Graph metinleri `Nefer Atlası` altında hizalandı; package/lockfile `nefer-atlasi` yapıldı ve doğrulanmamış eski ChatGPT Sites domaini aktif metadata'dan kaldırıldı.
 - REC-024 kapsamındaki 11 conflicted eşya web kanıtıyla çözüldü: kaynakta ayrı satırlar halinde bulunan aynı-stat katkıları provenance ile korundu, kanıtsız Savunma/Maksimum Kudret türetmeleri kaldırıldı ve uyumlu katkıların hesap toplamları validator/testlerle güvenceye alındı.
 - Kalıcı Research & Source Protocol; Fandom öncelikli batch araştırma, bağımsızlık kontrolü, inference ayrımı ve kullanıcı kanıtını son aşama yapan kurallarla proje sözleşmesine ve veri politikasına eklendi.

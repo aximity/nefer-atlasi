@@ -32,7 +32,8 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 - [ ] `raw_game_value`, `scaled_1000`, `scaled_10000` ve `puan` için exact oyun içi display dönüşümlerini kaynak kanıtıyla belirle.
 - [x] REC-024 conflicted kayıtlarını batch web araştırması, contribution provenance, hesap ve validator testleriyle çöz.
 - [x] REC-030 Nefer Atlası görünür ürün, package/lockfile ve metadata kimlik uyumu.
-- [ ] CI kurulumu.
+- [x] GitHub Actions CI workflow'unu `main` push ve pull request'ler için kur.
+- [ ] İlk GitHub-hosted CI çalışmasının sonucunu commit/push sonrasında doğrula.
 
 ### Phase 2 — Existing systems completion
 
@@ -77,7 +78,8 @@ Aktif P0 bulunmuyor. Yeni bir P0 ancak uygulamayı, veri bütünlüğünü veya 
 - [ ] `raw_game_value`, `scaled_1000`, `scaled_10000` ve `puan` için exact normalize/display formüllerini kaynakla doğrula; yalnız kanıtlanan UI değerlerini testle sabitle.
 - [x] 11 `CONFLICTED` eşya/stat kaydını Fandom, resmî İKV ve destekleyici arşivlerle çöz; aynı-stat katkılarını ayrı canonical satırlarda koru.
 - [x] Uygulama, package ve metadata kimliğini Nefer Atlası kararıyla hizala; doğrulanmamış eski ChatGPT Sites domainini aktif metadata'dan kaldır.
-- [ ] GitHub CI kur: temiz install, veri validatorü, lint, unit testler, production build ve rendered-HTML testi zorunlu kapı olsun.
+- [x] GitHub CI kur: temiz install, veri validatorü, lint, unit testler, production build ve rendered-HTML testi zorunlu kapı olsun.
+- [ ] İlk GitHub-hosted CI çalışmasının geçtiğini doğrula ve gerekli branch protection ayarını ayrı repository yönetim adımı olarak değerlendir.
 - [ ] Tek kaynaklı veriler için kullanıcıya dönük `SINGLE_SOURCE` ifadesini ve riskini açıklaştır.
 
 ## P2

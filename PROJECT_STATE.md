@@ -34,6 +34,7 @@ Son güncelleme: 2026-09-01
 - Cloudflare Worker ve Wrangler `4.92.0`.
 - Drizzle ORM `0.45.2`; gerçek uygulama şeması şu anda boş.
 - Node yerleşik test runner'ı ve ESLint `9.39.4`.
+- GitHub Actions CI, `main` push ve pull request'lerde Node.js 22 üzerinde temiz kurulum, lint ve birleşik `npm test` kalite kapısını çalıştırır.
 
 ## Production Verification
 
@@ -108,7 +109,7 @@ Toplam bağımsız test: **34**. Bu sayı 33 unit + 1 rendered-HTML testinden ol
 - REC-024 çözüldü: 11 eşyanın duplicate stat katkıları kaynak satırı bazında korunuyor; kanıtsız Savunma/Maksimum Kudret türetmeleri canonical veriden çıkarıldı. Mevlana Ceket kanıt güveni `medium`, diğer 10 kayıt `high` olarak tutuluyor.
 - Veri kümesinin büyük bölümü yalnız tek kaynağa dayanıyor.
 - REC-030 ile görünür başlıklar, README, aktif metadata ve package/lockfile kimliği `Nefer Atlası` altında hizalandı. Doğrulanmış production domain olmadığı için metadata içinde domain yayınlanmıyor.
-- CI kalite kapısı bulunmuyor.
+- CI workflow'u yerelde doğrulandı; GitHub-hosted ilk çalışma sonucu henüz oluşmadı.
 
 ## Known P2 Issues
 
