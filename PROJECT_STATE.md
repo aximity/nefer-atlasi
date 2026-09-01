@@ -16,7 +16,7 @@ Son güncelleme: 2026-09-01
 
 - Code baseline: `068af74088dd7eb323717d93f48072e2b3aac703`.
 - Recovery Manifest v1: 30 kayıt.
-- `RECOVERED`: 0.
+- `RECOVERED`: 1 (`REC-024`).
 - Eski ChatGPT Çalışması'nda bu baseline'dan daha ileri geliştirme geçmişi bulunduğu kullanıcı tarafından bildirildi.
 - Bu geliştirmelerin kaynak kodu mevcut GitHub repository'sinde bulunmuyor.
 - Historical özellikler ve eski çalışma geçmişindeki bir “tamamlandı” iddiası, mevcut GitHub davranışı veya uygulanmış/doğrulanmış özellik kanıtı değildir.
@@ -41,14 +41,14 @@ Son güncelleme: 2026-09-01
 | Kontrol | Sonuç | Gerçek çıktı |
 |---|---|---|
 | `npm ci` | PASS | Kurulum tamamlandı; `@esbuild-kit/esm-loader` için deprecated transitive dependency uyarısı verdi. |
-| `npm run validate:data` | PASS | 129 eşya, 236 özellik, 67 reçete, 886 kanıt, 179 tılsım, 167 ham efsun satırı, 45 yetenek. |
+| `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 reçete, 907 kanıt, 179 tılsım, 167 ham efsun satırı, 45 yetenek. |
 | `npm run lint` | PASS | ESLint hata üretmedi. |
-| `npm run test:unit` | PASS | 32/32 geçti; 0 fail, 0 skipped. |
+| `npm run test:unit` | PASS | 33/33 geçti; 0 fail, 0 skipped. |
 | `npm run build` | PASS | Vinext'in beş build aşaması tamamlandı. `/` rotası için statik sınıflandırma uyarısı var. |
 | Rendered HTML testi | PASS | 1/1 geçti. |
-| `npm test` birleşik kapısı | PASS | Validator, 32 unit test, build ve 1 rendered test birlikte geçti. |
+| `npm test` birleşik kapısı | PASS | Validator, 33 unit test, build ve 1 rendered test birlikte geçti. |
 
-Toplam bağımsız test: **33**. Bu sayı 32 unit + 1 rendered-HTML testinden oluşur.
+Toplam bağımsız test: **34**. Bu sayı 33 unit + 1 rendered-HTML testinden oluşur.
 
 ## Working Modules
 
@@ -82,16 +82,16 @@ Toplam bağımsız test: **33**. Bu sayı 32 unit + 1 rendered-HTML testinden ol
 
 ## Data State
 
-- 129 eşya: 118 `SINGLE_SOURCE`, 11 `CONFLICTED`.
-- 236 özellik/stat: 225 `SINGLE_SOURCE`, 11 `CONFLICTED`.
+- 129 eşya: tamamı `SINGLE_SOURCE`; REC-024 kapsamındaki 11 eşya web kanıtıyla çözüldü.
+- 237 özellik/stat: tamamı `SINGLE_SOURCE`; 11 aynı-stat çifti 22 ayrı canonical katkı satırı olarak korunuyor.
 - 67 reçete: tamamı `SINGLE_SOURCE`.
 - 179 tılsım: tamamı `SINGLE_SOURCE`.
-- 886 evidence: 740 `SINGLE_SOURCE`, 134 `VERIFIED`/`cross_verified`, 11 `CONFLICTED`, 1 `UNKNOWN`/`draft`.
+- 907 evidence: 772 `SINGLE_SOURCE`, 134 `VERIFIED`/`cross_verified`, 1 `UNKNOWN`/`draft`.
 - 45 yetenek: 44 `VERIFIED`/`cross_verified`, 1 `SINGLE_SOURCE`.
 - Duplicate ID: 0.
 - Orphan ilişki: 0.
 - Eksik eşya ID: 0.
-- 221 stat `raw_game_value`, 14 stat `puan`, 1 stat `scaled_1000` birimindedir.
+- 222 stat `raw_game_value`, 14 stat `puan`, 1 stat `scaled_1000` birimindedir.
 
 ## Asset State
 
@@ -104,7 +104,7 @@ Toplam bağımsız test: **33**. Bu sayı 32 unit + 1 rendered-HTML testinden ol
 ## Known P1 Issues
 
 - `raw_game_value`, `scaled_1000`, `scaled_10000` ve `puan` için exact oyun içi display dönüşümleri doğrulanmamış durumda. Güvenli formatter tahmini dönüşüm yapmaz; kanıtlanmamış scaled değerlerde ve uyumsuz toplamda “Doğrulama gerekiyor” gösterir.
-- 11 conflicted eşya/stat kaydı çözülmemiş durumda.
+- REC-024 çözüldü: 11 eşyanın duplicate stat katkıları kaynak satırı bazında korunuyor; kanıtsız Savunma/Maksimum Kudret türetmeleri canonical veriden çıkarıldı. Mevlana Ceket kanıt güveni `medium`, diğer 10 kayıt `high` olarak tutuluyor.
 - Veri kümesinin büyük bölümü yalnız tek kaynağa dayanıyor.
 - Nefer Atlası repository kimliği ile uygulamadaki `İKV Eşya Rehberi` package, başlık ve eski ChatGPT Sites metadata kimliği uyumsuz.
 - CI kalite kapısı bulunmuyor.

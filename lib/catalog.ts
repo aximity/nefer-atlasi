@@ -18,7 +18,7 @@ export type CharacterClass = "Savaşçı" | "Büyücü" | "Şifacı";
 export type Slot = "Gözlük" | "Ceket" | "Eldiven" | "Pantolon" | "Ayakkabı" | "Zırh" | "Amplifikatör" | "Yüzük" | "Kolye" | "Silah";
 export interface EvidenceClaim {id:string;itemId:string;field:string;sourceId:string;locator:string;status:VerificationStatus;checkedAt:string}
 export interface Source {id:string;url:string;title:string;type:SourceType;accessedAt:string;independenceGroup:string}
-export interface Stat {id:string;itemId:string;attribute:string;value:number;unit:string;verificationStatus:VerificationStatus;lastChecked:string}
+export interface Stat {id:string;itemId:string;attribute:string;value:number;unit:string;verificationStatus:VerificationStatus;lastChecked:string;contributionGroup?:string;contributionIndex?:number;evidenceIds?:string[];confidence?:"high"|"medium"|"low"}
 export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıflar";level:number|null;slot:Slot;rarity:"Şaheser"|"Doğrulanmadı";appearanceFamily?:string;publicationStatus:VerificationStatus;lastChecked:string;region?:string;boss?:string;acquisition?:string}
 export interface Recipe {id:string;itemId:string;method:string;materials:{name:string;quantity:number}[];sourceId:string;verificationStatus:VerificationStatus;lastChecked:string}
 type TalismanBase={id:string;name:string;class:CharacterClass;color:"Kırmızı"|"Mavi";series:string;tier:1|2|3|null;value:number|null;unit:"percent"|"second"|null;effectText:string;requiresBase?:string;status:VerificationStatus;sourceId:string;verificationSourceIds?:string[];lastChecked:string};

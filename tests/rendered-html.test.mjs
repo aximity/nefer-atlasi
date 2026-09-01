@@ -34,7 +34,7 @@ test("Türkçeleştirilmiş sınıfa özgü donanım deneyimini oluşturur", asy
   }
   assert.match(html, /KANITLI DONANIM PLANLAYICI/);
   assert.match(html, /Dokuz yuvayı sen doldur/);
-  assert.match(html, /Çelişkili özellikler hesap dışı/);
+  assert.match(html, /Çelişkili alanlar toplama girmez/);
   assert.doesNotMatch(html, /DOĞRULANMIŞ GÖRSEL YOK/);
   assert.match(html, /M2\.5 Buz Şarjlı-\(Mor\)/);
   assert.match(html, /Nucleus Yüzük/);

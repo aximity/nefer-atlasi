@@ -14,10 +14,23 @@
 - Video küçük resmi kanıt değildir.
 - Görsel URL, kaynak türü ve tarih olmadan yayımlanmaz.
 
+## Araştırma ve kaynak politikası
+
+Kaynak sırası: İKV Fandom → resmî İKV kaynakları → bağımsız forum/arşiv/topluluk → video → kullanıcı oyun içi ekran görüntüsü. Bu sıra araştırma başlangıcını belirler; bir kaynağın otoritesi, başka bir kaynaktan kopyalanmış metni bağımsız cross-check yapmaz.
+
+- Çoklu kayıt araştırmaları Fandom kategori/liste sayfalarından başlanarak batch yürütülür.
+- Akış: `DISCOVER → BATCH COLLECT → CROSS-CHECK → RECONCILE → EVIDENCE → VALIDATE`.
+- URL, sayfa içi locator, erişim tarihi, bağımsızlık grubu ve güven durumu evidence kaydında korunur.
+- Snippet tek başına kanıt sayılmaz; mümkün olduğunda kaynak içeriği veya görseli açılır.
+- Kaynakta doğrudan bulunan alan ile aile deseninden çıkarılan alan birbirinden ayrılır.
+- Eksik bir alan komşu eşyadan kopyalanamaz ve kaynakta varmış gibi `single_source` işaretlenemez.
+- Fandom'da bulunmayan bilgi otomatik olarak yanlış değildir. Tek kaynak `single_source`, iki bağımsız güvenilir ve uyuşan kaynak `cross_verified`, gerçek uyuşmazlık `conflicted` olarak kalır.
+- Manuel kullanıcı kanıtı ancak web araştırması yetersiz, erişilemez, gerçekten çelişkili veya sürüme özgü olduğunda istenir.
+
 ## Açık sorunlar
 
-- Bazı Çemberlitaş arşiv satırlarında aynı özellik iki kez yazılmış görünüyor.
-- Cehennem parçalarında alan adı/değer eşleşmeleri tutarsız olabilir.
+- REC-024 araştırması, 11 eşyanın aynı-stat satırlarının Fandom ve erişilebilen resmî İKV sayfalarında ayrı katkılar olarak tekrarlandığını doğruladı; bu katkılar artık ayrı canonical satırlarda tutuluyor.
+- Pattern ile eklenmiş Taş Kanat Ceket Savunma ve dokuz Maksimum Kudret alanı kaynakta bulunmadığı için kaldırıldı.
 - Gözlük, yüzük ve kolye kayıtları henüz doğrulanmadı.
-- 67 Çemberlitaş şaheser kaydı modele alındı; yinelenen kaynak satırları alan bazında çelişkili tutuluyor.
+- 67 Çemberlitaş şaheser kaydı modele alındı; gerçek duplicate katkılar `contributionGroup`, sıralı `contributionIndex`, evidence bağlantısı ve confidence ile korunuyor.
 - Mevcut kayıtların tamamı ikinci bağımsız kaynak bekliyor.

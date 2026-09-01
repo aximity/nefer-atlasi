@@ -549,13 +549,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-tas-kanat-ceket-savunma",
+    "id": "ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-fandom",
     "itemId": "tas-kanat-ceket",
-    "field": "stats.Savunma",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Taş Kanat Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Maksimum Enerji.contributions",
+    "sourceId": "fandom-warrior-cemberlitas-items",
+    "locator": "Taş Kanat Ceket: art arda iki Maksimum Enerji 477.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-tas-kanat-ceket-kritik-zirhi",
@@ -1773,13 +1773,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-kiyamet-ceket-buyu-hasari-fiziksel",
+    "id": "ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-fandom",
     "itemId": "kiyamet-ceket",
-    "field": "stats.Büyü Hasarı (Fiziksel)",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Kıyamet Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Büyü Hasarı (Fiziksel).contributions",
+    "sourceId": "fandom-mage-cemberlitas-items",
+    "locator": "Kıyamet Ceket: art arda iki Büyü Hasarı (Fiziksel) 150.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-kiyamet-ceket-maksimum-kudret",
@@ -2133,13 +2133,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel",
+    "id": "ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-fandom",
     "itemId": "kiyamet-amplifikatoru",
-    "field": "stats.Büyü Hasarı (Fiziksel)",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Kıyamet Amplifikatörü özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Büyü Hasarı (Fiziksel).contributions",
+    "sourceId": "fandom-mage-cemberlitas-items",
+    "locator": "Kıyamet Amplifikatörü: art arda iki Büyü Hasarı (Fiziksel) 150.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-kiyamet-amplifikatoru-maksimum-kudret",
@@ -2322,13 +2322,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-sifir-kelvin-ceket-buyu-hasari-buz",
+    "id": "ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-fandom",
     "itemId": "sifir-kelvin-ceket",
-    "field": "stats.Büyü Hasarı (Buz)",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Sıfır Kelvin Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Büyü Hasarı (Buz).contributions",
+    "sourceId": "fandom-mage-cemberlitas-items",
+    "locator": "Sıfır Kelvin Ceket: art arda iki Büyü Hasarı (Buz) 150.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-sifir-kelvin-ceket-maksimum-kudret",
@@ -2682,13 +2682,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz",
+    "id": "ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-fandom",
     "itemId": "sifir-kelvin-amplifikator",
-    "field": "stats.Büyü Hasarı (Buz)",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Sıfır Kelvin Amplifikatör özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Büyü Hasarı (Buz).contributions",
+    "sourceId": "fandom-mage-cemberlitas-items",
+    "locator": "Sıfır Kelvin Amplifikatör: art arda iki Büyü Hasarı (Buz) 150.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-sifir-kelvin-amplifikator-maksimum-kudret",
@@ -2871,13 +2871,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-transformator-ceket-buyu-hasari-elektrik",
+    "id": "ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-fandom",
     "itemId": "transformator-ceket",
-    "field": "stats.Büyü Hasarı (Elektrik)",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Transformatör Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Büyü Hasarı (Elektrik).contributions",
+    "sourceId": "fandom-mage-cemberlitas-items",
+    "locator": "Transformatör Ceket: art arda iki Büyü Hasarı (Elektrik) 150.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-transformator-ceket-maksimum-kudret",
@@ -3231,13 +3231,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-transformator-amplifikator-buyu-hasari-elektrik",
+    "id": "ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-fandom",
     "itemId": "transformator-amplifikator",
-    "field": "stats.Büyü Hasarı (Elektrik)",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Transformatör Amplifikatör özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Büyü Hasarı (Elektrik).contributions",
+    "sourceId": "fandom-mage-cemberlitas-items",
+    "locator": "Transformatör Amplifikatör: art arda iki Büyü Hasarı (Elektrik) 150.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-transformator-amplifikator-maksimum-kudret",
@@ -3420,13 +3420,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-cehennem-ceket-buyu-hasari-ates",
+    "id": "ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-fandom",
     "itemId": "cehennem-ceket",
-    "field": "stats.Büyü Hasarı (Ateş)",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Cehennem Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Büyü Hasarı (Ateş).contributions",
+    "sourceId": "fandom-mage-cemberlitas-items",
+    "locator": "Cehennem Ceket: art arda iki Büyü Hasarı (Ateş) 150.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-cehennem-ceket-maksimum-kudret",
@@ -3780,13 +3780,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-cehennem-amplifikator-buyu-hasari-ates",
+    "id": "ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-fandom",
     "itemId": "cehennem-amplifikator",
-    "field": "stats.Büyü Hasarı (Ateş)",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Cehennem Amplifikatör özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.Büyü Hasarı (Ateş).contributions",
+    "sourceId": "fandom-mage-cemberlitas-items",
+    "locator": "Cehennem Amplifikatör: art arda iki Büyü Hasarı (Ateş) 150.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-cehennem-amplifikator-maksimum-kudret",
@@ -4509,13 +4509,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-mevlana-ceket-iyilestirme-buyuleri",
+    "id": "ev-stat-mevlana-ceket-iyilestirme-buyuleri-contributions-fandom",
     "itemId": "mevlana-ceket",
-    "field": "stats.İyileştirme Büyüleri",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Mevlana Ceket özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.İyileştirme Büyüleri.contributions",
+    "sourceId": "fandom-healer-cemberlitas-items",
+    "locator": "Mevlana Ceket: art arda iki İyileştirme Büyüleri 224.000 satırı; confidence medium",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-mevlana-ceket-maksimum-kudret",
@@ -4959,13 +4959,13 @@
     "checkedAt": "2026-08-22"
   },
   {
-    "id": "ev-stat-mevlana-asa-iyilestirme-buyuleri",
+    "id": "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-fandom",
     "itemId": "mevlana-asa",
-    "field": "stats.İyileştirme Büyüleri",
-    "sourceId": "maxigame-cemberlitas-2015",
-    "locator": "Mevlana Asa özellik satırları",
-    "status": "conflicted",
-    "checkedAt": "2026-08-22"
+    "field": "stats.İyileştirme Büyüleri.contributions",
+    "sourceId": "fandom-healer-cemberlitas-items",
+    "locator": "Mevlana Asa: art arda iki İyileştirme Büyüleri 383.000 satırı",
+    "status": "single_source",
+    "checkedAt": "2026-09-01"
   },
   {
     "id": "ev-stat-mevlana-asa-buyu-kritik-sansi",
@@ -6154,5 +6154,26 @@
   {"id":"ev-alternator-kolye-appearance","itemId":"alternator-kolye","field":"appearanceFamily","sourceId":"player-alternator-kolye-20260823","locator":"Ad ve kolye ikonu aynı açık bilgi kutusunda","status":"single_source","checkedAt":"2026-08-23"},
   {"id":"ev-alternator-kolye-stat-buz","itemId":"alternator-kolye","field":"stats.Büyü Hasarı (Buz)","sourceId":"player-alternator-kolye-20260823","locator":"Eşya özellik satırı: 130.000","status":"single_source","checkedAt":"2026-08-23"},
   {"id":"ev-alternator-kolye-stat-elektrik","itemId":"alternator-kolye","field":"stats.Büyü Hasarı (Elektrik)","sourceId":"player-alternator-kolye-20260823","locator":"Eşya özellik satırı: 130.000","status":"single_source","checkedAt":"2026-08-23"},
-  {"id":"ev-alternator-kolye-stat-kritik","itemId":"alternator-kolye","field":"stats.Büyü Kritik Şansı","sourceId":"player-alternator-kolye-20260823","locator":"Eşya özellik satırı: 3.800","status":"single_source","checkedAt":"2026-08-23"}
+  {"id":"ev-alternator-kolye-stat-kritik","itemId":"alternator-kolye","field":"stats.Büyü Kritik Şansı","sourceId":"player-alternator-kolye-20260823","locator":"Eşya özellik satırı: 3.800","status":"single_source","checkedAt":"2026-08-23"},
+  {"id":"ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-official","itemId":"tas-kanat-ceket","field":"stats.Maksimum Enerji.contributions","sourceId":"official-warrior-cemberlitas-items","locator":"Taş Kanat Ceket: art arda iki Maksimum Enerji 477.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-forum","itemId":"tas-kanat-ceket","field":"stats.Maksimum Enerji.contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Taş Kanat Ceket özelliklerinde iki Maksimum Enerji 477.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-official","itemId":"kiyamet-ceket","field":"stats.Büyü Hasarı (Fiziksel).contributions","sourceId":"official-mage-cemberlitas-items","locator":"Kıyamet Ceket: art arda iki Büyü Hasarı (Fiziksel) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-forum","itemId":"kiyamet-ceket","field":"stats.Büyü Hasarı (Fiziksel).contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Kıyamet Ceket özelliklerinde iki Büyü Hasarı (Fiziksel) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-official","itemId":"kiyamet-amplifikatoru","field":"stats.Büyü Hasarı (Fiziksel).contributions","sourceId":"official-mage-cemberlitas-items","locator":"Kıyamet Amplifikatörü: art arda iki Büyü Hasarı (Fiziksel) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-forum","itemId":"kiyamet-amplifikatoru","field":"stats.Büyü Hasarı (Fiziksel).contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Kıyamet Amplifikatörü özelliklerinde iki Büyü Hasarı (Fiziksel) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-official","itemId":"sifir-kelvin-ceket","field":"stats.Büyü Hasarı (Buz).contributions","sourceId":"official-mage-cemberlitas-items","locator":"Sıfır Kelvin Ceket: art arda iki Büyü Hasarı (Buz) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-forum","itemId":"sifir-kelvin-ceket","field":"stats.Büyü Hasarı (Buz).contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Ceket özelliklerinde iki Büyü Hasarı (Buz) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-official","itemId":"sifir-kelvin-amplifikator","field":"stats.Büyü Hasarı (Buz).contributions","sourceId":"official-mage-cemberlitas-items","locator":"Sıfır Kelvin Amplifikatör: art arda iki Büyü Hasarı (Buz) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-forum","itemId":"sifir-kelvin-amplifikator","field":"stats.Büyü Hasarı (Buz).contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Sıfır Kelvin Amplifikatör özelliklerinde iki Büyü Hasarı (Buz) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-official","itemId":"transformator-ceket","field":"stats.Büyü Hasarı (Elektrik).contributions","sourceId":"official-mage-cemberlitas-items","locator":"Transformatör Ceket: art arda iki Büyü Hasarı (Elektrik) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-forum","itemId":"transformator-ceket","field":"stats.Büyü Hasarı (Elektrik).contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Ceket özelliklerinde iki Büyü Hasarı (Elektrik) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-official","itemId":"transformator-amplifikator","field":"stats.Büyü Hasarı (Elektrik).contributions","sourceId":"official-mage-cemberlitas-items","locator":"Transformatör Amplifikatör: art arda iki Büyü Hasarı (Elektrik) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-forum","itemId":"transformator-amplifikator","field":"stats.Büyü Hasarı (Elektrik).contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Transformatör Amplifikatör özelliklerinde iki Büyü Hasarı (Elektrik) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-official","itemId":"cehennem-ceket","field":"stats.Büyü Hasarı (Ateş).contributions","sourceId":"official-mage-cemberlitas-items","locator":"Cehennem Ceket: art arda iki Büyü Hasarı (Ateş) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-forum","itemId":"cehennem-ceket","field":"stats.Büyü Hasarı (Ateş).contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Ceket özelliklerinde iki Büyü Hasarı (Ateş) 150.000 satırı; ilk etikette parantez yazım hatası var","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-official","itemId":"cehennem-amplifikator","field":"stats.Büyü Hasarı (Ateş).contributions","sourceId":"official-mage-cemberlitas-items","locator":"Cehennem Amplifikatör: art arda iki Büyü Hasarı (Ateş) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-forum","itemId":"cehennem-amplifikator","field":"stats.Büyü Hasarı (Ateş).contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Cehennem Amplifikatör özelliklerinde iki Büyü Hasarı (Ateş) 150.000 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-mevlana-ceket-iyilestirme-buyuleri-contributions-forum","itemId":"mevlana-ceket","field":"stats.İyileştirme Büyüleri.contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Mevlana Ceket özelliklerinde iki İyileştirme Büyüleri 224.000 satırı; kaynak bağımsızlığı ve resmî tooltip doğrulaması eksik","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-official","itemId":"mevlana-asa","field":"stats.İyileştirme Büyüleri.contributions","sourceId":"official-healer-weapon-upgrades","locator":"Mevlana Asa yükseltmesinde iki ayrı İyileştirme Büyüleri 383 → 766 satırı","status":"single_source","checkedAt":"2026-09-01"},
+  {"id":"ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-forum","itemId":"mevlana-asa","field":"stats.İyileştirme Büyüleri.contributions","sourceId":"maxigame-cemberlitas-2015","locator":"Mevlana Asa özelliklerinde iki İyileştirme Büyüleri 383.000 satırı","status":"single_source","checkedAt":"2026-09-01"}
 ]

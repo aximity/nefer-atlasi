@@ -19,6 +19,36 @@ Bu repository, Nefer Atlası'nın kod için ana gerçeklik kaynağıdır. Çalı
 - Test sayısını, kalite metriğini, veri kapsamını veya doğrulama sonucunu uydurma.
 - Yalnız gerçekten çalıştırılan komutların gerçek çıktılarını raporla.
 
+## Research & Source Protocol
+
+Oyun verisi doğrulamasında kaynak önceliği şöyledir:
+
+1. İKV Fandom (`https://istanbulkiyametvakti.fandom.com/tr/wiki/Anasayfa`) ana oyun bilgi ve doğrulama kaynağıdır.
+2. Erişilebilen resmî İKV kaynakları yüksek güvenilirlikli kaynaktır.
+3. Bağımsız forumlar, arşivler ve oyun toplulukları cross-check ve eksik veri tamamlama amacıyla kullanılır.
+4. YouTube ve diğer video kaynakları oyun içi tooltip, NPC, görev, drop, reçete ve mekanikleri görsel olarak doğrulamak için kullanılabilir.
+5. Kullanıcının sağladığı oyun içi ekran görüntüleri, web kaynakları yetersiz kaldığında güçlü birincil kanıttır.
+
+Her eşya için kullanıcıdan manuel kanıt istemeden önce web araştırması yap. Benzer çok sayıda kayıt varsa tek tek manuel süreç yürütmek yerine Fandom kategori, liste ve eşya sayfalarını batch olarak değerlendir. Araştırma akışı mümkün olduğunca `DISCOVER → BATCH COLLECT → CROSS-CHECK → RECONCILE → EVIDENCE → VALIDATE` olmalıdır:
+
+- `DISCOVER`: İlgili Fandom kategori ve liste sayfalarını bul.
+- `BATCH COLLECT`: Aynı aile veya modüldeki kayıtları toplu tara.
+- `CROSS-CHECK`: Eksikleri resmî kaynak, bağımsız forum/arşiv ve gerektiğinde video ile karşılaştır.
+- `RECONCILE`: Kaynakların aynı iddiayı mı tekrarladığını, bağımsız olup olmadığını ve gerçekten farklı değer verip vermediğini belirle.
+- `EVIDENCE`: Kaynak URL'sini, sayfa içi locator'ı, erişim tarihini ve güven durumunu koru.
+- `VALIDATE`: Veri değiştiyse repository'deki gerçek veri validatorünü çalıştır.
+
+Araştırma ve kanıt kuralları:
+
+- Forum bilgisini mümkün olduğunda Fandom veya bağımsız ikinci kaynakla cross-check et; kaynakların aynı metni kopyalaması bağımsız doğrulama sayılmaz.
+- Aynı bilgiyi doğrulamak için gereksiz tekrar araştırması yapma.
+- Arama sonucu snippet'i tek başına kanıt değildir; mümkün olduğunda kaynak sayfasının içeriğini veya görselini kontrol et.
+- Fandom'da bilgi bulunmaması bilginin yanlış olduğu anlamına gelmez.
+- Tek destekleyici kaynak `SINGLE_SOURCE` kalabilir. İki bağımsız ve güvenilir kaynak uyuşursa mevcut politikaya göre `CROSS_VERIFIED` yapılabilir. Kaynaklar gerçekten çelişirse `CONFLICTED` bırak.
+- Kaynağın doğrudan söylediği bilgi ile örüntü, komşu eşya veya yorum yoluyla yapılan inference ayrı kaydedilmelidir.
+- Pattern üzerinden tahmin edilen statı doğrulanmış kaynak gibi işaretleme; eksik alanı komşu eşyadan sessizce kopyalama veya veri uydurma yasaktır.
+- Kullanıcıdan manuel ekran görüntüsü yalnız web kaynakları yetersizse, erişilemiyorsa, gerçekten çelişiyorsa veya sürüme özgü güncel doğrulama gerekiyorsa istenir.
+
 ## Değişiklik disiplini
 
 - Büyük değişikliklerden önce mevcut testleri çalıştır ve başlangıç durumunu kaydet.

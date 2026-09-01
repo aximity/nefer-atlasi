@@ -30,7 +30,7 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 
 - [x] Canonical sayıları koruyan stat storage-scale, güvenli formatter ve calculation compatibility temelini kur.
 - [ ] `raw_game_value`, `scaled_1000`, `scaled_10000` ve `puan` için exact oyun içi display dönüşümlerini kaynak kanıtıyla belirle.
-- [ ] REC-024 conflicted kayıt analizi.
+- [x] REC-024 conflicted kayıtlarını batch web araştırması, contribution provenance, hesap ve validator testleriyle çöz.
 - [ ] REC-030 Nefer Atlası kimlik/metadata uyumu.
 - [ ] CI kurulumu.
 
@@ -75,7 +75,7 @@ Aktif P0 bulunmuyor. Yeni bir P0 ancak uygulamayı, veri bütünlüğünü veya 
 
 - [x] Tahmini dönüşüm yapmayan stat scale/formatlama sözleşmesini ve uyumsuz toplam korumasını oluştur.
 - [ ] `raw_game_value`, `scaled_1000`, `scaled_10000` ve `puan` için exact normalize/display formüllerini kaynakla doğrula; yalnız kanıtlanan UI değerlerini testle sabitle.
-- [ ] 11 `CONFLICTED` eşya/stat kaydını alan bazında incele; kanıt bulunmadan statüyü yükseltme.
+- [x] 11 `CONFLICTED` eşya/stat kaydını Fandom, resmî İKV ve destekleyici arşivlerle çöz; aynı-stat katkılarını ayrı canonical satırlarda koru.
 - [ ] Uygulama, package ve metadata kimliğini Nefer Atlası kararıyla hizala; eski ChatGPT Sites domainini kontrollü biçimde kaldır veya güncelle.
 - [ ] GitHub CI kur: temiz install, veri validatorü, lint, unit testler, production build ve rendered-HTML testi zorunlu kapı olsun.
 - [ ] Tek kaynaklı veriler için kullanıcıya dönük `SINGLE_SOURCE` ifadesini ve riskini açıklaştır.

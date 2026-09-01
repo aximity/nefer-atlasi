@@ -58,6 +58,16 @@
 - Kural: Doğrudan ve sayısal özellik çarpanları hesaplanır. Süre, bekleme, koşullu kontrol ve kaynak tüketimi etkileri ayrı durum modeli kurulana kadar yalnız araştırma kapsamındadır.
 - Kaynaklar: https://istanbuloyun.com/BuyukHolWarrior.aspx, https://istanbuloyun.com/BuyukHolMage.aspx, https://istanbuloyun.com/BuyukHolHealer.aspx
 
+## 2026-09-01 — REC-024 aynı-stat katkıları
+
+- Kapsam: Taş Kanat Ceket; Kıyamet, Sıfır Kelvin, Transformatör ve Cehennem ceket/amplifikatörleri; Mevlana Ceket ve Asa.
+- Fandom kaynakları: sınıf bazlı Savaşçı, Büyücü ve Şifacı Çemberlitaş Eşyaları sayfaları.
+- Resmî kaynaklar: Çemberlitaş Savaşçı/Büyücü Eşyaları sayfaları ve Mevlana Asa için Şifacı Silah Yükseltme tablosu.
+- Destekleyici arşiv: MaxiGame Çemberlitaş Şaheserlerinin Reçete Detayları.
+- Bulgu: İlgili satırlar iki farklı değer değil, aynı attribute'un kaynakta ayrı ayrı listelenmiş iki katkısıdır. Mevlana Asa resmî yükseltme tablosunda iki ayrı `383 → 766` satırıyla ayrıca doğrulanır.
+- Veri kararı: İki katkı keyfi birleştirilmeden ayrı canonical stat satırlarında tutulur. Taş Kanat Ceket için kaynaksız Savunma 13.760 ile sekiz Büyücü ceket/amplifikatör ve Mevlana Ceket için kaynaksız Maksimum Kudret 220.000 türetmeleri kaldırılır.
+- Güven: Mevlana Ceket `medium`; diğer 10 eşya `high`. Kaynakların bağımsızlığı kesin olmadığı için hiçbir REC-024 statı `cross_verified` yapılmaz.
+
 ## Araştırma kuyruğu
 
 - [ ] Savaşçı, Büyücü ve Şifacı yetenek adları ile puan bazlı etkileri için oyun içi tooltip veya güvenilir arşiv kanıtı

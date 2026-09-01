@@ -4,6 +4,8 @@ Bu dosya yalnız mevcut Git geçmişi veya çalışma ağacındaki gerçek deği
 
 ## [Unreleased]
 
+- REC-024 kapsamındaki 11 conflicted eşya web kanıtıyla çözüldü: kaynakta ayrı satırlar halinde bulunan aynı-stat katkıları provenance ile korundu, kanıtsız Savunma/Maksimum Kudret türetmeleri kaldırıldı ve uyumlu katkıların hesap toplamları validator/testlerle güvenceye alındı.
+- Kalıcı Research & Source Protocol; Fandom öncelikli batch araştırma, bağımsızlık kontrolü, inference ayrımı ve kullanıcı kanıtını son aşama yapan kurallarla proje sözleşmesine ve veri politikasına eklendi.
 - Canonical stat sayılarını değiştirmeyen merkezi storage-scale/formatlama sözleşmesi eklendi; uyumsuz veya bilinmeyen scale toplamları build ve tılsım akışında güvenli biçimde bloke edildi. Exact stat dönüşüm formülleri tamamlanmış kabul edilmedi.
 - Stat scale sözleşmesi validator'a ve gerçek davranış testlerine bağlandı; kullanıcı arayüzü kanıtlanmamış dönüşümlerde teknik scale adı veya tahmini birim göstermiyor.
 - Recovery Manifest v1, 30 tarihsel kayıt ve sıfır `RECOVERED` maddeyle oluşturuldu; bu kayıtlar mevcut ürün özelliği kabul edilmedi.

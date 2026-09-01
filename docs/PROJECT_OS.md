@@ -5,7 +5,7 @@ Bu klasör projenin ikinci beynidir. Kod ne yaptığımızı, bu belgeler neden 
 ## Her oturumun çalışma döngüsü
 
 1. `ROADMAP.md` içinden tek bir aktif çıktı seç.
-2. İlgili iddia için kaynak bul; önce resmi kaynak, sonra bağımsız topluluk arşivi.
+2. İlgili iddia için önce İKV Fandom kategori/liste sayfalarında batch araştırma yap; ardından resmî İKV kaynakları ve bağımsız topluluk arşivleriyle cross-check et.
 3. Bulguyu `RESEARCH_LOG.md` içine kaynak, tarih ve güven seviyesiyle yaz.
 4. Çelişki varsa veri ekleme; `DATA_QUALITY.md` kuyruğuna taşı.
 5. Uygula; kod ve veri değişikliklerini birbirinden ayır.
@@ -28,6 +28,9 @@ Bu klasör projenin ikinci beynidir. Kod ne yaptığımızı, bu belgeler neden 
 - Görsel, eşya adıyla aynı kanıtta görülmeden eşya kaydına bağlanmaz.
 - Kullanım ve başarı sıralaması yalnız gerçek olay verisiyle açılır.
 - Her tamamlandı iddiası yeni doğrulama çıktısına dayanır.
+- Araştırma `DISCOVER → BATCH COLLECT → CROSS-CHECK → RECONCILE → EVIDENCE → VALIDATE` akışını izler; kullanıcı ekran görüntüsü web kanıtı yetersiz kaldığında istenir.
+- Arama snippet'i, kopyalanmış kaynak metni veya komşu eşya deseni tek başına bağımsız doğrulama değildir.
+- Doğrudan kaynak bilgisi ile inference ayrı tutulur; eksik alan sessizce türetilmez.
 
 ## Haftalık ritim
 

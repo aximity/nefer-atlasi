@@ -119,16 +119,30 @@ test("yayımlanan temel eşya alanlarının tarihli ve kaynaklı kanıtı vardı
   }
 });
 
-test("çelişkili özellikler yayımlanabilir özellik toplamına girmez", () => {
-  const conflicted = stats.filter(
-    (stat) => stat.verificationStatus === "conflicted",
-  );
-  assert.ok(conflicted.length > 0, "beklenen çelişkili denetim örneği yok");
-  assert.ok(
-    conflicted.every(
-      (stat) => !publishableStatuses.has(stat.verificationStatus),
-    ),
-  );
+test("REC-024 aynı-stat katkıları ayrı canonical satır ve provenance ile korunur", () => {
+  const groups = new Map();
+  for (const stat of stats) {
+    if (!stat.contributionGroup) continue;
+    groups.set(stat.contributionGroup, [...(groups.get(stat.contributionGroup) ?? []), stat]);
+  }
+  assert.equal(groups.size, 11);
+  assert.equal(stats.filter((stat) => stat.verificationStatus === "conflicted").length, 0);
+  for (const rows of groups.values()) {
+    assert.equal(rows.length, 2);
+    assert.deepEqual(rows.map((row) => row.contributionIndex).sort(), [1, 2]);
+    assert.equal(new Set(rows.map((row) => row.attribute)).size, 1);
+    assert.equal(new Set(rows.map((row) => row.unit)).size, 1);
+    assert.ok(rows.every((row) => publishableStatuses.has(row.verificationStatus)));
+    for (const row of rows) {
+      assert.ok(row.evidenceIds.length >= 2);
+      assert.ok(row.evidenceIds.every((id) => evidence.some((claim) => claim.id === id)));
+    }
+  }
+  assert.equal(groups.get("mevlana-ceket-iyilestirme-buyuleri").every((row) => row.confidence === "medium"), true);
+  assert.equal([...groups.values()].flat().filter((row) => row.confidence === "high").length, 20);
+  assert.equal(stats.some((stat) => stat.id === "stat-tas-kanat-ceket-savunma"), false);
+  assert.equal(stats.some((stat) => /(?:ceket|amplifikatoru?)-maksimum-kudret$/.test(stat.id) && ["kiyamet","sifir-kelvin","transformator","cehennem"].some((family) => stat.id.includes(family))), false);
+  assert.equal(stats.some((stat) => stat.id === "stat-mevlana-ceket-maksimum-kudret"), false);
 });
 
 test("reçeteler pozitif miktarlı parça satırlarına ve bir kaynağa bağlıdır", () => {

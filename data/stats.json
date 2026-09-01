@@ -168,16 +168,24 @@
     "value": 477000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "tas-kanat-ceket-maksimum-enerji",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-fandom", "ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-official", "ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-tas-kanat-ceket-savunma",
+    "id": "stat-tas-kanat-ceket-maksimum-enerji-contribution-2",
     "itemId": "tas-kanat-ceket",
-    "attribute": "Savunma",
-    "value": 13760,
+    "attribute": "Maksimum Enerji",
+    "value": 477000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "tas-kanat-ceket-maksimum-enerji",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-fandom", "ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-official", "ev-stat-tas-kanat-ceket-maksimum-enerji-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-tas-kanat-ceket-kritik-zirhi",
@@ -581,17 +589,25 @@
     "attribute": "Büyü Hasarı (Fiziksel)",
     "value": 150000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "kiyamet-ceket-buyu-hasari-fiziksel",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-fandom", "ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-official", "ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-kiyamet-ceket-maksimum-kudret",
+    "id": "stat-kiyamet-ceket-buyu-hasari-fiziksel-contribution-2",
     "itemId": "kiyamet-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "Büyü Hasarı (Fiziksel)",
+    "value": 150000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "kiyamet-ceket-buyu-hasari-fiziksel",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-fandom", "ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-official", "ev-stat-kiyamet-ceket-buyu-hasari-fiziksel-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-kiyamet-ceket-buyu-kritik-sansi",
@@ -689,17 +705,25 @@
     "attribute": "Büyü Hasarı (Fiziksel)",
     "value": 150000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "kiyamet-amplifikatoru-buyu-hasari-fiziksel",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-fandom", "ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-official", "ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-kiyamet-amplifikatoru-maksimum-kudret",
+    "id": "stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contribution-2",
     "itemId": "kiyamet-amplifikatoru",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "Büyü Hasarı (Fiziksel)",
+    "value": 150000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "kiyamet-amplifikatoru-buyu-hasari-fiziksel",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-fandom", "ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-official", "ev-stat-kiyamet-amplifikatoru-buyu-hasari-fiziksel-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-kiyamet-amplifikatoru-buyu-kritik-sansi",
@@ -752,17 +776,25 @@
     "attribute": "Büyü Hasarı (Buz)",
     "value": 150000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "sifir-kelvin-ceket-buyu-hasari-buz",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-fandom", "ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-official", "ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-sifir-kelvin-ceket-maksimum-kudret",
+    "id": "stat-sifir-kelvin-ceket-buyu-hasari-buz-contribution-2",
     "itemId": "sifir-kelvin-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "Büyü Hasarı (Buz)",
+    "value": 150000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "sifir-kelvin-ceket-buyu-hasari-buz",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-fandom", "ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-official", "ev-stat-sifir-kelvin-ceket-buyu-hasari-buz-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-sifir-kelvin-ceket-buyu-kritik-sansi",
@@ -860,17 +892,25 @@
     "attribute": "Büyü Hasarı (Buz)",
     "value": 150000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "sifir-kelvin-amplifikator-buyu-hasari-buz",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-fandom", "ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-official", "ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-sifir-kelvin-amplifikator-maksimum-kudret",
+    "id": "stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contribution-2",
     "itemId": "sifir-kelvin-amplifikator",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "Büyü Hasarı (Buz)",
+    "value": 150000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "sifir-kelvin-amplifikator-buyu-hasari-buz",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-fandom", "ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-official", "ev-stat-sifir-kelvin-amplifikator-buyu-hasari-buz-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-sifir-kelvin-amplifikator-buyu-kritik-sansi",
@@ -923,17 +963,25 @@
     "attribute": "Büyü Hasarı (Elektrik)",
     "value": 150000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "transformator-ceket-buyu-hasari-elektrik",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-fandom", "ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-official", "ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-transformator-ceket-maksimum-kudret",
+    "id": "stat-transformator-ceket-buyu-hasari-elektrik-contribution-2",
     "itemId": "transformator-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "Büyü Hasarı (Elektrik)",
+    "value": 150000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "transformator-ceket-buyu-hasari-elektrik",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-fandom", "ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-official", "ev-stat-transformator-ceket-buyu-hasari-elektrik-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-transformator-ceket-buyu-kritik-sansi",
@@ -1031,17 +1079,25 @@
     "attribute": "Büyü Hasarı (Elektrik)",
     "value": 150000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "transformator-amplifikator-buyu-hasari-elektrik",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-fandom", "ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-official", "ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-transformator-amplifikator-maksimum-kudret",
+    "id": "stat-transformator-amplifikator-buyu-hasari-elektrik-contribution-2",
     "itemId": "transformator-amplifikator",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "Büyü Hasarı (Elektrik)",
+    "value": 150000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "transformator-amplifikator-buyu-hasari-elektrik",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-fandom", "ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-official", "ev-stat-transformator-amplifikator-buyu-hasari-elektrik-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-transformator-amplifikator-buyu-kritik-sansi",
@@ -1094,17 +1150,25 @@
     "attribute": "Büyü Hasarı (Ateş)",
     "value": 150000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "cehennem-ceket-buyu-hasari-ates",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-fandom", "ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-official", "ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-cehennem-ceket-maksimum-kudret",
+    "id": "stat-cehennem-ceket-buyu-hasari-ates-contribution-2",
     "itemId": "cehennem-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "Büyü Hasarı (Ateş)",
+    "value": 150000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "cehennem-ceket-buyu-hasari-ates",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-fandom", "ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-official", "ev-stat-cehennem-ceket-buyu-hasari-ates-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-cehennem-ceket-buyu-kritik-sansi",
@@ -1202,17 +1266,25 @@
     "attribute": "Büyü Hasarı (Ateş)",
     "value": 150000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "cehennem-amplifikator-buyu-hasari-ates",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-fandom", "ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-official", "ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-forum"],
+    "confidence": "high"
   },
   {
-    "id": "stat-cehennem-amplifikator-maksimum-kudret",
+    "id": "stat-cehennem-amplifikator-buyu-hasari-ates-contribution-2",
     "itemId": "cehennem-amplifikator",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "Büyü Hasarı (Ateş)",
+    "value": 150000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "cehennem-amplifikator-buyu-hasari-ates",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-fandom", "ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-official", "ev-stat-cehennem-amplifikator-buyu-hasari-ates-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-cehennem-amplifikator-buyu-kritik-sansi",
@@ -1427,17 +1499,25 @@
     "attribute": "İyileştirme Büyüleri",
     "value": 224000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "mevlana-ceket-iyilestirme-buyuleri",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-mevlana-ceket-iyilestirme-buyuleri-contributions-fandom", "ev-stat-mevlana-ceket-iyilestirme-buyuleri-contributions-forum"],
+    "confidence": "medium"
   },
   {
-    "id": "stat-mevlana-ceket-maksimum-kudret",
+    "id": "stat-mevlana-ceket-iyilestirme-buyuleri-contribution-2",
     "itemId": "mevlana-ceket",
-    "attribute": "Maksimum Kudret",
-    "value": 220000,
+    "attribute": "İyileştirme Büyüleri",
+    "value": 224000,
     "unit": "raw_game_value",
     "verificationStatus": "single_source",
-    "lastChecked": "2026-08-22"
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "mevlana-ceket-iyilestirme-buyuleri",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-mevlana-ceket-iyilestirme-buyuleri-contributions-fandom", "ev-stat-mevlana-ceket-iyilestirme-buyuleri-contributions-forum"],
+    "confidence": "medium"
   },
   {
     "id": "stat-mevlana-ceket-buyu-kritik-sansi",
@@ -1562,8 +1642,25 @@
     "attribute": "İyileştirme Büyüleri",
     "value": 383000,
     "unit": "raw_game_value",
-    "verificationStatus": "conflicted",
-    "lastChecked": "2026-08-22"
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "mevlana-asa-iyilestirme-buyuleri",
+    "contributionIndex": 1,
+    "evidenceIds": ["ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-fandom", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-official", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-forum"],
+    "confidence": "high"
+  },
+  {
+    "id": "stat-mevlana-asa-iyilestirme-buyuleri-contribution-2",
+    "itemId": "mevlana-asa",
+    "attribute": "İyileştirme Büyüleri",
+    "value": 383000,
+    "unit": "raw_game_value",
+    "verificationStatus": "single_source",
+    "lastChecked": "2026-09-01",
+    "contributionGroup": "mevlana-asa-iyilestirme-buyuleri",
+    "contributionIndex": 2,
+    "evidenceIds": ["ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-fandom", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-official", "ev-stat-mevlana-asa-iyilestirme-buyuleri-contributions-forum"],
+    "confidence": "high"
   },
   {
     "id": "stat-mevlana-asa-buyu-kritik-sansi",
