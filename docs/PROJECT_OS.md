@@ -31,6 +31,8 @@ Bu klasör projenin ikinci beynidir. Kod ne yaptığımızı, bu belgeler neden 
 - Araştırma `DISCOVER → BATCH COLLECT → CROSS-CHECK → RECONCILE → EVIDENCE → VALIDATE` akışını izler; kullanıcı ekran görüntüsü web kanıtı yetersiz kaldığında istenir.
 - Arama snippet'i, kopyalanmış kaynak metni veya komşu eşya deseni tek başına bağımsız doğrulama değildir.
 - Doğrudan kaynak bilgisi ile inference ayrı tutulur; eksik alan sessizce türetilmez.
+- Discord resmî güncellemeleri `ingest → structured claims → permanence → canonical comparison → cross-check → evidence → validation → manual review` akışını izler; mesaj gelişi canonical uygulama yetkisi vermez.
+- Discord intake bağlantısı yalnız normalize payload sınırını kullanır; bot tokenı, kullanıcı profili ve Discord auth ayrıntıları araştırma/canonical katmanına taşınmaz.
 
 ## Haftalık ritim
 

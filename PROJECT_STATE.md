@@ -45,12 +45,12 @@ Son güncelleme: 2026-09-01
 | `npm ci` | PASS | Kurulum tamamlandı; `@esbuild-kit/esm-loader` için deprecated transitive dependency uyarısı verdi. |
 | `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 reçete, 910 kanıt, 179 tılsım, 167 ham efsun satırı, 45 yetenek, 1 yükseltme, 4 materyal edinimi, 3 tılsım edinim kuralı ve 1 oyun mekaniği kuralı. |
 | `npm run lint` | PASS | ESLint hata üretmedi. |
-| `npm run test:unit` | PASS | 38/38 geçti; 0 fail, 0 skipped. |
+| `npm run test:unit` | PASS | 43/43 geçti; 0 fail, 0 skipped. |
 | `npm run build` | PASS | Vinext'in beş build aşaması tamamlandı. `/` rotası için statik sınıflandırma uyarısı var. |
 | Rendered HTML testi | PASS | 1/1 geçti. |
-| `npm test` birleşik kapısı | PASS | Validator, 38 unit test, build ve 1 rendered test birlikte geçti. |
+| `npm test` birleşik kapısı | PASS | Validator, 43 unit test, build ve 1 rendered test birlikte geçti. |
 
-Toplam bağımsız test: **39**. Bu sayı 38 unit + 1 rendered-HTML testinden oluşur.
+Toplam bağımsız test: **44**. Bu sayı 43 unit + 1 rendered-HTML testinden oluşur.
 
 ## Working Modules
 
@@ -71,6 +71,7 @@ Toplam bağımsız test: **39**. Bu sayı 38 unit + 1 rendered-HTML testinden ol
 - Efsun çözümleyici: resolver ve testleri vardır; `EnchantAnalyzer` ana kullanıcı akışına bağlı değildir.
 - Stat değer altyapısı: canonical ham sayıları korur, desteklenen storage scale sözleşmesini doğrular ve aynı attribute içindeki uyumsuz/bilinmeyen scale değerlerini build ile tılsım hesabından güvenli biçimde dışlar. Exact `scaled_1000` / `scaled_10000` display dönüşümü henüz doğrulanmamıştır.
 - Veri foundation: Mevlana Asa için base/upgraded state ayrımı, dört kaynaklandırılmış materyal edinimi, kapsamı genellenmeyen üç tılsım edinim kuralı ve resmî Mavi Gazap/İyileştirme kuralı modellenmiştir; henüz ayrı kullanıcı arayüzüne bağlı değildir.
+- Discord update intake foundation: `DISCORD_OFFICIAL_UPDATE` provenance, çoklu claim ayrıştırma, kalıcılık/durum sözleşmesi ve duplicate koruması canonical veriden ayrı modellenmiştir. Gerçek Discord bot bağlantısı, kalıcı queue adapterı ve canonical application akışı henüz yoktur.
 
 ## Not Found in Current Code
 

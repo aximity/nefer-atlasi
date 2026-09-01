@@ -4,6 +4,7 @@ Bu dosya yalnız mevcut Git geçmişi veya çalışma ağacındaki gerçek deği
 
 ## [Unreleased]
 
+- Canonical veriden ayrı `DISCORD_OFFICIAL_UPDATE` intake foundation eklendi: normalize adapter, çoklu claim/kalıcılık modeli, `guild/channel/messageId` duplicate koruması, review kapısı ve güvenlik protokolü davranış testleriyle tanımlandı; gerçek Discord bağlantısı eklenmedi.
 - Mevlana Asa kullanıcı tooltipi `USER_GAME_EVIDENCE` provenance ile canonical base statlara bağlandı; kaynaklandırılmış base/upgraded state modeli genel çarpan türetmeden dört upgrade contribution'ını koruyor.
 - Xenotim, Peptit Klorotoksin, Örümcek Salgısı ve Safran için `SINGLE_SOURCE` edinim kayıtları; kapsamı genellenmeyen tılsım edinim kuralları ve resmî Mavi Gazap/İyileştirme `%50` kuralı validator/testlerle eklendi.
 - `main` push ve pull request'lerde Node.js 22, temiz `npm ci`, lint ve birleşik veri/test/build/rendered-HTML kapısını çalıştıran GitHub Actions CI workflow'u eklendi.

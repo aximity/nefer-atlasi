@@ -37,6 +37,9 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 
 ### Phase 2 — Existing systems completion
 
+- [x] Discord resmî güncelleme intake sözleşmesini, normalize adapter sınırını, duplicate korumasını ve review-gated claim parserını kur.
+- [ ] Bot application oluşturup minimum izinlerle salt-okunur Discord bağlantı adapterını ayrı görevde ekle; tokenı deployment secret üzerinden sağla.
+- [ ] Intake kayıtları için kalıcı storage adapterı ve insan review arayüzü tasarla; canonical application ayrı ve explicit kalsın.
 - [ ] REC-003 Gönül edinim modeli.
 - [ ] REC-004 reçete/üretim çekirdeği.
 - [ ] REC-021 dahili tılsım reçete navigasyonu.

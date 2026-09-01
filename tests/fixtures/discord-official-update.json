@@ -1,0 +1,12 @@
+{
+  "fixtureKind": "USER_PROVIDED_SUMMARY",
+  "guildId": "fixture-guild",
+  "guildName": "Kıyametin Öncüleri",
+  "channelId": "fixture-updates",
+  "channelName": "güncellemeler",
+  "id": "fixture-message-001",
+  "publishedAt": "2026-09-01T00:00:00.000Z",
+  "sourceUrl": null,
+  "rawText": "Mağazada %20 indirim başladı.\nAl Sancak kampanyası başladı.\nSistem mesajı bug fix ile düzeltildi.\nGaffar + Semiha mekaniği kalıcıdır.\nAntrepo PvP kapalı.\nBaşlangıç Paketi +5 yetenek davranışı kalıcıdır.\nRuh Kalkanı Saklı Irklar dropu olarak duyuruldu.",
+  "attachments": []
+}

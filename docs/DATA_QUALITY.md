@@ -27,6 +27,14 @@ Kaynak sırası: İKV Fandom → resmî İKV kaynakları → bağımsız forum/a
 - Fandom'da bulunmayan bilgi otomatik olarak yanlış değildir. Tek kaynak `single_source`, iki bağımsız güvenilir ve uyuşan kaynak `cross_verified`, gerçek uyuşmazlık `conflicted` olarak kalır.
 - Manuel kullanıcı kanıtı ancak web araştırması yetersiz, erişilemez, gerçekten çelişkili veya sürüme özgü olduğunda istenir.
 
+## Discord update evidence
+
+- `DISCORD_OFFICIAL_UPDATE`, canonical veri değil araştırma/evidence intake kaynak türüdür.
+- Mesaj ve claim durumları canonical doğruluk statülerinden ayrıdır; `INGESTED` veya `PARSED`, bilginin doğrulandığı anlamına gelmez.
+- Her claim `PERMANENT`, `TEMPORARY` veya `UNKNOWN` kalıcılık sınıfı taşır. Geçici mağaza indirimi veya etkinlik kalıcı oyun kuralına uygulanamaz.
+- Claim ancak canonical karşılaştırma, gerekirse web cross-check, evidence kaydı, validation ve manuel review sonrasında `APPLIED` yapılabilir.
+- Duplicate kimliği `guild/channel/messageId` üçlüsüdür; gereksiz kullanıcı verisi provenance'a alınmaz.
+
 ## Açık sorunlar
 
 - REC-024 araştırması, 11 eşyanın aynı-stat satırlarının Fandom ve erişilebilen resmî İKV sayfalarında ayrı katkılar olarak tekrarlandığını doğruladı; bu katkılar artık ayrı canonical satırlarda tutuluyor.

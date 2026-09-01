@@ -49,6 +49,18 @@ Araştırma ve kanıt kuralları:
 - Pattern üzerinden tahmin edilen statı doğrulanmış kaynak gibi işaretleme; eksik alanı komşu eşyadan sessizce kopyalama veya veri uydurma yasaktır.
 - Kullanıcıdan manuel ekran görüntüsü yalnız web kaynakları yetersizse, erişilemiyorsa, gerçekten çelişiyorsa veya sürüme özgü güncel doğrulama gerekiyorsa istenir.
 
+### Discord resmî güncelleme intake protokolü
+
+`DISCORD_OFFICIAL_UPDATE` kaynakları şu kapılardan geçer: `Discord update → ingest → structured claims → permanent/temporary classification → existing canonical data comparison → gerektiğinde Fandom/resmî web cross-check → evidence → validation → manual/review gate → canonical application`.
+
+- Discord mesajı canonical veriyi doğrudan değiştiremez ve yalnız geldiği için `APPLIED` yapılamaz.
+- Bir mesaj birden fazla bağımsız claim üretebilir; claim provenance'ı guild, channel, message ID, yayın zamanı, permalink, ham metin, sınırlı attachment metadata ve ingestion zamanını korur.
+- Gereksiz kullanıcı/üye verisi, Discord tokenı veya kimlik bilgisi saklanmaz. User token ve self-bot desteklenmez.
+- `TEMPORARY` kampanya/event bilgisi kalıcı oyun kuralına çevrilemez; kalıcılığı kanıtlanmayan claim `UNKNOWN` kalır.
+- Aynı `guild/channel/messageId` yeniden geldiğinde duplicate evidence veya claim üretilmez.
+- Gerçek bot yalnız normalize edilmiş mesaj payload'unu intake adapter sınırına verir; Discord bağlantı/auth kodu canonical oyun veri mantığına bağlanmaz.
+- Canonical application yalnız kaynak karşılaştırması, uygun veri güven statüsü, validator ve insan inceleme kapısı sonrasında ayrı bir işlem olarak yapılabilir.
+
 ## Değişiklik disiplini
 
 - Büyük değişikliklerden önce mevcut testleri çalıştır ve başlangıç durumunu kaydet.
