@@ -6,10 +6,22 @@ Son güncelleme: 2026-09-01
 
 - Ana kaynak: `https://github.com/aximity/nefer-atlasi`
 - Branch: `main`
-- Baseline commit: `903f097d5c140127a3215457814dd3fed029ae50`
-- Commit mesajı: `Cemberlitas ganimetlerini grup bolgelerine ekle`
-- Recovery sonucu: Yerel makinede bu commit'ten daha yeni veya daha kapsamlı kaynak kod bulunmadı.
+- Code baseline commit: `068af74088dd7eb323717d93f48072e2b3aac703`
+- Commit mesajı: `chore: establish Nefer Atlasi project baseline`
+- Ürün kaynak snapshot'ı: `903f097d5c140127a3215457814dd3fed029ae50` (`Cemberlitas ganimetlerini grup bolgelerine ekle`).
+- Recovery sonucu: Yerel makinede ürün kaynak snapshot'ından daha yeni veya daha kapsamlı kaynak kod bulunmadı; `068af74` proje hafızası baseline'ını ekler.
 - Eski ChatGPT çalışma geçmişindeki ek özellik iddiaları mevcut kod kabul edilmez; yalnız recovery backlog olarak izlenir.
+
+## Recovery Status
+
+- Code baseline: `068af74088dd7eb323717d93f48072e2b3aac703`.
+- Recovery Manifest v1: 30 kayıt.
+- `RECOVERED`: 0.
+- Eski ChatGPT Çalışması'nda bu baseline'dan daha ileri geliştirme geçmişi bulunduğu kullanıcı tarafından bildirildi.
+- Bu geliştirmelerin kaynak kodu mevcut GitHub repository'sinde bulunmuyor.
+- Historical özellikler ve eski çalışma geçmişindeki bir “tamamlandı” iddiası, mevcut GitHub davranışı veya uygulanmış/doğrulanmış özellik kanıtı değildir.
+- `RECOVERY_MANIFEST.md`, bu çalışmaların kanıtlarla çıkarılması, sınıflandırılması ve kontrollü biçimde yeniden kazanılması için ana kayıttır.
+- Recovery maddeleri gerekli uygulama ve doğrulama kapılarından geçmeden `RECOVERED` veya mevcut ürün özelliği kabul edilmez.
 
 ## Stack
 

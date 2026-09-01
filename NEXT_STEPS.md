@@ -14,6 +14,58 @@ Bu dosya yalnız açık ve gerçekten yapılacak işleri içerir. Bir madde kod,
 
 Son doğrulama: 2026-09-01 — 26/26 test, validator PASS, lint PASS, build PASS.
 
+## Recovery Manifest Population
+
+- [x] Recovery Manifest v1 populated: 30 records.
+- [x] Evidence Packs 001–002 içindeki kaynak mesaj, çıktı, kullanıcı testi ve bilinen hata kanıtlarını benzersiz recovery kayıtlarıyla eşleştir.
+- [x] Her kayıt için mevcut GitHub kapsamını ayır; kanıt yetersizse `NEEDS_VERIFICATION` durumunu koru.
+
+Yeni tarihsel kanıt geldikçe manifest genişletilebilir. Bir madde implementasyona alınmadan önce `AGENTS.md` Recovery Protocol uygulanmalıdır.
+
+## Recovery Implementation Order
+
+Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi ortaya çıkarsa `AGENTS.md` kurallarına göre değiştirilebilir.
+
+### Phase 1 — Baseline correctness
+
+- [ ] `raw_game_value` / `scaled_1000` display normalization.
+- [ ] REC-024 conflicted kayıt analizi.
+- [ ] REC-030 Nefer Atlası kimlik/metadata uyumu.
+- [ ] CI kurulumu.
+
+### Phase 2 — Existing systems completion
+
+- [ ] REC-003 Gönül edinim modeli.
+- [ ] REC-004 reçete/üretim çekirdeği.
+- [ ] REC-021 dahili tılsım reçete navigasyonu.
+- [ ] REC-025 malzeme edinim kaynakları.
+- [ ] REC-008 gerçek yetenek kuralları.
+
+### Phase 3 — Lost high-value user features
+
+- [ ] REC-006 görev sistemi.
+- [ ] REC-009 fotoğrafla malzeme tanıma.
+- [ ] REC-010 stoktan en yakın üretim önerisi.
+- [ ] REC-007 / REC-026 build önerileri.
+
+### Phase 4 — Content and UX expansion
+
+- [ ] Görsel kapsamı.
+- [ ] REC-013 kaynak tarayıcısı.
+- [ ] REC-014 global arama.
+- [ ] REC-015 UI sadeleştirme.
+- [ ] REC-012 grup bölgesi kapsamı.
+- [ ] REC-005 maden sistemi.
+
+### Phase 5 — Newer product modules
+
+- [ ] REC-011 ticaret.
+- [ ] REC-029 katkı sistemi.
+- [ ] REC-016 admin.
+- [ ] REC-017 analytics.
+- [ ] REC-018 etkinlik/takvim.
+- [ ] REC-019 tier list.
+
 ## P0
 
 Aktif P0 bulunmuyor. Yeni bir P0 ancak uygulamayı, veri bütünlüğünü veya güvenliği ciddi biçimde bozan doğrulanmış bir sorun için açılmalıdır.

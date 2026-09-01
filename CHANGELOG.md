@@ -4,7 +4,10 @@ Bu dosya yalnız mevcut Git geçmişi veya çalışma ağacındaki gerçek deği
 
 ## [Unreleased]
 
-- `903f097` commit'i code baseline olarak kabul edildi.
+- Recovery Manifest v1, 30 tarihsel kayıt ve sıfır `RECOVERED` maddeyle oluşturuldu; bu kayıtlar mevcut ürün özelliği kabul edilmedi.
+- Recovery statü modeli, kanıt sınıflandırması, önceliklendirme, uygulama sırası ve `RECOVERED` kalite kapıları belgelendi.
+- Project State ve Next Steps, `068af74` code baseline sonrası recovery phase için güncellendi.
+- `068af74` commit'i code baseline olarak kabul edildi; ürün kaynak snapshot'ı `903f097` olarak kaydedildi.
 - Temiz dependency kurulumu, veri doğrulama, lint, 25 unit test, production build ve 1 rendered-HTML testi çalıştırıldı.
 - Proje hafızası için `AGENTS.md`, `PROJECT_STATE.md`, `CHANGELOG.md` ve `NEXT_STEPS.md` eklendi.
 - Yerelde bulunmayan eski ChatGPT özellikleri recovery backlog olarak ayrıldı.

@@ -34,7 +34,31 @@ Bu repository, Nefer Atlası'nın kod için ana gerçeklik kaynağıdır. Çalı
 - `PROJECT_STATE.md`, mevcut ürün durumunun ana özetidir.
 - `CHANGELOG.md`, Git geçmişinden veya gerçek değişikliklerden doğrulanabilen geçmişi tutar.
 - `NEXT_STEPS.md`, yalnız gerçekten yapılacak açık işleri ve recovery backlog'unu tutar.
+- `RECOVERY_MANIFEST.md`, eski ChatGPT çalışma geçmişi ile code baseline arasındaki kayıp geliştirme iddialarının ana kaydıdır.
 - Eski ChatGPT çalışma geçmişinde yapıldığı söylenen fakat mevcut kodda bulunmayan özellikler `WORKING` değildir; yalnız `RECOVERY BACKLOG` altında tutulur.
+
+## Recovery Protocol
+
+Eski ChatGPT mesajında bir iş için “tamamlandı” yazması tek başına `RECOVERED` kanıtı değildir. Recovery statüleri `RECOVERY_MANIFEST.md` içinde tanımlandığı anlamlarıyla kullanılmalı ve birbirine karıştırılmamalıdır.
+
+Bir recovery maddesi `RECOVERED` yapılmadan önce:
+
+1. Eski davranış veya istek açık şekilde tanımlanmalı.
+2. Mevcut GitHub koduyla çakışma analizi yapılmalı.
+3. Gerekli oyun verisi doğrulanmalı.
+4. Özellik gerçekten uygulanmalı.
+5. Gerçek kullanıcı akışına bağlanmalı.
+6. İlgili testler eklenmeli ve çalıştırılmalı.
+7. Veri etkileniyorsa `npm run validate:data` geçmeli.
+8. `npm run lint` geçmeli.
+9. `npm run build` geçmeli.
+10. Kullanıcı testi gerekiyorsa tamamlanmalı ve sonucu kaydedilmeli.
+11. `PROJECT_STATE.md` güncellenmeli.
+12. `CHANGELOG.md` güncellenmeli.
+13. `NEXT_STEPS.md` güncellenmeli.
+14. Ancak bütün gerekli kapılar kanıtlandıktan sonra recovery statüsü `RECOVERED` yapılmalı.
+
+Kanıt eksikse ayrıntı uydurma; maddeyi `NEEDS_VERIFICATION` durumunda tut. Recovery çalışması mevcut çalışan özelliği sessizce değiştiremez veya doğrulanmamış oyun verisini gerçekmiş gibi yayınlayamaz.
 
 ## Context Health Protocol
 
@@ -46,4 +70,14 @@ Her büyük geliştirme milestone'u sonunda:
 4. Gerçek test, validation, lint ve build sonuçlarını kaydet.
 5. `git status` ile çalışma ağacını kontrol et.
 
-ChatGPT/Codex çalışma oturumu aşırı büyürse yeni oturuma geçmek güvenli olmalıdır; proje durumu bu repository ve hafıza dosyalarından yeniden kurulabilmelidir. Gerçek context kapasitesi ölçülemiyorsa token veya context yüzdesi verme ve ölçtüğünü iddia etme.
+ChatGPT/Codex çalışma oturumu aşırı büyürse yeni oturuma geçmek güvenli olmalıdır. Context durumunu doğrudan ölçebilen güvenilir bir mekanizma yoksa token/context yüzdesi veya sahte eşik raporlama ve ölçtüğünü iddia etme.
+
+Context health değerlendirmesi yalnız şu operasyonel sinyalleri kullanabilir:
+
+- Tekrar eden bağlam kaybı.
+- Çok uzun geçmiş bağımlılığı.
+- Tool veya network hatalarının artması.
+- Eski kararların yeniden açıklanma ihtiyacı.
+- `PROJECT_STATE.md` ile konuşma arasında drift oluşması.
+
+Bu sinyaller tek başına “context doldu” kanıtı değildir. Yeni oturuma geçiş gerektiğinde çalışma `PROJECT_STATE.md`, `NEXT_STEPS.md`, `RECOVERY_MANIFEST.md` ve son Git commit üzerinden güvenli biçimde sürdürülebilmelidir.
