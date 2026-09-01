@@ -43,12 +43,12 @@ Son güncelleme: 2026-09-01
 | `npm ci` | PASS | Kurulum tamamlandı; `@esbuild-kit/esm-loader` için deprecated transitive dependency uyarısı verdi. |
 | `npm run validate:data` | PASS | 129 eşya, 236 özellik, 67 reçete, 886 kanıt, 179 tılsım, 167 ham efsun satırı, 45 yetenek. |
 | `npm run lint` | PASS | ESLint hata üretmedi. |
-| `npm run test:unit` | PASS | 25/25 geçti; 0 fail, 0 skipped. |
+| `npm run test:unit` | PASS | 32/32 geçti; 0 fail, 0 skipped. |
 | `npm run build` | PASS | Vinext'in beş build aşaması tamamlandı. `/` rotası için statik sınıflandırma uyarısı var. |
 | Rendered HTML testi | PASS | 1/1 geçti. |
-| `npm test` birleşik kapısı | PASS | Validator, 25 unit test, build ve 1 rendered test birlikte geçti. |
+| `npm test` birleşik kapısı | PASS | Validator, 32 unit test, build ve 1 rendered test birlikte geçti. |
 
-Toplam bağımsız test: **26**. Bu sayı 25 unit + 1 rendered-HTML testinden oluşur.
+Toplam bağımsız test: **33**. Bu sayı 32 unit + 1 rendered-HTML testinden oluşur.
 
 ## Working Modules
 
@@ -67,6 +67,7 @@ Toplam bağımsız test: **26**. Bu sayı 25 unit + 1 rendered-HTML testinden ol
 - Öneriler: kanıtlı stat adlarıyla hedef eşleşmesi yapar; meta, kullanım veya başarı oranı önerisi değildir.
 - Kaynaklar: item/evidence akışına bağlıdır; ayrı kaynak tarayıcısı yoktur.
 - Efsun çözümleyici: resolver ve testleri vardır; `EnchantAnalyzer` ana kullanıcı akışına bağlı değildir.
+- Stat değer altyapısı: canonical ham sayıları korur, desteklenen storage scale sözleşmesini doğrular ve aynı attribute içindeki uyumsuz/bilinmeyen scale değerlerini build ile tılsım hesabından güvenli biçimde dışlar. Exact `scaled_1000` / `scaled_10000` display dönüşümü henüz doğrulanmamıştır.
 
 ## Not Found in Current Code
 
@@ -102,7 +103,7 @@ Toplam bağımsız test: **26**. Bu sayı 25 unit + 1 rendered-HTML testinden ol
 
 ## Known P1 Issues
 
-- `raw_game_value` ve `scaled_1000` değerleri kullanıcı ölçeğine dönüştürülmeden UI'da gösteriliyor.
+- `raw_game_value`, `scaled_1000`, `scaled_10000` ve `puan` için exact oyun içi display dönüşümleri doğrulanmamış durumda. Güvenli formatter tahmini dönüşüm yapmaz; kanıtlanmamış scaled değerlerde ve uyumsuz toplamda “Doğrulama gerekiyor” gösterir.
 - 11 conflicted eşya/stat kaydı çözülmemiş durumda.
 - Veri kümesinin büyük bölümü yalnız tek kaynağa dayanıyor.
 - Nefer Atlası repository kimliği ile uygulamadaki `İKV Eşya Rehberi` package, başlık ve eski ChatGPT Sites metadata kimliği uyumsuz.

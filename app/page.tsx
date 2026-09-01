@@ -32,9 +32,13 @@ import {
   encodeBuild,
   sanitizeBuild,
 } from "../lib/build-codec.mjs";
+import {
+  formatStatValue,
+  summarizeCompatibleStats,
+  type StorageScale,
+} from "../lib/stat-values.mjs";
 import AbilitySimulator from "./ability-simulator";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
-  fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n),
   familyNames: Record<string, string> = {
     "bicak-sirti": "Bıçak Sırtı",
     "tas-kanat": "Taş Kanat",
@@ -62,6 +66,23 @@ interface BuildSnapshot {
   wrathBase: boolean;
   wrathCriticalBase: number;
   abilities: Record<AbilityKey, number>;
+}
+function scalesAfterTalisman(
+  scales: Record<string, StorageScale>,
+  talisman: (typeof talismans)[number] | undefined,
+) {
+  const result = { ...scales };
+  if (
+    talisman?.effect === "stat_multiplier" &&
+    "targetAttributes" in talisman &&
+    "outputAttribute" in talisman
+  ) {
+    const targetScales = [...new Set(talisman.targetAttributes.map((name) => scales[name]).filter(Boolean))];
+    if (targetScales.length === 1) result[talisman.outputAttribute] = targetScales[0];
+  } else if (talisman?.effect === "critical_multiplier") {
+    result["Gazap Kritik İhtimali"] = "raw_game_value";
+  }
+  return result;
 }
 const emptyAbilities: Record<AbilityKey, number> = {
     main: 0,
@@ -129,10 +150,11 @@ export default function Home() {
     };
     queueMicrotask(hydrate);
   }, []);
-  const baseTotals = useMemo(
+  const baseCalculation = useMemo(
       () => buildTotals(selection),
       [selection],
-    ) as Record<string, number>,
+    ),
+    baseTotals = baseCalculation.values,
     classTalismans = talismans.filter((t) => t.class === klass),
     tal = classTalismans.find((t) => t.id === talismanId),
     totals = applyTalisman(
@@ -141,6 +163,7 @@ export default function Home() {
       wrathBase,
       wrathCriticalBase,
     ),
+    totalScales = scalesAfterTalisman(baseCalculation.scales, tal),
     score = scoreBuild(selection, primary, secondary),
     payload = {
       klass,
@@ -378,7 +401,11 @@ export default function Home() {
                 </label>
               ))}
             </div>
-            <Totals totals={totals} />
+            <Totals
+              totals={totals}
+              scales={totalScales}
+              incompatible={baseCalculation.incompatible}
+            />
           </div>
         </div>
       </section>
@@ -447,6 +474,8 @@ export default function Home() {
             tal={tal ?? null}
             base={baseTotals}
             totals={totals}
+            scales={totalScales}
+            incompatible={baseCalculation.incompatible}
             baseActive={wrathBase}
             criticalBase={wrathCriticalBase}
           />
@@ -519,7 +548,15 @@ export default function Home() {
     </main>
   );
 }
-function Totals({ totals }: { totals: Record<string, number> }) {
+function Totals({
+  totals,
+  scales,
+  incompatible,
+}: {
+  totals: Record<string, number>;
+  scales: Record<string, StorageScale>;
+  incompatible: string[];
+}) {
   return (
     <div className="mechanics">
       <article>
@@ -527,7 +564,13 @@ function Totals({ totals }: { totals: Record<string, number> }) {
         {Object.entries(totals).map(([name, value]) => (
           <p key={name}>
             <b>{name}</b>
-            {fmt(value)}
+            {formatStatValue({ value, unit: scales[name] ?? "unknown" })}
+          </p>
+        ))}
+        {incompatible.map((name) => (
+          <p key={name}>
+            <b>{name}</b>
+            Doğrulama gerekiyor
           </p>
         ))}
       </article>
@@ -547,12 +590,16 @@ function TalismanResult({
   tal,
   base,
   totals,
+  scales,
+  incompatible,
   baseActive,
   criticalBase,
 }: {
   tal: (typeof talismans)[number] | null;
   base: Record<string, number>;
   totals: Record<string, number>;
+  scales: Record<string, StorageScale>;
+  incompatible: string[];
   baseActive: boolean;
   criticalBase: number;
 }) {
@@ -567,12 +614,14 @@ function TalismanResult({
       </article>
     );
   const source = sourceFor(tal.sourceId);
-  let rows: { name: string; before: number; after: number }[] = [];
+  let rows: { name: string; before: number; after: number; scale: StorageScale }[] = [],
+    affectedAttributes: string[] = [];
   if (
     tal.effect === "stat_multiplier" &&
     "targetAttributes" in tal &&
     "outputAttribute" in tal
   ) {
+    affectedAttributes = tal.targetAttributes;
     const before = tal.targetAttributes.reduce(
       (sum, key) => sum + (base[key] ?? 0),
       0,
@@ -582,26 +631,35 @@ function TalismanResult({
         name: tal.outputAttribute,
         before,
         after: totals[tal.outputAttribute] ?? before,
+        scale: scales[tal.targetAttributes[0]] ?? "unknown",
       },
     ];
-  } else if (tal.effect === "damage_multiplier")
+  } else if (tal.effect === "damage_multiplier") {
+    affectedAttributes = [...new Set([...Object.keys(base), ...incompatible])]
+      .filter((key) => /Asit|Zehir|Maksimum Hasar/.test(key));
     rows = Object.keys(base)
       .filter((key) => /Asit|Zehir|Maksimum Hasar/.test(key))
       .map((name) => ({
         name,
         before: base[name],
         after: totals[name] ?? base[name],
+        scale: scales[name] ?? "unknown",
       }));
-  else if (tal.effect === "critical_multiplier")
+  } else if (tal.effect === "critical_multiplier")
     rows = [
       {
         name: "Gazap Kritik İhtimali",
         before: criticalBase,
         after: totals["Gazap Kritik İhtimali"] ?? criticalBase,
+        scale: "raw_game_value",
       },
     ];
   const informational = tal.effect === "informational",
     blocked = Boolean(tal.requiresBase && !baseActive),
+    affectedScales = affectedAttributes.map((name) => scales[name]).filter(Boolean),
+    scaleBlocked = affectedAttributes.some((name) => incompatible.includes(name)) ||
+      (tal.effect === "stat_multiplier" &&
+        (affectedScales.length !== affectedAttributes.length || new Set(affectedScales).size !== 1)),
     noBase = !informational && (rows.length === 0 || rows.every((row) => row.before === 0));
   return (
     <article
@@ -617,6 +675,8 @@ function TalismanResult({
         <div className="effectWarning">
           Çalışmıyor: önce {tal.requiresBase} yeteneğini etkinleştir.
         </div>
+      ) : scaleBlocked ? (
+        <div className="effectWarning">Doğrulama gerekiyor</div>
       ) : informational ? (
         <div className="effectRows">
           <div><span>Etki türü</span><b>Mekanik / koşullu</b></div>
@@ -632,7 +692,8 @@ function TalismanResult({
             <div key={row.name}>
               <span>{row.name}</span>
               <b>
-                {fmt(row.before)} <i>→</i> {fmt(row.after)}
+                {formatStatValue({ value: row.before, unit: row.scale })} <i>→</i>{" "}
+                {formatStatValue({ value: row.after, unit: row.scale })}
               </b>
             </div>
           ))}
@@ -788,7 +849,7 @@ function ItemCard({
               <div className="tooltip">
                 {usable.map((s) => (
                   <span key={s.id}>
-                    ◆ {s.attribute}: {fmt(s.value)}
+                    ◆ {s.attribute}: {formatStatValue(s)}
                   </span>
                 ))}
                 {hasConflict && (
@@ -863,11 +924,20 @@ function ComparePanel({
             <span>{attribute}</span>
             {compared.map((item) => (
               <strong key={item.id}>
-                {fmt(
-                  publishableStats(item.id)
-                    .filter((s) => s.attribute === attribute)
-                    .reduce((sum, s) => sum + s.value, 0),
-                )}
+                {(() => {
+                  const rows = publishableStats(item.id).filter(
+                      (stat) => stat.attribute === attribute,
+                    ),
+                    summary = summarizeCompatibleStats(rows);
+                  if (rows.length === 0)
+                    return formatStatValue({ value: 0, unit: "raw_game_value" });
+                  if (summary.incompatible.includes(attribute))
+                    return "Doğrulama gerekiyor";
+                  return formatStatValue({
+                    value: summary.values[attribute] ?? 0,
+                    unit: summary.scales[attribute] ?? "unknown",
+                  });
+                })()}
               </strong>
             ))}
           </div>

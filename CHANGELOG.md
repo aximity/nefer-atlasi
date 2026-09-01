@@ -4,6 +4,8 @@ Bu dosya yalnız mevcut Git geçmişi veya çalışma ağacındaki gerçek deği
 
 ## [Unreleased]
 
+- Canonical stat sayılarını değiştirmeyen merkezi storage-scale/formatlama sözleşmesi eklendi; uyumsuz veya bilinmeyen scale toplamları build ve tılsım akışında güvenli biçimde bloke edildi. Exact stat dönüşüm formülleri tamamlanmış kabul edilmedi.
+- Stat scale sözleşmesi validator'a ve gerçek davranış testlerine bağlandı; kullanıcı arayüzü kanıtlanmamış dönüşümlerde teknik scale adı veya tahmini birim göstermiyor.
 - Recovery Manifest v1, 30 tarihsel kayıt ve sıfır `RECOVERED` maddeyle oluşturuldu; bu kayıtlar mevcut ürün özelliği kabul edilmedi.
 - Recovery statü modeli, kanıt sınıflandırması, önceliklendirme, uygulama sırası ve `RECOVERED` kalite kapıları belgelendi.
 - Project State ve Next Steps, `068af74` code baseline sonrası recovery phase için güncellendi.
