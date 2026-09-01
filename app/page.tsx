@@ -245,7 +245,7 @@ export default function Home() {
     <main>
       <header>
         <a href="#top">
-          <b>İKV</b> EŞYA ARŞİVİ
+          <b>NEFER</b> ATLASI
         </a>
         <nav>
           <a href="#builder">Donanım planlayıcı</a>

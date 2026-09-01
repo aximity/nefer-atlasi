@@ -27,7 +27,8 @@ test("Türkçeleştirilmiş sınıfa özgü donanım deneyimini oluşturur", asy
     /^text\/html\b/i,
   );
   const html = await response.text();
-  assert.match(html, /İKV Eşya Rehberi ve Donanım Planlayıcı/);
+  assert.match(html, /Nefer Atlası · İKV Rehberi ve Donanım Planlayıcı/);
+  assert.match(html, /<b>NEFER<\/b> ATLASI/);
   assert.match(html, /M2 · DONANIM PLANLAYICI/);
   for (const slot of ["Gözlük", "Ceket", "Eldiven", "Pantolon", "Ayakkabı", "Yüzük", "Kolye", "Silah"]) {
     assert.match(html, new RegExp(slot));

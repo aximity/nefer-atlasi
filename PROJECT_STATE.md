@@ -16,7 +16,7 @@ Son güncelleme: 2026-09-01
 
 - Code baseline: `068af74088dd7eb323717d93f48072e2b3aac703`.
 - Recovery Manifest v1: 30 kayıt.
-- `RECOVERED`: 1 (`REC-024`).
+- `RECOVERED`: 2 (`REC-024`, `REC-030`).
 - Eski ChatGPT Çalışması'nda bu baseline'dan daha ileri geliştirme geçmişi bulunduğu kullanıcı tarafından bildirildi.
 - Bu geliştirmelerin kaynak kodu mevcut GitHub repository'sinde bulunmuyor.
 - Historical özellikler ve eski çalışma geçmişindeki bir “tamamlandı” iddiası, mevcut GitHub davranışı veya uygulanmış/doğrulanmış özellik kanıtı değildir.
@@ -25,6 +25,7 @@ Son güncelleme: 2026-09-01
 
 ## Stack
 
+- Aktif ürün kimliği: `Nefer Atlası`; npm package adı: `nefer-atlasi`.
 - Node.js `>=22.13.0`; baseline doğrulaması Node.js `v24.14.0` ile yapıldı.
 - npm ve lockfile v3 (`package-lock.json`).
 - React `19.2.6`, React DOM `19.2.6`.
@@ -106,7 +107,7 @@ Toplam bağımsız test: **34**. Bu sayı 33 unit + 1 rendered-HTML testinden ol
 - `raw_game_value`, `scaled_1000`, `scaled_10000` ve `puan` için exact oyun içi display dönüşümleri doğrulanmamış durumda. Güvenli formatter tahmini dönüşüm yapmaz; kanıtlanmamış scaled değerlerde ve uyumsuz toplamda “Doğrulama gerekiyor” gösterir.
 - REC-024 çözüldü: 11 eşyanın duplicate stat katkıları kaynak satırı bazında korunuyor; kanıtsız Savunma/Maksimum Kudret türetmeleri canonical veriden çıkarıldı. Mevlana Ceket kanıt güveni `medium`, diğer 10 kayıt `high` olarak tutuluyor.
 - Veri kümesinin büyük bölümü yalnız tek kaynağa dayanıyor.
-- Nefer Atlası repository kimliği ile uygulamadaki `İKV Eşya Rehberi` package, başlık ve eski ChatGPT Sites metadata kimliği uyumsuz.
+- REC-030 ile görünür başlıklar, README, aktif metadata ve package/lockfile kimliği `Nefer Atlası` altında hizalandı. Doğrulanmış production domain olmadığı için metadata içinde domain yayınlanmıyor.
 - CI kalite kapısı bulunmuyor.
 
 ## Known P2 Issues
@@ -114,7 +115,6 @@ Toplam bağımsız test: **34**. Bu sayı 33 unit + 1 rendered-HTML testinden ol
 - Tılsım kayıtlarının 149'u hesaplanabilir etki üretmiyor.
 - Yetenek planlayıcı gerçek etki simülasyonu yapmıyor.
 - Görsel kapsamı çok düşük.
-- `package-lock.json` kök adı hâlâ `site-creator-vinext-starter`.
 - `chatgpt-auth.ts`, boş D1 katmanı ve bazı starter asset/örnekleri aktif ürün akışına bağlı değil.
 - Efsun çözümleyici kullanıcı akışına bağlı değil.
 - Vinext build, `/` rotasını `Unknown` olarak sınıflandırdığına dair uyarı veriyor.

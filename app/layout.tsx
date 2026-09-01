@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ikv-esya-rehberi.gdyon.chatgpt.site"),
-  title: "İKV Eşya Rehberi ve Donanım Planlayıcı",
+  title: "Nefer Atlası · İKV Rehberi ve Donanım Planlayıcı",
   description:
-    "Alan bazlı kanıtlara dayanan İKV eşya arşivi ve dokuz yuvalı donanım planlayıcı.",
+    "Kaynaklandırılmış İKV eşyalarını, reçetelerini, tılsımlarını ve donanım planlarını Nefer Atlası'nda keşfet.",
   openGraph: {
-    title: "İKV Eşya Rehberi",
-    description: "Eşyanı kanıtla, donanımını güvenilir verilerle planla.",
-    images: ["/og.png"],
+    title: "Nefer Atlası",
+    description:
+      "Kaynaklandırılmış İKV verileriyle eşya keşfi ve donanım planlama.",
   },
 };
 export default function RootLayout({
