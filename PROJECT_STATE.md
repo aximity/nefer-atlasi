@@ -15,8 +15,8 @@ Son güncelleme: 2026-09-01
 ## Recovery Status
 
 - Code baseline: `068af74088dd7eb323717d93f48072e2b3aac703`.
-- Recovery Manifest v1: 30 kayıt.
-- `RECOVERED`: 2 (`REC-024`, `REC-030`).
+- Recovery Manifest v1: 31 kayıt.
+- `RECOVERED`: 3 (`REC-024`, `REC-030`, `REC-031`).
 - Eski ChatGPT Çalışması'nda bu baseline'dan daha ileri geliştirme geçmişi bulunduğu kullanıcı tarafından bildirildi.
 - Bu geliştirmelerin kaynak kodu mevcut GitHub repository'sinde bulunmuyor.
 - Historical özellikler ve eski çalışma geçmişindeki bir “tamamlandı” iddiası, mevcut GitHub davranışı veya uygulanmış/doğrulanmış özellik kanıtı değildir.
@@ -43,14 +43,14 @@ Son güncelleme: 2026-09-01
 | Kontrol | Sonuç | Gerçek çıktı |
 |---|---|---|
 | `npm ci` | PASS | Kurulum tamamlandı; `@esbuild-kit/esm-loader` için deprecated transitive dependency uyarısı verdi. |
-| `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 reçete, 910 kanıt, 179 tılsım, 167 ham efsun satırı, 45 yetenek, 1 yükseltme, 4 materyal edinimi, 3 tılsım edinim kuralı ve 1 oyun mekaniği kuralı. |
+| `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 reçete, 910 kanıt, 179 tılsım, 179 tılsım edinimi, 167 ham efsun satırı, 45 yetenek, 1 yükseltme, 4 materyal edinimi, 3 tılsım edinim kuralı ve 1 oyun mekaniği kuralı. |
 | `npm run lint` | PASS | ESLint hata üretmedi. |
-| `npm run test:unit` | PASS | 43/43 geçti; 0 fail, 0 skipped. |
+| `npm run test:unit` | PASS | 50/50 geçti; 0 fail, 0 skipped. |
 | `npm run build` | PASS | Vinext'in beş build aşaması tamamlandı. `/` rotası için statik sınıflandırma uyarısı var. |
 | Rendered HTML testi | PASS | 1/1 geçti. |
-| `npm test` birleşik kapısı | PASS | Validator, 43 unit test, build ve 1 rendered test birlikte geçti. |
+| `npm test` birleşik kapısı | PASS | Validator, 50 unit test, build ve 1 rendered test birlikte geçti. |
 
-Toplam bağımsız test: **44**. Bu sayı 43 unit + 1 rendered-HTML testinden oluşur.
+Toplam bağımsız test: **51**. Bu sayı 50 unit + 1 rendered-HTML testinden oluşur.
 
 ## Working Modules
 
@@ -64,7 +64,7 @@ Toplam bağımsız test: **44**. Bu sayı 43 unit + 1 rendered-HTML testinden ol
 
 ## Partial Modules
 
-- Tılsım sistemi: 179 kayıt UI'a bağlıdır; 24 stat multiplier, 3 damage multiplier ve 3 critical multiplier hesaplanır. 149 kayıt yalnız bilgilendiricidir.
+- Tılsım sistemi: 179 kayıt UI'a bağlıdır; 24 stat multiplier, 3 damage multiplier ve 3 critical multiplier hesaplanır. Edinim görünümü 120 kaynaklandırılmış `RECIPE_CRAFT` kaydını (55 II., 55 III. kademe ve 10 özel reçete) dahili üretim zincirine bağlar; 59 kayıt doğrulanana kadar sade `UNKNOWN` fallback gösterir. 149 tılsım etkisi yalnız bilgilendiricidir.
 - Yetenek planlayıcı: 45 yetenek, 80 puan bütçesi ve yetenek başına 15 puan sınırı vardır; puanların oyun içi etkisini hesaplamaz.
 - Öneriler: kanıtlı stat adlarıyla hedef eşleşmesi yapar; meta, kullanım veya başarı oranı önerisi değildir.
 - Kaynaklar: item/evidence akışına bağlıdır; ayrı kaynak tarayıcısı yoktur.
@@ -89,7 +89,7 @@ Toplam bağımsız test: **44**. Bu sayı 43 unit + 1 rendered-HTML testinden ol
 - 129 eşya: tamamı `SINGLE_SOURCE`; REC-024 kapsamındaki 11 eşya web kanıtıyla çözüldü.
 - 237 özellik/stat: tamamı `SINGLE_SOURCE`; 11 aynı-stat çifti 22 ayrı canonical katkı satırı olarak korunuyor.
 - 67 reçete: tamamı `SINGLE_SOURCE`.
-- 179 tılsım: tamamı `SINGLE_SOURCE`.
+- 179 tılsım: tamamı `SINGLE_SOURCE`; ayrıca 120 `RECIPE_CRAFT` ve 59 `UNKNOWN` edinim kaydı vardır. Item-level NPC satın alma veya düşman drop kaydı henüz doğrulanmamıştır.
 - 910 evidence: 775 `SINGLE_SOURCE`, 134 `VERIFIED`/`cross_verified`, 1 `UNKNOWN`/`draft`; bunların 3'ü Mevlana Asa için `USER_GAME_EVIDENCE` claim'idir.
 - 45 yetenek: 44 `VERIFIED`/`cross_verified`, 1 `SINGLE_SOURCE`.
 - 1 kaynaklandırılmış item upgrade kaydı: Mevlana Asa için 4 base → upgraded contribution; genel `×2` formülü yoktur.

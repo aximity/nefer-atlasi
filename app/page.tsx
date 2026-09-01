@@ -8,6 +8,7 @@ import {
   items,
   publishableItems,
   talismans,
+  talismanAcquisitions,
   itemStats,
   publishableStats,
   itemRecipe,
@@ -17,6 +18,7 @@ import {
   type Item,
   type CharacterClass,
 } from "../lib/catalog";
+import { talismanAcquisitionView } from "../lib/talisman-acquisition.mjs";
 import {
   applyTalisman,
   buildTotals,
@@ -613,7 +615,8 @@ function TalismanResult({
         </p>
       </article>
     );
-  const source = sourceFor(tal.sourceId);
+  const source = sourceFor(tal.sourceId),
+    acquisition = talismanAcquisitionView(tal.id, talismanAcquisitions, talismans);
   let rows: { name: string; before: number; after: number; scale: StorageScale }[] = [],
     affectedAttributes: string[] = [];
   if (
@@ -671,6 +674,13 @@ function TalismanResult({
         <b>Bağlı yetenek:</b> {tal.series} · <b>Kademe:</b> {tal.tier ?? "Özel"}
       </p>
       <p><b>Resmî etki:</b> {tal.effectText}</p>
+      <section className="talismanAcquisition" aria-label="Nasıl edinilir?">
+        <small>NASIL EDİNİLİR?</small>
+        <strong>{acquisition.label}</strong>
+        {acquisition.canOpenRecipe && (
+          <a href={acquisition.recipeTarget ?? undefined}>Üretim zincirini göster ↓</a>
+        )}
+      </section>
       {blocked ? (
         <div className="effectWarning">
           Çalışmıyor: önce {tal.requiresBase} yeteneğini etkinleştir.
@@ -698,6 +708,19 @@ function TalismanResult({
             </div>
           ))}
         </div>
+      )}
+      {acquisition.canOpenRecipe && (
+        <section className="talismanRecipe" id={`talisman-recipe-${tal.id}`}>
+          <small>DAHİLİ ÜRETİM ZİNCİRİ</small>
+          {acquisition.chain.length > 1 ? (
+            <>
+              <p>{acquisition.chain.map((step) => step.name).join(" → ")}</p>
+              <span>Her kademe için önceki tılsımdan ×3 gerekir.</span>
+            </>
+          ) : (
+            <p>Doğrudan üretim reçetesi</p>
+          )}
+        </section>
       )}
       {source && (
         <a

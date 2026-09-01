@@ -5,6 +5,7 @@ import sourceRows from "../data/sources.json";
 import evidenceRows from "../data/evidence.json";
 import imageRows from "../data/images.json";
 import talismanRows from "../data/talismans.json";
+import talismanAcquisitionRows from "../data/talisman-acquisitions.json";
 import contextRows from "../data/contexts.json";
 import groupLootRows from "../data/group-loot-items.json";
 import groupLootEvidenceRows from "../data/group-loot-evidence.json";
@@ -23,6 +24,7 @@ export interface Item {id:string;name:string;class:CharacterClass|"Tüm Sınıfl
 export interface Recipe {id:string;itemId:string;method:string;materials:{name:string;quantity:number}[];sourceId:string;verificationStatus:VerificationStatus;lastChecked:string}
 type TalismanBase={id:string;name:string;class:CharacterClass;color:"Kırmızı"|"Mavi";series:string;tier:1|2|3|null;value:number|null;unit:"percent"|"second"|null;effectText:string;requiresBase?:string;status:VerificationStatus;sourceId:string;verificationSourceIds?:string[];lastChecked:string};
 export type Talisman=TalismanBase&({effect:"stat_multiplier";targetAttributes:string[];outputAttribute:string}|{effect:"damage_multiplier"|"critical_multiplier"|"informational";targetAttributes?:never;outputAttribute?:never});
+export interface TalismanAcquisition {id:string;talismanId:string;acquisitionType:"NPC_PURCHASE"|"ENEMY_DROP"|"RECIPE_CRAFT"|"UNKNOWN";recipe?:{kind:"tier_upgrade"|"direct";predecessorTalismanId?:string;predecessorQuantity?:number};sourceId:string|null;locator:string|null;verificationStatus:"single_source"|"unknown";confidence:"medium"|"unknown";lastChecked:string}
 
 export const items = [...itemRows,...groupLootRows,...glassesRows] as Item[];
 const glassesStats:Stat[]=glassesStatRows.flatMap(row=>row.stats.map(([attribute,value],index)=>({id:`stat-${row.itemId}-${index}`,itemId:row.itemId,attribute:String(attribute),value:Number(value),unit:"puan",verificationStatus:"single_source" as const,lastChecked:"2026-08-23"})));
@@ -34,6 +36,7 @@ const glassesEvidence:EvidenceClaim[]=glassesRows.flatMap(item=>["name","class",
 export const evidence = [...evidenceRows,...groupLootEvidence,...glassesEvidence] as EvidenceClaim[];
 export const images = imageRows;
 export const talismans = talismanRows as Talisman[];
+export const talismanAcquisitions = talismanAcquisitionRows as TalismanAcquisition[];
 export const contexts = contextRows;
 export const classSlots:Record<CharacterClass,Slot[]>={"Savaşçı":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Zırh","Yüzük","Kolye","Silah"],"Büyücü":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Amplifikatör","Yüzük","Kolye","Silah"],"Şifacı":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Zırh","Yüzük","Kolye","Silah"]};
 export const slots=[...new Set(Object.values(classSlots).flat())];

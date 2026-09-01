@@ -16,7 +16,7 @@ Son doğrulama: 2026-09-01 — 26/26 test, validator PASS, lint PASS, build PASS
 
 ## Recovery Manifest Population
 
-- [x] Recovery Manifest v1 populated: 30 records.
+- [x] Recovery Manifest v1 populated: 31 records.
 - [x] Evidence Packs 001–002 içindeki kaynak mesaj, çıktı, kullanıcı testi ve bilinen hata kanıtlarını benzersiz recovery kayıtlarıyla eşleştir.
 - [x] Her kayıt için mevcut GitHub kapsamını ayır; kanıt yetersizse `NEEDS_VERIFICATION` durumunu koru.
 
@@ -40,9 +40,11 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 - [x] Discord resmî güncelleme intake sözleşmesini, normalize adapter sınırını, duplicate korumasını ve review-gated claim parserını kur.
 - [ ] Bot application oluşturup minimum izinlerle salt-okunur Discord bağlantı adapterını ayrı görevde ekle; tokenı deployment secret üzerinden sağla.
 - [ ] Intake kayıtları için kalıcı storage adapterı ve insan review arayüzü tasarla; canonical application ayrı ve explicit kalsın.
-- [ ] REC-003 Gönül edinim modeli.
+- [x] REC-031 genel tılsım edinim altyapısı: 120 reçeteli edinim, 59 doğrulanan fallback ve dahili II/III kademe zinciri.
+- [ ] REC-003 Gönül edinim modeli; item-level liste, NPC ve fiyat kanıtı hâlâ açık.
 - [ ] REC-004 reçete/üretim çekirdeği.
-- [ ] REC-021 dahili tılsım reçete navigasyonu.
+- [ ] REC-021 dahili tılsım reçete navigasyonu; REC-031 ile üretim zinciri bağlantısı eklendi, gereken malzeme/reçete detay akışı hâlâ kısmi.
+- [ ] Mecnun/Topkapı ile I. kademe satın alma ve düşman/drop edinimlerini batch web araştırmasıyla item-level doğrula; kanıtlanana kadar 59 kaydı `UNKNOWN` tut.
 - [ ] REC-025 malzeme edinim kaynakları.
 - [x] REC-025 için ilk dört kaynaklandırılmış materyal edinimini ve validator sözleşmesini oluştur; kalan kapsam ve kullanıcı akışı açık.
 - [ ] REC-008 gerçek yetenek kuralları.
