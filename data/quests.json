@@ -4,7 +4,7 @@
     "sourceNumber": 1,
     "name": "Teşkilat'a Katılış",
     "level": 1,
-    "minLevel": 1,
+    "minLevel": null,
     "giverNpc": "Agah Efendi",
     "location": "Eminönü",
     "previousQuestIds": [],
@@ -18,17 +18,18 @@
         "locator": "No 1 · Teşkilat'a Katılış satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 1 · Teşkilat'a Katılış satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Teşkilat'a Katılış [1] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       },
       {
@@ -44,8 +45,8 @@
     "questId": "quest-003-salgin-hastalik-1",
     "sourceNumber": 3,
     "name": "Salgın hastalık",
-    "level": null,
-    "minLevel": 1,
+    "level": 1,
+    "minLevel": null,
     "giverNpc": "Agah Efendi",
     "location": "Eminönü",
     "previousQuestIds": [
@@ -61,10 +62,18 @@
         "locator": "No 3 · Salgın hastalık satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Salgın hastalık [1] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       },
       {
@@ -80,8 +89,8 @@
     "questId": "quest-006-bankaciya-ulak",
     "sourceNumber": 6,
     "name": "Bankacıya Ulak",
-    "level": null,
-    "minLevel": 1,
+    "level": 1,
+    "minLevel": null,
     "giverNpc": "Jandarma Ali",
     "location": "Mısır Çarşısı önü · Türk bayrağı altı",
     "previousQuestIds": [],
@@ -95,21 +104,25 @@
         "locator": "No 6 · Bankacıya Ulak satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
+        "sourceId": "official-quest-list",
+        "locator": "Bankacıya Ulak [1] satırı",
+        "fields": [
+          "level",
+          "minLevel"
+        ]
+      },
+      {
         "sourceId": "fandom-explained-quest-list",
         "locator": "Seviye 1 · Bankacı'ya Ulak ve Teşkilat'a Katılış açıklamaları",
         "fields": [
-          "name",
-          "minLevel",
-          "giverNpc",
-          "location",
-          "objective"
+          "location"
         ]
       }
     ]
@@ -119,7 +132,7 @@
     "sourceNumber": 7,
     "name": "Hesap Cüzdanı",
     "level": 1,
-    "minLevel": 1,
+    "minLevel": null,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -135,17 +148,18 @@
         "locator": "No 7 · Hesap Cüzdanı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 1 · Hesap Cüzdanı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Hesap Cüzdanı [1] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -169,28 +183,25 @@
         "locator": "No 8 · Balıkçıyla Tanışma satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 2 · Balıkçıyla Tanışma satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Balıkçıyla Tanışma [2] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       },
       {
         "sourceId": "fandom-explained-quest-list",
         "locator": "Seviye 2 · Balıkçıyla Tanışma ve Teşkilat'a Katılış açıklamaları",
         "fields": [
-          "name",
-          "minLevel",
-          "giverNpc",
-          "location",
-          "objective"
+          "location"
         ]
       }
     ]
@@ -199,8 +210,8 @@
     "questId": "quest-009-sahil-temizligi-1",
     "sourceNumber": 9,
     "name": "Sahil Temizliği",
-    "level": null,
-    "minLevel": 2,
+    "level": 2,
+    "minLevel": null,
     "giverNpc": "Balıkçı İdris",
     "location": null,
     "previousQuestIds": [
@@ -216,10 +227,18 @@
         "locator": "No 9 · Sahil Temizliği satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Sahil Temizliği [2] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -228,8 +247,8 @@
     "questId": "quest-010-sahil-temizligi-2",
     "sourceNumber": 10,
     "name": "Sahil Temizliği",
-    "level": null,
-    "minLevel": 3,
+    "level": 3,
+    "minLevel": 2,
     "giverNpc": "Balıkçı İdris",
     "location": null,
     "previousQuestIds": [
@@ -245,10 +264,18 @@
         "locator": "No 10 · Sahil Temizliği satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Sahil Temizliği [3] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -257,7 +284,7 @@
     "questId": "quest-011-salgin-hastalik-2",
     "sourceNumber": 11,
     "name": "Salgın hastalık",
-    "level": null,
+    "level": 5,
     "minLevel": 5,
     "giverNpc": "Agah Efendi",
     "location": "Eminönü",
@@ -274,10 +301,18 @@
         "locator": "No 11 · Salgın hastalık satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Salgın hastalık [5] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       },
       {
@@ -294,7 +329,7 @@
     "sourceNumber": 14,
     "name": "Şevket Bey'in Ricası",
     "level": 2,
-    "minLevel": 2,
+    "minLevel": null,
     "giverNpc": "Şevket Bey",
     "location": null,
     "previousQuestIds": [
@@ -310,17 +345,18 @@
         "locator": "No 14 · Şevket Bey'in Ricası satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 2 · Şevket Bey'in Ricası satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Şevket Bey'in Ricası [2] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -330,7 +366,7 @@
     "sourceNumber": 15,
     "name": "Fahri Bey'den takım",
     "level": 5,
-    "minLevel": 5,
+    "minLevel": 1,
     "giverNpc": "Fahri Bey",
     "location": null,
     "previousQuestIds": [
@@ -346,17 +382,18 @@
         "locator": "No 15 · Fahri Bey'den takım satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 5 · Fahri Bey'den takım satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Fahri Bey'den takım [5] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -366,7 +403,7 @@
     "sourceNumber": 16,
     "name": "Fahri Bey'den takım",
     "level": 5,
-    "minLevel": 5,
+    "minLevel": null,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -382,17 +419,18 @@
         "locator": "No 16 · Fahri Bey'den takım satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 5 · Fahri Bey'den takım satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Fahri Bey'den takım [5] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -401,7 +439,7 @@
     "questId": "quest-017-teskilat-cinlere-karsi",
     "sourceNumber": 17,
     "name": "Teşkilat Cinlere Karşı",
-    "level": null,
+    "level": 6,
     "minLevel": 6,
     "giverNpc": "Agah Efendi",
     "location": "Eminönü",
@@ -416,10 +454,18 @@
         "locator": "No 17 · Teşkilat Cinlere Karşı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Teşkilat Cinlere Karşı [6] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       },
       {
@@ -435,7 +481,7 @@
     "questId": "quest-018-anacigimin-ilaclari",
     "sourceNumber": 18,
     "name": "Anacığımın İlaçları",
-    "level": null,
+    "level": 3,
     "minLevel": 3,
     "giverNpc": "Jandarma Ali",
     "location": "Mısır Çarşısı önü · Türk bayrağı altı",
@@ -450,21 +496,25 @@
         "locator": "No 18 · Anacığımın İlaçları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
+        "sourceId": "official-quest-list",
+        "locator": "Anacığımın İlaçları [3] satırı",
+        "fields": [
+          "level",
+          "minLevel"
+        ]
+      },
+      {
         "sourceId": "fandom-explained-quest-list",
         "locator": "Seviye 3 · Anacağımın İlaçları ve Teşkilat'a Katılış açıklamaları",
         "fields": [
-          "name",
-          "minLevel",
-          "giverNpc",
-          "location",
-          "objective"
+          "location"
         ]
       }
     ]
@@ -488,17 +538,18 @@
         "locator": "No 19 · Savaş'ın Niyeti satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 3 · Savaş'ın Niyeti satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Savaş'ın Niyeti [3] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -507,7 +558,7 @@
     "questId": "quest-020-lodos-muhafizina",
     "sourceNumber": 20,
     "name": "Lodos Muhafızına",
-    "level": null,
+    "level": 3,
     "minLevel": 3,
     "giverNpc": "Savaş",
     "location": null,
@@ -524,10 +575,18 @@
         "locator": "No 20 · Lodos Muhafızına satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Lodos Muhafızına [3] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -536,7 +595,7 @@
     "questId": "quest-021-savas-a-cevap",
     "sourceNumber": 21,
     "name": "Savaş'a Cevap",
-    "level": null,
+    "level": 3,
     "minLevel": 3,
     "giverNpc": null,
     "location": null,
@@ -553,10 +612,18 @@
         "locator": "No 21 · Savaş'a Cevap satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Savaş'a Cevap [3] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -582,17 +649,18 @@
         "locator": "No 22 · Halime Teyze'ye satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 3 · Halime Teyze'ye satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Halime Teyze'ye [3] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -616,17 +684,18 @@
         "locator": "No 23 · İlk Maaşın satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 3 · İlk Maaşın satırı",
+        "sourceId": "official-quest-list",
+        "locator": "İlk Maaşın [3] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -650,17 +719,18 @@
         "locator": "No 24 · Pis Haşereler satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 4 · Pis Haşereler satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Pis Haşereler [4] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -669,7 +739,7 @@
     "questId": "quest-025-halime-teyzeden-cicek-siparisi",
     "sourceNumber": 25,
     "name": "Halime Teyzeden Çiçek Siparişi",
-    "level": null,
+    "level": 5,
     "minLevel": 5,
     "giverNpc": "Bankacı",
     "location": null,
@@ -684,10 +754,18 @@
         "locator": "No 25 · Halime Teyzeden Çiçek Siparişi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Halime Teyzeden Çiçek Siparişi [5] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -713,17 +791,18 @@
         "locator": "No 26 · Işık Hanım'a Teslimat satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 5 · Işık Hanım'a Teslimat satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Işık Hanım'a Teslimat [5] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -747,17 +826,18 @@
         "locator": "No 27 · Lüfer Izgara satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 4 · Lüfer Izgara satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Lüfer Izgara [4] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -781,17 +861,18 @@
         "locator": "No 28 · Soğuklar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 4 · Soğuklar satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Soğuklar [4] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -815,17 +896,18 @@
         "locator": "No 29 · Kayıp cilt sorgulama satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 6 · Kayıp cilt sorgulama satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kayıp cilt sorgulama [6] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -851,17 +933,18 @@
         "locator": "No 30 · Acil müdahale satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 6 · Acil müdahale satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Acil müdahale [6] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -887,17 +970,18 @@
         "locator": "No 31 · Sahaf Necmi'ye dönüş satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 6 · Sahaf Necmi'ye dönüş satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Sahaf Necmi'ye dönüş [6] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -906,7 +990,7 @@
     "questId": "quest-032-teskilat-cinlere-kars",
     "sourceNumber": 32,
     "name": "Teşkilat Cinlere karşı",
-    "level": null,
+    "level": 6,
     "minLevel": 6,
     "giverNpc": "Komutan",
     "location": null,
@@ -923,10 +1007,18 @@
         "locator": "No 32 · Teşkilat Cinlere karşı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Teşkilat Cinlere karşı [6] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -952,17 +1044,18 @@
         "locator": "No 33 · Karışıklık Çıkarma satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 6 · Karışıklık Çıkarma satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Karışıklık Çıkarma [6] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -971,7 +1064,7 @@
     "questId": "quest-034-biraz-da-kazanc",
     "sourceNumber": 34,
     "name": "Biraz da Kazanç",
-    "level": null,
+    "level": 8,
     "minLevel": 8,
     "giverNpc": "Işık Hanım",
     "location": null,
@@ -986,10 +1079,18 @@
         "locator": "No 34 · Biraz da Kazanç satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Biraz da Kazanç [8]. satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1013,17 +1114,18 @@
         "locator": "No 35 · Evin Orada Akrepler Var satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 7 · Evin Orada Akrepler Var satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Evin Orada Akrepler Var [7]. satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1047,17 +1149,18 @@
         "locator": "No 36 · Şarap Üzerine Sohbet satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 7 · Şarap Üzerine Sohbet satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Şarap Üzerine Sohbet [7]. satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1083,17 +1186,18 @@
         "locator": "No 37 · Kalecik Karası satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 7 · Kalecik Karası satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kalecik Karası [7]. satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1119,17 +1223,18 @@
         "locator": "No 38 · Kalecik Karası satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 7 · Kalecik Karası satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kalecik Karası [7]. satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1153,17 +1258,18 @@
         "locator": "No 39 · Kahvemi Köpüklü Severim satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 9 · Kahvemi Köpüklü Severim satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kahvemi Köpüklü Severim [9]. satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1189,17 +1295,18 @@
         "locator": "No 40 · Kahve Teslimatı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 9 · Kahve Teslimatı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kahve Teslimatı [9] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1225,17 +1332,18 @@
         "locator": "No 41 · Ölüm Yolu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 9 · Ölüm Yolu satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Ölüm Yolu [9] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1259,17 +1367,18 @@
         "locator": "No 42 · Fare Adam Yiyecek Yolları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 9 · Fare Adam Yiyecek Yolları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Fare Adam Yiyecek Yolları [9]. satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1293,17 +1402,18 @@
         "locator": "No 43 · Kırmızı Tehlike satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 12 · Kırmızı Tehlike satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kırmızı Tehlike [12]. satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1327,17 +1437,18 @@
         "locator": "No 44 · Cinlerin Büyülü Toprağı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 10 · Cinlerin Büyülü Toprağı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Cinlerin Büyülü Toprağı [10] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1346,7 +1457,7 @@
     "questId": "quest-045-kazmalar-hakk-nda",
     "sourceNumber": 45,
     "name": "Kazmalar Hakkında",
-    "level": null,
+    "level": 10,
     "minLevel": 10,
     "giverNpc": null,
     "location": null,
@@ -1363,10 +1474,18 @@
         "locator": "No 45 · Kazmalar Hakkında satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Kazmalar Hakkında [10] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1375,8 +1494,8 @@
     "questId": "quest-046-avlanan-avc-lar",
     "sourceNumber": 46,
     "name": "Avlanan Avcılar",
-    "level": 10,
-    "minLevel": 11,
+    "level": 11,
+    "minLevel": 10,
     "giverNpc": "Agah Efendi",
     "location": null,
     "previousQuestIds": [
@@ -1392,17 +1511,18 @@
         "locator": "No 46 · Avlanan Avcılar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 10 · Avlanan Avcılar satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Avlanan Avcılar [11] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1428,17 +1548,18 @@
         "locator": "No 47 · Folklor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 14 · Folklor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Folklor [14] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1447,8 +1568,8 @@
     "questId": "quest-048-buyuk-oncu-azul-u-oldurmek",
     "sourceNumber": 48,
     "name": "Büyük Öncü Azul'u Öldürmek",
-    "level": 14,
-    "minLevel": 15,
+    "level": 15,
+    "minLevel": 14,
     "giverNpc": "Agah Efendi",
     "location": null,
     "previousQuestIds": [
@@ -1464,17 +1585,18 @@
         "locator": "No 48 · Büyük Öncü Azul'u Öldürmek satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 14 · Büyük Öncü Azul'u Öldürmek satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Büyük Öncü Azul'u Öldürmek [15] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1498,17 +1620,18 @@
         "locator": "No 49 · Teşkilat FA Darbesi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 20 · Teşkilat FA Darbesi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Teşkilat FA Darbesi [20] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1534,17 +1657,18 @@
         "locator": "No 50 · Suikast Planları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 23 · Suikast Planları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Suikast Planları [23] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1553,7 +1677,7 @@
     "questId": "quest-051-kuklac-n-n-secilmisi",
     "sourceNumber": 51,
     "name": "Kuklacı'nın Seçilmişi",
-    "level": null,
+    "level": 25,
     "minLevel": 25,
     "giverNpc": "Komutan",
     "location": null,
@@ -1570,10 +1694,18 @@
         "locator": "No 51 · Kuklacı'nın Seçilmişi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Kuklacı'nın Seçilmişi [25] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1597,17 +1729,18 @@
         "locator": "No 52 · Engerek Tehdidi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 16 · Engerek Tehdidi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Engerek Tehdidi [16] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1617,7 +1750,7 @@
     "sourceNumber": 53,
     "name": "Kobra Tehdidi",
     "level": 17,
-    "minLevel": 17,
+    "minLevel": 16,
     "giverNpc": "Jandarma Ali",
     "location": null,
     "previousQuestIds": [
@@ -1633,17 +1766,18 @@
         "locator": "No 53 · Kobra Tehdidi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 17 · Kobra Tehdidi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kobra Tehdidi [17] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1667,17 +1801,18 @@
         "locator": "No 55 · Arzuhalci ile Tanışma satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 16 · Arzuhalci ile Tanışma satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci ile Tanışma [16] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1703,17 +1838,18 @@
         "locator": "No 56 · Eski Bir Kitap satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 16 · Eski Bir Kitap satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Eski Bir Kitap [16] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1722,8 +1858,8 @@
     "questId": "quest-057-isimsiz-ve-yazars-z",
     "sourceNumber": 57,
     "name": "İsimsiz ve Yazarsız",
-    "level": 16,
-    "minLevel": 17,
+    "level": 17,
+    "minLevel": 16,
     "giverNpc": "Sahaf Necmi",
     "location": null,
     "previousQuestIds": [
@@ -1739,17 +1875,18 @@
         "locator": "No 57 · İsimsiz ve Yazarsız satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 16 · İsimsiz ve Yazarsız satırı",
+        "sourceId": "official-quest-list",
+        "locator": "İsimsiz ve Yazarsız [17] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1758,8 +1895,8 @@
     "questId": "quest-058-akrepler-ve-orumcekler-hakk-nda-notlar",
     "sourceNumber": 58,
     "name": "Akrepler ve Örümcekler Hakkında Notlar",
-    "level": null,
-    "minLevel": 17,
+    "level": 17,
+    "minLevel": 16,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -1775,10 +1912,18 @@
         "locator": "No 58 · Akrepler ve Örümcekler Hakkında Notlar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Akrepler ve Örümcekler Hakkında Notlar [17] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1787,8 +1932,8 @@
     "questId": "quest-059-akrepler-ve-orumcekler-hakk-nda-notlar",
     "sourceNumber": 59,
     "name": "Akrepler ve Örümcekler Hakkında Notlar",
-    "level": null,
-    "minLevel": 17,
+    "level": 17,
+    "minLevel": 16,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -1804,10 +1949,18 @@
         "locator": "No 59 · Akrepler ve Örümcekler Hakkında Notlar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Akrepler ve Örümcekler Hakkında Notlar [17] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1816,8 +1969,8 @@
     "questId": "quest-060-mezarl-k-parsomenleri",
     "sourceNumber": 60,
     "name": "Mezarlık Parşömenleri",
-    "level": null,
-    "minLevel": 18,
+    "level": 18,
+    "minLevel": 16,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -1833,10 +1986,18 @@
         "locator": "No 60 · Mezarlık Parşömenleri satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Mezarlık Parşömenleri [18] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1845,8 +2006,8 @@
     "questId": "quest-061-mezarl-k-parsomenleri",
     "sourceNumber": 61,
     "name": "Mezarlık Parşömenleri",
-    "level": null,
-    "minLevel": 18,
+    "level": 18,
+    "minLevel": 16,
     "giverNpc": "Yasemin",
     "location": null,
     "previousQuestIds": [
@@ -1862,10 +2023,18 @@
         "locator": "No 61 · Mezarlık Parşömenleri satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Mezarlık Parşömenleri [18] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1874,8 +2043,8 @@
     "questId": "quest-062-mezarl-k-parsomenleri",
     "sourceNumber": 62,
     "name": "Mezarlık Parşömenleri",
-    "level": null,
-    "minLevel": 18,
+    "level": 18,
+    "minLevel": 16,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -1891,10 +2060,18 @@
         "locator": "No 62 · Mezarlık Parşömenleri satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Mezarlık Parşömenleri [18] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1920,17 +2097,18 @@
         "locator": "No 63 · Mezarlıkta Çete satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 18 · Mezarlıkta Çete satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Mezarlıkta Çete [18] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1956,17 +2134,18 @@
         "locator": "No 64 · İşlenmiş Gümüş satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 18 · İşlenmiş Gümüş satırı",
+        "sourceId": "official-quest-list",
+        "locator": "İşlenmiş Gümüş [18] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -1992,17 +2171,18 @@
         "locator": "No 65 · Ölünün Madalyonu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 18 · Ölünün Madalyonu satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Ölünün Madalyonu [18] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2028,17 +2208,18 @@
         "locator": "No 66 · Arzuhalciye Acil Haber satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 18 · Arzuhalciye Acil Haber satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalciye Acil Haber [18] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2064,17 +2245,18 @@
         "locator": "No 67 · Arzuhalci'den Jest satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 18 · Arzuhalci'den Jest satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci'den Jest [18] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2084,7 +2266,7 @@
     "sourceNumber": 68,
     "name": "Madalyon ve Kalkan",
     "level": 19,
-    "minLevel": 19,
+    "minLevel": 18,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2100,17 +2282,18 @@
         "locator": "No 68 · Madalyon ve Kalkan satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 19 · Madalyon ve Kalkan satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Madalyon ve Kalkan [19] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2119,8 +2302,8 @@
     "questId": "quest-069-kalkan-teslimat",
     "sourceNumber": 69,
     "name": "Kalkan Teslimatı",
-    "level": 19,
-    "minLevel": 20,
+    "level": 20,
+    "minLevel": 18,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2136,17 +2319,18 @@
         "locator": "No 69 · Kalkan Teslimatı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 19 · Kalkan Teslimatı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kalkan Teslimatı [20] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2155,8 +2339,8 @@
     "questId": "quest-070-kalkan-n-gizemi",
     "sourceNumber": 70,
     "name": "Kalkanın Gizemi",
-    "level": 19,
-    "minLevel": 20,
+    "level": 20,
+    "minLevel": 18,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -2172,17 +2356,18 @@
         "locator": "No 70 · Kalkanın Gizemi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 19 · Kalkanın Gizemi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kalkanın Gizemi [20] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2191,8 +2376,8 @@
     "questId": "quest-071-cetecilere-merhaba",
     "sourceNumber": 71,
     "name": "Çetecilere Merhaba",
-    "level": 20,
-    "minLevel": 22,
+    "level": 22,
+    "minLevel": 20,
     "giverNpc": "Yasemin",
     "location": null,
     "previousQuestIds": [
@@ -2208,17 +2393,18 @@
         "locator": "No 71 · Çetecilere Merhaba satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 20 · Çetecilere Merhaba satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Çetecilere Merhaba [22] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2227,8 +2413,8 @@
     "questId": "quest-072-gizemli-kisilik",
     "sourceNumber": 72,
     "name": "Gizemli Kişilik",
-    "level": 20,
-    "minLevel": 22,
+    "level": 22,
+    "minLevel": 20,
     "giverNpc": "Elebaşı",
     "location": null,
     "previousQuestIds": [
@@ -2244,17 +2430,18 @@
         "locator": "No 72 · Gizemli Kişilik satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 20 · Gizemli Kişilik satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Gizemli Kişilik [22] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2263,8 +2450,8 @@
     "questId": "quest-073-ruh-taslar-hakk-nda",
     "sourceNumber": 73,
     "name": "Ruh Taşları Hakkında",
-    "level": 21,
-    "minLevel": 23,
+    "level": 23,
+    "minLevel": 20,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -2280,17 +2467,18 @@
         "locator": "No 73 · Ruh Taşları Hakkında satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 21 · Ruh Taşları Hakkında satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Ruh Taşları Hakkında [23] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2299,8 +2487,8 @@
     "questId": "quest-074-fotografc",
     "sourceNumber": 74,
     "name": "Fotoğrafçı",
-    "level": 21,
-    "minLevel": 23,
+    "level": 23,
+    "minLevel": 20,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -2316,17 +2504,18 @@
         "locator": "No 74 · Fotoğrafçı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 21 · Fotoğrafçı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Fotoğrafçı [23] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2335,8 +2524,8 @@
     "questId": "quest-075-fotografc",
     "sourceNumber": 75,
     "name": "Fotoğrafçı",
-    "level": 21,
-    "minLevel": 23,
+    "level": 23,
+    "minLevel": 20,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2352,17 +2541,18 @@
         "locator": "No 75 · Fotoğrafçı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 21 · Fotoğrafçı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Fotoğrafçı [23] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2371,8 +2561,8 @@
     "questId": "quest-076-kitabe",
     "sourceNumber": 76,
     "name": "Kitabe",
-    "level": 21,
-    "minLevel": 27,
+    "level": 27,
+    "minLevel": 20,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -2388,17 +2578,18 @@
         "locator": "No 76 · Kitabe satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 21 · Kitabe satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kitabe [27] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2407,8 +2598,8 @@
     "questId": "quest-077-kitabe",
     "sourceNumber": 77,
     "name": "Kitabe",
-    "level": 21,
-    "minLevel": 27,
+    "level": 27,
+    "minLevel": 20,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2424,17 +2615,18 @@
         "locator": "No 77 · Kitabe satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 21 · Kitabe satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kitabe [27] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2443,8 +2635,8 @@
     "questId": "quest-078-philotheos-un-salonu",
     "sourceNumber": 78,
     "name": "Philotheos'un Salonu",
-    "level": 22,
-    "minLevel": 28,
+    "level": 28,
+    "minLevel": 20,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -2460,17 +2652,18 @@
         "locator": "No 78 · Philotheos'un Salonu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 22 · Philotheos'un Salonu satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Philotheos'un Salonu [28] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2479,8 +2672,8 @@
     "questId": "quest-079-t-ls-m",
     "sourceNumber": 79,
     "name": "Tılsım",
-    "level": 22,
-    "minLevel": 30,
+    "level": 30,
+    "minLevel": 20,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -2496,17 +2689,18 @@
         "locator": "No 79 · Tılsım satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 22 · Tılsım satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Tılsım [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2515,8 +2709,8 @@
     "questId": "quest-080-t-ls-m",
     "sourceNumber": 80,
     "name": "Tılsım",
-    "level": 22,
-    "minLevel": 30,
+    "level": 30,
+    "minLevel": 20,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2532,17 +2726,18 @@
         "locator": "No 80 · Tılsım satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 22 · Tılsım satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Tılsım [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2551,8 +2746,8 @@
     "questId": "quest-081-ak-l-oyunlar",
     "sourceNumber": 81,
     "name": "Akıl Oyunları",
-    "level": 22,
-    "minLevel": 30,
+    "level": 30,
+    "minLevel": 20,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -2568,17 +2763,18 @@
         "locator": "No 81 · Akıl Oyunları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 22 · Akıl Oyunları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Akıl Oyunları [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2587,8 +2783,8 @@
     "questId": "quest-082-buyuk-oncu-azul-u-oldurmek",
     "sourceNumber": 82,
     "name": "Büyük Öncü Azul'u Öldürmek",
-    "level": 14,
-    "minLevel": 15,
+    "level": 15,
+    "minLevel": 14,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2604,17 +2800,18 @@
         "locator": "No 82 · Büyük Öncü Azul'u Öldürmek satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 14 · Büyük Öncü Azul'u Öldürmek satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Büyük Öncü Azul'u Öldürmek [15] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2623,7 +2820,7 @@
     "questId": "quest-083-kuklac-n-n-secilmisi",
     "sourceNumber": 83,
     "name": "Kuklacı'nın Seçilmişi",
-    "level": null,
+    "level": 25,
     "minLevel": 25,
     "giverNpc": null,
     "location": null,
@@ -2640,10 +2837,18 @@
         "locator": "No 83 · Kuklacı'nın Seçilmişi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Kuklacı'nın Seçilmişi [25] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2652,8 +2857,8 @@
     "questId": "quest-084-kadim-iscilik",
     "sourceNumber": 84,
     "name": "Kadim İşçilik",
-    "level": 23,
-    "minLevel": 25,
+    "level": 25,
+    "minLevel": 22,
     "giverNpc": "Demirci Rüstem",
     "location": null,
     "previousQuestIds": [
@@ -2669,17 +2874,18 @@
         "locator": "No 84 · Kadim İşçilik satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 23 · Kadim İşçilik satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kadim İşçilik [25] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2688,8 +2894,8 @@
     "questId": "quest-085-kadim-iscilik",
     "sourceNumber": 85,
     "name": "Kadim İşçilik",
-    "level": 23,
-    "minLevel": 25,
+    "level": 25,
+    "minLevel": 22,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2705,17 +2911,18 @@
         "locator": "No 85 · Kadim İşçilik satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 23 · Kadim İşçilik satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kadim İşçilik [25] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2725,7 +2932,7 @@
     "sourceNumber": 86,
     "name": "Güçlü Zehir",
     "level": 27,
-    "minLevel": 27,
+    "minLevel": 26,
     "giverNpc": "Şevket Bey",
     "location": null,
     "previousQuestIds": [
@@ -2741,17 +2948,18 @@
         "locator": "No 86 · Güçlü Zehir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 27 · Güçlü Zehir satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Güçlü Zehir [27] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2761,7 +2969,7 @@
     "sourceNumber": 87,
     "name": "Güçlü Zehir",
     "level": 27,
-    "minLevel": 27,
+    "minLevel": 26,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2777,17 +2985,18 @@
         "locator": "No 87 · Güçlü Zehir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 27 · Güçlü Zehir satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Güçlü Zehir [27] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2796,8 +3005,8 @@
     "questId": "quest-088-daha-guclu-zehir",
     "sourceNumber": 88,
     "name": "Daha Güçlü Zehir",
-    "level": 27,
-    "minLevel": 28,
+    "level": 28,
+    "minLevel": 27,
     "giverNpc": "Şevket Bey",
     "location": null,
     "previousQuestIds": [
@@ -2813,17 +3022,18 @@
         "locator": "No 88 · Daha Güçlü Zehir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 27 · Daha Güçlü Zehir satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Daha Güçlü Zehir [28] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2832,8 +3042,8 @@
     "questId": "quest-089-daha-guclu-zehir",
     "sourceNumber": 89,
     "name": "Daha Güçlü Zehir",
-    "level": 27,
-    "minLevel": 28,
+    "level": 28,
+    "minLevel": 27,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -2849,17 +3059,18 @@
         "locator": "No 89 · Daha Güçlü Zehir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 27 · Daha Güçlü Zehir satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Daha Güçlü Zehir [28] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2883,17 +3094,18 @@
         "locator": "No 90 · Giyim İhtiyaçları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 25 · Giyim İhtiyaçları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Giyim İhtiyaçları [25] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2917,17 +3129,18 @@
         "locator": "No 93 · Meteor Yolu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 29 · Meteor Yolu satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Meteor Yolu [29] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2953,17 +3166,18 @@
         "locator": "No 94 · Teşkilat İstihbarat'a katılış satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 29 · Teşkilat İstihbarat'a katılış satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Teşkilat İstihbarat'a katılış [29] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -2989,17 +3203,18 @@
         "locator": "No 95 · Keşif görevi I satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 29 · Keşif görevi I satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Keşif görevi I [29] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3025,17 +3240,18 @@
         "locator": "No 96 · Keşif görevi II satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 29 · Keşif görevi II satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Keşif görevi II [29] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3061,17 +3277,18 @@
         "locator": "No 97 · Keşif görevi III satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 29 · Keşif görevi III satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Keşif görevi III [29] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3097,17 +3314,18 @@
         "locator": "No 98 · Keşif görevi IV satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 29 · Keşif görevi IV satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Keşif görevi IV [29] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3133,17 +3351,18 @@
         "locator": "No 99 · Keşif görevi V satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 29 · Keşif görevi V satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Keşif görevi V [29] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3153,7 +3372,7 @@
     "sourceNumber": 100,
     "name": "Yeni Bab-ı Ali'ye Mektup",
     "level": 30,
-    "minLevel": 30,
+    "minLevel": null,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [
@@ -3169,17 +3388,18 @@
         "locator": "No 100 · Yeni Bab-ı Ali'ye Mektup satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Yeni Bab-ı Ali'ye Mektup satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yeni Bab-ı Ali'ye Mektup [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3189,7 +3409,7 @@
     "sourceNumber": 101,
     "name": "Mebrure İle Tanışma",
     "level": 30,
-    "minLevel": 30,
+    "minLevel": null,
     "giverNpc": "Mebrure Hanım",
     "location": null,
     "previousQuestIds": [
@@ -3205,17 +3425,18 @@
         "locator": "No 101 · Mebrure İle Tanışma satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Mebrure İle Tanışma satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Mebrure İle Tanışma [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3224,8 +3445,8 @@
     "questId": "quest-102-yeni-bab-ali-guvenligi-1",
     "sourceNumber": 102,
     "name": "Yeni Bab-ı Ali Güvenliği [1]",
-    "level": null,
-    "minLevel": 30,
+    "level": 30,
+    "minLevel": null,
     "giverNpc": "Bab-ı Ali Komutanı",
     "location": null,
     "previousQuestIds": [
@@ -3241,10 +3462,18 @@
         "locator": "No 102 · Yeni Bab-ı Ali Güvenliği [1] satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Yeni Bab-ı Ali Güvenliği [1] [30] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3253,8 +3482,8 @@
     "questId": "quest-103-yeni-bab-ali-guvenligi-2",
     "sourceNumber": 103,
     "name": "Yeni Bab-ı Ali Güvenliği [2]",
-    "level": null,
-    "minLevel": 30,
+    "level": 30,
+    "minLevel": null,
     "giverNpc": "Bab-ı Ali Komutanı",
     "location": null,
     "previousQuestIds": [
@@ -3270,10 +3499,18 @@
         "locator": "No 103 · Yeni Bab-ı Ali Güvenliği [2] satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Yeni Bab-ı Ali Güvenliği [2] [30] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3283,7 +3520,7 @@
     "sourceNumber": 104,
     "name": "Başı Boş",
     "level": 30,
-    "minLevel": 30,
+    "minLevel": null,
     "giverNpc": "Bab-ı Ali Komutanı",
     "location": null,
     "previousQuestIds": [
@@ -3299,17 +3536,18 @@
         "locator": "No 104 · Başı Boş satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Başı Boş satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Başı Boş [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3333,17 +3571,18 @@
         "locator": "No 105 · Vahşi'nin dileği satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Vahşi'nin dileği satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Vahşi'nin dileği [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3367,17 +3606,18 @@
         "locator": "No 106 · Rüstem'in Mesajı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Rüstem'in Mesajı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Rüstem'in Mesajı [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3387,7 +3627,7 @@
     "sourceNumber": 107,
     "name": "Dilek'in Ustalığı",
     "level": 30,
-    "minLevel": 30,
+    "minLevel": null,
     "giverNpc": "Demirci Dilek",
     "location": null,
     "previousQuestIds": [
@@ -3403,17 +3643,18 @@
         "locator": "No 107 · Dilek'in Ustalığı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Dilek'in Ustalığı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Dilek'in Ustalığı [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3422,8 +3663,8 @@
     "questId": "quest-108-dilek-in-cevab",
     "sourceNumber": 108,
     "name": "Dilek'in cevabı",
-    "level": null,
-    "minLevel": 30,
+    "level": 30,
+    "minLevel": null,
     "giverNpc": "Demirci Dilek",
     "location": null,
     "previousQuestIds": [
@@ -3439,10 +3680,18 @@
         "locator": "No 108 · Dilek'in cevabı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Dilek'in cevabı [30] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3466,17 +3715,18 @@
         "locator": "No 109 · Kara zehir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 31 · Kara zehir satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kara zehir [31] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3500,17 +3750,18 @@
         "locator": "No 110 · Selami Kelaynak İstanbul'un neresinde? satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 31 · Selami Kelaynak İstanbul'un neresinde? satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Selami Kelaynak İstanbul'un neresinde? [31] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3519,8 +3770,8 @@
     "questId": "quest-111-garip-kesif",
     "sourceNumber": 111,
     "name": "Garip Keşif",
-    "level": 30,
-    "minLevel": 31,
+    "level": 31,
+    "minLevel": null,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [
@@ -3536,17 +3787,18 @@
         "locator": "No 111 · Garip Keşif satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Garip Keşif satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Garip Keşif [31] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3555,8 +3807,8 @@
     "questId": "quest-112-subaya-rapor",
     "sourceNumber": 112,
     "name": "Subaya rapor",
-    "level": 30,
-    "minLevel": 31,
+    "level": 31,
+    "minLevel": null,
     "giverNpc": "Kayıp Ajan",
     "location": null,
     "previousQuestIds": [
@@ -3572,17 +3824,18 @@
         "locator": "No 112 · Subaya rapor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Subaya rapor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Subaya rapor [31] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3591,8 +3844,8 @@
     "questId": "quest-113-ada",
     "sourceNumber": 113,
     "name": "Ada",
-    "level": 30,
-    "minLevel": 31,
+    "level": 31,
+    "minLevel": null,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [
@@ -3608,17 +3861,18 @@
         "locator": "No 113 · Ada satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Ada satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Ada [31] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3627,8 +3881,8 @@
     "questId": "quest-114-agah-n-arzusu",
     "sourceNumber": 114,
     "name": "Agah'ın arzusu",
-    "level": 30,
-    "minLevel": 31,
+    "level": 31,
+    "minLevel": null,
     "giverNpc": "Agah Efendi",
     "location": null,
     "previousQuestIds": [
@@ -3644,17 +3898,18 @@
         "locator": "No 114 · Agah'ın arzusu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Agah'ın arzusu satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Agah'ın arzusu [31] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3663,7 +3918,7 @@
     "questId": "quest-115-stoklar-1",
     "sourceNumber": 115,
     "name": "Stoklar 1",
-    "level": null,
+    "level": 31,
     "minLevel": 31,
     "giverNpc": "Mebrure Hanım",
     "location": null,
@@ -3680,10 +3935,18 @@
         "locator": "No 115 · Stoklar 1 satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Stoklar 1 [31] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3692,7 +3955,7 @@
     "questId": "quest-116-stoklar-2",
     "sourceNumber": 116,
     "name": "Stoklar 2",
-    "level": null,
+    "level": 31,
     "minLevel": 31,
     "giverNpc": "Mebrure Hanım",
     "location": null,
@@ -3709,10 +3972,18 @@
         "locator": "No 116 · Stoklar 2 satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Stoklar 2 [31] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3721,7 +3992,7 @@
     "questId": "quest-117-stoklar-3",
     "sourceNumber": 117,
     "name": "Stoklar 3",
-    "level": null,
+    "level": 31,
     "minLevel": 31,
     "giverNpc": "Mebrure Hanım",
     "location": null,
@@ -3738,10 +4009,18 @@
         "locator": "No 117 · Stoklar 3 satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Stoklar 3 [31] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3750,7 +4029,7 @@
     "questId": "quest-118-stoklar-4",
     "sourceNumber": 118,
     "name": "Stoklar 4",
-    "level": null,
+    "level": 31,
     "minLevel": 31,
     "giverNpc": "Mebrure Hanım",
     "location": null,
@@ -3767,10 +4046,18 @@
         "locator": "No 118 · Stoklar 4 satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Stoklar 4 [31] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3780,7 +4067,7 @@
     "sourceNumber": 119,
     "name": "Mebrure'nin Memnuniyeti",
     "level": 31,
-    "minLevel": 31,
+    "minLevel": null,
     "giverNpc": "Mebrure Hanım",
     "location": null,
     "previousQuestIds": [
@@ -3799,17 +4086,18 @@
         "locator": "No 119 · Mebrure'nin Memnuniyeti satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 31 · Mebrure'nin Memnuniyeti satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Mebrure'nin Memnuniyeti [31] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3818,8 +4106,8 @@
     "questId": "quest-120-selami-ve-hamit-in-kahvesi",
     "sourceNumber": 120,
     "name": "Selami ve Hamit'in kahvesi",
-    "level": 31,
-    "minLevel": 32,
+    "level": 32,
+    "minLevel": null,
     "giverNpc": "Hamit Pehlivan",
     "location": null,
     "previousQuestIds": [
@@ -3835,17 +4123,18 @@
         "locator": "No 120 · Selami ve Hamit'in kahvesi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 31 · Selami ve Hamit'in kahvesi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Selami ve Hamit'in kahvesi [32] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3854,8 +4143,8 @@
     "questId": "quest-121-selami-nin-al-sverisi",
     "sourceNumber": 121,
     "name": "Selami'nin alışverişi",
-    "level": 31,
-    "minLevel": 32,
+    "level": 32,
+    "minLevel": null,
     "giverNpc": "Şevket Bey",
     "location": null,
     "previousQuestIds": [
@@ -3871,17 +4160,18 @@
         "locator": "No 121 · Selami'nin alışverişi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 31 · Selami'nin alışverişi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Selami'nin alışverişi [32] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3905,17 +4195,18 @@
         "locator": "No 122 · Kauçuk Kanvas İhtiyacı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 32 · Kauçuk Kanvas İhtiyacı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kauçuk Kanvas İhtiyacı [32] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3924,7 +4215,7 @@
     "questId": "quest-123-h-z-testi",
     "sourceNumber": 123,
     "name": "Hız Testi",
-    "level": null,
+    "level": 32,
     "minLevel": 32,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
@@ -3941,10 +4232,18 @@
         "locator": "No 123 · Hız Testi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Hız Testi [32] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3953,8 +4252,8 @@
     "questId": "quest-124-h-z-testi",
     "sourceNumber": 124,
     "name": "Hız Testi",
-    "level": null,
-    "minLevel": 32,
+    "level": 32,
+    "minLevel": null,
     "giverNpc": "Elif",
     "location": null,
     "previousQuestIds": [
@@ -3970,10 +4269,18 @@
         "locator": "No 124 · Hız Testi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Hız Testi [32] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -3983,7 +4290,7 @@
     "sourceNumber": 125,
     "name": "Haber yayılıyor",
     "level": 32,
-    "minLevel": 32,
+    "minLevel": null,
     "giverNpc": "Bankacı",
     "location": null,
     "previousQuestIds": [
@@ -3999,17 +4306,18 @@
         "locator": "No 125 · Haber yayılıyor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 32 · Haber yayılıyor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Haber yayılıyor [32] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4018,7 +4326,7 @@
     "questId": "quest-126-mavi-engerekler",
     "sourceNumber": 126,
     "name": "Mavi Engerekler",
-    "level": null,
+    "level": 32,
     "minLevel": 32,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
@@ -4035,10 +4343,18 @@
         "locator": "No 126 · Mavi Engerekler satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Mavi Engerekler [32] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4062,17 +4378,18 @@
         "locator": "No 127 · Dehşet Dehlizleri satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 33 · Dehşet Dehlizleri satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Dehşet Dehlizleri [33] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4081,8 +4398,8 @@
     "questId": "quest-128-kumsala-donus",
     "sourceNumber": 128,
     "name": "Kumsala Dönüş",
-    "level": 32,
-    "minLevel": 33,
+    "level": 33,
+    "minLevel": null,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [
@@ -4098,17 +4415,18 @@
         "locator": "No 128 · Kumsala Dönüş satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 32 · Kumsala Dönüş satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kumsala Dönüş [33] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4117,8 +4435,8 @@
     "questId": "quest-129-yoksa-buras-bir",
     "sourceNumber": 129,
     "name": "Yoksa burası bir...?",
-    "level": 32,
-    "minLevel": 33,
+    "level": 33,
+    "minLevel": null,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [
@@ -4134,17 +4452,18 @@
         "locator": "No 129 · Yoksa burası bir...? satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 32 · Yoksa burası bir...? satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yoksa burası bir...? [33] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4153,8 +4472,8 @@
     "questId": "quest-130-ada-m",
     "sourceNumber": 130,
     "name": "Ada mı?",
-    "level": 32,
-    "minLevel": 33,
+    "level": 33,
+    "minLevel": null,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [
@@ -4170,17 +4489,18 @@
         "locator": "No 130 · Ada mı? satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 32 · Ada mı? satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Ada mı? [33] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4190,7 +4510,7 @@
     "sourceNumber": 131,
     "name": "Gizemli Numara",
     "level": 34,
-    "minLevel": 34,
+    "minLevel": null,
     "giverNpc": "Teşkilat Hattı",
     "location": null,
     "previousQuestIds": [
@@ -4206,17 +4526,18 @@
         "locator": "No 131 · Gizemli Numara satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 34 · Gizemli Numara satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Gizemli Numara [34] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4226,7 +4547,7 @@
     "sourceNumber": 132,
     "name": "Selami Kelaynak ve Konuşan Tazı",
     "level": 34,
-    "minLevel": 34,
+    "minLevel": null,
     "giverNpc": "Garip",
     "location": null,
     "previousQuestIds": [
@@ -4242,17 +4563,18 @@
         "locator": "No 132 · Selami Kelaynak ve Konuşan Tazı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 34 · Selami Kelaynak ve Konuşan Tazı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Selami Kelaynak ve Konuşan Tazı [34] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4261,8 +4583,8 @@
     "questId": "quest-133-ceteci-magaras-operasyonlar",
     "sourceNumber": 133,
     "name": "Çeteci Mağarası Operasyonları",
-    "level": null,
-    "minLevel": 34,
+    "level": 34,
+    "minLevel": null,
     "giverNpc": "Komutan",
     "location": null,
     "previousQuestIds": [
@@ -4278,10 +4600,18 @@
         "locator": "No 133 · Çeteci Mağarası Operasyonları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Çeteci Mağarası Operasyonları [34] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4290,8 +4620,8 @@
     "questId": "quest-134-ceteci-magaras-operasyonlar",
     "sourceNumber": 134,
     "name": "Çeteci Mağarası Operasyonları",
-    "level": null,
-    "minLevel": 34,
+    "level": 34,
+    "minLevel": null,
     "giverNpc": "Komutan",
     "location": null,
     "previousQuestIds": [
@@ -4307,10 +4637,18 @@
         "locator": "No 134 · Çeteci Mağarası Operasyonları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Çeteci Mağarası Operasyonları [34] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4319,8 +4657,8 @@
     "questId": "quest-135-patronun-gozdesini-oldur",
     "sourceNumber": 135,
     "name": "Patronun .Gözdesini Öldür",
-    "level": null,
-    "minLevel": 34,
+    "level": 34,
+    "minLevel": null,
     "giverNpc": "Komutan",
     "location": null,
     "previousQuestIds": [
@@ -4336,10 +4674,18 @@
         "locator": "No 135 · Patronun .Gözdesini Öldür satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Patronun .Gözdesini Öldür [34] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4349,7 +4695,7 @@
     "sourceNumber": 136,
     "name": "Cevriye Sultan",
     "level": 34,
-    "minLevel": 34,
+    "minLevel": null,
     "giverNpc": "Komutan",
     "location": null,
     "previousQuestIds": [
@@ -4365,17 +4711,18 @@
         "locator": "No 136 · Cevriye Sultan satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 34 · Cevriye Sultan satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Cevriye Sultan [34] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4385,7 +4732,7 @@
     "sourceNumber": 137,
     "name": "Necmi'nin anlattıkları",
     "level": 34,
-    "minLevel": 34,
+    "minLevel": null,
     "giverNpc": "Sahaf Necmi",
     "location": null,
     "previousQuestIds": [
@@ -4401,17 +4748,18 @@
         "locator": "No 137 · Necmi'nin anlattıkları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 34 · Necmi'nin anlattıkları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Necmi'nin anlattıkları [34] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4435,17 +4783,18 @@
         "locator": "No 138 · Agah Bey'in kayıp yüzüğü satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 34 · Agah Bey'in kayıp yüzüğü satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Agah Bey'in kayıp yüzüğü [34] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4455,7 +4804,7 @@
     "sourceNumber": 139,
     "name": "Komutan'ın kıyağı",
     "level": 34,
-    "minLevel": 34,
+    "minLevel": null,
     "giverNpc": "Komutan",
     "location": null,
     "previousQuestIds": [
@@ -4471,17 +4820,18 @@
         "locator": "No 139 · Komutan'ın kıyağı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 34 · Komutan'ın kıyağı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Komutan'ın kıyağı [34] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4490,8 +4840,8 @@
     "questId": "quest-140-agah-bey-in-yuzugu",
     "sourceNumber": 140,
     "name": "Agah Bey'in yüzüğü",
-    "level": null,
-    "minLevel": 34,
+    "level": 34,
+    "minLevel": null,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -4507,10 +4857,18 @@
         "locator": "No 140 · Agah Bey'in yüzüğü satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Agah Bey'in yüzüğü [34] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4519,8 +4877,8 @@
     "questId": "quest-141-dev-ana",
     "sourceNumber": 141,
     "name": "Dev ana",
-    "level": 34,
-    "minLevel": 35,
+    "level": 35,
+    "minLevel": null,
     "giverNpc": "Komutan",
     "location": null,
     "previousQuestIds": [
@@ -4536,17 +4894,18 @@
         "locator": "No 141 · Dev ana satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 34 · Dev ana satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Dev ana [35] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4572,17 +4931,18 @@
         "locator": "No 142 · Kurtlar, Bab-ı Ali'ye Meydan Okuyor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 35 · Kurtlar, Bab-ı Ali'ye Meydan Okuyor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kurtlar, Bab-ı Ali'ye Meydan Okuyor [35] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4592,7 +4952,7 @@
     "sourceNumber": 143,
     "name": "Kurtlara Karşı Saldırılar",
     "level": 35,
-    "minLevel": 35,
+    "minLevel": null,
     "giverNpc": "Elif",
     "location": null,
     "previousQuestIds": [
@@ -4608,17 +4968,18 @@
         "locator": "No 143 · Kurtlara Karşı Saldırılar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 35 · Kurtlara Karşı Saldırılar satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kurtlara Karşı Saldırılar [35] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4627,8 +4988,8 @@
     "questId": "quest-144-h-zl-kosanlar",
     "sourceNumber": 144,
     "name": "Hızlı Koşanlar",
-    "level": 35,
-    "minLevel": 36,
+    "level": 36,
+    "minLevel": null,
     "giverNpc": "Elif",
     "location": null,
     "previousQuestIds": [
@@ -4644,17 +5005,18 @@
         "locator": "No 144 · Hızlı Koşanlar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 35 · Hızlı Koşanlar satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Hızlı Koşanlar [36] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4663,8 +5025,8 @@
     "questId": "quest-145-saman-av",
     "sourceNumber": 145,
     "name": "Şaman Avı",
-    "level": 35,
-    "minLevel": 37,
+    "level": 37,
+    "minLevel": null,
     "giverNpc": "Elif",
     "location": null,
     "previousQuestIds": [
@@ -4680,17 +5042,18 @@
         "locator": "No 145 · Şaman Avı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 35 · Şaman Avı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Şaman Avı [37] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4717,17 +5080,18 @@
         "locator": "No 146 · Uzun Zaman Sonra satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Uzun Zaman Sonra satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Uzun Zaman Sonra [36] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4753,17 +5117,18 @@
         "locator": "No 147 · Totem satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Totem satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Totem [36] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4772,8 +5137,8 @@
     "questId": "quest-148-istihbaratta-yukselis",
     "sourceNumber": 148,
     "name": "İstihbaratta Yükseliş",
-    "level": null,
-    "minLevel": 36,
+    "level": 36,
+    "minLevel": null,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [
@@ -4789,10 +5154,18 @@
         "locator": "No 148 · İstihbaratta Yükseliş satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "İstihbaratta Yükseliş [36] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4801,8 +5174,8 @@
     "questId": "quest-149-istihbaratta-yukselis",
     "sourceNumber": 149,
     "name": "İstihbaratta Yükseliş",
-    "level": null,
-    "minLevel": 36,
+    "level": 36,
+    "minLevel": null,
     "giverNpc": "Teşkilat Hattı",
     "location": null,
     "previousQuestIds": [
@@ -4818,10 +5191,18 @@
         "locator": "No 149 · İstihbaratta Yükseliş satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "İstihbaratta Yükseliş [36] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4831,7 +5212,7 @@
     "sourceNumber": 150,
     "name": "Robinson",
     "level": 36,
-    "minLevel": 36,
+    "minLevel": null,
     "giverNpc": "Yalnız Adam",
     "location": null,
     "previousQuestIds": [
@@ -4847,17 +5228,18 @@
         "locator": "No 150 · Robinson satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Robinson satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Robinson [36] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4867,7 +5249,7 @@
     "sourceNumber": 151,
     "name": "Robinson",
     "level": 36,
-    "minLevel": 36,
+    "minLevel": null,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -4883,17 +5265,18 @@
         "locator": "No 151 · Robinson satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Robinson satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Robinson [36] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4903,7 +5286,7 @@
     "sourceNumber": 152,
     "name": "Adanın Tepeleri",
     "level": 36,
-    "minLevel": 36,
+    "minLevel": null,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [
@@ -4919,17 +5302,18 @@
         "locator": "No 152 · Adanın Tepeleri satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Adanın Tepeleri satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Adanın Tepeleri [36] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4938,8 +5322,8 @@
     "questId": "quest-153-tepeler",
     "sourceNumber": 153,
     "name": "Tepeler",
-    "level": 36,
-    "minLevel": 37,
+    "level": 37,
+    "minLevel": null,
     "giverNpc": "Teşkilat Hattı",
     "location": null,
     "previousQuestIds": [
@@ -4955,17 +5339,18 @@
         "locator": "No 153 · Tepeler satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Tepeler satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Tepeler [37] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -4974,8 +5359,8 @@
     "questId": "quest-154-arzuhalci-ye-sualler",
     "sourceNumber": 154,
     "name": "Arzuhalci'ye Sualler",
-    "level": 36,
-    "minLevel": 37,
+    "level": 37,
+    "minLevel": null,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -4991,17 +5376,18 @@
         "locator": "No 154 · Arzuhalci'ye Sualler satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Arzuhalci'ye Sualler satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci'ye Sualler [37] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5010,8 +5396,8 @@
     "questId": "quest-155-arzuhalci-nin-okuduklar",
     "sourceNumber": 155,
     "name": "Arzuhalci'nin Okudukları",
-    "level": 36,
-    "minLevel": 37,
+    "level": 37,
+    "minLevel": null,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -5027,17 +5413,18 @@
         "locator": "No 155 · Arzuhalci'nin Okudukları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Arzuhalci'nin Okudukları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci'nin Okudukları [37] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5046,8 +5433,8 @@
     "questId": "quest-156-bir-kap-kapan-r-bir-digeri-ac-l-r",
     "sourceNumber": 156,
     "name": "Bir kapı kapanır, bir diğeri açılır.",
-    "level": 36,
-    "minLevel": 37,
+    "level": 37,
+    "minLevel": null,
     "giverNpc": "Teşkilat Hattı",
     "location": null,
     "previousQuestIds": [
@@ -5063,17 +5450,18 @@
         "locator": "No 156 · Bir kapı kapanır, bir diğeri açılır. satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 36 · Bir kapı kapanır, bir diğeri açılır. satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Bir kapı kapanır, bir diğeri açılır. [37] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5082,8 +5470,8 @@
     "questId": "quest-157-kurt-alfalar",
     "sourceNumber": 157,
     "name": "Kurt Alfalar",
-    "level": 35,
-    "minLevel": 38,
+    "level": 38,
+    "minLevel": null,
     "giverNpc": "Elif",
     "location": null,
     "previousQuestIds": [
@@ -5099,17 +5487,18 @@
         "locator": "No 157 · Kurt Alfalar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 35 · Kurt Alfalar satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kurt Alfalar [38] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5118,8 +5507,8 @@
     "questId": "quest-158-kara-kurk-kurtlara-son-darbe",
     "sourceNumber": 158,
     "name": "Kara Kürk - Kurtlara Son Darbe",
-    "level": null,
-    "minLevel": 38,
+    "level": 38,
+    "minLevel": null,
     "giverNpc": "Elif",
     "location": null,
     "previousQuestIds": [
@@ -5135,10 +5524,18 @@
         "locator": "No 158 · Kara Kürk - Kurtlara Son Darbe satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Kara Kürk - Kurtlara Son Darbe [38] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5147,8 +5544,8 @@
     "questId": "quest-159-mukafat",
     "sourceNumber": 159,
     "name": "Mükafat",
-    "level": 35,
-    "minLevel": 38,
+    "level": 38,
+    "minLevel": null,
     "giverNpc": "Mebrure Hanım",
     "location": null,
     "previousQuestIds": [
@@ -5164,17 +5561,18 @@
         "locator": "No 159 · Mükafat satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 35 · Mükafat satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Mükafat [38] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5184,7 +5582,7 @@
     "sourceNumber": 160,
     "name": "Silah Takası",
     "level": 30,
-    "minLevel": 30,
+    "minLevel": 1,
     "giverNpc": "Demirci Dilek",
     "location": null,
     "previousQuestIds": [],
@@ -5198,17 +5596,18 @@
         "locator": "No 160 · Silah Takası satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 30 · Silah Takası satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Silah Takası [30] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5232,17 +5631,18 @@
         "locator": "No 161 · Mebrure'nin Daveti satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Mebrure'nin Daveti satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Mebrure'nin Daveti [39] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5268,17 +5668,18 @@
         "locator": "No 162 · Domuz'la Tanışma satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Domuz'la Tanışma satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Domuz'la Tanışma [39] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5304,17 +5705,18 @@
         "locator": "No 163 · Topal'ın Hazırlıkları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Topal'ın Hazırlıkları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Topal'ın Hazırlıkları [39] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5323,8 +5725,8 @@
     "questId": "quest-164-topal-ilk-darbeyi-vuruyor",
     "sourceNumber": 164,
     "name": "Topal İlk Darbeyi Vuruyor",
-    "level": 39,
-    "minLevel": 42,
+    "level": 42,
+    "minLevel": 39,
     "giverNpc": "Topal",
     "location": null,
     "previousQuestIds": [
@@ -5340,17 +5742,18 @@
         "locator": "No 164 · Topal İlk Darbeyi Vuruyor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Topal İlk Darbeyi Vuruyor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Topal İlk Darbeyi Vuruyor [42] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5359,8 +5762,8 @@
     "questId": "quest-165-kan-pence-nin-tavsiyesi",
     "sourceNumber": 165,
     "name": "Kan Pençe'nin Tavsiyesi",
-    "level": 39,
-    "minLevel": 42,
+    "level": 42,
+    "minLevel": 39,
     "giverNpc": "Kan Pençe",
     "location": null,
     "previousQuestIds": [
@@ -5376,17 +5779,18 @@
         "locator": "No 165 · Kan Pençe'nin Tavsiyesi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Kan Pençe'nin Tavsiyesi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kan Pençe'nin Tavsiyesi [42] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5413,17 +5817,18 @@
         "locator": "No 166 · Solucan'ı Ezmek satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 42 · Solucan'ı Ezmek satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Solucan'ı Ezmek [42] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5447,17 +5852,18 @@
         "locator": "No 167 · Yasemin'in İsteği satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Yasemin'in İsteği satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yasemin'in İsteği [43] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5466,7 +5872,7 @@
     "questId": "quest-168-her-seyi-bilen-adam",
     "sourceNumber": 168,
     "name": "Her Şeyi Bilen Adam",
-    "level": null,
+    "level": 43,
     "minLevel": 43,
     "giverNpc": "Yalnız Adam",
     "location": null,
@@ -5483,10 +5889,18 @@
         "locator": "No 168 · Her Şeyi Bilen Adam satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Her Şeyi Bilen Adam [43] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5495,7 +5909,7 @@
     "questId": "quest-169-her-seyi-bilen-adam",
     "sourceNumber": 169,
     "name": "Her şeyi Bilen Adam",
-    "level": null,
+    "level": 43,
     "minLevel": 43,
     "giverNpc": "Yalnız Adam",
     "location": null,
@@ -5512,10 +5926,18 @@
         "locator": "No 169 · Her şeyi Bilen Adam satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Her şeyi Bilen Adam [43] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5541,17 +5963,18 @@
         "locator": "No 170 · Son 10 dk. satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Son 10 dk. satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Son 10 dk. [43] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5577,17 +6000,18 @@
         "locator": "No 171 · Yasemin'e dönüş satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Yasemin'e dönüş satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yasemin'e dönüş [43] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5613,17 +6037,18 @@
         "locator": "No 172 · Işık'la Konuşma satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Işık'la Konuşma satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Işık'la Konuşma [43] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5665,17 +6090,18 @@
         "locator": "No 173 · Arzuhalci Yeraltını Araştırıyor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · Arzuhalci Yeraltını Araştırıyor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci Yeraltını Araştırıyor [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5701,17 +6127,18 @@
         "locator": "No 174 · Taştaki Metin satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · Taştaki Metin satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Taştaki Metin [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5737,17 +6164,18 @@
         "locator": "No 175 · Arzuhalci'nin Çevirisi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · Arzuhalci'nin Çevirisi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci'nin Çevirisi [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5773,17 +6201,18 @@
         "locator": "No 176 · Anahtar ve Kapı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · Anahtar ve Kapı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Anahtar ve Kapı [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5809,17 +6238,18 @@
         "locator": "No 177 · Domuz'un Adamı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · Domuz'un Adamı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Domuz'un Adamı [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5845,17 +6275,18 @@
         "locator": "No 178 · Asrın Keşfi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · Asrın Keşfi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Asrın Keşfi [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5881,17 +6312,18 @@
         "locator": "No 179 · Yabancı Uygarlık satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · Yabancı Uygarlık satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yabancı Uygarlık [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5917,17 +6349,18 @@
         "locator": "No 180 · Bir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · Bir satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Bir [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5953,17 +6386,18 @@
         "locator": "No 181 · İki satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 44 · İki satırı",
+        "sourceId": "official-quest-list",
+        "locator": "İki [44] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -5989,17 +6423,18 @@
         "locator": "No 182 · Arzuhalci'ye Rapor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Arzuhalci'ye Rapor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci'ye Rapor [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6025,17 +6460,18 @@
         "locator": "No 183 · GBM 68 B satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · GBM 68 B satırı",
+        "sourceId": "official-quest-list",
+        "locator": "GBM 68 B [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6061,17 +6497,18 @@
         "locator": "No 184 · GBM 68 B satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · GBM 68 B satırı",
+        "sourceId": "official-quest-list",
+        "locator": "GBM 68 B [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6097,17 +6534,18 @@
         "locator": "No 185 · GBM 68 B satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · GBM 68 B satırı",
+        "sourceId": "official-quest-list",
+        "locator": "GBM 68 B [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6133,17 +6571,18 @@
         "locator": "No 186 · GBM 68 B satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · GBM 68 B satırı",
+        "sourceId": "official-quest-list",
+        "locator": "GBM 68 B [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6169,17 +6608,18 @@
         "locator": "No 187 · Elektromanyetik Spektrum satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Elektromanyetik Spektrum satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Elektromanyetik Spektrum [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6205,17 +6645,18 @@
         "locator": "No 188 · Arzuhalci, Metni Tercüme Ediyor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Arzuhalci, Metni Tercüme Ediyor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci, Metni Tercüme Ediyor [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6241,17 +6682,18 @@
         "locator": "No 189 · Tercümenin Devamı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Tercümenin Devamı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Tercümenin Devamı [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6277,17 +6719,18 @@
         "locator": "No 190 · Suzan'ın ricası satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Suzan'ın ricası satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Suzan'ın ricası [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6313,17 +6756,18 @@
         "locator": "No 191 · Yazıyooor! satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Yazıyooor! satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yazıyooor! [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6349,17 +6793,18 @@
         "locator": "No 192 · Yol Ayrımı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Yol Ayrımı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yol Ayrımı [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6385,17 +6830,18 @@
         "locator": "No 193 · Gecenin Takipçileri satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Gecenin Takipçileri satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Gecenin Takipçileri [47] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6421,17 +6867,18 @@
         "locator": "No 194 · Dehlizlerdeki Yaralı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Dehlizlerdeki Yaralı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Dehlizlerdeki Yaralı [47] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6440,7 +6887,7 @@
     "questId": "quest-195-sahaf-n-ac-s",
     "sourceNumber": 195,
     "name": "Sahaf'ın Acısı",
-    "level": null,
+    "level": 47,
     "minLevel": 47,
     "giverNpc": "Sahaf Necmi",
     "location": null,
@@ -6457,10 +6904,18 @@
         "locator": "No 195 · Sahaf'ın Acısı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Sahaf'ın Acısı [47] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6486,17 +6941,18 @@
         "locator": "No 196 · Buz Büyücüleri satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 48 · Buz Büyücüleri satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Buz Büyücüleri [48] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6522,17 +6978,18 @@
         "locator": "No 197 · İfliss'e Suikast satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 48 · İfliss'e Suikast satırı",
+        "sourceId": "official-quest-list",
+        "locator": "İfliss'e Suikast [48] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6558,17 +7015,18 @@
         "locator": "No 198 · Acele Telefon satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 48 · Acele Telefon satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Acele Telefon [48] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6594,17 +7052,18 @@
         "locator": "No 199 · Domuz'un Akrep Sıkıntısı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Domuz'un Akrep Sıkıntısı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Domuz'un Akrep Sıkıntısı [47] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6630,17 +7089,18 @@
         "locator": "No 200 · Zehir Teslimi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Zehir Teslimi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Zehir Teslimi [47] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6664,17 +7124,18 @@
         "locator": "No 201 · Kurtarıcımız satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Kurtarıcımız satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kurtarıcımız [39] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6700,17 +7161,18 @@
         "locator": "No 202 · Cinnet satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Cinnet satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Cinnet [39] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6719,8 +7181,8 @@
     "questId": "quest-203-folklor-un-buyulu-yuzugu",
     "sourceNumber": 203,
     "name": "Folklor'un Büyülü Yüzüğü",
-    "level": 39,
-    "minLevel": 40,
+    "level": 40,
+    "minLevel": 39,
     "giverNpc": "Cinnet",
     "location": null,
     "previousQuestIds": [
@@ -6736,17 +7198,18 @@
         "locator": "No 203 · Folklor'un Büyülü Yüzüğü satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Folklor'un Büyülü Yüzüğü satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Folklor'un Büyülü Yüzüğü [40] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6755,8 +7218,8 @@
     "questId": "quest-204-disi-orumcek",
     "sourceNumber": 204,
     "name": "Dişi Örümcek",
-    "level": 39,
-    "minLevel": 40,
+    "level": 40,
+    "minLevel": 39,
     "giverNpc": "Cinnet",
     "location": null,
     "previousQuestIds": [
@@ -6772,17 +7235,18 @@
         "locator": "No 204 · Dişi Örümcek satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Dişi Örümcek satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Dişi Örümcek [40] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6791,8 +7255,8 @@
     "questId": "quest-205-kral-n-donusu",
     "sourceNumber": 205,
     "name": "Kralın Dönüşü",
-    "level": 39,
-    "minLevel": 40,
+    "level": 40,
+    "minLevel": 39,
     "giverNpc": "Cinnet",
     "location": null,
     "previousQuestIds": [
@@ -6808,17 +7272,18 @@
         "locator": "No 205 · Kralın Dönüşü satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Kralın Dönüşü satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kralın Dönüşü [40] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6827,8 +7292,8 @@
     "questId": "quest-206-hidra-n-n-s-rr",
     "sourceNumber": 206,
     "name": "Hidra'nın Sırrı",
-    "level": null,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 47,
     "giverNpc": "İstihbarat Subayı",
     "location": null,
     "previousQuestIds": [],
@@ -6842,10 +7307,18 @@
         "locator": "No 206 · Hidra'nın Sırrı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Hidra'nın Sırrı [49] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6854,8 +7327,8 @@
     "questId": "quest-207-yesil-tehlike",
     "sourceNumber": 207,
     "name": "Yeşil Tehlike",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 47,
     "giverNpc": "Komutan",
     "location": null,
     "previousQuestIds": [
@@ -6871,17 +7344,18 @@
         "locator": "No 207 · Yeşil Tehlike satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Yeşil Tehlike satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yeşil Tehlike [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6890,8 +7364,8 @@
     "questId": "quest-208-kadim-tehlike",
     "sourceNumber": 208,
     "name": "Kadim Tehlike",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 47,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -6907,17 +7381,18 @@
         "locator": "No 208 · Kadim Tehlike satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Kadim Tehlike satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kadim Tehlike [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6926,8 +7401,8 @@
     "questId": "quest-209-hidra-n-n-sonu",
     "sourceNumber": 209,
     "name": "Hidra'nın Sonu",
-    "level": null,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 47,
     "giverNpc": "Komutan",
     "location": null,
     "previousQuestIds": [
@@ -6943,10 +7418,18 @@
         "locator": "No 209 · Hidra'nın Sonu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Hidra'nın Sonu [49] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6972,17 +7455,18 @@
         "locator": "No 210 · Midedeki Pusula satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 46 · Midedeki Pusula satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Midedeki Pusula [46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -6991,7 +7475,7 @@
     "questId": "quest-211-pusula-teslimi",
     "sourceNumber": 211,
     "name": "Pusula Teslimi",
-    "level": null,
+    "level": 46,
     "minLevel": 46,
     "giverNpc": null,
     "location": null,
@@ -7008,10 +7492,18 @@
         "locator": "No 211 · Pusula Teslimi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Pusula Teslimi [46] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7035,17 +7527,18 @@
         "locator": "No 212 · Kaçak Elektrik satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 15 · Kaçak Elektrik satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kaçak Elektrik [15] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7071,17 +7564,18 @@
         "locator": "No 213 · Soruşturma satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 15 · Soruşturma satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Soruşturma [15] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7107,17 +7601,18 @@
         "locator": "No 214 · Orada ne var? satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 15 · Orada ne var? satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Orada ne var? [15] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7126,8 +7621,8 @@
     "questId": "quest-215-iste-saglam-bir-eleman",
     "sourceNumber": 215,
     "name": "İşte sağlam bir eleman",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Agop",
     "location": null,
     "previousQuestIds": [
@@ -7143,17 +7638,18 @@
         "locator": "No 215 · İşte sağlam bir eleman satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · İşte sağlam bir eleman satırı",
+        "sourceId": "official-quest-list",
+        "locator": "İşte sağlam bir eleman [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7162,8 +7658,8 @@
     "questId": "quest-216-agop-un-degerlendirmesi",
     "sourceNumber": 216,
     "name": "Agop'un değerlendirmesi",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Agop",
     "location": null,
     "previousQuestIds": [
@@ -7179,17 +7675,18 @@
         "locator": "No 216 · Agop'un değerlendirmesi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Agop'un değerlendirmesi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Agop'un değerlendirmesi [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7198,8 +7695,8 @@
     "questId": "quest-217-salteri-indir",
     "sourceNumber": 217,
     "name": "Şalteri indir",
-    "level": null,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Agop",
     "location": null,
     "previousQuestIds": [
@@ -7215,10 +7712,18 @@
         "locator": "No 217 · Şalteri indir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Şalteri indir [49] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7227,8 +7732,8 @@
     "questId": "quest-218-onlar-yuksege-as",
     "sourceNumber": 218,
     "name": "Onları yükseğe as",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Agop",
     "location": null,
     "previousQuestIds": [
@@ -7244,17 +7749,18 @@
         "locator": "No 218 · Onları yükseğe as satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Onları yükseğe as satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Onları yükseğe as [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7263,8 +7769,8 @@
     "questId": "quest-219-zahir-in-masas-ndaki-mektup",
     "sourceNumber": 219,
     "name": "Zahir'in masasındaki mektup",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -7280,17 +7786,18 @@
         "locator": "No 219 · Zahir'in masasındaki mektup satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Zahir'in masasındaki mektup satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Zahir'in masasındaki mektup [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7299,8 +7806,8 @@
     "questId": "quest-220-zarf-incelemek",
     "sourceNumber": 220,
     "name": "Zarfı incelemek",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -7316,17 +7823,18 @@
         "locator": "No 220 · Zarfı incelemek satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Zarfı incelemek satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Zarfı incelemek [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7335,8 +7843,8 @@
     "questId": "quest-221-hain-zahir",
     "sourceNumber": 221,
     "name": "Hain Zahir",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Agop",
     "location": null,
     "previousQuestIds": [
@@ -7352,17 +7860,18 @@
         "locator": "No 221 · Hain Zahir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Hain Zahir satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Hain Zahir [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7371,8 +7880,8 @@
     "questId": "quest-222-s-k-a-haber",
     "sourceNumber": 222,
     "name": "Işık'a haber",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Işık Hanım",
     "location": null,
     "previousQuestIds": [
@@ -7388,17 +7897,18 @@
         "locator": "No 222 · Işık'a haber satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Işık'a haber satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Işık'a haber [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7407,8 +7917,8 @@
     "questId": "quest-223-onun-ad-kenan",
     "sourceNumber": 223,
     "name": "Onun adı Kenan",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Lamia",
     "location": null,
     "previousQuestIds": [
@@ -7424,17 +7934,18 @@
         "locator": "No 223 · Onun adı Kenan satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Onun adı Kenan satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Onun adı Kenan [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7443,8 +7954,8 @@
     "questId": "quest-224-kenan-oldurmek",
     "sourceNumber": 224,
     "name": "Kenan'ı öldürmek",
-    "level": null,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -7460,10 +7971,18 @@
         "locator": "No 224 · Kenan'ı öldürmek satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Kenan'ı öldürmek [49] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7472,8 +7991,8 @@
     "questId": "quest-225-burada-kalakald-m",
     "sourceNumber": 225,
     "name": "Burada kalakaldım!",
-    "level": null,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Bergin",
     "location": null,
     "previousQuestIds": [],
@@ -7487,10 +8006,18 @@
         "locator": "No 225 · Burada kalakaldım! satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Burada kalakaldım! [49] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7499,8 +8026,8 @@
     "questId": "quest-226-cehennemin-donen-seysi",
     "sourceNumber": 226,
     "name": "Cehennemin dönen şeysi",
-    "level": 43,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 43,
     "giverNpc": "Neşe",
     "location": null,
     "previousQuestIds": [],
@@ -7514,17 +8041,18 @@
         "locator": "No 226 · Cehennemin dönen şeysi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 43 · Cehennemin dönen şeysi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Cehennemin dönen şeysi [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7533,8 +8061,8 @@
     "questId": "quest-227-yusuf-agabey-in-merak",
     "sourceNumber": 227,
     "name": "Yusuf Ağabey'in Merakı",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": "Yusuf Ağabey",
     "location": null,
     "previousQuestIds": [
@@ -7550,17 +8078,18 @@
         "locator": "No 227 · Yusuf Ağabey'in Merakı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Yusuf Ağabey'in Merakı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yusuf Ağabey'in Merakı [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7569,8 +8098,8 @@
     "questId": "quest-228-umut-un-s-rr",
     "sourceNumber": 228,
     "name": "Umut'un Sırrı",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": "Umut",
     "location": null,
     "previousQuestIds": [
@@ -7586,17 +8115,18 @@
         "locator": "No 228 · Umut'un Sırrı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Umut'un Sırrı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Umut'un Sırrı [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7605,8 +8135,8 @@
     "questId": "quest-229-kara-kemik",
     "sourceNumber": 229,
     "name": "Kara Kemik",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": "Çeteci",
     "location": null,
     "previousQuestIds": [
@@ -7622,17 +8152,18 @@
         "locator": "No 229 · Kara Kemik satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Kara Kemik satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kara Kemik [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7641,8 +8172,8 @@
     "questId": "quest-230-cetecinin-bildigi",
     "sourceNumber": 230,
     "name": "Çetecinin Bildiği",
-    "level": null,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": "Çeteci",
     "location": null,
     "previousQuestIds": [
@@ -7658,10 +8189,18 @@
         "locator": "No 230 · Çetecinin Bildiği satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Çetecinin Bildiği [49] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7670,8 +8209,8 @@
     "questId": "quest-231-dipsiz-kuyu",
     "sourceNumber": 231,
     "name": "Dipsiz Kuyu",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -7687,17 +8226,18 @@
         "locator": "No 231 · Dipsiz Kuyu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Dipsiz Kuyu satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Dipsiz Kuyu [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7706,8 +8246,8 @@
     "questId": "quest-232-tan-d-k-kitap",
     "sourceNumber": 232,
     "name": "Tanıdık Kitap",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -7723,17 +8263,18 @@
         "locator": "No 232 · Tanıdık Kitap satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Tanıdık Kitap satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Tanıdık Kitap [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7742,8 +8283,8 @@
     "questId": "quest-233-esir",
     "sourceNumber": 233,
     "name": "Esir",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": "Beyaz Şapkalı Adam",
     "location": null,
     "previousQuestIds": [
@@ -7759,17 +8300,18 @@
         "locator": "No 233 · Esir satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Esir satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Esir [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7778,8 +8320,8 @@
     "questId": "quest-234-tukenis",
     "sourceNumber": 234,
     "name": "Tükeniş",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": "Beyaz Şapkalı Adam",
     "location": null,
     "previousQuestIds": [
@@ -7795,17 +8337,18 @@
         "locator": "No 234 · Tükeniş satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Tükeniş satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Tükeniş [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7814,8 +8357,8 @@
     "questId": "quest-235-arzuhalci-ve-her-zamanki-sohbetler",
     "sourceNumber": 235,
     "name": "Arzuhalci ve her zamanki sohbetler",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -7831,17 +8374,18 @@
         "locator": "No 235 · Arzuhalci ve her zamanki sohbetler satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Arzuhalci ve her zamanki sohbetler satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci ve her zamanki sohbetler [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7850,8 +8394,8 @@
     "questId": "quest-236-kafesi-acmak",
     "sourceNumber": 236,
     "name": "Kafesi Açmak",
-    "level": 47,
-    "minLevel": 49,
+    "level": 49,
+    "minLevel": 45,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -7867,17 +8411,18 @@
         "locator": "No 236 · Kafesi Açmak satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Kafesi Açmak satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kafesi Açmak [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7887,7 +8432,7 @@
     "sourceNumber": 237,
     "name": "İskelenin Sırları",
     "level": 46,
-    "minLevel": 46,
+    "minLevel": 43,
     "giverNpc": "Yasemin",
     "location": null,
     "previousQuestIds": [
@@ -7903,17 +8448,18 @@
         "locator": "No 237 · İskelenin Sırları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 46 · İskelenin Sırları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "İskelenin Sırları [46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7923,7 +8469,7 @@
     "sourceNumber": 238,
     "name": "Arzuhalci'nin Buldukları",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -7939,17 +8485,18 @@
         "locator": "No 238 · Arzuhalci'nin Buldukları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Arzuhalci'nin Buldukları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci'nin Buldukları [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7959,7 +8506,7 @@
     "sourceNumber": 239,
     "name": "Khaos",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Teşkilat Hattı",
     "location": null,
     "previousQuestIds": [
@@ -7975,17 +8522,18 @@
         "locator": "No 239 · Khaos satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Khaos satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Khaos[49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -7995,7 +8543,7 @@
     "sourceNumber": 240,
     "name": "Yalan",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -8011,17 +8559,18 @@
         "locator": "No 240 · Yalan satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Yalan satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Yalan[49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8031,7 +8580,7 @@
     "sourceNumber": 241,
     "name": "GB-Com",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "GB-COM",
     "location": null,
     "previousQuestIds": [
@@ -8047,17 +8596,18 @@
         "locator": "No 241 · GB-Com satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · GB-Com satırı",
+        "sourceId": "official-quest-list",
+        "locator": "GB-Com [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8067,7 +8617,7 @@
     "sourceNumber": 242,
     "name": "Sorgu Sual",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Topal",
     "location": null,
     "previousQuestIds": [
@@ -8083,17 +8633,18 @@
         "locator": "No 242 · Sorgu Sual satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Sorgu Sual satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Sorgu Sual [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8103,7 +8654,7 @@
     "sourceNumber": 243,
     "name": "Kelle Avcısı",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Teşkilat Hattı",
     "location": null,
     "previousQuestIds": [
@@ -8119,17 +8670,18 @@
         "locator": "No 243 · Kelle Avcısı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Kelle Avcısı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kelle Avcısı [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8139,7 +8691,7 @@
     "sourceNumber": 244,
     "name": "Arzuhalci'ye Danışmak",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -8155,17 +8707,18 @@
         "locator": "No 244 · Arzuhalci'ye Danışmak satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Arzuhalci'ye Danışmak satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arzuhalci'ye Danışmak [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8175,7 +8728,7 @@
     "sourceNumber": 245,
     "name": "Konuşma",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Dr. Recai Bey",
     "location": null,
     "previousQuestIds": [
@@ -8191,17 +8744,18 @@
         "locator": "No 245 · Konuşma satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Konuşma satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Konuşma [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8211,7 +8765,7 @@
     "sourceNumber": 246,
     "name": "Telekomünikasyon Robotu",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "GB-COM1",
     "location": null,
     "previousQuestIds": [
@@ -8227,17 +8781,18 @@
         "locator": "No 246 · Telekomünikasyon Robotu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Telekomünikasyon Robotu satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Telekomünikasyon Robotu [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8247,7 +8802,7 @@
     "sourceNumber": 247,
     "name": "Laboratuar görevlisi",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Zelal",
     "location": null,
     "previousQuestIds": [
@@ -8263,17 +8818,18 @@
         "locator": "No 247 · Laboratuar görevlisi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Laboratuar görevlisi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Laboratuar görevlisi [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8283,7 +8839,7 @@
     "sourceNumber": 248,
     "name": "Sadece titreşen kömür tozları",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Teşkilat Hattı",
     "location": null,
     "previousQuestIds": [
@@ -8299,17 +8855,18 @@
         "locator": "No 248 · Sadece titreşen kömür tozları satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Sadece titreşen kömür tozları satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Sadece titreşen kömür tozları [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8319,7 +8876,7 @@
     "sourceNumber": 249,
     "name": "Agah Efendi",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Agah Efendi",
     "location": null,
     "previousQuestIds": [
@@ -8335,17 +8892,18 @@
         "locator": "No 249 · Agah Efendi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Agah Efendi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Agah Efendi [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8355,7 +8913,7 @@
     "sourceNumber": 250,
     "name": "Veda",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Arzuhalci",
     "location": null,
     "previousQuestIds": [
@@ -8371,17 +8929,18 @@
         "locator": "No 250 · Veda satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Veda satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Veda [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8391,7 +8950,7 @@
     "sourceNumber": 251,
     "name": "REM",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": null,
     "location": null,
     "previousQuestIds": [
@@ -8407,17 +8966,18 @@
         "locator": "No 251 · REM satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · REM satırı",
+        "sourceId": "official-quest-list",
+        "locator": "REM [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8427,7 +8987,7 @@
     "sourceNumber": 252,
     "name": "Amplifikatör Elması",
     "level": 39,
-    "minLevel": 39,
+    "minLevel": null,
     "giverNpc": "Demirci Dilek",
     "location": null,
     "previousQuestIds": [],
@@ -8441,17 +9001,10 @@
         "locator": "No 252 · Amplifikatör Elması satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
-        ]
-      },
-      {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 39 · Amplifikatör Elması satırı",
-        "fields": [
-          "level"
         ]
       }
     ]
@@ -8461,7 +9014,7 @@
     "sourceNumber": 253,
     "name": "Tepegözler",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": null,
     "giverNpc": "Bab-ı Ali Komutanı",
     "location": null,
     "previousQuestIds": [
@@ -8477,17 +9030,10 @@
         "locator": "No 253 · Tepegözler satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
-        ]
-      },
-      {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Tepegözler satırı",
-        "fields": [
-          "level"
         ]
       }
     ]
@@ -8513,17 +9059,18 @@
         "locator": "No 254 · Engerek Tehdidi 2 - Bekçiler İntikam Peşinde satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 41 · Engerek Tehdidi 2 - Bekçiler İntikam Peşinde satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Engerek Tehdidi 2 - Bekçiler İntikam Peşinde [41] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8533,7 +9080,7 @@
     "sourceNumber": 255,
     "name": "Kobra Tehdidi 2 - Dejavu",
     "level": 41,
-    "minLevel": 41,
+    "minLevel": 16,
     "giverNpc": "Kan Pençe",
     "location": null,
     "previousQuestIds": [
@@ -8549,17 +9096,18 @@
         "locator": "No 255 · Kobra Tehdidi 2 - Dejavu satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 41 · Kobra Tehdidi 2 - Dejavu satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kobra Tehdidi 2 - Dejavu [41] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8568,7 +9116,7 @@
     "questId": "quest-256-cilingir-sofras",
     "sourceNumber": 256,
     "name": "Çilingir Sofrası",
-    "level": 47,
+    "level": 46,
     "minLevel": 46,
     "giverNpc": "Cin Cezmi",
     "location": null,
@@ -8585,17 +9133,18 @@
         "locator": "No 256 · Çilingir Sofrası satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Çilingir Sofrası satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Çilingir Sofrası [46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8604,7 +9153,7 @@
     "questId": "quest-257-selami-nin-teknesi",
     "sourceNumber": 257,
     "name": "Selami'nin Teknesi",
-    "level": 47,
+    "level": 46,
     "minLevel": 46,
     "giverNpc": "Yalnız Adam",
     "location": null,
@@ -8621,17 +9170,18 @@
         "locator": "No 257 · Selami'nin Teknesi satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Selami'nin Teknesi satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Selami'nin Teknesi[46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8640,7 +9190,7 @@
     "questId": "quest-258-ruh-tas",
     "sourceNumber": 258,
     "name": "Ruh Taşı",
-    "level": 47,
+    "level": 46,
     "minLevel": 46,
     "giverNpc": "Cin Cezmi",
     "location": null,
@@ -8657,17 +9207,18 @@
         "locator": "No 258 · Ruh Taşı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 47 · Ruh Taşı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Ruh Taşı[46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8676,7 +9227,7 @@
     "questId": "quest-259-k-rm-z-madalyal-adam",
     "sourceNumber": 259,
     "name": "Kırmızı madalyalı adam",
-    "level": null,
+    "level": 45,
     "minLevel": 45,
     "giverNpc": "Dilara",
     "location": null,
@@ -8693,10 +9244,18 @@
         "locator": "No 259 · Kırmızı madalyalı adam satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
+        ]
+      },
+      {
+        "sourceId": "official-quest-list",
+        "locator": "Kırmızı madalyalı adam [45] satırı",
+        "fields": [
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8722,17 +9281,18 @@
         "locator": "No 260 · Gizitli Hain satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Gizitli Hain satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Gizitli Hain [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8758,17 +9318,18 @@
         "locator": "No 261 · Başsağlığı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 45 · Başsağlığı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Başsağlığı [45] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8794,17 +9355,18 @@
         "locator": "No 262 · Domuz'un işleri satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 46 · Domuz'un işleri satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Domuz'un işleri [46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8830,17 +9392,18 @@
         "locator": "No 263 · Islah satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 46 · Islah satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Islah [46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8866,17 +9429,18 @@
         "locator": "No 264 · Arz ve Lodos satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 46 · Arz ve Lodos satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Arz ve Lodos [46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8902,17 +9466,18 @@
         "locator": "No 265 · Domuz'a Rapor satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 46 · Domuz'a Rapor satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Domuz'a Rapor [46] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8922,7 +9487,7 @@
     "sourceNumber": 266,
     "name": "Ekmek Parası",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 45,
     "giverNpc": "Işık",
     "location": null,
     "previousQuestIds": [
@@ -8939,17 +9504,18 @@
         "locator": "No 266 · Ekmek Parası satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Ekmek Parası satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Ekmek Parası [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -8959,7 +9525,7 @@
     "sourceNumber": 267,
     "name": "Materyaller",
     "level": 49,
-    "minLevel": 49,
+    "minLevel": 46,
     "giverNpc": "Işık",
     "location": null,
     "previousQuestIds": [
@@ -8975,17 +9541,18 @@
         "locator": "No 267 · Materyaller satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Materyaller satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Materyaller [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -9011,17 +9578,18 @@
         "locator": "No 268 · Tiktaklar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Tiktaklar satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Tiktaklar [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -9047,17 +9615,18 @@
         "locator": "No 269 · Kablosuz satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Kablosuz satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Kablosuz [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -9083,16 +9652,17 @@
         "locator": "No 270 · Huzursuzluğum satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Huzursuzluğum satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Huzursuzluğum [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -9118,17 +9688,18 @@
         "locator": "No 271 · Acı satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Acı satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Acı [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -9154,17 +9725,18 @@
         "locator": "No 272 · Saatler satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Saatler satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Saatler [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]
@@ -9190,17 +9762,18 @@
         "locator": "No 273 · Anahtarlar satırı",
         "fields": [
           "name",
-          "minLevel",
+          "level",
           "giverNpc",
           "previousQuestIds",
           "objective"
         ]
       },
       {
-        "sourceId": "fandom-explained-quest-list",
-        "locator": "Seviye 49 · Anahtarlar satırı",
+        "sourceId": "official-quest-list",
+        "locator": "Anahtarlar [49] satırı",
         "fields": [
-          "level"
+          "level",
+          "minLevel"
         ]
       }
     ]

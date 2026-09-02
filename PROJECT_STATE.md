@@ -6,15 +6,15 @@ Son güncelleme: 2026-09-02
 
 - Ana kaynak: `https://github.com/aximity/nefer-atlasi`
 - Branch: `main`
-- Code baseline commit: `068af74088dd7eb323717d93f48072e2b3aac703`
-- Commit mesajı: `chore: establish Nefer Atlasi project baseline`
+- Son güvenli commit: `0fce8d4f6db1ecf64e008ed2f0f7bf3b2d4d8873`
+- Commit mesajı: `docs: audit talisman acquisition gaps`
 - Ürün kaynak snapshot'ı: `903f097d5c140127a3215457814dd3fed029ae50` (`Cemberlitas ganimetlerini grup bolgelerine ekle`).
 - Recovery sonucu: Yerel makinede ürün kaynak snapshot'ından daha yeni veya daha kapsamlı kaynak kod bulunmadı; `068af74` proje hafızası baseline'ını ekler.
 - Eski ChatGPT çalışma geçmişindeki ek özellik iddiaları mevcut kod kabul edilmez; yalnız recovery backlog olarak izlenir.
 
 ## Recovery Status
 
-- Code baseline: `068af74088dd7eb323717d93f48072e2b3aac703`.
+- Son güvenli baseline: `0fce8d4f6db1ecf64e008ed2f0f7bf3b2d4d8873`.
 - Recovery Manifest v1: 31 kayıt.
 - `RECOVERED`: 3 (`REC-024`, `REC-030`, `REC-031`).
 - Eski ChatGPT Çalışması'nda bu baseline'dan daha ileri geliştirme geçmişi bulunduğu kullanıcı tarafından bildirildi.
@@ -38,19 +38,19 @@ Son güncelleme: 2026-09-02
 
 ## Production Verification
 
-2026-09-01 tarihinde temiz dependency kurulumundan sonra:
+2026-09-02 REC-006A çalışma ağacında:
 
 | Kontrol | Sonuç | Gerçek çıktı |
 |---|---|---|
 | `npm ci` | PASS | Kurulum tamamlandı; `@esbuild-kit/esm-loader` için deprecated transitive dependency uyarısı verdi. |
 | `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 ekipman reçetesi, 119 tılsım reçetesi, 265 görev, 910 eşya kanıtı, 179 tılsım, 179 tılsım edinimi, 167 ham efsun satırı, 45 yetenek, 1 yükseltme, 6 materyal edinimi, 3 tılsım edinim kuralı ve 1 oyun mekaniği kuralı. |
 | `npm run lint` | PASS | ESLint hata üretmedi. |
-| `npm run test:unit` | PASS | 71/71 geçti; 0 fail, 0 skipped. |
+| `npm run test:unit` | PASS | 74/74 geçti; 0 fail, 0 skipped. |
 | `npm run build` | PASS | Vinext'in beş build aşaması tamamlandı. `/` rotası için statik sınıflandırma uyarısı var. |
 | Rendered HTML testi | PASS | 1/1 geçti. |
-| `npm test` birleşik kapısı | PASS | Validator, 71 unit test, production build ve 1 rendered test birlikte geçti. |
+| `npm test` birleşik kapısı | PASS | Validator, 74 unit test, production build ve 1 rendered test birlikte geçti. |
 
-Toplam bağımsız test: **72**. Bu sayı 71 unit + 1 rendered-HTML testinden oluşur.
+Toplam bağımsız test: **75**. Bu sayı 74 unit + 1 rendered-HTML testinden oluşur.
 
 ## Working Modules
 
@@ -72,7 +72,7 @@ Toplam bağımsız test: **72**. Bu sayı 71 unit + 1 rendered-HTML testinden ol
 - Stat değer altyapısı: canonical ham sayıları korur, desteklenen storage scale sözleşmesini doğrular ve aynı attribute içindeki uyumsuz/bilinmeyen scale değerlerini build ile tılsım hesabından güvenli biçimde dışlar. Exact `scaled_1000` / `scaled_10000` display dönüşümü henüz doğrulanmamıştır.
 - Veri foundation: Mevlana Asa için base/upgraded state ayrımı, altı kaynaklandırılmış materyal edinimi, kapsamı genellenmeyen üç tılsım edinim kuralı ve resmî Mavi Gazap/İyileştirme kuralı modellenmiştir. Altı materyal edinimi tılsım reçete görünümüne bağlıdır; diğer veri foundation kayıtlarının ayrı kullanıcı akışları yoktur.
 - Discord update intake foundation: `DISCORD_OFFICIAL_UPDATE` provenance, çoklu claim ayrıştırma, kalıcılık/durum sözleşmesi ve duplicate koruması canonical veriden ayrı modellenmiştir. Gerçek Discord bot bağlantısı, kalıcı queue adapterı ve canonical application akışı henüz yoktur.
-- Görev sistemi: Fandom açıklamalı görev ve zincir/kısıtlama tabloları batch işlenerek 1–49 aralığında 265 canonical görev ana sayfaya bağlandı. Açılma kısıtı (`minLevel`) ile açıklamalı listedeki görev seviyesi ayrıdır; kullanıcı seviyesi ve tamamlanan prerequisite kayıtları erişilebilir/önceki görev gerekli/henüz açılmadı durumlarını gerçekten değiştirir. Konum ve ödül kapsamı büyük ölçüde eksik olduğu için `PARTIAL` korunur.
+- Görev sistemi: Fandom zincir/kısıtlama tablosu ile resmî İKV görev tablosu batch işlenerek 1–49 aralığında 265 canonical görev ana sayfaya bağlandı. `level`, görev adındaki `[n]` görev seviyesidir; `minLevel`, resmî tablonun ayrı `Seviye Gereksinimi` hücresidir ve kaynak hücresi boşsa `null` kalır. REC-006A semantik düzeltmesi 115 `level`, 135 `minLevel`, toplam 160 benzersiz kaydı etkiledi. Kullanıcı seviyesi ve tamamlanan prerequisite kayıtları erişilebilir/önceki görev gerekli/henüz açılmadı durumlarını ayrı belirler. `location` yalnız görevi veren NPC'nin doğrulanmış konumudur; hedef/aksiyon bölgesi değildir. Konum ve ödül kapsamı büyük ölçüde eksik olduğu için `PARTIAL` korunur.
 
 ## Not Found in Current Code
 
@@ -94,7 +94,7 @@ Toplam bağımsız test: **72**. Bu sayı 71 unit + 1 rendered-HTML testinden ol
 - 45 yetenek: 44 `VERIFIED`/`cross_verified`, 1 `SINGLE_SOURCE`.
 - 1 kaynaklandırılmış item upgrade kaydı: Mevlana Asa için 4 base → upgraded contribution; genel `×2` formülü yoktur.
 - 6 `SINGLE_SOURCE` materyal edinimi, 3 `SINGLE_SOURCE` genel tılsım edinim kuralı ve 1 `SINGLE_SOURCE` gameplay kuralı. Tılsım reçetelerindeki Xenotim, Peptit Klorotoksin, Örümcek Salgısı, Safran, Jadeit ve Gadolinyum edinime bağlıdır; 7 canonical reçete materyalinden yalnız Kondrit edinimi `UNKNOWN` kalır.
-- 265 `SINGLE_SOURCE` görev: 265 açılma seviyesi, 217 ayrıca görev seviyesi, 229 NPC, 7 konum, 264 objective ve 225 prerequisite ilişkili görev. 36 otomatik görevde NPC yoktur; 258 konum, 1 objective ve 265 ödül doğrulama bekler. “Şevket Bey'in Ricası” iki Fandom batch tablosunda açılma/görev seviyesi 2 ile uyumludur ve kaynak numarası 14 üzerinden zincire alınmıştır.
+- 265 görev: 265/265 görev seviyesi; `minLevel` için 212 bilinen, 51 resmî olarak belirtilmemiş ve 2 çözümlenmemiş kayıt; 229 NPC, görevi veren NPC'ye ait 7 konum, 264 objective ve 225 prerequisite ilişkili görev. Fandom zincirinde bulunup resmî tabloda karşılığı olmayan `Amplifikatör Elması` ve `Tepegözler` iki çözümlenmemiş `minLevel` kaydıdır; değer tahmin edilmez. Böylece resmî boş hücreler veri eksiği sayılmaz. 36 otomatik görevde NPC yoktur; 258 NPC konumu, 1 objective ve 265 ödül doğrulama bekler. `Huzursuzluğum` objective'i kaynakta `...` olduğu için `UNKNOWN` kalır.
 - Duplicate ID: 0.
 - Orphan ilişki: 0.
 - Eksik eşya ID: 0.

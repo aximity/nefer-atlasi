@@ -58,7 +58,7 @@ export default function QuestExplorer() {
               onClick={() => setSelectedId(quest.questId)}
               key={quest.questId}
             >
-              <span>AÇILMA {quest.minLevel}{quest.level !== null ? ` · GÖREV SEVİYESİ ${quest.level}` : ""}</span>
+              <span>{quest.minLevel === null ? "SEVİYE GEREKSİNİMİ BELİRTİLMEMİŞ" : `AÇILMA ${quest.minLevel}`} · GÖREV SEVİYESİ {quest.level}</span>
               <strong>{quest.name}</strong>
               <small>{quest.giverNpc ?? "Otomatik görev"}{parsedLevel ? ` · ${availabilityLabel(questAvailability(quest, parsedLevel, completedIds))}` : ""}</small>
             </button>
@@ -79,20 +79,20 @@ function QuestDetail({quest,completedIds,toggleCompleted}:{quest:Quest;completed
     <article className="questDetail" aria-live="polite">
       <header>
         <div><small>GÖREV DETAYI</small><h3>{quest.name}</h3></div>
-        <b>Seviye {quest.minLevel}</b>
+        <b>Görev seviyesi {quest.level}</b>
       </header>
       <dl>
-        <div><dt>Açılma seviyesi</dt><dd>{quest.minLevel}</dd></div>
-        <div><dt>Görev seviyesi</dt><dd>{quest.level ?? "Görev seviyesi doğrulanıyor"}</dd></div>
+        <div><dt>Açılma seviyesi</dt><dd>{quest.minLevel ?? "Seviye gereksinimi belirtilmemiş"}</dd></div>
+        <div><dt>Görev seviyesi</dt><dd>{quest.level}</dd></div>
         <div><dt>Görevi veren</dt><dd>{quest.giverNpc ?? "Otomatik görev"}</dd></div>
-        <div><dt>Konum</dt><dd>{questLocationLabel(quest)}</dd></div>
+        <div><dt>Görevi verenin konumu</dt><dd>{questLocationLabel(quest)}</dd></div>
         <div><dt>Yapılacak</dt><dd>{quest.objective ?? "Görev açıklaması doğrulanıyor"}</dd></div>
         <div><dt>Ödül</dt><dd>{quest.reward ?? "Ödül bilgisi doğrulanıyor"}</dd></div>
       </dl>
       <section className="questTrail" aria-label="Önceki görevler">
         <small>ÖNCEKİ GÖREVLER</small>
         {chain.length ? (
-          <ol>{chain.map((step) => <li key={step.questId}><span>Seviye {step.minLevel}</span><b>{step.name}</b><button type="button" aria-pressed={completedIds.has(step.questId)} onClick={() => toggleCompleted(step.questId)}>{completedIds.has(step.questId) ? "Tamamlandı" : "Tamamlandı olarak işaretle"}</button></li>)}</ol>
+          <ol>{chain.map((step) => <li key={step.questId}><span>Görev seviyesi {step.level}</span><b>{step.name}</b><button type="button" aria-pressed={completedIds.has(step.questId)} onClick={() => toggleCompleted(step.questId)}>{completedIds.has(step.questId) ? "Tamamlandı" : "Tamamlandı olarak işaretle"}</button></li>)}</ol>
         ) : <p>Bu kayıt için doğrulanmış bir önceki görev bulunmuyor.</p>}
       </section>
     </article>

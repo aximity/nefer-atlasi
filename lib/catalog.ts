@@ -32,7 +32,8 @@ export interface TalismanRecipeIngredient {kind:"talisman"|"material";quantity:n
 export interface TalismanRecipe {id:string;talismanId:string;ingredients:TalismanRecipeIngredient[];sourceId:string;locator:string;verificationStatus:"single_source";confidence:"medium";lastChecked:string}
 export interface MaterialAcquisition {id:string;material:string;acquisitionType:"enemy_drop"|"profession_gathering";region?:string;profession?:string;sourceEntity:string;sourceTier?:number;requiredProfessionPoints?:number;sourceId:string;status:VerificationStatus;lastChecked:string}
 export interface QuestEvidence {sourceId:string;locator:string;fields:string[]}
-export interface Quest {questId:string;sourceNumber:number;name:string;level:number|null;minLevel:number;giverNpc:string|null;location:string|null;previousQuestIds:string[];objective:string|null;reward:string|null;confidence:"medium";lastChecked:string;evidence:QuestEvidence[]}
+/** `location`, görevin hedef bölgesini değil görevi veren NPC'nin doğrulanmış konumunu taşır. */
+export interface Quest {questId:string;sourceNumber:number;name:string;level:number;minLevel:number|null;giverNpc:string|null;location:string|null;previousQuestIds:string[];objective:string|null;reward:string|null;confidence:"medium";lastChecked:string;evidence:QuestEvidence[]}
 
 export const items = [...itemRows,...groupLootRows,...glassesRows] as Item[];
 const glassesStats:Stat[]=glassesStatRows.flatMap(row=>row.stats.map(([attribute,value],index)=>({id:`stat-${row.itemId}-${index}`,itemId:row.itemId,attribute:String(attribute),value:Number(value),unit:"puan",verificationStatus:"single_source" as const,lastChecked:"2026-08-23"})));

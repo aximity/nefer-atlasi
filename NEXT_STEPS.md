@@ -12,7 +12,7 @@ Bu dosya yalnız açık ve gerçekten yapılacak işleri içerir. Bir madde kod,
 - [x] Build sonrası rendered-HTML testini çalıştır.
 - [x] Birleşik `npm test` kalite kapısını doğrula.
 
-Son doğrulama: 2026-09-02 — 71/71 unit ve 1/1 rendered-HTML testi, validator PASS, lint PASS, build PASS.
+Son doğrulama: 2026-09-02 — 74/74 unit ve 1/1 rendered-HTML testi, validator PASS, lint PASS, build PASS, `git diff --check` PASS.
 
 ## Recovery Manifest Population
 
@@ -51,7 +51,9 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 
 ### Phase 3 — Lost high-value user features
 
-- [ ] REC-006 kalan coverage: 258 konum, 265 ödül, 1 objective ve 48 görev seviyesi alanını yalnız batch kaynak kanıtıyla tamamla; 1–49 katalog ve historical seviye 29 regression davranışını koru.
+- [x] REC-006A görev semantiği: resmî görev adındaki `[n]` değerini `level`, ayrı `Seviye Gereksinimi` hücresini `minLevel` olarak modelle; boş gereksinimi tahmin etme ve `location` alanını görevi veren NPC'nin konumu olarak sabitle.
+- [ ] REC-006B doğrulanmış NPC konumları: auditin güvenilir bulduğu 73 kaydı batch evidence ile ekle; komşu görev veya hedef bölgesinden konum türetme. Kalan 185 konumu `UNKNOWN` tut. Coverage raporunda `minLevel` değerlerini 212 bilinen / 51 resmî olarak belirtilmemiş / 2 çözümlenmemiş şeklinde ayır.
+- [ ] REC-006 kalan coverage: 265 ödül ve `Huzursuzluğum` için 1 objective alanını yalnız doğrudan kaynak kanıtıyla araştır; sınıfa göre değişen ödülleri tek string'e sıkıştırma.
 - [ ] REC-009 fotoğrafla malzeme tanıma.
 - [ ] REC-010 stoktan en yakın üretim önerisi.
 - [ ] REC-007 / REC-026 build önerileri.
