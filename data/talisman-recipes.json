@@ -1,0 +1,4831 @@
+[
+  {
+    "id": "talisman-recipe-mage-ates-bilgisi-red-2",
+    "talismanId": "mage-ates-bilgisi-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Ateş Bilgisi (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-ates-bilgisi-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-ates-bilgisi-red-3",
+    "talismanId": "mage-ates-bilgisi-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Ateş Bilgisi (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-ates-bilgisi-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-ates-cemberi-1-red-2",
+    "talismanId": "mage-ates-cemberi-1-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Ateş Çemberi 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-ates-cemberi-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-ates-cemberi-1-red-3",
+    "talismanId": "mage-ates-cemberi-1-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Ateş Çemberi 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-ates-cemberi-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-ates-cemberi-2-red-special",
+    "talismanId": "mage-ates-cemberi-2-red-special",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Ateş Çemberi 2 reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buz-bilgisi-red-2",
+    "talismanId": "mage-buz-bilgisi-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Buz Bilgisi (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buz-bilgisi-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buz-bilgisi-red-3",
+    "talismanId": "mage-buz-bilgisi-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Buz Bilgisi (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buz-bilgisi-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buyu-bozma-red-2",
+    "talismanId": "mage-buyu-bozma-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Büyü Bozma (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buyu-bozma-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buyu-bozma-red-3",
+    "talismanId": "mage-buyu-bozma-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Büyü Bozma (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buyu-bozma-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-direnc-kirma-alani-red-2",
+    "talismanId": "mage-direnc-kirma-alani-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Direnç Kırma Alanı (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-direnc-kirma-alani-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-direnc-kirma-alani-red-3",
+    "talismanId": "mage-direnc-kirma-alani-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Direnç Kırma Alanı (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-direnc-kirma-alani-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-elektrik-bilgisi-red-2",
+    "talismanId": "mage-elektrik-bilgisi-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Elektrik Bilgisi (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-elektrik-bilgisi-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-elektrik-bilgisi-red-3",
+    "talismanId": "mage-elektrik-bilgisi-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Elektrik Bilgisi (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-elektrik-bilgisi-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-fiziksel-bilgi-red-2",
+    "talismanId": "mage-fiziksel-bilgi-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Fiziksel Bilgi (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-fiziksel-bilgi-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-fiziksel-bilgi-red-3",
+    "talismanId": "mage-fiziksel-bilgi-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Fiziksel Bilgi (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-fiziksel-bilgi-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-konsantrasyon-red-2",
+    "talismanId": "mage-konsantrasyon-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Konsantrasyon (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-konsantrasyon-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-konsantrasyon-red-3",
+    "talismanId": "mage-konsantrasyon-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Konsantrasyon (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-konsantrasyon-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-meteorit-1-red-special",
+    "talismanId": "mage-meteorit-1-red-special",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Meteorit 1 reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-meteorit-2-red-2",
+    "talismanId": "mage-meteorit-2-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Meteorit 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-meteorit-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-meteorit-2-red-3",
+    "talismanId": "mage-meteorit-2-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Meteorit 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-meteorit-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-tesla-kuresi-red-2",
+    "talismanId": "mage-tesla-kuresi-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Tesla Küresi (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-tesla-kuresi-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-tesla-kuresi-red-3",
+    "talismanId": "mage-tesla-kuresi-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Tesla Küresi (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-tesla-kuresi-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-yildirim-1-red-2",
+    "talismanId": "mage-yildirim-1-red-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Yıldırım 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-yildirim-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-yildirim-1-red-3",
+    "talismanId": "mage-yildirim-1-red-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Yıldırım 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-yildirim-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-yildirim-2-red-special",
+    "talismanId": "mage-yildirim-2-red-special",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Yıldırım 2 reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buz-oku-1-blue-2",
+    "talismanId": "mage-buz-oku-1-blue-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Buz Oku 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buz-oku-1-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buz-oku-1-blue-3",
+    "talismanId": "mage-buz-oku-1-blue-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Buz Oku 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buz-oku-1-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buz-oku-2-blue-2",
+    "talismanId": "mage-buz-oku-2-blue-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Buz Oku 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buz-oku-2-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buz-oku-2-blue-3",
+    "talismanId": "mage-buz-oku-2-blue-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Buz Oku 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buz-oku-2-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buz-oku-3-blue-2",
+    "talismanId": "mage-buz-oku-3-blue-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Buz Oku 3 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buz-oku-3-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-buz-oku-3-blue-3",
+    "talismanId": "mage-buz-oku-3-blue-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Buz Oku 3 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-buz-oku-3-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-direnc-kirma-alani-blue-2",
+    "talismanId": "mage-direnc-kirma-alani-blue-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Direnç Kırma Alanı (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-direnc-kirma-alani-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-direnc-kirma-alani-blue-3",
+    "talismanId": "mage-direnc-kirma-alani-blue-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Direnç Kırma Alanı (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-direnc-kirma-alani-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-konsantrasyon-1-blue-2",
+    "talismanId": "mage-konsantrasyon-1-blue-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Konsantrasyon 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-konsantrasyon-1-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-konsantrasyon-1-blue-3",
+    "talismanId": "mage-konsantrasyon-1-blue-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Konsantrasyon 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-konsantrasyon-1-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-kutup-ruzgari-blue-special",
+    "talismanId": "mage-kutup-ruzgari-blue-special",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Kutup Rüzgarı reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-meditasyon-1-blue-2",
+    "talismanId": "mage-meditasyon-1-blue-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Meditasyon 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-meditasyon-1-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-meditasyon-1-blue-3",
+    "talismanId": "mage-meditasyon-1-blue-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Meditasyon 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-meditasyon-1-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-meditasyon-2-blue-2",
+    "talismanId": "mage-meditasyon-2-blue-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Meditasyon 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-meditasyon-2-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-meteorit-blue-2",
+    "talismanId": "mage-meteorit-blue-2",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Meteorit (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-meteorit-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-mage-meteorit-blue-3",
+    "talismanId": "mage-meteorit-blue-3",
+    "sourceId": "fandom-mage-talisman-recipes",
+    "locator": "Meteorit (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "mage-meteorit-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-agir-vurus-red-special",
+    "talismanId": "warrior-agir-vurus-red-special",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Ağır Vuruş reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-defansif-dovusme-1-red-2",
+    "talismanId": "warrior-defansif-dovusme-1-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Defansif Dövüşme 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-defansif-dovusme-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-defansif-dovusme-1-red-3",
+    "talismanId": "warrior-defansif-dovusme-1-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Defansif Dövüşme 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-defansif-dovusme-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-defansif-dovusme-2-red-2",
+    "talismanId": "warrior-defansif-dovusme-2-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Defansif Dövüşme 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-defansif-dovusme-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-defansif-dovusme-2-red-3",
+    "talismanId": "warrior-defansif-dovusme-2-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Defansif Dövüşme 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-defansif-dovusme-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-depar-red-2",
+    "talismanId": "warrior-depar-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Depar (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-depar-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-depar-red-3",
+    "talismanId": "warrior-depar-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Depar (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-depar-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-durdurma-1-red-2",
+    "talismanId": "warrior-durdurma-1-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Durdurma 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-durdurma-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-durdurma-1-red-3",
+    "talismanId": "warrior-durdurma-1-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Durdurma 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-durdurma-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-durdurma-2-red-2",
+    "talismanId": "warrior-durdurma-2-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Durdurma 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-durdurma-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-durdurma-2-red-3",
+    "talismanId": "warrior-durdurma-2-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Durdurma 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-durdurma-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-hedef-saptirma-red-2",
+    "talismanId": "warrior-hedef-saptirma-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Hedef Saptırma (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-hedef-saptirma-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-hedef-saptirma-red-3",
+    "talismanId": "warrior-hedef-saptirma-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Hedef Saptırma (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-hedef-saptirma-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-kanatma-red-2",
+    "talismanId": "warrior-kanatma-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Kanatma (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-kanatma-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-kanatma-red-3",
+    "talismanId": "warrior-kanatma-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Kanatma (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-kanatma-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-ofansif-dovusme-1-red-2",
+    "talismanId": "warrior-ofansif-dovusme-1-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Ofansif Dövüşme 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-ofansif-dovusme-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-ofansif-dovusme-1-red-3",
+    "talismanId": "warrior-ofansif-dovusme-1-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Ofansif Dövüşme 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-ofansif-dovusme-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-ofansif-dovusme-2-red-2",
+    "talismanId": "warrior-ofansif-dovusme-2-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Ofansif Dövüşme 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-ofansif-dovusme-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-ofansif-dovusme-2-red-3",
+    "talismanId": "warrior-ofansif-dovusme-2-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Ofansif Dövüşme 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-ofansif-dovusme-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-sert-vurus-1-red-2",
+    "talismanId": "warrior-sert-vurus-1-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Sert Vuruş 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-sert-vurus-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-sert-vurus-1-red-3",
+    "talismanId": "warrior-sert-vurus-1-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Sert Vuruş 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-sert-vurus-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-sert-vurus-2-red-2",
+    "talismanId": "warrior-sert-vurus-2-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Sert Vuruş 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-sert-vurus-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-sert-vurus-2-red-3",
+    "talismanId": "warrior-sert-vurus-2-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Sert Vuruş 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-sert-vurus-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-supurme-saldirisi-1-red-2",
+    "talismanId": "warrior-supurme-saldirisi-1-red-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Süpürme Saldırısı 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-supurme-saldirisi-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-supurme-saldirisi-1-red-3",
+    "talismanId": "warrior-supurme-saldirisi-1-red-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Süpürme Saldırısı 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-supurme-saldirisi-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-supurme-saldirisi-2-red-special",
+    "talismanId": "warrior-supurme-saldirisi-2-red-special",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Süpürme Saldırısı 2 reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-defansif-dovusme-2-blue-special",
+    "talismanId": "warrior-defansif-dovusme-2-blue-special",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Defansif Dövüşme 2 reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-dikkat-dagitma-blue-2",
+    "talismanId": "warrior-dikkat-dagitma-blue-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Dikkat Dağıtma (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-dikkat-dagitma-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-dikkat-dagitma-blue-3",
+    "talismanId": "warrior-dikkat-dagitma-blue-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Dikkat Dağıtma (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-dikkat-dagitma-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-kiskirtma-1-blue-2",
+    "talismanId": "warrior-kiskirtma-1-blue-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Kışkırtma 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-kiskirtma-1-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-kiskirtma-1-blue-3",
+    "talismanId": "warrior-kiskirtma-1-blue-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Kışkırtma 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-kiskirtma-1-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-kiskirtma-2-blue-2",
+    "talismanId": "warrior-kiskirtma-2-blue-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Kışkırtma 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-kiskirtma-2-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-kiskirtma-2-blue-3",
+    "talismanId": "warrior-kiskirtma-2-blue-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Kışkırtma 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-kiskirtma-2-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-ofansif-dovusme-blue-2",
+    "talismanId": "warrior-ofansif-dovusme-blue-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Ofansif Dövüşme (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-ofansif-dovusme-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-ofansif-dovusme-blue-3",
+    "talismanId": "warrior-ofansif-dovusme-blue-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Ofansif Dövüşme (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-ofansif-dovusme-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-sakinma-blue-2",
+    "talismanId": "warrior-sakinma-blue-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Sakınma (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-sakinma-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-sakinma-blue-3",
+    "talismanId": "warrior-sakinma-blue-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Sakınma (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-sakinma-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-savas-narasi-blue-2",
+    "talismanId": "warrior-savas-narasi-blue-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Savaş Narası (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-savas-narasi-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-savas-narasi-blue-3",
+    "talismanId": "warrior-savas-narasi-blue-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Savaş Narası (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-savas-narasi-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-zihin-toplama-blue-2",
+    "talismanId": "warrior-zihin-toplama-blue-2",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Zihin Toplama (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-zihin-toplama-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-warrior-zihin-toplama-blue-3",
+    "talismanId": "warrior-zihin-toplama-blue-3",
+    "sourceId": "fandom-warrior-talisman-recipes",
+    "locator": "Zihin Toplama (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "warrior-zihin-toplama-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-asit-bilgisi-red-2",
+    "talismanId": "healer-asit-bilgisi-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Asit Bilgisi (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-asit-bilgisi-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-asit-bilgisi-red-3",
+    "talismanId": "healer-asit-bilgisi-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Asit Bilgisi (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-asit-bilgisi-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-asit-saldirisi-1-red-2",
+    "talismanId": "healer-asit-saldirisi-1-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Asit Saldırısı 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-asit-saldirisi-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-asit-saldirisi-1-red-3",
+    "talismanId": "healer-asit-saldirisi-1-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Asit Saldırısı 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-asit-saldirisi-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-asit-saldirisi-2-red-2",
+    "talismanId": "healer-asit-saldirisi-2-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Asit Saldırısı 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-asit-saldirisi-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-asit-saldirisi-2-red-3",
+    "talismanId": "healer-asit-saldirisi-2-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Asit Saldırısı 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-asit-saldirisi-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-can-kurtaran-red-special",
+    "talismanId": "healer-can-kurtaran-red-special",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Can Kurtaran reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-cagri-red-2",
+    "talismanId": "healer-cagri-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Çağrı (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-cagri-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-cagri-red-3",
+    "talismanId": "healer-cagri-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Çağrı (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-cagri-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-gazap-1-red-2",
+    "talismanId": "healer-gazap-1-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Gazap 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-gazap-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-gazap-1-red-3",
+    "talismanId": "healer-gazap-1-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Gazap 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-gazap-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-gazap-2-red-2",
+    "talismanId": "healer-gazap-2-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Gazap 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-gazap-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-gazap-2-red-3",
+    "talismanId": "healer-gazap-2-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Gazap 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-gazap-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-iyilestirme-red-special",
+    "talismanId": "healer-iyilestirme-red-special",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "İyileştirme reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-iyilestirme-cemberi-1-red-2",
+    "talismanId": "healer-iyilestirme-cemberi-1-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "İyileştirme Çemberi 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-iyilestirme-cemberi-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-iyilestirme-cemberi-1-red-3",
+    "talismanId": "healer-iyilestirme-cemberi-1-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "İyileştirme Çemberi 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-iyilestirme-cemberi-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-iyilestirme-cemberi-2-red-2",
+    "talismanId": "healer-iyilestirme-cemberi-2-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "İyileştirme Çemberi 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-iyilestirme-cemberi-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-iyilestirme-cemberi-2-red-3",
+    "talismanId": "healer-iyilestirme-cemberi-2-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "İyileştirme Çemberi 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-iyilestirme-cemberi-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-ruh-kalkani-red-2",
+    "talismanId": "healer-ruh-kalkani-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Ruh Kalkanı (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-ruh-kalkani-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-ruh-kalkani-red-3",
+    "talismanId": "healer-ruh-kalkani-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Ruh Kalkanı (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-ruh-kalkani-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-sifa-bilgisi-red-2",
+    "talismanId": "healer-sifa-bilgisi-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Şifa Bilgisi (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-sifa-bilgisi-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-sifa-bilgisi-red-3",
+    "talismanId": "healer-sifa-bilgisi-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Şifa Bilgisi (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-sifa-bilgisi-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-zehirleme-1-red-2",
+    "talismanId": "healer-zehirleme-1-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Zehirleme 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-zehirleme-1-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-zehirleme-1-red-3",
+    "talismanId": "healer-zehirleme-1-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Zehirleme 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-zehirleme-1-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-zehirleme-2-red-2",
+    "talismanId": "healer-zehirleme-2-red-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Zehirleme 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-zehirleme-2-red-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-zehirleme-2-red-3",
+    "talismanId": "healer-zehirleme-2-red-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Zehirleme 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-zehirleme-2-red-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-asit-bilgisi-blue-2",
+    "talismanId": "healer-asit-bilgisi-blue-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Asit Bilgisi (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-asit-bilgisi-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-asit-bilgisi-blue-3",
+    "talismanId": "healer-asit-bilgisi-blue-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Asit Bilgisi (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-asit-bilgisi-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-buyu-bozma-blue-2",
+    "talismanId": "healer-buyu-bozma-blue-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Büyü Bozma (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-buyu-bozma-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-buyu-bozma-blue-3",
+    "talismanId": "healer-buyu-bozma-blue-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Büyü Bozma (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-buyu-bozma-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-gazap-blue-special",
+    "talismanId": "healer-gazap-blue-special",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Gazap reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 18
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 24
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 12
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 24
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-meditasyon-1-blue-2",
+    "talismanId": "healer-meditasyon-1-blue-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Meditasyon 1 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-meditasyon-1-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-meditasyon-1-blue-3",
+    "talismanId": "healer-meditasyon-1-blue-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Meditasyon 1 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-meditasyon-1-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Safran",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-meditasyon-2-blue-2",
+    "talismanId": "healer-meditasyon-2-blue-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Meditasyon 2 (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-meditasyon-2-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-meditasyon-2-blue-3",
+    "talismanId": "healer-meditasyon-2-blue-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Meditasyon 2 (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-meditasyon-2-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Gadolinyum",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-zehirleme-blue-2",
+    "talismanId": "healer-zehirleme-blue-2",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Zehirleme (II) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-zehirleme-blue-1",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  },
+  {
+    "id": "talisman-recipe-healer-zehirleme-blue-3",
+    "talismanId": "healer-zehirleme-blue-3",
+    "sourceId": "fandom-healer-talisman-recipes",
+    "locator": "Zehirleme (III) reçete satırı",
+    "verificationStatus": "single_source",
+    "confidence": "medium",
+    "lastChecked": "2026-09-01",
+    "ingredients": [
+      {
+        "kind": "talisman",
+        "talismanId": "healer-zehirleme-blue-2",
+        "quantity": 3
+      },
+      {
+        "kind": "material",
+        "name": "Kondrit",
+        "quantity": 6
+      },
+      {
+        "kind": "material",
+        "name": "Jadeit",
+        "quantity": 8
+      },
+      {
+        "kind": "material",
+        "name": "Peptit Klorotoksin",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Örümcek Salgısı",
+        "quantity": 4
+      },
+      {
+        "kind": "material",
+        "name": "Xenotim",
+        "quantity": 8
+      }
+    ]
+  }
+]

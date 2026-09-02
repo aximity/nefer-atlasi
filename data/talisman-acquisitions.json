@@ -759,16 +759,11 @@
   {
     "id": "acquisition-mage-meditasyon-2-blue-3",
     "talismanId": "mage-meditasyon-2-blue-3",
-    "acquisitionType": "RECIPE_CRAFT",
-    "recipe": {
-      "kind": "tier_upgrade",
-      "predecessorTalismanId": "mage-meditasyon-2-blue-2",
-      "predecessorQuantity": 3
-    },
-    "sourceId": "fandom-mage-talisman-recipes",
-    "locator": "Meditasyon 2 (III) reçete satırı",
-    "verificationStatus": "single_source",
-    "confidence": "medium",
+    "acquisitionType": "UNKNOWN",
+    "sourceId": null,
+    "locator": null,
+    "verificationStatus": "unknown",
+    "confidence": "unknown",
     "lastChecked": "2026-09-01"
   },
   {

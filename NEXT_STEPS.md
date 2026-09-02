@@ -12,7 +12,7 @@ Bu dosya yalnız açık ve gerçekten yapılacak işleri içerir. Bir madde kod,
 - [x] Build sonrası rendered-HTML testini çalıştır.
 - [x] Birleşik `npm test` kalite kapısını doğrula.
 
-Son doğrulama: 2026-09-01 — 26/26 test, validator PASS, lint PASS, build PASS.
+Son doğrulama: 2026-09-02 — 60/60 unit ve 1/1 rendered-HTML testi, validator PASS, lint PASS, build PASS.
 
 ## Recovery Manifest Population
 
@@ -40,13 +40,13 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 - [x] Discord resmî güncelleme intake sözleşmesini, normalize adapter sınırını, duplicate korumasını ve review-gated claim parserını kur.
 - [ ] Bot application oluşturup minimum izinlerle salt-okunur Discord bağlantı adapterını ayrı görevde ekle; tokenı deployment secret üzerinden sağla.
 - [ ] Intake kayıtları için kalıcı storage adapterı ve insan review arayüzü tasarla; canonical application ayrı ve explicit kalsın.
-- [x] REC-031 genel tılsım edinim altyapısı: 120 reçeteli edinim, 59 doğrulanan fallback ve dahili II/III kademe zinciri.
+- [x] REC-031 genel tılsım edinim altyapısı: kaynak auditinden sonra 119 reçeteli edinim, 60 güvenli fallback ve dahili II/III kademe zinciri.
 - [ ] REC-003 Gönül edinim modeli; item-level liste, NPC ve fiyat kanıtı hâlâ açık.
-- [ ] REC-004 reçete/üretim çekirdeği.
-- [ ] REC-021 dahili tılsım reçete navigasyonu; REC-031 ile üretim zinciri bağlantısı eklendi, gereken malzeme/reçete detay akışı hâlâ kısmi.
-- [ ] Mecnun/Topkapı ile I. kademe satın alma ve düşman/drop edinimlerini batch web araştırmasıyla item-level doğrula; kanıtlanana kadar 59 kaydı `UNKNOWN` tut.
-- [ ] REC-025 malzeme edinim kaynakları.
-- [x] REC-025 için ilk dört kaynaklandırılmış materyal edinimini ve validator sözleşmesini oluştur; kalan kapsam ve kullanıcı akışı açık.
+- [ ] REC-004 reçete/üretim çekirdeği; 67 ekipman ve 119 tılsım reçetesi ayrı modellerle doğrulanıyor, tarihsel çekirdek kapsam farkı hâlâ açık.
+- [ ] REC-021 dahili tılsım reçete navigasyonu; 119 kaynaklı reçetede malzeme/miktar ve zincir çalışıyor, 60 edinim/reçete hâlâ `UNKNOWN`.
+- [ ] Mecnun/Topkapı ile I. kademe satın alma ve düşman/drop edinimlerini batch web araştırmasıyla item-level doğrula; kanıtlanana kadar 60 kaydı `UNKNOWN` tut.
+- [ ] REC-025 malzeme edinim kaynakları; Kondrit, Jadeit ve Gadolinyum edinimini batch araştır, kanıtlanmayan NPC/drop/lokasyon ayrıntısı üretme.
+- [x] REC-025 için ilk dört kaynaklandırılmış materyal edinimini validator ve tılsım reçete kullanıcı akışına bağla; kalan kapsam açık.
 - [ ] REC-008 gerçek yetenek kuralları.
 
 ### Phase 3 — Lost high-value user features
@@ -104,6 +104,16 @@ Aktif P0 bulunmuyor. Yeni bir P0 ancak uygulamayı, veri bütünlüğünü veya 
 - [ ] Ana sayfadaki büyük bileşenleri davranış değiştirmeden daha sürdürülebilir sınırlarla ayırmayı planla.
 - [ ] README kurulum, platform farkları, doğrulama komutları ve veri güven modelini belgeleyerek genişlet.
 - [ ] Eski `chatgpt-origin` remote'u ve ignored deploy arşivleri için saklama politikası belirle.
+
+## HOST-001 — Production Hosting & Custom Domain
+
+- [ ] `neferatlasi.com` availability/ownership ve `neferatlasi.net` brand-protection durumunu doğrula; gerekirse alternatif domainleri değerlendir.
+- [ ] Mevcut Cloudflare deployment, production/preview ayrımı, secrets/environment ve GitHub Actions deployment güvenliğini audit et.
+- [ ] Custom domain, DNS, HTTPS, `www` → canonical domain yönlendirmesi ve mümkünse legacy `chatgpt.site` migration/redirect planını hazırla.
+- [ ] Rollback strategy, health/smoke check, canonical URL, sitemap/robots ve OpenGraph metadata kapsamını doğrula.
+- [ ] Analytics/admin endpoint exposure audit yap.
+
+Bu iş yalnız plan/backlog kaydıdır; bu milestone'da domain satın alma veya DNS değişikliği yapılmayacaktır.
 
 ## Recovery Backlog
 

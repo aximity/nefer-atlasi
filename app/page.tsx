@@ -9,6 +9,8 @@ import {
   publishableItems,
   talismans,
   talismanAcquisitions,
+  talismanRecipes,
+  materialAcquisitions,
   itemStats,
   publishableStats,
   itemRecipe,
@@ -19,6 +21,7 @@ import {
   type CharacterClass,
 } from "../lib/catalog";
 import { talismanAcquisitionView } from "../lib/talisman-acquisition.mjs";
+import { talismanRecipeFor, talismanRecipeIngredients } from "../lib/talisman-recipes.mjs";
 import {
   applyTalisman,
   buildTotals,
@@ -616,7 +619,9 @@ function TalismanResult({
       </article>
     );
   const source = sourceFor(tal.sourceId),
-    acquisition = talismanAcquisitionView(tal.id, talismanAcquisitions, talismans);
+    acquisition = talismanAcquisitionView(tal.id, talismanAcquisitions, talismans),
+    talismanRecipe = talismanRecipeFor(tal.id, talismanRecipes),
+    recipeIngredients = talismanRecipeIngredients(talismanRecipe, talismans, materialAcquisitions);
   let rows: { name: string; before: number; after: number; scale: StorageScale }[] = [],
     affectedAttributes: string[] = [];
   if (
@@ -711,11 +716,22 @@ function TalismanResult({
       )}
       {acquisition.canOpenRecipe && (
         <section className="talismanRecipe" id={`talisman-recipe-${tal.id}`}>
-          <small>DAHİLİ ÜRETİM ZİNCİRİ</small>
+          <small>REÇETE SONUCU</small>
+          <p><strong>{tal.name}</strong></p>
+          <small>GEREKEN MALZEMELER</small>
+          <div className="talismanIngredients">
+            {recipeIngredients.map((ingredient, index) => (
+              <div key={`${ingredient.kind}-${ingredient.name}-${index}`}>
+                <p><b>{ingredient.name}</b><strong>×{ingredient.quantity}</strong></p>
+                {ingredient.kind === "material" && <span>{ingredient.acquisition}</span>}
+              </div>
+            ))}
+          </div>
+          <small>ÜRETİM ZİNCİRİ</small>
           {acquisition.chain.length > 1 ? (
             <>
               <p>{acquisition.chain.map((step) => step.name).join(" → ")}</p>
-              <span>Her kademe için önceki tılsımdan ×3 gerekir.</span>
+              <span>Bu reçete önceki kademe tılsımdan ×3 ister.</span>
             </>
           ) : (
             <p>Doğrudan üretim reçetesi</p>

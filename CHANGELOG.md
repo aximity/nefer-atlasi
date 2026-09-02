@@ -4,7 +4,9 @@ Bu dosya yalnız mevcut Git geçmişi veya çalışma ağacındaki gerçek deği
 
 ## [Unreleased]
 
-- REC-031 kapsamında 179 tılsım için provenance taşıyan edinim modeli eklendi: 120 kaynaklandırılmış reçeteli edinim dahili II/III kademe zincirine bağlandı, kanıtı olmayan 59 kayıt `UNKNOWN` bırakıldı; Gönül, Mecnun, NPC ve drop ayrıntıları uydurulmadı.
+- 119 kaynaklandırılmış tılsım reçetesi, gereken 704 bileşen satırı ve dahili malzeme görünümü eklendi; dört doğrulanmış materyal edinimi bağlandı, Kondrit/Jadeit/Gadolinyum sade doğrulama fallback'inde bırakıldı. Kaynak tablosunda bulunmayan Büyücü Meditasyon 2 (III) reçetesi tahmin edilmeyip edinim kapsamı 119 reçete / 60 unknown olarak korundu.
+- REC-004/REC-021/REC-025 auditinde 119 reçetenin tamamında item-level malzeme, pozitif miktar, source ve confidence bulunduğu doğrulandı: 109 kademe yükseltmesi ve 10 özel reçete ayrı tılsım modelinde kaldı; reçete sonucu ve dahili üretim zinciri sade kullanıcı görünümüne bağlandı. Kaynaktaki `Peptit Kolorotoksin` yazımı açık alias ile canonical `Peptit Klorotoksin` kimliğine bağlandı; fuzzy merge eklenmedi.
+- REC-031 kapsamında 179 tılsım için provenance taşıyan edinim modeli eklendi: 119 kaynaklandırılmış reçeteli edinim dahili II/III kademe zincirine bağlandı, kanıtı olmayan 60 kayıt `UNKNOWN` bırakıldı; Gönül, Mecnun, NPC ve drop ayrıntıları uydurulmadı.
 - Canonical veriden ayrı `DISCORD_OFFICIAL_UPDATE` intake foundation eklendi: normalize adapter, çoklu claim/kalıcılık modeli, `guild/channel/messageId` duplicate koruması, review kapısı ve güvenlik protokolü davranış testleriyle tanımlandı; gerçek Discord bağlantısı eklenmedi.
 - Mevlana Asa kullanıcı tooltipi `USER_GAME_EVIDENCE` provenance ile canonical base statlara bağlandı; kaynaklandırılmış base/upgraded state modeli genel çarpan türetmeden dört upgrade contribution'ını koruyor.
 - Xenotim, Peptit Klorotoksin, Örümcek Salgısı ve Safran için `SINGLE_SOURCE` edinim kayıtları; kapsamı genellenmeyen tılsım edinim kuralları ve resmî Mavi Gazap/İyileştirme `%50` kuralı validator/testlerle eklendi.

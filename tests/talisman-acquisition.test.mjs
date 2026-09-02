@@ -7,11 +7,18 @@ import {acquisitionFor, talismanAcquisitionView, talismanProductionChain} from "
 const read = async (name) => JSON.parse(await readFile(new URL(`../data/${name}`, import.meta.url), "utf8"));
 const acquisitions = await read("talisman-acquisitions.json"), talismans = await read("talismans.json");
 
-test("179 tılsımın edinim coverage sözleşmesi 120 reçete ve 59 unknown olarak korunur", () => {
+test("179 tılsımın edinim coverage sözleşmesi 119 reçete ve 60 unknown olarak korunur", () => {
   assert.equal(acquisitions.length, 179);
-  assert.equal(acquisitions.filter((row) => row.acquisitionType === "RECIPE_CRAFT").length, 120);
-  assert.equal(acquisitions.filter((row) => row.acquisitionType === "UNKNOWN").length, 59);
+  assert.equal(acquisitions.filter((row) => row.acquisitionType === "RECIPE_CRAFT").length, 119);
+  assert.equal(acquisitions.filter((row) => row.acquisitionType === "UNKNOWN").length, 60);
   assert.equal(acquisitions.some((row) => row.acquisitionType === "NPC_PURCHASE" || row.acquisitionType === "ENEMY_DROP"), false);
+});
+
+test("kaynak tablosunda bulunmayan Meditasyon 2 III reçete gibi yayımlanmaz", () => {
+  const row = acquisitionFor("mage-meditasyon-2-blue-3", acquisitions);
+  assert.equal(row.acquisitionType, "UNKNOWN");
+  assert.equal(row.sourceId, null);
+  assert.equal(row.recipe, undefined);
 });
 
 test("II. ve III. kademe edinimleri önceki kademeye bağlı reçetedir", () => {
