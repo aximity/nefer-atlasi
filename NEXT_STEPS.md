@@ -12,7 +12,7 @@ Bu dosya yalnız açık ve gerçekten yapılacak işleri içerir. Bir madde kod,
 - [x] Build sonrası rendered-HTML testini çalıştır.
 - [x] Birleşik `npm test` kalite kapısını doğrula.
 
-Son doğrulama: 2026-09-02 — 60/60 unit ve 1/1 rendered-HTML testi, validator PASS, lint PASS, build PASS.
+Son doğrulama: 2026-09-02 — 67/67 unit ve 1/1 rendered-HTML testi, validator PASS, lint PASS, build PASS.
 
 ## Recovery Manifest Population
 
@@ -51,7 +51,7 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 
 ### Phase 3 — Lost high-value user features
 
-- [ ] REC-006 görev sistemi.
+- [ ] **REC-006B — Tam Görev Kataloğu / Seviye 1–49:** 12 görevlik REC-006 vertical slice'ı batch research ile oyunun 1–49 tam aralığına genişlet. Historical seviye 29 yalnız regression testidir; ürün kapsamı 29 ile sınırlı değildir ve oyun sonu hedef seviye 49'dur.
 - [ ] REC-009 fotoğrafla malzeme tanıma.
 - [ ] REC-010 stoktan en yakın üretim önerisi.
 - [ ] REC-007 / REC-026 build önerileri.

@@ -8,6 +8,7 @@ import talismanRows from "../data/talismans.json";
 import talismanAcquisitionRows from "../data/talisman-acquisitions.json";
 import talismanRecipeRows from "../data/talisman-recipes.json";
 import materialAcquisitionRows from "../data/material-acquisitions.json";
+import questRows from "../data/quests.json";
 import contextRows from "../data/contexts.json";
 import groupLootRows from "../data/group-loot-items.json";
 import groupLootEvidenceRows from "../data/group-loot-evidence.json";
@@ -30,6 +31,8 @@ export interface TalismanAcquisition {id:string;talismanId:string;acquisitionTyp
 export interface TalismanRecipeIngredient {kind:"talisman"|"material";quantity:number;talismanId?:string;name?:string}
 export interface TalismanRecipe {id:string;talismanId:string;ingredients:TalismanRecipeIngredient[];sourceId:string;locator:string;verificationStatus:"single_source";confidence:"medium";lastChecked:string}
 export interface MaterialAcquisition {id:string;material:string;acquisitionType:"enemy_drop"|"profession_gathering";region?:string;profession?:string;sourceEntity:string;sourceTier?:number;requiredProfessionPoints?:number;sourceId:string;status:VerificationStatus;lastChecked:string}
+export interface QuestEvidence {sourceId:string;locator:string;fields:string[]}
+export interface Quest {questId:string;sourceNumber:number;name:string;minLevel:number;giverNpc:string|null;location:string|null;previousQuestIds:string[];objective:string|null;reward:string|null;confidence:"medium";lastChecked:string;evidence:QuestEvidence[]}
 
 export const items = [...itemRows,...groupLootRows,...glassesRows] as Item[];
 const glassesStats:Stat[]=glassesStatRows.flatMap(row=>row.stats.map(([attribute,value],index)=>({id:`stat-${row.itemId}-${index}`,itemId:row.itemId,attribute:String(attribute),value:Number(value),unit:"puan",verificationStatus:"single_source" as const,lastChecked:"2026-08-23"})));
@@ -44,6 +47,7 @@ export const talismans = talismanRows as Talisman[];
 export const talismanAcquisitions = talismanAcquisitionRows as TalismanAcquisition[];
 export const talismanRecipes = talismanRecipeRows as TalismanRecipe[];
 export const materialAcquisitions = materialAcquisitionRows as MaterialAcquisition[];
+export const quests = questRows as Quest[];
 export const contexts = contextRows;
 export const classSlots:Record<CharacterClass,Slot[]>={"Savaşçı":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Zırh","Yüzük","Kolye","Silah"],"Büyücü":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Amplifikatör","Yüzük","Kolye","Silah"],"Şifacı":["Gözlük","Ceket","Eldiven","Pantolon","Ayakkabı","Zırh","Yüzük","Kolye","Silah"]};
 export const slots=[...new Set(Object.values(classSlots).flat())];

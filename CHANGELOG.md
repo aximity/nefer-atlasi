@@ -4,6 +4,7 @@ Bu dosya yalnız mevcut Git geçmişi veya çalışma ağacındaki gerçek deği
 
 ## [Unreleased]
 
+- REC-006 için 12 kaynaklandırılmış erken görevden oluşan vertical slice eklendi: seviye filtresi ve temizleme, görev detayı, NPC/konum fallback'i ve yalnız açık kaynak ilişkilerinden kurulan önceki görev izi ana kullanıcı akışına bağlandı. Beş konum, bir otomatik görev veren alanı ve tüm ödüller kanıt beklediği için recovery `PARTIAL` bırakıldı.
 - 119 kaynaklandırılmış tılsım reçetesi, gereken 704 bileşen satırı ve dahili malzeme görünümü eklendi; dört doğrulanmış materyal edinimi bağlandı, Kondrit/Jadeit/Gadolinyum sade doğrulama fallback'inde bırakıldı. Kaynak tablosunda bulunmayan Büyücü Meditasyon 2 (III) reçetesi tahmin edilmeyip edinim kapsamı 119 reçete / 60 unknown olarak korundu.
 - REC-004/REC-021/REC-025 auditinde 119 reçetenin tamamında item-level malzeme, pozitif miktar, source ve confidence bulunduğu doğrulandı: 109 kademe yükseltmesi ve 10 özel reçete ayrı tılsım modelinde kaldı; reçete sonucu ve dahili üretim zinciri sade kullanıcı görünümüne bağlandı. Kaynaktaki `Peptit Kolorotoksin` yazımı açık alias ile canonical `Peptit Klorotoksin` kimliğine bağlandı; fuzzy merge eklenmedi.
 - REC-031 kapsamında 179 tılsım için provenance taşıyan edinim modeli eklendi: 119 kaynaklandırılmış reçeteli edinim dahili II/III kademe zincirine bağlandı, kanıtı olmayan 60 kayıt `UNKNOWN` bırakıldı; Gönül, Mecnun, NPC ve drop ayrıntıları uydurulmadı.

@@ -43,6 +43,7 @@ import {
   type StorageScale,
 } from "../lib/stat-values.mjs";
 import AbilitySimulator from "./ability-simulator";
+import QuestExplorer from "./quest-explorer";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   familyNames: Record<string, string> = {
     "bicak-sirti": "Bıçak Sırtı",
@@ -256,6 +257,7 @@ export default function Home() {
           <a href="#builder">Donanım planlayıcı</a>
           <a href="#engine">Tılsım ve yetenek</a>
           <a href="#group-regions">Grup bölgeleri</a>
+          <a href="#quests">Görevler</a>
           <a href="#items">Eşyalar</a>
           <i>M4</i>
         </nav>
@@ -488,6 +490,7 @@ export default function Home() {
         <AbilitySimulator key={klass} klass={klass} />
       </section>
       <GroupRegions onOpen={setDetail} />
+      <QuestExplorer />
       <section className="catalog" id="items">
         <Title eyebrow="KANITLI EŞYA KATALOĞU" title="Eşya rehberi">
           <div className="catalogTools">

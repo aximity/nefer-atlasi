@@ -45,6 +45,12 @@ test("Türkçeleştirilmiş sınıfa özgü donanım deneyimini oluşturur", asy
   assert.match(html, /Alternatör Kolye/);
   assert.doesNotMatch(html, /Bu üç odak için/);
   assert.match(html, /M4 · GRUP BÖLGELERİ GANİMET ARŞİVİ/);
+  assert.match(html, /M5 · KAYNAKLI GÖREV İZİ/);
+  assert.match(html, /Seviyene açılan görevler/);
+  assert.match(html, /aria-label="Oyuncu seviyesi"/);
+  assert.match(html, /Teşkilat&#x27;a Katılış/);
+  assert.match(html, /Görevi veren/);
+  assert.match(html, /ÖNCEKİ GÖREVLER/);
   assert.match(html, /Hangi boss ne atıyor\?/);
   assert.match(html, /Sığınaklar/);
   assert.match(html, /Migrat/);
