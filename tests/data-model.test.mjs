@@ -173,11 +173,16 @@ test("Mevlana Asa yükseltmesi base contributionları değiştirmeden kaynak de�
 });
 
 test("materyal edinimleri yalnız kaynaklandırılmış düşman ve meslek ilişkilerini taşır", () => {
-  assert.deepEqual(materialAcquisitions.map((row) => row.id).sort(), ["acquisition-orumcek-salgisi-orumcek","acquisition-peptit-klorotoksin-akrep","acquisition-safran-cigdem-lokman","acquisition-xenotim-sakli-tur"]);
+  assert.deepEqual(materialAcquisitions.map((row) => row.id).sort(), ["acquisition-gadolinyum-monazit-madenci","acquisition-jadeit-yesim-tasi-sarraf","acquisition-orumcek-salgisi-orumcek","acquisition-peptit-klorotoksin-akrep","acquisition-safran-cigdem-lokman","acquisition-xenotim-sakli-tur"]);
   assert.ok(materialAcquisitions.every((row) => row.status === "single_source"));
   const saffron = materialAcquisitions.find((row) => row.material === "Safran");
   assert.equal(saffron.profession, "Lokman");
   assert.equal(saffron.sourceEntity, "Çiğdem");
+  const jadeite = materialAcquisitions.find((row) => row.material === "Jadeit");
+  assert.deepEqual([jadeite.profession,jadeite.sourceEntity,jadeite.sourceTier,jadeite.requiredProfessionPoints], ["Sarraf","Yeşim Taşı",2,45]);
+  const gadolinium = materialAcquisitions.find((row) => row.material === "Gadolinyum");
+  assert.deepEqual([gadolinium.profession,gadolinium.sourceEntity,gadolinium.sourceTier,gadolinium.requiredProfessionPoints], ["Madenci","Monazit",2,45]);
+  assert.ok(!materialAcquisitions.some((row) => row.material === "Kondrit"));
   assert.ok(!materialAcquisitions.some((row) => row.profession === "Madenci" && row.material === "Safran"));
 });
 

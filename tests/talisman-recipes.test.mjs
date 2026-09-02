@@ -51,13 +51,16 @@ test("doğrulanmış materyal edinimleri reçete görünümüne bağlanır", () 
   assert.equal(view.find(row => row.name === "Xenotim").acquisition, "Büyük Hol · Saklı Tür");
   assert.equal(view.find(row => row.name === "Peptit Klorotoksin").acquisition, "Büyük Hol · Akrep");
   assert.equal(view.find(row => row.name === "Örümcek Salgısı").acquisition, "Büyük Hol · Örümcek");
+  const gadoliniumRecipe = talismanRecipeFor("mage-ates-cemberi-2-red-special", recipes);
+  const gadoliniumView = talismanRecipeIngredients(gadoliniumRecipe, talismans, materialAcquisitions);
+  assert.equal(gadoliniumView.find(row => row.name === "Gadolinyum").acquisition, "Madenci · Monazit");
 });
 
 test("edinimi bilinmeyen reçete malzemesi sade fallback gösterir", () => {
   const recipe = talismanRecipeFor("mage-buz-oku-1-blue-2", recipes);
   const view = talismanRecipeIngredients(recipe, talismans, materialAcquisitions);
   assert.equal(view.find(row => row.name === "Kondrit").acquisition, "Edinim bilgisi doğrulanıyor");
-  assert.equal(view.find(row => row.name === "Jadeit").acquisition, "Edinim bilgisi doğrulanıyor");
+  assert.equal(view.find(row => row.name === "Jadeit").acquisition, "Sarraf · Yeşim Taşı");
 });
 
 test("doğrudan reçete predecessor veya NPC/drop ayrıntısı uydurmaz", () => {

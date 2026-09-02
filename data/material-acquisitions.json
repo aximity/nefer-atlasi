@@ -40,5 +40,29 @@
     "sourceId": "fandom-gathering",
     "status": "single_source",
     "lastChecked": "2026-09-01"
+  },
+  {
+    "id": "acquisition-jadeit-yesim-tasi-sarraf",
+    "material": "Jadeit",
+    "acquisitionType": "profession_gathering",
+    "profession": "Sarraf",
+    "sourceEntity": "Yeşim Taşı",
+    "sourceTier": 2,
+    "requiredProfessionPoints": 45,
+    "sourceId": "fandom-gathering",
+    "status": "single_source",
+    "lastChecked": "2026-09-02"
+  },
+  {
+    "id": "acquisition-gadolinyum-monazit-madenci",
+    "material": "Gadolinyum",
+    "acquisitionType": "profession_gathering",
+    "profession": "Madenci",
+    "sourceEntity": "Monazit",
+    "sourceTier": 2,
+    "requiredProfessionPoints": 45,
+    "sourceId": "fandom-gathering",
+    "status": "single_source",
+    "lastChecked": "2026-09-02"
   }
 ]

@@ -12,7 +12,7 @@ Bu dosya yalnız açık ve gerçekten yapılacak işleri içerir. Bir madde kod,
 - [x] Build sonrası rendered-HTML testini çalıştır.
 - [x] Birleşik `npm test` kalite kapısını doğrula.
 
-Son doğrulama: 2026-09-02 — 67/67 unit ve 1/1 rendered-HTML testi, validator PASS, lint PASS, build PASS.
+Son doğrulama: 2026-09-02 — 71/71 unit ve 1/1 rendered-HTML testi, validator PASS, lint PASS, build PASS.
 
 ## Recovery Manifest Population
 
@@ -45,8 +45,8 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 - [ ] REC-004 reçete/üretim çekirdeği; 67 ekipman ve 119 tılsım reçetesi ayrı modellerle doğrulanıyor, tarihsel çekirdek kapsam farkı hâlâ açık.
 - [ ] REC-021 dahili tılsım reçete navigasyonu; 119 kaynaklı reçetede malzeme/miktar ve zincir çalışıyor, 60 edinim/reçete hâlâ `UNKNOWN`.
 - [ ] Mecnun/Topkapı ile I. kademe satın alma ve düşman/drop edinimlerini batch web araştırmasıyla item-level doğrula; kanıtlanana kadar 60 kaydı `UNKNOWN` tut.
-- [ ] REC-025 malzeme edinim kaynakları; Kondrit, Jadeit ve Gadolinyum edinimini batch araştır, kanıtlanmayan NPC/drop/lokasyon ayrıntısı üretme.
-- [x] REC-025 için ilk dört kaynaklandırılmış materyal edinimini validator ve tılsım reçete kullanıcı akışına bağla; kalan kapsam açık.
+- [ ] REC-025 malzeme edinim kaynakları; Jadeit ve Gadolinyum meslek edinimleri doğrulandı, Kondrit için item-level yöntem/NPC kanıtı hâlâ açık. Kanıtlanmayan NPC/drop/lokasyon ayrıntısı üretme.
+- [x] REC-025 için altı kaynaklandırılmış materyal edinimini validator ve tılsım reçete kullanıcı akışına bağla; 7 canonical reçete materyalinden yalnız Kondrit açık.
 - [ ] REC-008 gerçek yetenek kuralları.
 
 ### Phase 3 — Lost high-value user features
