@@ -41,10 +41,10 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 - [ ] Bot application oluşturup minimum izinlerle salt-okunur Discord bağlantı adapterını ayrı görevde ekle; tokenı deployment secret üzerinden sağla.
 - [ ] Intake kayıtları için kalıcı storage adapterı ve insan review arayüzü tasarla; canonical application ayrı ve explicit kalsın.
 - [x] REC-031 genel tılsım edinim altyapısı: kaynak auditinden sonra 119 reçeteli edinim, 60 güvenli fallback ve dahili II/III kademe zinciri.
-- [ ] REC-003 Gönül edinim modeli; item-level liste, NPC ve fiyat kanıtı hâlâ açık.
+- [ ] REC-003 Gönül/Mecnun edinim modeli; batch audit 60 `UNKNOWN` kaydı 55 I. kademe + 4 kademesiz özel + REC-004'e ait 1 III. kademe olarak ayırdı. Fandom genel kuralı item-level liste vermiyor; NPC, tılsım adı ve fiyat kanıtı hâlâ açık.
 - [ ] REC-004 reçete/üretim çekirdeği; 67 ekipman ve 119 tılsım reçetesi ayrı modellerle doğrulanıyor, tarihsel çekirdek kapsam farkı hâlâ açık.
 - [ ] REC-021 dahili tılsım reçete navigasyonu; 119 kaynaklı reçetede malzeme/miktar ve zincir çalışıyor, 60 edinim/reçete hâlâ `UNKNOWN`.
-- [ ] Mecnun/Topkapı ile I. kademe satın alma ve düşman/drop edinimlerini batch web araştırmasıyla item-level doğrula; kanıtlanana kadar 60 kaydı `UNKNOWN` tut.
+- [ ] Gönül/Mecnun/Topkapı için web dışı oyun içi envanter kanıtı ara; mümkünse tarihli ekran görüntüsü veya video ile tılsım adı, edinim türü, NPC ve fiyatı birlikte doğrula. Kanıtlanana kadar 60 kaydı `UNKNOWN` tut.
 - [ ] REC-025 malzeme edinim kaynakları; Jadeit ve Gadolinyum meslek edinimleri doğrulandı, Kondrit için item-level yöntem/NPC kanıtı hâlâ açık. Kanıtlanmayan NPC/drop/lokasyon ayrıntısı üretme.
 - [x] REC-025 için altı kaynaklandırılmış materyal edinimini validator ve tılsım reçete kullanıcı akışına bağla; 7 canonical reçete materyalinden yalnız Kondrit açık.
 - [ ] REC-008 gerçek yetenek kuralları.

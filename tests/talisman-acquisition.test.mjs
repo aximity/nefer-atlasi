@@ -10,7 +10,13 @@ const acquisitions = await read("talisman-acquisitions.json"), talismans = await
 test("179 tılsımın edinim coverage sözleşmesi 119 reçete ve 60 unknown olarak korunur", () => {
   assert.equal(acquisitions.length, 179);
   assert.equal(acquisitions.filter((row) => row.acquisitionType === "RECIPE_CRAFT").length, 119);
-  assert.equal(acquisitions.filter((row) => row.acquisitionType === "UNKNOWN").length, 60);
+  const unknownTalismans = acquisitions
+    .filter((row) => row.acquisitionType === "UNKNOWN")
+    .map((row) => talismans.find((talisman) => talisman.id === row.talismanId));
+  assert.equal(unknownTalismans.length, 60);
+  assert.deepEqual(Object.fromEntries(["Büyücü","Savaşçı","Şifacı"].map((className) => [className,unknownTalismans.filter((row) => row.class === className).length])), {"Büyücü":20,"Savaşçı":20,"Şifacı":20});
+  assert.deepEqual({tier1:unknownTalismans.filter((row) => row.tier === 1).length,tier3:unknownTalismans.filter((row) => row.tier === 3).length,special:unknownTalismans.filter((row) => row.tier === null).length}, {tier1:55,tier3:1,special:4});
+  assert.deepEqual(Object.fromEntries(["Büyücü","Savaşçı","Şifacı"].map((className) => [className,new Set(unknownTalismans.filter((row) => row.class === className).map((row) => row.series)).size])), {"Büyücü":18,"Savaşçı":19,"Şifacı":18});
   assert.equal(acquisitions.some((row) => row.acquisitionType === "NPC_PURCHASE" || row.acquisitionType === "ENEMY_DROP"), false);
 });
 

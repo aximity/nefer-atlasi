@@ -64,7 +64,7 @@ Toplam bağımsız test: **72**. Bu sayı 71 unit + 1 rendered-HTML testinden ol
 
 ## Partial Modules
 
-- Tılsım sistemi: 179 kayıt UI'a bağlıdır; 24 stat multiplier, 3 damage multiplier ve 3 critical multiplier hesaplanır. Edinim görünümü 119 kaynaklandırılmış `RECIPE_CRAFT` kaydını (109 kademe yükseltme ve 10 özel reçete) reçete sonucu, gereken malzeme/miktar, önceki kademe ve dahili üretim zincirine bağlar; 60 kayıt doğrulanana kadar sade `UNKNOWN` fallback gösterir. Fandom tablosunda bulunmayan Büyücü Meditasyon 2 (III) reçetesi örüntüyle türetilmeyip `UNKNOWN` bırakılmıştır. 149 tılsım etkisi yalnız bilgilendiricidir.
+- Tılsım sistemi: 179 kayıt UI'a bağlıdır; 24 stat multiplier, 3 damage multiplier ve 3 critical multiplier hesaplanır. Edinim görünümü 119 kaynaklandırılmış `RECIPE_CRAFT` kaydını (109 kademe yükseltme ve 10 özel reçete) reçete sonucu, gereken malzeme/miktar, önceki kademe ve dahili üretim zincirine bağlar. REC-003 batch auditindeki 60 `UNKNOWN`; her sınıfta 20 kayıt olmak üzere 55 I. kademe, 4 kademesiz özel tılsım ve REC-004 kapsamındaki Büyücü Meditasyon 2 (III) kaydından oluşur. Item-level Gönül/Mecnun kanıtı bulunmadığından NPC/drop ayrıntısı türetilmemiştir. 149 tılsım etkisi yalnız bilgilendiricidir.
 - Yetenek planlayıcı: 45 yetenek, 80 puan bütçesi ve yetenek başına 15 puan sınırı vardır; puanların oyun içi etkisini hesaplamaz.
 - Öneriler: kanıtlı stat adlarıyla hedef eşleşmesi yapar; meta, kullanım veya başarı oranı önerisi değildir.
 - Kaynaklar: item/evidence akışına bağlıdır; ayrı kaynak tarayıcısı yoktur.
@@ -89,7 +89,7 @@ Toplam bağımsız test: **72**. Bu sayı 71 unit + 1 rendered-HTML testinden ol
 - 129 eşya: tamamı `SINGLE_SOURCE`; REC-024 kapsamındaki 11 eşya web kanıtıyla çözüldü.
 - 237 özellik/stat: tamamı `SINGLE_SOURCE`; 11 aynı-stat çifti 22 ayrı canonical katkı satırı olarak korunuyor.
 - 67 reçete: tamamı `SINGLE_SOURCE`.
-- 179 tılsım: tamamı `SINGLE_SOURCE`; ayrıca 119 `RECIPE_CRAFT` ve 60 `UNKNOWN` edinim kaydı vardır. Audit sonucu 119 tam reçete, 0 yalnız predecessor ilişkisi, 0 eksik miktar, 0 eksik materyal ve 0 source/evidence eksiğidir. Reçeteler 704 bileşen satırı taşır; 595 malzeme satırında 7 canonical materyal bulunur. Item-level NPC satın alma veya düşman drop kaydı henüz doğrulanmamıştır.
+- 179 tılsım: tamamı `SINGLE_SOURCE`; ayrıca 119 `RECIPE_CRAFT` ve 60 `UNKNOWN` edinim kaydı vardır. `UNKNOWN` dağılımı Büyücü/Savaşçı/Şifacı için 20/20/20; kademe dağılımı 55 I. kademe, 1 III. kademe ve 4 kademesiz özeldir. Sınıf başına benzersiz aile sayısı 18/19/18'dir. Gönül Fandom sayfası kullanılabilir envanter içermiyor, Mecnun için indekslenmiş kaynak yok ve genel sistem sayfası yalnız bazı I. kademelerin satın alındığını/bazılarının düştüğünü söylüyor; bu yüzden 0 item-level `NPC_PURCHASE`, 0 `ENEMY_DROP` korunur. Reçete auditinde 119 tam reçete, 704 bileşen satırı ve 7 canonical materyal vardır; REC-004'e ait eksik Meditasyon 2 (III) bu edinim auditinden ayrıdır.
 - 910 evidence: 775 `SINGLE_SOURCE`, 134 `VERIFIED`/`cross_verified`, 1 `UNKNOWN`/`draft`; bunların 3'ü Mevlana Asa için `USER_GAME_EVIDENCE` claim'idir.
 - 45 yetenek: 44 `VERIFIED`/`cross_verified`, 1 `SINGLE_SOURCE`.
 - 1 kaynaklandırılmış item upgrade kaydı: Mevlana Asa için 4 base → upgraded contribution; genel `×2` formülü yoktur.
