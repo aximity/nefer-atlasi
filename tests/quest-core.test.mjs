@@ -1,54 +1,17 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import quests from "../data/quests.json" with {type:"json"};
-import {normalizePlayerLevel, prerequisiteChain, questLocationLabel, questsForLevel} from "../lib/quest-core.mjs";
+import {canonicalQuests,normalizePlayerLevel,partitionQuests,prerequisiteChain,questAvailability,questLocationLabel,questsForLevel} from "../lib/quest-core.mjs";
+const byNumber=(sourceNumber)=>quests.find((quest)=>quest.sourceNumber===sourceNumber);
 
-test("seviye filtresi yalnız oyuncunun seviyesine açılan görevleri getirir", () => {
-  const level2 = questsForLevel(quests, "2");
-  assert.equal(level2.length, 6);
-  assert.equal(level2.every(quest => quest.minLevel <= 2), true);
-  assert.equal(level2.some(quest => quest.questId === "quest-010-sahil-temizligi-2"), false);
-});
-
-test("seviye alanı temizlenince bütün doğrulanmış slice geri gelir", () => {
-  assert.equal(questsForLevel(quests, "").length, quests.length);
-  assert.equal(normalizePlayerLevel(""), null);
-});
-
-test("geçersiz ve boş seviye güvenli biçimde filtre uygulamaz", () => {
-  for (const value of ["x", "2.5", "0", "60", "-1", " "]) {
-    assert.equal(normalizePlayerLevel(value), null);
-    assert.equal(questsForLevel(quests, value).length, quests.length);
-  }
-});
-
-test("görev detayı NPC, konum ve amacı canonical kayıttan taşır", () => {
-  const quest = quests.find(row => row.questId === "quest-018-anacigimin-ilaclari");
-  assert.equal(quest.name, "Anacığımın İlaçları");
-  assert.equal(quest.giverNpc, "Jandarma Ali");
-  assert.equal(quest.location, "Mısır Çarşısı önü · Türk bayrağı altı");
-  assert.match(quest.objective, /Halime Teyze/);
-});
-
-test("önceki görev zinciri yalnız açık kaynak ilişkilerini izler", () => {
-  assert.deepEqual(
-    prerequisiteChain("quest-010-sahil-temizligi-2", quests).map(row => row.questId),
-    ["quest-008-balikciyla-tanisma", "quest-009-sahil-temizligi-1"],
-  );
-});
-
-test("bilinmeyen konum sade fallback alır ve Mısır Çarşısı uydurulmaz", () => {
-  const quest = quests.find(row => row.questId === "quest-019-savasin-niyeti");
-  assert.equal(quest.location, null);
-  assert.equal(questLocationLabel(quest), "Konum bilgisi doğrulanıyor");
-  assert.doesNotMatch(questLocationLabel(quest), /Mısır Çarşısı/);
-});
-
-test("vertical slice coverage gerçek kayıtlardan hesaplanır", () => {
-  assert.equal(quests.length, 12);
-  assert.deepEqual([...new Set(quests.map(row => row.minLevel))], [1, 2, 3, 5, 6]);
-  assert.equal(quests.filter(row => row.giverNpc).length, 11);
-  assert.equal(quests.filter(row => row.location).length, 7);
-  assert.equal(quests.filter(row => row.previousQuestIds.length).length, 6);
-  assert.equal(quests.every(row => row.reward === null), true);
-});
+test("1–49 seviye filtresi yalnız oyuncunun seviyesinde açılmış kayıtları getirir",()=>{assert.equal(questsForLevel(quests,"1").length,4);assert.equal(questsForLevel(quests,"29").length,91);assert.equal(questsForLevel(quests,"49").length,265);assert.equal(questsForLevel(quests,"29").every((quest)=>quest.minLevel<=29),true)});
+test("boş, temizlenmiş ve geçersiz seviye güvenli biçimde filtre uygulamaz",()=>{for(const value of ["","x","2.5","0","50","-1"," "]){assert.equal(normalizePlayerLevel(value),null);assert.equal(questsForLevel(quests,value).length,quests.length)}});
+test("erişilebilir, prerequisite kilitli ve seviye kilitli durumları ayrıdır",()=>{assert.equal(questAvailability(byNumber(1),1),"available");assert.equal(questAvailability(byNumber(3),1),"prerequisite_locked");assert.equal(questAvailability(byNumber(93),28),"level_locked");assert.equal(questAvailability(byNumber(3),1,[byNumber(1).questId]),"available")});
+test("level 29 historical regression kapsamı ve kilit dağılımı sabittir",()=>{const groups=partitionQuests(quests,29);assert.deepEqual(Object.fromEntries(Object.entries(groups).map(([key,rows])=>[key,rows.length])),{available:25,prerequisite_locked:66,level_locked:174,level_unknown:0});assert.equal(quests.filter((quest)=>quest.minLevel===29).length,7)});
+test("level 49 endgame tüm canonical kataloğu açar, prerequisite durumu korunur",()=>{const groups=partitionQuests(quests,49);assert.equal(groups.level_locked.length,0);assert.equal(groups.available.length,40);assert.equal(groups.prerequisite_locked.length,225);assert.equal(quests.filter((quest)=>quest.minLevel===49).length,49)});
+test("görev detayı NPC ve amacı canonical kayıttan taşır",()=>{const quest=byNumber(18);assert.equal(quest.name,"Anacığımın İlaçları");assert.equal(quest.giverNpc,"Jandarma Ali");assert.match(quest.objective,/Halime Teyze/)});
+test("önceki görev zinciri yalnız açık kaynak ilişkilerini izler",()=>{assert.deepEqual(prerequisiteChain(byNumber(10).questId,quests).map((quest)=>quest.sourceNumber),[8,9]);assert.equal(prerequisiteChain(byNumber(273).questId,quests).length,89)});
+test("bilinmeyen konum sade fallback alır ve Mısır Çarşısı uydurulmaz",()=>{const quest=byNumber(19);assert.equal(quest.location,null);assert.equal(questLocationLabel(quest),"Konum bilgisi doğrulanıyor");assert.doesNotMatch(questLocationLabel(quest),/Mısır Çarşısı/)});
+test("placeholder objective canonical gerçek gibi yayınlanmaz",()=>{const quest=byNumber(270);assert.equal(quest.objective,null);assert.equal(quest.evidence.some((claim)=>claim.fields.includes("objective")),false)});
+test("conflicted görev adayları kullanıcı kataloğundan çıkarılır",()=>{const conflicted={...byNumber(14),questId:"research-conflict",confidence:"conflicted"};assert.equal(canonicalQuests([byNumber(14),conflicted]).some((quest)=>quest.questId==="research-conflict"),false)});
+test("1–49 katalog coverage gerçek canonical kayıtlardan hesaplanır",()=>{assert.equal(quests.length,265);assert.equal(quests.filter((quest)=>quest.level!==null).length,217);assert.equal(quests.filter((quest)=>quest.giverNpc).length,229);assert.equal(quests.filter((quest)=>quest.location).length,7);assert.equal(quests.filter((quest)=>quest.objective).length,264);assert.equal(quests.filter((quest)=>quest.previousQuestIds.length).length,225);assert.equal(quests.every((quest)=>quest.reward===null),true);assert.deepEqual([13,21,24,26].filter((level)=>!quests.some((quest)=>quest.minLevel===level)),[13,21,24,26])});

@@ -43,12 +43,12 @@ Son güncelleme: 2026-09-02
 | Kontrol | Sonuç | Gerçek çıktı |
 |---|---|---|
 | `npm ci` | PASS | Kurulum tamamlandı; `@esbuild-kit/esm-loader` için deprecated transitive dependency uyarısı verdi. |
-| `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 ekipman reçetesi, 119 tılsım reçetesi, 12 görev, 910 eşya kanıtı, 179 tılsım, 179 tılsım edinimi, 167 ham efsun satırı, 45 yetenek, 1 yükseltme, 4 materyal edinimi, 3 tılsım edinim kuralı ve 1 oyun mekaniği kuralı. |
+| `npm run validate:data` | PASS | 129 eşya, 237 özellik, 67 ekipman reçetesi, 119 tılsım reçetesi, 265 görev, 910 eşya kanıtı, 179 tılsım, 179 tılsım edinimi, 167 ham efsun satırı, 45 yetenek, 1 yükseltme, 4 materyal edinimi, 3 tılsım edinim kuralı ve 1 oyun mekaniği kuralı. |
 | `npm run lint` | PASS | ESLint hata üretmedi. |
-| `npm run test:unit` | PASS | 67/67 geçti; 0 fail, 0 skipped. |
+| `npm run test:unit` | PASS | 71/71 geçti; 0 fail, 0 skipped. |
 | `npm run build` | PASS | Vinext'in beş build aşaması tamamlandı. `/` rotası için statik sınıflandırma uyarısı var. |
 | Rendered HTML testi | PASS | 1/1 geçti. |
-| `npm test` birleşik kapısı | PASS | Validator, 67 unit test, production build ve 1 rendered test birlikte geçti. |
+| `npm test` birleşik kapısı | PASS | Validator, 71 unit test, production build ve 1 rendered test birlikte geçti. |
 
 Toplam bağımsız test: **68**. Bu sayı 67 unit + 1 rendered-HTML testinden oluşur.
 
@@ -72,7 +72,7 @@ Toplam bağımsız test: **68**. Bu sayı 67 unit + 1 rendered-HTML testinden ol
 - Stat değer altyapısı: canonical ham sayıları korur, desteklenen storage scale sözleşmesini doğrular ve aynı attribute içindeki uyumsuz/bilinmeyen scale değerlerini build ile tılsım hesabından güvenli biçimde dışlar. Exact `scaled_1000` / `scaled_10000` display dönüşümü henüz doğrulanmamıştır.
 - Veri foundation: Mevlana Asa için base/upgraded state ayrımı, dört kaynaklandırılmış materyal edinimi, kapsamı genellenmeyen üç tılsım edinim kuralı ve resmî Mavi Gazap/İyileştirme kuralı modellenmiştir. Dört materyal edinimi tılsım reçete görünümüne bağlıdır; diğer veri foundation kayıtlarının ayrı kullanıcı akışları yoktur.
 - Discord update intake foundation: `DISCORD_OFFICIAL_UPDATE` provenance, çoklu claim ayrıştırma, kalıcılık/durum sözleşmesi ve duplicate koruması canonical veriden ayrı modellenmiştir. Gerçek Discord bot bağlantısı, kalıcı queue adapterı ve canonical application akışı henüz yoktur.
-- Görev sistemi: Fandom açıklamalı görev ve zincir tablolarından doğrulanan 12 erken görev ana sayfaya bağlıdır. Seviye 1, 2, 3, 5 ve 6 için filtre/temizleme, detay, NPC, kanıtlı konum ve açık prerequisite izi çalışır. Tam görev kataloğu, seviye 29 historical regression akışı ve ödüller henüz yoktur (`PARTIAL`).
+- Görev sistemi: Fandom açıklamalı görev ve zincir/kısıtlama tabloları batch işlenerek 1–49 aralığında 265 canonical görev ana sayfaya bağlandı. Açılma kısıtı (`minLevel`) ile açıklamalı listedeki görev seviyesi ayrıdır; kullanıcı seviyesi ve tamamlanan prerequisite kayıtları erişilebilir/önceki görev gerekli/henüz açılmadı durumlarını gerçekten değiştirir. Konum ve ödül kapsamı büyük ölçüde eksik olduğu için `PARTIAL` korunur.
 
 ## Not Found in Current Code
 
@@ -94,7 +94,7 @@ Toplam bağımsız test: **68**. Bu sayı 67 unit + 1 rendered-HTML testinden ol
 - 45 yetenek: 44 `VERIFIED`/`cross_verified`, 1 `SINGLE_SOURCE`.
 - 1 kaynaklandırılmış item upgrade kaydı: Mevlana Asa için 4 base → upgraded contribution; genel `×2` formülü yoktur.
 - 4 `SINGLE_SOURCE` materyal edinimi, 3 `SINGLE_SOURCE` genel tılsım edinim kuralı ve 1 `SINGLE_SOURCE` gameplay kuralı. Tılsım reçetelerindeki Xenotim, Peptit Klorotoksin, Örümcek Salgısı ve Safran edinime bağlı; Kondrit, Jadeit ve Gadolinyum edinimi `UNKNOWN`.
-- 12 `SINGLE_SOURCE` görev: 5 seviye değeri, 11 NPC, 7 konum, 6 prerequisite ilişkili görev ve 27 field-level evidence kaydı. Beş konum, bir otomatik görev veren alanı ve 12 ödül `UNKNOWN`; çelişkili “Şevket Bey'in Ricası” level değeri canonical slice'a alınmadı.
+- 265 `SINGLE_SOURCE` görev: 265 açılma seviyesi, 217 ayrıca görev seviyesi, 229 NPC, 7 konum, 264 objective ve 225 prerequisite ilişkili görev. 36 otomatik görevde NPC yoktur; 258 konum, 1 objective ve 265 ödül doğrulama bekler. “Şevket Bey'in Ricası” iki Fandom batch tablosunda açılma/görev seviyesi 2 ile uyumludur ve kaynak numarası 14 üzerinden zincire alınmıştır.
 - Duplicate ID: 0.
 - Orphan ilişki: 0.
 - Eksik eşya ID: 0.

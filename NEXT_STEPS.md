@@ -51,7 +51,7 @@ Bu sıra başlangıç planıdır; dependency veya veri doğruluğu gereksinimi o
 
 ### Phase 3 — Lost high-value user features
 
-- [ ] **REC-006B — Tam Görev Kataloğu / Seviye 1–49:** 12 görevlik REC-006 vertical slice'ı batch research ile oyunun 1–49 tam aralığına genişlet. Historical seviye 29 yalnız regression testidir; ürün kapsamı 29 ile sınırlı değildir ve oyun sonu hedef seviye 49'dur.
+- [ ] REC-006 kalan coverage: 258 konum, 265 ödül, 1 objective ve 48 görev seviyesi alanını yalnız batch kaynak kanıtıyla tamamla; 1–49 katalog ve historical seviye 29 regression davranışını koru.
 - [ ] REC-009 fotoğrafla malzeme tanıma.
 - [ ] REC-010 stoktan en yakın üretim önerisi.
 - [ ] REC-007 / REC-026 build önerileri.
