@@ -10,6 +10,7 @@
 4. [Veri kalite kapıları](docs/DATA_QUALITY.md)
 5. [Karar kaydı](docs/DECISIONS.md)
 6. [Değişiklik günlüğü](docs/CHANGELOG.md)
+7. [Canlı maden gözlemleri sözleşmesi](docs/MINE_OBSERVATIONS.md)
 
 ## Komutlar
 

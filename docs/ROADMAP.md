@@ -231,6 +231,8 @@
 
 Çıkış kapısı: 442 reçete aynı üretim ağına bağlıdır; üretilebilir 53 önceki kademe tılsım doğru reçeteye döner; iksirlerdeki 49 benzersiz girdinin 48'i kaynaklı ikonla görünür, Karbon tahminsiz açık kayıt olarak kalır.
 
+Maden tarafında kaynaklandırılmış katalog ile canlı oyuncu gözlemi ayrı veri sınıflarıdır. Sabit spawn noktası vaat edilmez; yaklaşık gözlemler zaman aşımı ve bağımsız oyuncu sinyalleriyle türetilmiş canlı katmanda gösterilir, ham olaylar denetim izi olarak korunur.
+
 ## Tamamlandı — M1: Güvenilir veri çekirdeği
 
 - [x] Eşya, kaynak, görsel kanıt ve doğrulama kayıtlarını ayrı veri dosyalarına taşı
