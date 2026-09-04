@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M73: Eşya kataloğu ve yönlendirme sınırları
+
+- [x] Eşya arama, sınıf ve yuva filtrelerini bağımsız katalog modülüne taşı
+- [x] Karşılaştırma, uyarı, sayfalama ve ayrıntı durumunu katalog sınırında tut
+- [x] URL ayrıştırma ve adres üretme kurallarını ayrı yönlendirme katmanına ayır
+- [x] Genel arama, bölge ganimeti ve geri/ileri gezinme davranışlarını koru
+- [x] Ana koordinatörü 250 satırın altına indir ve sınırı otomatik testle koru
+
+Çıkış kapısı: Eşya kataloğu bütün etkileşim durumunu kendi modülünde yönetir; rota katmanı tüm kayıt derin bağlantılarını korur; veri, render, build ve lint kapıları geçer.
+
 ## Tamamlandı — M72: Site kabuğu ve genel arama sınırları
 
 - [x] Bölüm tanımlarını tek paylaşılan modül kataloğuna taşı

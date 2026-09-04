@@ -53,7 +53,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.equal(visualFamilies.filter((family) => family.kind === "potion").length, 3);
   assert.match(itemVisuals, /SET GÖRÜNÜŞ REFERANSI · TEKİL PARÇA DEĞİL/);
   assert.match(itemVisuals, /ORTAK.*GÖVDESİ · EFSUN AYRI/);
-  assert.match(page, /Tekrarsız görsel sistemi/);
+  assert.match(readFileSync(new URL("../app/item-explorer.tsx", import.meta.url), "utf8"), /Tekrarsız görsel sistemi/);
   assert.match(itemExplorer, /ORTAK GÖVDE/);
   assert.match(itemExplorer, /efsun, seviye ve özellikler seçili eşya kaydına aittir/i);
   assert.match(farmOperations, /"Üretim"/);

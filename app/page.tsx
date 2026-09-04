@@ -16,18 +16,14 @@ import RecipeCatalog from "./RecipeCatalog";
 import EquipmentBuilder from "./equipment-builder";
 import GlobalSearch from "./global-search";
 import GroupRegions from "./group-regions";
-import {
-  ComparePanel,
-  ItemCard,
-  ItemModal,
-} from "./item-explorer-parts";
+import ItemExplorer from "./item-explorer";
+import { ItemModal } from "./item-explorer-parts";
 import Title from "./section-title";
 import { SiteHeader, SiteMenu } from "./site-navigation";
 import { moduleTabs, quickModuleIds, type MainModule } from "./site-modules";
+import { homeHref, moduleHref, readAtlasRoute, withoutItemHref } from "./atlas-routing";
 import { useEffect, useRef, useState } from "react";
 import {
-  items,
-  publishableItems,
   talismans,
   type Item,
   type CharacterClass,
@@ -36,22 +32,12 @@ import { SITE_RELEASE } from "../lib/site-release";
 import { quests } from "../lib/quest-catalog";
 import abilityRows from "../data/abilities.json";
 import abilityVariantRows from "../data/ability-variants.json";
-import {
-  itemVisualFamilyInventory,
-} from "../lib/visual-families";
-import { APP_NAVIGATION_EVENT, ROUTE_DETAIL_PARAMS } from "../lib/navigation";
-const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"];
-const itemFamilyInventory = itemVisualFamilyInventory(publishableItems);
+import { APP_NAVIGATION_EVENT } from "../lib/navigation";
 export default function Home() {
   const [klass, setKlass] = useState<CharacterClass>("Büyücü"),
     [talismanId, setTalismanId] = useState(""),
     [, setTalismanPath] = useState("Tümü"),
-    [query, setQuery] = useState(""),
-    [classFilter, setClassFilter] = useState("Tümü"),
-    [slotFilter, setSlotFilter] = useState("Tümü"),
-    [itemVisibleLimit, setItemVisibleLimit] = useState(24),
-    [compareIds, setCompareIds] = useState<string[]>([]),
-    [detail, setDetail] = useState<Item | null>(null),
+    [externalDetail, setExternalDetail] = useState<Item | null>(null),
     [activeModule, setActiveModule] = useState<MainModule | null>(null),
     [moreOpen, setMoreOpen] = useState(false),
     [searchOpen, setSearchOpen] = useState(false),
@@ -62,7 +48,7 @@ export default function Home() {
     [atlasRevision, setAtlasRevision] = useState(0),
     [miningRevision, setMiningRevision] = useState(0),
     [builderSeed, setBuilderSeed] = useState({ revision: 0, code: "" }),
-    [notice, setNotice] = useState("");
+    [itemSeed, setItemSeed] = useState({ revision: 0, id: "", focus: false });
   const klassRef = useRef(klass);
   useEffect(() => { klassRef.current = klass; }, [klass]);
   const setClass = (next: CharacterClass) => {
@@ -72,44 +58,34 @@ export default function Home() {
   };
   useEffect(() => {
     const hydrate = () => {
-      const params = new URLSearchParams(location.search);
-      const requestedModule = params.get("module");
-      const nextModule = requestedModule && moduleTabs.some((item) => item.id === requestedModule)
-        ? requestedModule as MainModule
-        : null;
+      const route = readAtlasRoute(location.href);
+      const nextModule = route.module;
       setActiveModule(nextModule);
-      const requestedItem = params.get("item");
-      setDetail(nextModule === "items" && requestedItem ? items.find((item) => item.id === requestedItem) ?? null : null);
-      const requestedTalisman = params.get("talisman");
-      if (nextModule === "engine" && requestedTalisman) {
-        const talisman = talismans.find((item) => item.id === requestedTalisman);
+      setExternalDetail(null);
+      if (nextModule === "items") setItemSeed((current) => ({ revision: current.revision + 1, id: route.itemId, focus: false }));
+      if (nextModule === "engine" && route.talismanId) {
+        const talisman = talismans.find((item) => item.id === route.talismanId);
         if (talisman) {
           if (klassRef.current !== talisman.class) setClass(talisman.class);
           setTalismanId(talisman.id);
         } else setTalismanId("");
       } else if (nextModule === "engine") setTalismanId("");
-      const requestedQuest = params.get("quest");
-      if (nextModule === "quests" && requestedQuest) {
-        const quest = quests.find((item) => item.id === requestedQuest);
+      if (nextModule === "quests" && route.questId) {
+        const quest = quests.find((item) => item.id === route.questId);
         setQuestSearchSeed(quest?.title ?? "");
       } else if (nextModule === "quests") setQuestSearchSeed("");
-      const requestedAbility = params.get("ability");
-      if (nextModule === "skills" && requestedAbility) {
-        const ability = abilityRows.find((item) => item.id === requestedAbility)
-          ?? abilityVariantRows.find((item) => item.id === requestedAbility);
+      if (nextModule === "skills" && route.abilityId) {
+        const ability = abilityRows.find((item) => item.id === route.abilityId)
+          ?? abilityVariantRows.find((item) => item.id === route.abilityId);
         if (ability) {
           if (klassRef.current !== ability.class) setClass(ability.class as CharacterClass);
           setAbilitySearchSeed(ability.id);
         } else setAbilitySearchSeed("");
       } else if (nextModule === "skills") setAbilitySearchSeed("");
-      const requestedRegion = params.get("region");
-      if (nextModule === "group-regions" && requestedRegion) setRegionSearchSeed(`${requestedRegion}|||${params.get("boss") ?? ""}`);
+      if (nextModule === "group-regions" && route.regionName) setRegionSearchSeed(`${route.regionName}|||${route.bossName}`);
       else if (nextModule === "group-regions") setRegionSearchSeed("");
-      const saved = params.get("build");
-      if (nextModule === "builder") setBuilderSeed((current) => ({ revision: current.revision + 1, code: saved ?? "" }));
-      let targetId = location.hash.slice(1);
-      try { targetId = decodeURIComponent(targetId); } catch { /* Ignore malformed hashes. */ }
-      if (targetId) requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView()));
+      if (nextModule === "builder") setBuilderSeed((current) => ({ revision: current.revision + 1, code: route.buildCode }));
+      if (route.hashTarget) requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById(route.hashTarget)?.scrollIntoView()));
     };
     queueMicrotask(hydrate);
     addEventListener(APP_NAVIGATION_EVENT, hydrate);
@@ -128,12 +104,7 @@ export default function Home() {
       if (event.key === "Escape") {
         setSearchOpen(false);
         setMoreOpen(false);
-        setDetail(null);
-        const url = new URL(location.href);
-        if (url.searchParams.has("item")) {
-          url.searchParams.delete("item");
-          history.replaceState(null, "", url);
-        }
+        setExternalDetail(null);
       }
     };
     addEventListener("keydown", openSearch);
@@ -146,45 +117,17 @@ export default function Home() {
       if (id === "mining") setMiningRevision((value) => value + 1);
       setMoreOpen(false);
       setSearchOpen(false);
-      const url = new URL(location.href);
-      url.searchParams.set("module", id);
-      ROUTE_DETAIL_PARAMS.forEach((key) => url.searchParams.delete(key));
-      if (searchParams) {
-        Object.entries(searchParams).forEach(([key, value]) => url.searchParams.set(key, value));
-      }
-      url.hash = id;
-      if (url.href === location.href) history.replaceState(null, "", url);
-      else history.pushState(null, "", url);
+      const nextHref = moduleHref(location.href, id, searchParams);
+      if (nextHref === location.href) history.replaceState(null, "", nextHref);
+      else history.pushState(null, "", nextHref);
     },
     goHome = () => {
       setActiveModule(null);
       setMoreOpen(false);
       setSearchOpen(false);
-      if (`${location.pathname}${location.search}${location.hash}` === location.pathname) history.replaceState(null, "", location.pathname);
-      else history.pushState(null, "", location.pathname);
-    },
-    filtered = publishableItems.filter(
-      (i) =>
-        (!query ||
-          `${i.name} ${i.class} ${i.slot}`
-            .toLocaleLowerCase("tr-TR")
-            .includes(query.toLocaleLowerCase("tr-TR"))) &&
-        (classFilter === "Tümü" || i.class === classFilter) &&
-        (slotFilter === "Tümü" || i.slot === slotFilter),
-    ),
-    visibleItems = filtered.slice(0, itemVisibleLimit),
-    compareItems = compareIds
-      .map((id) => items.find((i) => i.id === id))
-      .filter((item): item is Item => Boolean(item)),
-    toggleCompare = (item: Item) => {
-      if (compareIds.includes(item.id))
-        return setCompareIds(compareIds.filter((id) => id !== item.id));
-      const first = compareItems[0];
-      if (first && (first.class !== item.class || first.slot !== item.slot))
-        return setNotice(
-          `Karşılaştırma için aynı sınıf ve yuvadan eşya seç: ${first.class} · ${first.slot}.`,
-        );
-      setCompareIds([...compareIds.slice(-1), item.id]);
+      const nextHref = homeHref(location.href);
+      if (nextHref === location.href) history.replaceState(null, "", nextHref);
+      else history.pushState(null, "", nextHref);
     };
   return (
     <main>
@@ -220,7 +163,7 @@ export default function Home() {
         <TalismanProductionAtlas klass={klass} initialTalismanId={talismanId} onClassChange={setClass} />
       </section>}
       {activeModule === "recipes" && <RecipeCatalog key={recipeRevision} />}
-      {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} initialBossName={regionSearchSeed.split("|||")[1]} onOpen={setDetail} />}
+      {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} initialBossName={regionSearchSeed.split("|||")[1]} onOpen={setExternalDetail} />}
       {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}
       {activeModule === "endgame" && <EndgameLab />}
       {activeModule === "mining" && <MiningGuide key={miningRevision} />}
@@ -230,83 +173,14 @@ export default function Home() {
       {activeModule === "issues" && <IssueDesk />}
       {activeModule === "health" && <ProjectScorecard />}
       {activeModule === "contribute" && <ContributionCenter />}
-      {activeModule === "items" && <section className="catalog" id="items">
-        <Title eyebrow="KAYNAK DURUMLU EŞYA KATALOĞU" title="Eşya rehberi">
-          <div className="catalogTools">
-            <input
-              aria-label="Eşya ara"
-              value={query}
-              onChange={(e) => { setQuery(e.target.value); setItemVisibleLimit(24); }}
-              placeholder="Eşya, sınıf veya yuva…"
-            />
-            <select
-              aria-label="Sınıfa göre filtrele"
-              value={classFilter}
-              onChange={(e) => {
-                setClassFilter(e.target.value);
-                setItemVisibleLimit(24);
-                setCompareIds([]);
-              }}
-            >
-              <option>Tümü</option>
-              {classes.map((x) => (
-                <option key={x}>{x}</option>
-              ))}
-            </select>
-            <select
-              aria-label="Yuvaya göre filtrele"
-              value={slotFilter}
-              onChange={(e) => {
-                setSlotFilter(e.target.value);
-                setItemVisibleLimit(24);
-                setCompareIds([]);
-              }}
-            >
-              <option>Tümü</option>
-              {[...new Set(publishableItems.map((i) => i.slot))].map((x) => (
-                <option key={x}>{x}</option>
-              ))}
-            </select>
-          </div>
-        </Title>
-        <details className="catalogAuditDisclosure"><summary>Doğrulama notunu aç <i>+</i></summary><p><b>“Tek kaynak” etiketi kesin bilgi anlamına gelmez.</b> Bu kayıtlar ikinci bağımsız kaynak veya aynı eşya adını gösteren oyun içi ekran görüntüsü gelene kadar teyit bekler; çelişkili değerler hesaplara alınmaz. Çemberlitaş adları resmî eşya listeleriyle, Sığınaklar ve Migrat adları sınıf ganimet tablolarıyla karşılaştırıldı. “Farabi Modeli Farabi Modeli” gibi tekrarlar kaynakta çift efsunu ifade ettiği için otomatik olarak silinmez.</p></details>
-        <p className="visualFamilyPolicy"><b>Tekrarsız görsel sistemi:</b> {publishableItems.length} eşya, {itemFamilyInventory.length} görünüş ailesine bağlandı. Her gövde için bir görsel yeterli; efsun ve özellikler eşya kaydında ayrı kalır.</p>
-        <p className="resultCount">
-          {visibleItems.length}/{filtered.length} eşya gösteriliyor · Aynı sınıf ve yuvadan iki eşyayı
-          karşılaştırabilirsin.
-        </p>
-        {notice && <p className="notice">{notice}</p>}
-        {compareItems.length > 0 && (
-          <ComparePanel items={compareItems} clear={() => setCompareIds([])} />
-        )}
-        <div className="cards">
-          {visibleItems.map((item) => (
-            <ItemCard
-              item={item}
-              compared={compareIds.includes(item.id)}
-              onCompare={toggleCompare}
-              onOpen={setDetail}
-              key={item.id}
-            />
-          ))}
-        </div>
-        {visibleItems.length < filtered.length && <button className="catalogMore" type="button" onClick={() => setItemVisibleLimit((value) => value + 24)}>24 eşya daha göster <span>{filtered.length - visibleItems.length} kaldı</span></button>}
-        {filtered.length === 0 && (
-          <p className="emptyResult">
-            Bu filtrelerle eşleşen kaynaklı eşya yok.
-          </p>
-        )}
-      </section>}
+      {activeModule === "items" && <ItemExplorer key={itemSeed.revision} initialItemId={itemSeed.id} focusInitialItem={itemSeed.focus} onCloseItem={() => history.replaceState(null, "", withoutItemHref(location.href))} />}
       {activeModule === "atlas" && <ConnectedAtlas key={atlasRevision} />}
       {searchOpen && (
         <GlobalSearch
           onClose={() => setSearchOpen(false)}
           onOpenModule={openModule}
           onOpenItem={(item) => {
-            setQuery(item.name);
-            setClassFilter(item.class === "Tüm Sınıflar" ? "Tümü" : item.class);
-            setSlotFilter(item.slot);
-            setDetail(item);
+            setItemSeed((current) => ({ revision: current.revision + 1, id: item.id, focus: true }));
             openModule("items", { item: item.id });
           }}
           onOpenQuest={(title, id) => { setQuestSearchSeed(title); openModule("quests", { quest: id }); }}
@@ -325,12 +199,7 @@ export default function Home() {
         <p>Kaynak yoksa kesin bilgi yok. Ayrıntı ve doğrulama, yalnız ilgili kaydı açtığında gösterilir.</p>
         <details className="footerDetails"><summary>Bağlantılar ve yönetim <i>+</i></summary><div className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/uretim">Üretim Takibi</a><a href="/kaynaklar">Kaynaklar</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Editör: Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a><a href="/istatistik/giris">Yönetici Girişi</a><ReleaseCenter inline /></div></details>
       </footer>
-      {detail && <ItemModal item={detail} close={() => {
-        setDetail(null);
-        const url = new URL(location.href);
-        url.searchParams.delete("item");
-        history.replaceState(null, "", url);
-      }} />}
+      {externalDetail && <ItemModal item={externalDetail} close={() => setExternalDetail(null)} />}
     </main>
   );
 }

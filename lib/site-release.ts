@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.72.0",
+  version: "0.73.0",
   channel: "BETA",
-  milestone: "M72",
+  milestone: "M73",
   releasedOn: "2026-09-04",
   releasedAt: "4 Eylül 2026",
-  title: "Site Kabuğu ve Genel Arama Sınırları",
+  title: "Eşya Kataloğu ve Yönlendirme Sınırları",
   summary:
-    "Üst gezinme, bölüm menüsü ve dokuz kategorili genel arama bağımsız site kabuğu modüllerine taşındı; mevcut derin bağlantılar korundu.",
+    "Eşya arama, filtre, karşılaştırma ve ayrıntı durumu bağımsız katalog modülüne; URL okuma ve üretme kuralları ayrı yönlendirme katmanına taşındı.",
   changes: [
-    "On beş bölümün tanımı tek paylaşılan modül kataloğunda toplandı.",
-    "Üst başlık ile Bilgi, Araçlar ve Proje menüsü ana koordinatörden ayrıldı.",
-    "Eşya, reçete, görev, yetenek, maden, bölge ve tılsım araması bağımsız bileşene taşındı.",
-    "Klavye kısayolları ve kayıt derin bağlantıları değiştirilmeden korundu.",
+    "Eşya arama, sınıf ve yuva filtreleri katalog modülünde toplandı.",
+    "Karşılaştırma, uyumsuz seçim uyarısı ve ayrıntı penceresi katalog sınırına taşındı.",
+    "Modül, kayıt ve geri/ileri gezinme adresleri tek yönlendirme katmanından yönetiliyor.",
+    "Ana koordinatör 250 satırın altına indirildi; mevcut derin bağlantılar korundu.",
   ],
 } as const;

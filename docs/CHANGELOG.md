@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.73.0 — Eşya Kataloğu ve Yönlendirme Sınırları
+
+- Eşya arama, sınıf/yuva filtreleri ve sayfalama bağımsız katalog modülüne taşındı.
+- Karşılaştırma, uyumsuz seçim uyarısı ve eşya ayrıntı penceresi aynı modül sınırında toplandı.
+- Modül ve kayıt adreslerini okuma/üretme kuralları ayrı yönlendirme katmanına ayrıldı.
+- Ana koordinatör 250 satırın altına indirildi; genel arama, bölge ganimeti ve geri/ileri gezinme davranışları korundu.
+
 ## v0.72.0 — Site Kabuğu ve Genel Arama Sınırları
 
 - On beş bölüm tek paylaşılan modül kataloğunda toplandı.
