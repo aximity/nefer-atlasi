@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M70: Tam kaynak recovery ve modül sınırları
+
+- [x] Sites kaynağındaki 100 ek commit'i kaybetmeden ayrı recovery tabanına al
+- [x] Güvenli canlı maden gözlem API/D1 katmanını mevcut D1/R2 mimarisine taşı
+- [x] Grup bölgeleri ile eşya kartı, karşılaştırma ve ayrıntı yüzeylerini ana koordinatörden ayır
+- [x] Genel arama, kaynak etiketleri ve derin bağlantıları davranış değiştirmeden koru
+- [x] Ana koordinatörü 800 satırın altına indir ve sınırı otomatik testle koru
+
+Çıkış kapısı: Tam tarihsel kapsam korunur; aynı anda yalnız seçilen modül görünür; eşya ve bölge akışları bağımsız bileşen sınırlarında çalışır; D1 migration, API, veri, render, build ve lint kapıları geçer.
+
 ## Tamamlandı — M68.7: 30 Ağustos KÖ güncellemesi
 
 - [x] PvP mermi ve düello bekleme süresi düzeltmelerini kapsam sınırıyla yayımla

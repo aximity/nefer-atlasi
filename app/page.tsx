@@ -13,8 +13,15 @@ import SustainabilityHub from "./SustainabilityHub";
 import ReleaseCenter from "./ReleaseCenter";
 import TalismanProductionAtlas from "./TalismanProductionAtlas";
 import RecipeCatalog from "./RecipeCatalog";
+import Field from "./field";
+import GroupRegions from "./group-regions";
+import {
+  ComparePanel,
+  ItemCard,
+  ItemModal,
+} from "./item-explorer-parts";
+import Title from "./section-title";
 import { useEffect, useMemo, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import {
   classSlots,
@@ -23,12 +30,8 @@ import {
   publishableItems,
   recipes,
   talismans,
-  itemStats,
   publishableStats,
   itemRecipe,
-  itemEvidence,
-  sourceFor,
-  itemStatusLabel,
   talismanAcquisition,
   type Item,
   type CharacterClass,
@@ -54,24 +57,17 @@ import abilityVariantRows from "../data/ability-variants.json";
 import { gatheringRegionFor, gatheringRows } from "../lib/gathering-catalog";
 import {
   GROUP_REGION_DEFINITIONS,
-  cemberlitasBossesFor,
-  cemberlitasLootSourceIdFor,
-  isCemberlitasRecipe,
 } from "../lib/group-region-loot.mjs";
 import { craftedMaterialRecipes, craftedMaterialSources, creatureDropSources } from "../lib/material-sources";
 import { talismanRecipes } from "../lib/talisman-recipes";
 import { potionRecipes } from "../lib/potion-recipes";
 import {
-  isSharedItemVisualFamily,
-  itemVisualFamilyFor,
   itemVisualFamilyInventory,
 } from "../lib/visual-families";
-import { itemVisualAssetFor } from "../lib/item-visuals";
 import { APP_NAVIGATION_EVENT, ROUTE_DETAIL_PARAMS } from "../lib/navigation";
 const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
   fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n);
 const itemFamilyInventory = itemVisualFamilyInventory(publishableItems);
-const itemFamilySize = new Map(itemFamilyInventory.map(({ family, items: familyItems }) => [family.id, familyItems.length]));
 type AbilityKey = "main" | "support" | "defense";
 const moduleTabs = [
   { id: "builder", label: "Donanım", summary: "Eşya seç, toplam özelliklerini gör.", keywords: "build set zırh silah" },
@@ -786,338 +782,6 @@ function Totals({ totals }: { totals: Record<string, number> }) {
           değer büyüklüğü değil, özellik eşleşmesidir.
         </p>
       </article>
-    </div>
-  );
-}
-function GroupRegions({ onOpen, initialRegionName = "", initialBossName = "" }: { onOpen: (item: Item) => void; initialRegionName?: string; initialBossName?: string }) {
-  const cemberlitasLoot = publishableItems
-      .filter(
-        (item) => isCemberlitasRecipe(itemRecipe(item.id)),
-      )
-      .map((item) => ({
-        ...item,
-        region: "Çemberlitaş",
-        bosses: cemberlitasBossesFor(item),
-        acquisition: itemRecipe(item.id)?.method,
-      })),
-    loot = [
-      ...cemberlitasLoot,
-      ...publishableItems
-        .filter((item) => item.region && item.boss)
-        .map((item) => ({ ...item, region: item.region as string, bosses: [item.boss as string] })),
-    ],
-    regions = GROUP_REGION_DEFINITIONS.filter((region) => loot.some((item) => item.region === region.name)),
-    [activeRegion, setActiveRegion] = useState(
-      regions.find((region) => region.name === initialRegionName) ?? regions[0] ?? GROUP_REGION_DEFINITIONS[0],
-    ),
-    [activeClass, setActiveClass] = useState("Tümü"),
-    visible = loot.filter(
-      (item) =>
-        item.region === activeRegion.name &&
-        (activeClass === "Tümü" || item.class === activeClass),
-    );
-
-  return (
-    <section className="groupRegions" id="group-regions">
-      <Title
-        eyebrow="M4 · GRUP BÖLGELERİ GANİMET ARŞİVİ"
-        title="Hangi boss ne atıyor?"
-      >
-        <span className="count">{loot.length} kaynaklı ganimet ve üretim kaydı</span>
-      </Title>
-      <div className="regionTabs" role="tablist" aria-label="Grup bölgesi seç">
-        {regions.map((region) => (
-          <button
-            role="tab"
-            aria-selected={activeRegion.name === region.name}
-            className={activeRegion.name === region.name ? "on" : ""}
-            onClick={() => setActiveRegion(region)}
-            key={region.name}
-          >
-            <span>{region.name}</span>
-            <small>
-              {loot.filter((item) => item.region === region.name).length} eşya · {region.bossCount} boss
-              {region.encounterCount !== region.bossCount ? ` · ${region.encounterCount} karşılaşma` : ""}
-            </small>
-          </button>
-        ))}
-      </div>
-      <div className="lootClassFilter" aria-label="Sınıfa göre filtrele">
-        {["Tümü", ...classes].map((className) => (
-          <button
-            className={activeClass === className ? "on" : ""}
-            onClick={() => setActiveClass(className)}
-            key={className}
-          >
-            {className}
-          </button>
-        ))}
-      </div>
-      <div className="bossLootGrid">
-        {[...activeRegion.bossGroups].sort((a, b) => Number(b.name === initialBossName || b.lootBosses.includes(initialBossName)) - Number(a.name === initialBossName || a.lootBosses.includes(initialBossName))).map((boss, bossIndex) => {
-          const drops = visible.filter((item) => item.bosses.some((itemBoss) => boss.lootBosses.includes(itemBoss)));
-          const focused = boss.name === initialBossName || boss.lootBosses.includes(initialBossName);
-          return (
-            <article className={focused ? "bossLoot focused" : "bossLoot"} key={boss.name}>
-              <header>
-                <div className="bossMark">{String(bossIndex + 1).padStart(2, "0")}</div>
-                <div>
-                  <small>{boss.stage}{boss.encounters > 1 ? ` · ${boss.encounters} KARŞILAŞMA` : ""}</small>
-                  <h3>{boss.name}</h3>
-                </div>
-                <b>{drops.length} parça</b>
-              </header>
-              <div className="dropList">
-                {drops.map((item) => (
-                  <button onClick={() => onOpen(item)} key={item.id}>
-                    <span>
-                      <small>{item.class}</small>
-                      <strong>{item.name}</strong>
-                      {item.acquisition && <i>{item.acquisition}</i>}
-                    </span>
-                    <em>{item.slot}</em>
-                  </button>
-                ))}
-                {!drops.length && <p className="bossLootEmpty">Bu boss için kaynakta eşya ganimeti listelenmiyor.</p>}
-              </div>
-            </article>
-          );
-        })}
-      </div>
-      {!activeRegion.bossGroups.length && (
-        <p className="emptyResult">Bu sınıf için kayıtlı ganimet yok.</p>
-      )}
-    </section>
-  );
-}
-function ItemCard({
-  item,
-  onOpen,
-  onCompare,
-  compared,
-}: {
-  item: Item;
-  onOpen: (item: Item) => void;
-  onCompare: (item: Item) => void;
-  compared: boolean;
-}) {
-  const visual = itemVisualAssetFor(item),
-    visualFamily = itemVisualFamilyFor(item),
-    appearanceLike = visual?.kind === "set_appearance" || visual?.kind === "shared_item_type";
-  return (
-    <article className={`card ${visual ? "withArt" : "dataOnly"}`}>
-      <button className="cardOpen" onClick={() => onOpen(item)}>
-        {visual && (
-          <div className={`art ${appearanceLike ? "appearanceArt" : "verifiedArt"} ${visual.kind === "item_icon" ? "itemIconArt" : ""}`}>
-            <Image
-              src={visual.url}
-              alt={visual.alt}
-              width={visual.width}
-              height={visual.height}
-              unoptimized={visual.unoptimized}
-              style={visual.focus ? { objectPosition: visual.focus, width: "100%", height: "100%", objectFit: "cover" } : undefined}
-            />
-            <small>{visual.label}</small>
-          </div>
-        )}
-        <div className="copy">
-          <p>
-            {item.class} · {item.slot}
-            <b>{item.rarity.toUpperCase()}</b>
-          </p>
-          <h3>{item.name}</h3>
-          {isSharedItemVisualFamily(visualFamily) && <span className="visualFamilyChip">ORTAK GÖVDE · {visualFamily.label}</span>}
-          <span className="cardHint">Kaynak ve ayrıntıyı aç →</span>
-          <footer>
-            ● {itemStatusLabel(item.id, item.publicationStatus)} · {item.lastChecked}
-          </footer>
-        </div>
-      </button>
-      <button
-        className={`compareButton ${compared ? "on" : ""}`}
-        onClick={() => onCompare(item)}
-      >
-        {compared ? "Karşılaştırmadan çıkar" : "Karşılaştır"}
-      </button>
-    </article>
-  );
-}
-function ComparePanel({
-  items: compared,
-  clear,
-}: {
-  items: Item[];
-  clear: () => void;
-}) {
-  const attributes = [
-    ...new Set(
-      compared.flatMap((item) =>
-        publishableStats(item.id).map((stat) => stat.attribute),
-      ),
-    ),
-  ];
-  return (
-    <section className="comparePanel" aria-label="Eşya karşılaştırma">
-      <header>
-        <div>
-          <small>HIZLI KARŞILAŞTIRMA</small>
-          <h3>{compared.map((i) => i.name).join(" ↔ ")}</h3>
-        </div>
-        <button onClick={clear}>Temizle</button>
-      </header>
-      <div className="compareGrid">
-        <b>Özellik</b>
-        {compared.map((item) => (
-          <b key={item.id}>{item.name}</b>
-        ))}
-        {attributes.map((attribute) => (
-          <div className="compareRow" key={attribute}>
-            <span>{attribute}</span>
-            {compared.map((item) => {
-              const matching = publishableStats(item.id).filter((stat) => stat.attribute === attribute);
-              return <strong key={item.id}>{matching.length ? fmt(matching.reduce((sum, stat) => sum + stat.value, 0)) : "—"}</strong>;
-            })}
-          </div>
-        ))}
-      </div>
-      {compared.length < 2 && <p>Aynı sınıf ve yuvadan ikinci eşyayı seç.</p>}
-    </section>
-  );
-}
-function ItemModal({ item, close }: { item: Item; close: () => void }) {
-  const recipe = itemRecipe(item.id),
-    usable = publishableStats(item.id),
-    hasConflict = itemStats(item.id).some((stat) => stat.verificationStatus === "conflicted"),
-    claims = itemEvidence(item.id),
-    source = sourceFor(claims[0]?.sourceId),
-    recipeSource = recipe ? sourceFor(recipe.sourceId) : undefined,
-    visual = itemVisualAssetFor(item),
-    visualSource = visual ? sourceFor(visual.sourceId) : undefined,
-    visualFamily = itemVisualFamilyFor(item),
-    visualFamilyCount = itemFamilySize.get(visualFamily.id) ?? 1,
-    cemberlitasOrigin = isCemberlitasRecipe(recipe),
-    cemberlitasBosses = cemberlitasOrigin ? cemberlitasBossesFor(item) : [],
-    lootSource = cemberlitasOrigin ? sourceFor(cemberlitasLootSourceIdFor(item) ?? "") : undefined;
-  return (
-    <div
-      className="modal"
-      onMouseDown={(e) => e.target === e.currentTarget && close()}
-    >
-      <article>
-        <button aria-label="Kapat" className="close" onClick={close}>
-          ×
-        </button>
-        {visual && (
-          <div className={`art ${visual.kind === "set_appearance" || visual.kind === "shared_item_type" ? "appearanceArt modalAppearanceArt" : "verifiedArt"} ${visual.kind === "item_icon" ? "itemIconArt" : ""}`}>
-            <Image
-              src={visual.url}
-              alt={visual.alt}
-              width={visual.width}
-              height={visual.height}
-              unoptimized={visual.unoptimized}
-              style={visual.focus ? { objectPosition: visual.focus, width: "100%", height: "100%", objectFit: "cover" } : undefined}
-            />
-            <small>{visual.label}</small>
-          </div>
-        )}
-        <p className="eyebrow">
-          {item.class} · {item.slot} · {item.rarity}
-        </p>
-        <h2>{item.name}</h2>
-        <dl>
-          <div>
-            <dt>Görünüş ailesi</dt>
-            <dd>{visualFamily.label} · {visualFamilyCount} kayıt</dd>
-          </div>
-          {isSharedItemVisualFamily(visualFamily) && (
-            <div>
-              <dt>Ortak gövde kuralı</dt>
-              <dd>Bu görünüş {visualFamily.label} gövdesini temsil eder; efsun, seviye ve özellikler seçili eşya kaydına aittir.</dd>
-            </div>
-          )}
-          {visual && !visual.exactItem && (
-            <div>
-              <dt>Görsel kapsamı</dt>
-              <dd>{visual.family.label} ortak görünüşü; bu eşyanın tekil simgesi veya tooltip kanıtı değildir.</dd>
-            </div>
-          )}
-          <div>
-            <dt>Kanıt kapsamı</dt>
-            <dd>{claims.length} alan bazlı kayıt</dd>
-          </div>
-          {usable.length > 0 && <div>
-            <dt>Özellikler</dt>
-            <dd className="modalStats">{usable.map((stat) => <span key={stat.id}>◆ {stat.attribute}: {fmt(stat.value)}</span>)}{hasConflict && <em>⚠ Çelişkili özellikler hesap dışı</em>}</dd>
-          </div>}
-          {item.level && (
-            <div>
-              <dt>Seviye</dt>
-              <dd>{item.level}</dd>
-            </div>
-          )}
-          {(item.region || cemberlitasOrigin) && (
-            <div>
-              <dt>Ganimet</dt>
-              <dd>
-                {item.region ?? "Çemberlitaş"} · {item.boss ?? cemberlitasBosses.join(", ")}
-              </dd>
-            </div>
-          )}
-          {item.acquisition && (
-            <div>
-              <dt>Elde etme</dt>
-              <dd>{item.acquisition}</dd>
-            </div>
-          )}
-          {recipe && (
-            <>
-              <div>
-                <dt>Elde etme</dt>
-                <dd>{recipe.method}</dd>
-              </div>
-              <div>
-                <dt>Reçete</dt>
-                <dd><a className="modalRecipeLink" href={`/?module=recipes&kind=item&recipe=${item.id}#recipes`}>{recipe.materials.length} malzemeli reçeteyi aç →</a></dd>
-              </div>
-            </>
-          )}
-        </dl>
-        {(source || recipeSource || lootSource || visualSource) && <Link className="sourceLink" href="/kaynaklar#esyalar">Eşya, reçete ve görünüş kaynaklarını gör →</Link>}
-        <a className="sourceLink secondary" href={`/?module=atlas&node=${encodeURIComponent(`item:${item.id}`)}#atlas`}>Eşyanın bağlantılı atlasını aç ↗</a>
-      </article>
-    </div>
-  );
-}
-function Field({
-  name,
-  children,
-}: {
-  name: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <fieldset>
-      <legend>{name}</legend>
-      <div>{children}</div>
-    </fieldset>
-  );
-}
-function Title({
-  eyebrow,
-  title,
-  children,
-}: {
-  eyebrow: string;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="title">
-      <div>
-        <p className="eyebrow">{eyebrow}</p>
-        <h2>{title}</h2>
-      </div>
-      {children}
     </div>
   );
 }

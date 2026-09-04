@@ -19,6 +19,7 @@ test("bilinmeyen teknik alan adları okunabilir metne dönüşür", () => {
 test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => {
   const component = readFileSync(new URL("../app/SkillGuides.tsx", import.meta.url), "utf8");
   const page = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const itemExplorer = readFileSync(new URL("../app/item-explorer-parts.tsx", import.meta.url), "utf8");
   const itemVisuals = readFileSync(new URL("../lib/item-visuals.ts", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../app/skills.css", import.meta.url), "utf8");
   const images = JSON.parse(readFileSync(new URL("../data/images.json", import.meta.url), "utf8"));
@@ -51,8 +52,8 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(itemVisuals, /SET GÖRÜNÜŞ REFERANSI · TEKİL PARÇA DEĞİL/);
   assert.match(itemVisuals, /ORTAK.*GÖVDESİ · EFSUN AYRI/);
   assert.match(page, /Tekrarsız görsel sistemi/);
-  assert.match(page, /ORTAK GÖVDE/);
-  assert.match(page, /efsun, seviye ve özellikler seçili eşya kaydına aittir/i);
+  assert.match(itemExplorer, /ORTAK GÖVDE/);
+  assert.match(itemExplorer, /efsun, seviye ve özellikler seçili eşya kaydına aittir/i);
   assert.match(farmOperations, /"Üretim"/);
   assert.match(productionPlanner, /Favorilere ekle/);
   assert.match(productionPlanner, /Üretecek kişi/);
@@ -123,6 +124,6 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(navigationEvents, /APP_NAVIGATION_EVENT/);
   assert.match(page, /addEventListener\(APP_NAVIGATION_EVENT, hydrate\)/);
   assert.match(page, /history\.pushState/);
-  assert.match(page, /itemStatusLabel/);
+  assert.match(itemExplorer, /itemStatusLabel/);
   assert.match(guide, /İKV Wiki · ana kaynak/);
 });

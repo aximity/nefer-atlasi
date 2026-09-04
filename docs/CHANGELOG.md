@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.70.0 — Tam Kaynak Recovery ve Modül Sınırları
+
+- Sites kaynak deposundaki 100 ek commit güvenli tam uygulama tabanı olarak kurtarıldı; dar recovery dalı bunun üzerine zorla yazılmadı.
+- Eşya kartı, karşılaştırma, ayrıntı paneli ve grup bölgeleri ana sayfa koordinatöründen bağımsız bileşenlere ayrıldı.
+- Ana koordinatör 1.123 satırdan 800 satırın altına indirildi; var olan tek-modül görünümü, arama ve derin bağlantılar korundu.
+- Canlı maden gözlemi domain, D1 olay defteri ve güvenli API katmanı tam uygulamanın mevcut D1/R2 altyapısına bağlandı.
+
 ## v0.68.7 — 30 Ağustos KÖ Güncellemesi
 
 - PvP, Torba Toplayan Anka, Saklı Irklar ve giriş sorunu düzeltmeleri ayrı bir oyun güncellemesi kaydıyla Yenilikler paneline eklendi.

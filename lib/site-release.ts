@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.68.7",
+  version: "0.70.0",
   channel: "BETA",
-  milestone: "M68.7",
-  releasedOn: "2026-08-30",
-  releasedAt: "30 Ağustos 2026",
-  title: "30 Ağustos KÖ Güncellemesi",
+  milestone: "M70",
+  releasedOn: "2026-09-04",
+  releasedAt: "4 Eylül 2026",
+  title: "Tam Kaynak Recovery ve Modül Sınırları",
   summary:
-    "PvP, Anka, Saklı Irklar ve giriş düzeltmeleri arşivlendi; maden notundaki sonradan gelen çelişki ilgili rehbere işlendi.",
+    "Tam tarihsel uygulama kaynağı korundu; eşya ve grup bölgesi çalışma yüzeyleri ana koordinatörden ayrıldı, güvenli canlı maden gözlem altyapısı eklendi.",
   changes: [
-    "30 Ağustos sunucu notu oyun güncellemesi olarak Yenilikler paneline eklendi.",
-    "Anka'nın hasar bağışıklığı, bonuslarla eş hız ve 5 saniyelik yetişme ışınlanması ilgili değerlendirmeye taşındı.",
-    "Saklı Irklar yeniden giriş kuralı ile launcher bileti düzeltmesinin kapsam sınırları korundu.",
-    "Madenler için son 'yoksa görünmez' bildirimi öne çıkarıldı; önceki notla çelişki gizlenmedi.",
+    "Kayıp sanılan tam Sites kaynak geçmişi recovery tabanına alındı.",
+    "Eşya kartı, karşılaştırma, ayrıntı ve grup bölgeleri bağımsız modüllere ayrıldı.",
+    "Canlı maden gözlemleri kimlik, idempotency ve D1 hız sınırıyla güvenli API katmanına bağlandı.",
+    "Mevcut arama, derin bağlantı ve kanıt kapsamı değiştirilmeden korundu.",
   ],
 } as const;
