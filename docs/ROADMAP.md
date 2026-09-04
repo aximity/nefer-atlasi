@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M71: Donanım planlayıcı modül sınırı
+
+- [x] Donanım seçim durumunu ve hesaplarını ana koordinatörden ayır
+- [x] Paylaşım bağlantısı ile cihazda kaydet/yükle akışını modül içinde koru
+- [x] Sınıf bağlamını Tılsım ve Yetenek yüzeyleriyle uyumlu tut
+- [x] Geçersiz eski plan kodlarını güvenli hata durumunda bırak
+- [x] Ana koordinatörü 550 satırın altına indir ve sınırı otomatik testle koru
+
+Çıkış kapısı: Donanım planlayıcı bağımsız bir çalışma yüzeyi olur; mevcut seçim, hesap, paylaşım ve kayıt davranışları korunur; veri, render, build ve lint kapıları geçer.
+
 ## Tamamlandı — M70: Tam kaynak recovery ve modül sınırları
 
 - [x] Sites kaynağındaki 100 ek commit'i kaybetmeden ayrı recovery tabanına al

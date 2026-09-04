@@ -13,7 +13,7 @@ import SustainabilityHub from "./SustainabilityHub";
 import ReleaseCenter from "./ReleaseCenter";
 import TalismanProductionAtlas from "./TalismanProductionAtlas";
 import RecipeCatalog from "./RecipeCatalog";
-import Field from "./field";
+import EquipmentBuilder from "./equipment-builder";
 import GroupRegions from "./group-regions";
 import {
   ComparePanel,
@@ -21,11 +21,9 @@ import {
   ItemModal,
 } from "./item-explorer-parts";
 import Title from "./section-title";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
-  classSlots,
-  contexts,
   items,
   publishableItems,
   recipes,
@@ -36,20 +34,6 @@ import {
   type Item,
   type CharacterClass,
 } from "../lib/catalog";
-import {
-  buildTotals,
-  compatibleItems,
-  goalsByClass,
-  scoreBuild,
-  suggestedSelection,
-  type BuildSelection,
-  type Goal,
-} from "../lib/planner";
-import {
-  decodeBuild,
-  encodeBuild,
-  sanitizeBuild,
-} from "../lib/build-codec.mjs";
 import { SITE_RELEASE } from "../lib/site-release";
 import { quests } from "../lib/quest-catalog";
 import abilityRows from "../data/abilities.json";
@@ -65,10 +49,8 @@ import {
   itemVisualFamilyInventory,
 } from "../lib/visual-families";
 import { APP_NAVIGATION_EVENT, ROUTE_DETAIL_PARAMS } from "../lib/navigation";
-const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"],
-  fmt = (n: number) => new Intl.NumberFormat("tr-TR").format(n);
+const classes: CharacterClass[] = ["Savaşçı", "Büyücü", "Şifacı"];
 const itemFamilyInventory = itemVisualFamilyInventory(publishableItems);
-type AbilityKey = "main" | "support" | "defense";
 const moduleTabs = [
   { id: "builder", label: "Donanım", summary: "Eşya seç, toplam özelliklerini gör.", keywords: "build set zırh silah" },
   { id: "skills", label: "Yetenek", summary: "Seviyene göre yetenek puanı dağıt.", keywords: "skill simülasyon puan" },
@@ -107,51 +89,10 @@ const moduleGroups: { label: string; note: string; ids: MainModule[] }[] = [
   { label: "Proje", note: "Arka plan ve katkı", ids: ["economy", "sustainability", "issues", "health", "contribute"] },
 ];
 type ModuleGroupLabel = "Bilgi" | "Araçlar" | "Proje";
-interface BuildSnapshot {
-  v: number;
-  klass: CharacterClass;
-  primary: Goal;
-  secondary: Goal | null;
-  selection: BuildSelection;
-  mode: string;
-  regionId: string;
-  rival: CharacterClass | "Rakip yok";
-  talismanId: string;
-  wrathBase: boolean;
-  wrathCriticalBase: number;
-  abilities: Record<AbilityKey, number>;
-}
-const emptyAbilities: Record<AbilityKey, number> = {
-    main: 0,
-    support: 0,
-    defense: 0,
-  },
-  modes = ["Grup Bölgesi", "PvE", "PvP", "Farm"],
-  buildRules = {
-    classes,
-    goalsByClass,
-    classSlots,
-    itemById: Object.fromEntries(items.map((item) => [item.id, item])),
-    modes,
-    contextIds: contexts.map((x) => x.id),
-    rivals: ["Rakip yok", ...classes],
-    talismanById: Object.fromEntries(talismans.map((x) => [x.id, x])),
-  };
 export default function Home() {
   const [klass, setKlass] = useState<CharacterClass>("Büyücü"),
-    [primary, setPrimary] = useState<Goal>("Buz"),
-    [secondary, setSecondary] = useState<Goal | null>("Kritik"),
-    [selection, setSelection] = useState<BuildSelection>(() =>
-      suggestedSelection("Büyücü", "Buz", "Kritik"),
-    );
-  const [mode, setMode] = useState("Grup Bölgesi"),
-    [regionId, setRegionId] = useState("cemberlitas"),
-    [rival, setRival] = useState<CharacterClass | "Rakip yok">("Rakip yok"),
     [talismanId, setTalismanId] = useState(""),
     [, setTalismanPath] = useState("Tümü"),
-    [wrathBase, setWrathBase] = useState(false),
-    [wrathCriticalBase, setWrathCriticalBase] = useState(0),
-    [abilities, setAbilities] = useState(emptyAbilities),
     [query, setQuery] = useState(""),
     [classFilter, setClassFilter] = useState("Tümü"),
     [slotFilter, setSlotFilter] = useState("Tümü"),
@@ -170,33 +111,14 @@ export default function Home() {
     [recipeRevision, setRecipeRevision] = useState(0),
     [atlasRevision, setAtlasRevision] = useState(0),
     [miningRevision, setMiningRevision] = useState(0),
+    [builderSeed, setBuilderSeed] = useState({ revision: 0, code: "" }),
     [notice, setNotice] = useState("");
   const klassRef = useRef(klass);
   useEffect(() => { klassRef.current = klass; }, [klass]);
   const setClass = (next: CharacterClass) => {
-    const p = goalsByClass[next][0],
-      s = goalsByClass[next][1] ?? null;
     setKlass(next);
-    setPrimary(p);
-    setSecondary(s);
-    setSelection(suggestedSelection(next, p, s));
     setTalismanId("");
     setTalismanPath("Tümü");
-    setWrathBase(false);
-    setWrathCriticalBase(0);
-  };
-  const applySaved = (p: BuildSnapshot) => {
-    setKlass(p.klass);
-    setPrimary(p.primary);
-    setSecondary(p.secondary);
-    setSelection(p.selection);
-    setMode(p.mode);
-    setRegionId(p.regionId);
-    setRival(p.rival);
-    setTalismanId(p.talismanId);
-    setWrathBase(p.wrathBase);
-    setWrathCriticalBase(p.wrathCriticalBase);
-    setAbilities(p.abilities);
   };
   useEffect(() => {
     const hydrate = () => {
@@ -234,19 +156,7 @@ export default function Home() {
       if (nextModule === "group-regions" && requestedRegion) setRegionSearchSeed(`${requestedRegion}|||${params.get("boss") ?? ""}`);
       else if (nextModule === "group-regions") setRegionSearchSeed("");
       const saved = params.get("build");
-      if (nextModule === "builder" && saved) {
-        try {
-          const p = sanitizeBuild(
-            decodeBuild(saved),
-            buildRules,
-          ) as BuildSnapshot | null;
-          if (!p) throw new Error();
-          applySaved(p);
-          setActiveModule("builder");
-        } catch {
-          setNotice("Bağlantıdaki donanım planı geçersiz veya eski sürüm.");
-        }
-      }
+      if (nextModule === "builder") setBuilderSeed((current) => ({ revision: current.revision + 1, code: saved ?? "" }));
       let targetId = location.hash.slice(1);
       try { targetId = decodeURIComponent(targetId); } catch { /* Ignore malformed hashes. */ }
       if (targetId) requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView()));
@@ -279,54 +189,6 @@ export default function Home() {
     addEventListener("keydown", openSearch);
     return () => removeEventListener("keydown", openSearch);
   }, []);
-  const baseTotals = useMemo(
-      () => buildTotals(selection),
-      [selection],
-    ) as Record<string, number>,
-    totals = baseTotals,
-    score = scoreBuild(selection, primary, secondary),
-    payload = {
-      klass,
-      primary,
-      secondary,
-      selection,
-      mode,
-      regionId,
-      rival,
-      talismanId,
-      wrathBase,
-      wrathCriticalBase,
-      abilities,
-    };
-  const share = async () => {
-      try {
-        const url = `${location.origin}${location.pathname}?module=builder&build=${encodeBuild(payload)}#builder`;
-        await navigator.clipboard.writeText(url);
-        history.replaceState(null, "", url);
-        setNotice("Donanım planı bağlantısı kopyalandı.");
-      } catch {
-        setNotice("Donanım planı bağlantısı kopyalanamadı.");
-      }
-    },
-    save = () => {
-      localStorage.setItem("ikv-build", encodeBuild(payload));
-      setNotice("Donanım planı bu cihazda kaydedildi.");
-    },
-    load = () => {
-      const raw = localStorage.getItem("ikv-build");
-      if (!raw) return setNotice("Bu cihazda kayıtlı donanım planı yok.");
-      try {
-        const p = sanitizeBuild(
-          decodeBuild(raw),
-          buildRules,
-        ) as BuildSnapshot | null;
-        if (!p) throw new Error();
-        applySaved(p);
-        setNotice("Kayıtlı donanım planı yüklendi.");
-      } catch {
-        setNotice("Kayıtlı donanım planı geçersiz veya eski sürüm.");
-      }
-    };
   const openSiteMenu = () => {
       const activeGroup = activeModule
         ? moduleGroups.find((group) => group.ids.includes(activeModule))
@@ -459,7 +321,6 @@ export default function Home() {
     compareItems = compareIds
       .map((id) => items.find((i) => i.id === id))
       .filter((item): item is Item => Boolean(item)),
-    missingSlots = classSlots[klass].filter((slot) => !selection[slot]),
     toggleCompare = (item: Item) => {
       if (compareIds.includes(item.id))
         return setCompareIds(compareIds.filter((id) => id !== item.id));
@@ -500,134 +361,16 @@ export default function Home() {
         </section>
         <AdSlot placement="home_top" />
       </> : <nav className="moduleContext" id="modules" aria-label="Açık bölüm"><button type="button" onClick={goHome}>← Ana sayfa</button><b>{moduleTabs.find((item) => item.id === activeModule)?.label}</b><button type="button" onClick={openSiteMenu}>Diğer bölümler</button></nav>}
-      {activeModule === "builder" && <section className="builder" id="builder">
-        <Title eyebrow="M2 · DONANIM PLANLAYICI" title="Sekiz yuvayı sen doldur">
-          <div className="actions">
-            <button
-              onClick={() =>
-                setSelection(suggestedSelection(klass, primary, secondary))
-              }
-            >
-              Hedefe göre öner
-            </button>
-            <button onClick={share}>Bağlantıyı kopyala</button>
-            <button onClick={save}>Kaydet</button>
-            <button onClick={load}>Yükle</button>
-          </div>
-        </Title>
-        <div className="builderbox">
-          <div className="controls">
-            <Field name="01 · Sınıf">
-              {classes.map((x) => (
-                <button
-                  className={klass === x ? "on" : ""}
-                  onClick={() => setClass(x)}
-                  key={x}
-                >
-                  {x}
-                </button>
-              ))}
-            </Field>
-            <Field name="02 · Ana hedef">
-              {goalsByClass[klass].map((x) => (
-                <button
-                  className={primary === x ? "on" : ""}
-                  onClick={() => {
-                    setPrimary(x);
-                    if (secondary === x) setSecondary(null);
-                  }}
-                  key={x}
-                >
-                  {x}
-                </button>
-              ))}
-            </Field>
-            <Field name="03 · İkincil hedef">
-              <select
-                aria-label="İkincil hedef"
-                value={secondary ?? ""}
-                onChange={(e) =>
-                  setSecondary((e.target.value || null) as Goal | null)
-                }
-              >
-                <option value="">Yok</option>
-                {goalsByClass[klass]
-                  .filter((x) => x !== primary)
-                  .map((x) => (
-                    <option key={x}>{x}</option>
-                  ))}
-              </select>
-            </Field>
-            <p className="data-note">
-              Puanlama yalnız yayımdaki özellik adlarının hedeflerle eşleşmesini
-              ölçer. Tek kaynaklı kayıtlar teyit bekler; sonuç en iyi seçim veya
-              başarı garantisi değildir.
-            </p>
-            {notice && <p className="notice">{notice}</p>}
-          </div>
-          <div className="board">
-            <div className="summary">
-              <div>
-                <small>SEÇİLİ DONANIM</small>
-                <h3>
-                  {klass} · {primary}
-                  {secondary ? ` + ${secondary}` : ""}
-                </h3>
-                <p>
-                  {Object.values(selection).filter(Boolean).length}/
-                  {classSlots[klass].length} dolu yuva · hedef puanı {score}
-                </p>
-              </div>
-              <b>SINIF UYUMLU</b>
-            </div>
-            <div
-              className={`buildAudit ${missingSlots.length ? "warn" : "ready"}`}
-            >
-              <span>
-                {missingSlots.length
-                  ? `${missingSlots.length} eksik yuva: ${missingSlots.join(", ")}`
-                  : "Donanım planı bütün sınıf yuvalarını dolduruyor."}
-              </span>
-              {missingSlots.length > 0 && (
-                <button
-                  onClick={() =>
-                    setSelection({
-                      ...suggestedSelection(klass, primary, secondary),
-                      ...selection,
-                    })
-                  }
-                >
-                  Yalnız eksikleri tamamla
-                </button>
-              )}
-            </div>
-            <div className="slotEditors">
-              {classSlots[klass].map((slot) => (
-                <label key={slot}>
-                  <span>{slot}</span>
-                  <select
-                    value={selection[slot] ?? ""}
-                    onChange={(e) =>
-                      setSelection({
-                        ...selection,
-                        [slot]: e.target.value || undefined,
-                      })
-                    }
-                  >
-                    <option value="">Boş bırak</option>
-                    {compatibleItems(klass, slot).map((item) => (
-                      <option value={item.id} key={item.id}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              ))}
-            </div>
-            <Totals totals={totals} />
-          </div>
-        </div>
-      </section>}
+      {activeModule === "builder" && (
+        <EquipmentBuilder
+          key={builderSeed.revision}
+          initialClass={klass}
+          initialTalismanId={talismanId}
+          initialBuildCode={builderSeed.code}
+          onClassChange={setKlass}
+          onTalismanChange={setTalismanId}
+        />
+      )}
       {activeModule === "engine" && <section className="engine" id="engine">
         <Title
           eyebrow="TILSIM REHBERİ"
@@ -693,6 +436,7 @@ export default function Home() {
           {visibleItems.length}/{filtered.length} eşya gösteriliyor · Aynı sınıf ve yuvadan iki eşyayı
           karşılaştırabilirsin.
         </p>
+        {notice && <p className="notice">{notice}</p>}
         {compareItems.length > 0 && (
           <ComparePanel items={compareItems} clear={() => setCompareIds([])} />
         )}
@@ -759,29 +503,5 @@ export default function Home() {
         history.replaceState(null, "", url);
       }} />}
     </main>
-  );
-}
-function Totals({ totals }: { totals: Record<string, number> }) {
-  return (
-    <div className="mechanics">
-      <article>
-        <small>DONANIM TOPLAMI</small>
-        {Object.entries(totals).map(([name, value]) => (
-          <p key={name}>
-            <b>{name}</b>
-            {fmt(value)}
-          </p>
-        ))}
-      </article>
-      <article>
-        <small>HESAP KURALI</small>
-        <h4>Çelişkili özellikler hesap dışı</h4>
-        <p>
-          Her sınıfın tılsımı yalnız kendi doğrulanmış özelliğine uygulanır;
-          gerekli yetenek tabanı ve tılsım çarpanı ayrı tutulur. Hedef puanı
-          değer büyüklüğü değil, özellik eşleşmesidir.
-        </p>
-      </article>
-    </div>
   );
 }

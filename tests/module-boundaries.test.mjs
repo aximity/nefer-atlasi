@@ -8,11 +8,13 @@ test("ana koordinatör recovered çalışma yüzeylerini ayrı modüllere bırak
   const page = read("../app/page.tsx");
   const lines = page.split(/\r?\n/).length;
 
-  assert.ok(lines < 800, `ana koordinatör ${lines} satır; 800 altında olmalı`);
+  assert.ok(lines < 550, `ana koordinatör ${lines} satır; 550 altında olmalı`);
   assert.doesNotMatch(page, /function (GroupRegions|ItemCard|ComparePanel|ItemModal|Field|Title)/);
   assert.match(page, /from "\.\/group-regions"/);
   assert.match(page, /from "\.\/item-explorer-parts"/);
   assert.match(page, /from "\.\/section-title"/);
+  assert.match(page, /from "\.\/equipment-builder"/);
+  assert.doesNotMatch(page, /suggestedSelection|buildTotals|encodeBuild|decodeBuild|function Totals/);
 });
 
 test("ayrılan modüller gerçek kullanıcı yüzeylerini dışa açar", () => {
@@ -21,4 +23,8 @@ test("ayrılan modüller gerçek kullanıcı yüzeylerini dışa açar", () => {
   assert.match(itemParts, /export function ItemCard/);
   assert.match(itemParts, /export function ComparePanel/);
   assert.match(itemParts, /export function ItemModal/);
+  const builder = read("../app/equipment-builder.tsx");
+  assert.match(builder, /export default function EquipmentBuilder/);
+  assert.match(builder, /Hedefe göre öner/);
+  assert.match(builder, /Yalnız eksikleri tamamla/);
 });

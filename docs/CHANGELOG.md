@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.71.0 — Donanım Planlayıcı Modül Sınırı
+
+- Donanım planlayıcının seçim, hesap ve bildirim durumu ana sayfa koordinatöründen ayrıldı.
+- Paylaşım bağlantısı ile cihazda kaydet/yükle akışları bağımsız modüle taşındı.
+- Sınıf bağlamının Tılsım ve Yetenek modülleriyle uyumu korundu.
+- Eşya karşılaştırma uyumsuzluğu artık Eşyalar modülünde görünür uyarı veriyor.
+
 ## v0.70.0 — Tam Kaynak Recovery ve Modül Sınırları
 
 - Sites kaynak deposundaki 100 ek commit güvenli tam uygulama tabanı olarak kurtarıldı; dar recovery dalı bunun üzerine zorla yazılmadı.

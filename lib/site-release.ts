@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.70.0",
+  version: "0.71.0",
   channel: "BETA",
-  milestone: "M70",
+  milestone: "M71",
   releasedOn: "2026-09-04",
   releasedAt: "4 Eylül 2026",
-  title: "Tam Kaynak Recovery ve Modül Sınırları",
+  title: "Donanım Planlayıcı Modül Sınırı",
   summary:
-    "Tam tarihsel uygulama kaynağı korundu; eşya ve grup bölgesi çalışma yüzeyleri ana koordinatörden ayrıldı, güvenli canlı maden gözlem altyapısı eklendi.",
+    "Donanım planlayıcının seçim, hesap, paylaşım ve cihaz kaydı kendi modülüne taşındı; mevcut atlas kapsamı ve görünümü korundu.",
   changes: [
-    "Kayıp sanılan tam Sites kaynak geçmişi recovery tabanına alındı.",
-    "Eşya kartı, karşılaştırma, ayrıntı ve grup bölgeleri bağımsız modüllere ayrıldı.",
-    "Canlı maden gözlemleri kimlik, idempotency ve D1 hız sınırıyla güvenli API katmanına bağlandı.",
-    "Mevcut arama, derin bağlantı ve kanıt kapsamı değiştirilmeden korundu.",
+    "Donanım seçimi ve toplam hesapları ana sayfa koordinatöründen ayrıldı.",
+    "Plan bağlantısı paylaşma ile cihazda kaydetme ve yükleme akışları bağımsız modülde korundu.",
+    "Sınıf seçimi Tılsım ve Yetenek çalışma yüzeyleriyle uyumlu kalmaya devam ediyor.",
+    "Uyumsuz eşya karşılaştırma uyarısı ilgili Eşyalar yüzeyinde görünür hâle getirildi.",
   ],
 } as const;
