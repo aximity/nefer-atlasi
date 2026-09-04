@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { index, integer, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
+import { check, index, integer, real, sqliteTable, text, uniqueIndex } from "drizzle-orm/sqlite-core";
 
 export const contributions = sqliteTable(
   "contributions",
@@ -442,3 +442,40 @@ export const analyticsLoginAttempts = sqliteTable(
   },
   (table) => [index("analytics_login_attempts_fingerprint_idx").on(table.fingerprintHash, table.windowStart)],
 );
+
+export const mineObservationEvents = sqliteTable("mine_observation_events", {
+  eventId: text("event_id").primaryKey(),
+  kind: text("kind", { enum: ["mine_observation_reported", "mine_observation_signaled"] }).notNull(),
+  observationId: text("observation_id").notNull(),
+  actorId: text("actor_id").notNull(),
+  regionId: text("region_id"),
+  resourceId: text("resource_id"),
+  x: real("x"),
+  y: real("y"),
+  precision: text("precision", { enum: ["approximate"] }),
+  signal: text("signal", { enum: ["confirm", "reject"] }),
+  occurredAt: text("occurred_at").notNull(),
+  expiresAt: text("expires_at"),
+  visibilityPolicy: text("visibility_policy", { enum: ["caller_supplied_ttl"] }),
+  idempotencyKey: text("idempotency_key").notNull(),
+}, (table) => [
+  uniqueIndex("mine_observation_events_idempotency_unique").on(table.idempotencyKey),
+  uniqueIndex("mine_observation_report_unique").on(table.observationId).where(sql`${table.kind} = 'mine_observation_reported'`),
+  uniqueIndex("mine_observation_signal_actor_unique").on(table.observationId, table.actorId).where(sql`${table.kind} = 'mine_observation_signaled'`),
+  index("mine_observation_events_observation_idx").on(table.observationId, table.occurredAt),
+  index("mine_observation_events_live_idx").on(table.kind, table.expiresAt),
+  index("mine_observation_events_actor_rate_idx").on(table.actorId, table.occurredAt),
+  check("mine_observation_event_shape", sql`
+    (${table.kind} = 'mine_observation_reported'
+      AND ${table.regionId} IS NOT NULL AND ${table.resourceId} IS NOT NULL
+      AND ${table.x} BETWEEN 0 AND 1 AND ${table.y} BETWEEN 0 AND 1
+      AND ${table.precision} = 'approximate' AND ${table.signal} IS NULL
+      AND ${table.expiresAt} IS NOT NULL AND ${table.visibilityPolicy} = 'caller_supplied_ttl')
+    OR
+    (${table.kind} = 'mine_observation_signaled'
+      AND ${table.regionId} IS NULL AND ${table.resourceId} IS NULL
+      AND ${table.x} IS NULL AND ${table.y} IS NULL AND ${table.precision} IS NULL
+      AND ${table.signal} IN ('confirm', 'reject')
+      AND ${table.expiresAt} IS NULL AND ${table.visibilityPolicy} IS NULL)
+  `),
+]);

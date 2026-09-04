@@ -10,7 +10,7 @@ Sabit maden noktalarını oyun gerçeği gibi yayımlamak yerine, oyuncuların y
 
 ## Kanıt ve veri ayrımı
 
-- `gathering-sources.json`, kaynaklandırılmış oyun kataloğudur: meslek, kaynak düğümü, gereken puan ve çıktı kademeleri.
+- `lib/gathering-catalog.ts`, kaynaklandırılmış oyun kataloğudur: meslek, kaynak düğümü, gereken puan ve çıktı kademeleri.
 - Canlı gözlem, doğrulanmış spawn noktası değildir. `community_observation` sınıfında ve `approximate` hassasiyetinde kalır.
 - Lojman, Zihin Tapınağı, Erg Tozu ve Erg Kalıntısı için erişilebilir kaynaklarda item-level konum ilişkisi bulunamadı. Canonical konum üretilmez.
 - Toplayıcılık kaynağı süre veya yeniden doğma oranı vermiyor. Görünürlük süresi ürün politikasıdır; oyun içi yeniden doğma süresi değildir.
@@ -27,7 +27,12 @@ Sabit maden noktalarını oyun gerçeği gibi yayımlamak yerine, oyuncuların y
 
 ## Uygulama sınırı
 
-Bu dilim saf ve deterministik domain çekirdeğidir. Kalıcı D1 şeması, server-side kimlik/rate-limit, harita varlığı ve kullanıcı arayüzü henüz bağlı değildir. Üretim TTL değeri seçilmeden önce gözlem örneklemi ve ürün politikası ayrıca onaylanmalıdır.
+- Domain çekirdeği, append-only D1 olay defteri ve `/api/mine-observations` çalışma zamanı rotası bağlıdır.
+- Okuma anonimdir; yazma yalnız Sites tarafından sağlanan `oai-authenticated-user-id` kimliğiyle kabul edilir.
+- Yazma istekleri aynı-origin `application/json`, 2 KiB gövde, canonical bölge/kaynak ve idempotency kontrollerinden geçer.
+- D1 tetikleyicisi oyuncu başına dahilî 300 saniyede en fazla 6 yazımı atomik uygular.
+- 30 dakikalık görünürlük ürün politikasıdır; oyun içi yeniden doğma süresi değildir.
+- Harita varlığı ve son kullanıcı bildirim/sinyal arayüzü henüz bu API'ye bağlı değildir.
 
 ## Araştırma izi
 

@@ -1,5 +1,10 @@
 import { drizzle } from "drizzle-orm/d1";
+import type { D1DatabaseClient } from "./d1-types";
 import * as schema from "./schema";
+
+export async function getD1(): Promise<D1DatabaseClient> {
+  return getRawDb() as Promise<D1DatabaseClient>;
+}
 
 export async function getDb() {
   const { env } = await import("cloudflare:workers");

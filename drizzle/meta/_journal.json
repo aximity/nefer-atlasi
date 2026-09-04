@@ -64,6 +64,13 @@
       "when": 1787851353484,
       "tag": "0008_conscious_killraven",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1788549866320,
+      "tag": "0009_shallow_firebird",
+      "breakpoints": true
     }
   ]
 }
