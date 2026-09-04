@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M72: Site kabuğu ve genel arama sınırları
+
+- [x] Bölüm tanımlarını tek paylaşılan modül kataloğuna taşı
+- [x] Üst başlık ve bölüm menüsünü bağımsız gezinme bileşenine ayır
+- [x] Genel arama durumunu, filtrelerini ve sonuç üretimini ayrı bileşene taşı
+- [x] Dokuz arama kategorisi, klavye kısayolları ve derin bağlantıları koru
+- [x] Ana koordinatörü 350 satırın altına indir ve sınırı otomatik testle koru
+
+Çıkış kapısı: Menü ve genel arama bağımsız site kabuğu modüllerinde çalışır; hiçbir bölüm veya sonuç türü kaybolmaz; veri, render, build ve lint kapıları geçer.
+
 ## Tamamlandı — M71: Donanım planlayıcı modül sınırı
 
 - [x] Donanım seçim durumunu ve hesaplarını ana koordinatörden ayır

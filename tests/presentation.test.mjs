@@ -19,6 +19,8 @@ test("bilinmeyen teknik alan adları okunabilir metne dönüşür", () => {
 test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => {
   const component = readFileSync(new URL("../app/SkillGuides.tsx", import.meta.url), "utf8");
   const page = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
+  const siteNavigation = readFileSync(new URL("../app/site-navigation.tsx", import.meta.url), "utf8");
+  const siteModules = readFileSync(new URL("../app/site-modules.ts", import.meta.url), "utf8");
   const itemExplorer = readFileSync(new URL("../app/item-explorer-parts.tsx", import.meta.url), "utf8");
   const itemVisuals = readFileSync(new URL("../lib/item-visuals.ts", import.meta.url), "utf8");
   const styles = readFileSync(new URL("../app/skills.css", import.meta.url), "utf8");
@@ -60,12 +62,12 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(productionPlanner, /Tahmin yürütülmedi/);
   assert.match(productionPlanner, /potionGoals/);
   assert.match(sustainability, /KAYNAK → İKV UYARLAMASI/);
-  assert.match(page, /Sürdürülebilirlik/);
-  assert.match(page, /Bölüm grupları/);
-  assert.match(page, /moduleGroups\.filter/);
-  assert.match(page, /Bilgi/);
-  assert.match(page, /Araçlar/);
-  assert.match(page, /Proje/);
+  assert.match(siteModules, /Sürdürülebilirlik/);
+  assert.match(siteNavigation, /Bölüm grupları/);
+  assert.match(siteNavigation, /moduleGroups\.filter/);
+  assert.match(siteModules, /Bilgi/);
+  assert.match(siteModules, /Araçlar/);
+  assert.match(siteModules, /Proje/);
   assert.match(page, /ReleaseCenter/);
   assert.match(releaseCenter, /Nefer Atlası ne yapar\?/);
   assert.match(releaseCenter, /Yenilikler/);

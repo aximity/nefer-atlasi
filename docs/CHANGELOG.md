@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.72.0 — Site Kabuğu ve Genel Arama Sınırları
+
+- On beş bölüm tek paylaşılan modül kataloğunda toplandı.
+- Üst başlık ile Bilgi, Araçlar ve Proje menüsü bağımsız gezinme bileşenine ayrıldı.
+- Dokuz kategorili genel arama ve sonuç üretimi ana koordinatörden çıkarıldı.
+- Mevcut klavye kısayolları ve kayıt derin bağlantıları korundu.
+
 ## v0.71.0 — Donanım Planlayıcı Modül Sınırı
 
 - Donanım planlayıcının seçim, hesap ve bildirim durumu ana sayfa koordinatöründen ayrıldı.

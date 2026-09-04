@@ -8,12 +8,14 @@ test("ana koordinatör recovered çalışma yüzeylerini ayrı modüllere bırak
   const page = read("../app/page.tsx");
   const lines = page.split(/\r?\n/).length;
 
-  assert.ok(lines < 550, `ana koordinatör ${lines} satır; 550 altında olmalı`);
+  assert.ok(lines < 350, `ana koordinatör ${lines} satır; 350 altında olmalı`);
   assert.doesNotMatch(page, /function (GroupRegions|ItemCard|ComparePanel|ItemModal|Field|Title)/);
   assert.match(page, /from "\.\/group-regions"/);
   assert.match(page, /from "\.\/item-explorer-parts"/);
   assert.match(page, /from "\.\/section-title"/);
   assert.match(page, /from "\.\/equipment-builder"/);
+  assert.match(page, /from "\.\/global-search"/);
+  assert.match(page, /from "\.\/site-navigation"/);
   assert.doesNotMatch(page, /suggestedSelection|buildTotals|encodeBuild|decodeBuild|function Totals/);
 });
 
