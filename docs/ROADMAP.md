@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M77: Ana sayfa sunum bileşenleri
+
+- Ana giriş, açık bölüm başlığı ve altbilgi bağımsız `site-shell.tsx` bileşenlerine ayrılır.
+- Kabuk aynı modül kataloğunu ve sürüm bilgisini kullanır; gezinme durumu koordinatörde kalır.
+- Kabul: mevcut metinler, bağlantılar, `/` ve `Escape` davranışı, 360 px için kullanılan sınıflar korunur; tam test ve lint geçer.
+- Kapsam dışı: yeni oyun verisi, görsel tasarım ve özellik ekleme.
+
+Sonuç: 230 birim/davranış testi ve 5 render testi geçti; build ve lint başarılı. Koordinatör 69 satır. Mobil tarayıcı testi yapılmadı; mevcut DOM yapısı ve stil sınıfları korundu.
+
+
 ## Tamamlandı — M76: Bağımsız modül sahnesi
 
 - [x] On beş çalışma yüzeyinin render eşlemesini ana sayfadan ayır

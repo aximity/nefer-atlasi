@@ -69,7 +69,7 @@ test("kaynak kartları odaklı kırpım kullanırken tam kanıtı korur", () => 
   assert.match(siteModules, /Bilgi/);
   assert.match(siteModules, /Araçlar/);
   assert.match(siteModules, /Proje/);
-  assert.match(page, /ReleaseCenter/);
+  assert.match(readFileSync(new URL("../app/site-shell.tsx", import.meta.url), "utf8"), /ReleaseCenter/);
   assert.match(releaseCenter, /Nefer Atlası ne yapar\?/);
   assert.match(releaseCenter, /Yenilikler/);
   assert.match(releaseCenter, /nefer-intro-seen-v1/);

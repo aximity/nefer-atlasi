@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.77.0 — Ana Sayfa Sunum Bileşenleri
+
+- Ana giriş, açık bölüm başlığı ve altbilgi bağımsız sunum bileşenlerine ayrıldı.
+- Hızlı bölüm listesi, arama girişi, sürüm ve yönetim bağlantıları korundu.
+- Ana sayfa gezinme ve görünürlük akışını koordine ediyor; görsel sınıflar değişmedi.
+
+
 ## v0.76.0 — Bağımsız Modül Sahnesi
 
 - On beş çalışma yüzeyinin render eşlemesi bağımsız modül sahnesinde toplandı.

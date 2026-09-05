@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.76.0",
+  version: "0.77.0",
   channel: "BETA",
-  milestone: "M76",
+  milestone: "M77",
   releasedOn: "2026-09-05",
   releasedAt: "5 Eylül 2026",
-  title: "Bağımsız Modül Sahnesi",
+  title: "Ana Sayfa Sunum Bileşenleri",
   summary:
-    "On beş çalışma yüzeyinin render eşlemesi bağımsız modül sahnesinde toplandı; ana sayfa yalnız kabuk ve giriş akışını yönetiyor.",
+    "Ana giriş, açık bölüm başlığı ve altbilgi bağımsız sunum bileşenlerine ayrıldı.",
   changes: [
-    "Bilgi, araç ve proje gruplarındaki on beş modül tek, eksiksiz sahne eşlemesinden açılıyor.",
-    "Modüllere özel başlangıç kayıtları, yenileme anahtarları ve karakter bağlamı korunuyor.",
-    "Bölge ganimetinden açılan eşya ayrıntısı modül sahnesinin kendi sınırında gösteriliyor.",
-    "Ana koordinatör 90 satırın altına indirildi; mevcut arama ve derin bağlantılar korundu.",
+    "Hızlı bölümler ve arama girişi aynı modül kataloğunu kullanıyor.",
+    "Açık bölüm başlığı ve ana sayfaya dönüş ortak sunum bileşeninde toplandı.",
+    "Altbilgi bağlantıları ve sürüm bilgisi tek bileşenden gösteriliyor.",
+    "Gezinme, karakter bağlamı ve klavye kısayolları mevcut akışlarını koruyor.",
   ],
 } as const;
