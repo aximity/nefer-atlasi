@@ -4,6 +4,8 @@ Tarih: 5 Eylül 2026
 
 ## Mevcut durum
 
+2026-09-05 repo incelemesi: `docs/REPO_RECONCILIATION.md` eklendi. SecondBrain proje kartı ve backlog güncellendi. GitHub main ile recovered geçmişi ayrışmış; recovered CI workflow'u ve Merkez Atlas manifesti eksik. Önce bu repo açıkları, sonra M78 davranış doğrulaması ele alınacak. Canlı sürüm M77 olarak kaldı.
+
 - Aktif dal: `recovery/full-source-integration`
 - Canlı sürüm: `v0.77.0` / `M77`
 - Canlı adres: https://ikv-esya-rehberi.gdyon.chatgpt.site/

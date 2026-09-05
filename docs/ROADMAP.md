@@ -1,5 +1,14 @@
 # Yol Haritası
 
+## Güncel iş sırası — 2026-09-05
+
+1. Repo ve kayıt uzlaştırması: SecondBrain güncellendi; `REPO_RECONCILIATION.md` dal/CI kanıtlarını içeriyor. Sıradaki alt iş: ayrışan kaynaklarda içerik ve CI incelemesi, ardından GitHub yedeği ve Merkez bağlantısı.
+2. M78: gezinme ve kayıt odağının davranış doğrulaması.
+3. Mobil kullanılabilirlik ve paket boyutu ölçümü; bulguya göre düzeltme.
+4. Kaynak bekleyen veri/görseller, gerçek görüntüyle adet okuma doğrulaması ve ortak üretim/saha ihtiyaçlarını önceliklendirme.
+
+Bu sıra aşağıdaki tarihsel milestone listesine göre önceliklidir. Tamamlanan modül ayırma çalışması yeniden başlatılmaz.
+
 ## Tamamlandı — M77: Ana sayfa sunum bileşenleri
 
 - Ana giriş, açık bölüm başlığı ve altbilgi bağımsız `site-shell.tsx` bileşenlerine ayrılır.
