@@ -6,8 +6,10 @@ const read = (path) => readFileSync(new URL(path, import.meta.url), "utf8");
 
 test("eşya kataloğu bütün etkileşim durumunu kendi sınırında tutar", () => {
   const page = read("../app/page.tsx");
+  const surface = read("../app/module-surface.tsx");
   const explorer = read("../app/item-explorer.tsx");
-  assert.match(page, /from "\.\/item-explorer"/);
+  assert.match(surface, /from "\.\/item-explorer"/);
+  assert.doesNotMatch(page, /from "\.\/item-explorer"/);
   assert.doesNotMatch(page, /\[query, setQuery\]|\[classFilter, setClassFilter\]|\[slotFilter, setSlotFilter\]|\[compareIds, setCompareIds\]/);
   for (const state of ["query", "classFilter", "slotFilter", "itemVisibleLimit", "compareIds", "detail", "notice"]) {
     assert.match(explorer, new RegExp(`\\[${state}, set`));

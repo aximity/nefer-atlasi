@@ -1,24 +1,9 @@
 "use client";
-import EndgameLab from "./EndgameLab";
-import MiningGuide from "./MiningGuide";
-import SkillGuides from "./SkillGuides";
 import AdSlot from "./AdSlot";
-import ProjectScorecard from "./ProjectScorecard";
-import ContributionCenter from "./ContributionCenter";
-import ConnectedAtlas from "./ConnectedAtlas";
-import QuestAtlas from "./QuestAtlas";
-import IssueDesk from "./IssueDesk";
-import EconomyWorkshop from "./EconomyWorkshop";
-import SustainabilityHub from "./SustainabilityHub";
 import ReleaseCenter from "./ReleaseCenter";
-import RecipeCatalog from "./RecipeCatalog";
-import EquipmentBuilder from "./equipment-builder";
 import GlobalSearch from "./global-search";
-import GroupRegions from "./group-regions";
-import ItemExplorer from "./item-explorer";
-import { ItemModal } from "./item-explorer-parts";
-import TalismanGuide from "./talisman-guide";
 import { CharacterProvider } from "./character-context";
+import AtlasModuleSurface from "./module-surface";
 import { useAtlasNavigation } from "./use-atlas-navigation";
 import { SiteHeader, SiteMenu } from "./site-navigation";
 import { moduleTabs, quickModuleIds, type MainModule } from "./site-modules";
@@ -67,30 +52,7 @@ function HomeContent() {
         </section>
         <AdSlot placement="home_top" />
       </> : <nav className="moduleContext" id="modules" aria-label="Açık bölüm"><button type="button" onClick={goHome}>← Ana sayfa</button><b>{moduleTabs.find((item) => item.id === activeModule)?.label}</b><button type="button" onClick={() => setMoreOpen(true)}>Diğer bölümler</button></nav>}
-      {activeModule === "builder" && (
-        <EquipmentBuilder
-          key={navigation.builderSeed.revision}
-          initialClass={navigation.klass}
-          initialTalismanId={navigation.talismanId}
-          initialBuildCode={navigation.builderSeed.code}
-          onClassChange={navigation.setClass}
-          onTalismanChange={navigation.setTalismanId}
-        />
-      )}
-      {activeModule === "engine" && <TalismanGuide />}
-      {activeModule === "recipes" && <RecipeCatalog key={navigation.recipeRevision} />}
-      {activeModule === "group-regions" && <GroupRegions key={navigation.regionSearchSeed} initialRegionName={navigation.regionSearchSeed.split("|||")[0]} initialBossName={navigation.regionSearchSeed.split("|||")[1]} onOpen={navigation.setExternalDetail} />}
-      {activeModule === "quests" && <QuestAtlas key={navigation.questSearchSeed} initialQuery={navigation.questSearchSeed} />}
-      {activeModule === "endgame" && <EndgameLab />}
-      {activeModule === "mining" && <MiningGuide key={navigation.miningRevision} />}
-      {activeModule === "economy" && <EconomyWorkshop />}
-      {activeModule === "sustainability" && <SustainabilityHub />}
-      {activeModule === "skills" && <SkillGuides key={navigation.abilitySearchSeed} klass={navigation.klass} initialAbilityId={navigation.abilitySearchSeed} onClassChange={navigation.setClass} />}
-      {activeModule === "issues" && <IssueDesk />}
-      {activeModule === "health" && <ProjectScorecard />}
-      {activeModule === "contribute" && <ContributionCenter />}
-      {activeModule === "items" && <ItemExplorer key={navigation.itemSeed.revision} initialItemId={navigation.itemSeed.id} focusInitialItem={navigation.itemSeed.focus} onCloseItem={navigation.closeItem} />}
-      {activeModule === "atlas" && <ConnectedAtlas key={navigation.atlasRevision} />}
+      <AtlasModuleSurface navigation={navigation} />
       {searchOpen && (
         <GlobalSearch
           onClose={() => setSearchOpen(false)}
@@ -112,7 +74,6 @@ function HomeContent() {
         <p>Kaynak yoksa kesin bilgi yok. Ayrıntı ve doğrulama, yalnız ilgili kaydı açtığında gösterilir.</p>
         <details className="footerDetails"><summary>Bağlantılar ve yönetim <i>+</i></summary><div className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/uretim">Üretim Takibi</a><a href="/kaynaklar">Kaynaklar</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Editör: Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a><a href="/istatistik/giris">Yönetici Girişi</a><ReleaseCenter inline /></div></details>
       </footer>
-      {navigation.externalDetail && <ItemModal item={navigation.externalDetail} close={() => setExternalDetail(null)} />}
     </main>
   );
 }

@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.75.0",
+  version: "0.76.0",
   channel: "BETA",
-  milestone: "M75",
+  milestone: "M76",
   releasedOn: "2026-09-05",
   releasedAt: "5 Eylül 2026",
-  title: "Atlas Gezinme Denetleyicisi",
+  title: "Bağımsız Modül Sahnesi",
   summary:
-    "URL’den durum yükleme, geri/ileri gezinme ve modül odak geçişleri tek Atlas gezinme denetleyicisinde toplandı.",
+    "On beş çalışma yüzeyinin render eşlemesi bağımsız modül sahnesinde toplandı; ana sayfa yalnız kabuk ve giriş akışını yönetiyor.",
   changes: [
-    "Modül ve kayıt parametreleri tek denetleyicide okunup ilgili çalışma yüzeyine uygulanıyor.",
-    "Genel aramadaki eşya, görev, yetenek, bölge ve tılsım sonuçları aynı odak akışını kullanıyor.",
-    "Tarayıcı geri/ileri hareketi ile uygulama içi gezinme olayları tek yaşam döngüsünde yönetiliyor.",
-    "Ana koordinatör 140 satırın altına indirildi; mevcut derin bağlantılar korundu.",
+    "Bilgi, araç ve proje gruplarındaki on beş modül tek, eksiksiz sahne eşlemesinden açılıyor.",
+    "Modüllere özel başlangıç kayıtları, yenileme anahtarları ve karakter bağlamı korunuyor.",
+    "Bölge ganimetinden açılan eşya ayrıntısı modül sahnesinin kendi sınırında gösteriliyor.",
+    "Ana koordinatör 90 satırın altına indirildi; mevcut arama ve derin bağlantılar korundu.",
   ],
 } as const;

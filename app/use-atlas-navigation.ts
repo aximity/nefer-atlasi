@@ -108,3 +108,5 @@ export function useAtlasNavigation() {
     openModule, goHome, openItem, openQuest, openAbility, openRegion, openTalismanResult, closeItem,
   };
 }
+
+export type AtlasNavigation = ReturnType<typeof useAtlasNavigation>;

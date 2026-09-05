@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.76.0 — Bağımsız Modül Sahnesi
+
+- On beş çalışma yüzeyinin render eşlemesi bağımsız modül sahnesinde toplandı.
+- Modüllere özel başlangıç kayıtları, yenileme anahtarları ve karakter bağlamı korundu.
+- Bölge ganimetinden açılan eşya ayrıntısı modül sahnesinin kendi sınırına taşındı.
+- Ana koordinatör 90 satırın altına indirildi; genel arama ve derin bağlantılar değişmedi.
+
 ## v0.75.0 — Atlas Gezinme Denetleyicisi
 
 - URL’den modül ve kayıt durumunu yükleme tek gezinme denetleyicisine taşındı.

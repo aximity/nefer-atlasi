@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M76: Bağımsız modül sahnesi
+
+- [x] On beş çalışma yüzeyinin render eşlemesini ana sayfadan ayır
+- [x] Modüllere özel başlangıç kaydı ve yenileme anahtarlarını koru
+- [x] Karakter bağlamı ile bölge ganimeti eşya ayrıntısını yeni sahneye bağla
+- [x] Ana sayfada yalnız kabuk, giriş, menü ve genel arama koordinasyonunu bırak
+- [x] Ana koordinatörü 90 satırın altına indir ve modül tamlığını otomatik testle koru
+
+Çıkış kapısı: On beş modül tek bağımsız sahnede eksiksiz eşlenir; modül özel girdileri ve kayıt modalı korunur; veri, render, build ve lint kapıları geçer.
+
 ## Tamamlandı — M75: Atlas gezinme denetleyicisi
 
 - [x] URL’den modül ve kayıt durumunu yüklemeyi bağımsız denetleyiciye taşı
