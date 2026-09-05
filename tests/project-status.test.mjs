@@ -90,9 +90,9 @@ test("malzeme ikonlarının kaynak kimliği katalogda gerçekten bulunur", () =>
 });
 
 test("proje durumu sürüm ve çapraz denetim standardını yayımlar", () => {
-  assert.equal(SITE_RELEASE.version, "0.73.0");
-  assert.equal(SITE_RELEASE.milestone, "M73");
-  assert.equal(SITE_RELEASE.releasedOn, "2026-09-04");
+  assert.equal(SITE_RELEASE.version, "0.74.0");
+  assert.equal(SITE_RELEASE.milestone, "M74");
+  assert.equal(SITE_RELEASE.releasedOn, "2026-09-05");
   assert.deepEqual(projectSystemicAuditAreas.map((area) => area.id), ["catalog", "recipe", "gathering", "planner", "search", "tests"]);
   const scorecard = readFileSync(new URL("../app/ProjectScorecard.tsx", import.meta.url), "utf8");
   const completion = readFileSync(new URL("../app/AtlasCompletionCenter.tsx", import.meta.url), "utf8");

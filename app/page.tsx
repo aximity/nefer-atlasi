@@ -11,20 +11,19 @@ import IssueDesk from "./IssueDesk";
 import EconomyWorkshop from "./EconomyWorkshop";
 import SustainabilityHub from "./SustainabilityHub";
 import ReleaseCenter from "./ReleaseCenter";
-import TalismanProductionAtlas from "./TalismanProductionAtlas";
 import RecipeCatalog from "./RecipeCatalog";
 import EquipmentBuilder from "./equipment-builder";
 import GlobalSearch from "./global-search";
 import GroupRegions from "./group-regions";
 import ItemExplorer from "./item-explorer";
 import { ItemModal } from "./item-explorer-parts";
-import Title from "./section-title";
+import TalismanGuide from "./talisman-guide";
+import { CharacterProvider, useCharacter } from "./character-context";
 import { SiteHeader, SiteMenu } from "./site-navigation";
 import { moduleTabs, quickModuleIds, type MainModule } from "./site-modules";
 import { homeHref, moduleHref, readAtlasRoute, withoutItemHref } from "./atlas-routing";
 import { useEffect, useRef, useState } from "react";
 import {
-  talismans,
   type Item,
   type CharacterClass,
 } from "../lib/catalog";
@@ -33,11 +32,9 @@ import { quests } from "../lib/quest-catalog";
 import abilityRows from "../data/abilities.json";
 import abilityVariantRows from "../data/ability-variants.json";
 import { APP_NAVIGATION_EVENT } from "../lib/navigation";
-export default function Home() {
-  const [klass, setKlass] = useState<CharacterClass>("Büyücü"),
-    [talismanId, setTalismanId] = useState(""),
-    [, setTalismanPath] = useState("Tümü"),
-    [externalDetail, setExternalDetail] = useState<Item | null>(null),
+function HomeContent() {
+  const { klass, talismanId, setClass, setTalismanId, openTalisman } = useCharacter();
+  const [externalDetail, setExternalDetail] = useState<Item | null>(null),
     [activeModule, setActiveModule] = useState<MainModule | null>(null),
     [moreOpen, setMoreOpen] = useState(false),
     [searchOpen, setSearchOpen] = useState(false),
@@ -51,11 +48,6 @@ export default function Home() {
     [itemSeed, setItemSeed] = useState({ revision: 0, id: "", focus: false });
   const klassRef = useRef(klass);
   useEffect(() => { klassRef.current = klass; }, [klass]);
-  const setClass = (next: CharacterClass) => {
-    setKlass(next);
-    setTalismanId("");
-    setTalismanPath("Tümü");
-  };
   useEffect(() => {
     const hydrate = () => {
       const route = readAtlasRoute(location.href);
@@ -64,11 +56,7 @@ export default function Home() {
       setExternalDetail(null);
       if (nextModule === "items") setItemSeed((current) => ({ revision: current.revision + 1, id: route.itemId, focus: false }));
       if (nextModule === "engine" && route.talismanId) {
-        const talisman = talismans.find((item) => item.id === route.talismanId);
-        if (talisman) {
-          if (klassRef.current !== talisman.class) setClass(talisman.class);
-          setTalismanId(talisman.id);
-        } else setTalismanId("");
+        openTalisman(route.talismanId);
       } else if (nextModule === "engine") setTalismanId("");
       if (nextModule === "quests" && route.questId) {
         const quest = quests.find((item) => item.id === route.questId);
@@ -94,7 +82,7 @@ export default function Home() {
       removeEventListener(APP_NAVIGATION_EVENT, hydrate);
       removeEventListener("popstate", hydrate);
     };
-  }, []);
+  }, [openTalisman, setClass, setTalismanId]);
   useEffect(() => {
     const openSearch = (event: KeyboardEvent) => {
       if (event.key === "/" && !(event.target instanceof HTMLInputElement) && !(event.target instanceof HTMLTextAreaElement)) {
@@ -149,19 +137,11 @@ export default function Home() {
           initialClass={klass}
           initialTalismanId={talismanId}
           initialBuildCode={builderSeed.code}
-          onClassChange={setKlass}
+          onClassChange={setClass}
           onTalismanChange={setTalismanId}
         />
       )}
-      {activeModule === "engine" && <section className="engine" id="engine">
-        <Title
-          eyebrow="TILSIM REHBERİ"
-          title="Ne işe yarar, nereden elde edilir?"
-        >
-          <span className="count">{talismans.length} tılsım · etki ve edinme bilgisi</span>
-        </Title>
-        <TalismanProductionAtlas klass={klass} initialTalismanId={talismanId} onClassChange={setClass} />
-      </section>}
+      {activeModule === "engine" && <TalismanGuide />}
       {activeModule === "recipes" && <RecipeCatalog key={recipeRevision} />}
       {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} initialBossName={regionSearchSeed.split("|||")[1]} onOpen={setExternalDetail} />}
       {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}
@@ -186,7 +166,7 @@ export default function Home() {
           onOpenQuest={(title, id) => { setQuestSearchSeed(title); openModule("quests", { quest: id }); }}
           onOpenAbility={(nextClass, focusId, id) => { setClass(nextClass); setAbilitySearchSeed(focusId); openModule("skills", { ability: id }); }}
           onOpenRegion={(region, boss) => { setRegionSearchSeed(`${region}|||${boss}`); openModule("group-regions", { region, ...(boss ? { boss } : {}) }); }}
-          onOpenTalisman={(nextClass, id) => { setClass(nextClass); setTalismanId(id); openModule("engine", { talisman: id }); }}
+          onOpenTalisman={(_nextClass, id) => { openTalisman(id); openModule("engine", { talisman: id }); }}
         />
       )}
       {activeModule !== null && <AdSlot placement="home_inline" />}
@@ -202,4 +182,8 @@ export default function Home() {
       {externalDetail && <ItemModal item={externalDetail} close={() => setExternalDetail(null)} />}
     </main>
   );
+}
+
+export default function Home() {
+  return <CharacterProvider><HomeContent /></CharacterProvider>;
 }

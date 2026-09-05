@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.74.0 — Karakter Bağlamı ve Tılsım Rehberi Sınırı
+
+- Sınıf ve tılsım seçimi Donanım, Yetenek ve Tılsım yüzeylerinin kullandığı tek karakter bağlamında toplandı.
+- Geçersiz tılsım kimlikleri bağlam katmanında güvenle temizleniyor; geçerli seçim kendi sınıfını birlikte açıyor.
+- Tılsım Rehberi başlığı ve çalışma yüzeyi ana koordinatörden bağımsız modüle taşındı.
+- Ana koordinatör 200 satırın altına indirildi; mevcut build, yetenek ve tılsım derin bağlantıları korundu.
+
 ## v0.73.0 — Eşya Kataloğu ve Yönlendirme Sınırları
 
 - Eşya arama, sınıf/yuva filtreleri ve sayfalama bağımsız katalog modülüne taşındı.

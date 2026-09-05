@@ -1,26 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { sourceFor, talismans, type CharacterClass } from "../lib/catalog";
 import { playerReportsFor, talismanProduction, tierRuleFor, vendorMentionsFor } from "../lib/talisman-production";
 import { talismanRecipeFor } from "../lib/talisman-recipes";
 import { talismanIconFor } from "../lib/talisman-icons";
 import { talismanVisualFamilyFor } from "../lib/visual-families";
+import { useCharacter } from "./character-context";
 
 type TierFilter = "Tümü" | "I" | "II" | "III" | "Özel";
 type ColorFilter = "Tümü" | "Kırmızı" | "Mavi";
 const normalize = (value: string) => value.toLocaleLowerCase("tr-TR").trim();
 
-export default function TalismanProductionAtlas({ klass, initialTalismanId = "", onClassChange }: { klass: CharacterClass; initialTalismanId?: string; onClassChange: (klass: CharacterClass) => void }) {
+export default function TalismanProductionAtlas() {
+  const { klass, talismanId, setClass, setTalismanId } = useCharacter();
   const [query, setQuery] = useState("");
   const [tier, setTier] = useState<TierFilter>("Tümü");
   const [color, setColor] = useState<ColorFilter>("Tümü");
-  const [selectedId, setSelectedId] = useState(initialTalismanId);
-
-  useEffect(() => {
-    if (initialTalismanId) queueMicrotask(() => setSelectedId(initialTalismanId));
-  }, [initialTalismanId]);
 
   const classRows = useMemo(() => talismans.filter((row) => row.class === klass), [klass]);
   const visible = useMemo(() => {
@@ -32,7 +29,7 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "",
         && (tier === "Tümü" || tierLabel === tier);
     });
   }, [classRows, color, query, tier]);
-  const selected = visible.find((row) => row.id === selectedId) ?? visible[0];
+  const selected = visible.find((row) => row.id === talismanId) ?? visible[0];
   const rule = selected ? tierRuleFor(selected) : null;
   const vendorMentions = selected ? vendorMentionsFor(selected) : [];
   const playerReport = selected ? playerReportsFor(selected)[0] : undefined;
@@ -50,14 +47,13 @@ export default function TalismanProductionAtlas({ klass, initialTalismanId = "",
       ? "Bazı I. kademe tılsımlar düşer, bazıları oyun parasıyla alınır; bu adın kesin kaynağı yayımlanmamış."
       : rule?.note ?? "";
   const chooseClass = (value: CharacterClass) => {
-    setSelectedId("");
-    onClassChange(value);
+    setClass(value);
     const url = new URL(location.href);
     url.searchParams.delete("talisman");
     history.replaceState(null, "", url);
   };
   const chooseTalisman = (value: string) => {
-    setSelectedId(value);
+    setTalismanId(value);
     const url = new URL(location.href);
     url.searchParams.set("talisman", value);
     history.replaceState(null, "", url);

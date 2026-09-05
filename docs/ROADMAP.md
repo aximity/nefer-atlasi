@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M74: Karakter bağlamı ve Tılsım Rehberi sınırı
+
+- [x] Sınıf ve tılsım seçimini tek paylaşılan karakter bağlamında topla
+- [x] Donanım, Yetenek ve Tılsım yüzeylerinin sınıf uyumunu koru
+- [x] Tılsım Rehberi başlığı ile çalışma yüzeyini bağımsız modüle taşı
+- [x] Geçersiz tılsım kimliklerini güvenli biçimde temizle
+- [x] Ana koordinatörü 200 satırın altına indir ve sınırı otomatik testle koru
+
+Çıkış kapısı: Sınıf ve tılsım seçimi tek doğruluk kaynağından yönetilir; tılsım ve build derin bağlantıları korunur; veri, render, build ve lint kapıları geçer.
+
 ## Tamamlandı — M73: Eşya kataloğu ve yönlendirme sınırları
 
 - [x] Eşya arama, sınıf ve yuva filtrelerini bağımsız katalog modülüne taşı
