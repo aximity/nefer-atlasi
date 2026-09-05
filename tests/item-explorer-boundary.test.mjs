@@ -19,10 +19,11 @@ test("eşya kataloğu bütün etkileşim durumunu kendi sınırında tutar", () 
 
 test("ana koordinatör URL ayrıştırmasını yönlendirme katmanına bırakır", () => {
   const page = read("../app/page.tsx");
+  const navigation = read("../app/use-atlas-navigation.ts");
   const routing = read("../app/atlas-routing.ts");
-  assert.match(page, /readAtlasRoute\(location\.href\)/);
-  assert.match(page, /moduleHref\(location\.href/);
-  assert.doesNotMatch(page, /new URLSearchParams\(location\.search\)|ROUTE_DETAIL_PARAMS/);
+  assert.match(navigation, /readAtlasRoute\(location\.href\)/);
+  assert.match(navigation, /moduleHref\(location\.href/);
+  assert.doesNotMatch(page, /new URLSearchParams\(location\.search\)|ROUTE_DETAIL_PARAMS|readAtlasRoute|moduleHref/);
   assert.match(routing, /export function readAtlasRoute/);
   assert.match(routing, /export function moduleHref/);
 });

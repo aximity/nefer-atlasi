@@ -18,71 +18,16 @@ import GroupRegions from "./group-regions";
 import ItemExplorer from "./item-explorer";
 import { ItemModal } from "./item-explorer-parts";
 import TalismanGuide from "./talisman-guide";
-import { CharacterProvider, useCharacter } from "./character-context";
+import { CharacterProvider } from "./character-context";
+import { useAtlasNavigation } from "./use-atlas-navigation";
 import { SiteHeader, SiteMenu } from "./site-navigation";
 import { moduleTabs, quickModuleIds, type MainModule } from "./site-modules";
-import { homeHref, moduleHref, readAtlasRoute, withoutItemHref } from "./atlas-routing";
-import { useEffect, useRef, useState } from "react";
-import {
-  type Item,
-  type CharacterClass,
-} from "../lib/catalog";
+import { useEffect, useState } from "react";
 import { SITE_RELEASE } from "../lib/site-release";
-import { quests } from "../lib/quest-catalog";
-import abilityRows from "../data/abilities.json";
-import abilityVariantRows from "../data/ability-variants.json";
-import { APP_NAVIGATION_EVENT } from "../lib/navigation";
 function HomeContent() {
-  const { klass, talismanId, setClass, setTalismanId, openTalisman } = useCharacter();
-  const [externalDetail, setExternalDetail] = useState<Item | null>(null),
-    [activeModule, setActiveModule] = useState<MainModule | null>(null),
-    [moreOpen, setMoreOpen] = useState(false),
-    [searchOpen, setSearchOpen] = useState(false),
-    [questSearchSeed, setQuestSearchSeed] = useState(""),
-    [abilitySearchSeed, setAbilitySearchSeed] = useState(""),
-    [regionSearchSeed, setRegionSearchSeed] = useState(""),
-    [recipeRevision, setRecipeRevision] = useState(0),
-    [atlasRevision, setAtlasRevision] = useState(0),
-    [miningRevision, setMiningRevision] = useState(0),
-    [builderSeed, setBuilderSeed] = useState({ revision: 0, code: "" }),
-    [itemSeed, setItemSeed] = useState({ revision: 0, id: "", focus: false });
-  const klassRef = useRef(klass);
-  useEffect(() => { klassRef.current = klass; }, [klass]);
-  useEffect(() => {
-    const hydrate = () => {
-      const route = readAtlasRoute(location.href);
-      const nextModule = route.module;
-      setActiveModule(nextModule);
-      setExternalDetail(null);
-      if (nextModule === "items") setItemSeed((current) => ({ revision: current.revision + 1, id: route.itemId, focus: false }));
-      if (nextModule === "engine" && route.talismanId) {
-        openTalisman(route.talismanId);
-      } else if (nextModule === "engine") setTalismanId("");
-      if (nextModule === "quests" && route.questId) {
-        const quest = quests.find((item) => item.id === route.questId);
-        setQuestSearchSeed(quest?.title ?? "");
-      } else if (nextModule === "quests") setQuestSearchSeed("");
-      if (nextModule === "skills" && route.abilityId) {
-        const ability = abilityRows.find((item) => item.id === route.abilityId)
-          ?? abilityVariantRows.find((item) => item.id === route.abilityId);
-        if (ability) {
-          if (klassRef.current !== ability.class) setClass(ability.class as CharacterClass);
-          setAbilitySearchSeed(ability.id);
-        } else setAbilitySearchSeed("");
-      } else if (nextModule === "skills") setAbilitySearchSeed("");
-      if (nextModule === "group-regions" && route.regionName) setRegionSearchSeed(`${route.regionName}|||${route.bossName}`);
-      else if (nextModule === "group-regions") setRegionSearchSeed("");
-      if (nextModule === "builder") setBuilderSeed((current) => ({ revision: current.revision + 1, code: route.buildCode }));
-      if (route.hashTarget) requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById(route.hashTarget)?.scrollIntoView()));
-    };
-    queueMicrotask(hydrate);
-    addEventListener(APP_NAVIGATION_EVENT, hydrate);
-    addEventListener("popstate", hydrate);
-    return () => {
-      removeEventListener(APP_NAVIGATION_EVENT, hydrate);
-      removeEventListener("popstate", hydrate);
-    };
-  }, [openTalisman, setClass, setTalismanId]);
+  const navigation = useAtlasNavigation();
+  const { activeModule, setExternalDetail } = navigation;
+  const [moreOpen, setMoreOpen] = useState(false), [searchOpen, setSearchOpen] = useState(false);
   useEffect(() => {
     const openSearch = (event: KeyboardEvent) => {
       if (event.key === "/" && !(event.target instanceof HTMLInputElement) && !(event.target instanceof HTMLTextAreaElement)) {
@@ -97,25 +42,16 @@ function HomeContent() {
     };
     addEventListener("keydown", openSearch);
     return () => removeEventListener("keydown", openSearch);
-  }, []);
+  }, [setExternalDetail]);
   const openModule = (id: MainModule, searchParams?: Record<string, string>) => {
-      setActiveModule(id);
-      if (id === "recipes") setRecipeRevision((value) => value + 1);
-      if (id === "atlas") setAtlasRevision((value) => value + 1);
-      if (id === "mining") setMiningRevision((value) => value + 1);
+      navigation.openModule(id, searchParams);
       setMoreOpen(false);
       setSearchOpen(false);
-      const nextHref = moduleHref(location.href, id, searchParams);
-      if (nextHref === location.href) history.replaceState(null, "", nextHref);
-      else history.pushState(null, "", nextHref);
     },
     goHome = () => {
-      setActiveModule(null);
+      navigation.goHome();
       setMoreOpen(false);
       setSearchOpen(false);
-      const nextHref = homeHref(location.href);
-      if (nextHref === location.href) history.replaceState(null, "", nextHref);
-      else history.pushState(null, "", nextHref);
     };
   return (
     <main>
@@ -133,40 +69,37 @@ function HomeContent() {
       </> : <nav className="moduleContext" id="modules" aria-label="Açık bölüm"><button type="button" onClick={goHome}>← Ana sayfa</button><b>{moduleTabs.find((item) => item.id === activeModule)?.label}</b><button type="button" onClick={() => setMoreOpen(true)}>Diğer bölümler</button></nav>}
       {activeModule === "builder" && (
         <EquipmentBuilder
-          key={builderSeed.revision}
-          initialClass={klass}
-          initialTalismanId={talismanId}
-          initialBuildCode={builderSeed.code}
-          onClassChange={setClass}
-          onTalismanChange={setTalismanId}
+          key={navigation.builderSeed.revision}
+          initialClass={navigation.klass}
+          initialTalismanId={navigation.talismanId}
+          initialBuildCode={navigation.builderSeed.code}
+          onClassChange={navigation.setClass}
+          onTalismanChange={navigation.setTalismanId}
         />
       )}
       {activeModule === "engine" && <TalismanGuide />}
-      {activeModule === "recipes" && <RecipeCatalog key={recipeRevision} />}
-      {activeModule === "group-regions" && <GroupRegions key={regionSearchSeed} initialRegionName={regionSearchSeed.split("|||")[0]} initialBossName={regionSearchSeed.split("|||")[1]} onOpen={setExternalDetail} />}
-      {activeModule === "quests" && <QuestAtlas key={questSearchSeed} initialQuery={questSearchSeed} />}
+      {activeModule === "recipes" && <RecipeCatalog key={navigation.recipeRevision} />}
+      {activeModule === "group-regions" && <GroupRegions key={navigation.regionSearchSeed} initialRegionName={navigation.regionSearchSeed.split("|||")[0]} initialBossName={navigation.regionSearchSeed.split("|||")[1]} onOpen={navigation.setExternalDetail} />}
+      {activeModule === "quests" && <QuestAtlas key={navigation.questSearchSeed} initialQuery={navigation.questSearchSeed} />}
       {activeModule === "endgame" && <EndgameLab />}
-      {activeModule === "mining" && <MiningGuide key={miningRevision} />}
+      {activeModule === "mining" && <MiningGuide key={navigation.miningRevision} />}
       {activeModule === "economy" && <EconomyWorkshop />}
       {activeModule === "sustainability" && <SustainabilityHub />}
-      {activeModule === "skills" && <SkillGuides key={abilitySearchSeed} klass={klass} initialAbilityId={abilitySearchSeed} onClassChange={setClass} />}
+      {activeModule === "skills" && <SkillGuides key={navigation.abilitySearchSeed} klass={navigation.klass} initialAbilityId={navigation.abilitySearchSeed} onClassChange={navigation.setClass} />}
       {activeModule === "issues" && <IssueDesk />}
       {activeModule === "health" && <ProjectScorecard />}
       {activeModule === "contribute" && <ContributionCenter />}
-      {activeModule === "items" && <ItemExplorer key={itemSeed.revision} initialItemId={itemSeed.id} focusInitialItem={itemSeed.focus} onCloseItem={() => history.replaceState(null, "", withoutItemHref(location.href))} />}
-      {activeModule === "atlas" && <ConnectedAtlas key={atlasRevision} />}
+      {activeModule === "items" && <ItemExplorer key={navigation.itemSeed.revision} initialItemId={navigation.itemSeed.id} focusInitialItem={navigation.itemSeed.focus} onCloseItem={navigation.closeItem} />}
+      {activeModule === "atlas" && <ConnectedAtlas key={navigation.atlasRevision} />}
       {searchOpen && (
         <GlobalSearch
           onClose={() => setSearchOpen(false)}
           onOpenModule={openModule}
-          onOpenItem={(item) => {
-            setItemSeed((current) => ({ revision: current.revision + 1, id: item.id, focus: true }));
-            openModule("items", { item: item.id });
-          }}
-          onOpenQuest={(title, id) => { setQuestSearchSeed(title); openModule("quests", { quest: id }); }}
-          onOpenAbility={(nextClass, focusId, id) => { setClass(nextClass); setAbilitySearchSeed(focusId); openModule("skills", { ability: id }); }}
-          onOpenRegion={(region, boss) => { setRegionSearchSeed(`${region}|||${boss}`); openModule("group-regions", { region, ...(boss ? { boss } : {}) }); }}
-          onOpenTalisman={(_nextClass, id) => { openTalisman(id); openModule("engine", { talisman: id }); }}
+          onOpenItem={(item) => { navigation.openItem(item); setSearchOpen(false); }}
+          onOpenQuest={(title, id) => { navigation.openQuest(title, id); setSearchOpen(false); }}
+          onOpenAbility={(klass, focusId, id) => { navigation.openAbility(klass, focusId, id); setSearchOpen(false); }}
+          onOpenRegion={(region, boss) => { navigation.openRegion(region, boss); setSearchOpen(false); }}
+          onOpenTalisman={(klass, id) => { navigation.openTalismanResult(klass, id); setSearchOpen(false); }}
         />
       )}
       {activeModule !== null && <AdSlot placement="home_inline" />}
@@ -179,7 +112,7 @@ function HomeContent() {
         <p>Kaynak yoksa kesin bilgi yok. Ayrıntı ve doğrulama, yalnız ilgili kaydı açtığında gösterilir.</p>
         <details className="footerDetails"><summary>Bağlantılar ve yönetim <i>+</i></summary><div className="footerTools"><a href="https://kiyametoyun.net/" target="_blank" rel="noreferrer">Güncel Oyun Portalı</a><a href="/uretim">Üretim Takibi</a><a href="/kaynaklar">Kaynaklar</a><a href="/rehber">Kullanım Rehberi</a><a href="/gizlilik">Gizlilik</a><a href="/farm-operasyonu">Editör: Saha Operasyonu</a><a href="/katki-inceleme">Editör Masası</a><a href="/istatistik/giris">Yönetici Girişi</a><ReleaseCenter inline /></div></details>
       </footer>
-      {externalDetail && <ItemModal item={externalDetail} close={() => setExternalDetail(null)} />}
+      {navigation.externalDetail && <ItemModal item={navigation.externalDetail} close={() => setExternalDetail(null)} />}
     </main>
   );
 }

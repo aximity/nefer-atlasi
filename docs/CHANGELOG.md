@@ -1,5 +1,12 @@
 # Değişiklik Günlüğü
 
+## v0.75.0 — Atlas Gezinme Denetleyicisi
+
+- URL’den modül ve kayıt durumunu yükleme tek gezinme denetleyicisine taşındı.
+- Genel aramadaki eşya, görev, yetenek, bölge ve tılsım sonuçları aynı odak geçişlerini kullanıyor.
+- Tarayıcı geri/ileri hareketi ile uygulama içi gezinme olayları tek yaşam döngüsünde yönetiliyor.
+- Ana koordinatör 140 satırın altına indirildi; mevcut modül ve kayıt derin bağlantıları korundu.
+
 ## v0.74.0 — Karakter Bağlamı ve Tılsım Rehberi Sınırı
 
 - Sınıf ve tılsım seçimi Donanım, Yetenek ve Tılsım yüzeylerinin kullandığı tek karakter bağlamında toplandı.

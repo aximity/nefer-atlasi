@@ -1,16 +1,16 @@
 export const SITE_RELEASE = {
-  version: "0.74.0",
+  version: "0.75.0",
   channel: "BETA",
-  milestone: "M74",
+  milestone: "M75",
   releasedOn: "2026-09-05",
   releasedAt: "5 Eylül 2026",
-  title: "Karakter Bağlamı ve Tılsım Rehberi Sınırı",
+  title: "Atlas Gezinme Denetleyicisi",
   summary:
-    "Sınıf ve tılsım seçimi tek karakter bağlamında toplandı; Tılsım Rehberi bağımsız çalışma yüzeyine taşındı.",
+    "URL’den durum yükleme, geri/ileri gezinme ve modül odak geçişleri tek Atlas gezinme denetleyicisinde toplandı.",
   changes: [
-    "Donanım, Yetenek ve Tılsım modülleri aynı sınıf bağlamını kullanıyor.",
-    "Tılsım seçimi tek doğruluk kaynağına indirildi ve geçersiz kimlikler güvenle temizleniyor.",
-    "Tılsım Rehberi başlığı ile çalışma yüzeyi ana koordinatörden ayrıldı.",
-    "Ana koordinatör 200 satırın altına indirildi; tılsım ve build derin bağlantıları korundu.",
+    "Modül ve kayıt parametreleri tek denetleyicide okunup ilgili çalışma yüzeyine uygulanıyor.",
+    "Genel aramadaki eşya, görev, yetenek, bölge ve tılsım sonuçları aynı odak akışını kullanıyor.",
+    "Tarayıcı geri/ileri hareketi ile uygulama içi gezinme olayları tek yaşam döngüsünde yönetiliyor.",
+    "Ana koordinatör 140 satırın altına indirildi; mevcut derin bağlantılar korundu.",
   ],
 } as const;

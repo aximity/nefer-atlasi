@@ -1,5 +1,15 @@
 # Yol Haritası
 
+## Tamamlandı — M75: Atlas gezinme denetleyicisi
+
+- [x] URL’den modül ve kayıt durumunu yüklemeyi bağımsız denetleyiciye taşı
+- [x] Geri/ileri gezinme ile uygulama içi gezinme olaylarını tek yaşam döngüsünde yönet
+- [x] Eşya, görev, yetenek, bölge, tılsım ve build odak anahtarlarını denetleyicide topla
+- [x] Genel arama sonuçlarının doğru modül ve kayıt bağlamını korumasını sağla
+- [x] Ana koordinatörü 140 satırın altına indir ve sınırı otomatik testle koru
+
+Çıkış kapısı: Bütün rota hidratasyonu ve modül odak geçişleri tek denetleyicide çalışır; mevcut derin bağlantılar korunur; veri, render, build ve lint kapıları geçer.
+
 ## Tamamlandı — M74: Karakter bağlamı ve Tılsım Rehberi sınırı
 
 - [x] Sınıf ve tılsım seçimini tek paylaşılan karakter bağlamında topla
