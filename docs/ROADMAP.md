@@ -9,6 +9,10 @@
 
 Bu sıra aşağıdaki tarihsel milestone listesine göre önceliklidir. Tamamlanan modül ayırma çalışması yeniden başlatılmaz.
 
+Repo denetiminde yeni öncelik: eski görev kataloğu 265, canlı katalog 101 kayıt içeriyor;
+özelliklerde farklı unit ölçeklerini toplama koruması eski dalda var, güncel dalda yok.
+CI/yedek tamamlandıktan sonra bu iki alanın kanıtlı uzlaştırması M78'den önce gelir.
+
 ## Tamamlandı — M77: Ana sayfa sunum bileşenleri
 
 - Ana giriş, açık bölüm başlığı ve altbilgi bağımsız `site-shell.tsx` bileşenlerine ayrılır.
