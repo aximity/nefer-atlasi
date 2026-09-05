@@ -5,9 +5,9 @@ Tarih: 5 Eylül 2026
 ## Mevcut durum
 
 - Aktif dal: `recovery/full-source-integration`
-- Canlı sürüm: `v0.76.0` / `M76`
+- Canlı sürüm: `v0.77.0` / `M77`
 - Canlı adres: https://ikv-esya-rehberi.gdyon.chatgpt.site/
-- Son yayımlanan uygulama commit'i: `fbbaa83f2ee6877a6971cc0051007c4c9ee70207`
+- Son yayımlanan uygulama commit'i: `f623269d1e53b570b77be6fd5600cfc23f212847`
 - Genel erişim korunuyor; yönetim yetkisi yalnız site sahibinde.
 
 ## Bugün tamamlananlar
@@ -25,37 +25,32 @@ Tarih: 5 Eylül 2026
 - Bölge ganimetinden açılan eşya ayrıntısı modül sahnesine alındı.
 - `page.tsx` 83 satırlık site kabuğu ve akış koordinatörüne indirildi.
 
+### M77 — Ana sayfa sunum bileşenleri
+
+- Ana giriş, açık bölüm başlığı ve altbilgi `app/site-shell.tsx` içine ayrıldı.
+- Ana koordinatör 69 satır; gezinme ve görünürlük durumunu yönetiyor.
+- Mevcut DOM yapısı, stil sınıfları, metinler ve callback akışları korundu.
+
 ## Son doğrulama
 
 - Veri doğrulama geçti.
 - 230 davranış/birim testi geçti.
 - 5 sunucu render testi geçti.
 - Üretim derlemesi ve lint geçti.
-- Canlı bölge/boss derin bağlantısı HTTP 200 döndürdü ve `v0.76.0` içerdi.
+- Canlı ana sayfa HTTP 200 döndürdü ve `v0.77.0` içerdi.
+- Tarayıcı etkileşim/mobil testi yapılmadı; HTTP ve sunucu render doğrulaması etkileşim testi değildir.
+- Derleme başarılı; 500 kB üzeri paket uyarısı sürüyor. Modül ayrıştırması tek başına hız artışı kanıtı değildir.
 
-## Sıradaki iş — M77
+## Sonraki oturum için öneri — M78
 
-Ana sayfa giriş alanı ile altbilgiyi sunum bileşenlerine ayır. `page.tsx` yalnız şu sorumlulukları taşısın:
+Modül geçişi ve kayıt odağının davranış doğrulamasını güçlendir. Mevcut sınır testlerinin bir kısmı yalnız kaynak metnini kontrol ediyor; geri/ileri, aramadan kayda geçiş ve aynı modülün farklı kaydını açma davranışlarını tek başına kanıtlamıyor.
 
-- gezinme denetleyicisini başlatmak,
-- menü ve genel arama görünürlüğünü koordine etmek,
-- site kabuğu ile aktif modül sahnesini birleştirmek.
-
-Mevcut koyu/altın çalışma yüzeyini, 15 modülü, genel arama davranışını ve bütün derin bağlantıları değiştirme. Yeni oyun verisi ekleme.
-
-## M77 kabul kapısı
-
-- Ana giriş alanı ve altbilgi bağımsız sunum bileşenlerinde yaşar.
-- `page.tsx` içinde ürün metni veya modül render eşlemesi kalmaz.
-- Klavye `/` ve `Escape` davranışı korunur.
-- Mobil 360 px yapısı ve mevcut semantik sınıflar değişmez.
-- Veri doğrulama, tam test, render, build ve lint kapıları geçer.
-- `SITE_RELEASE`, yol haritası ve değişiklik günlüğü M77’ye güncellenir.
+Önce mevcut test altyapısını incele; davranış için uygun en küçük yöntemi seç. İlgili akışların hatalı durumda başarısız, doğru durumda başarılı olduğunu göster. Modül sayısı ve kaynak kapsamı aynı kalmalı. Satır sayısını tek başına kalite veya performans ölçütü olarak kullanma.
 
 ## Başlangıç sırası
 
 1. `AGENTS.md` ve `docs/PROJECT_OS.md` kurallarını yeniden oku.
 2. Bu handoff ile `docs/ROADMAP.md` üst bölümünü karşılaştır.
-3. `app/page.tsx`, `app/site-navigation.tsx` ve `app/module-surface.tsx` sınırlarını incele.
-4. Önce M77 sınır testini yaz, ardından sunum bileşenlerini çıkar.
-5. Yerel derin bağlantıyı aç; tam doğrulamadan sonra commit ve mevcut siteye yayın yap.
+3. `app/use-atlas-navigation.ts`, `app/atlas-routing.ts` ve mevcut gezinme testlerini incele.
+4. M78 önerisini güncel ihtiyaçla karşılaştır; önce ölçülebilir kullanıcı davranışını belirle.
+5. Son değişikliğe uygun kontrolleri çalıştır; yayın sonrası bu kaydı güncelle.
