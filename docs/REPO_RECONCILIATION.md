@@ -59,3 +59,17 @@ Sahil Temizliği, Salgın hastalık, Kırmızı Tehlike, Kazmalar Hakkında.
 Öncelik sırası: CI/yedek → görev ve hesap korumaları için kanıtlı uzlaştırma → Merkez
 bağlantısı → M78 davranış doğrulaması. Eski yerel main'in ek 20 commit'i için ayrıntılı
 eşdeğerlik incelemesi ayrıca açık; bu tablo tam recovery kapanışı değildir.
+
+Hesap kapsamı ek kontrolü: core stats + group-derived stats + gözlük satırlarında
+281 değerin tamamı bugün `puan` birimini taşıyor; aynı özellikte karışık birim yok.
+Dolayısıyla eksik unit koruması bugün yanlış toplam kanıtı değildir; yeni veri girişinde
+gerilemeye karşı eksik bir güvencedir. Kaynak biriminin doğruluğu ayrı veri denetimidir.
+
+## GitHub yedek sonucu
+
+`recovery/full-source-integration` uzak dalı `3bb1082f4e448b31d1a78b1720d023b5b78984cf`
+commit'iyle oluşturuldu ve `ls-remote` ile doğrulandı. `main` aynı `c1e98a2` ucunda kaldı.
+CI: https://github.com/aximity/nefer-atlasi/actions/runs/33938154736
+Sonuç: `completed / success`. Ubuntu/Node 22 üzerinde temiz `npm ci`, lint ve tam
+veri/test/build/render zinciri geçti. Yerel kontrolde de `npm test` ve lint exit 0.
+Bu kanıt `3bb1082` commit'ine aittir; sonraki yalnız belge commit'i ürün kodunu değiştirmez.

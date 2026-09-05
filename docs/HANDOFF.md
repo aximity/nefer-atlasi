@@ -4,7 +4,9 @@ Tarih: 5 Eylül 2026
 
 ## Mevcut durum
 
-2026-09-05 repo incelemesi: `docs/REPO_RECONCILIATION.md` eklendi. SecondBrain proje kartı ve backlog güncellendi. GitHub main ile recovered geçmişi ayrışmış; recovered CI workflow'u ve Merkez Atlas manifesti eksik. Önce bu repo açıkları, sonra M78 davranış doğrulaması ele alınacak. Canlı sürüm M77 olarak kaldı.
+2026-09-05 repo incelemesi: `docs/REPO_RECONCILIATION.md` güncel kanıtı içeriyor. Recovered kaynak GitHub'da ayrı dal olarak yedeklendi; `3bb1082` için GitHub CI `33938154736` başarılı. Main değiştirilmedi. SecondBrain proje kartı ve backlog güncellendi. Canlı ürün M77 olarak kaldı; bu oturum web yayını yapmadı.
+
+Sıradaki somut iş: eski 265 kayıtlı görev kataloğunu güncel 101 kayıtlı katalogla kimlik, seviye/minLevel, zincir ve kanıt bazında uzlaştır. Ad eşleştirmesinde 160 eski satır eşleşmedi; bu sayı benzersiz kayıp görev sayısı değildir. Eski unit uyumluluk korumasını da taşıma açısından incele: mevcut 281 özellik satırı aynı `puan` biriminde, bugünkü yanlış toplam kanıtı yok. Ardından Merkez Atlas manifesti ve M78 davranış doğrulaması gelir.
 
 - Aktif dal: `recovery/full-source-integration`
 - Canlı sürüm: `v0.77.0` / `M77`
